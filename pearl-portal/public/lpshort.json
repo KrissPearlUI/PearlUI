@@ -1,0 +1,3259 @@
+[
+  {
+    "id": "ABB01",
+    "name": "ABB Technology Ventures",
+    "shortName": "ABB",
+    "country": "Switzerland",
+    "type": "Corporate",
+    "totalCommitments": 10000000,
+	"totalInvestments": 6006401.176,
+    "reservesFees": 700000,
+    "totalDistributions": 5715050.425820799,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.040671923,
+		"amountInvested": 174585.06406536
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.024436522,
+		"amountInvested": 25042.77671581114
+	  },
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 95577.725082747
+	  },
+	  {
+		"id": "Elco01",
+		"shortName": "Elcomax",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 347546.2484701484
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.037019444,
+		"amountInvested": 101803.471
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.02930225,
+		"amountInvested": 347546.2484701484
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.044642857,
+		"amountInvested": 119321.5813145995
+	  },
+	  {
+		"id": "GeoD01",
+		"shortName": "GeoDigital",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 341451.8880924857
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.069444444,
+	    "amountInvested": 215187.5069561333
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.034770914,
+		"amountInvested": 46427.97036062426
+	  },
+	  {
+		"id": "Libr01",
+		"shortName": "Librestream",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 433153.7965333712
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.03127154,
+		"amountInvested": 78147.57846
+	  },
+	  {
+		"id": "MetG01",
+		"shortName": "MetGen",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 76389.80645554968
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 418604.51120982
+	  },
+	  {
+		"id": "Opti01",
+		"shortName": "Optimatics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 226075.7402197819
+	  },
+	  {
+		"id": "P9701",
+		"shortName": "P97",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 459045.928312106
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 398788.1884199778
+	  },
+	  {
+		"id": "Powe02",
+		"shortName": "Powerhouse Dynamics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 190290.426559919
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.040823601,
+		"amountInvested": 228793.3840142551
+	  },
+	  {
+		"id": "Secu01",
+		"shortName": "SecurityMatters",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 131208.2727713782
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.033280881,
+		"amountInvested": 130123.9691152179
+	  },
+	  {
+		"id": "Skyl01",
+		"shortName": "Skylark",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 0
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.040823601,
+		"amountInvested": 123279.7104067347
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.049019608,
+		"amountInvested": 325745.9128070928
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 244386.4213525936
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.044856094,
+		"amountInvested": 338816.6573761348
+	  },
+	  {
+		"id": "Ushr01",
+		"shortName": "Ushr",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 126741.179744412
+	  },
+	  {
+		"id": "Vise01",
+		"shortName": "Visedo",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 173611.2988888877
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.02930225,
+		"amountInvested": 88707.9124869925
+	  }
+	]
+  },
+  {
+    "id": "Beka01",
+    "name": "Bekaert Investments NV",
+    "shortName": "Bekaert Investments",
+    "country": "Belgium",
+    "type": "Corporate",
+    "totalCommitments": 5000000,
+	"totalInvestments": 4017432.287,
+    "reservesFees": 700000,
+    "totalDistributions": 1169477.8200001,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.038823616,
+		"amountInvested": 166651.1683406003
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.024436522,
+		"amountInvested": 25042.77671581114
+	  },
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.142857143,
+		"amountInvested": 221796.5116503679
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.036338889,
+		"amountInvested": 99931.94475
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.028537869,
+		"amountInvested": 228314.7295785363
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.044642857,
+		"amountInvested": 119321.5813145995
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.111111111,
+		"amountInvested": 511410.5272663673
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.034596025,
+		"amountInvested": 46194.44928296725
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.030187623,
+		"amountInvested": 75438.869877
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.090909091,
+		"amountInvested": 547991.364184355
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.083333333,
+		"amountInvested": 478545.8272524834
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.038800807,
+		"amountInvested": 217456.7583103214
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.032127318,
+		"amountInvested": 125613.6859834565
+	  },
+	  {
+		"id": "Skyl01",
+		"shortName": "Skylark",
+		"participationPercentage": 0.090909091,
+		"amountInvested": 0
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.038800807,
+		"amountInvested": 117171.2473504629
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.049019608,
+		"amountInvested": 325745.9128070928
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.090909091,
+		"amountInvested": 319924.0448653786
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.040311177,
+		"amountInvested": 304487.0167705134
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.028537869,
+		"amountInvested": 86393.87029382577
+	  }
+	]
+  },
+  {
+    "id": "Cate01",
+    "name": "Caterpillar Venture Capital Inc.",
+    "shortName": "Caterpillar",
+    "country": "United States",
+    "type": "Corporate",
+    "totalCommitments": 5000000,
+	"totalInvestments": 5730290.176,
+    "reservesFees": 700000,
+    "totalDistributions": 2409341.425057001,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.038823616,
+		"amountInvested": 166651.1683406003
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.024436522,
+		"amountInvested": 25042.77671581114
+	  },
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.142857143,
+		"amountInvested": 221796.5116503679
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.036338889,
+		"amountInvested": 99931.94475
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.028537869,
+		"amountInvested": 228314.7295785363
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.044642857,
+		"amountInvested": 119321.5813145995
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.111111111,
+		"amountInvested": 511410.5272663672
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.034596025,
+		"amountInvested": 46194.44928296725
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.030341212,
+		"amountInvested": 75822.688788
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.090909091,
+		"amountInvested": 547991.364184355
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.083333333,
+		"amountInvested": 478545.8272524834
+	  },
+	  {
+		"id": "Powe02",
+		"shortName": "Powerhouse Dynamics",
+		"participationPercentage": 0.166666667,
+		"amountInvested": 456697.0275800607
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.038800807,
+		"amountInvested": 217456.7583103214
+	  },
+	  {
+		"id": "Secu01",
+		"shortName": "SecurityMatters",
+		"participationPercentage": 0.333333333,
+		"amountInvested": 629799.712703534
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.032290775,
+		"amountInvested": 126252.7818541358
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.038800807,
+		"amountInvested": 117171.2473504629
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.049019608,
+		"amountInvested": 325745.9128070928
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.090909091,
+		"amountInvested": 319924.0448653786
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.040355866,
+		"amountInvested": 304824.5712976972
+	  },
+	  {
+		"id": "Vise01",
+		"shortName": "Visedo",
+		"participationPercentage": 0.25,
+		"amountInvested": 625000.6799999999
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.028537869,
+		"amountInvested": 86393.87029382578
+	  }
+	]
+  },
+  {
+    "id": "Chev01",
+    "name": "CTTV Investments LLC",
+    "shortName": "Chevron",
+    "country": "United States",
+    "type": "Corporate",
+    "totalCommitments": 10000000,
+	"totalInvestments": 1492696.517,
+    "reservesFees": 700000,
+    "totalDistributions": 649251.83,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000},
+	  {"id":"ESPIF", "fundName":"Emerald Sustainable Packaging Innovation Fund", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.038823616,
+		"amountInvested": 166651.1683406003
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.024436522,
+		"amountInvested": 25042.77671581114
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.036338889,
+		"amountInvested": 99931.94475
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.028537869,
+		"amountInvested": 228314.7295785363
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.034596025,
+		"amountInvested": 46194.44928296725
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.030187623,
+		"amountInvested": 75438.869877
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.038800807,
+		"amountInvested": 217456.7583103214
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.032127318,
+		"amountInvested": 125613.6859834566
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.038800807,
+		"amountInvested": 117171.2473504629
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.040311177,
+		"amountInvested": 304487.0167705134
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.028537869,
+		"amountInvested": 86393.87029382578
+	  }
+	]
+  },
+  {
+    "id": "DIC01",
+    "name": "DIC Corporation",
+    "shortName": "DIC Corporation",
+    "country": "Japan",
+    "type": "Corporate",
+    "totalCommitments": 10000000,
+	"totalInvestments": 8948258.632,
+    "reservesFees": 1400000,
+    "totalDistributions": 2506538.53512,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 10000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.077647232,
+		"amountInvested": 333302.3366812007
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.048873044,
+		"amountInvested": 50085.55343162228
+	  },
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.285714286,
+		"amountInvested": 443593.0233007359
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.072677778,
+		"amountInvested": 199863.8895
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.057075739,
+		"amountInvested": 456629.4671574853
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.089285714,
+		"amountInvested": 238643.162629199
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.222222222,
+		"amountInvested": 1022821.054532734
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.069192049,
+		"amountInvested": 92388.89723068141
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.060375246,
+		"amountInvested": 150877.739754
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.181818182,
+		"amountInvested": 1095982.72836871
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.166666667,
+		"amountInvested": 957091.6602475168
+	  },
+	  {
+		"id": "Powe02",
+		"shortName": "Powerhouse Dynamics",
+		"participationPercentage": 0.333333333,
+		"amountInvested": 913394.0524199393
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.077601613,
+		"amountInvested": 434913.5110162037
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.064254636,
+		"amountInvested": 251227.3719669131
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.077601613,
+		"amountInvested": 234342.4916811111
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.098039216,
+		"amountInvested": 651491.8256141857
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.181818182,
+		"amountInvested": 639848.0897307572
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.080622354,
+		"amountInvested": 608974.0335410268
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.057075739,
+		"amountInvested": 172787.7436149929
+	  }
+	]
+  },
+  {
+    "id": "Ecol01",
+    "name": "Ecolab Inc.",
+    "shortName": "Ecolab",
+    "country": "United States",
+    "type": "Corporate",
+    "totalCommitments": 10000000,
+	"totalInvestments": 5970342.888,
+    "reservesFees": 700000,
+    "totalDistributions": 5689906.835659199,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.039844149,
+		"amountInvested": 171031.8271844375
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.024436522,
+		"amountInvested": 25042.77671581114
+	  },
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 107817.7479210775
+	  },
+	  {
+		"id": "Elco01",
+		"shortName": "Elcomax",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 347546.2484701484
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.036338889,
+		"amountInvested": 99931.94475
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.028987329,
+		"amountInvested": 231910.5950706783
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.044642857,
+		"amountInvested": 119321.5813145995
+	  },
+	  {
+		"id": "GeoD01",
+		"shortName": "GeoDigital",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 341451.8880924856
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 319631.577815469
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.034596025,
+		"amountInvested": 46194.44928296725
+	  },
+	  {
+		"id": "Libr01",
+		"shortName": "Librestream",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 433153.7965333713
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.030915386,
+		"amountInvested": 77257.549614
+	  },
+	  {
+		"id": "MetG01",
+		"shortName": "MetGen",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 76389.80645554967
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 418604.51120982
+	  },
+	  {
+		"id": "Opti01",
+		"shortName": "Optimatics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 226075.7402197819
+	  },
+	  {
+		"id": "P9701",
+		"shortName": "P97",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 459045.928312106
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 398788.1884199777
+	  },
+	  {
+		"id": "Powe02",
+		"shortName": "Powerhouse Dynamics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 190290.426559919
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.039863018,
+		"amountInvested": 223409.8551286831
+	  },
+	  {
+		"id": "Secu01",
+		"shortName": "SecurityMatters",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 131208.2727713781
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.032901843,
+		"amountInvested": 128641.9792302298
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.039863018,
+		"amountInvested": 120378.9277427646
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.049019608,
+		"amountInvested": 325745.9128070928
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 244386.4213525936
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.042229634,
+		"amountInvested": 318977.9171164028
+	  },
+	  {
+		"id": "Ushr01",
+		"shortName": "Ushr",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 126741.179744412
+	  },
+	  {
+		"id": "Vise01",
+		"shortName": "Visedo",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 173611.2988888877
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.028987329,
+		"amountInvested": 87754.5391280076
+	  }
+	]
+  },
+  {
+    "id": "Emer01",
+    "name": "Emerald Technology Ventures AG",
+    "shortName": "Emerald",
+    "country": "Switzerland",
+    "type": "General Partner",
+    "totalCommitments": 5250000,
+	"totalInvestments": 2105578.025,
+    "reservesFees": 140000,
+    "totalDistributions": 1396060.80645418,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"ECFII", "fundName":"Emerald Cleantech Fund II", "committedAmount": 750000},
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 1000000},
+	  {"id":"EGETF", "fundName":"Emerald Global Energy Transformation Fund", "committedAmount": 500000},
+	  {"id":"EGWIF", "fundName":"Emerald Global Water Impact Fund", "committedAmount": 1000000},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 1000000},
+	  {"id":"EIIFI", "fundName":"Emerald Industrial Innovation Fund (Ireland)", "committedAmount": 500000},
+	  {"id":"ESPIF", "fundName":"Emerald Sustainable Packaging Innovation Fund", "committedAmount": 500000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.007941355,
+		"amountInvested": 34088.42929410461
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.00990099,
+		"amountInvested": 10146.6273242763
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.004887304,
+		"amountInvested": 5008.55493323848
+	  },
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 21563.54989473062
+	  },
+	  {
+		"id": "Arxx01",
+		"shortName": "Arxx Corporation",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 38702.20939417885
+	  },
+	  {
+		"id": "Azzu01",
+		"shortName": "Azzurro Semiconductors",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 27278.8968287329
+	  },
+	  {
+		"id": "Elco01",
+		"shortName": "Elcomax",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 69509.25069496289
+	  },
+	  {
+		"id": "Emer03",
+		"shortName": "EWT",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 53679.08722453914
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.007267778,
+		"amountInvested": 19986.3895
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.047619048,
+		"amountInvested": 130952.382
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.005812839,
+		"amountInvested": 46505.1109586553
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.00990099,
+		"amountInvested": 79212.00613857301
+	  },
+	  {
+		"id": "Flux01",
+		"shortName": "Fluxxion",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 6301.93376542
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.008928571,
+		"amountInvested": 23864.3151937985
+	  },
+	  {
+		"id": "GeoD01",
+		"shortName": "GeoDigital",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 68290.37860187858
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 63926.31648363275
+	  },
+	  {
+		"id": "Iden01",
+		"shortName": "Identec Solutions",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 29904.301015949
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.006919205,
+		"amountInvested": 9238.889856593449
+	  },
+	  {
+		"id": "Libr01",
+		"shortName": "Librestream",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 86630.76055415718
+	  },
+	  {
+		"id": "Luci01",
+		"shortName": "Lucintech",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 3042.518917001
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.00618862,
+		"amountInvested": 15465.36138
+	  },
+	  {
+		"id": "MetG01",
+		"shortName": "MetGen",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 15277.96151111258
+	  },
+	  {
+		"id": "O-fl01",
+		"shortName": "O-flexx Technologies",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 20545.64956967716
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 83720.903447545
+	  },
+	  {
+		"id": "Opti01",
+		"shortName": "Optimatics",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 45215.14869505452
+	  },
+	  {
+		"id": "P9701",
+		"shortName": "P97",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 91809.18698447349
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 79757.63883250554
+	  },
+	  {
+		"id": "Powe02",
+		"shortName": "Powerhouse Dynamics",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 38058.08586002023
+	  },
+	  {
+		"id": "Pure01",
+		"shortName": "Pure (PPIC)",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 30235.755359602
+	  },
+	  {
+		"id": "RBE01",
+		"shortName": "RBE",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 24450.55474428634
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.007946661,
+		"amountInvested": 44536.57730497866
+	  },
+	  {
+		"id": "Schm02",
+		"shortName": "Schmack Biogas (ECFII)",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 51604.83913374499
+	  },
+	  {
+		"id": "SDCm01",
+		"shortName": "SDCmaterials",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 69745.79289775548
+	  },
+	  {
+		"id": "Secu01",
+		"shortName": "SecurityMatters",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 26241.65493215546
+	  },
+	  {
+		"id": "Sens01",
+		"shortName": "Senscient",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 33826.69562424126
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.006586267,
+		"amountInvested": 25751.45783227851
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.00990099,
+		"amountInvested": 38711.5989198147
+	  },
+	  {
+		"id": "Siel01",
+		"shortName": "Sielo (fka Terralux)",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 28617.91999471501
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.007946661,
+		"amountInvested": 23997.4437037167
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.00990099,
+		"amountInvested": 29899.155146553
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.009803922,
+		"amountInvested": 65149.18521950521
+	  },
+	  {
+		"id": "Syna01",
+		"shortName": "SynapSense",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 30513.16534559854
+	  },
+	  {
+		"id": "Taka01",
+		"shortName": "Takadu",
+		"participationPercentage": 0.005120153,
+		"amountInvested": 25672.11120876167
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 48877.28497435161
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.008417232,
+		"amountInvested": 63578.8397134944
+	  },
+	  {
+		"id": "Ushr01",
+		"shortName": "Ushr",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 25348.236313897
+	  },
+	  {
+		"id": "Vape01",
+		"shortName": "Vaperma",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 25971.819984286
+	  },
+	  {
+		"id": "Vise01",
+		"shortName": "Visedo",
+		"participationPercentage": 0.013888889,
+		"amountInvested": 34722.26027777808
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.005812839,
+		"amountInvested": 17597.44774933587
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.00990099,
+		"amountInvested": 29973.6762349167
+	  },
+	  {
+		"id": "Xunl01",
+		"shortName": "Xunlight Corp.",
+		"participationPercentage": 0.004984051,
+		"amountInvested": 92872.70730090664
+	  }
+	]
+  },
+  {
+    "id": "Emer02",
+    "name": "Emerald Technology Ventures AG (II)",
+    "shortName": "Emerald (II)",
+    "country": "Switzerland",
+    "type": "General Partner",
+    "totalCommitments": 1000000,
+	"totalInvestments": 237641.9007,
+    "reservesFees": 140000,
+    "totalDistributions": 129850.33,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 1000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.007764723,
+		"amountInvested": 33330.23280961596
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.004887304,
+		"amountInvested": 5008.55493323848
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.007267778,
+		"amountInvested": 19986.3895
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.005707574,
+		"amountInvested": 45662.9475157898
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.006919205,
+		"amountInvested": 9238.889856593449
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.006037525,
+		"amountInvested": 15087.774975
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.007760161,
+		"amountInvested": 43491.34942028866
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.006425464,
+		"amountInvested": 25122.73876063992
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.007760161,
+		"amountInvested": 23434.2482621667
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.005707574,
+		"amountInvested": 17278.77466423342
+	  }
+	]
+  },
+  {
+    "id": "Evon01",
+    "name": "Evonik Industries AG",
+    "shortName": "Evonik",
+    "country": "Germany",
+    "type": "Corporate",
+    "totalCommitments": 5000000,
+	"totalInvestments": 3994743.033,
+    "reservesFees": 700000,
+    "totalDistributions": 2744436.13454,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 107817.7479210775
+	  },
+	  {
+		"id": "Elco01",
+		"shortName": "Elcomax",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 347546.2484701484
+	  },
+	  {
+		"id": "GeoD01",
+		"shortName": "GeoDigital",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 341451.8880924856
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 319631.577815469
+	  },
+	  {
+		"id": "Libr01",
+		"shortName": "Librestream",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 433153.7965333713
+	  },
+	  {
+		"id": "MetG01",
+		"shortName": "MetGen",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 76389.80645554967
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 418604.51120982
+	  },
+	  {
+		"id": "Opti01",
+		"shortName": "Optimatics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 226075.7402197819
+	  },
+	  {
+		"id": "P9701",
+		"shortName": "P97",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 459045.928312106
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 398788.1884199778
+	  },
+	  {
+		"id": "Powe02",
+		"shortName": "Powerhouse Dynamics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 190290.426559919
+	  },
+	  {
+		"id": "Secu01",
+		"shortName": "SecurityMatters",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 131208.2727713781
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 244386.4213525936
+	  },
+	  {
+		"id": "Ushr01",
+		"shortName": "Ushr",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 126741.179744412
+	  },
+	  {
+		"id": "Vise01",
+		"shortName": "Visedo",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 173611.2988888877
+	  }
+	]
+  },
+  {
+    "id": "Evon02",
+    "name": "Evonik Venture Capital GmbH",
+    "shortName": "Evonik II",
+    "country": "Germany",
+    "type": "Corporate",
+    "totalCommitments": 5000000,
+	"totalInvestments": 1937764.011,
+    "reservesFees": 700000,
+    "totalDistributions": 1169477.82,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.038823616,
+		"amountInvested": 166651.1683406003
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.024436522,
+		"amountInvested": 25042.77671581114
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.036338889,
+		"amountInvested": 99931.94475
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.028537869,
+		"amountInvested": 228314.7295785363
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.044642857,
+		"amountInvested": 119321.5813145995
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.034596025,
+		"amountInvested": 46194.44928296725
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.030187623,
+		"amountInvested": 75438.869877
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.038800807,
+		"amountInvested": 217456.7583103214
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.032127318,
+		"amountInvested": 125613.6859834566
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.038800807,
+		"amountInvested": 117171.2473504629
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.049019608,
+		"amountInvested": 325745.9128070928
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.040311177,
+		"amountInvested": 304487.0167705134
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.028537869,
+		"amountInvested": 86393.87029382578
+	  }
+	]
+  },
+  {
+    "id": "Henk01",
+    "name": "Henkel AG & Co. KGaA",
+    "shortName": "Henkel",
+    "country": "Germany",
+    "type": "Corporate",
+    "totalCommitments": 10000000,
+	"totalInvestments": 28501992.89,
+    "reservesFees": 700000,
+    "totalDistributions": 2409341.425057001,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000},
+	  {"id":"ESPIF", "fundName":"Emerald Sustainable Packaging Innovation Fund", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.038823616,
+		"amountInvested": 166651.1683406003
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.024436522,
+		"amountInvested": 25042.77671581114
+	  },
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.142857143,
+		"amountInvested": 221796.5116503679
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.036338889,
+		"amountInvested": 99931.94475
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.028537869,
+		"amountInvested": 228314.7295785363
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.044642857,
+		"amountInvested": 119321.5813145995
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.111111111,
+		"amountInvested": 511410.5272663672
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.034596025,
+		"amountInvested": 46194.44928296725
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.030309786,
+		"amountInvested": 75744.155214
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.090909091,
+		"amountInvested": 547991.364184355
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.083333333,
+		"amountInvested": 478545.8272524834
+	  },
+	  {
+		"id": "Powe02",
+		"shortName": "Powerhouse Dynamics",
+		"participationPercentage": 0.166666667,
+		"amountInvested": 456697.0275800607
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.038800807,
+		"amountInvested": 217456.7583103214
+	  },
+	  {
+		"id": "Secu01",
+		"shortName": "SecurityMatters",
+		"participationPercentage": 0.333333333,
+		"amountInvested": 629799.7127035336
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.032257331,
+		"amountInvested": 126122.0201106864
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.038800807,
+		"amountInvested": 117171.2473504629
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.049019608,
+		"amountInvested": 325745.9128070928
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.090909091,
+		"amountInvested": 319924.0448653786
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.040341435,
+		"amountInvested": 304715.567977377
+	  },
+	  {
+		"id": "Vise01",
+		"shortName": "Visedo",
+		"participationPercentage": 0.25,
+		"amountInvested": 625000.6799999999
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.028537869,
+		"amountInvested": 86393.87029382578
+	  }
+	]
+  },
+  {
+    "id": "Hera01",
+    "name": "Heraeus Holding GmbH",
+    "shortName": "Heraeus",
+    "country": "Germany",
+    "type": "Corporate",
+    "totalCommitments": 5000000,
+	"totalInvestments": 11501525.26,
+    "reservesFees": 700000,
+    "totalDistributions": 1169477.82,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.038823616,
+		"amountInvested": 166651.1683406003
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.024436522,
+		"amountInvested": 25042.77671581114
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.036338889,
+		"amountInvested": 99931.94475
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.028537869,
+		"amountInvested": 228314.7295785363
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.044642857,
+		"amountInvested": 119321.5813145995
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.034596025,
+		"amountInvested": 46194.44928296725
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.030187623,
+		"amountInvested": 75438.869877
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.090909091,
+		"amountInvested": 547991.364184355
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.083333333,
+		"amountInvested": 478545.8272524833
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.038800807,
+		"amountInvested": 217456.7583103214
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.032127318,
+		"amountInvested": 125613.6859834566
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.038800807,
+		"amountInvested": 117171.2473504629
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.049019608,
+		"amountInvested": 325745.9128070928
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.090909091,
+		"amountInvested": 319924.0448653786
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.040311177,
+		"amountInvested": 304487.0167705134
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.028537869,
+		"amountInvested": 86393.8702938258
+	  }
+	]
+  },
+  {
+    "id": "JSR01",
+    "name": "JSR Corporation",
+    "shortName": "JSR Corporation",
+    "country": "Japan",
+    "type": "Corporate",
+    "totalCommitments": 10000000,
+	"totalInvestments": 5965422.771,
+    "reservesFees": 700000,
+    "totalDistributions": 6664116.685659698,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.039674304,
+		"amountInvested": 170302.7640367181
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.024436522,
+		"amountInvested": 25042.77671581114
+	  },
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 107817.7479210775
+	  },
+	  {
+		"id": "Elco01",
+		"shortName": "Elcomax",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 347546.2484701484
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.036338889,
+		"amountInvested": 99931.94475
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.028913964,
+		"amountInvested": 231323.6447929428
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.044642857,
+		"amountInvested": 119321.5813145995
+	  },
+	  {
+		"id": "GeoD01",
+		"shortName": "GeoDigital",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 341451.8880924856
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 319631.577815469
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.034596025,
+		"amountInvested": 46194.44928296725
+	  },
+	  {
+		"id": "Libr01",
+		"shortName": "Librestream",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 433153.7965333713
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.030832727,
+		"amountInvested": 77050.984773
+	  },
+	  {
+		"id": "MetG01",
+		"shortName": "MetGen",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 76389.80645554967
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 418604.51120982
+	  },
+	  {
+		"id": "Opti01",
+		"shortName": "Optimatics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 226075.7402197819
+	  },
+	  {
+		"id": "P9701",
+		"shortName": "P97",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 459045.928312106
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 398788.1884199778
+	  },
+	  {
+		"id": "Powe02",
+		"shortName": "Powerhouse Dynamics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 190290.426559919
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.039687491,
+		"amountInvested": 222426.1247537985
+	  },
+	  {
+		"id": "Secu01",
+		"shortName": "SecurityMatters",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 131208.2727713781
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.032813872,
+		"amountInvested": 128298.0239218642
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.039687491,
+		"amountInvested": 119848.8687279177
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.049019608,
+		"amountInvested": 325745.9128070928
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 244386.4213525936
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.042055184,
+		"amountInvested": 317660.2240092128
+	  },
+	  {
+		"id": "Ushr01",
+		"shortName": "Ushr",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 126741.179744412
+	  },
+	  {
+		"id": "Vise01",
+		"shortName": "Visedo",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 173611.2988888877
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.028913964,
+		"amountInvested": 87532.43823133213
+	  }
+	]
+  },
+  {
+    "id": "Mahl01",
+    "name": "Mahle International GmbH",
+    "shortName": "Mahle",
+    "country": "Germany",
+    "type": "Corporate",
+    "totalCommitments": 10000000,
+	"totalInvestments": 5969693.55,
+    "reservesFees": 700000,
+    "totalDistributions": 5689768.035659998,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.039821802,
+		"amountInvested": 170935.9022283771
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.024436522,
+		"amountInvested": 25042.77671581114
+	  },
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 107817.7479210775
+	  },
+	  {
+		"id": "Elco01",
+		"shortName": "Elcomax",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 347546.2484701484
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.036338889,
+		"amountInvested": 99931.94475
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.028977427,
+		"amountInvested": 231831.3749841229
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.044642857,
+		"amountInvested": 119321.5813145995
+	  },
+	  {
+		"id": "GeoD01",
+		"shortName": "GeoDigital",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 341451.8880924856
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 319631.577815469
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.034596025,
+		"amountInvested": 46194.44928296725
+	  },
+	  {
+		"id": "Libr01",
+		"shortName": "Librestream",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 433153.7965333713
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.030885078,
+		"amountInvested": 77181.809922
+	  },
+	  {
+		"id": "MetG01",
+		"shortName": "MetGen",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 76389.80645554967
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 418604.51120982
+	  },
+	  {
+		"id": "Opti01",
+		"shortName": "Optimatics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 226075.7402197819
+	  },
+	  {
+		"id": "P9701",
+		"shortName": "P97",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 459045.928312106
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 398788.1884199778
+	  },
+	  {
+		"id": "Powe02",
+		"shortName": "Powerhouse Dynamics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 190290.426559919
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.039854722,
+		"amountInvested": 223363.3607022413
+	  },
+	  {
+		"id": "Secu01",
+		"shortName": "SecurityMatters",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 131208.2727713781
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.032869587,
+		"amountInvested": 128515.8624141581
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.039854722,
+		"amountInvested": 120353.8753600134
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.049019608,
+		"amountInvested": 325745.9128070928
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 244386.4213525936
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.04220702,
+		"amountInvested": 318807.104207684
+	  },
+	  {
+		"id": "Ushr01",
+		"shortName": "Ushr",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 126741.179744412
+	  },
+	  {
+		"id": "Vise01",
+		"shortName": "Visedo",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 173611.2988888877
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.028977427,
+		"amountInvested": 87724.56239415791
+	  }
+	]
+  },
+  {
+    "id": "Mich01",
+    "name": "Michelin Ventures SAS",
+    "shortName": "Michelin",
+    "country": "France",
+    "type": "Corporate",
+    "totalCommitments": 10000000,
+	"totalInvestments": 234428071,
+    "reservesFees": 700000,
+    "totalDistributions": 6231054.665659399,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.039822742,
+		"amountInvested": 170939.9371976659
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.024436522,
+		"amountInvested": 25042.77671581114
+	  },
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 107817.7479210775
+	  },
+	  {
+		"id": "Elco01",
+		"shortName": "Elcomax",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 347546.2484701484
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.036338889,
+		"amountInvested": 99931.94475
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.029003619,
+		"amountInvested": 232040.9217935613
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.044642857,
+		"amountInvested": 119321.5813145995
+	  },
+	  {
+		"id": "GeoD01",
+		"shortName": "GeoDigital",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 341451.8880924856
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 319631.577815469
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.034596025,
+		"amountInvested": 46194.44928296725
+	  },
+	  {
+		"id": "Libr01",
+		"shortName": "Librestream",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 433153.7965333713
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.030929961,
+		"amountInvested": 77293.972539
+	  },
+	  {
+		"id": "MetG01",
+		"shortName": "MetGen",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 76389.80645554967
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 418604.51120982
+	  },
+	  {
+		"id": "Opti01",
+		"shortName": "Optimatics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 226075.7402197819
+	  },
+	  {
+		"id": "P9701",
+		"shortName": "P97",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 459045.928312106
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 398788.1884199778
+	  },
+	  {
+		"id": "Powe02",
+		"shortName": "Powerhouse Dynamics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 190290.426559919
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.039856352,
+		"amountInvested": 223372.4959379091
+	  },
+	  {
+		"id": "Secu01",
+		"shortName": "SecurityMatters",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 131208.2727713781
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.032917354,
+		"amountInvested": 128702.6252475316
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.039856352,
+		"amountInvested": 120358.7976579744
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.049019608,
+		"amountInvested": 325745.9128070928
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 244386.4213525936
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.04220727,
+		"amountInvested": 318808.992561234
+	  },
+	  {
+		"id": "Ushr01",
+		"shortName": "Ushr",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 126741.179744412
+	  },
+	  {
+		"id": "Vise01",
+		"shortName": "Visedo",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 173611.2988888877
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.029003619,
+		"amountInvested": 87803.85451827328
+	  }
+	]
+  },
+  {
+    "id": "SHV01",
+    "name": "SHV Energy N.V.",
+    "shortName": "SHV Energy",
+    "country": "Netherlands",
+    "type": "Corporate",
+    "totalCommitments": 10000000,
+    "totalInvestments": 145663917.2,
+    "reservesFees": 1400000,
+    "totalDistributions": 1298503.66,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 10000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.077647232,
+		"amountInvested": 333302.3366812007
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.048873044,
+		"amountInvested": 50085.55343162228
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.072677778,
+		"amountInvested": 199863.8895
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.057075739,
+		"amountInvested": 456629.4671574853
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.089285714,
+		"amountInvested": 238643.162629199
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.222222222,
+		"amountInvested": 1022821.054532734
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.069192049,
+		"amountInvested": 92388.89723068141
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.060375246,
+		"amountInvested": 150877.739754
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.181818182,
+		"amountInvested": 1095982.72836871
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.166666667,
+		"amountInvested": 957091.6602475166
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.077601613,
+		"amountInvested": 434913.5110162037
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.064254636,
+		"amountInvested": 251227.3719669131
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.077601613,
+		"amountInvested": 234342.4916811111
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.181818182,
+		"amountInvested": 639848.0897307572
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.080622354,
+		"amountInvested": 608974.0335410268
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.057075739,
+		"amountInvested": 172787.743614993
+	  }
+	]
+  },
+  {
+    "id": "Sibe01",
+    "name": "Cofisa NV",
+    "shortName": "Sibelco",
+    "country": "Belgium",
+    "type": "Corporate",
+    "totalCommitments": 10000000,
+	"totalInvestments": 61408839.19,
+    "reservesFees": 531750,
+    "totalDistributions": 5689799.055659698,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.039822975,
+		"amountInvested": 170940.937354947
+	  },
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 107817.7479210775
+	  },
+	  {
+		"id": "Elco01",
+		"shortName": "Elcomax",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 347546.2484701484
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.044642857,
+		"amountInvested": 119321.5813145995
+	  },
+	  {
+		"id": "GeoD01",
+		"shortName": "GeoDigital",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 341451.8880924856
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 319631.577815469
+	  },
+	  {
+		"id": "Libr01",
+		"shortName": "Librestream",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 433153.7965333713
+	  },
+	  {
+		"id": "MetG01",
+		"shortName": "MetGen",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 76389.80645554967
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 418604.51120982
+	  },
+	  {
+		"id": "Opti01",
+		"shortName": "Optimatics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 226075.7402197819
+	  },
+	  {
+		"id": "P9701",
+		"shortName": "P97",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 459045.928312106
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 398788.1884199778
+	  },
+	  {
+		"id": "Powe02",
+		"shortName": "Powerhouse Dynamics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 190290.426559919
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.039856577,
+		"amountInvested": 223373.7569366976
+	  },
+	  {
+		"id": "Secu01",
+		"shortName": "SecurityMatters",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 131208.2727713781
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.039856577,
+		"amountInvested": 120359.477116282
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.049019608,
+		"amountInvested": 325745.9128070928
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 244386.4213525936
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.042207495,
+		"amountInvested": 318810.692079429
+	  },
+	  {
+		"id": "Ushr01",
+		"shortName": "Ushr",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 126741.179744412
+	  },
+	  {
+		"id": "Vise01",
+		"shortName": "Visedo",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 173611.2988888877
+	  }
+	]
+  },
+  {
+    "id": "Sulz01",
+    "name": "Sulzer Ltd.",
+    "shortName": "Sulzer",
+    "country": "Switzerland",
+    "type": "Corporate",
+    "totalCommitments": 10000000,
+	"totalInvestments": 29303543.35,
+    "reservesFees": 700000,
+    "totalDistributions": 5689799.315659499,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.039822998,
+		"amountInvested": 170941.036082919
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.024436522,
+		"amountInvested": 25042.77671581114
+	  },
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 107817.7479210775
+	  },
+	  {
+		"id": "Elco01",
+		"shortName": "Elcomax",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 347546.2484701484
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.036338889,
+		"amountInvested": 99931.94475
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.029004344,
+		"amountInvested": 232046.7220927688
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.044642857,
+		"amountInvested": 119321.5813145995
+	  },
+	  {
+		"id": "GeoD01",
+		"shortName": "GeoDigital",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 341451.8880924856
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 319631.577815469
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.034596025,
+		"amountInvested": 46194.44928296725
+	  },
+	  {
+		"id": "Libr01",
+		"shortName": "Librestream",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 433153.7965333713
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.030930589,
+		"amountInvested": 77295.54191100001
+	  },
+	  {
+		"id": "MetG01",
+		"shortName": "MetGen",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 76389.80645554967
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 418604.51120982
+	  },
+	  {
+		"id": "Opti01",
+		"shortName": "Optimatics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 226075.7402197819
+	  },
+	  {
+		"id": "P9701",
+		"shortName": "P97",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 459045.928312106
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 398788.1884199778
+	  },
+	  {
+		"id": "Powe02",
+		"shortName": "Powerhouse Dynamics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 190290.426559919
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.039856592,
+		"amountInvested": 223373.8410032835
+	  },
+	  {
+		"id": "Secu01",
+		"shortName": "SecurityMatters",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 131208.2727713781
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.032918023,
+		"amountInvested": 128705.2409515852
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.039856592,
+		"amountInvested": 120359.5224135024
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.049019608,
+		"amountInvested": 325745.9128070928
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 244386.4213525936
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.04220752,
+		"amountInvested": 318810.880914784
+	  },
+	  {
+		"id": "Ushr01",
+		"shortName": "Ushr",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 126741.179744412
+	  },
+	  {
+		"id": "Vise01",
+		"shortName": "Visedo",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 173611.2988888877
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.029004344,
+		"amountInvested": 87806.04934073753
+	  }
+	]
+  },
+  {
+    "id": "Sunc01",
+    "name": "Suncor Energy Inc.",
+    "shortName": "Suncor Energy Inc.",
+    "country": "Canada",
+    "type": "Corporate",
+    "totalCommitments": 20000000,
+	"totalInvestments": 14741529.54,
+    "reservesFees": 700000,
+    "totalDistributions": 10848095.7733547,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"ECFII", "fundName":"Emerald Cleantech Fund II", "committedAmount": 5000000},
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
+	  {"id":"EEF", "fundName":"Emerald Energy Fund I", "committedAmount": 5000000},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.039693281,
+		"amountInvested": 170384.2231986261
+	  },
+	  {
+		"id": "Acum01",
+		"shortName": "Acumentrics (ex. CTP)",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 150831.3080024505
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.024436522,
+		"amountInvested": 25042.77671581114
+	  },
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 107817.7479210775
+	  },
+	  {
+		"id": "Arxx01",
+		"shortName": "Arxx Corporation",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 258014.7318829295
+	  },
+	  {
+		"id": "Azzu01",
+		"shortName": "Azzurro Semiconductors",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 181859.3140159653
+	  },
+	  {
+		"id": "CDTI01",
+		"shortName": "CDTI (ex. CSI)",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 356962.8565111688
+	  },
+	  {
+		"id": "Cell01",
+		"shortName": "Cellex",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 10990.74069414
+	  },
+	  {
+		"id": "Eden01",
+		"shortName": "Eden Energy (ex. Hyradix)",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 13254.15220717688
+	  },
+	  {
+		"id": "Elco01",
+		"shortName": "Elcomax",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 347546.2484701484
+	  },
+	  {
+		"id": "Emer03",
+		"shortName": "EWT",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 357860.585086985
+	  },
+	  {
+		"id": "Engi01",
+		"shortName": "Enginion",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 327950.050049821
+	  },
+	  {
+		"id": "Enoc01",
+		"shortName": "Enocean",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 499941.664546914
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.036338889,
+		"amountInvested": 99931.94475
+	  },
+	  {
+		"id": "Ever01",
+		"shortName": "Evergreen Solar",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 486555.3816818611
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.028928227,
+		"amountInvested": 231437.7546792829
+	  },
+	  {
+		"id": "Flux01",
+		"shortName": "Fluxxion",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 42012.89219094
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.044642857,
+		"amountInvested": 119321.5813145995
+	  },
+	  {
+		"id": "GeoD01",
+		"shortName": "GeoDigital",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 341451.8880924856
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 319631.577815469
+	  },
+	  {
+		"id": "Iden01",
+		"shortName": "Identec Solutions",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 199362.008772993
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.034596025,
+		"amountInvested": 46194.44928296725
+	  },
+	  {
+		"id": "Libr01",
+		"shortName": "Librestream",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 433153.7965333712
+	  },
+	  {
+		"id": "Luci01",
+		"shortName": "Lucintech",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 20283.459650157
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.030848026,
+		"amountInvested": 77089.216974
+	  },
+	  {
+		"id": "MetG01",
+		"shortName": "MetGen",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 76389.80645554967
+	  },
+	  {
+		"id": "O-fl01",
+		"shortName": "O-flexx Technologies",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 136970.9985052741
+	  },
+	  {
+		"id": "Ocea01",
+		"shortName": "Oceanlinx",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 621833.2463346205
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 418604.51120982
+	  },
+	  {
+		"id": "Opti01",
+		"shortName": "Optimatics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 226075.7402197819
+	  },
+	  {
+		"id": "Orme01",
+		"shortName": "Ormecon",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 199167.7059456524
+	  },
+	  {
+		"id": "P9701",
+		"shortName": "P97",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 459045.928312106
+	  },
+	  {
+		"id": "Pela01",
+		"shortName": "Pelamis Wave Power",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 1095306.148648083
+	  },
+	  {
+		"id": "Peme01",
+		"shortName": "Pemeas",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 445318.928153
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 398788.1884199777
+	  },
+	  {
+		"id": "Poly01",
+		"shortName": "PolyFuel",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 7609.56786897
+	  },
+	  {
+		"id": "Powe01",
+		"shortName": "PowerZyme",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 271177.6706609063
+	  },
+	  {
+		"id": "Powe02",
+		"shortName": "Powerhouse Dynamics",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 190290.426559919
+	  },
+	  {
+		"id": "Pure01",
+		"shortName": "Pure (PPIC)",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 201571.704419514
+	  },
+	  {
+		"id": "RBE01",
+		"shortName": "RBE",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 163003.6999304954
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.03969865,
+		"amountInvested": 222488.664689269
+	  },
+	  {
+		"id": "Schm01",
+		"shortName": "Schmack Biogas",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 120832.509775736
+	  },
+	  {
+		"id": "Schm02",
+		"shortName": "Schmack Biogas (ECFII)",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 344032.264342965
+	  },
+	  {
+		"id": "SDCm01",
+		"shortName": "SDCmaterials",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 464971.9573163019
+	  },
+	  {
+		"id": "Secu01",
+		"shortName": "SecurityMatters",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 131208.2727713781
+	  },
+	  {
+		"id": "Sens01",
+		"shortName": "Senscient",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 225511.3064239378
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.032830154,
+		"amountInvested": 128361.6844501156
+	  },
+	  {
+		"id": "Siel01",
+		"shortName": "Sielo (fka Terralux)",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 190786.1352120666
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.03969865,
+		"amountInvested": 119882.566840155
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.049019608,
+		"amountInvested": 325745.9128070928
+	  },
+	  {
+		"id": "Syna01",
+		"shortName": "SynapSense",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 203421.1043447108
+	  },
+	  {
+		"id": "Taka01",
+		"shortName": "Takadu",
+		"participationPercentage": 0.025942108,
+		"amountInvested": 130072.0274502941
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 244386.4213525936
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.042070841,
+		"amountInvested": 317778.4878153422
+	  },
+	  {
+		"id": "Ushr01",
+		"shortName": "Ushr",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 126741.179744412
+	  },
+	  {
+		"id": "Vape01",
+		"shortName": "Vaperma",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 173145.468298902
+	  },
+	  {
+		"id": "Vise01",
+		"shortName": "Visedo",
+		"participationPercentage": 0.069444444,
+		"amountInvested": 173611.2988888877
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.028928227,
+		"amountInvested": 87575.61720072191
+	  },
+	  {
+		"id": "Xunl01",
+		"shortName": "Xunlight Corp.",
+		"participationPercentage": 0.033227007,
+		"amountInvested": 619151.3882173711
+	  },
+	  {
+		"id": "Zoxy01",
+		"shortName": "Zoxy",
+		"participationPercentage": 0.102880658,
+		"amountInvested": 255788.6542652503
+	  }
+	]
+  },
+  {
+    "id": "Wast01",
+    "name": "WM Organic Growth, Inc.",
+    "shortName": "Waste Management",
+    "country": "United States",
+    "type": "Corporate",
+    "totalCommitments": 10000000,
+	"totalInvestments": 5731310.229,
+    "reservesFees": 700000,
+    "totalDistributions": 2409341.425057001,
+	"tappedOot": false,
+	"funds":[
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000},
+	  {"id":"ESPIF", "fundName":"Emerald Sustainable Packaging Innovation Fund", "committedAmount": 5000000}
+	],
+	"pcos":[
+	  {
+		"id": "Actn01",
+		"shortName": "Actnano",
+		"participationPercentage": 0.038823616,
+		"amountInvested": 166651.1683406003
+	  },
+	  {
+		"id": "Agan01",
+		"shortName": "Aganova",
+		"participationPercentage": 0.024436522,
+		"amountInvested": 25042.77671581114
+	  },
+	  {
+		"id": "Alph01",
+		"shortName": "Alphaics",
+		"participationPercentage": 0.142857143,
+		"amountInvested": 221796.5116503679
+	  },
+	  {
+		"id": "Ensp01",
+		"shortName": "Enspired",
+		"participationPercentage": 0.036338889,
+		"amountInvested": 99931.94475
+	  },
+	  {
+		"id": "Fido01",
+		"shortName": "FIDO",
+		"participationPercentage": 0.028537869,
+		"amountInvested": 228314.7295785363
+	  },
+	  {
+		"id": "Futu01",
+		"shortName": "Future Meat",
+		"participationPercentage": 0.044642857,
+		"amountInvested": 119321.5813145995
+	  },
+	  {
+		"id": "Hydr01",
+		"shortName": "Hydropoint",
+		"participationPercentage": 0.111111111,
+		"amountInvested": 511410.5272663672
+	  },
+	  {
+		"id": "Imag01",
+		"shortName": "Imagindairy",
+		"participationPercentage": 0.034596025,
+		"amountInvested": 46194.44928296725
+	  },
+	  {
+		"id": "Meea01",
+		"shortName": "Meeat",
+		"participationPercentage": 0.030383559,
+		"amountInvested": 75928.513941
+	  },
+	  {
+		"id": "Open01",
+		"shortName": "Open Mineral",
+		"participationPercentage": 0.090909091,
+		"amountInvested": 547991.364184355
+	  },
+	  {
+		"id": "Phas01",
+		"shortName": "Phase Change",
+		"participationPercentage": 0.083333333,
+		"amountInvested": 478545.8272524834
+	  },
+	  {
+		"id": "Powe02",
+		"shortName": "Powerhouse Dynamics",
+		"participationPercentage": 0.166666667,
+		"amountInvested": 456697.0275800607
+	  },
+	  {
+		"id": "Rhom01",
+		"shortName": "Rhombus",
+		"participationPercentage": 0.038800807,
+		"amountInvested": 217456.7583103214
+	  },
+	  {
+		"id": "Secu01",
+		"shortName": "SecurityMatters",
+		"participationPercentage": 0.333333333,
+		"amountInvested": 629799.7127035336
+	  },
+	  {
+		"id": "Sewe01",
+		"shortName": "SewerAI",
+		"participationPercentage": 0.032335844,
+		"amountInvested": 126428.9958541213
+	  },
+	  {
+		"id": "Sofi01",
+		"shortName": "Sofi Filatration",
+		"participationPercentage": 0.038800807,
+		"amountInvested": 117171.2473504629
+	  },
+	  {
+		"id": "Spea01",
+		"shortName": "Spear Power Systems",
+		"participationPercentage": 0.049019608,
+		"amountInvested": 325745.9128070928
+	  },
+	  {
+		"id": "Trop01",
+		"shortName": "Tropic Biosciences",
+		"participationPercentage": 0.090909091,
+		"amountInvested": 319924.0448653786
+	  },
+	  {
+		"id": "Urge01",
+		"shortName": "Urgently",
+		"participationPercentage": 0.040453572,
+		"amountInvested": 305562.5851855224
+	  },
+	  {
+		"id": "Vise01",
+		"shortName": "Visedo",
+		"participationPercentage": 0.25,
+		"amountInvested": 625000.6799999999
+	  },
+	  {
+		"id": "Xfar01",
+		"shortName": "xFarm",
+		"participationPercentage": 0.028537869,
+		"amountInvested": 86393.87029382578
+	  }
+	]
+  }
+]

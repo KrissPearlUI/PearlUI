@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import {darkTheme, lightTheme} from "./theme";
+import {useSelector} from "react-redux";
+import {RootState} from "./redux/slices/rootSlice";
+import {Theme, ThemeProvider} from "@mui/material";
+import MainPage from "./pages/main/MainPage";
+import FadeIn from "react-fade-in";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  const {isDarkTheme} = useSelector((state: RootState) => state.app);
+  const [localTheme, setLocalTheme] = useState<Theme>(lightTheme)
+
+  /**
+   * Sets the theme on start
+   */
+  useEffect(() => {
+      setLocalTheme(isDarkTheme ? darkTheme : lightTheme);
+  }, [isDarkTheme])
+
+  return (<>
+      <ThemeProvider theme={localTheme ?? (isDarkTheme ? darkTheme : lightTheme)}>
+          <FadeIn>
+              <MainPage/>
+          </FadeIn>
+      </ThemeProvider>
+  </>);
 }
 
 export default App;

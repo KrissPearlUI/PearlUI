@@ -1,0 +1,1714 @@
+[
+ {
+  "LP_ID": "ABB01",
+  "LP_Name": "ABB Technology Ventures",
+  "LP_ShortName": "ABB",
+  "Country": "Switzerland",
+  "LP_Type": "Corporate",
+  "TotalCapital": 10000000,
+  "Funds":[
+	  {"Fund_ID":"ECFIII", "Name":"Emerald Cleantech Fund III", "CommittedAmmount": 5000000},
+	  {"Fund_ID":"ECFIII", "Name":"Emerald Cleantech Fund III", "CommittedAmmount": 5000000}
+	  ],
+  "PCOs":[
+	  {
+		"PCO_ID": "Actn01",
+		"ParticipationPercentage": 0.040671923,
+		"PCO_ShortName": "Actnano"
+	  },
+	  {
+		"PCO_ID": "Agan01",
+		"ParticipationPercentage": 0.024436522,
+		"PCO_ShortName": "Aganova"
+	  },
+	  {
+		"PCO_ID": "Alph01",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "Alphaics"
+	  },
+	  {
+		"PCO_ID": "Elco01",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "Elcomax"
+	  },
+	  {
+		"PCO_ID": "Ensp01",
+		"ParticipationPercentage": 0.037019444,
+		"PCO_ShortName": "Enspired"
+	  },
+	  {
+		"PCO_ID": "Fido01",
+		"ParticipationPercentage": 0.02930225,
+		"PCO_ShortName": "FIDO"
+	  },
+	  {
+		"PCO_ID": "Futu01",
+		"ParticipationPercentage": 0.044642857,
+		"PCO_ShortName": "Future Meat"
+	  },
+	  {
+		"PCO_ID": "GeoD01",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "GeoDigital"
+	  },
+	  {
+		"PCO_ID": "Hydr01",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "Hydropoint"
+	  },
+	  {
+		"PCO_ID": "Imag01",
+		"ParticipationPercentage": 0.034770914,
+		"PCO_ShortName": "Imagindairy"
+	  },
+	  {
+		"PCO_ID": "Libr01",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "Librestream"
+	  },
+	  {
+		"PCO_ID": "Meea01",
+		"ParticipationPercentage": 0.03127154,
+		"PCO_ShortName": "Meeat"
+	  },
+	  {
+		"PCO_ID": "MetG01",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "MetGen"
+	  },
+	  {
+		"PCO_ID": "Open01",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "Open Mineral"
+	  },
+	  {
+		"PCO_ID": "Opti01",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "Optimatics"
+	  },
+	  {
+		"PCO_ID": "P9701",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "P97"
+	  },
+	  {
+		"PCO_ID": "Phas01",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "Phase Change"
+	  },
+	  {
+		"PCO_ID": "Powe02",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "Powerhouse Dynamics"
+	  },
+	  {
+		"PCO_ID": "Rhom01",
+		"ParticipationPercentage": 0.040823601,
+		"PCO_ShortName": "Rhombus"
+	  },
+	  {
+		"PCO_ID": "Secu01",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "SecurityMatters"
+	  },
+	  {
+		"PCO_ID": "Sewe01",
+		"ParticipationPercentage": 0.033280881,
+		"PCO_ShortName": "SewerAI"
+	  },
+	  {
+		"PCO_ID": "Skyl01",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "Skylark"
+	  },
+	  {
+		"PCO_ID": "Sofi01",
+		"ParticipationPercentage": 0.040823601,
+		"PCO_ShortName": "Sofi Filatration"
+	  },
+	  {
+		"PCO_ID": "Spea01",
+		"ParticipationPercentage": 0.049019608,
+		"PCO_ShortName": "Spear Power Systems"
+	  },
+		{
+		"PCO_ID": "Trop01",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "Tropic Biosciences"
+	  },
+	  {
+		"PCO_ID": "Urge01",
+		"ParticipationPercentage": 0.044856094,
+		"PCO_ShortName": "Urgently"
+	  },
+		{
+		"PCO_ID": "Ushr01",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "Ushr"
+	  },
+	  {
+		"PCO_ID": "Vise01",
+		"ParticipationPercentage": 0.069444444,
+		"PCO_ShortName": "Visedo"
+	  },
+	  {
+		"PCO_ID": "Xfar01",
+		"ParticipationPercentage": 0.02930225,
+		"PCO_ShortName": "xFarm"
+	  },
+	],
+  "Capital": {
+	  "Invested": 2000000,
+	  "ReservedForFees": 2500000,
+	  "FollowOns": 2000000,
+	  "Unlocated": 3500000
+ },
+ {
+  "LP_ID": "Alia01",
+  "LP_Name": "Aliaxis Ventures SA",
+  "LP_ShortName": "Aliaxis",
+  "Country": "Belgium",
+  "LP_Type": "Corporate",
+  "TotalCapital": 5000000,
+  "Funds":[
+	  {"Fund_ID":"EIIFI", "Name":"Emerald Industrial Innovation Fund (Ireland)", "CommittedAmmount": 5000000},
+	],
+  "Capital": {
+	  "Invested": 0,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 0,
+	  "Unlocated": 3750000
+ },
+ {
+  "LP_ID": "Alta01",
+  "LP_Name": "ALTANA New Technologies GmbH",
+  "LP_ShortName": "Altana",
+  "Country": "Germany",
+  "Type": "Corporate",
+  "TotalCapital": 5000000,
+  "Capital": {
+	  "Invested": 500000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 500000,
+	  "Unlocated": 2750000
+ },
+ },
+ {
+  "LP_ID": "Amer01", 
+  "LP_Name": "American Trading and Production Corporation",
+  "LP_ShortName": "ATAPCO",
+  "Country": "United States",
+  "Type": "Corporate",
+  "TotalCapital": 3000000,
+  "Capital": {
+	  "Invested": 200000,
+	  "ReservedForFees": 750000,
+	  "FollowOns": 200000,
+	  "Unlocated": 1850000
+ },
+ {
+  "LP_ID": "Aran01",
+  "LP_Name": "Arancia Industrial S.C.",
+  "LP_ShortName": "Arancia",
+  "Country": "Mexico",
+  "Type": "Corporate",
+  "TotalCapital": 10000000,
+  "Capital": {
+	  "Invested": 2000000,
+	  "ReservedForFees": 2500000,
+	  "FollowOns": 200000,
+	  "Unlocated": 3500000
+ },
+ },
+ {
+  "LP_ID": "Axpo01",
+  "LP_Name": "Axpo Holding AG",
+  "LP_ShortName": "Axpo",
+  "Country": "Switzerland",
+  "Type": "Corporate",
+  "TotalCapital": 5000000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Beie01", 
+  "LP_Name": "Beiersdorf AG",
+  "LP_ShortName": "Beiersdorf",
+  "Country": "Germany",
+  "Type": "Corporate",
+  "TotalCapital": 7500000,
+  "Capital": {
+	  "Invested": 2350000,
+	  "ReservedForFees": 1875000,
+	  "FollowOns": 2350000,
+	  "Unlocated": 925000
+ },
+ },
+ {
+  "LP_ID": "Beka01",
+  "LP_Name": "Bekaert Investments NV",
+  "LP_ShortName": "Bekaert Investments",
+  "Country": "Belgium",
+  "Type": "Corporate",
+  "TotalCapital": 5000000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Bosc01",
+  "LP_Name": "Robert Bosch Venture Capital GmbH",
+  "LP_ShortName": "Bosch",
+  "Country": "Germany",
+  "Type": "Corporate",
+  "TotalCapital": 5000000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Brau01",
+  "LP_Name": "Ms Johanna von Braun",
+  "LP_ShortName": "von Braun Ms",
+  "Country": "United States",
+  "Type": "Individual",
+  "TotalCapital": 5000000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Brau02",
+  "LP_Name": "Mr Daniel von Braun",
+  "LP_ShortName": "von Braun Mr",
+  "Country": "Germany",   
+  "Type": "Individual",
+  "TotalCapital": 5000000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Brau03",
+  "LP_Name": "333 Bush St Ventures SCR S.A.",
+  "LP_ShortName": "Braunberri",
+  "Country": "Spain",
+  "Type": "Corporate",
+  "TotalCapital": 10000000,
+  "Capital": {
+	  "Invested": 0,
+	  "ReservedForFees": 2500000,
+	  "FollowOns": 0,
+	  "Unlocated": 7500000
+ },
+ },
+ {
+  "LP_ID": "Brun01",
+  "LP_Name": "Dr Eduard M Brunner",
+  "LP_ShortName": "Brunner Dr",
+  "Country": "Switzerland",
+  "Type": "Individual",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Brun02", 
+  "LP_Name": "Mr Hans R Zulliger",
+  "LP_ShortName": "Zulliger Mr",
+  "Country": "Switzerland",
+  "Type": "Individual",
+  "TotalCapital": 2000000,
+  "Capital": {
+	  "Invested": 75000,
+	  "ReservedForFees": 500000,
+	  "FollowOns": 150000,
+	  "Unlocated": 1275000
+ },
+ },
+ {
+  "LP_ID": "Calv01", 
+  "LP_Name": "Calvert World Values International Equity Fund ",
+  "LP_ShortName": "Calvert",
+  "Country": "United States",
+  "Type": "Institutional",
+  "TotalCapital": 1000000,
+  "Capital": {
+	  "Invested": 1750000,
+	  "ReservedForFees": 2500000,
+	  "FollowOns": 1750000,
+	  "Unlocated": 4000000
+ },
+ },
+ {
+  "LP_ID": "Capi01", 
+  "LP_Name": "Capital Dynamics Global Secondaries III",
+  "LP_ShortName": "Capital Dynamics",
+  "Country": "United Kingdom",
+  "Type": "Institutional",
+  "TotalCapital": 2000000,
+  "Capital": {
+	  "Invested": 125000,
+	  "ReservedForFees": 500000,
+	  "FollowOns": 135000,
+	  "Unlocated": 1240000
+ },
+ },
+ {
+  "LP_ID": "Cate01",
+  "LP_Name": "Caterpillar Venture Capital Inc.",
+  "LP_ShortName": "Caterpillar",
+  "Country": "United States",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 125000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 125000,
+	  "Unlocated": 3500000
+ },
+ },
+ {
+  "LP_ID": "CDP01", ///
+  "LP_Name": "Caisse de Depot et Placement du Quebec",
+  "LP_ShortName": "CDP Capital",
+  "Country": "Canada",
+  "Type": "Institutional",
+  "TotalCapital": 10000000,
+  "Capital": {
+	  "Invested": 3450000,
+	  "ReservedForFees": 2500000,
+	  "FollowOns": 3500000,
+	  "Unlocated": 550000
+ },
+ },
+ {
+  "LP_ID": "Chev01",
+  "LP_Name": "CTTV Investments LLC",
+  "LP_ShortName": "Chevron",
+  "Country": "United States",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 1100000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 1100000,
+	  "Unlocated": 1550000
+ },
+ },
+ {
+  "LP_ID": "Chri01", /// site nadole poveri gi
+  "LP_Name": "The Christopher Reynolds Foundation",
+  "LP_ShortName": "Christopher Reynolds",
+  "Country": "United States",
+  "Type": "Institutional",
+  "TotalCapital": 1000000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 2500000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Ciec01", ///
+  "LP_Name": "Ciech Spolka Akcyjna",
+  "LP_ShortName": "Ciech",
+  "Country": "Poland",
+  "Type": "Corporate",
+  "TotalCapital": 5000000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Citi01",
+  "LP_Name": "Vidacos Nominees Limited-Designation CPBOMCSH",
+  "LP_ShortName": "Citibank",
+  "Country": "Switzerland",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Clar01",
+  "LP_Name": "Clariant International Ltd",
+  "LP_ShortName": "Clariant",
+  "Country": "Switzerland",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Clea01",
+  "LP_Name": "Clearstream Banking S.A. AFS 102448",
+  "LP_ShortName": "Clearstream",
+  "Country": "Luxemburg",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Deer01",
+  "LP_Name": "Deere & Company",
+  "LP_ShortName": "Deere & Co.",
+  "Country": "United States",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "DES01",
+  "LP_Name": "DES Capital Investissement",
+  "LP_ShortName": "DES Capital",
+  "Country": "France",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "DES02",
+  "LP_Name": "DES Holdings V (B) LLC",
+  "LP_ShortName": "DES Holding",
+  "Country": "United Kingdom",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "DIC01",
+  "LP_Name": "DIC Corporation",
+  "LP_ShortName": "DIC Corporation",
+  "Country": "Japan",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Dive01",
+  "LP_Name": "Diversified Private Equity Investors VI, LP",
+  "LP_ShortName": "Diversified PE",
+  "Country": "United States",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Doos01",
+  "LP_Name": "Doosan Heavy Industries & Construction Co., Ltd",
+  "LP_ShortName": "Doosan",
+  "Country": "South Korea",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Drit01",
+  "LP_Name": "Dritte Vermeogensverwaltung Private Equity Futur 03 Environment GmbH",
+  "LP_ShortName": "Dritte Vermeogensverwaltung",
+  "Country": "Germany",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "DSM01",
+  "LP_Name": "DSM Venturing B.V. ",
+  "LP_ShortName": "DSM",
+  "Country": "Netherlands",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Ecol01",
+  "LP_Name": "Ecolab Inc.",
+  "LP_ShortName": "Ecolab",
+  "Country": "United States",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Ecol02",
+  "LP_Name": "Ecolab U.S. 2 Inc.",
+  "LP_ShortName": "Ecolab (II)",
+  "Country": "United States",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Emer01",
+  "LP_Name": "Emerald Technology Ventures AG",
+  "LP_ShortName": "Emerald",
+  "Country": "Switzerland",
+  "Type": "General Partner",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Emer02",
+  "LP_Name": "Emerald Technology Ventures AG (II)",
+  "LP_ShortName": "Emerald (II)",
+  "Country": "Switzerland",
+  "Type": "General Partner",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Eneo01",
+  "LP_Name": "ENEOS Innovation Partners Godo Kaisha",
+  "LP_ShortName": "Eneos",
+  "Country": "Japan",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+
+ {
+  "LP_ID": "Equi01",
+  "LP_Name": "Equinor Technology Venture AS",
+  "LP_ShortName": "Equinor",
+  "Country": "Norway",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Evon01",
+  "LP_Name": "Evonik Industries AG",
+  "LP_ShortName": "Evonik",
+  "Country": "Germany",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Evon02",
+  "LP_Name": "Evonik Venture Capital GmbH",
+  "LP_ShortName": "Evonik II",
+  "Country": "Germany",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Fahr01",
+  "LP_Name": "Mr Fritz Fahrni",
+  "LP_ShortName": "Fahrni Mr",
+  "Country": "Switzerland",
+  "Type": "Individual",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Firs01",
+  "LP_Name": "FSS Trustee Corporation as trustee for the First State Superannuation Scheme",
+  "LP_ShortName": "First State Super",
+  "Country": "Australia",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "FTQ01",
+  "LP_Name": "Fonds de Solidarite des travailleurs du Quebec (F.T.Q.)",
+  "LP_ShortName": "FTQ",
+  "Country": "Canada",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Fund01",
+  "LP_Name": "Emerald Fund",
+  "LP_ShortName": "Fund",
+  "Country": NULL,
+  "Type": NULL,
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "GCM01",
+  "LP_Name": "GCM Grosvenor- CT Cleantech Opportunities Fund, L.P.",
+  "LP_ShortName": "GCM Grosvenor",
+  "Country": "United States",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "GCV01",
+  "LP_Name": "GC Ventures Company Limited.",
+  "LP_ShortName": "GCV PTT",
+  "Country": "Thailand",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Gene01",
+  "LP_Name": "General Oriental Realisation Limited ",
+  "LP_ShortName": "General Oriental",
+  "Country": "Cayman Islands",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Glar01",
+  "LP_Name": "Glarner Pensionkasse",
+  "LP_ShortName": "Glarner Pensionkasse",
+  "Country": "Switzerland",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Groh01",
+  "LP_Name": "Mr Bernd Grohe",
+  "LP_ShortName": "Grohe Mr",
+  "Country": "Switzerland",
+  "Type": "Individual",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Head01",
+  "LP_Name": "Headway Investment Partners II L.P.",
+  "LP_ShortName": "Headway",
+  "Country": "United Kingdom",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Hell01",
+  "LP_Name": "Mr Peter Hellich",
+  "LP_ShortName": "Hellich Mr",
+  "Country": "Germany",
+  "Type": "Individual",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Henk01",
+  "LP_Name": "Henkel AG & Co. KGaA",
+  "LP_ShortName": "Henkel",
+  "Country": "Germany",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Hera01",
+  "LP_Name": "Heraeus Holding GmbH",
+  "LP_ShortName": "Heraeus",
+  "Country": "Germany",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+
+ {
+  "LP_ID": "Hess01",
+  "LP_Name": "Dr Sigrid Hessler",
+  "LP_ShortName": "Hessler Dr",
+  "Country": "Germany",
+  "Type": "Individual",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Holl01",
+  "LP_Name": "Sanne Trustee Services Ltd as Trustee of the Hollyport Secondary Opportunities V Unit Trust",
+  "LP_ShortName": "Hollyport",
+  "Country": "United Kingdom",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Huht01",
+  "LP_Name": "Huhtamäki Oyj",
+  "LP_ShortName": "Huhtamäki",
+  "Country": "Finland",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Hydr01",
+  "LP_Name": "Hydro Quebec CapiTech Inc",
+  "LP_ShortName": "Hydro Quebec",
+  "Country": "Canada",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Idem01",
+  "LP_Name": "Idemitsu Kosan Co.,Ltd",
+  "LP_ShortName": "Idemitsu Kosan",
+  "Country": "Japan",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+
+ {
+  "LP_ID": "Ireo01",
+  "LP_Name": "Ireon Ventures Ltd",
+  "LP_ShortName": "Ireon",
+  "Country": "Cyprus",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "IVEC01",
+  "LP_Name": "IVEC Institutional Venture and Equity Capital GmbH (IVEC)",
+  "LP_ShortName": "IVEC",
+  "Country": "Germany",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "JSR01",
+  "LP_Name": "JSR Corporation",
+  "LP_ShortName": "JSR Corporation",
+  "Country": "Japan",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+
+ {
+  "LP_ID": "Juli01",
+  "LP_Name": "Bank Julius Baer & Co. Ltd.",
+  "LP_ShortName": "Julius Baer",
+  "Country": "Switzerland",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Kory01",
+  "LP_Name": "Korys Investments NV",
+  "LP_ShortName": "Korys",
+  "Country": "Belgium",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "KPC01",
+  "LP_Name": "KPC Energy Ventures, Inc",
+  "LP_ShortName": "KPC Energy Ventures",
+  "Country": "Kuwait",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Lam01",
+  "LP_Name": "Lam Research Capital LLC",
+  "LP_ShortName": "Lam",
+  "Country": "United States",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Lgch01",
+  "LP_Name": "LG Chem Fund I LLC",
+  "LP_ShortName": "LG",
+  "Country": "United States",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Lieb01",
+  "LP_Name": "Liebherr-International AG",
+  "LP_ShortName": "Liebherr",
+  "Country": "Switzerland",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Mahl01",
+  "LP_Name": "Mahle International GmbH",
+  "LP_ShortName": "Mahle",
+  "Country": "Germany",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Mich01",
+  "LP_Name": "Michelin Ventures SAS",
+  "LP_ShortName": "Michelin",
+  "Country": "France",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Micr01",
+  "LP_Name": "Microsoft Global Finance",
+  "LP_ShortName": "Microsoft",
+  "Country": "Ireland",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+
+ {
+  "LP_ID": "Mits01",
+  "LP_Name": "Mitsui & Co Limited",
+  "LP_ShortName": "Mitsui Japan",
+  "Country": "Japan",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Mits02",
+  "LP_Name": "Mitsubishi Chemical Holdings Corporation",
+  "LP_ShortName": "Mitsubishi",
+  "Country": "Japan",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Mits03",
+  "LP_Name": "Mitsui Fudosan Co. Ltd.",
+  "LP_ShortName": "Mitsui",
+  "Country": "Japan",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Mura01",
+  "LP_Name": "Murata Manufacturing Co. Ltd.",
+  "LP_ShortName": "Murata",
+  "Country": "Japan",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Nabt01",
+  "LP_Name": "Nabtesco Corporation",
+  "LP_ShortName": "Nabtesco",
+  "Country": "Japan",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Nabt02",
+  "LP_Name": "Nabtesco Technology Ventures (Cayman) Ltd",
+  "LP_ShortName": "Nabtesco GP",
+  "Country": "Cayman Islands",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Nest01",
+  "LP_Name": "Nestlé Ventures S.A.",
+  "LP_ShortName": "Nestlé",
+  "Country": "Switzerland",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+
+ {
+  "LP_ID": "OPG01",
+  "LP_Name": "OPG Investments Inc",
+  "LP_ShortName": "OPG Investments",
+  "Country": "Canada",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Orle01",
+  "LP_Name": "Orlen VC Sp. z.o.o.",
+  "LP_ShortName": "PKN Orlen",
+  "Country": "Poland",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Pilo01",
+  "LP_Name": "Pilot Emerging Mobility and Energy LLC",
+  "LP_ShortName": "Pilot",
+  "Country": "United States",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Rabo01",
+  "LP_Name": "Rabo Ventures B.V. ",
+  "LP_ShortName": "Rabo",
+  "Country": "Netherlands",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ {
+  "LP_ID": "Ritt01",
+  "LP_Name": "Mr Alfred T Ritter ",
+  "LP_ShortName": "Ritter Mr",
+  "Country": "Germany",
+  "Type": "Individual",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Robe01",
+  "LP_Name": "Robeco Clean Tech Private Equity II, L.P.",
+  "LP_ShortName": "Robeco",
+  "Country": "United States",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Robe02",
+  "LP_Name": "Robeco SAM Horeca Clean Tech L.P. ",
+  "LP_ShortName": "Robeco SAM Horeca",
+  "Country": "Netherlands",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Robe03",
+  "LP_Name": "Robeco SAM Secondary Fund III L.P. ",
+  "LP_ShortName": "Robeco SAM Secondary",
+  "Country": "Netherlands",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Rock01",
+  "LP_Name": "Rockefeller CleanTech Ventures Fund, LLC ",
+  "LP_ShortName": "Rockefeller",
+  "Country": "United States",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "SABI01",
+  "LP_Name": "SABIC Ventures B.V.",
+  "LP_ShortName": "SABIC",
+  "Country": "Saudi Arabia",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Sain01",
+  "LP_Name": "Saint Gobain Performance Plastics Europe",
+  "LP_ShortName": "Saint Gobain",
+  "Country": "France",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "SCG01",
+  "LP_Name": "Add Ventures Capital International Company Limited ",
+  "LP_ShortName": "SCG",
+  "Country": "Thailand",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Scho01",
+  "LP_Name": "Schott AG",
+  "LP_ShortName": "Schott",
+  "Country": "Germany",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Schu01",
+  "LP_Name": "Mrs Ursula Schulz-Dornburg",
+  "LP_ShortName": "Schulz-Dornburg Mrs",
+  "Country": "Germany",
+  "Type": "Individual",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Seki01",
+  "LP_Name": "Sekisui Chemical Co Ltd",
+  "LP_ShortName": "Sekisui",
+  "Country": "Japan",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+
+ {
+  "LP_ID": "Shaw01",
+  "LP_Name": "Mr Robert W Shaw, Jr",
+  "LP_ShortName": "Shaw Mr",
+  "Country": "United States",
+  "Type": "Individual",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "SHV01",
+  "LP_Name": "SHV Energy N.V.",
+  "LP_ShortName": "SHV Energy",
+  "Country": "Netherlands",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Sibe01",
+  "LP_Name": "Cofisa NV",
+  "LP_ShortName": "Sibelco",
+  "Country": "Belgium",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+
+ {
+  "LP_ID": "Sing01",
+  "LP_Name": "SP Impact Pte. Ltd.",
+  "LP_ShortName": "Singapore Power",
+  "Country": "Singapore",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Skio01",
+  "LP_Name": "Skion Water GmbH",
+  "LP_ShortName": "Skion",
+  "Country": "Germany",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "SKTI01",
+  "LP_Name": "SK Technology Innovation Company",
+  "LP_ShortName": "SKTIC",
+  "Country": "Cayman Islands",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Stic01",
+  "LP_Name": "Stichting Custody Robeco Master Clean Tech II (EUR)",
+  "LP_ShortName": "Stichting custody Robeco (EUR)",
+  "Country": "Netherlands",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Stic02",
+  "LP_Name": "Stichting Custody Robeco Master Clean Tech II (USD)",
+  "LP_ShortName": "Stichting custody Robeco (USD)",
+  "Country": "Netherlands",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Stih01",
+  "LP_Name": "STIHL Digital GmbH",
+  "LP_ShortName": "Stihl",
+  "Country": "Germany",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Sulz01",
+  "LP_Name": "Sulzer Ltd.",
+  "LP_ShortName": "Sulzer",
+  "Country": "Switzerland",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Sunc01",
+  "LP_Name": "Suncor Energy Inc.",
+  "LP_ShortName": "Suncor Energy Inc.",
+  "Country": "Canada",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Tema01",
+  "LP_Name": "Birchtree Fund Investments Private Limited",
+  "LP_ShortName": "Temasek",
+  "Country": "Singapore",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Tupr01",
+  "LP_Name": "Tupras, Turkiye Petrol Rafinerileri A.S.",
+  "LP_ShortName": "Tupras",
+  "Country": "Turkey",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Unil01",
+  "LP_Name": "Unilever Swiss Holdings AG",
+  "LP_ShortName": "Unilever",
+  "Country": "Switzerland",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "VKR01",
+  "LP_Name": "VKR Holding A\/S ",
+  "LP_ShortName": "VKR",
+  "Country": "Denmark",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Volk01",
+  "LP_Name": "Volkart Foundation",
+  "LP_ShortName": "Volkart",
+  "Country": "Switzerland",
+  "Type": "Institutional",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Volv01",
+  "LP_Name": "Volvo Group Venture Capital",
+  "LP_ShortName": "Volvo",
+  "Country": "Sweden",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+ },
+ },
+ {
+  "LP_ID": "Wast01",
+  "LP_Name": "WM Organic Growth, Inc.",
+  "LP_ShortName": "Waste Management",
+  "Country": "United States",
+  "Type": "Corporate",
+  "TotalCapital": 500000,
+  "Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+	},
+ },
+ {
+	"LP_ID": "Brun02",
+    "LP_Name": "Mr Hans R Zulliger",
+	"LP_ShortName": "Zulliger Mr"
+    "Country": "Switzerland",
+    "Type": "Individual",
+	"TotalCapital": 500000,
+	"Capital": {
+	  "Invested": 550000,
+	  "ReservedForFees": 1250000,
+	  "FollowOns": 550000,
+	  "Unlocated": 2650000
+	},
+  },
+]
