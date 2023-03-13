@@ -60,7 +60,7 @@ export const Topbar = () => {
 
     return <AppBar position="absolute" className={classes.appBar}
                    sx={{backgroundColor: theme.palette.background.paper, color: theme.palette.text.primary, height:'50px', display:'flex', justifyContent:'center'}}>
-        <Toolbar sx={{minHeight:'50px'}}>
+        <Toolbar sx={{height:'50px'}}>
             <Grid container sx={{
                 display: 'flex',
                 flexDirection: 'row',

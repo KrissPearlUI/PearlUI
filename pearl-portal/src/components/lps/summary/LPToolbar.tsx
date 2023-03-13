@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import { useSelector} from 'react-redux';
-import {Autocomplete,AutocompleteRenderInputParams,capitalize, Grid, IconButton, InputAdornment,TextField, useTheme} from '@mui/material';
-import CancelIcon from '@mui/icons-material/Cancel';
+import {Autocomplete,AutocompleteRenderInputParams,capitalize, Grid, IconButton, InputAdornment,TextField, Theme, useTheme} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
 import {RootState} from '../../../redux/slices/rootSlice';
 import createStyles from '@mui/styles/createStyles';
@@ -12,90 +12,186 @@ import { useAppDispatch } from '../../../redux/store';
 import { Fund } from '../../../models/lps/lpModels';
 import ExportButton from '../../shared/ExportButton';
 import AddButton from '../../shared/AddButton';
+import { FundSummary } from '../../../models/funds/fundModels';
+import { PCOSummary } from '../../../models/pcos/pcoModels';
 
-const useStyles = makeStyles(() =>
-    createStyles({
-        root: {
-            display: 'flex',
-            flexDirection: 'column',
-            flex: 1,
+const autocompleteInputStyles = makeStyles((theme: Theme) => ({
+    autocomplete: {
+        'borderRadius': 5,
+        'backgroundColor': theme.palette.background.paper,
+        '& input::placeholder': {
+            color: theme.palette.text.primary
         },
-        fill: {
-            flex: 1,
-            width: '100%',
-            height: '100%'
-        },
-        searchBox: {
-            width: '320px',
-            marginRight: '1em'
+        '& .Mui-disabled': {
+            color: theme.palette.text.primary,
+            opacity: 0.8
         }
-    })
-);
+    },
+    textInput: {
+        'color': theme.palette.text.primary,
+        'fontWeight': 800,
+        'fontFamily': 'Raleway',
+        /* 'height': '2.5em', */
+        'fontSize': 10,
+        '& .MuiIconButton-label': {
+            color: theme.palette.text.primary
+        }
+    },
+    clearIndicator: {
+        color: theme.palette.text.primary
+    }
+}));
 
-const LPToolbar = () => {
+const useStyles = makeStyles((theme: Theme) => ({
+    searchBox: {
+        width: '320px',
+        marginRight: '1em',
+        backgroundColor: theme.palette.background.paper,
+        color: theme.palette.text.primary,
+        fontFamily: 'Raleway',
+        borderRadius: 5,
+    },
+    inputRoot: {
+        'borderRadius': 5,
+        'backgroundColor': theme.palette.background.paper,
+/*         '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'black'
+        },*/
+        '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: theme.palette.primary.main
+        },
+      /*  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'black'
+        }, */
+        '& .MuiChip-root': {
+            color: theme.palette.text.primary,
+            backgroundColor: theme.palette.background.paper,
+            borderRadius: 5
+        },
+        '& .MuiChip-deleteIconSmall': {
+            color: theme.palette.text.primary
+        }
+    },
+    option: {
+        'background': theme.palette.background.paper,
+        '&:hover': {
+            color: theme.palette.primary.main,
+            fontWeight: 400,
+            fontFamily: 'Raleway'
+        },
+        '&[aria-selected="true"]': {
+            background: theme.palette.background.paper,
+            color: theme.palette.primary.main,
+            fontWeight: 700,
+            fontFamily: 'Raleway'
+        }
+    },
+    popupIndicator: {
+        '&.MuiIconButton-root': {
+            color: theme.palette.text.primary
+        }
+    },
+    clearIndicator: {
+        color: theme.palette.text.primary
+    },
+}));
+
+interface LPToolbarProps {
+    searchText: string | null;
+    funds:FundSummary[]|null;
+    pcos:PCOSummary[]|null;
+    selectedFundValue:FundSummary|null,
+    selectedPCOValue:PCOSummary|null,
+    searchTextValue:string|null,
+    onValueChange:(v:any)=>void,
+    onCancelClick:(v:any)=>void,
+    onFundChange:(v:any)=>void,
+    onPCOChange:(v:any)=>void,
+}
+
+const LPToolbar = ({searchText,
+    funds,
+    pcos,
+    selectedFundValue,
+    selectedPCOValue,
+    searchTextValue,
+    onValueChange,
+    onCancelClick,
+    onFundChange,
+    onPCOChange}:LPToolbarProps) => {
     const classes = useStyles();
+    const autocompleteInputClasses=autocompleteInputStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
-    const [selectedFundValue, setSelectedFundValue] = useState<Fund | null>(null);
-    const [value, setValue] = useState<string>('');
-    const [searchText, setSearchText] = useState<string | null>(null);
     const theme = useTheme();
-    const [funds,setFunds]=useState<Fund[]>([]);
 
-    const onValueChange = (event: any) => {
-        setValue(event.target.value);
-        onSearchBoxChange(event.target.value);
+/*     const onValueChange = (event: any) => {
+        setSearchTextVelue(event.target.value)
     };
 
     const onCancelClick = () => {
-        setValue('');
-        onSearchBoxChange('');
+        setSearchTextVelue('')
     };
 
     const onFundChange = (event: any) => {
         setSelectedFundValue(event);
     };
 
-    const onSearchBoxChange = useCallback((value: string) => {
-        setSearchText(value);
-    }, [selectedFundValue]);
+    const onPCOChange=(event:any)=>{
+        setSelectedPCOValue(event);
+    }; */
 
     return (
-        <Grid container spacing={2} sx={{display: 'flex', justifyContent: 'space-between', flexDirection:'row', alignItems:'center', marginBottom: '0.5em', width:'100%', overflow:'hidden'}}>
+        <Grid container spacing={2} sx={{display: 'flex', justifyContent: 'space-between', flexDirection:'row', alignItems:'center', marginBottom: '0.5em', width:'100%', overflow:'hidden', paddingTop:'0.1em'}}>
         <Grid container item xs={12} sm={12} md={6} lg={6}
               sx={{display: 'flex'}}>
                 <Autocomplete
+                id={'fundAutocomplete'}
                 popupIcon={<ExpandMoreIcon/>}
                 size={'small'}
                 autoHighlight={true}
                 autoSelect={true}
+                autoComplete={false}
+                classes={classes}
                 sx={{marginRight:'1em', width:'320px'}}
                 isOptionEqualToValue={(option, value) => option === value}
-                onChange={(e, value: Fund | null) => onFundChange(value)}
+                onChange={(e, value: FundSummary | null) => onFundChange(value)}
                 value={selectedFundValue ?? null}
                 options={funds ?? []}
-                getOptionLabel={(option: Fund) => option ? option.Name : ''}
+                getOptionLabel={(option: FundSummary) => option ? option.id : ''}
                 renderInput={(params: AutocompleteRenderInputParams) => {
+                    params.InputProps.className = autocompleteInputClasses.textInput;
                     return <TextField {...params} 
-                                    variant="outlined" required
-                                    placeholder='Select a fund'/>;
+                    className={autocompleteInputClasses.autocomplete}
+                                    variant="outlined" 
+                                    autoComplete="off"
+                                    type={'text'}
+                                    label='Select a fund'/>;
                 }}
                 />
                 <Autocomplete
                 popupIcon={<ExpandMoreIcon/>}
                 size={'small'}
+                id={'pcoAutocomplete'}
                 autoHighlight={true}
                 autoSelect={true}
-                sx={{width:'320px'}}
+                autoComplete={false}
+                classes={classes}
+                sx={{marginRight:'1em', width:'320px'}}
                 isOptionEqualToValue={(option, value) => option === value}
-                onChange={(e, value: Fund | null) => onFundChange(value)}
-                value={selectedFundValue ?? null}
-                options={funds ?? []}
-                getOptionLabel={(option: Fund) => option ? option.Name : ''}
+                onChange={(e, value: PCOSummary | null) => onPCOChange(value)}
+                value={selectedPCOValue ?? null}
+                options={pcos ?? []}
+                getOptionLabel={(option: PCOSummary) => option ? option.shortName : ''}
                 renderInput={(params: AutocompleteRenderInputParams) => {
+                    params.InputProps.className = autocompleteInputClasses.textInput;
                     return <TextField {...params} 
-                                    variant="outlined" required
-                                    placeholder='Select a PCO'/>;
+                    className={autocompleteInputClasses.autocomplete}
+                                    variant="outlined" 
+                                    autoComplete="off"
+                                    type={'text'}
+                                    label='Select a PCO'
+                                />;
                 }}
                 />
         </Grid>
@@ -108,14 +204,14 @@ const LPToolbar = () => {
                 placeholder="Search"
                 aria-label="search"
                 sx={{marginRight:'0.5em'}}
-                value={value}
+                value={searchTextValue}
                 onChange={onValueChange}
                 InputProps={{
                     startAdornment: <InputAdornment position="start"><SearchIcon
                         color="disabled"/></InputAdornment>,
-                    endAdornment: isValueEmpty(value) ? null :
+                    endAdornment: isValueEmpty(searchTextValue) ? null :
                         <InputAdornment position="end">
-                            <IconButton onClick={onCancelClick}><CancelIcon/></IconButton>
+                            <IconButton onClick={onCancelClick}><CloseIcon fontSize='small'/></IconButton>
                         </InputAdornment>,
                 }}
             />

@@ -12,11 +12,13 @@ import {
     cryptoNumberFormatter,
     customPriceFormatter,
     fiatNumberFormatter,
+    fiatNumberFormatterNoDecimals,
     formatMargin,
     formatPercentage,
     formatPrice
 } from './app';
 import {Theme} from '@mui/material/styles';
+import CustomTooltip from '../components/cellRenderers/CustomTooltipCellRenderer';
 
 /**
  * Sets the ag-grid theme based on the selected theme in the app
@@ -94,7 +96,7 @@ export const guidValueFormatter = (params: ValueFormatterParams) => {
  */
 export const quantityValueFormatter = (params: ValueFormatterParams) => {
     if (params.value) {
-        return cryptoNumberFormatter.format(params.value);
+        return fiatNumberFormatterNoDecimals.format(params.value);
     }
     return params.value;
 };
@@ -253,7 +255,10 @@ export const DefaultSideBarDef: SideBarDef = {
  * Setting ag-grid default column definitions
  */
 export const DefaultColumnDef = {
-    sortable: true,
-    resizable: true,
     filter: true,
+    resizable: true,
+    sortable: true,
+    display: 'flex',
+    flex: 1,
+    tooltipComponent: CustomTooltip
 };

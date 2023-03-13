@@ -1,52 +1,59 @@
 export interface LP {
-  LP_ID: string,
-  LP_Name: string,
-  LP_ShortName: string,
-  Country?: string,
-  LP_Type?: string,
-  TotalCommitment: number,
-  Funds?:Fund[],
-  PCOs?:PCO[],
-  CapitalInvested?:number,
-  CapitalDistributed?:number,
-  Reserved?:number,
-  TappedOut?:boolean
+    id: string,
+    name: string,
+    shortName: string,
+    country?: string,
+    type?: string,
+    totalCommitments: number,
+    funds?:Fund[],
+    pcos?:PCO[],
+    totalInvestments?:number,
+    totalDistributions?:number,
+    reservesFees?:number,
+    tappedOot?:boolean
 }
 
 export interface LPFundsOverview {
-    LP_ID: string,
-    LP_ShortName: string,
-    TotalCommitment: number,
-    Commitments?:Commitment
+    id: string,
+    shortName: string,
+    name: string,
+    committedAmount?:number,
+    fundCurrency:string,
+    participationPercentage?: number,
   }
 
 export interface Fund {
-    Fund_ID: string,
-    Name: string,
-    CommittedAmmount: number,
+    id: string,
+    fundName: string,
+    committedAmount?: number,
+    amountInvested?: number,
+    fundCurrency:string
 }
 
 export interface PCO {
-    PCO_ID: string,
-    ParticipationPercentage: number,
-    PCO_ShortName: string,
+    id: string,
+    participationPercentage?: number,
+    shortName: string,
+    amountInvested?: number,
+    localCurrency?:string,
+    fundCurrency?:string
 }
 
 export interface Commitment {
-    Invested: number,
-    ReservedForFees: number,
-    FollowOns: number,
-    Unlocated: number,
+    invested: number,
+    reservedForFees: number,
+    followOns: number,
+    unlocated: number,
 }
 
 export interface Distribution {
-    RecyclingReserveDistributions: number,
-    NonRecallableDistributions: number,
-    CarriedInterestClawbackAccount: number,
-    CarriedInterestGP: number,
+    recyclingReserveDistributions: number,
+    nonRecallableDistributions: number,
+    carriedInterestClawbackAccount: number,
+    carriedInterestGP: number,
 }
 
 export interface Reserves {
-    ManagementFee: number,
-    OperationalExpenses: number,
+    managementFee: number,
+    operationalExpenses: number,
 }

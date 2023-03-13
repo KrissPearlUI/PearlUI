@@ -15,7 +15,8 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             flex: 1,
             paddingLeft:'0.2em',
-            paddingRight:'0.2em'
+            paddingRight:'0.2em',
+            marginTop:'0.5em'
         },
     }),
 );
@@ -30,7 +31,7 @@ const LPsOverview = () => {
      * Sets the title for the page in the topBar component
      */
     useEffect(() => {
-        dispatch(setTopBarTitle("Funds Overview"));
+        dispatch(setTopBarTitle("Limited Partners Overview"));
     }, [dispatch])
 
     return (

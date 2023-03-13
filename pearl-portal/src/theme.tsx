@@ -20,10 +20,10 @@ export const lightTheme = createTheme({
             main: '#1B4357',
         },
         secondary: {
-            main: '#181d1f'
+            main: '#25607E'
         },
         success: {
-            main: 'rgba(19, 219, 75, 0.2)'
+            main: '#008000'
         },
         warning: {
             main: '#FF9826'
@@ -98,10 +98,10 @@ export const darkTheme = createTheme({
             main: '#008000',
         },
         secondary: {
-            main: '#fc851e'
+            main: '#80C080'
         },
         success: {
-            main: '#00B10A'
+            main: '#008000'
         },
         warning: {
             main: '#FF9826'

@@ -6,6 +6,7 @@ import {RootState} from "./redux/slices/rootSlice";
 import {Theme, ThemeProvider} from "@mui/material";
 import MainPage from "./pages/main/MainPage";
 import FadeIn from "react-fade-in";
+import 'ag-grid-enterprise';
 
 const App = () => {
   const {isDarkTheme} = useSelector((state: RootState) => state.app);

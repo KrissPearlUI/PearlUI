@@ -5,6 +5,7 @@ import { setTopBarTitle } from '../../redux/slices/appSlice';
 import { useAppDispatch } from '../../redux/store';
 import {Theme} from "@mui/material";
 import {createStyles,makeStyles} from '@mui/styles';
+import LPChartComponent from '../../components/landing/LPChart';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -15,9 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
             alignContent: 'center',
         },
         summary: {
-            display: 'flex',
-            flexDirection: 'column',
-            minHeight: '36em',
+            flex:1
         },
     }),
 );
@@ -40,6 +39,7 @@ const LoaderPage = () => {
                 <Grid item xs={6} md={6} lg={6} className={classes.summary}>
                    <Paper elevation={3} style={{marginBottom: '1em'}}>
                    <Grid item container className={classes.chart}>
+                    <LPChartComponent/>
                     </Grid>
                    </Paper>
                 </Grid>

@@ -11,183 +11,212 @@
     "totalDistributions": 5715050.425820799,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000,"fundCurrency":"EUR"},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
 		"id": "Actn01",
 		"shortName": "Actnano",
 		"participationPercentage": 0.040671923,
-		"amountInvested": 174585.06406536
+		"amountInvested": 174585.06406536,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Agan01",
 		"shortName": "Aganova",
 		"participationPercentage": 0.024436522,
-		"amountInvested": 25042.77671581114
+		"amountInvested": 25042.77671581114,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Alph01",
 		"shortName": "Alphaics",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 95577.725082747
+		"amountInvested": 95577.725082747,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Elco01",
 		"shortName": "Elcomax",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 347546.2484701484
+		"amountInvested": 347546.2484701484,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Ensp01",
 		"shortName": "Enspired",
 		"participationPercentage": 0.037019444,
-		"amountInvested": 101803.471
+		"amountInvested": 101803.471,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Fido01",
 		"shortName": "FIDO",
 		"participationPercentage": 0.02930225,
-		"amountInvested": 347546.2484701484
+		"amountInvested": 347546.2484701484,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Futu01",
 		"shortName": "Future Meat",
 		"participationPercentage": 0.044642857,
-		"amountInvested": 119321.5813145995
+		"amountInvested": 119321.5813145995,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "GeoD01",
 		"shortName": "GeoDigital",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 341451.8880924857
+		"amountInvested": 341451.8880924857,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Hydr01",
 		"shortName": "Hydropoint",
 		"participationPercentage": 0.069444444,
-	    "amountInvested": 215187.5069561333
+	    "amountInvested": 215187.5069561333,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Imag01",
 		"shortName": "Imagindairy",
 		"participationPercentage": 0.034770914,
-		"amountInvested": 46427.97036062426
+		"amountInvested": 46427.97036062426,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Libr01",
 		"shortName": "Librestream",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 433153.7965333712
+		"amountInvested": 433153.7965333712,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Meea01",
 		"shortName": "Meeat",
 		"participationPercentage": 0.03127154,
-		"amountInvested": 78147.57846
+		"amountInvested": 78147.57846,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "MetG01",
 		"shortName": "MetGen",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 76389.80645554968
+		"amountInvested": 76389.80645554968,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Open01",
 		"shortName": "Open Mineral",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 418604.51120982
+		"amountInvested": 418604.51120982,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Opti01",
 		"shortName": "Optimatics",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 226075.7402197819
+		"amountInvested": 226075.7402197819,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "P9701",
 		"shortName": "P97",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 459045.928312106
+		"amountInvested": 459045.928312106,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Phas01",
 		"shortName": "Phase Change",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 398788.1884199778
+		"amountInvested": 398788.1884199778,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Powe02",
 		"shortName": "Powerhouse Dynamics",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 190290.426559919
+		"amountInvested": 190290.426559919,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Rhom01",
 		"shortName": "Rhombus",
 		"participationPercentage": 0.040823601,
-		"amountInvested": 228793.3840142551
+		"amountInvested": 228793.3840142551,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Secu01",
 		"shortName": "SecurityMatters",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 131208.2727713782
+		"amountInvested": 131208.2727713782,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Sewe01",
 		"shortName": "SewerAI",
 		"participationPercentage": 0.033280881,
-		"amountInvested": 130123.9691152179
+		"amountInvested": 130123.9691152179,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Skyl01",
 		"shortName": "Skylark",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 0
+		"amountInvested": 0,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Sofi01",
 		"shortName": "Sofi Filatration",
 		"participationPercentage": 0.040823601,
-		"amountInvested": 123279.7104067347
+		"amountInvested": 123279.7104067347,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Spea01",
 		"shortName": "Spear Power Systems",
 		"participationPercentage": 0.049019608,
-		"amountInvested": 325745.9128070928
+		"amountInvested": 325745.9128070928,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Trop01",
 		"shortName": "Tropic Biosciences",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 244386.4213525936
+		"amountInvested": 244386.4213525936,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Urge01",
 		"shortName": "Urgently",
 		"participationPercentage": 0.044856094,
-		"amountInvested": 338816.6573761348
+		"amountInvested": 338816.6573761348,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Ushr01",
 		"shortName": "Ushr",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 126741.179744412
+		"amountInvested": 126741.179744412,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Vise01",
 		"shortName": "Visedo",
 		"participationPercentage": 0.069444444,
-		"amountInvested": 173611.2988888877
+		"amountInvested": 173611.2988888877,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Xfar01",
 		"shortName": "xFarm",
 		"participationPercentage": 0.02930225,
-		"amountInvested": 88707.9124869925
+		"amountInvested": 88707.9124869925,
+		"localCurrency":"EUR"
 	  }
 	]
   },
@@ -203,86 +232,99 @@
     "totalDistributions": 1169477.8200001,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
 		"id": "Actn01",
 		"shortName": "Actnano",
 		"participationPercentage": 0.038823616,
-		"amountInvested": 166651.1683406003
+		"amountInvested": 166651.1683406003,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Agan01",
 		"shortName": "Aganova",
 		"participationPercentage": 0.024436522,
-		"amountInvested": 25042.77671581114
+		"amountInvested": 25042.77671581114,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Alph01",
 		"shortName": "Alphaics",
 		"participationPercentage": 0.142857143,
-		"amountInvested": 221796.5116503679
+		"amountInvested": 221796.5116503679,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Ensp01",
 		"shortName": "Enspired",
 		"participationPercentage": 0.036338889,
-		"amountInvested": 99931.94475
+		"amountInvested": 99931.94475,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Fido01",
 		"shortName": "FIDO",
 		"participationPercentage": 0.028537869,
-		"amountInvested": 228314.7295785363
+		"amountInvested": 228314.7295785363,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Futu01",
 		"shortName": "Future Meat",
 		"participationPercentage": 0.044642857,
-		"amountInvested": 119321.5813145995
+		"amountInvested": 119321.5813145995,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Hydr01",
 		"shortName": "Hydropoint",
 		"participationPercentage": 0.111111111,
-		"amountInvested": 511410.5272663673
+		"amountInvested": 511410.5272663673,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Imag01",
 		"shortName": "Imagindairy",
 		"participationPercentage": 0.034596025,
-		"amountInvested": 46194.44928296725
+		"amountInvested": 46194.44928296725,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Meea01",
 		"shortName": "Meeat",
 		"participationPercentage": 0.030187623,
-		"amountInvested": 75438.869877
+		"amountInvested": 75438.869877,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Open01",
 		"shortName": "Open Mineral",
 		"participationPercentage": 0.090909091,
-		"amountInvested": 547991.364184355
+		"amountInvested": 547991.364184355,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Phas01",
 		"shortName": "Phase Change",
 		"participationPercentage": 0.083333333,
-		"amountInvested": 478545.8272524834
+		"amountInvested": 478545.8272524834,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Rhom01",
 		"shortName": "Rhombus",
 		"participationPercentage": 0.038800807,
-		"amountInvested": 217456.7583103214
+		"amountInvested": 217456.7583103214,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Sewe01",
 		"shortName": "SewerAI",
 		"participationPercentage": 0.032127318,
-		"amountInvested": 125613.6859834565
+		"amountInvested": 125613.6859834565,
+		"localCurrency":"EUR"
 	  },
 	  {
 		"id": "Skyl01",
@@ -334,7 +376,7 @@
     "totalDistributions": 2409341.425057001,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -477,8 +519,8 @@
     "totalDistributions": 649251.83,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000},
-	  {"id":"ESPIF", "fundName":"Emerald Sustainable Packaging Innovation Fund", "committedAmount": 5000000}
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"},
+	  {"id":"ESPIF", "fundName":"Emerald Sustainable Packaging Innovation Fund", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -561,7 +603,7 @@
     "totalDistributions": 2506538.53512,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 10000000}
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 10000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -692,8 +734,8 @@
     "totalDistributions": 5689906.835659199,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000, "fundCurrency":"EUR"},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -878,13 +920,13 @@
     "totalDistributions": 1396060.80645418,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"ECFII", "fundName":"Emerald Cleantech Fund II", "committedAmount": 750000},
-	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 1000000},
-	  {"id":"EGETF", "fundName":"Emerald Global Energy Transformation Fund", "committedAmount": 500000},
-	  {"id":"EGWIF", "fundName":"Emerald Global Water Impact Fund", "committedAmount": 1000000},
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 1000000},
-	  {"id":"EIIFI", "fundName":"Emerald Industrial Innovation Fund (Ireland)", "committedAmount": 500000},
-	  {"id":"ESPIF", "fundName":"Emerald Sustainable Packaging Innovation Fund", "committedAmount": 500000}
+	  {"id":"ECFII", "fundName":"Emerald Cleantech Fund II", "committedAmount": 750000,"fundCurrency":"EUR"},
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 1000000,"fundCurrency":"EUR"},
+	  {"id":"EGETF", "fundName":"Emerald Global Energy Transformation Fund", "committedAmount": 500000,"fundCurrency":"EUR"},
+	  {"id":"EGWIF", "fundName":"Emerald Global Water Impact Fund", "committedAmount": 1000000,"fundCurrency":"USD"},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 1000000,"fundCurrency":"EUR"},
+	  {"id":"EIIFI", "fundName":"Emerald Industrial Innovation Fund (Ireland)", "committedAmount": 500000,"fundCurrency":"EUR"},
+	  {"id":"ESPIF", "fundName":"Emerald Sustainable Packaging Innovation Fund", "committedAmount": 500000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -1207,7 +1249,7 @@
     "totalDistributions": 129850.33,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 1000000}
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 1000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -1284,7 +1326,7 @@
     "totalDistributions": 2744436.13454,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000}
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -1391,7 +1433,7 @@
     "totalDistributions": 1169477.82,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -1486,8 +1528,8 @@
     "totalDistributions": 2409341.425057001,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000},
-	  {"id":"ESPIF", "fundName":"Emerald Sustainable Packaging Innovation Fund", "committedAmount": 5000000}
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"},
+	  {"id":"ESPIF", "fundName":"Emerald Sustainable Packaging Innovation Fund", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -1630,7 +1672,7 @@
     "totalDistributions": 1169477.82,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -1744,7 +1786,7 @@
 	"tappedOot": false,
 	"funds":[
 	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -1929,8 +1971,8 @@
     "totalDistributions": 5689768.035659998,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000,"fundCurrency":"EUR"},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -2115,8 +2157,8 @@
     "totalDistributions": 6231054.665659399,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000,"fundCurrency":"EUR"},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -2301,7 +2343,7 @@
     "totalDistributions": 1298503.66,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 10000000}
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 10000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -2415,7 +2457,7 @@
 	"tappedOot": false,
 	"funds":[
 	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -2558,8 +2600,8 @@
     "totalDistributions": 5689799.315659499,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000,"fundCurrency":"EUR"},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -2744,10 +2786,10 @@
     "totalDistributions": 10848095.7733547,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"ECFII", "fundName":"Emerald Cleantech Fund II", "committedAmount": 5000000},
-	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000},
-	  {"id":"EEF", "fundName":"Emerald Energy Fund I", "committedAmount": 5000000},
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000}
+	  {"id":"ECFII", "fundName":"Emerald Cleantech Fund II", "committedAmount": 5000000,"fundCurrency":"EUR"},
+	  {"id":"ECFIII", "fundName":"Emerald Cleantech Fund III", "committedAmount": 5000000,"fundCurrency":"EUR"},
+	  {"id":"EEF", "fundName":"Emerald Energy Fund I", "committedAmount": 5000000,"fundCurrency":"EUR"},
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {
@@ -3124,8 +3166,8 @@
     "totalDistributions": 2409341.425057001,
 	"tappedOot": false,
 	"funds":[
-	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000},
-	  {"id":"ESPIF", "fundName":"Emerald Sustainable Packaging Innovation Fund", "committedAmount": 5000000}
+	  {"id":"EIIF", "fundName":"Emerald Industrial Innovation Fund (Guernsey)", "committedAmount": 5000000,"fundCurrency":"EUR"},
+	  {"id":"ESPIF", "fundName":"Emerald Sustainable Packaging Innovation Fund", "committedAmount": 5000000,"fundCurrency":"EUR"}
 	],
 	"pcos":[
 	  {

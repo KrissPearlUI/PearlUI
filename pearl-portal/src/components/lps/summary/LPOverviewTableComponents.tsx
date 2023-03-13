@@ -30,6 +30,12 @@ import ExportButton from '../../shared/ExportButton';
 import LPToolbar from './LPToolbar';
 import { setLPs } from '../../../redux/slices/lps/lpsSlice';
 import { fetchLPs } from '../../../redux/thunks/lpThunk';
+import { FundSummary } from '../../../models/funds/fundModels';
+import { fetchFunds } from '../../../redux/thunks/fundThunk';
+import { PCOSummary } from '../../../models/pcos/pcoModels';
+import { fetchPCOs } from '../../../redux/thunks/pcoThunk';
+import CustomTooltip from '../../cellRenderers/CustomTooltipCellRenderer';
+
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -38,7 +44,7 @@ const useStyles = makeStyles(() =>
             flexDirection: 'column',
             flex: 1,
             padding: '0.2em',
-            overflow:'hidden'
+            overflow:'hidden',
         },
         fill: {
             flex: 1,
@@ -60,14 +66,19 @@ const LPOverviewTable = () => {
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const {lps} = useSelector((state: RootState) => state.lps);
-    const [selectedFundValue, setSelectedFundValue] = useState<Fund | null>(null);
+    const {funds} = useSelector((state: RootState) => state.funds);
+    const {pcos} = useSelector((state: RootState) => state.pcos);
     const [gridApi, setGridApi] = useState<GridApi>();
     const [value, setValue] = useState<string>('');
     const [hasError, setHasError] = useState(false);
     const [searchText, setSearchText] = useState<string | null>(null);
     const theme = useTheme();
-    const [funds,setFunds]=useState<Fund[]>([]);
+    const [allFunds,setAllFunds]=useState<FundSummary[]|null>([]);
+    const [allPCOs,setAllPCOs]=useState<PCOSummary[]|null>([]);
     const [rowData,setRowData]=useState<LP[]>([]);
+    const [selectedFundValue, setSelectedFundValue] = useState<FundSummary | null>(null);
+    const [selectedPCOValue, setSelectedPCOValue] = useState<PCOSummary | null>(null);
+    const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
 
     const gridOptions: GridOptions = {
         defaultColDef: DefaultColumnDef,
@@ -75,7 +86,6 @@ const LPOverviewTable = () => {
         enableRangeSelection: true,
         animateRows: true,
         pagination: true,
-        paginationPageSize: 20,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         sideBar: DefaultSideBarDef,
@@ -87,50 +97,49 @@ const LPOverviewTable = () => {
             {
                 headerName: 'Short',
                 field: 'shortName',
-                minWidth: 120,
-                maxWidth: 200,
+                minWidth: 115,
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.shortName;
                 },
                 valueSetter: (params) => valueSetter(params, 'shortName'),
-               // valueFormatter: dateValueFormatter,
-                cellStyle: {color: theme.palette.text.primary}
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
                 headerName: 'Name',
                 field: 'name',
                 suppressFiltersToolPanel: true,
                 minWidth: 120,
-                maxWidth: 200,
-                //valueFormatter: timeValueFormatter,
-                cellStyle: {color: theme.palette.text.primary}
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
                 headerName: 'Headquarters',
                 field:'country',
                 enableRowGroup: true,
-                minWidth: 160,
-                maxWidth: 190,
+                minWidth: 110,
+                maxWidth:140,
                 valueGetter: (params) => {
                     return params.data?.country ? capitalize(params.data?.country.toString()) : '';
                 },
                 valueSetter: (params) => valueSetter(params, 'country'),
-                cellStyle: {color: theme.palette.text.primary}
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
                 headerName: 'Total Commitments',
                 field: 'totalCommitments',
                 enableRowGroup: true,
                 minWidth: 220,
-                maxWidth: 230,
-                cellStyle: {color: theme.palette.text.primary}
+                type: 'numericColumn',
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                valueFormatter: quantityValueFormatter,
             },
             {
                 headerName: 'Funds',
                 field: 'funds',
-                minWidth: 100,
-                maxWidth: 110,
+                minWidth: 90,
+                maxWidth:100,
+                tooltipField: 'funds',
+                tooltipComponentParams: {type: 'funds'},
                 enableRowGroup: true,
                 valueGetter: (params: ValueGetterParams) => {
                     if (params?.data?.funds) {
@@ -139,13 +148,15 @@ const LPOverviewTable = () => {
                     else 
                         return 0;
                 },
-                cellStyle: {color: theme.palette.text.primary}
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
                 headerName: 'Active PCOs',
                 field: 'pcos',
                 minWidth: 100,
-                maxWidth: 110,
+                maxWidth:140,
+                tooltipField: 'pcos',
+                tooltipComponentParams: {type: 'pcos'},
                 enableRowGroup: true,
                 valueGetter: (params: ValueGetterParams) => {
                     if (params?.data?.pcos) {
@@ -154,13 +165,13 @@ const LPOverviewTable = () => {
                     else 
                         return 0;
                 },
-                cellStyle: {color: theme.palette.text.primary}
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
-            {
+             {
                 headerName: 'Type',
                 field: 'type',
                 minWidth: 100,
-                maxWidth: 110,
+                maxWidth:150,
                 enableRowGroup: true,
                 valueGetter: (params: ValueGetterParams) => {
                     if (params.data.type) {
@@ -169,25 +180,26 @@ const LPOverviewTable = () => {
                     else 
                         return '';
                 },
-                cellStyle: {color: theme.palette.text.primary}
-            },
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+            }, 
             {
                 headerName: 'Capital Invested',
                 field: 'totalInvestments',
                 minWidth: 80,
-                maxWidth: 90,
                 type: 'numericColumn',
                 enableRowGroup: true,
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                valueFormatter: quantityValueFormatter,
             },
             {
                 headerName: 'Reserved',
                 field: 'reservesFees',
                 enableRowGroup: true,
                 minWidth: 185,
-                maxWidth: 190,
                 filter: 'agMultiColumnFilter',
                 type: 'numericColumn',
-                cellStyle: {color: theme.palette.text.primary}
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                valueFormatter: quantityValueFormatter,
             },
             {
                 headerName: 'Capital Distributed',
@@ -207,30 +219,99 @@ const LPOverviewTable = () => {
                 },
                 suppressFiltersToolPanel: true,
                 minWidth: 110,
+                maxWidth: 130,
                 enableRowGroup: true,
-                cellStyle: {color: theme.palette.text.primary}
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             }
         ];
     }, [theme]);
 
+    const onValueChange =  useCallback((event: any) => {
+        setSearchTextValue(event.target.value)
+        if(gridApi){
+            gridApi.setQuickFilter(event.target.value);
+        }
+    },[gridApi]);
 
-    const onValueChange = (event: any) => {
-        setValue(event.target.value);
-        onSearchBoxChange(event.target.value);
-    };
-
-    const onCancelClick = () => {
-        setValue('');
-        onSearchBoxChange('');
-    };
+    const onCancelClick = useCallback(() => {
+        setSearchTextValue('');
+        if(gridApi){
+            gridApi.setQuickFilter('');
+        }
+    },[gridApi]);
 
     const onFundChange = (event: any) => {
         setSelectedFundValue(event);
+        let result=lps;
+        if(event){
+            result = lps
+            .map(item => ({
+                ...item,
+                funds: item.funds?.filter(child => child.id===event.id)??[]
+            }))
+            .filter(item => item?.funds?.length > 0);
+
+            if(selectedPCOValue && !searchTextValue){
+                result=result.map(item => ({
+                    ...item,
+                    pcos: item.pcos?.filter(child => child.id===selectedPCOValue.id)??[]
+                    }))
+                    .filter(item => item?.pcos?.length > 0);
+            } else if(searchTextValue&&!selectedPCOValue){
+                setRowData(result);
+                gridApi?.setQuickFilter(searchTextValue);
+            } else if(selectedPCOValue && searchTextValue){
+                result=result.map(item => ({
+                    ...item,
+                    pcos: item.pcos?.filter(child => child.id===selectedPCOValue.id)??[]
+                    }))
+                    .filter(item => item?.pcos?.length > 0);
+                    setRowData(result);
+                gridApi?.setQuickFilter(searchTextValue);
+            }
+            else{
+                setRowData(result);
+            }
+        } else{
+            setRowData(result);
+        }
     };
 
-    const onSearchBoxChange = useCallback((value: string) => {
-        setSearchText(value);
-    }, [selectedFundValue]);
+    const onPCOChange=(event:any)=>{
+        setSelectedPCOValue(event);
+        let result = lps;
+        if(event){
+            result=result.map(item => ({
+                ...item,
+                pcos: item.pcos?.filter(child => child.id===event.id)??[]
+            }))
+            .filter(item => item?.pcos?.length > 0);
+
+            if(selectedFundValue && !searchTextValue){
+                result=result.map(item => ({
+                    ...item,
+                    funds: item.funds?.filter(child => child.id===selectedFundValue.id)??[]
+                    }))
+                    .filter(item => item?.funds?.length > 0);
+            } else if(searchTextValue&&!selectedFundValue){
+                setRowData(result);
+                gridApi?.setQuickFilter(searchTextValue);
+            } else if(selectedFundValue && searchTextValue){
+                result=result.map(item => ({
+                    ...item,
+                    funds: item.funds?.filter(child => child.id===selectedFundValue.id)??[]
+                    }))
+                    .filter(item => item?.funds?.length > 0);
+                    setRowData(result);
+                gridApi?.setQuickFilter(searchTextValue);
+            }
+            else{
+                setRowData(result);
+            }
+        } else{
+            setRowData(result);
+        }
+    };
 
     const onGridReady = (params:GridReadyEvent) => {
         setGridApi(params?.api);
@@ -257,8 +338,46 @@ const LPOverviewTable = () => {
         };
     }, []);
 
+   /*  const autoGroupColumnDef = useMemo<ColDef>(() => {
+        return {
+          minWidth: 300,
+          cellRendererParams: {
+            footerValueGetter: (params: any) => {
+              const isRootLevel = params.node.level === -1;
+              if (isRootLevel) {
+                return 'Total';
+              }
+              else
+               return `Sub Total (${params.value})`;
+            },
+          },
+        };
+      }, []);
+
+      const createData: (count: number, gridApi:GridApi|null) => any[] = (
+        count: number,
+      ) => {
+        var result: any[] = [];
+        for (var i = 0; i < count; i++) {
+          result.push({
+            short: 'Total',
+            name: gridApi?gridApi.paginationGetRowCount():0,
+            totalCommitments: count,
+            totalInvestments:count,
+            reservesFees:count,
+          });
+        }
+        return result;
+      };
+
+      const pinnedBottomRowData = useMemo<any[]>(() => {
+        return createData(1, gridApi??null);
+      }, [gridApi]);
+ */
     useEffect(()=>{
         dispatch(fetchLPs());
+        dispatch(fetchFunds());
+        dispatch(fetchPCOs());
     },[dispatch])
 
     useEffect(()=>{
@@ -266,9 +385,29 @@ const LPOverviewTable = () => {
         setRowData(lps);
     },[lps])
 
+     useEffect(()=>{
+        console.log(funds);
+        setAllFunds(funds);
+    },[funds]) 
+
+    useEffect(()=>{
+        console.log(pcos);
+        setAllPCOs(pcos);
+    },[pcos]) 
+
     return (
         <Grid container className={classes.root}>
-            <LPToolbar/>
+            <LPToolbar searchText={searchText}
+            funds={allFunds}
+            pcos={allPCOs}
+            selectedFundValue={selectedFundValue}
+            selectedPCOValue={selectedPCOValue}
+            searchTextValue={searchTextValue}
+            onValueChange={onValueChange}
+            onCancelClick={onCancelClick}
+            onFundChange={onFundChange}
+            onPCOChange={onPCOChange}
+            />
             <div className={clsx(getGridTheme(isDarkTheme), classes.fill)}>
                 <AgGridReact gridOptions={gridOptions}
                             columnDefs={getColumnDefs}
@@ -276,6 +415,8 @@ const LPOverviewTable = () => {
                             onGridReady={onGridReady}
                             loadingOverlayComponentParams={loadingOverlayRendererParams}
                             loadingOverlayComponent={AGGridLoader}
+                            tooltipShowDelay={0}
+                            tooltipHideDelay={10000}
                             />
             </div>
                 {/* {downloadPDFErrorMessage && downloadPDFErrorMessage.length > 0 &&

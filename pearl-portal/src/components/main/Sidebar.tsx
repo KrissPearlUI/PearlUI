@@ -126,6 +126,7 @@ const SideBar = () => {
                             justifyContent: drawerOpen ? 'initial' : 'center',
                             backgroundColor:route.url===activePath ?'rgba(255, 255, 255, 0.6)': 'transparent',
                             px: 2.5,
+                            cursor:'pointer'
                         }}>
                         <ListItemIcon
                             sx={{
@@ -136,18 +137,18 @@ const SideBar = () => {
                             }}>
                             {
                                 index % 6 === 0 ? <Tooltip title={'Home'}><HomeIcon sx={{fontSize:'32px'}}/></Tooltip> : route.key==='LPs'?
-                                    <Tooltip title={"Ag Grid Solution Example"}>
+                                    <Tooltip title={"Limited Partners Overview"}>
                                        {/* <LPMenuIcon/> */}
                                         <LPIcon fill={'#F3F3F3'}/>
                                         </Tooltip> 
-                                        : route.key==='Funds'?<Tooltip title={"Ag Grid Solution Example"}>
+                                        : route.key==='Funds'?<Tooltip title={"Funds Overview"}>
                                         {/* <LPMenuIcon/> */}
                                          <FundsMenuIcon/>
                                          </Tooltip>
-                                         : route.key==='PCOs'? <Tooltip title={"Ag Grid Solution Example"}>
+                                         : route.key==='PCOs'? <Tooltip title={"Portfolio Companies Overview"}>
                                             <BusinessIcon sx={{fontSize:'32px'}}/>
                                           </Tooltip>
-                                          :<Tooltip title={"Ag Grid Solution Example"}>
+                                          :<Tooltip title={"Settings"}>
                                             <SettingsIcon sx={{fontSize:'32px'}}/>
                                            </Tooltip>
 

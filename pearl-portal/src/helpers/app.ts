@@ -68,7 +68,7 @@ export const fiatNumberFormatter = new Intl.NumberFormat(getBrowserLocale(), {
 /**
  * Fiat number formatter for valuation
  */
-export const fiatNumberFormatterValuation = new Intl.NumberFormat(getBrowserLocale());
+export const fiatNumberFormatterNoDecimals = new Intl.NumberFormat(getBrowserLocale());
 
 /**
  * Number formatter with maximum fraction digits of 4
