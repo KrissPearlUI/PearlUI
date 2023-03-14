@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme: Theme) =>
             flex: 1,
             paddingLeft:'0.2em',
             paddingRight:'0.2em',
-            marginTop:'0.5em'
         },
     }),
 );
