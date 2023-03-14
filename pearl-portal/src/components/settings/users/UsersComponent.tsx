@@ -1,6 +1,6 @@
-import {Avatar, Button, Divider, Grid,IconButton,Paper,Typography} from '@mui/material';
-import {darken, useTheme} from "@mui/material/styles";
-import { useEffect } from 'react';
+import {Avatar, Button, Checkbox, Divider, Grid,IconButton,Paper,Typography} from '@mui/material';
+import {darken, lighten, useTheme} from "@mui/material/styles";
+import { useEffect, useState } from 'react';
 import { setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
 import {Theme} from "@mui/material";
@@ -50,7 +50,15 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
       },
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.action.hover,
+      "&:hover":{
+        backgroundColor: theme.palette.mode==='light'?'rgba(37, 96, 126, 0.2)':'rgba(128, 192, 128,0.4)'
+      }
     },
+    '&:nth-of-type(even)': {
+        "&:hover":{
+          backgroundColor: theme.palette.mode==='light'?'rgba(37, 96, 126, 0.2)':'rgba(128, 192, 128,0.4)'
+        }
+      },
     // hide last border
     '&:last-child td, &:last-child th': {
       border: 0,
@@ -64,7 +72,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
         email: 'hans.dellenbach@emerald.vc',
         role: 'Admin',
         dateAdded: '05/10/2006', 
-        picURL:'../../hans.jpg'
+        picURL:'../../hansD.png'
         
     },
     {
@@ -122,7 +130,7 @@ const accountRows = [
         name:'Jessyca Wyss', 
         email: 'jessyca.wyss@emerald.vc',
         role: 'Viewer',
-        picURL:'../../jessyceW.jpg'  
+        picURL:'../../jessicaW.jpg'  
     },
     {
         id: '5',
@@ -152,15 +160,260 @@ const accountRows = [
         role: 'Viewer',
         picURL:'../../simoneR.jpg'  
     },
-    
+    {
+        id: '9',
+        name:'Maryam Asadi', 
+        email: 'maryam.asadi@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../maryamA.jpg'
+        
+    },
+    {
+        id: '10',
+        name:'Frank Balas', 
+        email: 'frank.balas@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../frankB.jpg'  
+    },
+    {
+        id: '11',
+        name:'Thierry Borner', 
+        email: 'thierry.borner@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../thierryB.png'  
+    },
+    {
+        id: '12',
+        name:'Neil Cameron', 
+        email: 'neil.cameron@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../neilC.jpg'  
+    },
+    {
+        id: '13',
+        name:'Graham Carey', 
+        email: 'graham.carey@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../grahamC.jpg'  
+    },
+    {
+        id: '14',
+        name:'Helge Daebel', 
+        email: 'helge.daebel@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../HelgeD.png'  
+    },
+    {
+        id: '15',
+        name:'Pollene Diente', 
+        email: 'pollene.diente@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../polleneD.jpg'  
+    },
+    {
+        id: '16',
+        name:'Julien Dillon', 
+        email: 'julien.dillon@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../julienD.png'  
+    },  
+    {
+        id: '17',
+        name:'Gina Domanig', 
+        email: 'gina.domanig@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../ginaD.png'  
+    },
+    {
+        id: '18',
+        name:'Nico Domanig', 
+        email: 'nico.domanig@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../nicoD.png'  
+    },
+    {
+        id: '19',
+        name:'Stacy Fiehler', 
+        email: 'stacy.fiehler@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../stacyF.jpg'  
+    },
+    {
+        id: '20',
+        name:'Christoph Frei', 
+        email: 'christoph.frei@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../christophF.jpg'  
+    },
+    {
+        id: '21',
+        name:'Anandhi Gokhale', 
+        email: 'anandhi.gokhale@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../anandhiG.png'
+        
+    },
+    {
+        id: '22',
+        name:'Philipp Hasler', 
+        email: 'philipp.hasler@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../philippH.jpg'  
+    },
+    {
+        id: '23',
+        name:'Emmi Kaipio', 
+        email: 'emmi.kaipio@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../EmmiK.png'  
+    },
+    {
+        id: '24',
+        name:'Kelven Lam', 
+        email: 'Kelven.lam@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../kelvenL.png'  
+    },
+    {
+        id: '25',
+        name:'Mariam Lapointe', 
+        email: 'mariam.lapointe@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../mariamL.jpg'  
+    },
+    {
+        id: '26',
+        name:'Martina Looser', 
+        email: 'martina.looser@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../martinaL.png'  
+    },
+    {
+        id: '27',
+        name:'Stephen Marcus', 
+        email: 'stephen.marcus@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../stephenM.jpg'  
+    },
+    {
+        id: '28',
+        name:'Heather McHugh', 
+        email: 'heather.mchugh@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../heatherM.png'  
+    },  
+    {
+        id: '29',
+        name:'Markus Moor', 
+        email: 'markus.moor@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../markusM.jpg'  
+    },
+    {
+        id: '30',
+        name:'Tetsuya Mori', 
+        email: 'tetsuya.mori@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../tetsuyaM.png'  
+    },
+    {
+        id: '31',
+        name:'Michal Natora', 
+        email: 'michal.natora@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../michalN.jpg'  
+    },
+    {
+        id: '32',
+        name:'Fredric Petit', 
+        email: 'fredric.petit@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../fredricP.jpg'  
+    },
+    {
+        id: '33',
+        name:'Michael Revensburg', 
+        email: 'michael.revensburg@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../michaelR.jpg'  
+    },
+    {
+        id: '34',
+        name:'Petra Rüegg', 
+        email: 'petra.ruegg@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../petraR.jpg'  
+    },
+    {
+        id: '35',
+        name:'Michèle Schneider', 
+        email: 'michele.schneider@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../micheleS.jpg'  
+    },  
+    {
+        id: '36',
+        name:'Jun Da Tan', 
+        email: 'jun.tan@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../jundaT.png'  
+    },
+    {
+        id: '37',
+        name:'Charles Vaslet', 
+        email: 'charles.vaslet@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../charlesV.png'  
+    },
+    {
+        id: '38',
+        name:'Mehran Zaker', 
+        email: 'mehran.zaker@emerald.vc',
+        role: 'Viewer',
+        picURL:'../../mehranZ.jpg'  
+    }
 ];
   
 const Users = () => {
     const classes=useStyles();
     const theme=useTheme();
     const dispatch = useAppDispatch();
+    const [selected, setSelected] = useState<readonly string[]>([]);
 
+
+    const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.checked) {
+          const newSelected = accountRows.map((n) => n.id);
+          setSelected(newSelected);
+          return;
+        }
+        setSelected([]);
+      };
     
+      const isSelected = (id: string) =>{
+       return selected.indexOf(id) !== -1;
+      }; 
+
+      const handleClick = (event: React.MouseEvent<unknown>, id: string) => {
+        const selectedIndex = selected.indexOf(id);
+        let newSelected: readonly string[] = [];
+    
+        if (selectedIndex === -1) {
+          newSelected = newSelected.concat(selected, id);
+        } else if (selectedIndex === 0) {
+          newSelected = newSelected.concat(selected.slice(1));
+        } else if (selectedIndex === selected.length - 1) {
+          newSelected = newSelected.concat(selected.slice(0, -1));
+        } else if (selectedIndex > 0) {
+          newSelected = newSelected.concat(
+            selected.slice(0, selectedIndex),
+            selected.slice(selectedIndex + 1),
+          );
+        }
+    
+        setSelected(newSelected);
+      };
+
     return (
         <Grid container sx={{display:'flex',flex:1, justifyContent:'space-betweeen', alignItems:'flex-start', flexDirection:'row', marginLeft:'1em', overflow:'hidden'}}>
             <Grid container sx={{display:'flex',flex:1, justifyContent:'space-betweeen', alignItems:'center', flexDirection:'row',}}>
@@ -236,12 +489,12 @@ const Users = () => {
                                     <Grid container sx={{display:'flex', justifyContent:'flex-start', alignItems:'center'}}>
                                             <Grid item>
                                                 <IconButton >
-                                                    <DeleteIcon/>
+                                                    <DeleteIcon sx={{color:theme.palette.secondary.main}}/>
                                                 </IconButton>
                                             </Grid>
                                             <Grid item sx={{marginLeft:'1em'}}>
                                                 <IconButton >
-                                                    <EditIcon/>
+                                                    <EditIcon sx={{color:theme.palette.secondary.main}}/>
                                                 </IconButton>
                                             </Grid>
                                         </Grid>
@@ -269,10 +522,21 @@ const Users = () => {
                     </Grid>
                 </Grid>
                 <Grid item xs={8} md={8} lg={8} sx={{display:'flex', justifyContent:'end', paddingRight:'2em'}}>
-                    <TableContainer component={Paper} sx={{ maxHeight: 280,maxWidth:700  }}>
+                    <TableContainer component={Paper} sx={{ maxHeight: 280,maxWidth:700 }}>
                         <Table stickyHeader aria-label="customized table">
                             <TableHead>
                             <TableRow>
+                                <StyledTableCell padding="checkbox">
+                                    <Checkbox
+                                        color="secondary"
+                                        indeterminate={selected.length > 0 && selected.length < accountRows.length}
+                                        checked={accountRows.length > 0 && selected.length === accountRows.length}
+                                        onChange={handleSelectAllClick}
+                                        inputProps={{
+                                        'aria-label': 'select all employees',
+                                        }}
+                                    />
+                                </StyledTableCell>
                                 <StyledTableCell align="left">Name</StyledTableCell>
                                 <StyledTableCell align="left">Role</StyledTableCell>
                                 <StyledTableCell align="left">Invite User</StyledTableCell>
@@ -280,7 +544,22 @@ const Users = () => {
                             </TableHead>
                             <TableBody>
                             {accountRows.map((row) => (
-                                <StyledTableRow key={row.name}>
+                                <StyledTableRow key={row.id}
+                                hover
+                                onClick={(event) => handleClick(event, row.id)}
+                                role="checkbox"
+                                aria-checked={isSelected(row.id)}
+                                tabIndex={-1}
+                                selected={isSelected(row.id)}>
+                                <TableCell padding="checkbox">
+                                    <Checkbox
+                                    color="secondary"
+                                    checked={isSelected(row.id)}
+                                    inputProps={{
+                                        'aria-labelledby': row.name,
+                                    }}
+                                    />
+                              </TableCell>
                                 <StyledTableCell align="left">
                                     <Grid container sx={{display:'flex', justifyContent:'flex-start', alignItems:'center'}}>
                                         <Grid item>

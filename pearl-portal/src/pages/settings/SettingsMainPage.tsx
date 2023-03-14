@@ -63,8 +63,8 @@ const Settings = () => {
                                         }}>
                                         {
                                             index % 3 === 0 ? <AccountCircleIcon sx={{fontSize:'32px', color:theme.palette.text.primary}}/>
-                                            : tab.key===SettingsType.Appearance? <AppearanceIcon/>
-                                            :  <UsersIcon/>
+                                            : tab.key===SettingsType.Appearance? <AppearanceIcon fill={theme.palette.text.primary}/>
+                                            :  <UsersIcon fill={theme.palette.text.primary}/>
                                         }
                                     </ListItemIcon>
                                     <ListItemText primary={tab.url}/>
