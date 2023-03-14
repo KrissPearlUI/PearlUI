@@ -28,14 +28,14 @@ import { Fund, LP } from '../../../models/lps/lpModels';
 import AGGridLoader from '../../shared/AGGridLoader';
 import ExportButton from '../../shared/ExportButton';
 import LPToolbar from './LPToolbar';
-import { setLPs } from '../../../redux/slices/lps/lpsSlice';
+import { setLPs, setSelectedLP } from '../../../redux/slices/lps/lpsSlice';
 import { fetchLPs } from '../../../redux/thunks/lpThunk';
 import { FundSummary } from '../../../models/funds/fundModels';
 import { fetchFunds } from '../../../redux/thunks/fundThunk';
 import { PCOSummary } from '../../../models/pcos/pcoModels';
 import { fetchPCOs } from '../../../redux/thunks/pcoThunk';
 import CustomTooltip from '../../cellRenderers/CustomTooltipCellRenderer';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -64,7 +64,7 @@ const useStyles = makeStyles(() =>
 const LPOverviewTable = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
-    const history = useHistory();
+    const navigate = useNavigate();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const {lps} = useSelector((state: RootState) => state.lps);
     const {funds} = useSelector((state: RootState) => state.funds);
@@ -104,14 +104,14 @@ const LPOverviewTable = () => {
                     return params.data?.shortName;
                 },
                 valueSetter: (params) => valueSetter(params, 'shortName'),
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary, cursor:'pointer'},
             },
             {
                 headerName: 'Name',
                 field: 'name',
                 suppressFiltersToolPanel: true,
                 minWidth: 120,
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary,cursor:'pointer'},
             },
             {
                 headerName: 'Headquarters',
@@ -123,7 +123,7 @@ const LPOverviewTable = () => {
                     return params.data?.country ? capitalize(params.data?.country.toString()) : '';
                 },
                 valueSetter: (params) => valueSetter(params, 'country'),
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary,cursor:'pointer'},
             },
             {
                 headerName: 'Total Commitments',
@@ -131,7 +131,7 @@ const LPOverviewTable = () => {
                 enableRowGroup: true,
                 minWidth: 220,
                 type: 'numericColumn',
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary,cursor:'pointer'},
                 valueFormatter: quantityValueFormatter,
             },
             {
@@ -149,7 +149,7 @@ const LPOverviewTable = () => {
                     else 
                         return 0;
                 },
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary,cursor:'pointer'},
             },
             {
                 headerName: 'Active PCOs',
@@ -166,7 +166,7 @@ const LPOverviewTable = () => {
                     else 
                         return 0;
                 },
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary,cursor:'pointer'},
             },
              {
                 headerName: 'Type',
@@ -181,7 +181,7 @@ const LPOverviewTable = () => {
                     else 
                         return '';
                 },
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary,cursor:'pointer'},
             }, 
             {
                 headerName: 'Capital Invested',
@@ -189,7 +189,7 @@ const LPOverviewTable = () => {
                 minWidth: 80,
                 type: 'numericColumn',
                 enableRowGroup: true,
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary,cursor:'pointer'},
                 valueFormatter: quantityValueFormatter,
             },
             {
@@ -199,7 +199,7 @@ const LPOverviewTable = () => {
                 minWidth: 185,
                 filter: 'agMultiColumnFilter',
                 type: 'numericColumn',
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary,cursor:'pointer'},
                 valueFormatter: quantityValueFormatter,
             },
             {
@@ -207,7 +207,7 @@ const LPOverviewTable = () => {
                 field: 'totalDistributions',
                 tooltipField: 'totalDistributions',
                 type: 'numericColumn',
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary,cursor:'pointer'},
                 suppressFiltersToolPanel: true,
                 minWidth: 80,
                 valueFormatter: quantityValueFormatter,
@@ -222,7 +222,7 @@ const LPOverviewTable = () => {
                 minWidth: 110,
                 maxWidth: 130,
                 enableRowGroup: true,
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary,cursor:'pointer'},
             }
         ];
     }, [theme]);
@@ -341,9 +341,12 @@ const LPOverviewTable = () => {
 
     function handleRowClick(event:any) {
         const rowData = event.data;
+        if(rowData){
+            dispatch(setSelectedLP(rowData));
+        }
         // Assuming you have a unique ID for each row, you can use it to construct the URL for the other page
         const otherPageUrl = `/lpsOverview/singleLP`;
-        history.push(otherPageUrl);
+        navigate(otherPageUrl);
       }
 
    /*  const autoGroupColumnDef = useMemo<ColDef>(() => {

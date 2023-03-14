@@ -9,6 +9,8 @@ import {RootState} from "../../redux/slices/rootSlice";
 import {setIsDrawerOpen} from "../../redux/slices/appSlice";
 import Sidebar from "../../components/main/Sidebar";
 import {Topbar} from "../../components/main/Topbar";
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFns';
 
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -34,7 +36,10 @@ const MainPage = () => {
         drawerOpen,
     } = useSelector((state: RootState) => state.app);
 
-    return (<div className={classes.root}>
+    return (
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+        
+    <div className={classes.root}>
         <CssBaseline/>
         <div onBlur={() => drawerOpen ? dispatch(setIsDrawerOpen(!drawerOpen)) : null}>
             <Topbar/>
@@ -46,7 +51,8 @@ const MainPage = () => {
                 <RoutesSwitch/>
             </Grid>
         </Grid>
-    </div>);
+    </div>
+    </LocalizationProvider>);
 
 };
 

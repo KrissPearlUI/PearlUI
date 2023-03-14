@@ -1,22 +1,22 @@
 import {Grid,Paper,Typography} from '@mui/material';
 import {useTheme} from "@mui/material/styles";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
 import {Theme} from "@mui/material";
 import {createStyles,makeStyles} from '@mui/styles';
 import LPChartComponent from '../../../components/landing/LPChart';
+import SingleLPToolbar from '../../../components/lps/single/SingleLPToolbarComponent';
+import SingleSelection from '../../../components/lps/single/SingleSelectionComponent';
+import SingleLPBasic from '../../../components/lps/single/SingleLPBasicComponent';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        chart: {
-            flex: 1,
-            textAlign: 'center',
+        root: {
             display: 'flex',
-            alignContent: 'center',
-        },
-        summary: {
-            flex:1
+            flex: 1,
+            paddingLeft:'0.2em',
+            paddingRight:'0.2em',
         },
     }),
 );
@@ -25,34 +25,25 @@ const SingleLP = () => {
     const classes=useStyles();
     const theme=useTheme();
     const dispatch = useAppDispatch();
+    const [selectedView,setSelectedView]=useState<string>('basic');
 
-    /**
-     * Sets the title for the page in the topBar component
-     */
-    useEffect(() => {
-        dispatch(setTopBarTitle("Dashboard"));
-    }, [dispatch])
-    
+    const handleButtonClick = (buttonId:string) => {
+        setSelectedView(buttonId);
+        // Do something else on button click event
+      };
+
     return (
-        <div style={{display:'flex',flex:1}}>
-            <Grid container sx={{display:'flex',flex:1, justifyContent:'flex-start', alignItems:'flex-start', flexDirection:'column'}}>
-                <Grid item xs={6} md={6} lg={6} className={classes.summary}>
-                   <Paper elevation={3} style={{marginBottom: '1em'}}>
-                   <Grid item container className={classes.chart}>
-                    <LPChartComponent/>
-                    </Grid>
-                   </Paper>
-                </Grid>
-                <Grid container item xs={6} md={6} lg={6}>
-                    <Typography>
-                        test1
-                    </Typography>
-                    <Typography>
-                        test2
-                    </Typography>
-                </Grid>
+        <Grid spacing={1} container sx={{display:'flex',flex:1, height:'100%', width:'100%', paddingLeft:'1em', marginRight:'0.2em', flexDirection:'row', justifyContent:'flex-start', alignItems:'flex-start', overflow:'hidden'}}>
+            <Grid item sx={{display:'flex', justifyContent:'start', alignItems:'start', width:'100%',height: '10vh' }}>
+                <SingleLPToolbar/>
             </Grid>
-       </div>
+            <Grid item sx={{display:'flex', justifyContent:'start', alignItems:'start',width:'100%',height: '8vh' }}>
+                <SingleSelection selectedItem={selectedView} handleButtonClick={handleButtonClick}/>
+            </Grid>
+            <Grid item sx={{display:'flex', justifyContent:'start', alignItems:'start',width:'100%',height: '84vh' }}>
+                {selectedView==='basic' && <SingleLPBasic/>}
+            </Grid>
+        </Grid>   
     );
 };
 
