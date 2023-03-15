@@ -1,15 +1,17 @@
-import {Autocomplete, AutocompleteRenderInputParams, Grid,Paper,TextField,Typography} from '@mui/material';
-import {darken, useTheme} from "@mui/material/styles";
+import {Accordion, AccordionDetails, AccordionSummary, Autocomplete, AutocompleteRenderInputParams, Grid,IconButton,Paper,TextField,Typography} from '@mui/material';
+import {darken, lighten, useTheme} from "@mui/material/styles";
 import { useEffect, useState } from 'react';
-import { setTopBarTitle } from '../../../redux/slices/appSlice';
-import { useAppDispatch } from '../../../redux/store';
+import { setTopBarTitle } from '../../../../redux/slices/appSlice';
+import { useAppDispatch } from '../../../../redux/store';
 import {Theme} from "@mui/material";
 import {createStyles,makeStyles} from '@mui/styles';
-import LPChartComponent from '../../../components/landing/LPChart';
+import LPChartComponent from '../../../landing/LPChart';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../redux/slices/rootSlice';
-import { Fund, LP, PCO } from '../../../models/lps/lpModels';
+import { RootState } from '../../../../redux/slices/rootSlice';
+import { Fund, LP, PCO } from '../../../../models/lps/lpModels';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import LPFundsTable from './LPFundsTable';
+import LPPCOsTable from './LPPCOsTable';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -102,12 +104,29 @@ const SingleLPBasic = () => {
     const dispatch = useAppDispatch();
     const {selectedLP} = useSelector((state: RootState) => state.lps);
     const [selectedLPValue, setSelectedLPValue] = useState<any>(null);
+    const [isCommitmentsExpand, setIsCommitmentsExpand]=useState<boolean>(false);
+    const [isFundsExpand, setIsFundsExpand]=useState<boolean>(false); 
+    const [isPCOsExpand, setIsPCOsExpand]=useState<boolean>(false);
+    const [isExitsExpand, setIsExitsExpand]=useState<boolean>(false);
 
     const onLPChange = (event: any) => {
         setSelectedLPValue(event);
     };
+
+    const handleAccordionExp=(expanded: boolean, accordionId: string)=> {
+        if(accordionId==='card-commitments'){
+            setIsCommitmentsExpand(!isCommitmentsExpand);
+        } else if(accordionId==='card-funds'){
+            setIsFundsExpand(!isFundsExpand);
+        } else if(accordionId==='card-pcos'){
+            setIsPCOsExpand(!isPCOsExpand);
+        } else{
+            setIsExitsExpand(!isExitsExpand);
+        }
+    };
+
     return (
-        <Grid container spacing={2} sx={{display:'flex',flex:1, justifyContent:'flex-start', alignItems:'flex-start', flexDirection:'row',paddingRight:'1em'}}>
+        <Grid container spacing={2} sx={{display:'flex',flex:1, justifyContent:'flex-start', alignItems:'flex-start', flexDirection:'row',paddingRight:'1em', overflow:'auto'}}>
             <Grid item xs={12}>
                 <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper, padding:'1em'}}>
                     <Grid container spacing={1} sx={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexDirection:'row'}}>
@@ -152,63 +171,143 @@ const SingleLPBasic = () => {
                     </Grid>
                 </Paper>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sx={{flex:1}}>
                 <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper, padding:'1em'}}>
                 <Grid container spacing={1} sx={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexDirection:'row'}}>
-                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column',flex:1}}>
                             <Grid item sx={{display:'flex'}}>
-                            <Autocomplete
-                                id={'lpdAutocomplete'}
-                                popupIcon={<ExpandMoreIcon/>}
-                                size={'small'}
-                                autoHighlight={true}
-                                autoSelect={true}
-                                autoComplete={false}
-                                disableClearable
-                                classes={classes}
-                                sx={{marginRight:'1em', width:'320px'}}
-                                isOptionEqualToValue={(option, value) => option === value}
-                                onChange={(e, value: Fund) => onLPChange(value)}
-                                value={selectedLPValue??undefined}
-                                options={selectedLP?.funds ?? []}
-                                getOptionLabel={(option: Fund) => option ? option.fundName : ''}
-                                renderInput={(params: AutocompleteRenderInputParams) => {
-                                    params.InputProps.className = autocompleteInputClasses.textInput;
-                                    return <TextField {...params} 
-                                    className={autocompleteInputClasses.autocomplete}
-                                                    variant="standard" 
-                                                    autoComplete="off"
-                                                    type={'text'}
-                                                    label='Select a LP'/>;
-                                }}
-                                />
+                            <Accordion
+                            elevation={0}
+                                key={`card-commitments`}
+                                expanded={isCommitmentsExpand}
+                                onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-commitments')}
+                                sx={{backgroundColor:'transparent'}}
+                                /* sx={{
+                                    'marginBottom': '0.5em',
+                                    'width': '100%',
+                                    'flexDirection': 'column',
+                                    'borderRadius': 5,
+                                    'backgroundColor': theme.palette.background.paper,
+                                    
+                                }} */
+                            >
+                                <AccordionSummary
+                                sx={{display: 'flex', 
+                                alignItems: 'center', 
+                                justifyContent:'flex-start', 
+                                width:'340px', 
+                                borderBottom:`1px solid ${theme.palette.mode==='dark'?darken(theme.palette.text.primary,0.6) : lighten(theme.palette.text.primary,0.7)}`,
+                                '&:hover':{
+                                    borderBottom:`1px solid ${theme.palette.text.primary}` ,
+                                },
+                                '& .Mui-expanded': {
+                                    borderBottom: 'none',
+                                }}} 
+                                    /* sx={{
+                                        'cursor': 'pointer',
+                                        'width': '100%',
+                                        'minHeight': '68px !important',
+                                        'paddingTop': 0,
+                                        'backgroundColor': theme.palette.background.paper,
+                                    
+                                    }} */
+                                    expandIcon={
+                                            <IconButton >
+                                                <ExpandMoreIcon
+                                                    sx={{pointerEvents: 'auto', cursor: 'pointer',
+                                                    '&:hover':{
+                                                        color:theme.palette.text.primary,
+                                                    }}}/>
+                                            </IconButton>
+                                    }
+                                >
+                                    <Grid container spacing={2}
+                                    >
+                                        <Grid item sx={{marginLeft:'-1em'}}>
+                                            <Typography sx={{color:theme.palette.secondary.main, fontWeight:400}}>Number of Commitments:</Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                                {selectedLP?.funds?.length??0}
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </AccordionSummary>
+                                {isCommitmentsExpand&& selectedLP?.funds && <AccordionDetails
+                                    sx={{
+                                        backgroundColor: theme.palette.background.paper,
+                                        width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
+                                    }}>
+                                
+                                </AccordionDetails>}
+                            </Accordion>
                             </Grid>
-                            <Grid item sx={{display:'flex'}}>
-                            <Autocomplete
-                                id={'lpdAutocomplete'}
-                                popupIcon={<ExpandMoreIcon/>}
-                                size={'small'}
-                                autoHighlight={true}
-                                autoSelect={true}
-                                autoComplete={false}
-                                disableClearable
-                                classes={classes}
-                                sx={{marginRight:'1em', width:'320px'}}
-                                isOptionEqualToValue={(option, value) => option === value}
-                                onChange={(e, value: Fund) => onLPChange(value)}
-                                value={selectedLPValue??undefined}
-                                options={selectedLP?.funds ?? []}
-                                getOptionLabel={(option: Fund) => option ? option.fundName : ''}
-                                renderInput={(params: AutocompleteRenderInputParams) => {
-                                    params.InputProps.className = autocompleteInputClasses.textInput;
-                                    return <TextField {...params} 
-                                    className={autocompleteInputClasses.autocomplete}
-                                                    variant="standard" 
-                                                    autoComplete="off"
-                                                    type={'text'}
-                                                    label='Select a LP'/>;
-                                }}
-                                />
+                            <Grid item sx={{display:'flex',flex:1}}>
+                            <Accordion
+                            elevation={0}
+                                key={`card-funds`}
+                                expanded={isFundsExpand}
+                                onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-funds')}
+                                sx={{backgroundColor:'transparent'}}
+                                /* sx={{
+                                    'marginBottom': '0.5em',
+                                    'width': '100%',
+                                    'flexDirection': 'column',
+                                    'borderRadius': 5,
+                                    'backgroundColor': theme.palette.background.paper,
+                                    
+                                }} */
+                            >
+                                <AccordionSummary
+                                sx={{display: 'flex', 
+                                alignItems: 'center', 
+                                justifyContent:'flex-start', 
+                                width:'340px', 
+                                borderBottom:`1px solid ${theme.palette.mode==='dark'?darken(theme.palette.text.primary,0.6) : lighten(theme.palette.text.primary,0.7)}`,
+                                '&:hover':{
+                                    borderBottom:`1px solid ${theme.palette.text.primary}` ,
+                                },
+                            '& .Mui-expanded': {
+                                    borderBottom: 'none',
+                                }}}
+                                    /* sx={{
+                                        'cursor': 'pointer',
+                                        'width': '100%',
+                                        'minHeight': '68px !important',
+                                        'paddingTop': 0,
+                                        'backgroundColor': theme.palette.background.paper,
+                                    
+                                    }} */
+                                    expandIcon={
+                                            <IconButton>
+                                                <ExpandMoreIcon
+                                                    sx={{pointerEvents: 'auto', cursor: 'pointer',
+                                                    '&:hover':{
+                                                        color:theme.palette.text.primary,
+                                                    }}}/>
+                                            </IconButton>
+                                    }
+                                >
+                                    <Grid container spacing={2}
+                                    >
+                                        <Grid item sx={{marginLeft:'-1em'}}>
+                                            <Typography sx={{color:theme.palette.secondary.main, fontWeight:400}}>Number of Funds:</Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                                {selectedLP?.funds?.length??0}
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </AccordionSummary>
+                                {isFundsExpand&& selectedLP?.funds && <AccordionDetails
+                                    sx={{
+                                        backgroundColor: theme.palette.background.paper,
+                                        display: 'flex', height: '100%', pointerEvents: 'auto',flex:1,marginLeft:'-1em', width:'380px'
+                                    }}>
+                                <LPFundsTable/>
+                                </AccordionDetails>}
+                            </Accordion>
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
@@ -219,58 +318,110 @@ const SingleLPBasic = () => {
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
-                        <Autocomplete
-                                id={'lpdAutocomplete'}
-                                popupIcon={<ExpandMoreIcon/>}
-                                size={'small'}
-                                autoHighlight={true}
-                                autoSelect={true}
-                                autoComplete={false}
-                                disableClearable
-                                classes={classes}
-                                sx={{marginRight:'1em', width:'320px'}}
-                                isOptionEqualToValue={(option, value) => option === value}
-                                onChange={(e, value: PCO) => onLPChange(value)}
-                                value={selectedLPValue??undefined}
-                                options={selectedLP?.pcos ?? []}
-                                getOptionLabel={(option: PCO) => option ? option.shortName : ''}
-                                renderInput={(params: AutocompleteRenderInputParams) => {
-                                    params.InputProps.className = autocompleteInputClasses.textInput;
-                                    return <TextField {...params} 
-                                    className={autocompleteInputClasses.autocomplete}
-                                                    variant="standard" 
-                                                    autoComplete="off"
-                                                    type={'text'}
-                                                    label='Select a LP'/>;
-                                }}
-                                />
+                        <Accordion
+                            elevation={0}
+                                key={`card-pcos`}
+                                expanded={isPCOsExpand}
+                                onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-pcos')}
+                                sx={{backgroundColor:'transparent'}}
+                            
+                            >
+                                <AccordionSummary
+                                sx={{display: 'flex', 
+                                alignItems: 'center', 
+                                justifyContent:'flex-start', 
+                                width:'340px', 
+                                borderBottom:`1px solid ${theme.palette.mode==='dark'?darken(theme.palette.text.primary,0.6) : lighten(theme.palette.text.primary,0.7)}`,
+                                '&:hover':{
+                                    borderBottom:`1px solid ${theme.palette.text.primary}` ,
+                                },
+                            '& .Mui-expanded': {
+                                    borderBottom: 'none',
+                                }}}
+                                    
+                                    expandIcon={
+                                            <IconButton>
+                                                <ExpandMoreIcon
+                                                    sx={{pointerEvents: 'auto', cursor: 'pointer',
+                                                    '&:hover':{
+                                                        color:theme.palette.text.primary,
+                                                    }}}/>
+                                            </IconButton>
+                                    }
+                                >
+                                    <Grid container spacing={2}
+                                    >
+                                        <Grid item sx={{marginLeft:'-1em'}}>
+                                            <Typography sx={{color:theme.palette.secondary.main, fontWeight:400}}>Number of PCOs:</Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                                {selectedLP?.pcos?.length??0}
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </AccordionSummary>
+                                {isPCOsExpand&& selectedLP?.pcos && <AccordionDetails
+                                    sx={{
+                                        backgroundColor: theme.palette.background.paper,
+                                        width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
+                                    }}>
+                                <LPPCOsTable/>
+                                </AccordionDetails>}
+                            </Accordion>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
-                            <Autocomplete
-                                id={'lpdAutocomplete'}
-                                popupIcon={<ExpandMoreIcon/>}
-                                size={'small'}
-                                autoHighlight={true}
-                                autoSelect={true}
-                                autoComplete={false}
-                                disableClearable
-                                classes={classes}
-                                sx={{marginRight:'1em', width:'320px'}}
-                                isOptionEqualToValue={(option, value) => option === value}
-                                onChange={(e, value: PCO) => onLPChange(value)}
-                                value={selectedLPValue??undefined}
-                                options={selectedLP?.pcos ?? []}
-                                getOptionLabel={(option: PCO) => option ? option.shortName : ''}
-                                renderInput={(params: AutocompleteRenderInputParams) => {
-                                    params.InputProps.className = autocompleteInputClasses.textInput;
-                                    return <TextField {...params} 
-                                    className={autocompleteInputClasses.autocomplete}
-                                                    variant="standard" 
-                                                    autoComplete="off"
-                                                    type={'text'}
-                                                    label='Select a LP'/>;
-                                }}
-                                />
+                            <Accordion
+                            elevation={0}
+                                key={`card-exits`}
+                                expanded={isExitsExpand}
+                                onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-exits')}
+                                sx={{backgroundColor:'transparent'}}
+                            
+                            >
+                                <AccordionSummary
+                                sx={{display: 'flex', 
+                                alignItems: 'center', 
+                                justifyContent:'flex-start', 
+                                width:'340px', 
+                                borderBottom:`1px solid ${theme.palette.mode==='dark'?darken(theme.palette.text.primary,0.6) : lighten(theme.palette.text.primary,0.7)}`,
+                                '&:hover':{
+                                    borderBottom:`1px solid ${theme.palette.text.primary}` ,
+                                },
+                            '& .Mui-expanded': {
+                                    borderBottom: 'none',
+                                }}}
+                                    
+                                    expandIcon={
+                                            <IconButton>
+                                                <ExpandMoreIcon
+                                                    sx={{pointerEvents: 'auto', cursor: 'pointer',
+                                                    '&:hover':{
+                                                        color:theme.palette.text.primary,
+                                                    }}}/>
+                                            </IconButton>
+                                    }
+                                >
+                                    <Grid container spacing={2}
+                                    >
+                                        <Grid item sx={{marginLeft:'-1em'}}>
+                                            <Typography sx={{color:theme.palette.secondary.main, fontWeight:400}}>Number of Exits:</Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                                {selectedLP?.pcos?.length??0}
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </AccordionSummary>
+                                {isExitsExpand&& selectedLP?.pcos && <AccordionDetails
+                                    sx={{
+                                        backgroundColor: theme.palette.background.paper,
+                                        width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
+                                    }}>
+                                
+                                </AccordionDetails>}
+                            </Accordion>
                             </Grid>
                         </Grid>
                     </Grid>

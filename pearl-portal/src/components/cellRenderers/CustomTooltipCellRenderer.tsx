@@ -140,12 +140,18 @@ const CustomTooltip = (props: ITooltipParams & { type: string }) => {
         } 
         else {
             return (
-                <span
-                    style={{
-                        color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.8)' : '#6E6E6E',
-                        fontWeight: 400,
-                        fontSize: '11px'
-                    }}>{props.value}</span>
+                <div 
+                 style={{
+                     backgroundColor: theme.palette.grey[400],
+                     color:'#454545',
+                     padding:'0.3em'
+                 }}>
+                    <span
+                        style={{
+                            fontWeight: 400,
+                            fontSize: '11px'
+                        }}>{props.value}</span>
+                    </div>
             )
         }
        

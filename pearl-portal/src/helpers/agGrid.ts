@@ -102,6 +102,17 @@ export const quantityValueFormatter = (params: ValueFormatterParams) => {
 };
 
 /**
+ * Cell formatter for formatting percentage
+ * @param params
+ */
+export const percentageyValueFormatter = (params: ValueFormatterParams) => {
+    if (params.value) {
+        return `${(params.value*100).toFixed(2)} %`;
+    }
+    return params.value;
+};
+
+/**
  * Cell formatter for formatting string to convert it to upper casse
  * @param params
  */

@@ -8,7 +8,9 @@ import {createStyles,makeStyles} from '@mui/styles';
 import LPChartComponent from '../../../components/landing/LPChart';
 import SingleLPToolbar from '../../../components/lps/single/SingleLPToolbarComponent';
 import SingleSelection from '../../../components/lps/single/SingleSelectionComponent';
-import SingleLPBasic from '../../../components/lps/single/SingleLPBasicComponent';
+import SingleLPBasic from '../../../components/lps/single/basic/SingleLPBasicComponent';
+import LPFundsTable from '../../../components/lps/single/basic/LPFundsTable';
+import SingleLPCommitments from '../../../components/lps/single/commitments/SingleLPCommitmentsComponent';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -33,15 +35,16 @@ const SingleLP = () => {
       };
 
     return (
-        <Grid spacing={1} container sx={{display:'flex',flex:1, height:'100%', width:'100%', paddingLeft:'1em', marginRight:'0.2em', flexDirection:'row', justifyContent:'flex-start', alignItems:'flex-start', overflow:'hidden'}}>
-            <Grid item sx={{display:'flex', justifyContent:'start', alignItems:'start', width:'100%',height: '10vh' }}>
+        <Grid spacing={1} container sx={{display:'flex',flex:1, height:'100%', width:'100%', paddingLeft:'1em', marginRight:'0.2em', flexDirection:'row', justifyContent:'flex-start', alignItems:'flex-start', overflow:'auto' }}>
+            <Grid item sx={{display:'flex', justifyContent:'start', alignItems:'start', width:'100%', height:'8vh'}}>
                 <SingleLPToolbar/>
             </Grid>
-            <Grid item sx={{display:'flex', justifyContent:'start', alignItems:'start',width:'100%',height: '8vh' }}>
+            <Grid item sx={{display:'flex', justifyContent:'start', alignItems:'start',width:'100%',height:'8vh'}}>
                 <SingleSelection selectedItem={selectedView} handleButtonClick={handleButtonClick}/>
             </Grid>
-            <Grid item sx={{display:'flex', justifyContent:'start', alignItems:'start',width:'100%',height: '84vh' }}>
-                {selectedView==='basic' && <SingleLPBasic/>}
+            <Grid item sx={{display:'flex', justifyContent:'start', alignItems:'start',width:'100%', height:'82%' }}>
+                {selectedView==='basic' ? <SingleLPBasic/>
+                : <SingleLPCommitments/>}
             </Grid>
         </Grid>   
     );
