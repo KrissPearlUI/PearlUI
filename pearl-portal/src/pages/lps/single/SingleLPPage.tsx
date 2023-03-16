@@ -11,6 +11,10 @@ import SingleSelection from '../../../components/lps/single/SingleSelectionCompo
 import SingleLPBasic from '../../../components/lps/single/basic/SingleLPBasicComponent';
 import LPFundsTable from '../../../components/lps/single/basic/LPFundsTable';
 import SingleLPCommitments from '../../../components/lps/single/commitments/SingleLPCommitmentsComponent';
+import SingleLPCoinvestments from '../../../components/lps/single/coinvestments/SingleLPCoinvestments';
+import SingleLPCallsAndDistributions from '../../../components/lps/single/callsAndDistributions/SingleLPCallsAndDistributions';
+import SingleLPTransactions from '../../../components/lps/single/transactions/SingleLPTransactions';
+import SingleLPDocuments from '../../../components/lps/single/documents/SingleLPDocuments';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -44,7 +48,15 @@ const SingleLP = () => {
             </Grid>
             <Grid item sx={{display:'flex', justifyContent:'start', alignItems:'start',width:'100%', height:'82%' }}>
                 {selectedView==='basic' ? <SingleLPBasic/>
-                : <SingleLPCommitments/>}
+                : selectedView==='commitments'
+                ?<SingleLPCommitments/>
+                :selectedView==='coinvestments'
+                ?<SingleLPCoinvestments/>
+                : selectedView==='callsDist'
+                ?<SingleLPCallsAndDistributions/>
+                : selectedView==='transactions'
+                ?<SingleLPTransactions/>
+                :<SingleLPDocuments/>}
             </Grid>
         </Grid>   
     );

@@ -3,14 +3,31 @@ export interface LP {
     name: string,
     shortName: string,
     country?: string,
+    address?:string,
+    website?:string,
+    mainContact?:string,
+    relationshipPartner?:string,
+    relationshipSS?:string,
     type?: string,
+    firstInvestment?:string,
     totalCommitments: number,
     funds?:Fund[],
     pcos?:PCO[],
+    commitments?: CommitmentBasic[],
+    exits?:Exits[],
     totalInvestments?:number,
     totalDistributions?:number,
     reservesFees?:number,
-    tappedOot?:boolean
+    tappedOot?:boolean,
+    numTerminated?:number,
+    fees:Fee[],
+    dryPowder?:number,
+    reserved?:number,
+    capPaidIn?:number,
+    avgDealsAvailable?:number,
+    capAvailable?:number,
+    dateTappedOut?:string,
+    kpis?:KPI
 }
 
 export interface LPFundsOverview {
@@ -44,6 +61,41 @@ export interface Commitment {
     reservedForFees: number,
     followOns: number,
     unlocated: number,
+}
+
+export interface Fee {
+    feeType: string,
+    amount: number,
+}
+
+export interface KPI {
+    netDPI?: number,
+    grossDPI?: number,
+    netTVPI?: number,
+    grossTVPI?: number,
+    netIRR?: number,
+    grossIRR?: number,
+}
+
+export interface CommitmentBasic {
+    id:string,
+    date?:string,
+    fundId?:string,
+    fundName?:string,
+    shortName?:string,
+    committedAmount?:number,
+    fundCurrency?:string
+}
+
+export interface Exits {
+    id:string,
+    date?:string,
+    pcoId?:string,
+    pcoName?:string,
+    shortName?:string,
+    amountGained?:number,
+    fundCurrency?:string,
+    type?:string
 }
 
 export interface Distribution {

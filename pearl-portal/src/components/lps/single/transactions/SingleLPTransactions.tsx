@@ -14,6 +14,7 @@ import { FundSummary } from '../../../../models/funds/fundModels';
 import { dateValueFormatter, DefaultSideBarDef, getGridTheme, DefaultColumnDef,DefaultStatusPanelDef, quantityValueFormatter, percentageyValueFormatter } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { PCOSummary } from '../../../../models/pcos/pcoModels';
+import { capitalizeLetters } from '../../../../helpers/app';
 
 
 const useStyles = makeStyles(() =>
@@ -21,19 +22,18 @@ const useStyles = makeStyles(() =>
         root: {
             display: 'flex',
             flex: 1,
-            height:'100%',
             overflow:'hidden',
         },
         fill: {
             flex: 1,
             width: '100%',
             height: '100%',
-            paddingRight:'1em',
+            paddingRight:'1em'
         }
     })
 );
 
-const SingleLPCommitments = () => {
+const SingleLPTransactions = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
@@ -63,52 +63,67 @@ const SingleLPCommitments = () => {
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
         return [
             {
-                headerName: 'CRM ID',
-                field: 'id',
-                tooltipField: 'id',
+                headerName: 'Short',
+                field: 'shortPCOName',
+                tooltipField: 'shortPCOName',
                 suppressFiltersToolPanel: true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                valueGetter: (params) => {
+                    return params.data?.shortPCOName ? capitalizeLetters(params.data?.shortPCOName) : '';
+                }
             },
             {
-                headerName: 'Fund Name',
-                field: 'fundName',
+                headerName: 'PCO Name',
+                field: 'pcoName',
                 enableRowGroup: true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                valueGetter: (params) => {
+                    return params.data?.pcoName ? capitalizeLetters(params.data?.pcoName) : '';
+                }
             },
             {
-                headerName: 'Currency',
-                field:'fundCurrency',
+                headerName: '1st Co-Investment',
+                field:'firstCoinvestment',
                 enableRowGroup: true,
                 valueGetter: (params) => {
-                    return params.data?.fundCurrency ? params.data?.fundCurrency.toUpperCase() : '';
+                    return params.data?.firstCoinvestment ? params.data?.firstCoinvestment.toUpperCase() : '';
                 },
-                valueSetter: (params) => valueSetter(params, 'fundCurrency'),
+                valueSetter: (params) => valueSetter(params, 'firstCoinvestment'),
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
-                headerName: 'Commitment',
-                field: 'committedAmount',
+                headerName: 'Investment EUR',
+                field: 'investmentEUR',
                 enableRowGroup: true,
                 type: 'numericColumn',
-                tooltipField: 'committedAmount',
+                tooltipField: 'investmentEUR',
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
                 valueFormatter: quantityValueFormatter,
             },
             {
-                headerName: 'Commitment Date',
-                field: 'date',
+                headerName: 'NAV EUR',
+                field: 'navEUR',
+                enableRowGroup: true,
+                type: 'numericColumn',
+                tooltipField: 'navEUR',
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                valueFormatter: quantityValueFormatter,
+            },
+            {
+                headerName: 'Country',
+                field: 'country',
                 enableRowGroup: true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
-                headerName: 'End of IP Date',
-                field: 'ipDate',
+                headerName: 'Industry',
+                field: 'industry',
                 enableRowGroup: true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
-                headerName: 'Transfer',
-                field: 'transfer',
+                headerName: 'Stage',
+                field: 'stage',
                 enableRowGroup: true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
@@ -196,7 +211,7 @@ const SingleLPCommitments = () => {
     },[selectedLP])
 
     return (
-            <div className={clsx(getGridTheme(isDarkTheme), classes.fill)}>
+            <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{flex:1}}>
                 <AgGridReact gridOptions={gridOptions}
                             columnDefs={getColumnDefs}
                             rowData={rowData}
@@ -212,4 +227,4 @@ const SingleLPCommitments = () => {
 };
 
 
-export default SingleLPCommitments;
+export default SingleLPTransactions;

@@ -12,6 +12,9 @@ import { Fund, LP, PCO } from '../../../../models/lps/lpModels';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LPFundsTable from './LPFundsTable';
 import LPPCOsTable from './LPPCOsTable';
+import LPCommitmentsTable from './LPCommitmentsTable';
+import moment from 'moment';
+import LPExitsTable from './LPExitsTable';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -137,17 +140,17 @@ const SingleLPBasic = () => {
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Address:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.address}</Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Website:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.website}</Typography>
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>First Investment:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.firstInvestment ? moment(new Date(selectedLP?.firstInvestment)).format('DD MMM YYYY'):''}</Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Type:</Typography>
@@ -157,15 +160,15 @@ const SingleLPBasic = () => {
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Main Contact:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.mainContact}</Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Relationship Partner:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.relationshipPartner}</Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Relationship SS:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.relationshipSS}</Typography>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -228,17 +231,17 @@ const SingleLPBasic = () => {
                                         </Grid>
                                         <Grid item>
                                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
-                                                {selectedLP?.funds?.length??0}
+                                                {selectedLP?.commitments?.length??0}
                                             </Typography>
                                         </Grid>
                                     </Grid>
                                 </AccordionSummary>
-                                {isCommitmentsExpand&& selectedLP?.funds && <AccordionDetails
+                                {isCommitmentsExpand&& selectedLP?.commitments && <AccordionDetails
                                     sx={{
                                         backgroundColor: theme.palette.background.paper,
                                         width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
                                     }}>
-                                
+                                    <LPCommitmentsTable/>
                                 </AccordionDetails>}
                             </Accordion>
                             </Grid>
@@ -313,7 +316,7 @@ const SingleLPBasic = () => {
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Of which terminated:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.numTerminated}</Typography>
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
@@ -409,17 +412,17 @@ const SingleLPBasic = () => {
                                         </Grid>
                                         <Grid item>
                                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
-                                                {selectedLP?.pcos?.length??0}
+                                                {selectedLP?.exits?.length??0}
                                             </Typography>
                                         </Grid>
                                     </Grid>
                                 </AccordionSummary>
-                                {isExitsExpand&& selectedLP?.pcos && <AccordionDetails
+                                {isExitsExpand&& selectedLP?.exits && <AccordionDetails
                                     sx={{
                                         backgroundColor: theme.palette.background.paper,
                                         width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
                                     }}>
-                                
+                                    <LPExitsTable/>
                                 </AccordionDetails>}
                             </Accordion>
                             </Grid>
@@ -433,11 +436,13 @@ const SingleLPBasic = () => {
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Management Fee:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                {selectedLP?.fees && selectedLP.fees.filter(x=>x.feeType==='Management Fee')[0] ?selectedLP.fees.filter(x=>x.feeType==='Management Fee')[0]?.amount :''}
+                            </Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Capital Paid In:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.capPaidIn}</Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Capital Distributed:</Typography>
@@ -451,25 +456,27 @@ const SingleLPBasic = () => {
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Recycling Reserves:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                            {selectedLP?.fees && selectedLP.fees.filter(x=>x.feeType==='Management Fee')[0] ?selectedLP.fees.filter(x=>x.feeType==='Recycling Reserves')[0]?.amount :''}
+                                </Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Capital Available:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.totalInvestments}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.capAvailable}</Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Dry Powder:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.dryPowder}</Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Reserved:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.reserved}</Typography>
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Avg. Deals Available:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.avgDealsAvailable}</Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Tapped Out:</Typography>
@@ -477,7 +484,7 @@ const SingleLPBasic = () => {
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Estimated Until Tapped Out:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.dateTappedOut}</Typography>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -489,31 +496,43 @@ const SingleLPBasic = () => {
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Net DPI:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                {selectedLP?.kpis && selectedLP.kpis.netDPI?selectedLP.kpis.netDPI:''}
+                                </Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Gross DPI:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>
+                                {selectedLP?.kpis && selectedLP.kpis.grossDPI?selectedLP.kpis.grossDPI:''}
+                                </Typography>
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Net TVPI:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                {selectedLP?.kpis && selectedLP.kpis.netTVPI?selectedLP.kpis.netTVPI:''}
+                                </Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Gross TVPI:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.type}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                {selectedLP?.kpis && selectedLP.kpis.grossTVPI?selectedLP.kpis.grossTVPI:''}
+                                </Typography>
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Net IRR:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                {selectedLP?.kpis && selectedLP.kpis.netIRR?selectedLP.kpis.netIRR:''}
+                                </Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Gross IRR:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.country}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                {selectedLP?.kpis && selectedLP.kpis.grossIRR?selectedLP.kpis.grossIRR:''}
+                                </Typography>
                             </Grid>
                         </Grid>
                     </Grid>
