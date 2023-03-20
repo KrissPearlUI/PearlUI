@@ -9,11 +9,12 @@ import clsx from 'clsx';
 import {ColDef, ColGroupDef, ValueSetterParams} from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../../redux/store';
 import { RootState } from '../../../../redux/slices/rootSlice';
-import { Fund, LP, PCO } from '../../../../models/lps/lpModels';
+import { CommitmentBasic, Fund, LP, PCO } from '../../../../models/lps/lpModels';
 import { FundSummary } from '../../../../models/funds/fundModels';
 import { dateValueFormatter, DefaultSideBarDef, getGridTheme, DefaultColumnDef,DefaultStatusPanelDef, quantityValueFormatter, percentageyValueFormatter } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { PCOSummary } from '../../../../models/pcos/pcoModels';
+import { fetchCashCalls } from '../../../../redux/thunks/cashCallsThunk';
 
 
 const useStyles = makeStyles(() =>
@@ -44,7 +45,7 @@ const SingleLPCommitments = () => {
     const [hasError, setHasError] = useState(false);
     const [searchText, setSearchText] = useState<string | null>(null);
     const theme = useTheme();
-    const [rowData,setRowData]=useState<Fund[]>([]);
+    const [rowData,setRowData]=useState<CommitmentBasic[]>([]);
     const [selectedLPValue, setSelectedLPValue] = useState<LP | null>(null);
     const [selectedPCOValue, setSelectedPCOValue] = useState<PCOSummary | null>(null);
     const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
@@ -99,6 +100,7 @@ const SingleLPCommitments = () => {
                 field: 'date',
                 enableRowGroup: true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                valueFormatter: dateValueFormatter,
             },
             {
                 headerName: 'End of IP Date',
@@ -190,9 +192,12 @@ const SingleLPCommitments = () => {
         return createData(1, gridApi??null);
       }, [gridApi]);
  */
+      useEffect(()=>{
+        dispatch(fetchCashCalls());
+    },[dispatch])
 
     useEffect(()=>{
-        setRowData(selectedLP?.funds??[]);
+        setRowData(selectedLP?.commitments??[]);
     },[selectedLP])
 
     return (

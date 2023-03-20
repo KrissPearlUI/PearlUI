@@ -15,6 +15,7 @@ import LPPCOsTable from './LPPCOsTable';
 import LPCommitmentsTable from './LPCommitmentsTable';
 import moment from 'moment';
 import LPExitsTable from './LPExitsTable';
+import { amountValueFormatter } from '../../../../helpers/app';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -436,21 +437,21 @@ const SingleLPBasic = () => {
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Management Fee:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
-                                {selectedLP?.fees && selectedLP.fees.filter(x=>x.feeType==='Management Fee')[0] ?selectedLP.fees.filter(x=>x.feeType==='Management Fee')[0]?.amount :''}
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500, textAlign:'right', alignSelf:'end'}}>
+                                {selectedLP?.fees && selectedLP.fees.filter(x=>x.feeType==='Management Fee')[0] ?amountValueFormatter(selectedLP.fees.filter(x=>x.feeType==='Management Fee')[0]?.amount/5,'') :''}
                             </Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Capital Paid In:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.capPaidIn}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{selectedLP?.capPaidIn}</Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Capital Distributed:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.totalDistributions}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{amountValueFormatter(selectedLP?.totalDistributions??0,'')}</Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Capital Invested:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.totalInvestments}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{amountValueFormatter(selectedLP?.totalInvestments??0,'')}</Typography>
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
@@ -525,7 +526,7 @@ const SingleLPBasic = () => {
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Net IRR:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
-                                {selectedLP?.kpis && selectedLP.kpis.netIRR?selectedLP.kpis.netIRR:''}
+                                {selectedLP?.kpis && selectedLP.kpis.netIRR? `${(selectedLP.kpis.netIRR * 100).toFixed(2)}`:''}
                                 </Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>

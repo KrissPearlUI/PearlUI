@@ -248,8 +248,11 @@ export const priceWithMax8FractionDigits = (quantity: number | string) => {
 /**
  * Amount formatter
  */
-export const amountValueFormatter = (amount: number | string, currency: string): string => {
-    return numberFormatter.format(+amount);
+export const amountValueFormatter = (amount: number | string, currency: string) => {
+    if (amount) {
+        return fiatNumberFormatterNoDecimals.format(+amount);
+    }
+    return amount;
 };
 
 export const amountValueGetter = (params: ValueGetterParams): number => {
@@ -258,3 +261,5 @@ export const amountValueGetter = (params: ValueGetterParams): number => {
     } else
     return 0;
 };
+
+

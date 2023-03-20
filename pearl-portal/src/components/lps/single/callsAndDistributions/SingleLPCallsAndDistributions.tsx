@@ -15,6 +15,8 @@ import { dateValueFormatter, DefaultSideBarDef, getGridTheme, DefaultColumnDef,D
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { PCOSummary } from '../../../../models/pcos/pcoModels';
 import { capitalizeLetters } from '../../../../helpers/app';
+import SingleLPCallsTable from './LPCallsTable';
+import SingleLPDistributionsTable from './LPDistributionsTable';
 
 
 const useStyles = makeStyles(() =>
@@ -286,7 +288,8 @@ const SingleLPCallsAndDistributions = () => {
                             </Grid>
                         </Grid>
                     </Toolbar>
-                <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{flex:1}}>
+                    {selectedView==='Calls' ? <SingleLPCallsTable/> : <SingleLPDistributionsTable/>}
+               {/*  <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{flex:1}}>
                     <AgGridReact gridOptions={gridOptions}
                                 columnDefs={getColumnDefs}
                                 rowData={rowData}
@@ -296,7 +299,7 @@ const SingleLPCallsAndDistributions = () => {
                                 tooltipShowDelay={0}
                                 tooltipHideDelay={10000}
                                 />
-                </div>
+                </div> */}
             </Grid>
         </Paper>
             
