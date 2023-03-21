@@ -35,7 +35,7 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const ContractsTable = () => {
+const ReportsTable = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
@@ -68,15 +68,19 @@ const ContractsTable = () => {
                             <TableCell sx={{backgroundColor: theme.palette.mode==='light'? theme.palette.grey[400] : theme.palette.grey[800],
                             fontFamily:'Raleway',
                             color: theme.palette.text.primary,
-                            width:'30%'}} align="left">Contracts</TableCell>
+                            width:'20%'}} align="left">Report</TableCell>
                             <TableCell sx={{backgroundColor: theme.palette.mode==='light'? theme.palette.grey[400] : theme.palette.grey[800],
                             fontFamily:'Raleway',
                             color: theme.palette.text.primary,
-                            width:'50%'}} align="left">Document Name</TableCell>
+                            width:'40%'}} align="left">Document Name</TableCell>
                             <TableCell sx={{backgroundColor: theme.palette.mode==='light'? theme.palette.grey[400] : theme.palette.grey[800],
                             fontFamily:'Raleway',
                             color: theme.palette.text.primary,
-                            width:'20%'}} align="left">Date</TableCell>
+                            width:'30%'}} align="left">Type</TableCell>
+                            <TableCell sx={{backgroundColor: theme.palette.mode==='light'? theme.palette.grey[400] : theme.palette.grey[800],
+                            fontFamily:'Raleway',
+                            color: theme.palette.text.primary,
+                            width:'10%'}} align="left">Date</TableCell>
                         </TableRow>
                         </TableHead>
                         <TableBody>
@@ -98,4 +102,4 @@ const ContractsTable = () => {
 };
 
 
-export default ContractsTable;
+export default ReportsTable;

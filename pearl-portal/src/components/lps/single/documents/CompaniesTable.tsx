@@ -35,7 +35,7 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const ContractsTable = () => {
+const CompaniesTable = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
@@ -68,7 +68,7 @@ const ContractsTable = () => {
                             <TableCell sx={{backgroundColor: theme.palette.mode==='light'? theme.palette.grey[400] : theme.palette.grey[800],
                             fontFamily:'Raleway',
                             color: theme.palette.text.primary,
-                            width:'30%'}} align="left">Contracts</TableCell>
+                            width:'30%'}} align="left">Company</TableCell>
                             <TableCell sx={{backgroundColor: theme.palette.mode==='light'? theme.palette.grey[400] : theme.palette.grey[800],
                             fontFamily:'Raleway',
                             color: theme.palette.text.primary,
@@ -98,4 +98,4 @@ const ContractsTable = () => {
 };
 
 
-export default ContractsTable;
+export default CompaniesTable;

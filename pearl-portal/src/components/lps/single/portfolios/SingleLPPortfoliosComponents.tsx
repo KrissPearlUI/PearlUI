@@ -90,7 +90,7 @@ const SingleLPPortfolios = () => {
                 }
             },
             {
-                headerName: '1st Co-Investment',
+                headerName: '1st Investment',
                 field:'dateFirstInvestment',
                 enableRowGroup: true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},

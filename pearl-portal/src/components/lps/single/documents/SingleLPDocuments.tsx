@@ -16,6 +16,8 @@ import AGGridLoader from '../../../shared/AGGridLoader';
 import { PCOSummary } from '../../../../models/pcos/pcoModels';
 import { capitalizeLetters } from '../../../../helpers/app';
 import ContractsTable from './ContractsTable';
+import CompaniesTable from './CompaniesTable';
+import ReportsTable from './ReportsTable';
 
 
 const useStyles = makeStyles(() =>
@@ -237,7 +239,7 @@ const SingleLPDocuments = () => {
  */
 
     useEffect(()=>{
-        setRowData(selectedLP?.funds??[]);
+        setRowData([]);
     },[selectedLP])
 
     return (
@@ -339,7 +341,10 @@ const SingleLPDocuments = () => {
                     </Toolbar>
                     </Grid>
                     <Grid item xs={12} md={12} lg={12} sx={{width:'100%', height:'100%', flex:1}}>
-                    {selectedView==='Contracts' && <ContractsTable/>}
+                    {selectedView==='Contracts' ? <ContractsTable/>
+                    : selectedView==='Companies'
+                    ? <CompaniesTable/>
+                    :<ReportsTable/>}
                     </Grid>
             </Grid>
             
