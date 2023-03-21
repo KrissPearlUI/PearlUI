@@ -15,6 +15,7 @@ import { dateValueFormatter, DefaultSideBarDef, getGridTheme, DefaultColumnDef,D
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { PCOSummary } from '../../../../models/pcos/pcoModels';
 import { capitalizeLetters } from '../../../../helpers/app';
+import ContractsTable from './ContractsTable';
 
 
 const useStyles = makeStyles(() =>
@@ -24,7 +25,6 @@ const useStyles = makeStyles(() =>
             flex: 1,
             height: '100%',
             overflow:'hidden',
-            marginRight:'1em'
         },
         fill: {
             flex: 1,
@@ -241,18 +241,8 @@ const SingleLPDocuments = () => {
     },[selectedLP])
 
     return (
-            <Grid container
-                  style={{
-                      display: 'flex',
-                      justifyContent: 'flex-start',
-                      alignItems: 'flex-start',
-                      flexDirection: 'column',
-                      flex: 1,
-                      height: '100%',
-                      overflow:'hidden',
-                      marginRight:'1em',
-                      marginTop:'-1em'
-                  }}>
+        <Grid container direction="column" alignItems="flex-start" justifyContent="flex-start" spacing={1} sx={{marginRight:'0.5em', marginTop:'-1.5em', overflow:'hidden'}}>
+        <Grid item >
                     <Toolbar variant="dense" disableGutters className={classes.toolbar}>
                         <Grid container
                             style={{
@@ -347,17 +337,10 @@ const SingleLPDocuments = () => {
                             </Grid>
                         </Grid>
                     </Toolbar>
-                <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{flex:1}}>
-                    <AgGridReact gridOptions={gridOptions}
-                                columnDefs={getColumnDefs}
-                                rowData={rowData}
-                                onGridReady={onGridReady}
-                                loadingOverlayComponentParams={loadingOverlayRendererParams}
-                                loadingOverlayComponent={AGGridLoader}
-                                tooltipShowDelay={0}
-                                tooltipHideDelay={10000}
-                                />
-                </div>
+                    </Grid>
+                    <Grid item xs={12} md={12} lg={12} sx={{width:'100%', height:'100%', flex:1}}>
+                    {selectedView==='Contracts' && <ContractsTable/>}
+                    </Grid>
             </Grid>
             
     );

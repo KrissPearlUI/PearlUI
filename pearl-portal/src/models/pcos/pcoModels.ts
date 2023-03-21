@@ -1,5 +1,11 @@
 import { Fund, LPFundsOverview } from "../lps/lpModels";
 
+export interface Industry{
+    id?:string,
+    name?:string,
+    numberOfIndustry?:number
+}
+
 export interface PCOSummary {
     id: string,
     pcoName: string,
@@ -13,5 +19,13 @@ export interface PCOSummary {
     numOfLPS: number,
     status: string,
     funds?:Fund[]
-    lps?:LPFundsOverview[]
+    lps?:LPFundsOverview[],
+    dateInitalInvestment?:string,
+    dateExit?:string,
+    currentStage?:string,
+    initialStage?:string,
+    industry1?:string,
+    industry2?:string,
+    industry3?:string,
+    industry4?:string,
 }

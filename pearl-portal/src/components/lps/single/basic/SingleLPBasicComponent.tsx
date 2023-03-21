@@ -130,7 +130,7 @@ const SingleLPBasic = () => {
     };
 
     return (
-        <Grid container spacing={2} sx={{display:'flex',flex:1, justifyContent:'flex-start', alignItems:'flex-start', flexDirection:'row',paddingRight:'1em', overflow:'auto'}}>
+        <Grid container spacing={2} sx={{display:'flex',flex:1, justifyContent:'flex-start', alignItems:'flex-start', flexDirection:'row',paddingRight:'0.5em', overflow:'auto'}}>
             <Grid item xs={12}>
                 <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper, padding:'1em'}}>
                     <Grid container spacing={1} sx={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexDirection:'row'}}>
@@ -526,7 +526,7 @@ const SingleLPBasic = () => {
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Net IRR:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
-                                {selectedLP?.kpis && selectedLP.kpis.netIRR? `${(selectedLP.kpis.netIRR * 100).toFixed(2)}`:''}
+                                {selectedLP?.kpis && selectedLP.kpis.netIRR? `${(selectedLP.kpis.netIRR * 100).toFixed(2)} %`:''}
                                 </Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>

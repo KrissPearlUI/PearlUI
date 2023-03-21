@@ -225,7 +225,7 @@ const SingleLPCallsAndDistributions = () => {
     },[selectedLP])
 
     return (
-        <Paper elevation={3} className={classes.root} sx={{paddingRight:'1em'}}>
+        <Paper elevation={3} className={classes.root} sx={{paddingRight:'0.5em'}}>
             <Grid container
                   style={{
                       display: 'flex',

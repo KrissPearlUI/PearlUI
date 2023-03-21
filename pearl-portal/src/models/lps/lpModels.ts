@@ -53,7 +53,8 @@ export interface PCO {
     shortName: string,
     amountInvested?: number,
     localCurrency?:string,
-    fundCurrency?:string
+    fundCurrency?:string,
+    dateInitalInvestment?:string,
 }
 
 export interface Commitment {

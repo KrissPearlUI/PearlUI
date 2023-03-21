@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     pageArea: {
         flex: 1,
         overflow: 'auto',
+        width:'100%',
         paddingBottom: theme.spacing(1)
     },
 }));

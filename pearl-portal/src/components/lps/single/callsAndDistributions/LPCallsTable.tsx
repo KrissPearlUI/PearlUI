@@ -30,7 +30,6 @@ const useStyles = makeStyles(() =>
             flex: 1,
             width: '100%',
             height: '100%',
-            paddingRight:'1em',
         }
     })
 );
@@ -72,13 +71,13 @@ const SingleLPCallsTable = () => {
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
-                headerName: 'Fund Id',
+                headerName: 'Fund ID',
                 field: 'fundId',
                 enableRowGroup: true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
-                headerName: 'LP Id',
+                headerName: 'LP ID',
                 field: 'lpId',
                 enableRowGroup: true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
@@ -90,7 +89,7 @@ const SingleLPCallsTable = () => {
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
-                headerName: 'PCO Id',
+                headerName: 'PCO ID',
                 field: 'pcoId',
                 enableRowGroup: true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},

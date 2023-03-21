@@ -10,6 +10,7 @@ import { LP } from '../../../models/lps/lpModels';
 import { RootState } from '../../../redux/slices/rootSlice';
 import { useSelector } from 'react-redux';
 import DatePicker from '../../shared/DatePicker';
+import { setSelectedLP } from '../../../redux/slices/lps/lpsSlice';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -92,13 +93,16 @@ const SingleLPToolbar = () => {
     const theme=useTheme();
     const dispatch = useAppDispatch();
     const {lps, selectedLP} = useSelector((state: RootState) => state.lps);
-    const [selectedLPValue, setSelectedLPValue] = useState<LP | null>(null);
+    const [selectedLPValue, setSelectedLPValue] = useState<LP | null>(selectedLP);
     const minimumDate = new Date('2019-10-01');
     const maximumDate = new Date();
     const [date, setDate] = useState<any>(null);
 
     const onLPChange = (event: any) => {
         setSelectedLPValue(event);
+        if(event){
+            dispatch(setSelectedLP(event));
+        }
     };
 
      /**
@@ -109,9 +113,9 @@ const SingleLPToolbar = () => {
         setDate(date);
     };
 
-    useEffect(()=>{
-        setSelectedLPValue(selectedLP);
-    }, [selectedLP])
+/*     useEffect(()=>{
+        setSelectedLPValue(selectedLP??null);
+    }, [selectedLP]); */
     
     return (
         <Grid container spacing={1} sx={{display:'flex',flex:1, justifyContent:'space-betweeen', alignItems:'flex-start', flexDirection:'row'}}>
@@ -127,10 +131,10 @@ const SingleLPToolbar = () => {
                     classes={classes}
                     sx={{marginRight:'1em', width:'320px'}}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: LP) => onLPChange(value)}
+                    onChange={(e, value: LP|null) => onLPChange(value)}
                     value={selectedLPValue??undefined}
                     options={lps ?? []}
-                    getOptionLabel={(option: LP) => option ? option.shortName : ''}
+                    getOptionLabel={(option: LP|null) => option ? option.shortName : ''}
                     renderInput={(params: AutocompleteRenderInputParams) => {
                         params.InputProps.className = autocompleteInputClasses.textInput;
                         return <TextField {...params} 
@@ -142,7 +146,7 @@ const SingleLPToolbar = () => {
                     }}
                     />
             </Grid>
-            <Grid item xs={6} md={6} lg={6} sx={{display:'flex', justifyContent:'end',alignItems:'center', marginTop:'0.2em', paddingRight:'1em'}}>
+            <Grid item xs={6} md={6} lg={6} sx={{display:'flex', justifyContent:'end',alignItems:'center', marginTop:'0.2em', paddingRight:'0.5em'}}>
                 <DatePicker disabled={false}
                             onChange={handleTimestampStartChange}
                             minDate={minimumDate}

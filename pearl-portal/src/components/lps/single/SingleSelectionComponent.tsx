@@ -66,7 +66,7 @@ const SingleSelection = ({selectedItem,handleButtonClick}:SingleSelectionProps) 
     },[gridApi]);
 
     return (
-        <Grid container sx={{display:'flex',flex:1, justifyContent:'space-betweeen', alignItems:'flex-start', flexDirection:'row'}}>
+        <Grid container spacing={1} sx={{display:'flex',flex:1, justifyContent:'space-betweeen', alignItems:'flex-start', flexDirection:'row', width:'100%'}}>
         <Grid item xs={8} md={8} lg={8}>
             <ButtonGroup variant="outlined"  aria-label="outlined primary button group" sx={{height:36}}>
                 <Button sx={{fontSize:12,
@@ -94,7 +94,7 @@ const SingleSelection = ({selectedItem,handleButtonClick}:SingleSelectionProps) 
                     Documents</Button>
             </ButtonGroup>
         </Grid>
-        <Grid item xs={4} md={4} lg={4} sx={{display:'flex', justifyContent:'end',alignItems:'center',paddingRight:'1em'}}>
+        <Grid item xs={4} md={4} lg={4} sx={{display:'flex', justifyContent:'flex-end',alignItems:'center',paddingRight:'0.7em'}}>
             {selectedItem==='basic'?<Fab
                     color={'primary'}
                     size="small"
