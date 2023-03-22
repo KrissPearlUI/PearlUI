@@ -1,14 +1,16 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import { LP } from '../../../models/lps/lpModels';
+import { LP, PCOExtended } from '../../../models/lps/lpModels';
 
 export interface LPsState {
     lps: LP[]
-    selectedLP:LP|null
+    selectedLP:LP|null,
+    pcosExtended:PCOExtended[]
 }
 
 const initialState: LPsState = {
     lps: [],
-    selectedLP:null
+    selectedLP:null,
+    pcosExtended:[]
 };
 
 const lpsSlice = createSlice({
@@ -31,12 +33,21 @@ const lpsSlice = createSlice({
         setSelectedLP(state, action: PayloadAction<LP>) {
             state.selectedLP = action.payload;
         },
+        /**
+         * Set's the list of pcos that the selected lp has
+         * @param state
+         * @param action
+         */
+        setPCOsExtended(state, action: PayloadAction<PCOExtended[]>) {
+            state.pcosExtended = action.payload;
+        },
     }
 });
 
 export const {
     setLPs,
-    setSelectedLP
+    setSelectedLP,
+    setPCOsExtended
 } = lpsSlice.actions;
 
 export default lpsSlice.reducer;

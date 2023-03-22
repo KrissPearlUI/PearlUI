@@ -18,6 +18,8 @@ import { capitalizeLetters } from '../../../../helpers/app';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { fetchPCOs } from '../../../../redux/thunks/pcoThunk';
 import moment from 'moment';
+import { setPCOsExtended } from '../../../../redux/slices/lps/lpsSlice';
+import PortfolioByCountry from './PortfolioByCountry';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -55,6 +57,7 @@ const SingleLPPortfolios = () => {
     const [selectedPCOValue, setSelectedPCOValue] = useState<PCOSummary | null>(null);
     const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
     const [selectedView,setSelectedView]=useState<string>('Calls');
+    const [isPortfolioByCountryExpand, setIsPortfolioByCountryExpand]=useState<boolean>(false);
 
     const gridOptions: GridOptions = {
         defaultColDef: DefaultColumnDef,
@@ -214,6 +217,13 @@ const SingleLPPortfolios = () => {
         setSelectedView(value);
     };
 
+
+    const handleAccordionExp=(expanded: boolean, accordionId: string)=> {
+        if(accordionId==='card-countries'){
+            setIsPortfolioByCountryExpand(!isPortfolioByCountryExpand);
+        }
+    };
+
    /*  const autoGroupColumnDef = useMemo<ColDef>(() => {
         return {
           minWidth: 300,
@@ -272,12 +282,13 @@ const SingleLPPortfolios = () => {
             }
             ));
             setRowData(data??[]);
+            dispatch(setPCOsExtended(data))
         }
     },[selectedLP,pcos])
 
     return (
-        <Grid container spacing={1} sx={{display:'flex', justifyContent:'flex-start',alignItems:'flex-start', flex:1,overflow:'hidden', height:'100%'}}>
-            <Grid container item xs={12} md={12} lg={8} sx={{height:'100%',overflow:'hidden'}}>
+        <Grid container spacing={1} sx={{display:'flex', justifyContent:'flex-start',alignItems:'flex-start', flex:1,overflow:'auto', height:'100%'}}>
+            <Grid container item xs={12} md={12} lg={8} sx={{height:'100%',overflow:'auto'}}>
             <div className={clsx(getGridTheme(isDarkTheme), classes.fill)}>
                 <AgGridReact gridOptions={gridOptions}
                             columnDefs={getColumnDefs}
@@ -290,7 +301,7 @@ const SingleLPPortfolios = () => {
                             />
             </div>
             </Grid>
-            <Grid item xs={12} md={12} lg={4} sx={{height:'100%',overflow:'hidden', display:'flex', flexDirection:'column', flex:1, paddingRight:'0.7em'}}>
+            <Grid item xs={12} md={12} lg={4} sx={{height:'100%',overflow:'auto', display:'flex', flexDirection:'column', flex:1, paddingRight:'0.7em'}}>
                 <Paper elevation={3} key={`card`} style={{marginBottom: '1em'}}>
                     <Accordion>
                         <AccordionSummary
@@ -309,9 +320,17 @@ const SingleLPPortfolios = () => {
                     </Accordion>
                 </Paper>
                 <Paper elevation={3} key={`card`} style={{marginBottom: '1em'}}>
-                    <Accordion>
+                    <Accordion key={`card-countries`}
+                                expanded={isPortfolioByCountryExpand}
+                                onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-countries')}
+                                sx={{
+                                    display:'flex',
+                                    flex:1,
+                                    width: '100%',
+                                    height:'100%',
+                                    flexDirection: 'column'}}>
                         <AccordionSummary 
-                        sx={{'minHeight': '60px !important'}}
+                        sx={{height: '60px'}}
                         expandIcon={
                             <IconButton>
                                 <ExpandMoreIcon
@@ -320,8 +339,10 @@ const SingleLPPortfolios = () => {
                     }>
                             <Typography variant='body1' sx={{color:theme.palette.text.primary, fontWeight:600}}>Portfolio by Country</Typography>
                         </AccordionSummary>
-                        <AccordionDetails>
-                            
+                        <AccordionDetails style={{
+                        width: '100%', display: 'flex', flex: 1, height: '100%', minHeight:'200px'
+                    }}>
+                            {isPortfolioByCountryExpand && <PortfolioByCountry/>}
                         </AccordionDetails>
                     </Accordion>
                 </Paper>

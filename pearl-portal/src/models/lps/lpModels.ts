@@ -54,7 +54,19 @@ export interface PCO {
     amountInvested?: number,
     localCurrency?:string,
     fundCurrency?:string,
+}
+
+export interface PCOExtended extends PCO {
+    pcoName: string,
+    country: string,
     dateInitalInvestment?:string,
+    dateExit?:string,
+    currentStage?:string,
+    initialStage?:string,
+    industry1?:string,
+    industry2?:string,
+    industry3?:string,
+    industry4?:string,
 }
 
 export interface Commitment {
@@ -109,4 +121,9 @@ export interface Distribution {
 export interface Reserves {
     managementFee: number,
     operationalExpenses: number,
+}
+
+export interface LPPCOInvestmentsRequest {
+    id: string;
+    currency: string;
 }
