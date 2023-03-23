@@ -71,6 +71,12 @@ const SingleLPCommitments = () => {
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
+                headerName: 'Fund ID',
+                field: 'fundId',
+                enableRowGroup: true,
+                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+            },
+            {
                 headerName: 'Fund Name',
                 field: 'fundName',
                 enableRowGroup: true,
@@ -113,6 +119,9 @@ const SingleLPCommitments = () => {
                 field: 'transfer',
                 enableRowGroup: true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                valueGetter: (params) => {
+                    return params.data?.transfered ? 'x' : '';
+                },
             },
         ];
     }, [theme]);

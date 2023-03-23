@@ -36,7 +36,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Cleantech Fund III",
 		  "shortName": "ECFIII",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":true
 		},
 		{
 		  "id": 27,
@@ -45,7 +46,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -602,7 +604,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -871,7 +874,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -1272,7 +1276,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		},
 		{
 		  "id": 4639,
@@ -1281,7 +1286,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Sustainable Packaging Innovation Fund",
 		  "shortName": "ESPIF",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -1448,7 +1454,8 @@
 		  "committedAmount": 10000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -1735,7 +1742,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Cleantech Fund III",
 		  "shortName": "ECFIII",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":true
 		},
 		{
 		  "id": 25,
@@ -1744,7 +1752,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -2282,7 +2291,8 @@
 		  "committedAmount": 750000,
 		  "fundName": "Emerald Cleantech Fund II",
 		  "shortName": "ECFII",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		},
 		{
 		  "id": 330,
@@ -2291,7 +2301,8 @@
 		  "committedAmount": 1000000,
 		  "fundName": "Emerald Cleantech Fund III",
 		  "shortName": "ECFIII",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":true
 		},
 		{
 		  "id": 13,
@@ -2300,7 +2311,8 @@
 		  "committedAmount": 1000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		},
 		{
 		  "id": 3,
@@ -2309,7 +2321,8 @@
 		  "committedAmount": 1000000,
 		  "fundName": "Emerald Global Water Impact Fund",
 		  "shortName": "EGWIF",
-		  "fundCurrency": "USD"
+		  "fundCurrency": "USD",
+		  "transfered":false
 		},
 		{
 		  "id": 4264,
@@ -2318,7 +2331,8 @@
 		  "committedAmount": 500000,
 		  "fundName": "Emerald Global Energy Transformation Fund",
 		  "shortName": "EGETF",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		},
 		{
 		  "id": 4640,
@@ -2327,7 +2341,8 @@
 		  "committedAmount": 500000,
 		  "fundName": "Emerald Sustainable Packaging Innovation Fund",
 		  "shortName": "ESPIF",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		},
 		{
 		  "id": 5641,
@@ -2336,7 +2351,8 @@
 		  "committedAmount": 500000,
 		  "fundName": "Emerald Industrial Innovation Fund (Ireland)",
 		  "shortName": "EIIF Ireland",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -3126,7 +3142,8 @@
 		  "committedAmount": 1000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -3288,7 +3305,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Cleantech Fund III",
 		  "shortName": "ECFIII",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -3532,7 +3550,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -3755,7 +3774,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		},
 		{
 		  "id": 4638,
@@ -3764,7 +3784,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Sustainable Packaging Innovation Fund",
 		  "shortName": "ESPIF",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -4164,7 +4185,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -4405,7 +4427,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Cleantech Fund III",
 		  "shortName": "ECFIII",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":true
 		},
 		{
 		  "id": 14,
@@ -4414,7 +4437,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -4965,7 +4989,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Cleantech Fund III",
 		  "shortName": "ECFIII",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":true
 		},
 		{
 		  "id": 22,
@@ -4974,7 +4999,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -5507,7 +5533,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Cleantech Fund III",
 		  "shortName": "ECFIII",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":true
 		},
 		{
 		  "id": 21,
@@ -5516,7 +5543,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -6047,6 +6075,11 @@
     "totalDistributions": 1298503.66,
 	"tappedOot": false,
 	"kpis":{"netIRR":0.246192127},
+	"terminated":[
+		{
+			"id":"16", "lpId":"SHV01", "fundId":"EIIF", "dateTermination":"2023-03-31"
+		}
+	],
 	"fees":[
 		{
 		  "feeType": "Management Fee",
@@ -6068,7 +6101,8 @@
 		  "committedAmount": 10000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -6284,6 +6318,14 @@
     "totalDistributions": 5689799.055659698,
 	"tappedOot": false,
 	"kpis":{"netIRR":0.3448486},
+	"terminated":[
+		{
+			"id":"20", "lpId":"Sibe01", "fundId":"EIIF", "dateTermination":"2021-09-30"
+		},
+		{
+			"id":"332", "lpId":"Sibe01", "fundId":"ECFIII", "dateTermination":"2021-09-30"
+		}
+	],
 	"fees":[
 		{
 		  "feeType": "Management Fee",
@@ -6306,7 +6348,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Cleantech Fund III",
 		  "shortName": "ECFIII",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":true
 		},
 		{
 		  "id": 20,
@@ -6315,7 +6358,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -6814,7 +6858,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Cleantech Fund III",
 		  "shortName": "ECFIII",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":true
 		},
 		{
 		  "id": 24,
@@ -6823,7 +6868,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[
@@ -7368,7 +7414,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Energy Fund I",
 		  "shortName": "EEF",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		},
 		{
 		  "id": 361,
@@ -7377,7 +7424,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Cleantech Fund II",
 		  "shortName": "ECFII",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		},
 		{
 		  "id": 336,
@@ -7386,7 +7434,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Cleantech Fund III",
 		  "shortName": "ECFIII",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":true
 		},
 		{
 		  "id": 15,
@@ -7395,7 +7444,8 @@
 		  "committedAmount": 5000000,
 		  "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
 		  "shortName": "EIIF Guernsey",
-		  "fundCurrency": "EUR"
+		  "fundCurrency": "EUR",
+		  "transfered":false
 		}
 	  ],
 	"pcos":[

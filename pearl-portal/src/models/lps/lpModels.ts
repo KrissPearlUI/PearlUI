@@ -20,6 +20,7 @@ export interface LP {
     reservesFees?:number,
     tappedOot?:boolean,
     numTerminated?:number,
+    terminated?:TerminationFund[],
     fees:Fee[],
     dryPowder?:number,
     reserved?:number,
@@ -28,6 +29,13 @@ export interface LP {
     capAvailable?:number,
     dateTappedOut?:string,
     kpis?:KPI
+}
+
+export interface TerminationFund{
+    id?:string,
+    lpId?:string,
+    fundId?:string,
+    dateTermination?:string
 }
 
 export interface LPFundsOverview {
@@ -97,7 +105,8 @@ export interface CommitmentBasic {
     fundName?:string,
     shortName?:string,
     committedAmount?:number,
-    fundCurrency?:string
+    fundCurrency?:string,
+    transfered?:boolean
 }
 
 export interface Exits {

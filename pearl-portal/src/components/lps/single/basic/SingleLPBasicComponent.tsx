@@ -317,7 +317,7 @@ const SingleLPBasic = () => {
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Of which terminated:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.numTerminated}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedLP?.terminated ? selectedLP.terminated.length:0}</Typography>
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
