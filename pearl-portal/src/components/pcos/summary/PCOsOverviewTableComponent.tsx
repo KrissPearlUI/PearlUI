@@ -1,33 +1,24 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import { useSelector} from 'react-redux';
-import {Alert,Autocomplete,AutocompleteRenderInputParams,capitalize, Grid, IconButton, InputAdornment, Paper, Snackbar, TextField, useTheme} from '@mui/material';
-import CancelIcon from '@mui/icons-material/Cancel';
-import SearchIcon from '@mui/icons-material/Search';
+import {capitalize, Grid, useTheme} from '@mui/material';
 import {RootState} from '../../../redux/slices/rootSlice';
 import {AgGridReact} from 'ag-grid-react';
-import {GridApi, GridOptions, GridReadyEvent, ICellRendererParams, ValueGetterParams} from 'ag-grid-community';
+import {GridApi, GridOptions, GridReadyEvent, ValueGetterParams} from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
-    dateValueFormatter,
     DefaultColumnDef,
     DefaultSideBarDef,
     DefaultStatusPanelDef,
     getGridTheme,
-    guidValueFormatter,
-    priceValueFormatter,
     quantityValueFormatter,
-    timeValueFormatter,
 } from '../../../helpers/agGrid';
 import clsx from 'clsx';
-import {amountValueFormatter, amountValueGetter, capitalizeLetters, isValueEmpty} from '../../../helpers/app';
+import { capitalizeLetters} from '../../../helpers/app';
 import {ColDef, ColGroupDef, ValueSetterParams} from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../redux/store';
-import { Fund, LP } from '../../../models/lps/lpModels';
+import { LP } from '../../../models/lps/lpModels';
 import AGGridLoader from '../../shared/AGGridLoader';
-import ExportButton from '../../shared/ExportButton';
-import { setLPs } from '../../../redux/slices/lps/lpsSlice';
 import { fetchLPs } from '../../../redux/thunks/lpThunk';
 import { FundSummary } from '../../../models/funds/fundModels';
 import { fetchFunds } from '../../../redux/thunks/fundThunk';

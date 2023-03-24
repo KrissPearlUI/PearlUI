@@ -1,0 +1,294 @@
+[
+  {
+    "pcoId": "Xunl01",
+    "sumNavFundCcy": null
+  },
+  {
+    "pcoId": "xFar01",
+    "sumNavFundCcy": 3086247
+  },
+  {
+    "pcoId": "Vise01",
+    "sumNavFundCcy": 880842
+  },
+  {
+    "pcoId": "Urge01",
+    "sumNavFundCcy": 10675458
+  },
+  {
+    "pcoId": "Trop01",
+    "sumNavFundCcy": 2830417
+  },
+  {
+    "pcoId": "Taka01",
+    "sumNavFundCcy": 5704691
+  },
+  {
+    "pcoId": "Spea01",
+    "sumNavFundCcy": 119274
+  },
+  {
+    "pcoId": "Spac01",
+    "sumNavFundCcy": 2130270
+  },
+  {
+    "pcoId": "Sofi01",
+    "sumNavFundCcy": 2785458
+  },
+  {
+    "pcoId": "Skyl01",
+    "sumNavFundCcy": 171
+  },
+  {
+    "pcoId": "Siel01",
+    "sumNavFundCcy": null
+  },
+  {
+    "pcoId": "Sewe01",
+    "sumNavFundCcy": 3940467.64
+  },
+  {
+    "pcoId": "SDCm01",
+    "sumNavFundCcy": null
+  },
+  {
+    "pcoId": "Rhom01",
+    "sumNavFundCcy": null
+  },
+  {
+    "pcoId": "RBE01",
+    "sumNavFundCcy": null
+  },
+  {
+    "pcoId": "Phas01",
+    "sumNavFundCcy": 9440723
+  },
+  {
+    "pcoId": "P9701",
+    "sumNavFundCcy": 22834264
+  },
+  {
+    "pcoId": "Open01",
+    "sumNavFundCcy": 15737626
+  },
+  {
+    "pcoId": "MetG01",
+    "sumNavFundCcy": 385482
+  },
+  {
+    "pcoId": "Meea01",
+    "sumNavFundCcy": 3399999
+  },
+  {
+    "pcoId": "Luci01",
+    "sumNavFundCcy": null
+  },
+  {
+    "pcoId": "Libr01",
+    "sumNavFundCcy": 9160311
+  },
+  {
+    "pcoId": "Imag01",
+    "sumNavFundCcy": 2329778
+  },
+  {
+    "pcoId": "Iden01",
+    "sumNavFundCcy": null
+  },
+  {
+    "pcoId": "Hydr01",
+    "sumNavFundCcy": 15101210
+  },
+  {
+    "pcoId": "GeoD01",
+    "sumNavFundCcy": 6355295
+  },
+  {
+    "pcoId": "Futu01",
+    "sumNavFundCcy": 16535132
+  },
+  {
+    "pcoId": "Fido01",
+    "sumNavFundCcy": 7539338
+  },
+  {
+    "pcoId": "Eolo01",
+    "sumNavFundCcy": 4000032
+  },
+  {
+    "pcoId": "Ensp01",
+    "sumNavFundCcy": 2750000
+  },
+  {
+    "pcoId": "Enoc01",
+    "sumNavFundCcy": 4574034
+  },
+  {
+    "pcoId": "Emer03",
+    "sumNavFundCcy": null
+  },
+  {
+    "pcoId": "Deep01",
+    "sumNavFundCcy": 5323590
+  },
+  {
+    "pcoId": "Azzu01",
+    "sumNavFundCcy": null
+  },
+  {
+    "pcoId": "Arxx01",
+    "sumNavFundCcy": null
+  },
+  {
+    "pcoId": "Alph01",
+    "sumNavFundCcy": 0
+  },
+  {
+    "pcoId": "Agan01",
+    "sumNavFundCcy": 4334961
+  },
+  {
+    "pcoId": "Actn01",
+    "sumNavFundCcy": 8172815
+  },
+  {
+    "pcoId": "Acum01",
+    "sumNavFundCcy": 0
+  },
+  {
+    "pcoId": "Adva01",
+    "sumNavFundCcy": null
+  },
+  {
+    "pcoId": "Agra01",
+    "sumNavFundCcy": 97663.3
+  },
+  {
+    "pcoId": "Aqua01",
+    "sumNavFundCcy": 12310.58247
+  },
+  {
+    "pcoId": "Biop01",
+    "sumNavFundCcy": 451422
+  },
+  {
+    "pcoId": "CDTI01",
+    "sumNavFundCcy": 2466272.793
+  },
+	{
+    "pcoId": "Cell01",
+    "sumNavFundCcy": 93385.93267
+  },
+	{
+    "pcoId": "Eden01",
+    "sumNavFundCcy": 1038.789112
+  },
+	{
+    "pcoId": "Elco01",
+    "sumNavFundCcy": 0
+  },
+	{
+    "pcoId": "Engi01",
+    "sumNavFundCcy": 0
+  },
+	{
+    "pcoId": "Ever01",
+    "sumNavFundCcy": 2882598.8882
+  },
+	{
+    "pcoId": "Flux01",
+    "sumNavFundCcy": 632210
+  },
+	{
+    "pcoId": "Inge01",
+    "sumNavFundCcy": 12538542
+  },
+	{
+    "pcoId": "Ioma01",
+    "sumNavFundCcy": 1659791.435
+  },
+	{
+    "pcoId": "O-fl01",
+    "sumNavFundCcy": 718017
+  },
+	{
+    "pcoId": "Ocea01",
+    "sumNavFundCcy": 4000702.9545
+  },
+	{
+    "pcoId": "Opti01",
+    "sumNavFundCcy": 3020438.634
+  },
+	{
+    "pcoId": "Orme01",
+    "sumNavFundCcy": 708996.9515
+  },
+	{
+    "pcoId": "Oxfo01",
+    "sumNavFundCcy": 0
+  },
+	{
+    "pcoId": "Pela01",
+    "sumNavFundCcy": 0
+  },
+	{
+    "pcoId": "Peme01",
+    "sumNavFundCcy": 6101484.139
+  },
+	{
+    "pcoId": "Poly01",
+    "sumNavFundCcy": 2013.129404
+  },
+	{
+    "pcoId": "Powe01",
+    "sumNavFundCcy": 331572.28454
+  },
+	{
+    "pcoId": "Powe02",
+    "sumNavFundCcy": 1623639.3499
+  },
+	{
+    "pcoId": "Pure01",
+    "sumNavFundCcy": 4505915.153
+  },
+	{
+    "pcoId": "Schm01",
+    "sumNavFundCcy": 19394011.56
+  },
+	{
+    "pcoId": "Schm02",
+    "sumNavFundCcy": 1514189
+  },
+	{
+    "pcoId": "Scie01",
+    "sumNavFundCcy": 114534.3919
+  },
+	{
+    "pcoId": "Secu01",
+    "sumNavFundCcy": 4651154.6091
+  },
+	{
+    "pcoId": "Sens01",
+    "sumNavFundCcy": 8393824.671
+  },
+	{
+    "pcoId": "Syna01",
+    "sumNavFundCcy": 5987371.662
+  },
+	{
+    "pcoId": "Ushr01",
+    "sumNavFundCcy": 16465723.38
+  },
+	{
+    "pcoId": "Vape01",
+    "sumNavFundCcy": 401730.3181
+  },
+  {
+    "pcoId": "Whee01",
+    "sumNavFundCcy": 600000
+  },
+	{
+    "pcoId": "Zoxy01",
+    "sumNavFundCcy": 0
+  }
+]

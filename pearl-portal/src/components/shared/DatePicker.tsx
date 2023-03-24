@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Moment} from 'moment';
-import {SxProps} from '@mui/system';
 import makeStyles from '@mui/styles/makeStyles';
 import {Theme} from '@mui/material/styles';
 import createStyles from '@mui/styles/createStyles';
-import {darken, lighten, TextField, useTheme} from '@mui/material';
+import {TextField} from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -59,7 +58,6 @@ const DatePickerComponent = ({
                                  defaultValue,
                              }: Props): JSX.Element => {
     const classes = useStyles();
-    const theme = useTheme();
     const [value, setValue] = useState(null);
 
     /**

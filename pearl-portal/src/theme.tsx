@@ -1,4 +1,4 @@
-import {createTheme, darken} from '@mui/material';
+import {createTheme} from '@mui/material';
 import {blue} from '@mui/material/colors';
 
 /**

@@ -29,3 +29,10 @@ export interface PCOSummary {
     industry3?:string,
     industry4?:string,
 }
+
+export interface PCOFinancial {
+    pcoId?:string,
+    sumNavFundCcy?:number,
+    grossIRR?:number,
+    currentValuation?:number
+}

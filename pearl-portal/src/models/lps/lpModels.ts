@@ -75,6 +75,7 @@ export interface PCOExtended extends PCO {
     industry2?:string,
     industry3?:string,
     industry4?:string,
+    navEUR?:number,
 }
 
 export interface Commitment {

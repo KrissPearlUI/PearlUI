@@ -1,6 +1,5 @@
 import {
     ICellRendererParams,
-    IServerSideDatasource,
     SideBarDef,
     ValueFormatterParams,
     ValueGetterParams
@@ -9,7 +8,6 @@ import moment from 'moment';
 import {
     amountValueFormatter,
     capitalizeLetters,
-    cryptoNumberFormatter,
     customPriceFormatter,
     fiatNumberFormatter,
     fiatNumberFormatterNoDecimals,
@@ -218,7 +216,6 @@ export const numberCellRenderer = (params: ICellRendererParams) => {
         return `${sign}${formattedBeforeDot}.${afterDot}`;
     }
 };
-
 
 /**
  * Setting ag-grid default status panel definitions

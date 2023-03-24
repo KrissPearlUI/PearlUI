@@ -1,5 +1,4 @@
 import {Grid,Paper,Typography} from '@mui/material';
-import {useTheme} from "@mui/material/styles";
 import { useEffect } from 'react';
 import { setTopBarTitle } from '../../redux/slices/appSlice';
 import { useAppDispatch } from '../../redux/store';
@@ -23,7 +22,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const LoaderPage = () => {
     const classes=useStyles();
-    const theme=useTheme();
     const dispatch = useAppDispatch();
 
     /**
