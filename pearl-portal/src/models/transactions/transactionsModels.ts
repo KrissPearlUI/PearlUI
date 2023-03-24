@@ -5,9 +5,11 @@ export interface Transaction {
     transType: string;
     investmentType: string;
     pcoId: string;
+    lpId?:string,
     securityType: string;
     amountLocalCurrency: number;
     amountFundCurrency: number;
+    amountEUR?:number,
     forexNT: number;
     preMoneyValuation: number;
     postMoneyValuation: number;

@@ -257,10 +257,8 @@ const SingleLPTransactions = () => {
     },[dispatch])
 
     useEffect(()=>{
-        if(selectedLP?.pcos && transactions){
-            const filteredData = transactions?.filter(item =>
-                selectedLP.pcos?.find(nestedItem => nestedItem.id === item.pcoId)
-              );
+        if(selectedLP && transactions){
+            const filteredData = transactions?.filter(item =>item.lpId===selectedLP.id);
             
             setRowData(filteredData??[]);
         }

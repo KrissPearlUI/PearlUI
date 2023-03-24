@@ -24,10 +24,8 @@ export interface PCOSummary {
     dateExit?:string,
     currentStage?:string,
     initialStage?:string,
-    industry1?:string,
-    industry2?:string,
-    industry3?:string,
-    industry4?:string,
+    emeraldIndustry1?:string,
+    emeraldIndustry2?:string,
 }
 
 export interface PCOFinancial {

@@ -21,6 +21,9 @@ import moment from 'moment';
 import { setPCOsExtended } from '../../../../redux/slices/lps/lpsSlice';
 import PortfolioByCountry from './PortfolioByCountry';
 import PortfolioByStage from './PortfolioByStage';
+import PortfolioByIndustry from './PortfolioByIndustry';
+import InvestmentsOverTime from './InvestmentsOverTime';
+import { fetchTransactions } from '../../../../redux/thunks/transactionsThunk';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -227,6 +230,10 @@ const SingleLPPortfolios = () => {
             setIsPortfolioByCountryExpand(!isPortfolioByCountryExpand);
         } else if(accordionId==='card-stage'){
             setIsPortfolioByStageExpand(!isPortfolioByStageExpand);
+        } else if(accordionId==='card-industry'){
+            setIsPortfolioByIndustryExpand(!isPortfolioByIndustryExpand);
+        } else{
+            setIsPortfolioByInvestmentExpand(!isPortfolioByInvestmentsExpand);
         }
     };
 
@@ -270,6 +277,7 @@ const SingleLPPortfolios = () => {
       useEffect(()=>{
         dispatch(fetchPCOs());
         dispatch(fetchPCOsFinantials());
+        dispatch(fetchTransactions());
     },[dispatch])
 
     useEffect(()=>{
@@ -282,10 +290,8 @@ const SingleLPPortfolios = () => {
                 currentStage: pcos.filter(x=>x.id===pco.id)[0]?.currentStage??'',
                 initalStage: pcos.filter(x=>x.id===pco.id)[0]?.initialStage??'',
                 dateExit: pcos.filter(x=>x.id===pco.id)[0]?.dateExit ??'',
-                industry1: pcos.filter(x=>x.id===pco.id)[0]?.industry1,
-                industry2: pcos.filter(x=>x.id===pco.id)[0]?.industry2,
-                industry3: pcos.filter(x=>x.id===pco.id)[0]?.industry3,
-                industry4: pcos.filter(x=>x.id===pco.id)[0]?.industry4,
+                emeraldIndustry1: pcos.filter(x=>x.id===pco.id)[0]?.emeraldIndustry1,
+                emeraldIndustry2: pcos.filter(x=>x.id===pco.id)[0]?.emeraldIndustry2,
                 navEUR: pcosFinancials.filter(x=>x.pcoId===pco.id)[0]?.sumNavFundCcy??0
             }
             ));
@@ -365,7 +371,15 @@ const SingleLPPortfolios = () => {
                     </Accordion>
                 </Paper>
                 <Paper elevation={3} key={`card`} style={{marginBottom: '1em'}}>
-                    <Accordion>
+                    <Accordion key={`card-industry`}
+                                expanded={isPortfolioByIndustryExpand}
+                                onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-industry')}
+                                sx={{
+                                    display:'flex',
+                                    flex:1,
+                                    width: '100%',
+                                    height:'100%',
+                                    flexDirection: 'column'}}>
                         <AccordionSummary 
                         sx={{'minHeight': '60px !important'}}
                         expandIcon={
@@ -376,13 +390,23 @@ const SingleLPPortfolios = () => {
                     }>
                             <Typography variant='body1' sx={{color:theme.palette.text.primary, fontWeight:600}}>Portfolio by Industry</Typography>
                         </AccordionSummary>
-                        <AccordionDetails>
-                            
+                        <AccordionDetails style={{
+                        width: '100%', display: 'flex', flex: 1, height: '100%', minHeight:'200px'
+                    }}>
+                            {isPortfolioByIndustryExpand && <PortfolioByIndustry/>}
                         </AccordionDetails>
                     </Accordion>
                 </Paper>
                 <Paper elevation={3} key={`card`} style={{marginBottom: '1em'}}>
-                    <Accordion>
+                    <Accordion key={`card-investments`}
+                                expanded={isPortfolioByInvestmentsExpand}
+                                onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-investments')}
+                                sx={{
+                                    display:'flex',
+                                    flex:1,
+                                    width: '100%',
+                                    height:'100%',
+                                    flexDirection: 'column'}}>
                         <AccordionSummary 
                         sx={{'minHeight': '60px !important'}}
                         expandIcon={
@@ -393,8 +417,10 @@ const SingleLPPortfolios = () => {
                     }>
                             <Typography variant='body1' sx={{color:theme.palette.text.primary, fontWeight:600}}>Investments Over Time</Typography>
                         </AccordionSummary>
-                        <AccordionDetails>
-                            
+                        <AccordionDetails style={{
+                        width: '100%', display: 'flex', flex: 1, height: '100%', minHeight:'200px'
+                    }}>
+                            {isPortfolioByInvestmentsExpand && <InvestmentsOverTime/>}
                         </AccordionDetails>
                     </Accordion>
                 </Paper>

@@ -319,10 +319,8 @@ const PortfolioByStage = () => {
                 currentStage: pcos.filter(x=>x.id===pco.id)[0]?.currentStage??'',
                 initalStage: pcos.filter(x=>x.id===pco.id)[0]?.initialStage??'',
                 dateExit: pcos.filter(x=>x.id===pco.id)[0]?.dateExit ??'',
-                industry1: pcos.filter(x=>x.id===pco.id)[0]?.industry1,
-                industry2: pcos.filter(x=>x.id===pco.id)[0]?.industry2,
-                industry3: pcos.filter(x=>x.id===pco.id)[0]?.industry3,
-                industry4: pcos.filter(x=>x.id===pco.id)[0]?.industry4
+                emeraldIndustry1: pcos.filter(x=>x.id===pco.id)[0]?.emeraldIndustry1,
+                emeraldIndustry2: pcos.filter(x=>x.id===pco.id)[0]?.emeraldIndustry2,
             }
             ));
 
