@@ -20,6 +20,7 @@ import { fetchPCOs, fetchPCOsFinantials } from '../../../../redux/thunks/pcoThun
 import moment from 'moment';
 import { setPCOsExtended } from '../../../../redux/slices/lps/lpsSlice';
 import PortfolioByCountry from './PortfolioByCountry';
+import PortfolioByStage from './PortfolioByStage';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -58,6 +59,9 @@ const SingleLPPortfolios = () => {
     const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
     const [selectedView,setSelectedView]=useState<string>('Calls');
     const [isPortfolioByCountryExpand, setIsPortfolioByCountryExpand]=useState<boolean>(false);
+    const [isPortfolioByStageExpand, setIsPortfolioByStageExpand]=useState<boolean>(false);
+    const [isPortfolioByIndustryExpand, setIsPortfolioByIndustryExpand]=useState<boolean>(false);
+     const [isPortfolioByInvestmentsExpand, setIsPortfolioByInvestmentExpand]=useState<boolean>(false);
 
     const gridOptions: GridOptions = {
         defaultColDef: DefaultColumnDef,
@@ -221,6 +225,8 @@ const SingleLPPortfolios = () => {
     const handleAccordionExp=(expanded: boolean, accordionId: string)=> {
         if(accordionId==='card-countries'){
             setIsPortfolioByCountryExpand(!isPortfolioByCountryExpand);
+        } else if(accordionId==='card-stage'){
+            setIsPortfolioByStageExpand(!isPortfolioByStageExpand);
         }
     };
 
@@ -305,7 +311,15 @@ const SingleLPPortfolios = () => {
             </Grid>
             <Grid item xs={12} md={12} lg={4} sx={{height:'100%',overflow:'auto', display:'flex', flexDirection:'column', flex:1, paddingRight:'0.7em'}}>
                 <Paper elevation={3} key={`card`} style={{marginBottom: '1em'}}>
-                    <Accordion>
+                    <Accordion key={`card-stage`}
+                                expanded={isPortfolioByStageExpand}
+                                onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-stage')}
+                                sx={{
+                                    display:'flex',
+                                    flex:1,
+                                    width: '100%',
+                                    height:'100%',
+                                    flexDirection: 'column'}}>
                         <AccordionSummary
                         sx={{'minHeight': '60px !important'}}
                         expandIcon={
@@ -316,8 +330,10 @@ const SingleLPPortfolios = () => {
                     }>
                             <Typography variant='body1' sx={{color:theme.palette.text.primary, fontWeight:600}}>Portfolio by Stage</Typography>
                         </AccordionSummary>
-                        <AccordionDetails>
-                            
+                        <AccordionDetails style={{
+                        width: '100%', display: 'flex', flex: 1, height: '100%', minHeight:'200px'
+                    }}>
+                            {isPortfolioByStageExpand && <PortfolioByStage/>}
                         </AccordionDetails>
                     </Accordion>
                 </Paper>

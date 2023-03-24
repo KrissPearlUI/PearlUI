@@ -82,6 +82,7 @@ const SingleLPDistributionsTable = () => {
                 headerName: 'LP ID',
                 field: 'lpId',
                 enableRowGroup: true,
+                hide:true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
@@ -91,8 +92,8 @@ const SingleLPDistributionsTable = () => {
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
-                headerName: 'PCO ID',
-                field: 'pcoId',
+                headerName: 'PCO Short Name',
+                field: 'pcoShortName',
                 enableRowGroup: true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
@@ -202,7 +203,14 @@ const SingleLPDistributionsTable = () => {
     },[dispatch])
 
     useEffect(()=>{
-        setRowData(distributions?.filter(x=>x.lpId===selectedLP?.id)??[]);
+        if(selectedLP && selectedLP.pcos && selectedLP.pcos.length>0 && distributions){
+            let data = distributions?.filter(x=>x.lpId===selectedLP.id);
+            data = data.map((item)=>({
+                ...item,
+                pcoShortName:selectedLP?.pcos?.filter(x=>x.id===item.pcoId)[0]?.shortName??''
+        }))
+            setRowData(data??[]);
+        }
     },[distributions,selectedLP])
 
     return (

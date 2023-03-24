@@ -194,7 +194,7 @@ const CountryPieChart = ({chartDataValues}:any) => {
             verticalAlign: 'bottom',
             layout: 'horizontal',
             labelFormatter: function(this: DataPoint) : string {
-                return `${this.name}: ${Highcharts.numberFormat(this.y, 0, ',', ',')}`;
+                return `${this.name?this.name : 'No Data'}: ${Highcharts.numberFormat(this.y, 0, ',', ',')}`;
               },
             itemMarginBottom: 10,
             itemMarginRight:10,

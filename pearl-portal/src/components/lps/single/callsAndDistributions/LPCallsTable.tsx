@@ -16,6 +16,9 @@ import AGGridLoader from '../../../shared/AGGridLoader';
 import { PCOSummary } from '../../../../models/pcos/pcoModels';
 import { fetchCashCalls } from '../../../../redux/thunks/cashCallsThunk';
 import { CashCall } from '../../../../models/cashCalls/cashCallsModels';
+import { fetchFunds } from '../../../../redux/thunks/fundThunk';
+import { fetchPCOs } from '../../../../redux/thunks/pcoThunk';
+import { capitalizeLetters } from '../../../../helpers/app';
 
 
 const useStyles = makeStyles(() =>
@@ -38,7 +41,7 @@ const SingleLPCallsTable = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
-    const {lps,selectedLP} = useSelector((state: RootState) => state.lps);
+    const {selectedLP} = useSelector((state: RootState) => state.lps);
     const {cashCalls} = useSelector((state: RootState) => state.cashCalls);
     const [gridApi, setGridApi] = useState<GridApi>();
     const [value, setValue] = useState<string>('');
@@ -79,6 +82,7 @@ const SingleLPCallsTable = () => {
             {
                 headerName: 'LP ID',
                 field: 'lpId',
+                hide:true,
                 enableRowGroup: true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
@@ -89,10 +93,13 @@ const SingleLPCallsTable = () => {
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
-                headerName: 'PCO ID',
-                field: 'pcoId',
+                headerName: 'PCO Short Name',
+                field: 'pcoShortName',
                 enableRowGroup: true,
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                valueGetter: (params) => {
+                    return params.data?.pcoShortName ? capitalizeLetters(params.data?.pcoShortName) : params.data?.pcoId;
+                }
             },
             {
                 headerName: 'Call Date',
@@ -200,7 +207,14 @@ const SingleLPCallsTable = () => {
     },[dispatch])
 
     useEffect(()=>{
-        setRowData(cashCalls?.filter(x=>x.lpId===selectedLP?.id)??[]);
+        if(selectedLP && selectedLP.pcos && selectedLP.pcos.length>0 && cashCalls){
+            let data = cashCalls?.filter(x=>x.lpId===selectedLP.id);
+            data = data.map((item)=>({
+                ...item,
+                pcoShortName:selectedLP?.pcos?.filter(x=>x.id===item.pcoId)[0]?.shortName??''
+        }))
+            setRowData(data??[]);
+        }
     },[cashCalls,selectedLP])
 
     return (

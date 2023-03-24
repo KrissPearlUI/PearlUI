@@ -9,4 +9,5 @@ export interface DistributionBasic {
     amount?: number,
     distNum?: number,
     distReciever?: string,
+    pcoId?:string
 }

@@ -9,5 +9,6 @@ export interface CashCall {
     amount?: number,
     cashCallNum?: number,
     callReceiver?: string,
-    partOfCommitedCapital?: boolean
+    partOfCommitedCapital?: boolean,
+    pcoId?:string
 }
