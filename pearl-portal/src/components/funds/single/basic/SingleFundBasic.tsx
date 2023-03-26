@@ -1,0 +1,528 @@
+import {Accordion, AccordionDetails, AccordionSummary, Autocomplete, AutocompleteRenderInputParams, Grid,IconButton,Paper,TextField,Typography} from '@mui/material';
+import {darken, lighten, useTheme} from "@mui/material/styles";
+import { useEffect, useState } from 'react';
+import { setTopBarTitle } from '../../../../redux/slices/appSlice';
+import { useAppDispatch } from '../../../../redux/store';
+import {Theme} from "@mui/material";
+import {createStyles,makeStyles} from '@mui/styles';
+import LPChartComponent from '../../../landing/LPChart';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../redux/slices/rootSlice';
+import { Fund, LP, PCO } from '../../../../models/lps/lpModels';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import FundLpsTable from './FundLpsTable';
+import FundPCOsTable from './FundPCOsTable';
+import FundCommitmentsTable from './FundCommitmentsTable';
+import moment from 'moment';
+import FundExitsTable from './FundExitsTable';
+import { amountValueFormatter } from '../../../../helpers/app';
+
+const autocompleteInputStyles = makeStyles((theme: Theme) => ({
+    autocomplete: {
+        'borderRadius': 5,
+        'backgroundColor': 'transparent',
+        '& input::placeholder': {
+            color: theme.palette.text.primary
+        },
+        '& .Mui-disabled': {
+            color: theme.palette.text.primary,
+            opacity: 0.8
+        }
+    },
+    textInput: {
+        'color': theme.palette.text.primary,
+        'fontWeight': 800,
+        'fontFamily': 'Raleway',
+        /* 'height': '2.5em', */
+        'fontSize': 10,
+        '& .MuiIconButton-label': {
+            color: theme.palette.text.primary
+        }
+    },
+    clearIndicator: {
+        color: theme.palette.text.primary
+    }
+}));
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        chart: {
+            flex: 1,
+            textAlign: 'center',
+            display: 'flex',
+            alignContent: 'center',
+        },
+        summary: {
+            flex:1
+        },
+        inputRoot: {
+            'borderRadius': 5,
+            'backgroundColor': 'transparent',
+    /*         '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'black'
+            },*/
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+                borderColor: theme.palette.primary.main
+            },
+          /*  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'black'
+            }, */
+            '& .MuiChip-root': {
+                color: theme.palette.text.primary,
+                backgroundColor: 'transparent',
+                borderRadius: 5
+            },
+            '& .MuiChip-deleteIconSmall': {
+                color: theme.palette.text.primary
+            }
+        },
+        option: {
+            'background': theme.palette.background.paper,
+            '&:hover': {
+                color: theme.palette.primary.main,
+                fontWeight: 400,
+                fontFamily: 'Raleway'
+            },
+            '&[aria-selected="true"]': {
+                background: theme.palette.background.paper,
+                color: theme.palette.primary.main,
+                fontWeight: 700,
+                fontFamily: 'Raleway'
+            }
+        },
+        popupIndicator: {
+            '&.MuiIconButton-root': {
+                color: theme.palette.text.primary
+            }
+        },
+        clearIndicator: {
+            color: theme.palette.text.primary
+        },
+    }),
+);
+
+const SingleFundBasic = () => {
+    const classes=useStyles();
+    const theme=useTheme();
+    const autocompleteInputClasses=autocompleteInputStyles();
+    const dispatch = useAppDispatch();
+    const {selectedFund} = useSelector((state: RootState) => state.funds);
+    const [selectedLPValue, setSelectedLPValue] = useState<any>(null);
+    const [isCommitmentsExpand, setIsCommitmentsExpand]=useState<boolean>(false);
+    const [isFundsExpand, setIsFundsExpand]=useState<boolean>(false); 
+    const [isPCOsExpand, setIsPCOsExpand]=useState<boolean>(false);
+    const [isExitsExpand, setIsExitsExpand]=useState<boolean>(false);
+
+    const onLPChange = (event: any) => {
+        setSelectedLPValue(event);
+    };
+
+    const handleAccordionExp=(expanded: boolean, accordionId: string)=> {
+        if(accordionId==='card-commitments'){
+            setIsCommitmentsExpand(!isCommitmentsExpand);
+        } else if(accordionId==='card-lps'){
+            setIsFundsExpand(!isFundsExpand);
+        } else if(accordionId==='card-pcos'){
+            setIsPCOsExpand(!isPCOsExpand);
+        } else{
+            setIsExitsExpand(!isExitsExpand);
+        }
+    };
+
+    return (
+        <Grid container spacing={2} sx={{display:'flex',flex:1, justifyContent:'flex-start', alignItems:'flex-start', flexDirection:'row',paddingRight:'0.5em', overflow:'auto'}}>
+            <Grid item xs={12}>
+                <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper, padding:'1em'}}>
+                    <Grid container spacing={1} sx={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexDirection:'row'}}>
+                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Domicile:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.country}</Typography>
+                            </Grid>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Address:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedFund?.address}</Typography>
+                            </Grid>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Investment Comittee:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedFund?.investmentComitee}</Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>First Closing Date:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.vintage ? moment(new Date(selectedFund?.vintage)).format('DD MMM YYYY'):''}</Typography>
+                            </Grid>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Final Closing Date:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.finalClosingDate ? moment(new Date(selectedFund?.finalClosingDate)).format('DD MMM YYYY'):''}</Typography>
+                            </Grid>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Currency:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.currency}</Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Type:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.type}</Typography>
+                            </Grid>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>AIFM:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.aifm ??'N/A'}</Typography>
+                            </Grid>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>AIFM Contact:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.aifmContact ??'N/A'}</Typography>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Paper>
+            </Grid>
+            <Grid item xs={12} sx={{flex:1}}>
+                <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper, padding:'1em'}}>
+                <Grid container spacing={1} sx={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexDirection:'row'}}>
+                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column',flex:1}}>
+                            <Grid item sx={{display:'flex'}}>
+                            <Accordion
+                            elevation={0}
+                                key={`card-commitments`}
+                                expanded={isCommitmentsExpand}
+                                onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-commitments')}
+                                sx={{backgroundColor:'transparent'}}
+                                /* sx={{
+                                    'marginBottom': '0.5em',
+                                    'width': '100%',
+                                    'flexDirection': 'column',
+                                    'borderRadius': 5,
+                                    'backgroundColor': theme.palette.background.paper,
+                                    
+                                }} */
+                            >
+                                <AccordionSummary
+                                sx={{display: 'flex', 
+                                alignItems: 'center', 
+                                justifyContent:'flex-start', 
+                                width:'340px', 
+                                borderBottom:`1px solid ${theme.palette.mode==='dark'?darken(theme.palette.text.primary,0.6) : lighten(theme.palette.text.primary,0.7)}`,
+                                '&:hover':{
+                                    borderBottom:`1px solid ${theme.palette.text.primary}` ,
+                                },
+                                '& .Mui-expanded': {
+                                    borderBottom: 'none',
+                                }}} 
+                                    /* sx={{
+                                        'cursor': 'pointer',
+                                        'width': '100%',
+                                        'minHeight': '68px !important',
+                                        'paddingTop': 0,
+                                        'backgroundColor': theme.palette.background.paper,
+                                    
+                                    }} */
+                                    expandIcon={
+                                            <IconButton >
+                                                <ExpandMoreIcon
+                                                    sx={{pointerEvents: 'auto', cursor: 'pointer',
+                                                    '&:hover':{
+                                                        color:theme.palette.text.primary,
+                                                    }}}/>
+                                            </IconButton>
+                                    }
+                                >
+                                    <Grid container spacing={2}
+                                    >
+                                        <Grid item sx={{marginLeft:'-1em'}}>
+                                            <Typography sx={{color:theme.palette.secondary.main, fontWeight:400}}>Number of Commitments:</Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                                {selectedFund?.numOfLPs ??0}
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </AccordionSummary>
+                                {isCommitmentsExpand&& selectedFund?.lps && <AccordionDetails
+                                    sx={{
+                                        backgroundColor: theme.palette.background.paper,
+                                        width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
+                                    }}>
+                                    <FundCommitmentsTable/>
+                                </AccordionDetails>}
+                            </Accordion>
+                            </Grid>
+                            <Grid item sx={{display:'flex',flex:1}}>
+                            <Accordion
+                            elevation={0}
+                                key={`card-lps`}
+                                expanded={isFundsExpand}
+                                onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-lps')}
+                                sx={{backgroundColor:'transparent'}}
+                                /* sx={{
+                                    'marginBottom': '0.5em',
+                                    'width': '100%',
+                                    'flexDirection': 'column',
+                                    'borderRadius': 5,
+                                    'backgroundColor': theme.palette.background.paper,
+                                    
+                                }} */
+                            >
+                                <AccordionSummary
+                                sx={{display: 'flex', 
+                                alignItems: 'center', 
+                                justifyContent:'flex-start', 
+                                width:'340px', 
+                                borderBottom:`1px solid ${theme.palette.mode==='dark'?darken(theme.palette.text.primary,0.6) : lighten(theme.palette.text.primary,0.7)}`,
+                                '&:hover':{
+                                    borderBottom:`1px solid ${theme.palette.text.primary}` ,
+                                },
+                            '& .Mui-expanded': {
+                                    borderBottom: 'none',
+                                }}}
+                                    /* sx={{
+                                        'cursor': 'pointer',
+                                        'width': '100%',
+                                        'minHeight': '68px !important',
+                                        'paddingTop': 0,
+                                        'backgroundColor': theme.palette.background.paper,
+                                    
+                                    }} */
+                                    expandIcon={
+                                            <IconButton>
+                                                <ExpandMoreIcon
+                                                    sx={{pointerEvents: 'auto', cursor: 'pointer',
+                                                    '&:hover':{
+                                                        color:theme.palette.text.primary,
+                                                    }}}/>
+                                            </IconButton>
+                                    }
+                                >
+                                    <Grid container spacing={2}
+                                    >
+                                        <Grid item sx={{marginLeft:'-1em'}}>
+                                            <Typography sx={{color:theme.palette.secondary.main, fontWeight:400}}>Number of LPs:</Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                                {selectedFund?.numOfLPs ??0}
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </AccordionSummary>
+                                {isFundsExpand&& selectedFund?.lps && <AccordionDetails
+                                    sx={{
+                                        backgroundColor: theme.palette.background.paper,
+                                        display: 'flex', height: '100%', pointerEvents: 'auto',flex:1,marginLeft:'-1em', width:'380px'
+                                    }}>
+                                <FundLpsTable/>
+                                </AccordionDetails>}
+                            </Accordion>
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Of which terminated:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.terminated ? selectedFund.terminated.length:0}</Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid item sx={{display:'flex'}}>
+                        <Accordion
+                            elevation={0}
+                                key={`card-pcos`}
+                                expanded={isPCOsExpand}
+                                onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-pcos')}
+                                sx={{backgroundColor:'transparent'}}
+                            
+                            >
+                                <AccordionSummary
+                                sx={{display: 'flex', 
+                                alignItems: 'center', 
+                                justifyContent:'flex-start', 
+                                width:'340px', 
+                                borderBottom:`1px solid ${theme.palette.mode==='dark'?darken(theme.palette.text.primary,0.6) : lighten(theme.palette.text.primary,0.7)}`,
+                                '&:hover':{
+                                    borderBottom:`1px solid ${theme.palette.text.primary}` ,
+                                },
+                            '& .Mui-expanded': {
+                                    borderBottom: 'none',
+                                }}}
+                                    
+                                    expandIcon={
+                                            <IconButton>
+                                                <ExpandMoreIcon
+                                                    sx={{pointerEvents: 'auto', cursor: 'pointer',
+                                                    '&:hover':{
+                                                        color:theme.palette.text.primary,
+                                                    }}}/>
+                                            </IconButton>
+                                    }
+                                >
+                                    <Grid container spacing={2}
+                                    >
+                                        <Grid item sx={{marginLeft:'-1em'}}>
+                                            <Typography sx={{color:theme.palette.secondary.main, fontWeight:400}}>Number of PCOs:</Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                                {selectedFund?.numOFPCOs ?? 0}
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </AccordionSummary>
+                                {isPCOsExpand&& selectedFund?.pcos && <AccordionDetails
+                                    sx={{
+                                        backgroundColor: theme.palette.background.paper,
+                                        width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
+                                    }}>
+                                <FundPCOsTable/>
+                                </AccordionDetails>}
+                            </Accordion>
+                            </Grid>
+                            <Grid item sx={{display:'flex'}}>
+                            <Accordion
+                            elevation={0}
+                                key={`card-exits`}
+                                expanded={isExitsExpand}
+                                onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-exits')}
+                                sx={{backgroundColor:'transparent'}}
+                            
+                            >
+                                <AccordionSummary
+                                sx={{display: 'flex', 
+                                alignItems: 'center', 
+                                justifyContent:'flex-start', 
+                                width:'340px', 
+                                borderBottom:`1px solid ${theme.palette.mode==='dark'?darken(theme.palette.text.primary,0.6) : lighten(theme.palette.text.primary,0.7)}`,
+                                '&:hover':{
+                                    borderBottom:`1px solid ${theme.palette.text.primary}` ,
+                                },
+                            '& .Mui-expanded': {
+                                    borderBottom: 'none',
+                                }}}
+                                    
+                                    expandIcon={
+                                            <IconButton>
+                                                <ExpandMoreIcon
+                                                    sx={{pointerEvents: 'auto', cursor: 'pointer',
+                                                    '&:hover':{
+                                                        color:theme.palette.text.primary,
+                                                    }}}/>
+                                            </IconButton>
+                                    }
+                                >
+                                    <Grid container spacing={2}
+                                    >
+                                        <Grid item sx={{marginLeft:'-1em'}}>
+                                            <Typography sx={{color:theme.palette.secondary.main, fontWeight:400}}>Number of Exits:</Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                                {selectedFund?.exits?.length??0}
+                                            </Typography>
+                                        </Grid>
+                                    </Grid>
+                                </AccordionSummary>
+                                {isExitsExpand&& selectedFund?.exits && <AccordionDetails
+                                    sx={{
+                                        backgroundColor: theme.palette.background.paper,
+                                        width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
+                                    }}>
+                                    <FundExitsTable/>
+                                </AccordionDetails>}
+                            </Accordion>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Paper>
+            </Grid>
+            <Grid item xs={12}>
+                <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper,padding:'1em'}}>
+                <Grid container spacing={1} sx={{display:'flex', justifyContent:'flex-start', alignItems:'flex-start', flexDirection:'row'}}>
+                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Currency:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500, textAlign:'right', alignSelf:'end'}}>
+                                {selectedFund?.currency??''}
+                            </Typography>
+                            </Grid>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Committed Capital:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{amountValueFormatter(selectedFund?.totalCommitments??0,'')}</Typography>
+                            </Grid>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Base Capital:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{amountValueFormatter(selectedFund?.totalCommitments??0,'')}</Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Currency:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                            {selectedFund?.currency??''}
+                                </Typography>
+                            </Grid>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Of which terminated:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.terminatedCommitedCapital}</Typography>
+                            </Grid>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Of which terminated:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedFund?.terminatedBaseCapital}</Typography>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Paper>
+            </Grid>
+            <Grid item xs={12}>
+                <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper,padding:'1em'}}>
+                <Grid container spacing={1} sx={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexDirection:'row'}}>
+                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Net DPI:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                {selectedFund?.kpis && selectedFund.kpis.netDPI?selectedFund.kpis.netDPI:''}
+                                </Typography>
+                            </Grid>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Gross DPI:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>
+                                {selectedFund?.kpis && selectedFund.kpis.grossDPI?selectedFund.kpis.grossDPI:''}
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Net TVPI:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                {selectedFund?.kpis && selectedFund.kpis.netTVPI?selectedFund.kpis.netTVPI:''}
+                                </Typography>
+                            </Grid>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Gross TVPI:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                {selectedFund?.kpis && selectedFund.kpis.grossTVPI?selectedFund.kpis.grossTVPI:''}
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Net IRR:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                {selectedFund?.kpis && selectedFund.kpis.netIRR? `${(selectedFund.kpis.netIRR * 100).toFixed(2)} %`:''}
+                                </Typography>
+                            </Grid>
+                            <Grid item sx={{display:'flex'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Gross IRR:</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
+                                {selectedFund?.kpis && selectedFund.kpis.grossIRR?selectedFund.kpis.grossIRR:''}
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Paper>
+            </Grid>
+        </Grid>
+    );
+};
+
+export default SingleFundBasic;

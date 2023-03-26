@@ -7,6 +7,8 @@ import FundsOverview from '../pages/funds/summary/FundsOverviewPage';
 import PCOsOverview from '../pages/pcos/summary/PCOsOverviewPage';
 import Settings from '../pages/settings/SettingsMainPage';
 import SingleLP from '../pages/lps/single/SingleLPPage';
+import SingleFund from '../pages/funds/single/SingleFundPage';
+import SinglePCO from '../pages/pcos/single/SinglePCOPage';
 
 export const RoutesSwitch = () => {
     return (
@@ -16,7 +18,9 @@ export const RoutesSwitch = () => {
                 <Route path={'/lpsOverview'} element={<LPsOverview/>}/>
                 <Route path={'/lpsOverview/singleLP'} element={<SingleLP/>}/>
                 <Route path={'/fundsOverview'} element={<FundsOverview/>}/>
+                <Route path={'/fundsOverview/singleFund'} element={<SingleFund/>}/>
                 <Route path={'/pcosOverview'} element={<PCOsOverview/>}/>
+                <Route path={'/pcosOverview/singlePCO'} element={<SinglePCO/>}/>
                 <Route path={'/settings'} element={<Settings/>}/>
             </Routes>
         </Suspense>

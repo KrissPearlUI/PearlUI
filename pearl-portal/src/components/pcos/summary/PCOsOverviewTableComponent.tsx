@@ -25,7 +25,8 @@ import { fetchFunds } from '../../../redux/thunks/fundThunk';
 import { PCOSummary } from '../../../models/pcos/pcoModels';
 import { fetchPCOs } from '../../../redux/thunks/pcoThunk';
 import PCOToolbar from './PCOToolbar';
-
+import { setSelectedPCO } from '../../../redux/slices/pcos/pcosSlice';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -54,6 +55,7 @@ const useStyles = makeStyles(() =>
 const PCOsOverviewTable = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const {lps} = useSelector((state: RootState) => state.lps);
     const {funds} = useSelector((state: RootState) => state.funds);
@@ -283,6 +285,16 @@ const PCOsOverviewTable = () => {
         };
     }, []);
 
+
+    function handleRowClick(event:any) {
+        const rowData = event.data;
+        if(rowData){
+            dispatch(setSelectedPCO(rowData));
+        }
+        // Assuming you have a unique ID for each row, you can use it to construct the URL for the other page
+        const otherPageUrl = `/pcosOverview/singlePCO`;
+        navigate(otherPageUrl);
+    }
    /*  const autoGroupColumnDef = useMemo<ColDef>(() => {
         return {
           minWidth: 300,
@@ -362,6 +374,7 @@ const PCOsOverviewTable = () => {
                             loadingOverlayComponent={AGGridLoader}
                             tooltipShowDelay={0}
                             tooltipHideDelay={10000}
+                            onRowClicked={handleRowClick}
                             />
             </div>
                 {/* {downloadPDFErrorMessage && downloadPDFErrorMessage.length > 0 &&

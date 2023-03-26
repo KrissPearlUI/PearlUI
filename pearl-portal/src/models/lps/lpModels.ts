@@ -20,7 +20,7 @@ export interface LP {
     reservesFees?:number,
     tappedOot?:boolean,
     numTerminated?:number,
-    terminated?:TerminationFund[],
+    terminated?:TerminationFundLP[],
     fees:Fee[],
     dryPowder?:number,
     reserved?:number,
@@ -31,7 +31,7 @@ export interface LP {
     kpis?:KPI
 }
 
-export interface TerminationFund{
+export interface TerminationFundLP{
     id?:string,
     lpId?:string,
     fundId?:string,

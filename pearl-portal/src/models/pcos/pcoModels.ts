@@ -26,6 +26,16 @@ export interface PCOSummary {
     initialStage?:string,
     emeraldIndustry1?:string,
     emeraldIndustry2?:string,
+    address?:string,
+    website?:string,
+    currentDealteam?:string,
+    boardSeat?:string,
+    grossIRR?:number,
+    currentRound?:string,
+    lastRound?:string,
+    currentValuationPCO?:number,
+    currentValuationEmerald?:number,
+    realised?:number
 }
 
 export interface PCOFinancial {
