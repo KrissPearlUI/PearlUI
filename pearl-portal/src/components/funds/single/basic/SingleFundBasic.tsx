@@ -129,8 +129,32 @@ const SingleFundBasic = () => {
         }
     };
 
+    const calculateForInvestments=(totalCommitments:number,managementFee:number,setUpFee:number,other:number, fundCurrency:string)=>{
+        const investments:number=totalCommitments-(managementFee+setUpFee+other)
+
+        return investments<=0?'': `${amountValueFormatter(investments,'')} ${fundCurrency}`;
+    };
+
+    const calculateUnrealized=(totalInvestments:number,totalRealized:number, fundCurrency:string)=>{
+        const unrealized:number=Math.abs(totalInvestments-totalRealized);
+
+        return unrealized<=0?'': `${amountValueFormatter(unrealized,'')} ${fundCurrency}`;
+    };
+
+    const calculateDistributed=(recycleReserves:number,nonRecycleReserves:number, fundCurrency:string)=>{
+        const distributed:number=recycleReserves + nonRecycleReserves;
+
+        return distributed<=0?'': `${amountValueFormatter(distributed,'')} ${fundCurrency}`;
+    };
+
+    const calculateCarriedInterest=(escrow:number,realised:number, fundCurrency:string)=>{
+        const carriedInterest:number=escrow + realised;
+
+        return carriedInterest<=0?'': `${amountValueFormatter(carriedInterest,'')} ${fundCurrency}`;
+    };
+
     return (
-        <Grid container spacing={2} sx={{display:'flex',flex:1, justifyContent:'flex-start', alignItems:'flex-start', flexDirection:'row',paddingRight:'0.5em', overflow:'auto'}}>
+        <Grid container spacing={2} sx={{display:'flex',flex:1, justifyContent:'flex-start', alignItems:'flex-start', flexDirection:'row',paddingRight:'0.5em', overflow:'auto', paddingBottom:'1em'}}>
             <Grid item xs={12}>
                 <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper, padding:'1em'}}>
                     <Grid container spacing={1} sx={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexDirection:'row'}}>
@@ -437,35 +461,35 @@ const SingleFundBasic = () => {
             </Grid>
             <Grid item xs={12}>
                 <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper,padding:'1em'}}>
-                <Grid container spacing={1} sx={{display:'flex', justifyContent:'flex-start', alignItems:'flex-start', flexDirection:'row'}}>
+                <Grid container spacing={3} sx={{display:'flex', justifyContent:'flex-start', alignItems:'flex-start', flexDirection:'row'}}>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
-                            <Grid item sx={{display:'flex'}}>
+                            <Grid item sx={{display:'flex', justifyContent:'space-between', width:'280px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Currency:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500, textAlign:'right', alignSelf:'end'}}>
                                 {selectedFund?.currency??''}
                             </Typography>
                             </Grid>
-                            <Grid item sx={{display:'flex'}}>
+                            <Grid item sx={{display:'flex',justifyContent:'space-between', width:'280px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Committed Capital:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{amountValueFormatter(selectedFund?.totalCommitments??0,'')}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{amountValueFormatter(selectedFund?.sumCommittedAmountFundCcy??0,'')}</Typography>
                             </Grid>
-                            <Grid item sx={{display:'flex'}}>
+                            <Grid item sx={{display:'flex',justifyContent:'space-between', width:'280px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Base Capital:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{amountValueFormatter(selectedFund?.totalCommitments??0,'')}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{amountValueFormatter(selectedFund?.sumBaseAmountFundCccy??0,'')}</Typography>
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
-                        <Grid item sx={{display:'flex'}}>
+                        <Grid item sx={{display:'flex', justifyContent:'space-between',width:'280px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Currency:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
                             {selectedFund?.currency??''}
                                 </Typography>
                             </Grid>
-                            <Grid item sx={{display:'flex'}}>
+                            <Grid item sx={{display:'flex',justifyContent:'space-between',width:'280px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Of which terminated:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.terminatedCommitedCapital}</Typography>
                             </Grid>
-                            <Grid item sx={{display:'flex'}}>
+                            <Grid item sx={{display:'flex',justifyContent:'space-between', width:'280px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Of which terminated:</Typography>
                             <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedFund?.terminatedBaseCapital}</Typography>
                             </Grid>
@@ -520,6 +544,100 @@ const SingleFundBasic = () => {
                         </Grid>
                     </Grid>
                 </Paper>
+            </Grid>
+            <Grid item xs={12}>
+                <Grid container spacing={3} sx={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexDirection:'row', paddingLeft:'0.2em', paddingTop:'0.8em'}}>
+                        <Grid item  xs={3} sx={{display:'flex',  flexDirection:'column'}}>
+                            <Paper elevation={3} sx={{backgroundColor:theme.palette.mode==='light' ? 'rgba(37, 96, 126, 0.2)' : 'rgb(128, 192, 128,0.2)', padding:'0.5em',minHeight:'125px'}}>
+                                <Grid item sx={{display:'flex', justifyContent:'space-between', marginBottom:'0.5em'}}>
+                                <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:600, fontSize:16}}>Capital Called:</Typography>
+                                <Typography sx={{color:theme.palette.text.primary, fontWeight:600, fontSize:14, textAlign:'right', alignSelf:'end'}}>
+                                    {selectedFund?.totalCommitmentsFundCcy?`${amountValueFormatter(selectedFund?.totalCommitmentsFundCcy??0,'')} ${selectedFund?.currency}`:''}
+                                </Typography>
+                                </Grid>
+                                <Grid item sx={{display:'flex',justifyContent:'space-between',marginBottom:'0.3em'}}>
+                                <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400, fontSize:14}}>For investments:</Typography>
+                                <Typography sx={{color:theme.palette.text.primary,fontWeight:600,fontSize:14,textAlign:'right'}}>{calculateForInvestments(selectedFund?.totalCommitmentsFundCcy??0, selectedFund?.sumManagementFeeFundCcy??0,selectedFund?.sumSetUpFeeFundCcy??0,selectedFund?.sumOperationalExpensesFundCcy??0,selectedFund?.currency??'')}</Typography>
+                                </Grid>
+                                <Grid item sx={{display:'flex',justifyContent:'space-between',marginBottom:'0.3em'}}>
+                                <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400,fontSize:14}}>For fees:</Typography>
+                                <Typography sx={{color:theme.palette.text.primary,fontWeight:600, fontSize:14,textAlign:'right'}}>{selectedFund?.sumManagementFeeFundCcy?`${amountValueFormatter(((selectedFund?.sumManagementFeeFundCcy??0) + (selectedFund?.sumSetUpFeeFundCcy??0)),'')} ${selectedFund?.currency}` :''}</Typography>
+                                </Grid>
+                                <Grid item sx={{display:'flex', justifyContent:'space-between',marginBottom:'0.3em'}}>
+                                <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400, fontSize:14}}>For other:</Typography>
+                                <Typography sx={{color:theme.palette.text.primary, fontWeight:600, fontSize:14, textAlign:'right', alignSelf:'end'}}>
+                                    {selectedFund?.sumOperationalExpensesFundCcy? `${amountValueFormatter(selectedFund?.sumOperationalExpensesFundCcy??0,'')} ${selectedFund?.currency}` :''}
+                                </Typography>
+                                </Grid>
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={3} sx={{display:'flex',  flexDirection:'column'}}>
+                            <Paper elevation={3} sx={{backgroundColor:theme.palette.mode==='light' ? 'rgba(37, 96, 126, 0.2)' : 'rgb(128, 192, 128,0.2)', padding:'0.5em', minHeight:'125px'}}>
+                                <Grid item sx={{display:'flex',justifyContent:'space-between',marginBottom:'0.5em'}}>
+                                <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:600, fontSize:16}}>Capital Invested:</Typography>
+                                <Typography sx={{color:theme.palette.text.primary, fontWeight:600,fontSize:14, textAlign:'right', alignSelf:'end'}}>
+                                    {selectedFund?.sumAmountInvestedFundCCy? `${amountValueFormatter(selectedFund?.sumAmountInvestedFundCCy??0,'')} ${selectedFund?.currency}` :''}
+                                </Typography>
+                                </Grid>
+                                <Grid item sx={{display:'flex',justifyContent:'space-between',marginBottom:'0.3em'}}>
+                                <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400,fontSize:14}}>Of which realized:</Typography>
+                                <Typography sx={{color:theme.palette.text.primary,fontWeight:600,fontSize:14,textAlign:'right'}}>
+                                    {selectedFund?.sumAmountRealizedFundCCy? `${amountValueFormatter(selectedFund?.sumAmountRealizedFundCCy??0,'')} ${selectedFund?.currency}` :''}
+                                    </Typography>
+                                </Grid>
+                                <Grid item sx={{display:'flex',justifyContent:'space-between', marginBottom:'0.3em'}}>
+                                <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400,fontSize:14}}>Of which unrealized:</Typography>
+                                <Typography sx={{color:theme.palette.text.primary,fontWeight:600,fontSize:14,textAlign:'right'}}>
+                                    {calculateUnrealized(selectedFund?.sumAmountInvestedFundCCy??0, selectedFund?.sumAmountRealizedFundCCy??0, selectedFund?.currency??'')}
+                                    </Typography>
+                                </Grid>
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={3} sx={{display:'flex',  flexDirection:'column'}}>
+                            <Paper elevation={3} sx={{backgroundColor:theme.palette.mode==='light' ? 'rgba(37, 96, 126, 0.2)' : 'rgb(128, 192, 128,0.2)', padding:'0.5em',minHeight:'125px'}}>
+                                <Grid item sx={{display:'flex',justifyContent:'space-between', marginBottom:'0.5em'}}>
+                                <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:600, fontSize:16}}>Capital Distributed:</Typography>
+                                <Typography sx={{color:theme.palette.text.primary, fontWeight:600, fontSize:14,textAlign:'right', alignSelf:'end'}}>
+                                    {calculateDistributed(selectedFund?.sumRecycleFundCccy??0, selectedFund?.sumNonRecycleFundCccy??0, selectedFund?.currency??'')}
+                                </Typography>
+                                </Grid>
+                                <Grid item sx={{display:'flex',justifyContent:'space-between', marginBottom:'0.3em'}}>
+                                <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400,fontSize:14}}>Of which recycling:</Typography>
+                                <Typography sx={{color:theme.palette.text.primary,fontWeight:600,fontSize:14,textAlign:'right'}}>
+                                 {selectedFund?.sumRecycleFundCccy? `${amountValueFormatter(selectedFund?.sumRecycleFundCccy??0,'')} ${selectedFund?.currency}` :''}
+                                    </Typography>
+                                </Grid>
+                                <Grid item sx={{display:'flex',justifyContent:'space-between', marginBottom:'0.3em'}}>
+                                <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400,fontSize:14}}>Of which non-recycle:</Typography>
+                                <Typography sx={{color:theme.palette.text.primary,fontWeight:600,fontSize:14,textAlign:'right'}}>
+                                    {selectedFund?.sumNonRecycleFundCccy? `${amountValueFormatter(selectedFund?.sumNonRecycleFundCccy??0,'')} ${selectedFund?.currency}` :''}
+                                    </Typography>
+                                </Grid>
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={3} sx={{display:'flex',  flexDirection:'column'}}>
+                             <Paper elevation={3} sx={{backgroundColor:theme.palette.mode==='light' ? 'rgba(37, 96, 126, 0.2)' : 'rgb(128, 192, 128,0.2)', padding:'0.5em',minHeight:'125px'}}>
+                                <Grid item sx={{display:'flex',justifyContent:'space-between', marginBottom:'0.5em'}}>
+                                <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:600, fontSize:16}}>Carried Interest:</Typography>
+                                <Typography sx={{color:theme.palette.text.primary, fontWeight:600,fontSize:14, textAlign:'right', alignSelf:'end'}}>
+                                    {calculateCarriedInterest(selectedFund?.sumEscrowFundCccy??0, selectedFund?.sumReleasedDistributionsFundCccy??0, selectedFund?.currency??'')}
+                                </Typography>
+                                </Grid>
+                                <Grid item sx={{display:'flex',justifyContent:'space-between',marginBottom:'0.3em'}}>
+                                <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400,fontSize:14}}>Of which in escrow:</Typography>
+                                <Typography sx={{color:theme.palette.text.primary,fontWeight:600,fontSize:14,textAlign:'right'}}>
+                                    {selectedFund?.sumEscrowFundCccy? `${amountValueFormatter(selectedFund?.sumEscrowFundCccy??0,'')} ${selectedFund?.currency}` :''}                                    
+                                </Typography>
+                                </Grid>
+                                <Grid item sx={{display:'flex',justifyContent:'space-between',marginBottom:'0.3em'}}>
+                                <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400,fontSize:14,}}>Of which released:</Typography>
+                                <Typography sx={{color:theme.palette.text.primary,fontWeight:600,fontSize:14,textAlign:'right'}}>
+                                    {selectedFund?.sumReleasedDistributionsFundCccy? `${amountValueFormatter(selectedFund?.sumReleasedDistributionsFundCccy??0,'')} ${selectedFund?.currency}` :''} 
+                                    </Typography>
+                                </Grid>
+                            </Paper>
+                        </Grid>
+                    </Grid>
             </Grid>
         </Grid>
     );

@@ -308,7 +308,7 @@ const SinglePCOBasic = () => {
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Gross IRR:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedPCO?.grossIRR}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedPCO?.grossIRR? `${(selectedPCO?.grossIRR* 100).toFixed(2)} %`:''}</Typography>
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
@@ -318,7 +318,7 @@ const SinglePCOBasic = () => {
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Date of Last Round:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedPCO?.lastRound??''}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedPCO?.lastRound ? moment(new Date(selectedPCO?.lastRound)).format('DD MMM YYYY'):''}</Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Holding Time:</Typography>
