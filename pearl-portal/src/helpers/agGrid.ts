@@ -223,13 +223,13 @@ export const numberCellRenderer = (params: ICellRendererParams) => {
 export const DefaultStatusPanelDef = {
     statusPanels: [
         {
-            statusPanel: 'agAggregationComponent',
-            statusPanelParams: {
-                // possible values are: 'count', 'sum', 'min', 'max', 'avg'
-                aggFuncs: ['avg', 'sum', 'min', 'max']
-            }
-        }
-    ]
+            statusPanel: 'agTotalRowCountComponent',
+            align: 'left',
+        },
+        {statusPanel: 'agFilteredRowCountComponent'},
+        {statusPanel: 'agSelectedRowCountComponent'},
+        {statusPanel: 'agAggregationComponent'},
+    ],
 };
 
 /**

@@ -35,7 +35,6 @@ const PCOLPsTable = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
-    const {lps,selectedLP} = useSelector((state: RootState) => state.lps);
     const {selectedPCO} = useSelector((state: RootState) => state.pcos);
     const [gridApi, setGridApi] = useState<GridApi>();
     const [value, setValue] = useState<string>('');

@@ -130,7 +130,7 @@ const PCOsOverviewTable = () => {
             },
             {
                 headerName: 'Total Investments',
-                field: 'totalInvestments',
+                field: 'amountInvestedLocalCcy',
                 enableRowGroup: true,
                 minWidth: 220,
                 type: 'numericColumn',

@@ -13,7 +13,7 @@ import { CommitmentBasic, Fund, LP } from '../../../../models/lps/lpModels';
 import { FundSummary } from '../../../../models/funds/fundModels';
 import { dateValueFormatter, DefaultSideBarDef, getGridTheme, DefaultColumnDef,DefaultStatusPanelDef, quantityValueFormatter } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
-import { PCOSummary } from '../../../../models/pcos/pcoModels';
+import { PCOInvestments, PCOSummary } from '../../../../models/pcos/pcoModels';
 
 
 const useStyles = makeStyles(() =>
@@ -31,18 +31,20 @@ const useStyles = makeStyles(() =>
     })
 );
 
+
 const PCOInvestmentsTableComponent = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
-    const {lps,selectedLP} = useSelector((state: RootState) => state.lps);
+    const {selectedPCO} = useSelector((state: RootState) => state.pcos);
     const {funds} = useSelector((state: RootState) => state.funds);
+    const {transactions} = useSelector((state: RootState) => state.transactions);
     const [gridApi, setGridApi] = useState<GridApi>();
     const [value, setValue] = useState<string>('');
     const [hasError, setHasError] = useState(false);
     const [searchText, setSearchText] = useState<string | null>(null);
     const theme = useTheme();
-    const [rowData,setRowData]=useState<CommitmentBasic[]>([]);
+    const [rowData,setRowData]=useState<any[]>([]);
     const [selectedLPValue, setSelectedLPValue] = useState<LP | null>(null);
     const [selectedPCOValue, setSelectedPCOValue] = useState<PCOSummary | null>(null);
     const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
@@ -77,22 +79,22 @@ const PCOInvestmentsTableComponent = () => {
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
             {
-                headerName: 'Committed Amount',
-                field: 'committedAmount',
+                headerName: 'Amount Invested',
+                field: 'amountLocalCurrency',
                 enableRowGroup: true,
                 type: 'numericColumn',
-                tooltipField: 'committedAmount',
+                tooltipField: 'amountLocalCurrency',
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
                 valueFormatter: quantityValueFormatter,
             },
             {
-                headerName: 'Currency',
-                field:'fundCurrency',
+                headerName: 'Local Currency',
+                field:'localCcy',
                 enableRowGroup: true,
                 valueGetter: (params) => {
-                    return params.data?.fundCurrency ? params.data?.fundCurrency.toUpperCase() : '';
+                    return params.data?.localCcy ? params.data?.localCcy.toUpperCase() : '';
                 },
-                valueSetter: (params) => valueSetter(params, 'fundCurrency'),
+                valueSetter: (params) => valueSetter(params, 'localCcy'),
                 cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
             },
         ];
@@ -174,9 +176,19 @@ const PCOInvestmentsTableComponent = () => {
       }, [gridApi]);
  */
 
-    useEffect(()=>{
-        setRowData(selectedLP?.commitments??[]);
-    },[selectedLP])
+      useEffect(() => {
+        if(transactions && selectedPCO && funds){
+            const data= transactions.filter(x=>x.pcoId===selectedPCO.id)?.map(item=>({
+                ...item,
+                shortName:funds?.filter(x=>x.id===item.fundId)[0]?.shortName??'',
+                fundCcy:funds?.filter(x=>x.id===item.fundId)[0]?.currency??'',
+                localCcy:selectedPCO.localCurrency??''
+            }))
+
+            setRowData(data)
+        }
+      }, [transactions, selectedPCO,funds]);
+    
 
     return (
             <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{flex:1}}>

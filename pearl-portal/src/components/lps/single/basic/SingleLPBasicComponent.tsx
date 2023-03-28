@@ -145,7 +145,14 @@ const SingleLPBasic = () => {
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Website:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.website}</Typography>
+                            <a style={{fontFamily:'Raleway'}}
+                                href={`https://${selectedLP?.website}`}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                {selectedLP?.website}
+                            </a>
+                            {/* <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedLP?.website}</Typography> */}
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
@@ -435,30 +442,30 @@ const SingleLPBasic = () => {
                 <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper,padding:'1em'}}>
                 <Grid container spacing={1} sx={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexDirection:'row'}}>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
-                            <Grid item sx={{display:'flex'}}>
+                            <Grid item sx={{display:'flex', justifyContent:'space-between',width:'270px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Management Fee:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500, textAlign:'right', alignSelf:'end'}}>
-                                {selectedLP?.fees && selectedLP.fees.filter(x=>x.feeType==='Management Fee')[0] ?amountValueFormatter(selectedLP.fees.filter(x=>x.feeType==='Management Fee')[0]?.amount/5,'') :''}
+                                {selectedLP?.fees && selectedLP.fees.filter(x=>x.feeType==='Management Fee')[0] ?`${amountValueFormatter(selectedLP.fees.filter(x=>x.feeType==='Management Fee')[0]?.amount/5,'')} EUR` :''}
                             </Typography>
                             </Grid>
-                            <Grid item sx={{display:'flex'}}>
+                            <Grid item sx={{display:'flex',justifyContent:'space-between',width:'270px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Capital Paid In:</Typography>
                             <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{selectedLP?.capPaidIn}</Typography>
                             </Grid>
-                            <Grid item sx={{display:'flex'}}>
+                            <Grid item sx={{display:'flex',justifyContent:'space-between',width:'270px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Capital Distributed:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{amountValueFormatter(selectedLP?.totalDistributions??0,'')}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{selectedLP?.totalDistributions ? `${amountValueFormatter(selectedLP?.totalDistributions??0,'')} EUR` :''}</Typography>
                             </Grid>
-                            <Grid item sx={{display:'flex'}}>
+                            <Grid item sx={{display:'flex',justifyContent:'space-between',width:'270px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Capital Invested:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{amountValueFormatter(selectedLP?.totalInvestments??0,'')}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{selectedLP?.totalInvestments ? `${amountValueFormatter(selectedLP?.totalInvestments??0,'')} EUR` : ''}</Typography>
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Recycling Reserves:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
-                            {selectedLP?.fees && selectedLP.fees.filter(x=>x.feeType==='Management Fee')[0] ?selectedLP.fees.filter(x=>x.feeType==='Recycling Reserves')[0]?.amount :''}
+                            {selectedLP?.fees && selectedLP.fees.filter(x=>x.feeType==='Recycling Reserves')[0] ?`${amountValueFormatter(selectedLP.fees.filter(x=>x.feeType==='Recycling Reserves')[0]?.amount??0,'')} EUR` :''}
                                 </Typography>
                             </Grid>
                             <Grid item sx={{display:'flex'}}>

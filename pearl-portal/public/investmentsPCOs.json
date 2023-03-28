@@ -1,0 +1,6986 @@
+[
+  {
+    "date": "2020-08-03",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Actn01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 3000000,
+    "amountInvestedFundCcy": 2563992.99
+  },
+  {
+    "date": "2021-11-05",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Actn01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1992992.24,
+    "amountInvestedFundCcy": 1728527.53
+  },
+  {
+    "date": "2001-02-28",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Acum01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 360000,
+    "amountInvestedFundCcy": 398671
+  },
+  {
+    "date": "2002-03-13",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 302400,
+    "amountInvestedFundCcy": 346392
+  },
+  {
+    "date": "2004-03-10",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 108000,
+    "amountInvestedFundCcy": 88452
+  },
+  {
+    "date": "2004-09-30",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2004-09-30",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2005-07-01",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2005-11-02",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 21600,
+    "amountInvestedFundCcy": 17982
+  },
+  {
+    "date": "2006-02-17",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 86400,
+    "amountInvestedFundCcy": 72850
+  },
+  {
+    "date": "2007-02-15",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 72455,
+    "amountInvestedFundCcy": 54687.15
+  },
+  {
+    "date": "2007-08-07",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 54341,
+    "amountInvestedFundCcy": 39478
+  },
+  {
+    "date": "2007-11-21",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 54341,
+    "amountInvestedFundCcy": 37065
+  },
+  {
+    "date": "2009-03-31",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2001-02-28",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Acum01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 140000,
+    "amountInvestedFundCcy": 155039
+  },
+  {
+    "date": "2002-03-13",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 117600,
+    "amountInvestedFundCcy": 134707.9
+  },
+  {
+    "date": "2004-03-10",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 42000,
+    "amountInvestedFundCcy": 34398
+  },
+  {
+    "date": "2004-09-30",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2004-09-30",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2005-07-01",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2005-11-02",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 8400,
+    "amountInvestedFundCcy": 6993
+  },
+  {
+    "date": "2006-02-17",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 33600,
+    "amountInvestedFundCcy": 28331
+  },
+  {
+    "date": "2007-02-15",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 28177,
+    "amountInvestedFundCcy": 21267.27
+  },
+  {
+    "date": "2007-08-07",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 21133,
+    "amountInvestedFundCcy": 15353
+  },
+  {
+    "date": "2007-11-21",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 21133,
+    "amountInvestedFundCcy": 14414
+  },
+  {
+    "date": "2009-03-31",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Acum01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2004-12-30",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Adva01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 2000000,
+    "amountInvestedFundCcy": 1486988.85
+  },
+  {
+    "date": "2007-02-23",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Adva01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 122000,
+    "amountInvestedFundCcy": 92846.27
+  },
+  {
+    "date": "2007-05-16",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Adva01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 125000,
+    "amountInvestedFundCcy": 92142.12
+  },
+  {
+    "date": "2007-06-12",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Adva01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 400000,
+    "amountInvestedFundCcy": 299895.04
+  },
+  {
+    "date": "2010-02-26",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Adva01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 100000,
+    "amountInvestedFundCcy": 73800.74
+  },
+  {
+    "date": "2011-02-25",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Adva01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2016-04-15",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Adva01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2016-12-31",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Adva01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2018-09-28",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Adva01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-06-15",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Adva01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-12-05",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Adva01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2022-11-11",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Agan01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 838823.21,
+    "amountInvestedFundCcy": 838823.21
+  },
+  {
+    "date": "2022-11-14",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Agan01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 185986.16,
+    "amountInvestedFundCcy": 185986.16
+  },
+  {
+    "date": "2022-11-14",
+    "fundId": "EGWIF",
+    "investmentType": "Initial",
+    "pcoId": "Agan01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 2608876.61,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2022-11-14",
+    "fundId": "EGWIF",
+    "investmentType": "Initial",
+    "pcoId": "Agan01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 582910.43,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2000-12-11",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Agra01",
+    "securityType": "Preferred Series F",
+    "amountInvestedLocalCcy": 2000000,
+    "amountInvestedFundCcy": 2262443.44
+  },
+  {
+    "date": "2002-02-20",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Agra01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 750000,
+    "amountInvestedFundCcy": 857143
+  },
+  {
+    "date": "2002-09-18",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Agra01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 20000,
+    "amountInvestedFundCcy": 20600
+  },
+  {
+    "date": "2002-10-11",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Agra01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 55000,
+    "amountInvestedFundCcy": 55838
+  },
+  {
+    "date": "2002-12-04",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Agra01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 35000,
+    "amountInvestedFundCcy": 35058
+  },
+  {
+    "date": "2003-01-29",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Agra01",
+    "securityType": "Preferred Series G",
+    "amountInvestedLocalCcy": 390000,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2003-01-29",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Agra01",
+    "securityType": "Preferred Series G",
+    "amountInvestedLocalCcy": 49290.19,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2003-01-29",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Agra01",
+    "securityType": "Preferred Series G",
+    "amountInvestedLocalCcy": 4137.86,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2003-01-29",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Agra01",
+    "securityType": "Preferred Series G",
+    "amountInvestedLocalCcy": 3999.95,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2003-01-29",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Agra01",
+    "securityType": "Preferred Series G",
+    "amountInvestedLocalCcy": 1450,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2003-01-30",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Agra01",
+    "securityType": "Preferred Series G",
+    "amountInvestedLocalCcy": 80000,
+    "amountInvestedFundCcy": 443806
+  },
+  {
+    "date": "2004-11-26",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Agra01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 100000,
+    "amountInvestedFundCcy": 75786
+  },
+  {
+    "date": "2005-05-24",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Agra01",
+    "securityType": "Preferred Series H",
+    "amountInvestedLocalCcy": 391986,
+    "amountInvestedFundCcy": 309476
+  },
+  {
+    "date": "2007-10-29",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Agra01",
+    "securityType": "Preferred Series H",
+    "amountInvestedLocalCcy": 300000,
+    "amountInvestedFundCcy": 208435
+  },
+  {
+    "date": "2007-10-29",
+    "fundId": "ESF",
+    "investmentType": null,
+    "pcoId": "Agra01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": -6130.14,
+    "amountInvestedFundCcy": -4991
+  },
+  {
+    "date": "2007-10-29",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Agra01",
+    "securityType": "Preferred Series G",
+    "amountInvestedLocalCcy": 7977.5,
+    "amountInvestedFundCcy": 8797.52
+  },
+  {
+    "date": "2017-11-01",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Alph01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 39579.19,
+    "amountInvestedFundCcy": 34297.39
+  },
+  {
+    "date": "2018-07-06",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Alph01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 49065.42,
+    "amountInvestedFundCcy": 42117.76
+  },
+  {
+    "date": "2018-12-22",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Alph01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 163551,
+    "amountInvestedFundCcy": 149423.46
+  },
+  {
+    "date": "2019-08-23",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Alph01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2020-01-10",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Alph01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2020-12-29",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Alph01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 245326.64,
+    "amountInvestedFundCcy": 200299.34
+  },
+  {
+    "date": "2017-11-01",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Alph01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 81420.52,
+    "amountInvestedFundCcy": 70075.32
+  },
+  {
+    "date": "2018-07-06",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Alph01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 100934.58,
+    "amountInvestedFundCcy": 86642.24
+  },
+  {
+    "date": "2018-12-22",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Alph01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 336449,
+    "amountInvestedFundCcy": 295738.67
+  },
+  {
+    "date": "2019-08-23",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Alph01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2020-01-10",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Alph01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2020-12-29",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Alph01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 504673.22,
+    "amountInvestedFundCcy": 412045.4
+  },
+  {
+    "date": "2022-02-07",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Alph01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 98130.46,
+    "amountInvestedFundCcy": 85679.67
+  },
+  {
+    "date": "2022-02-07",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Alph01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 201869.54,
+    "amountInvestedFundCcy": 176256.33
+  },
+  {
+    "date": "2003-12-23",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Aqua01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 1333333,
+    "amountInvestedFundCcy": 790358
+  },
+  {
+    "date": "2004-05-17",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 228620,
+    "amountInvestedFundCcy": 133251
+  },
+  {
+    "date": "2004-06-22",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 435792,
+    "amountInvestedFundCcy": 248315
+  },
+  {
+    "date": "2004-09-27",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 772065,
+    "amountInvestedFundCcy": 448875
+  },
+  {
+    "date": "2004-12-01",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 727935,
+    "amountInvestedFundCcy": 424735
+  },
+  {
+    "date": "2005-05-24",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 212500,
+    "amountInvestedFundCcy": 128671
+  },
+  {
+    "date": "2005-06-08",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 11095,
+    "amountInvestedFundCcy": 6993
+  },
+  {
+    "date": "2005-06-27",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 637500,
+    "amountInvestedFundCcy": 405148
+  },
+  {
+    "date": "2005-09-23",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 450000,
+    "amountInvestedFundCcy": 283108
+  },
+  {
+    "date": "2006-05-03",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 125000,
+    "amountInvestedFundCcy": 75938.7
+  },
+  {
+    "date": "2006-07-12",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 125000,
+    "amountInvestedFundCcy": 74272
+  },
+  {
+    "date": "2006-10-16",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 250000,
+    "amountInvestedFundCcy": 149790
+  },
+  {
+    "date": "2006-12-12",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 48427,
+    "amountInvestedFundCcy": 28796
+  },
+  {
+    "date": "2006-12-22",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2006-12-22",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2007-03-23",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 250000,
+    "amountInvestedFundCcy": 151883
+  },
+  {
+    "date": "2007-12-19",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 198344,
+    "amountInvestedFundCcy": 118027
+  },
+  {
+    "date": "2008-02-21",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 400000,
+    "amountInvestedFundCcy": 250517
+  },
+  {
+    "date": "2008-08-07",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 200000,
+    "amountInvestedFundCcy": 118420
+  },
+  {
+    "date": "2008-10-03",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 300000,
+    "amountInvestedFundCcy": 169904
+  },
+  {
+    "date": "2009-02-12",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 50000,
+    "amountInvestedFundCcy": 25556
+  },
+  {
+    "date": "2009-03-20",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 50000,
+    "amountInvestedFundCcy": 25419
+  },
+  {
+    "date": "2009-04-20",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 280000,
+    "amountInvestedFundCcy": 151926
+  },
+  {
+    "date": "2009-10-22",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2010-06-04",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2010-06-04",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Preferred Series F",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2010-06-04",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2010-11-16",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2011-12-31",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2012-12-31",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2013-12-31",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2015-04-27",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Aqua01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2008-01-18",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Arxx01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 5600000,
+    "amountInvestedFundCcy": 3869809
+  },
+  {
+    "date": "2008-11-25",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Arxx01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1500000,
+    "amountInvestedFundCcy": 1197700
+  },
+  {
+    "date": "2009-05-08",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Arxx01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 731604,
+    "amountInvestedFundCcy": 546871
+  },
+  {
+    "date": "2009-10-07",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Arxx01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 731604,
+    "amountInvestedFundCcy": 497014
+  },
+  {
+    "date": "2010-02-23",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Arxx01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 487736,
+    "amountInvestedFundCcy": 359900
+  },
+  {
+    "date": "2010-09-24",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Arxx01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 341415,
+    "amountInvestedFundCcy": 261300.32
+  },
+  {
+    "date": "2010-11-17",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Arxx01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2011-09-19",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Arxx01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 156305,
+    "amountInvestedFundCcy": 114425.33
+  },
+  {
+    "date": "2011-10-14",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Arxx01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2012-10-18",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Arxx01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2012-11-21",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Arxx01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1000000,
+    "amountInvestedFundCcy": 780640.12
+  },
+  {
+    "date": "2013-04-30",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Arxx01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 180000,
+    "amountInvestedFundCcy": 137551.58
+  },
+  {
+    "date": "2010-10-21",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Azzu01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 2191266,
+    "amountInvestedFundCcy": 2191266
+  },
+  {
+    "date": "2011-05-31",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Azzu01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1338875,
+    "amountInvestedFundCcy": 1338875
+  },
+  {
+    "date": "2012-05-30",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Azzu01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 442368.16,
+    "amountInvestedFundCcy": 442368.16
+  },
+  {
+    "date": "2012-09-18",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Azzu01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 221184.08,
+    "amountInvestedFundCcy": 221184.08
+  },
+  {
+    "date": "2012-12-20",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Azzu01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 110592.04,
+    "amountInvestedFundCcy": 110592.04
+  },
+  {
+    "date": "2013-03-11",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Azzu01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 386634,
+    "amountInvestedFundCcy": 386634
+  },
+  {
+    "date": "2013-04-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Azzu01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 53523,
+    "amountInvestedFundCcy": 53523
+  },
+  {
+    "date": "2013-05-03",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Azzu01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 21211.26,
+    "amountInvestedFundCcy": 21211.26
+  },
+  {
+    "date": "2013-06-24",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Azzu01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 42293,
+    "amountInvestedFundCcy": 42293
+  },
+  {
+    "date": "2013-07-17",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Azzu01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 338265.36,
+    "amountInvestedFundCcy": 338265.36
+  },
+  {
+    "date": "2013-11-05",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Azzu01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 327026,
+    "amountInvestedFundCcy": 327026
+  },
+  {
+    "date": "2002-06-26",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Biop01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 800020,
+    "amountInvestedFundCcy": 800020
+  },
+  {
+    "date": "2002-09-11",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Biop01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 55490,
+    "amountInvestedFundCcy": 55490
+  },
+  {
+    "date": "2002-11-25",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Biop01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 197002,
+    "amountInvestedFundCcy": 197002
+  },
+  {
+    "date": "2003-02-05",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Biop01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 203008,
+    "amountInvestedFundCcy": 203008
+  },
+  {
+    "date": "2003-04-10",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Biop01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 200005,
+    "amountInvestedFundCcy": 200005
+  },
+  {
+    "date": "2003-06-19",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Biop01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 40000,
+    "amountInvestedFundCcy": 40000
+  },
+  {
+    "date": "2003-07-18",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Biop01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 134590,
+    "amountInvestedFundCcy": 134590
+  },
+  {
+    "date": "2003-09-19",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Biop01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 425360,
+    "amountInvestedFundCcy": 425360
+  },
+  {
+    "date": "2004-10-27",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "CDTI01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 559988,
+    "amountInvestedFundCcy": 439207
+  },
+  {
+    "date": "2005-12-21",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 85851,
+    "amountInvestedFundCcy": 72387
+  },
+  {
+    "date": "2006-11-24",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Public listed shares",
+    "amountInvestedLocalCcy": 72800,
+    "amountInvestedFundCcy": 55653
+  },
+  {
+    "date": "2006-11-24",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2010-10-15",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2010-12-16",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 16291.44,
+    "amountInvestedFundCcy": 12225.1
+  },
+  {
+    "date": "2004-10-27",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "CDTI01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 1439997,
+    "amountInvestedFundCcy": 1129409
+  },
+  {
+    "date": "2005-12-21",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 220763,
+    "amountInvestedFundCcy": 186141
+  },
+  {
+    "date": "2006-11-24",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Public listed shares",
+    "amountInvestedLocalCcy": 187199.5,
+    "amountInvestedFundCcy": 143108.03
+  },
+  {
+    "date": "2006-11-24",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2007-12-09",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 1023015,
+    "amountInvestedFundCcy": 696767
+  },
+  {
+    "date": "2010-05-28",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 110937.5,
+    "amountInvestedFundCcy": 89864.72
+  },
+  {
+    "date": "2010-06-08",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 110937.5,
+    "amountInvestedFundCcy": 92447.9
+  },
+  {
+    "date": "2010-06-28",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 110937.5,
+    "amountInvestedFundCcy": 90303.2
+  },
+  {
+    "date": "2010-07-12",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 110937.5,
+    "amountInvestedFundCcy": 87975.81
+  },
+  {
+    "date": "2010-10-13",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 443750,
+    "amountInvestedFundCcy": 317826.96
+  },
+  {
+    "date": "2010-10-15",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2010-10-15",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2010-12-22",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "CDTI01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 73830.24,
+    "amountInvestedFundCcy": 56363.26
+  },
+  {
+    "date": "2006-04-26",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Cell01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 150000,
+    "amountInvestedFundCcy": 106830
+  },
+  {
+    "date": "2021-07-23",
+    "fundId": "NTV",
+    "investmentType": "Initial",
+    "pcoId": "Deep01",
+    "securityType": "Preferred Series H",
+    "amountInvestedLocalCcy": 3500549.5,
+    "amountInvestedFundCcy": 3500549.5
+  },
+  {
+    "date": "2005-05-03",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Eden01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 20000,
+    "amountInvestedFundCcy": 15605
+  },
+  {
+    "date": "2005-05-03",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Eden01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 68182,
+    "amountInvestedFundCcy": 52712
+  },
+  {
+    "date": "2006-01-17",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Eden01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 54540,
+    "amountInvestedFundCcy": 45224
+  },
+  {
+    "date": "2006-11-20",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Eden01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 20000,
+    "amountInvestedFundCcy": 15289.36
+  },
+  {
+    "date": "2007-04-27",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Eden01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2015-12-05",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Elco01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 10568,
+    "amountInvestedFundCcy": 10568
+  },
+  {
+    "date": "2015-12-22",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Elco01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 2989432,
+    "amountInvestedFundCcy": 2989432
+  },
+  {
+    "date": "2016-10-19",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Elco01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 3523,
+    "amountInvestedFundCcy": 3523
+  },
+  {
+    "date": "2016-10-27",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Elco01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 996551.01,
+    "amountInvestedFundCcy": 996551.01
+  },
+  {
+    "date": "2016-12-21",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Elco01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2017-02-03",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Elco01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 1964,
+    "amountInvestedFundCcy": 1964
+  },
+  {
+    "date": "2017-06-07",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Elco01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 998036,
+    "amountInvestedFundCcy": 998036
+  },
+  {
+    "date": "2017-08-24",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Elco01",
+    "securityType": "Efficiency Capital",
+    "amountInvestedLocalCcy": 4592,
+    "amountInvestedFundCcy": 4592
+  },
+  {
+    "date": "2008-01-25",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Emer03",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 5000000,
+    "amountInvestedFundCcy": 5000000
+  },
+  {
+    "date": "2008-09-01",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 3000000,
+    "amountInvestedFundCcy": 3000000
+  },
+  {
+    "date": "2008-09-01",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2009-03-25",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 375274,
+    "amountInvestedFundCcy": 375274
+  },
+  {
+    "date": "2009-04-06",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 16495,
+    "amountInvestedFundCcy": 16495
+  },
+  {
+    "date": "2009-10-28",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2009-12-14",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 514000,
+    "amountInvestedFundCcy": 514000
+  },
+  {
+    "date": "2009-12-14",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 64877,
+    "amountInvestedFundCcy": 64877
+  },
+  {
+    "date": "2009-12-14",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2010-09-01",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2010-09-20",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 455737,
+    "amountInvestedFundCcy": 455737
+  },
+  {
+    "date": "2011-04-26",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2011-09-12",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2011-09-23",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 59398,
+    "amountInvestedFundCcy": 59398
+  },
+  {
+    "date": "2012-01-28",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 59398,
+    "amountInvestedFundCcy": 59398
+  },
+  {
+    "date": "2012-03-03",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 64222,
+    "amountInvestedFundCcy": 64222
+  },
+  {
+    "date": "2012-03-14",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2012-03-20",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 213791,
+    "amountInvestedFundCcy": 213791
+  },
+  {
+    "date": "2012-03-20",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2012-07-20",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 139930,
+    "amountInvestedFundCcy": 139930
+  },
+  {
+    "date": "2012-12-24",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 139930,
+    "amountInvestedFundCcy": 139930
+  },
+  {
+    "date": "2013-04-14",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2015-07-08",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 28936,
+    "amountInvestedFundCcy": 28936
+  },
+  {
+    "date": "2017-12-27",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 288184.14,
+    "amountInvestedFundCcy": 288184.14
+  },
+  {
+    "date": "2019-05-16",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 350000,
+    "amountInvestedFundCcy": 350000
+  },
+  {
+    "date": "2019-12-12",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Emer03",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2003-05-12",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Engi01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 720000,
+    "amountInvestedFundCcy": 720000
+  },
+  {
+    "date": "2003-07-28",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Engi01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 720022.5,
+    "amountInvestedFundCcy": 720022.5
+  },
+  {
+    "date": "2004-06-07",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Engi01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 2032,
+    "amountInvestedFundCcy": 2032
+  },
+  {
+    "date": "2004-09-30",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Engi01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 117840,
+    "amountInvestedFundCcy": 117840
+  },
+  {
+    "date": "2004-11-26",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Engi01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 190167,
+    "amountInvestedFundCcy": 190167
+  },
+  {
+    "date": "2004-11-26",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Engi01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 118537.5,
+    "amountInvestedFundCcy": 118537.5
+  },
+  {
+    "date": "2005-03-04",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Engi01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 426547.5,
+    "amountInvestedFundCcy": 426547.5
+  },
+  {
+    "date": "2003-05-12",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Engi01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 279990,
+    "amountInvestedFundCcy": 279990
+  },
+  {
+    "date": "2003-07-28",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Engi01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 279990,
+    "amountInvestedFundCcy": 279990
+  },
+  {
+    "date": "2004-06-07",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Engi01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 790,
+    "amountInvestedFundCcy": 790
+  },
+  {
+    "date": "2004-09-30",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Engi01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 45810,
+    "amountInvestedFundCcy": 45810
+  },
+  {
+    "date": "2004-11-26",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Engi01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 73953,
+    "amountInvestedFundCcy": 73953
+  },
+  {
+    "date": "2004-11-26",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Engi01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 46117.5,
+    "amountInvestedFundCcy": 46117.5
+  },
+  {
+    "date": "2005-03-04",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Engi01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 165877.5,
+    "amountInvestedFundCcy": 165877.5
+  },
+  {
+    "date": "2005-03-22",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 64900,
+    "amountInvestedFundCcy": 64900
+  },
+  {
+    "date": "2005-06-01",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 775111,
+    "amountInvestedFundCcy": 775111
+  },
+  {
+    "date": "2008-05-16",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 115380,
+    "amountInvestedFundCcy": 115380
+  },
+  {
+    "date": "2008-07-31",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 98829,
+    "amountInvestedFundCcy": 98829
+  },
+  {
+    "date": "2009-09-01",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2009-12-18",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2010-02-03",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2012-09-11",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 51831,
+    "amountInvestedFundCcy": 51831
+  },
+  {
+    "date": "2012-12-07",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 42691,
+    "amountInvestedFundCcy": 42691
+  },
+  {
+    "date": "2012-12-17",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2005-03-22",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 166900,
+    "amountInvestedFundCcy": 166900
+  },
+  {
+    "date": "2005-06-01",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 1993314,
+    "amountInvestedFundCcy": 1993314
+  },
+  {
+    "date": "2008-05-16",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 296641,
+    "amountInvestedFundCcy": 296641
+  },
+  {
+    "date": "2008-07-31",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 254090,
+    "amountInvestedFundCcy": 254090
+  },
+  {
+    "date": "2009-09-01",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 340000,
+    "amountInvestedFundCcy": 340000
+  },
+  {
+    "date": "2009-12-18",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 245336,
+    "amountInvestedFundCcy": 245336
+  },
+  {
+    "date": "2010-02-03",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 171486,
+    "amountInvestedFundCcy": 171486
+  },
+  {
+    "date": "2012-09-11",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 133207,
+    "amountInvestedFundCcy": 133207
+  },
+  {
+    "date": "2012-12-07",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 109717,
+    "amountInvestedFundCcy": 109717
+  },
+  {
+    "date": "2012-12-17",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Enoc01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2021-10-04",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Ensp01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 2385812,
+    "amountInvestedFundCcy": 2385812
+  },
+  {
+    "date": "2021-10-04",
+    "fundId": "EGETF",
+    "investmentType": "Initial",
+    "pcoId": "Ensp01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 364188,
+    "amountInvestedFundCcy": 364188
+  },
+  {
+    "date": "2022-11-24",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Eolo01",
+    "securityType": "Preferred Series",
+    "amountInvestedLocalCcy": 1622814.52,
+    "amountInvestedFundCcy": 1622814.52
+  },
+  {
+    "date": "2022-09-02",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Eolo01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 11072,
+    "amountInvestedFundCcy": 11072
+  },
+  {
+    "date": "2022-11-24",
+    "fundId": "EIIFI",
+    "investmentType": "Initial",
+    "pcoId": "Eolo01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 92003.52,
+    "amountInvestedFundCcy": 92003.52
+  },
+  {
+    "date": "2022-09-08",
+    "fundId": "EIIFI",
+    "investmentType": "Initial",
+    "pcoId": "Eolo01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 627.55,
+    "amountInvestedFundCcy": 627.55
+  },
+  {
+    "date": "2022-11-24",
+    "fundId": "EGETF",
+    "investmentType": "Initial",
+    "pcoId": "Eolo01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 271628.04,
+    "amountInvestedFundCcy": 271628.04
+  },
+  {
+    "date": "2022-09-09",
+    "fundId": "EGETF",
+    "investmentType": "Initial",
+    "pcoId": "Eolo01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1854.17,
+    "amountInvestedFundCcy": 1854.17
+  },
+  {
+    "date": "2022-11-24",
+    "fundId": "NTV",
+    "investmentType": "Initial",
+    "pcoId": "Eolo01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 2000000,
+    "amountInvestedFundCcy": 2000000
+  },
+  {
+    "date": "2001-05-10",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Ever01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 1440001.04,
+    "amountInvestedFundCcy": 1625281.92
+  },
+  {
+    "date": "2003-05-14",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ever01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 2160000,
+    "amountInvestedFundCcy": 1882352
+  },
+  {
+    "date": "2004-06-21",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ever01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2004-06-24",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ever01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": -123952,
+    "amountInvestedFundCcy": -102524.83
+  },
+  {
+    "date": "2004-06-24",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ever01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2001-05-10",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Ever01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 559998.9,
+    "amountInvestedFundCcy": 632054
+  },
+  {
+    "date": "2003-05-14",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ever01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 840000,
+    "amountInvestedFundCcy": 732026
+  },
+  {
+    "date": "2004-06-21",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ever01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2004-06-24",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ever01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": -48204,
+    "amountInvestedFundCcy": -39870.76
+  },
+  {
+    "date": "2004-06-24",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ever01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2022-06-23",
+    "fundId": "EGWIF",
+    "investmentType": "Initial",
+    "pcoId": "Fido01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 738310,
+    "amountInvestedFundCcy": 905537.22
+  },
+  {
+    "date": "2022-06-23",
+    "fundId": "EGWIF",
+    "investmentType": "Initial",
+    "pcoId": "Fido01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 4000984,
+    "amountInvestedFundCcy": 4907206.88
+  },
+  {
+    "date": "2022-06-27",
+    "fundId": "EGWIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Fido01",
+    "securityType": "Short Term Loan",
+    "amountInvestedLocalCcy": 186440.75,
+    "amountInvestedFundCcy": 229396.7
+  },
+  {
+    "date": "2022-06-23",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Fido01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 251690,
+    "amountInvestedFundCcy": 293515.84
+  },
+  {
+    "date": "2022-06-23",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Fido01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 1363970,
+    "amountInvestedFundCcy": 1590634.53
+  },
+  {
+    "date": "2022-06-27",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Fido01",
+    "securityType": "Short Term Loan",
+    "amountInvestedLocalCcy": 63559.25,
+    "amountInvestedFundCcy": 74121.53
+  },
+  {
+    "date": "2007-05-07",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Flux01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1264420,
+    "amountInvestedFundCcy": 1264420
+  },
+  {
+    "date": "2019-08-06",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Futu01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 999996.47,
+    "amountInvestedFundCcy": 892516.85
+  },
+  {
+    "date": "2020-09-16",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Futu01",
+    "securityType": "SAFE",
+    "amountInvestedLocalCcy": 1000000,
+    "amountInvestedFundCcy": 859032.73
+  },
+  {
+    "date": "2021-03-07",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Futu01",
+    "securityType": "Preferred Seed",
+    "amountInvestedLocalCcy": 41164.2,
+    "amountInvestedFundCcy": 35273.35
+  },
+  {
+    "date": "2021-12-20",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Futu01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1000006.19,
+    "amountInvestedFundCcy": 885980.5
+  },
+  {
+    "date": "2014-05-07",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "GeoD01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 4000000,
+    "amountInvestedFundCcy": 2874802
+  },
+  {
+    "date": "2015-02-13",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 84275.4,
+    "amountInvestedFundCcy": 73919.3
+  },
+  {
+    "date": "2015-02-13",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 411947.92,
+    "amountInvestedFundCcy": 361326.11
+  },
+  {
+    "date": "2015-02-13",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 3134.39,
+    "amountInvestedFundCcy": 2749.22
+  },
+  {
+    "date": "2015-02-13",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2015-02-13",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 2464.21,
+    "amountInvestedFundCcy": 2161.4
+  },
+  {
+    "date": "2016-01-04",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 181189.35,
+    "amountInvestedFundCcy": 167225.98
+  },
+  {
+    "date": "2016-04-07",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 145775.08,
+    "amountInvestedFundCcy": 134185.36
+  },
+  {
+    "date": "2016-05-27",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 500000,
+    "amountInvestedFundCcy": 448551.18
+  },
+  {
+    "date": "2016-06-30",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 233333.33,
+    "amountInvestedFundCcy": 211065.87
+  },
+  {
+    "date": "2016-10-17",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 250000,
+    "amountInvestedFundCcy": 223606
+  },
+  {
+    "date": "2017-10-10",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 75000,
+    "amountInvestedFundCcy": 63884.16
+  },
+  {
+    "date": "2018-05-01",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 75000,
+    "amountInvestedFundCcy": 62745.75
+  },
+  {
+    "date": "2018-06-13",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 100000,
+    "amountInvestedFundCcy": 84976.21
+  },
+  {
+    "date": "2018-08-14",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 50000,
+    "amountInvestedFundCcy": 42920
+  },
+  {
+    "date": "2018-10-16",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 187500,
+    "amountInvestedFundCcy": 162788.68
+  },
+  {
+    "date": "2016-05-27",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2016-06-30",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2016-10-17",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2017-10-10",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2018-05-01",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2018-06-13",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2018-08-14",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2018-10-16",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "GeoD01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2018-03-09",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Hydr01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1846153.41,
+    "amountInvestedFundCcy": 1503994.63
+  },
+  {
+    "date": "2018-03-09",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Hydr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2018-09-12",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Bridge note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2018-09-26",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Bridge note",
+    "amountInvestedLocalCcy": 430769.5,
+    "amountInvestedFundCcy": 366331.75
+  },
+  {
+    "date": "2018-10-03",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Bridge note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2018-12-12",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Bridge note",
+    "amountInvestedLocalCcy": 192308,
+    "amountInvestedFundCcy": 169285.21
+  },
+  {
+    "date": "2019-02-13",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Bridge note",
+    "amountInvestedLocalCcy": 153846.15,
+    "amountInvestedFundCcy": 135827.69
+  },
+  {
+    "date": "2019-03-12",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Bridge note",
+    "amountInvestedLocalCcy": 276923.08,
+    "amountInvestedFundCcy": 246370.66
+  },
+  {
+    "date": "2019-12-11",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Bridge note",
+    "amountInvestedLocalCcy": 461538.47,
+    "amountInvestedFundCcy": 410617.76
+  },
+  {
+    "date": "2018-03-09",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Hydr01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1153846.57,
+    "amountInvestedFundCcy": 939997.21
+  },
+  {
+    "date": "2018-03-09",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Hydr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2018-09-12",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2018-09-26",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 269230.5,
+    "amountInvestedFundCcy": 228956.97
+  },
+  {
+    "date": "2018-10-03",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2018-12-12",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 120192,
+    "amountInvestedFundCcy": 105802.82
+  },
+  {
+    "date": "2019-02-13",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 96153.85,
+    "amountInvestedFundCcy": 84892.31
+  },
+  {
+    "date": "2019-03-12",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 173076.92,
+    "amountInvestedFundCcy": 153981.65
+  },
+  {
+    "date": "2019-12-11",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 288461.53,
+    "amountInvestedFundCcy": 256636.09
+  },
+  {
+    "date": "2018-09-26",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2018-12-12",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-02-13",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-03-12",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-12-11",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2018-09-26",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2018-12-12",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-02-13",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-03-12",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-12-11",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Hydr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2006-11-03",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Iden01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 3500000,
+    "amountInvestedFundCcy": 3500000
+  },
+  {
+    "date": "2006-12-22",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Iden01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 999999,
+    "amountInvestedFundCcy": 999999
+  },
+  {
+    "date": "2007-11-20",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Iden01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 1500000,
+    "amountInvestedFundCcy": 1500000
+  },
+  {
+    "date": "2008-05-28",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Iden01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2011-05-06",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Iden01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2012-09-27",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Iden01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2021-11-16",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Imag01",
+    "securityType": "Preferred Seed",
+    "amountInvestedLocalCcy": 1000000,
+    "amountInvestedFundCcy": 881756.48
+  },
+  {
+    "date": "2022-04-07",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Imag01",
+    "securityType": "Preferred Seed",
+    "amountInvestedLocalCcy": 494674.1,
+    "amountInvestedFundCcy": 453496.61
+  },
+  {
+    "date": "2004-08-27",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Inge01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 900000,
+    "amountInvestedFundCcy": 900000
+  },
+  {
+    "date": "2004-09-16",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Inge01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 299995,
+    "amountInvestedFundCcy": 299995
+  },
+  {
+    "date": "2005-04-04",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 399988.88,
+    "amountInvestedFundCcy": 399988.88
+  },
+  {
+    "date": "2005-06-24",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 399998.88,
+    "amountInvestedFundCcy": 399998.88
+  },
+  {
+    "date": "2005-10-06",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 499986.1,
+    "amountInvestedFundCcy": 499986.1
+  },
+  {
+    "date": "2006-05-10",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 649997,
+    "amountInvestedFundCcy": 649997
+  },
+  {
+    "date": "2006-06-12",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 48047,
+    "amountInvestedFundCcy": 48047
+  },
+  {
+    "date": "2007-02-15",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": -36397.5,
+    "amountInvestedFundCcy": -36397.5
+  },
+  {
+    "date": "2007-02-15",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 33333,
+    "amountInvestedFundCcy": 33333
+  },
+  {
+    "date": "2008-04-15",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2008-04-15",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2008-06-13",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 292492,
+    "amountInvestedFundCcy": 292492
+  },
+  {
+    "date": "2008-11-24",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 292492.2,
+    "amountInvestedFundCcy": 292492.2
+  },
+  {
+    "date": "2009-06-18",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 89999,
+    "amountInvestedFundCcy": 89999
+  },
+  {
+    "date": "2009-11-30",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 119999,
+    "amountInvestedFundCcy": 119999
+  },
+  {
+    "date": "2010-04-29",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 90000,
+    "amountInvestedFundCcy": 90000
+  },
+  {
+    "date": "2010-11-24",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Inge01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 34028,
+    "amountInvestedFundCcy": 34028
+  },
+  {
+    "date": "2002-12-02",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Ioma01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 2000000,
+    "amountInvestedFundCcy": 2004294.16
+  },
+  {
+    "date": "2005-12-02",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Ioma01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2006-01-05",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ioma01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 177240,
+    "amountInvestedFundCcy": 147087
+  },
+  {
+    "date": "2016-03-04",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Libr01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 3700000,
+    "amountInvestedFundCcy": 2532511.98
+  },
+  {
+    "date": "2018-06-18",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Libr01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 1440000.21,
+    "amountInvestedFundCcy": 940254.79
+  },
+  {
+    "date": "2018-06-18",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Libr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2019-06-14",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Libr01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 1276839.66,
+    "amountInvestedFundCcy": 845433.84
+  },
+  {
+    "date": "2019-06-14",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Libr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-12-27",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Libr01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 500000,
+    "amountInvestedFundCcy": 343055
+  },
+  {
+    "date": "2019-12-27",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Libr01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2020-06-18",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Libr01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 1000000,
+    "amountInvestedFundCcy": 657764.91
+  },
+  {
+    "date": "2020-12-11",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Libr01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2022-12-05",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Libr01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 1301915.6,
+    "amountInvestedFundCcy": 918394.19
+  },
+  {
+    "date": "2012-10-15",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Luci01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 244500,
+    "amountInvestedFundCcy": 187371
+  },
+  {
+    "date": "2012-10-15",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Luci01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 500000,
+    "amountInvestedFundCcy": 385624
+  },
+  {
+    "date": "2013-08-09",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Luci01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 50000,
+    "amountInvestedFundCcy": 37456
+  },
+  {
+    "date": "2022-05-31",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Meea01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 2499000,
+    "amountInvestedFundCcy": 2499000
+  },
+  {
+    "date": "2013-05-31",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "MetG01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 500013.22,
+    "amountInvestedFundCcy": 500013.22
+  },
+  {
+    "date": "2014-06-20",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "MetG01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 250000,
+    "amountInvestedFundCcy": 250000
+  },
+  {
+    "date": "2014-06-20",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "MetG01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2016-02-19",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "MetG01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 250000,
+    "amountInvestedFundCcy": 250000
+  },
+  {
+    "date": "2016-02-19",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "MetG01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2017-06-28",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "MetG01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 50000,
+    "amountInvestedFundCcy": 50000
+  },
+  {
+    "date": "2017-07-13",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "MetG01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 25000,
+    "amountInvestedFundCcy": 25000
+  },
+  {
+    "date": "2017-09-14",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "MetG01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 25000,
+    "amountInvestedFundCcy": 25000
+  },
+  {
+    "date": "2019-11-12",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "MetG01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2020-09-30",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "MetG01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2007-04-05",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 300000,
+    "amountInvestedFundCcy": 300000
+  },
+  {
+    "date": "2007-10-05",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 220426.16,
+    "amountInvestedFundCcy": 220426.16
+  },
+  {
+    "date": "2008-03-26",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 440852,
+    "amountInvestedFundCcy": 440852
+  },
+  {
+    "date": "2009-07-01",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1050000,
+    "amountInvestedFundCcy": 1050000
+  },
+  {
+    "date": "2011-04-20",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 450000,
+    "amountInvestedFundCcy": 450000
+  },
+  {
+    "date": "2012-03-31",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2012-06-12",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 62500,
+    "amountInvestedFundCcy": 62500
+  },
+  {
+    "date": "2012-06-12",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 2500,
+    "amountInvestedFundCcy": 2500
+  },
+  {
+    "date": "2012-07-20",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 280000,
+    "amountInvestedFundCcy": 280000
+  },
+  {
+    "date": "2012-12-05",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 110000,
+    "amountInvestedFundCcy": 110000
+  },
+  {
+    "date": "2013-01-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2013-09-18",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 155000,
+    "amountInvestedFundCcy": 155000
+  },
+  {
+    "date": "2013-12-19",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 155000,
+    "amountInvestedFundCcy": 155000
+  },
+  {
+    "date": "2014-03-13",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 118800,
+    "amountInvestedFundCcy": 118800
+  },
+  {
+    "date": "2014-08-28",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 92400,
+    "amountInvestedFundCcy": 92400
+  },
+  {
+    "date": "2014-11-25",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 92400,
+    "amountInvestedFundCcy": 92400
+  },
+  {
+    "date": "2015-02-10",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 92400,
+    "amountInvestedFundCcy": 92400
+  },
+  {
+    "date": "2015-05-08",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 166667,
+    "amountInvestedFundCcy": 166667
+  },
+  {
+    "date": "2015-09-02",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 166667,
+    "amountInvestedFundCcy": 166667
+  },
+  {
+    "date": "2015-12-23",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 166667,
+    "amountInvestedFundCcy": 166667
+  },
+  {
+    "date": "2016-07-25",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "O-fl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2002-05-07",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 659220,
+    "amountInvestedFundCcy": 393873
+  },
+  {
+    "date": "2003-07-22",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 92040,
+    "amountInvestedFundCcy": 53027
+  },
+  {
+    "date": "2003-11-13",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 100303.2,
+    "amountInvestedFundCcy": 61654
+  },
+  {
+    "date": "2003-12-16",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 793202.44,
+    "amountInvestedFundCcy": 477355
+  },
+  {
+    "date": "2004-06-03",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 129402,
+    "amountInvestedFundCcy": 73590
+  },
+  {
+    "date": "2004-07-08",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1041405.39,
+    "amountInvestedFundCcy": 606955
+  },
+  {
+    "date": "2004-10-27",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 2296568,
+    "amountInvestedFundCcy": 1340571
+  },
+  {
+    "date": "2005-07-01",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 164959,
+    "amountInvestedFundCcy": 97400
+  },
+  {
+    "date": "2005-10-10",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 209589,
+    "amountInvestedFundCcy": 130993
+  },
+  {
+    "date": "2005-12-12",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2006-04-27",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 180000,
+    "amountInvestedFundCcy": 108232
+  },
+  {
+    "date": "2006-07-06",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 90000,
+    "amountInvestedFundCcy": 52493
+  },
+  {
+    "date": "2006-07-20",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 18000,
+    "amountInvestedFundCcy": 10819
+  },
+  {
+    "date": "2006-10-30",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 72000,
+    "amountInvestedFundCcy": 43518
+  },
+  {
+    "date": "2007-01-30",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 360000,
+    "amountInvestedFundCcy": 215479
+  },
+  {
+    "date": "2007-02-27",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2007-04-19",
+    "fundId": "EEF",
+    "investmentType": null,
+    "pcoId": "Ocea01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": -621778,
+    "amountInvestedFundCcy": -376538
+  },
+  {
+    "date": "2007-05-08",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 380754,
+    "amountInvestedFundCcy": 232955.4
+  },
+  {
+    "date": "2008-09-08",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 750000,
+    "amountInvestedFundCcy": 433902
+  },
+  {
+    "date": "2009-07-08",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 1250000,
+    "amountInvestedFundCcy": 715471
+  },
+  {
+    "date": "2009-07-08",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 4251.31,
+    "amountInvestedFundCcy": 2415
+  },
+  {
+    "date": "2002-05-07",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 256363.3,
+    "amountInvestedFundCcy": 153172.87
+  },
+  {
+    "date": "2003-07-22",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 35793.33,
+    "amountInvestedFundCcy": 20622
+  },
+  {
+    "date": "2003-11-13",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 39006.8,
+    "amountInvestedFundCcy": 23983
+  },
+  {
+    "date": "2003-12-15",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 308467.47,
+    "amountInvestedFundCcy": 185631
+  },
+  {
+    "date": "2004-06-03",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 50323,
+    "amountInvestedFundCcy": 28948
+  },
+  {
+    "date": "2004-07-08",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 404912.87,
+    "amountInvestedFundCcy": 235993
+  },
+  {
+    "date": "2004-10-27",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 893043,
+    "amountInvestedFundCcy": 521294
+  },
+  {
+    "date": "2005-07-01",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 64145,
+    "amountInvestedFundCcy": 37875
+  },
+  {
+    "date": "2005-10-10",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 81507,
+    "amountInvestedFundCcy": 50942
+  },
+  {
+    "date": "2005-12-12",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2006-04-27",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 70000,
+    "amountInvestedFundCcy": 42090
+  },
+  {
+    "date": "2006-07-06",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 35000,
+    "amountInvestedFundCcy": 20414
+  },
+  {
+    "date": "2006-07-20",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 7000,
+    "amountInvestedFundCcy": 4207
+  },
+  {
+    "date": "2006-10-30",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 28000,
+    "amountInvestedFundCcy": 16924
+  },
+  {
+    "date": "2007-01-30",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 140000,
+    "amountInvestedFundCcy": 83797
+  },
+  {
+    "date": "2007-02-27",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2007-04-19",
+    "fundId": "ESF",
+    "investmentType": null,
+    "pcoId": "Ocea01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": -241803,
+    "amountInvestedFundCcy": -146432
+  },
+  {
+    "date": "2007-05-08",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 148071.2,
+    "amountInvestedFundCcy": 90593.91
+  },
+  {
+    "date": "2008-09-08",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2009-07-08",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Ocea01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2021-09-02",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Open01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 2267488.86,
+    "amountInvestedFundCcy": 1914300.43
+  },
+  {
+    "date": "2021-09-02",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Open01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 1732315.1,
+    "amountInvestedFundCcy": 1462486.37
+  },
+  {
+    "date": "2018-11-19",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Open01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1133824.2,
+    "amountInvestedFundCcy": 994840.03
+  },
+  {
+    "date": "2019-05-13",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Open01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 566968.71,
+    "amountInvestedFundCcy": 504551.12
+  },
+  {
+    "date": "2021-06-11",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Open01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 2781,
+    "amountInvestedFundCcy": 2305.2
+  },
+  {
+    "date": "2021-06-11",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Open01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1653.75,
+    "amountInvestedFundCcy": 1370.81
+  },
+  {
+    "date": "2018-11-19",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Open01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 866130,
+    "amountInvestedFundCcy": 759959.78
+  },
+  {
+    "date": "2019-05-13",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Open01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 432951.75,
+    "amountInvestedFundCcy": 385288.09
+  },
+  {
+    "date": "2021-06-11",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Open01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 2119.5,
+    "amountInvestedFundCcy": 1756.88
+  },
+  {
+    "date": "2021-06-11",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Open01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1262.25,
+    "amountInvestedFundCcy": 1046.29
+  },
+  {
+    "date": "2014-11-03",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Opti01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 2500000,
+    "amountInvestedFundCcy": 1756975
+  },
+  {
+    "date": "2015-07-17",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Opti01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 200000,
+    "amountInvestedFundCcy": 136239.78
+  },
+  {
+    "date": "2015-09-01",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Opti01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 230000,
+    "amountInvestedFundCcy": 146534.15
+  },
+  {
+    "date": "2015-09-28",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Opti01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 258000,
+    "amountInvestedFundCcy": 162407.15
+  },
+  {
+    "date": "2015-10-14",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Opti01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 142000,
+    "amountInvestedFundCcy": 90676.88
+  },
+  {
+    "date": "2015-11-13",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Opti01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 200000,
+    "amountInvestedFundCcy": 132837.41
+  },
+  {
+    "date": "2016-01-20",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Opti01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 200000,
+    "amountInvestedFundCcy": 125699.2
+  },
+  {
+    "date": "2016-06-20",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Opti01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 550000,
+    "amountInvestedFundCcy": 361366.62
+  },
+  {
+    "date": "2016-10-19",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Opti01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 150000,
+    "amountInvestedFundCcy": 104934.73
+  },
+  {
+    "date": "2017-03-07",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Opti01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 150000,
+    "amountInvestedFundCcy": 107991.36
+  },
+  {
+    "date": "2017-03-31",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Opti01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2017-03-31",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Opti01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2018-06-18",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Opti01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 202000,
+    "amountInvestedFundCcy": 129828.4
+  },
+  {
+    "date": "2002-11-22",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Orme01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 28000,
+    "amountInvestedFundCcy": 28000
+  },
+  {
+    "date": "2003-02-10",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Orme01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 247979.79,
+    "amountInvestedFundCcy": 247979.79
+  },
+  {
+    "date": "2004-01-12",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Orme01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 178218,
+    "amountInvestedFundCcy": 178218
+  },
+  {
+    "date": "2005-11-30",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Orme01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 29374,
+    "amountInvestedFundCcy": 29374
+  },
+  {
+    "date": "2007-01-05",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Orme01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 52920,
+    "amountInvestedFundCcy": 52920
+  },
+  {
+    "date": "2002-11-22",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Orme01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 72000,
+    "amountInvestedFundCcy": 72000
+  },
+  {
+    "date": "2003-02-10",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Orme01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 637662.32,
+    "amountInvestedFundCcy": 637662.32
+  },
+  {
+    "date": "2004-01-12",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Orme01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 475248,
+    "amountInvestedFundCcy": 475248
+  },
+  {
+    "date": "2005-11-30",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Orme01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 76628,
+    "amountInvestedFundCcy": 76628
+  },
+  {
+    "date": "2007-01-05",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Orme01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 137880,
+    "amountInvestedFundCcy": 137880
+  },
+  {
+    "date": "2000-08-24",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Oxfo01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1470000.15,
+    "amountInvestedFundCcy": 2392190
+  },
+  {
+    "date": "2000-08-24",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Oxfo01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2002-02-27",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Oxfo01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 199999.95,
+    "amountInvestedFundCcy": 327868.85
+  },
+  {
+    "date": "2021-10-06",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 350000,
+    "amountInvestedFundCcy": 303424.36
+  },
+  {
+    "date": "2014-12-15",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "P9701",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 2000000,
+    "amountInvestedFundCcy": 1607588
+  },
+  {
+    "date": "2015-06-30",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 250000,
+    "amountInvestedFundCcy": 224245.41
+  },
+  {
+    "date": "2015-12-11",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 173761,
+    "amountInvestedFundCcy": 158512.13
+  },
+  {
+    "date": "2016-04-13",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 173761,
+    "amountInvestedFundCcy": 153201.38
+  },
+  {
+    "date": "2016-06-30",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2016-07-15",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 347700,
+    "amountInvestedFundCcy": 314148.9
+  },
+  {
+    "date": "2016-11-25",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 347700,
+    "amountInvestedFundCcy": 328545.78
+  },
+  {
+    "date": "2017-08-09",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 347700,
+    "amountInvestedFundCcy": 297459
+  },
+  {
+    "date": "2018-06-29",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1999999,
+    "amountInvestedFundCcy": 1716737.34
+  },
+  {
+    "date": "2019-01-17",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-10-29",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 500000,
+    "amountInvestedFundCcy": 450760
+  },
+  {
+    "date": "2019-12-06",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 45000,
+    "amountInvestedFundCcy": 40920.25
+  },
+  {
+    "date": "2020-02-26",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 500000,
+    "amountInvestedFundCcy": 460489.96
+  },
+  {
+    "date": "2020-09-10",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 500000,
+    "amountInvestedFundCcy": 424100
+  },
+  {
+    "date": "2020-11-27",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 150000,
+    "amountInvestedFundCcy": 125386.61
+  },
+  {
+    "date": "2022-03-10",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 5176.78,
+    "amountInvestedFundCcy": 4742.29
+  },
+  {
+    "date": "2015-12-11",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2016-04-13",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2016-07-15",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2016-11-25",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2017-08-09",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-10-29",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2020-02-26",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2020-09-10",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2020-11-27",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "P9701",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2002-03-19",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 158585,
+    "amountInvestedFundCcy": 256817.13
+  },
+  {
+    "date": "2003-01-24",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 35000,
+    "amountInvestedFundCcy": 52790
+  },
+  {
+    "date": "2003-03-25",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 151611,
+    "amountInvestedFundCcy": 223781
+  },
+  {
+    "date": "2003-11-11",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 69994,
+    "amountInvestedFundCcy": 101662
+  },
+  {
+    "date": "2004-06-23",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 46665,
+    "amountInvestedFundCcy": 70172.93
+  },
+  {
+    "date": "2004-06-23",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 98028,
+    "amountInvestedFundCcy": 147410.53
+  },
+  {
+    "date": "2005-04-15",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 140000,
+    "amountInvestedFundCcy": 205579
+  },
+  {
+    "date": "2005-11-07",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 140000,
+    "amountInvestedFundCcy": 207101
+  },
+  {
+    "date": "2006-01-30",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 420000,
+    "amountInvestedFundCcy": 615024
+  },
+  {
+    "date": "2006-01-30",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 420000,
+    "amountInvestedFundCcy": 615024
+  },
+  {
+    "date": "2006-01-30",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2006-04-27",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 7000,
+    "amountInvestedFundCcy": 10060
+  },
+  {
+    "date": "2006-05-12",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": -420000,
+    "amountInvestedFundCcy": -614215
+  },
+  {
+    "date": "2007-06-12",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 254000,
+    "amountInvestedFundCcy": 375962
+  },
+  {
+    "date": "2011-05-19",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1,
+    "amountInvestedFundCcy": 1.14
+  },
+  {
+    "date": "2011-05-19",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 142022,
+    "amountInvestedFundCcy": 161498.75
+  },
+  {
+    "date": "2011-05-19",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2012-01-23",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 66000,
+    "amountInvestedFundCcy": 79460.63
+  },
+  {
+    "date": "2012-01-23",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2002-03-19",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 407819.94,
+    "amountInvestedFundCcy": 660437.15
+  },
+  {
+    "date": "2003-01-24",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 90000,
+    "amountInvestedFundCcy": 135747
+  },
+  {
+    "date": "2003-03-25",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 389921.13,
+    "amountInvestedFundCcy": 575529
+  },
+  {
+    "date": "2003-11-11",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 180006,
+    "amountInvestedFundCcy": 261447
+  },
+  {
+    "date": "2004-06-23",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 120002,
+    "amountInvestedFundCcy": 180454
+  },
+  {
+    "date": "2004-06-23",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 252088,
+    "amountInvestedFundCcy": 379080
+  },
+  {
+    "date": "2005-04-15",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 360000,
+    "amountInvestedFundCcy": 528634
+  },
+  {
+    "date": "2005-11-07",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 360000,
+    "amountInvestedFundCcy": 532544
+  },
+  {
+    "date": "2006-01-30",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1080000,
+    "amountInvestedFundCcy": 1581490.5
+  },
+  {
+    "date": "2006-01-30",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 1080000,
+    "amountInvestedFundCcy": 1581490.5
+  },
+  {
+    "date": "2006-01-30",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2006-04-27",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 18000,
+    "amountInvestedFundCcy": 25870
+  },
+  {
+    "date": "2006-05-12",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": -1080000,
+    "amountInvestedFundCcy": -1579409
+  },
+  {
+    "date": "2007-06-12",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1184140,
+    "amountInvestedFundCcy": 1752724
+  },
+  {
+    "date": "2008-10-13",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 584620,
+    "amountInvestedFundCcy": 742280.35
+  },
+  {
+    "date": "2011-05-19",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1,
+    "amountInvestedFundCcy": 1.14
+  },
+  {
+    "date": "2011-05-19",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 468398,
+    "amountInvestedFundCcy": 532633.61
+  },
+  {
+    "date": "2011-05-19",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2011-09-27",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 217000,
+    "amountInvestedFundCcy": 247293.45
+  },
+  {
+    "date": "2011-09-27",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Pela01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2004-04-14",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Peme01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 2160000,
+    "amountInvestedFundCcy": 2160000
+  },
+  {
+    "date": "2006-02-27",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Peme01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 337050,
+    "amountInvestedFundCcy": 337050
+  },
+  {
+    "date": "2006-06-30",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Peme01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 620000,
+    "amountInvestedFundCcy": 620000
+  },
+  {
+    "date": "2004-04-14",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Peme01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 840000,
+    "amountInvestedFundCcy": 840000
+  },
+  {
+    "date": "2006-02-27",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Peme01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 131450,
+    "amountInvestedFundCcy": 131450
+  },
+  {
+    "date": "2006-06-30",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Peme01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 240000,
+    "amountInvestedFundCcy": 240000
+  },
+  {
+    "date": "2019-01-16",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Phas01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1636363.73,
+    "amountInvestedFundCcy": 1430361.9
+  },
+  {
+    "date": "2019-09-20",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-12-16",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 272727.03,
+    "amountInvestedFundCcy": 244532.77
+  },
+  {
+    "date": "2020-02-28",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 818181,
+    "amountInvestedFundCcy": 745835
+  },
+  {
+    "date": "2020-03-26",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2021-05-05",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 272727,
+    "amountInvestedFundCcy": 227367.23
+  },
+  {
+    "date": "2019-01-16",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Phas01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1363635.03,
+    "amountInvestedFundCcy": 1191967.02
+  },
+  {
+    "date": "2019-08-30",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-12-16",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 227273,
+    "amountInvestedFundCcy": 203777.1
+  },
+  {
+    "date": "2020-02-28",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 681819,
+    "amountInvestedFundCcy": 621530.54
+  },
+  {
+    "date": "2020-03-26",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2021-05-05",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 227273,
+    "amountInvestedFundCcy": 189473.11
+  },
+  {
+    "date": "2021-12-21",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 454545.2,
+    "amountInvestedFundCcy": 403502.17
+  },
+  {
+    "date": "2021-12-21",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2021-12-21",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-12-16",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2020-02-28",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2019-12-16",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2020-02-28",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2021-12-21",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Phas01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 545454.8,
+    "amountInvestedFundCcy": 484203.11
+  },
+  {
+    "date": "2005-07-04",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Poly01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 50000,
+    "amountInvestedFundCcy": 73965
+  },
+  {
+    "date": "2001-08-21",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Powe01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 1080000.4,
+    "amountInvestedFundCcy": 1183561
+  },
+  {
+    "date": "2003-12-04",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Powe01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 87270,
+    "amountInvestedFundCcy": 72363
+  },
+  {
+    "date": "2004-05-14",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Powe01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 87270,
+    "amountInvestedFundCcy": 73801
+  },
+  {
+    "date": "2004-07-26",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Powe01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 689460,
+    "amountInvestedFundCcy": 567924
+  },
+  {
+    "date": "2001-08-17",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Powe01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 420000.24,
+    "amountInvestedFundCcy": 460274
+  },
+  {
+    "date": "2003-12-04",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Powe01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 33938,
+    "amountInvestedFundCcy": 28141
+  },
+  {
+    "date": "2004-05-14",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Powe01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 33938,
+    "amountInvestedFundCcy": 28923
+  },
+  {
+    "date": "2004-07-26",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Powe01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 268124,
+    "amountInvestedFundCcy": 220859.97
+  },
+  {
+    "date": "2017-01-06",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Powe02",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 735293.98,
+    "amountInvestedFundCcy": 697820.99
+  },
+  {
+    "date": "2017-08-25",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Powe02",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2018-01-31",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Powe02",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 48371.78,
+    "amountInvestedFundCcy": 39281.22
+  },
+  {
+    "date": "2018-07-23",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Powe02",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 48371.78,
+    "amountInvestedFundCcy": 41522.34
+  },
+  {
+    "date": "2018-12-20",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Powe02",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 31249.98,
+    "amountInvestedFundCcy": 27649.96
+  },
+  {
+    "date": "2017-01-06",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Powe02",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1764706.24,
+    "amountInvestedFundCcy": 1674771.04
+  },
+  {
+    "date": "2017-08-25",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Powe02",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2018-01-31",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Powe02",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 116092.33,
+    "amountInvestedFundCcy": 93660.97
+  },
+  {
+    "date": "2018-07-23",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Powe02",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 116092.33,
+    "amountInvestedFundCcy": 99653.66
+  },
+  {
+    "date": "2018-12-20",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Powe02",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 75431.99,
+    "amountInvestedFundCcy": 65821.98
+  },
+  {
+    "date": "2008-08-08",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Pure01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 3500000,
+    "amountInvestedFundCcy": 2188457
+  },
+  {
+    "date": "2008-09-08",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Pure01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 2500000,
+    "amountInvestedFundCcy": 1664536
+  },
+  {
+    "date": "2009-10-05",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Pure01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 3500000,
+    "amountInvestedFundCcy": 2213509
+  },
+  {
+    "date": "2010-08-12",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Pure01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2011-12-22",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Pure01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2008-09-03",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "RBE01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1200000,
+    "amountInvestedFundCcy": 810732
+  },
+  {
+    "date": "2009-06-29",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 300000,
+    "amountInvestedFundCcy": 213950
+  },
+  {
+    "date": "2010-05-13",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 300000,
+    "amountInvestedFundCcy": 238777
+  },
+  {
+    "date": "2010-12-10",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 300000,
+    "amountInvestedFundCcy": 226637
+  },
+  {
+    "date": "2011-04-13",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 300000,
+    "amountInvestedFundCcy": 206954
+  },
+  {
+    "date": "2011-07-21",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 300000,
+    "amountInvestedFundCcy": 208914
+  },
+  {
+    "date": "2011-11-14",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 300000,
+    "amountInvestedFundCcy": 220103
+  },
+  {
+    "date": "2012-01-23",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 300000,
+    "amountInvestedFundCcy": 230592
+  },
+  {
+    "date": "2012-05-25",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 300000,
+    "amountInvestedFundCcy": 239158
+  },
+  {
+    "date": "2012-09-19",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 300000,
+    "amountInvestedFundCcy": 231839
+  },
+  {
+    "date": "2012-12-21",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 105000,
+    "amountInvestedFundCcy": 79269
+  },
+  {
+    "date": "2012-12-31",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2013-01-31",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 300000,
+    "amountInvestedFundCcy": 221549
+  },
+  {
+    "date": "2013-03-26",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 300000,
+    "amountInvestedFundCcy": 233499
+  },
+  {
+    "date": "2013-05-30",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 400000,
+    "amountInvestedFundCcy": 308761
+  },
+  {
+    "date": "2013-12-19",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 500000,
+    "amountInvestedFundCcy": 364964
+  },
+  {
+    "date": "2014-06-23",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 200000,
+    "amountInvestedFundCcy": 147167
+  },
+  {
+    "date": "2014-09-18",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 410000,
+    "amountInvestedFundCcy": 318204
+  },
+  {
+    "date": "2014-09-30",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2015-10-27",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 200000,
+    "amountInvestedFundCcy": 181323.66
+  },
+  {
+    "date": "2016-03-31",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 210000,
+    "amountInvestedFundCcy": 184615.38
+  },
+  {
+    "date": "2017-01-18",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 38677.5,
+    "amountInvestedFundCcy": 37500
+  },
+  {
+    "date": "2017-01-20",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "RBE01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": 1322.5,
+    "amountInvestedFundCcy": 1251.3
+  },
+  {
+    "date": "2020-08-28",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Rhom01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 4999999.04,
+    "amountInvestedFundCcy": 4253834.02
+  },
+  {
+    "date": "2020-08-28",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Rhom01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2022-04-08",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Rhom01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 560275.43,
+    "amountInvestedFundCcy": 515717.44
+  },
+  {
+    "date": "2022-04-08",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Rhom01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2020-08-21",
+    "fundId": "NTV",
+    "investmentType": "Initial",
+    "pcoId": "Rhom01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 874999.42,
+    "amountInvestedFundCcy": 744420.6
+  },
+  {
+    "date": "2020-08-21",
+    "fundId": "NTV",
+    "investmentType": "Initial",
+    "pcoId": "Rhom01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2022-04-08",
+    "fundId": "NTV",
+    "investmentType": "Follow-on",
+    "pcoId": "Rhom01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 98048.15,
+    "amountInvestedFundCcy": 90467
+  },
+  {
+    "date": "2022-04-08",
+    "fundId": "NTV",
+    "investmentType": "Follow-on",
+    "pcoId": "Rhom01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2005-06-03",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Schm01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 339909,
+    "amountInvestedFundCcy": 339909
+  },
+  {
+    "date": "2006-03-09",
+    "fundId": "ESF",
+    "investmentType": null,
+    "pcoId": "Schm01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": -46952,
+    "amountInvestedFundCcy": -46952
+  },
+  {
+    "date": "2006-03-21",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Schm01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 35900,
+    "amountInvestedFundCcy": 35900
+  },
+  {
+    "date": "2006-05-24",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Schm01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2005-06-03",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Schm01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 874051,
+    "amountInvestedFundCcy": 874051
+  },
+  {
+    "date": "2006-03-09",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Schm01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": -120730,
+    "amountInvestedFundCcy": -120730
+  },
+  {
+    "date": "2006-03-21",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Schm01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 92314,
+    "amountInvestedFundCcy": 92314
+  },
+  {
+    "date": "2006-05-24",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Schm01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2008-04-03",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Schm02",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 7103995,
+    "amountInvestedFundCcy": 7103995
+  },
+  {
+    "date": "2009-01-18",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Schm02",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 3250000,
+    "amountInvestedFundCcy": 3250000
+  },
+  {
+    "date": "2005-11-22",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Scie01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 2500000,
+    "amountInvestedFundCcy": 2120441.05
+  },
+  {
+    "date": "2007-02-07",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Scie01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 277884.68,
+    "amountInvestedFundCcy": 214121
+  },
+  {
+    "date": "2007-08-09",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Scie01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 231570.56,
+    "amountInvestedFundCcy": 169214.88
+  },
+  {
+    "date": "2007-08-28",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Scie01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 23639.67,
+    "amountInvestedFundCcy": 17414.12
+  },
+  {
+    "date": "2008-03-26",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Scie01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 212860,
+    "amountInvestedFundCcy": 137997
+  },
+  {
+    "date": "2008-10-29",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Scie01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 38314,
+    "amountInvestedFundCcy": 30456.28
+  },
+  {
+    "date": "2007-06-17",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 2000000,
+    "amountInvestedFundCcy": 1507386
+  },
+  {
+    "date": "2007-12-20",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1500000,
+    "amountInvestedFundCcy": 1043842
+  },
+  {
+    "date": "2008-10-03",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1237840,
+    "amountInvestedFundCcy": 892754
+  },
+  {
+    "date": "2009-04-17",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 2250000,
+    "amountInvestedFundCcy": 1705062
+  },
+  {
+    "date": "2010-04-30",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2011-05-10",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 877890,
+    "amountInvestedFundCcy": 612794
+  },
+  {
+    "date": "2011-09-30",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 877890,
+    "amountInvestedFundCcy": 653288
+  },
+  {
+    "date": "2012-02-23",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 862823,
+    "amountInvestedFundCcy": 656638
+  },
+  {
+    "date": "2012-06-06",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 1602385,
+    "amountInvestedFundCcy": 1279963
+  },
+  {
+    "date": "2013-12-11",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 2391592,
+    "amountInvestedFundCcy": 1737724
+  },
+  {
+    "date": "2015-01-28",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 854140,
+    "amountInvestedFundCcy": 726680.28
+  },
+  {
+    "date": "2015-06-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 854140,
+    "amountInvestedFundCcy": 758965.7
+  },
+  {
+    "date": "2015-07-20",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2016-04-07",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 691761.3,
+    "amountInvestedFundCcy": 608530.89
+  },
+  {
+    "date": "2016-08-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series E",
+    "amountInvestedLocalCcy": 180873.2,
+    "amountInvestedFundCcy": 161985.67
+  },
+  {
+    "date": "2016-09-22",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series E",
+    "amountInvestedLocalCcy": 180873.2,
+    "amountInvestedFundCcy": 161062.51
+  },
+  {
+    "date": "2016-11-14",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series E",
+    "amountInvestedLocalCcy": 633581.07,
+    "amountInvestedFundCcy": 583325.42
+  },
+  {
+    "date": "2017-01-20",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series E",
+    "amountInvestedLocalCcy": 633581.07,
+    "amountInvestedFundCcy": 595515.52
+  },
+  {
+    "date": "2017-07-06",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "SDCm01",
+    "securityType": "Preferred Series F",
+    "amountInvestedLocalCcy": 350556,
+    "amountInvestedFundCcy": 308279
+  },
+  {
+    "date": "2016-09-19",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Secu01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1563624.23,
+    "amountInvestedFundCcy": 1563624.23
+  },
+  {
+    "date": "2016-09-19",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Secu01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 325774.91,
+    "amountInvestedFundCcy": 325774.91
+  },
+  {
+    "date": "2008-03-28",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Sens01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 2000000,
+    "amountInvestedFundCcy": 1269438
+  },
+  {
+    "date": "2009-02-13",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Sens01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 2000000,
+    "amountInvestedFundCcy": 1554847
+  },
+  {
+    "date": "2010-01-25",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Sens01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 341007,
+    "amountInvestedFundCcy": 241318.38
+  },
+  {
+    "date": "2010-02-25",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Sens01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 14673.44,
+    "amountInvestedFundCcy": 10886.96
+  },
+  {
+    "date": "2010-07-19",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Sens01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 175000,
+    "amountInvestedFundCcy": 135135.13
+  },
+  {
+    "date": "2010-08-24",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Sens01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 339415.28,
+    "amountInvestedFundCcy": 273548.15
+  },
+  {
+    "date": "2010-10-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Sens01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 50946.55,
+    "amountInvestedFundCcy": 36607.42
+  },
+  {
+    "date": "2010-11-10",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Sens01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 433875.38,
+    "amountInvestedFundCcy": 315545.73
+  },
+  {
+    "date": "2011-01-13",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Sens01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 840084,
+    "amountInvestedFundCcy": 639722.81
+  },
+  {
+    "date": "2011-04-21",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Sens01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 700070,
+    "amountInvestedFundCcy": 479500
+  },
+  {
+    "date": "2011-07-05",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Sens01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2012-08-09",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Sens01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 1078067.07,
+    "amountInvestedFundCcy": 877047.73
+  },
+  {
+    "date": "2014-06-13",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Sens01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 718711.38,
+    "amountInvestedFundCcy": 531159.1
+  },
+  {
+    "date": "2015-06-11",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Sens01",
+    "securityType": "Preferred Series E",
+    "amountInvestedLocalCcy": 478368,
+    "amountInvestedFundCcy": 422231.85
+  },
+  {
+    "date": "2022-03-18",
+    "fundId": "EGWIF",
+    "investmentType": "Initial",
+    "pcoId": "Sewe01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 3061467.64,
+    "amountInvestedFundCcy": 3061767.64
+  },
+  {
+    "date": "2022-03-18",
+    "fundId": "EGWIF",
+    "investmentType": "Initial",
+    "pcoId": "Sewe01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2022-03-18",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Sewe01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 938531.39,
+    "amountInvestedFundCcy": 848103.89
+  },
+  {
+    "date": "2022-03-18",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Sewe01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2010-03-15",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Siel01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 3999999.36,
+    "amountInvestedFundCcy": 2919494.46
+  },
+  {
+    "date": "2011-07-06",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Siel01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 2000000,
+    "amountInvestedFundCcy": 1400266.05
+  },
+  {
+    "date": "2012-04-20",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Siel01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2012-04-20",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Siel01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2013-07-01",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Siel01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 686678,
+    "amountInvestedFundCcy": 527160
+  },
+  {
+    "date": "2014-02-04",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Siel01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 954340,
+    "amountInvestedFundCcy": 706657
+  },
+  {
+    "date": "2014-07-08",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Siel01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 135000,
+    "amountInvestedFundCcy": 99199
+  },
+  {
+    "date": "2015-01-28",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Siel01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 50000,
+    "amountInvestedFundCcy": 44520
+  },
+  {
+    "date": "2015-02-12",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Siel01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 50000,
+    "amountInvestedFundCcy": 44603
+  },
+  {
+    "date": "2015-02-27",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Siel01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2015-02-27",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Siel01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2016-01-31",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Siel01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2016-07-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Siel01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2017-02-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Siel01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2021-07-13",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Skyl01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2021-07-13",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Skyl01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2020-09-18",
+    "fundId": "EGWIF",
+    "investmentType": "Initial",
+    "pcoId": "Sofi01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 1560255,
+    "amountInvestedFundCcy": 1847997.23
+  },
+  {
+    "date": "2020-09-30",
+    "fundId": "EGWIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Sofi01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 65785,
+    "amountInvestedFundCcy": 77086.86
+  },
+  {
+    "date": "2020-09-30",
+    "fundId": "EGWIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Sofi01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 437780,
+    "amountInvestedFundCcy": 512990.61
+  },
+  {
+    "date": "2020-09-18",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Sofi01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 439845,
+    "amountInvestedFundCcy": 439845
+  },
+  {
+    "date": "2020-09-30",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Sofi01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 18585,
+    "amountInvestedFundCcy": 18585
+  },
+  {
+    "date": "2020-09-30",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Sofi01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 123310,
+    "amountInvestedFundCcy": 123310
+  },
+  {
+    "date": "2021-11-23",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Sofi01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2021-11-23",
+    "fundId": "EGWIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Sofi01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2022-12-23",
+    "fundId": "NTV",
+    "investmentType": "Initial",
+    "pcoId": "Spac01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 300000000,
+    "amountInvestedFundCcy": 2073000
+  },
+  {
+    "date": "2019-09-16",
+    "fundId": "NTV",
+    "investmentType": "Initial",
+    "pcoId": "Spea01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1850000,
+    "amountInvestedFundCcy": 1674223
+  },
+  {
+    "date": "2020-11-17",
+    "fundId": "NTV",
+    "investmentType": "Follow-on",
+    "pcoId": "Spea01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 252018.5,
+    "amountInvestedFundCcy": 212351.28
+  },
+  {
+    "date": "2021-05-28",
+    "fundId": "NTV",
+    "investmentType": "Follow-on",
+    "pcoId": "Spea01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 168012.33,
+    "amountInvestedFundCcy": 137850.62
+  },
+  {
+    "date": "2021-07-01",
+    "fundId": "NTV",
+    "investmentType": "Follow-on",
+    "pcoId": "Spea01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 84006.17,
+    "amountInvestedFundCcy": 70463.15
+  },
+  {
+    "date": "2021-07-01",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Spea01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 181635,
+    "amountInvestedFundCcy": 152827.09
+  },
+  {
+    "date": "2019-09-16",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Spea01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 4000000,
+    "amountInvestedFundCcy": 3630750.83
+  },
+  {
+    "date": "2020-11-02",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Spea01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 544905,
+    "amountInvestedFundCcy": 468695.17
+  },
+  {
+    "date": "2021-05-28",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Spea01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 363270,
+    "amountInvestedFundCcy": 298055.46
+  },
+  {
+    "date": "2007-08-30",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Syna01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 4000000,
+    "amountInvestedFundCcy": 2942258
+  },
+  {
+    "date": "2009-03-05",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Syna01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 735821.42,
+    "amountInvestedFundCcy": 584681
+  },
+  {
+    "date": "2010-07-19",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Syna01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 954952.67,
+    "amountInvestedFundCcy": 738555.82
+  },
+  {
+    "date": "2011-07-01",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Syna01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 1435570,
+    "amountInvestedFundCcy": 1007064.38
+  },
+  {
+    "date": "2013-06-13",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Syna01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 900101.71,
+    "amountInvestedFundCcy": 691391.34
+  },
+  {
+    "date": "2013-12-06",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Syna01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 216081,
+    "amountInvestedFundCcy": 158211
+  },
+  {
+    "date": "2010-11-03",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Taka01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 3480000,
+    "amountInvestedFundCcy": 2447602
+  },
+  {
+    "date": "2012-03-28",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Taka01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 1499998,
+    "amountInvestedFundCcy": 1125364
+  },
+  {
+    "date": "2013-10-16",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Taka01",
+    "securityType": "Preferred Series D",
+    "amountInvestedLocalCcy": 750000,
+    "amountInvestedFundCcy": 554487
+  },
+  {
+    "date": "2015-04-21",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Taka01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 448017,
+    "amountInvestedFundCcy": 414159.46
+  },
+  {
+    "date": "2015-11-27",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Taka01",
+    "securityType": "Preferred Series E",
+    "amountInvestedLocalCcy": 500000,
+    "amountInvestedFundCcy": 472321.93
+  },
+  {
+    "date": "2018-07-05",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Trop01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 113384.2,
+    "amountInvestedFundCcy": 97329
+  },
+  {
+    "date": "2020-04-07",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Trop01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1417286.2,
+    "amountInvestedFundCcy": 1301743.45
+  },
+  {
+    "date": "2018-07-05",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Trop01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 86616.76,
+    "amountInvestedFundCcy": 74351.83
+  },
+  {
+    "date": "2020-04-07",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Trop01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1082697.2,
+    "amountInvestedFundCcy": 994431.46
+  },
+  {
+    "date": "2023-01-12",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Trop01",
+    "securityType": "Convertilbe Note",
+    "amountInvestedLocalCcy": 1133836.49,
+    "amountInvestedFundCcy": 1051308.75
+  },
+  {
+    "date": "2022-07-12",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Urge01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 1383140,
+    "amountInvestedFundCcy": 1359084.21
+  },
+  {
+    "date": "2019-12-20",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Urge01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 5000000,
+    "amountInvestedFundCcy": 4499417.33
+  },
+  {
+    "date": "2019-12-20",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Urge01",
+    "securityType": "Warrants",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2020-09-18",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Urge01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2020-09-18",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Urge01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 1999996.94,
+    "amountInvestedFundCcy": 1694912.66
+  },
+  {
+    "date": "2020-09-18",
+    "fundId": "EIIF",
+    "investmentType": "Follow-on",
+    "pcoId": "Urge01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2016-10-17",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Ushr01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 1000000,
+    "amountInvestedFundCcy": 894424
+  },
+  {
+    "date": "2017-06-26",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Ushr01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1040000,
+    "amountInvestedFundCcy": 930649
+  },
+  {
+    "date": "2017-11-06",
+    "fundId": "ECFIII",
+    "investmentType": "Follow-on",
+    "pcoId": "Ushr01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2006-05-26",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Vape01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1041667,
+    "amountInvestedFundCcy": 725142
+  },
+  {
+    "date": "2007-05-23",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Vape01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1458333,
+    "amountInvestedFundCcy": 999680
+  },
+  {
+    "date": "2007-10-30",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Vape01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 3386132,
+    "amountInvestedFundCcy": 2464793
+  },
+  {
+    "date": "2008-12-05",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Vape01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1613869,
+    "amountInvestedFundCcy": 1021371
+  },
+  {
+    "date": "2016-12-05",
+    "fundId": "ECFIII",
+    "investmentType": "Initial",
+    "pcoId": "Vise01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 1956521.19,
+    "amountInvestedFundCcy": 1956521.19
+  },
+  {
+    "date": "2016-12-05",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "Vise01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 543481.53,
+    "amountInvestedFundCcy": 543481.53
+  },
+  {
+    "date": "2020-06-18",
+    "fundId": "NTV",
+    "investmentType": "Initial",
+    "pcoId": "Whee01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 5350250,
+    "amountInvestedFundCcy": 500000
+  },
+  {
+    "date": "2022-08-02",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "xFar01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1442898.88,
+    "amountInvestedFundCcy": 1442898.88
+  },
+  {
+    "date": "2022-08-02",
+    "fundId": "EIIF",
+    "investmentType": "Initial",
+    "pcoId": "xFar01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 288531.72,
+    "amountInvestedFundCcy": 288531.72
+  },
+  {
+    "date": "2022-08-02",
+    "fundId": "EGWIF",
+    "investmentType": "Initial",
+    "pcoId": "xFar01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 211454.55,
+    "amountInvestedFundCcy": 216402.59
+  },
+  {
+    "date": "2022-08-02",
+    "fundId": "EGWIF",
+    "investmentType": "Initial",
+    "pcoId": "xFar01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1057097.67,
+    "amountInvestedFundCcy": 1079508.14
+  },
+  {
+    "date": "2007-05-03",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Xunl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 3000000,
+    "amountInvestedFundCcy": 2206856
+  },
+  {
+    "date": "2007-06-29",
+    "fundId": "ECFII",
+    "investmentType": "Initial",
+    "pcoId": "Xunl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 1000000,
+    "amountInvestedFundCcy": 740466
+  },
+  {
+    "date": "2007-12-31",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Preferred Series A",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2008-03-26",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 5457847,
+    "amountInvestedFundCcy": 3475921
+  },
+  {
+    "date": "2008-08-26",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 1025607.2,
+    "amountInvestedFundCcy": 703917.09
+  },
+  {
+    "date": "2008-08-26",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 1025607.2,
+    "amountInvestedFundCcy": 703917.09
+  },
+  {
+    "date": "2009-10-27",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2010-06-29",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 830528,
+    "amountInvestedFundCcy": 683280.35
+  },
+  {
+    "date": "2012-04-09",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 5500,
+    "amountInvestedFundCcy": 4215
+  },
+  {
+    "date": "2012-05-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 405000,
+    "amountInvestedFundCcy": 309558
+  },
+  {
+    "date": "2012-06-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 700000,
+    "amountInvestedFundCcy": 556521
+  },
+  {
+    "date": "2012-07-25",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 400000,
+    "amountInvestedFundCcy": 329761
+  },
+  {
+    "date": "2012-08-30",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 800000,
+    "amountInvestedFundCcy": 638213
+  },
+  {
+    "date": "2012-09-21",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 400000,
+    "amountInvestedFundCcy": 307385
+  },
+  {
+    "date": "2012-10-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 289500,
+    "amountInvestedFundCcy": 223566
+  },
+  {
+    "date": "2012-10-22",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": null,
+    "amountInvestedFundCcy": null
+  },
+  {
+    "date": "2012-11-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 1025000,
+    "amountInvestedFundCcy": 799130
+  },
+  {
+    "date": "2012-12-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 860000,
+    "amountInvestedFundCcy": 652756
+  },
+  {
+    "date": "2013-02-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 2015000,
+    "amountInvestedFundCcy": 1526696
+  },
+  {
+    "date": "2013-05-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 1920000,
+    "amountInvestedFundCcy": 1471226
+  },
+  {
+    "date": "2013-08-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 2066000,
+    "amountInvestedFundCcy": 1561619
+  },
+  {
+    "date": "2013-11-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 1570000,
+    "amountInvestedFundCcy": 1147444.6
+  },
+  {
+    "date": "2014-02-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 625000,
+    "amountInvestedFundCcy": 455511
+  },
+  {
+    "date": "2014-05-15",
+    "fundId": "ECFII",
+    "investmentType": "Follow-on",
+    "pcoId": "Xunl01",
+    "securityType": "Convertible Note",
+    "amountInvestedLocalCcy": 187000,
+    "amountInvestedFundCcy": 136021
+  },
+  {
+    "date": "2001-07-12",
+    "fundId": "ESF",
+    "investmentType": "Initial",
+    "pcoId": "Zoxy01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 188994.6,
+    "amountInvestedFundCcy": 188994.6
+  },
+  {
+    "date": "2002-01-11",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 21000,
+    "amountInvestedFundCcy": 21000
+  },
+  {
+    "date": "2002-02-18",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 47650,
+    "amountInvestedFundCcy": 47650
+  },
+  {
+    "date": "2002-08-01",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 176.4,
+    "amountInvestedFundCcy": 176.4
+  },
+  {
+    "date": "2002-12-17",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 225488.5,
+    "amountInvestedFundCcy": 225488.5
+  },
+  {
+    "date": "2003-06-16",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 92424,
+    "amountInvestedFundCcy": 92424
+  },
+  {
+    "date": "2003-06-30",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2003-06-30",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2003-09-11",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 46210,
+    "amountInvestedFundCcy": 46210
+  },
+  {
+    "date": "2003-10-16",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 46214,
+    "amountInvestedFundCcy": 46214
+  },
+  {
+    "date": "2003-12-19",
+    "fundId": "ESF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 28000,
+    "amountInvestedFundCcy": 28000
+  },
+  {
+    "date": "2001-07-12",
+    "fundId": "EEF",
+    "investmentType": "Initial",
+    "pcoId": "Zoxy01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 486020.95,
+    "amountInvestedFundCcy": 486020.95
+  },
+  {
+    "date": "2002-01-11",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 54000,
+    "amountInvestedFundCcy": 54000
+  },
+  {
+    "date": "2002-02-18",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 122460.5,
+    "amountInvestedFundCcy": 122460.5
+  },
+  {
+    "date": "2002-08-01",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 453.6,
+    "amountInvestedFundCcy": 453.6
+  },
+  {
+    "date": "2002-12-17",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 579861,
+    "amountInvestedFundCcy": 579861
+  },
+  {
+    "date": "2003-06-16",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 237618.18,
+    "amountInvestedFundCcy": 237618.18
+  },
+  {
+    "date": "2003-06-30",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Common Shares",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2003-06-30",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Preferred Series B",
+    "amountInvestedLocalCcy": 0,
+    "amountInvestedFundCcy": 0
+  },
+  {
+    "date": "2003-09-11",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 118826,
+    "amountInvestedFundCcy": 118826
+  },
+  {
+    "date": "2003-10-16",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Preferred Series C",
+    "amountInvestedLocalCcy": 118868,
+    "amountInvestedFundCcy": 118868
+  },
+  {
+    "date": "2003-12-19",
+    "fundId": "EEF",
+    "investmentType": "Follow-on",
+    "pcoId": "Zoxy01",
+    "securityType": "Bridge Note",
+    "amountInvestedLocalCcy": 72000,
+    "amountInvestedFundCcy": 72000
+  }
+]

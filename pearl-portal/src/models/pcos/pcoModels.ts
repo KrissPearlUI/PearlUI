@@ -15,6 +15,8 @@ export interface PCOSummary {
     country: string,
     localCurrency: string,
     totalInvestments: number,
+    amountInvestedLocalCcy?:number,
+    amountInvestedFundCcy?:number
     numOfFunds: number,
     numOfLPS: number,
     status: string,
@@ -43,4 +45,14 @@ export interface PCOFinancial {
     sumNavFundCcy?:number,
     grossIRR?:number,
     currentValuation?:number
+}
+
+export interface PCOInvestments {
+    date: string;
+    fundId: string;
+    investmentType: string;
+    pcoId: string;
+    securityType: string;
+    amountInvestedLocalCcy: number;
+    amountInvestedFundCcy: number;     
 }

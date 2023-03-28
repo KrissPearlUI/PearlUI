@@ -35,14 +35,14 @@ const PCOFundsTable = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
-    const {lps,selectedLP} = useSelector((state: RootState) => state.lps);
+    const {funds} = useSelector((state: RootState) => state.funds);
     const {selectedPCO} = useSelector((state: RootState) => state.pcos);
     const [gridApi, setGridApi] = useState<GridApi>();
     const [value, setValue] = useState<string>('');
     const [hasError, setHasError] = useState(false);
     const [searchText, setSearchText] = useState<string | null>(null);
     const theme = useTheme();
-    const [rowData,setRowData]=useState<Fund[]>([]);
+    const [rowData,setRowData]=useState<any[]>([]);
     const [selectedLPValue, setSelectedLPValue] = useState<LP | null>(null);
     const [selectedPCOValue, setSelectedPCOValue] = useState<PCOSummary | null>(null);
     const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
@@ -177,8 +177,14 @@ const PCOFundsTable = () => {
  */
 
     useEffect(()=>{
-        setRowData(selectedPCO?.funds??[]);
-    },[selectedPCO])
+        if(selectedPCO && funds){
+            const data=selectedPCO.funds?.map(fund=>({
+                ...fund,
+                fundCurrency:funds?.filter(x=>x.id===fund.id)[0]?.currency
+            }));
+            setRowData(data??[]);
+        }
+    },[selectedPCO, funds])
 
     return (
             <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{flex:1}}>

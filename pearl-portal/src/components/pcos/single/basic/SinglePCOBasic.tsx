@@ -1,6 +1,6 @@
 import {Accordion, AccordionDetails, AccordionSummary, Grid,IconButton,Paper,Typography} from '@mui/material';
 import {darken, lighten, useTheme} from "@mui/material/styles";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/slices/rootSlice';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -9,15 +9,19 @@ import { amountValueFormatter } from '../../../../helpers/app';
 import PCOInvestmentsTableComponent from './PCOInvestmentsTable';
 import PCOLPsTable from './PCOLPsTable';
 import PCOFundsTable from './PCOFundsTable';
+import { fetchTransactions } from '../../../../redux/thunks/transactionsThunk';
+import { useAppDispatch } from '../../../../redux/store';
 
 
 const SinglePCOBasic = () => {
     const theme=useTheme();
+    const dispatch = useAppDispatch();
     const {selectedPCO} = useSelector((state: RootState) => state.pcos);
     const [isCommitmentsExpand, setIsCommitmentsExpand]=useState<boolean>(false);
     const [isFundsExpand, setIsFundsExpand]=useState<boolean>(false); 
     const [isPCOsExpand, setIsPCOsExpand]=useState<boolean>(false);
     const [isExitsExpand, setIsExitsExpand]=useState<boolean>(false);
+    const [items, setItems] = useState<any[]>([]);
 
     const handleAccordionExp=(expanded: boolean, accordionId: string)=> {
         if(accordionId==='card-investments'){
@@ -43,6 +47,11 @@ const SinglePCOBasic = () => {
         return returnString;
     }
 
+    
+    useEffect(() => {
+        dispatch(fetchTransactions());
+      }, [dispatch]);
+
     return (
         <Grid container spacing={2} sx={{display:'flex',flex:1, justifyContent:'flex-start', alignItems:'flex-start', flexDirection:'row',paddingRight:'0.5em', overflow:'auto'}}>
             <Grid item xs={12}>
@@ -59,7 +68,14 @@ const SinglePCOBasic = () => {
                             </Grid>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Website:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedPCO?.website}</Typography>
+                            <a style={{fontFamily:'Raleway'}}
+                                href={`https://${selectedPCO?.website}`}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                {selectedPCO?.website}
+                            </a>
+                           {/*  <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedPCO?.website}</Typography> */}
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
@@ -298,15 +314,15 @@ const SinglePCOBasic = () => {
                 <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper, padding:'1em'}}>
                     <Grid container spacing={1} sx={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexDirection:'row'}}>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
-                            <Grid item sx={{display:'flex'}}>
+                            <Grid item sx={{display:'flex',justifyContent:'space-between',width:'290px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Amount Invested (EUR):</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{amountValueFormatter(selectedPCO?.totalInvestments??0,'')}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{amountValueFormatter(selectedPCO?.amountInvestedFundCcy??0,'')}</Typography>
                             </Grid>
-                            <Grid item sx={{display:'flex'}}>
-                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>Amount Original Ccy(USD):</Typography>
-                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{amountValueFormatter(selectedPCO?.totalInvestments??0,'')}</Typography>
+                            <Grid item sx={{display:'flex',justifyContent:'space-between',width:'290px'}}>
+                            <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em',fontWeight:400}}>{`Amount Original Ccy (${selectedPCO?.localCurrency}):`}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{amountValueFormatter(selectedPCO?.amountInvestedLocalCcy??0,'')}</Typography>
                             </Grid>
-                            <Grid item sx={{display:'flex'}}>
+                            <Grid item sx={{display:'flex',justifyContent:'space-between',width:'290px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Gross IRR:</Typography>
                             <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedPCO?.grossIRR? `${(selectedPCO?.grossIRR* 100).toFixed(2)} %`:''}</Typography>
                             </Grid>
@@ -326,15 +342,15 @@ const SinglePCOBasic = () => {
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
-                        <Grid item sx={{display:'flex'}}>
+                        <Grid item sx={{display:'flex',justifyContent:'space-between',width:'350px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Current Valuation of Comany:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedPCO?.currentValuationPCO}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedPCO?.currentValuationPCO ? `${amountValueFormatter(selectedPCO?.currentValuationPCO??0,'')} ${selectedPCO?.localCurrency}` :''}</Typography>
                             </Grid>
-                            <Grid item sx={{display:'flex'}}>
+                            <Grid item sx={{display:'flex',justifyContent:'space-between',width:'350px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Value of Emerald Holding:</Typography>
-                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedPCO?.currentValuationEmerald ??''}</Typography>
+                            <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedPCO?.currentValuationEmerald ? `${amountValueFormatter(selectedPCO?.currentValuationEmerald??0,'')} EUR` :''}</Typography>
                             </Grid>
-                            <Grid item sx={{display:'flex'}}>
+                            <Grid item sx={{display:'flex',justifyContent:'space-between',width:'350px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Realised:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedPCO?.realised ??''}</Typography>
                             </Grid>

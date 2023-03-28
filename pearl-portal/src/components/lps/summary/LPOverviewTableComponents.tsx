@@ -393,7 +393,20 @@ const LPOverviewTable = () => {
 
     useEffect(()=>{
         console.log(lps);
-        setRowData(lps);
+        if(lps && lps.length>0){
+            setRowData(lps.slice().sort(function (a, b) {
+                if (a.id?.toLowerCase() < b.id?.toLowerCase()) return -1;
+                if (a.id?.toLowerCase() > b.id?.toLowerCase()) return 1;
+                return 0;
+            }));
+
+            const test = lps.slice().sort(function (a, b) {
+                if (a.id?.toLowerCase() < b.id?.toLowerCase()) return -1;
+                if (a.id?.toLowerCase() > b.id?.toLowerCase()) return 1;
+                return 0;
+            });
+            console.log(test);
+        }
     },[lps])
 
      useEffect(()=>{

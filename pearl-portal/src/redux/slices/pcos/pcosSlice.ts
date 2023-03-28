@@ -1,16 +1,16 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import { PCOFinancial, PCOSummary } from '../../../models/pcos/pcoModels';
+import { PCOFinancial, PCOInvestments, PCOSummary } from '../../../models/pcos/pcoModels';
 
 export interface PCOsState {
     pcos: PCOSummary[],
     pcosFinancials:PCOFinancial[],
-    selectedPCO:PCOSummary|null
+    selectedPCO:PCOSummary|null,
 }
 
 const initialState: PCOsState = {
     pcos: [],
     pcosFinancials:[],
-    selectedPCO:null
+    selectedPCO:null,
 };
 
 const pcosSlice = createSlice({
@@ -47,7 +47,7 @@ const pcosSlice = createSlice({
 export const {
     setPCOs,
     setPCOsFinantials,
-    setSelectedPCO
+    setSelectedPCO,
 } = pcosSlice.actions;
 
 export default pcosSlice.reducer;

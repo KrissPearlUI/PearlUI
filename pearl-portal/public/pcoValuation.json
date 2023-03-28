@@ -1,0 +1,513 @@
+[
+  {
+    "id": "Actn01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 8172815,
+    "currentValuationPCO": 86961085.69,
+    "website": "www.actnano.com"
+  },
+  {
+    "id": "Acum01",
+    "date": "2013-12-31",
+    "currentValuationEmerald": 0,
+    "currentValuationPCO": 0,
+    "website": null
+  },
+  {
+    "id": "Adva01",
+    "date": "2022-06-30",
+    "currentValuationEmerald": null,
+    "currentValuationPCO": null,
+    "website": "www.advancedbionutrition.com"
+  },
+  {
+    "id": "Agan01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 1022809,
+    "currentValuationPCO": 16110978,
+    "website": "www.aganova.es"
+  },
+  {
+    "id": "Agra01",
+    "date": "2014-12-31",
+    "currentValuationEmerald": 97663.3,
+    "currentValuationPCO": 0,
+    "website": null
+  },
+  {
+    "id": "Alph01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 0,
+    "currentValuationPCO": 0,
+    "website": "www.alphaics.ai"
+  },
+  {
+    "id": "Aqua01",
+    "date": "2014-12-31",
+    "currentValuationEmerald": 12310.58247,
+    "currentValuationPCO": 1773500,
+    "website": null
+  },
+  {
+    "id": "Arxx01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": null,
+    "currentValuationPCO": null,
+    "website": null
+  },
+  {
+    "id": "Azzu01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": null,
+    "currentValuationPCO": null,
+    "website": null
+  },
+  {
+    "id": "Biop01",
+    "date": "2003-12-31",
+    "currentValuationEmerald": 451422,
+    "currentValuationPCO": 944580,
+    "website": null
+  },
+  {
+    "id": "CDTI01",
+    "date": "2010-12-31",
+    "currentValuationEmerald": 0,
+    "currentValuationPCO": 44348390.18,
+    "website": null
+  },
+  {
+    "id": "Cell01",
+    "date": "2006-12-31",
+    "currentValuationEmerald": 93385.93267,
+    "currentValuationPCO": 29826419.7,
+    "website": null
+  },
+  {
+    "id": "Deep01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 5323590,
+    "currentValuationPCO": 31815000,
+    "website": "www.deepsea.ai"
+  },
+  {
+    "id": "Eden01",
+    "date": "2008-12-31",
+    "currentValuationEmerald": 1038.789112,
+    "currentValuationPCO": 26163988.5,
+    "website": null
+  },
+  {
+    "id": "Elco01",
+    "date": "2017-09-30",
+    "currentValuationEmerald": 0,
+    "currentValuationPCO": 0,
+    "website": null
+  },
+  {
+    "id": "Emer03",
+    "date": "2022-12-31",
+    "currentValuationEmerald": null,
+    "currentValuationPCO": null,
+    "website": "www.ewtdirectwind.com"
+  },
+  {
+    "id": "Engi01",
+    "date": "2005-12-31",
+    "currentValuationEmerald": 0,
+    "currentValuationPCO": 0,
+    "website": null
+  },
+  {
+    "id": "Enoc01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 3490354,
+    "currentValuationPCO": 33729935,
+    "website": "www.enocean.com"
+  },
+  {
+    "id": "Ensp01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 364188,
+    "currentValuationPCO": 31499991.47,
+    "website": "www.enspired-trading.com"
+  },
+  {
+    "id": "Eolo01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 273601,
+    "currentValuationPCO": 14632013,
+    "website": "www.eologix.com"
+  },
+  {
+    "id": "Ever01",
+    "date": "2003-12-31",
+    "currentValuationEmerald": 822969.5752,
+    "currentValuationPCO": 47425535.64,
+    "website": null
+  },
+  {
+    "id": "Fido01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 1824599,
+    "currentValuationPCO": 19602270,
+    "website": "www.fido.tech"
+  },
+  {
+    "id": "Flux01",
+    "date": "2007-12-31",
+    "currentValuationEmerald": 632210,
+    "currentValuationPCO": 3457949.95,
+    "website": null
+  },
+  {
+    "id": "Futu01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 16535132,
+    "currentValuationPCO": 848001665,
+    "website": "www.future-meat.com"
+  },
+  {
+    "id": "GeoD01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 6355295,
+    "currentValuationPCO": 40173484,
+    "website": "www.gedigital.com"
+  },
+  {
+    "id": "Hydr01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 9293055,
+    "currentValuationPCO": 98842937,
+    "website": "www.hydropoint.com"
+  },
+  {
+    "id": "Iden01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": null,
+    "currentValuationPCO": null,
+    "website": null
+  },
+  {
+    "id": "Imag01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 2329778,
+    "currentValuationPCO": 84908046.91,
+    "website": "www.imagindairy.com"
+  },
+  {
+    "id": "Inge01",
+    "date": "2013-12-31",
+    "currentValuationEmerald": 12538542,
+    "currentValuationPCO": 75382380,
+    "website": null
+  },
+  {
+    "id": "Ioma01",
+    "date": "2008-12-31",
+    "currentValuationEmerald": 1659791.435,
+    "currentValuationPCO": null,
+    "website": null
+  },
+  {
+    "id": "Libr01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 9160311,
+    "currentValuationPCO": 70186251,
+    "website": "www.librestream.com"
+  },
+  {
+    "id": "Luci01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": null,
+    "currentValuationPCO": null,
+    "website": null
+  },
+  {
+    "id": "Meea01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 3399999,
+    "currentValuationPCO": 33216441,
+    "website": "www.meeat.co"
+  },
+  {
+    "id": "MetG01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 385482,
+    "currentValuationPCO": 3867054,
+    "website": "www.metgen.com"
+  },
+  {
+    "id": "O-fl01",
+    "date": "2016-12-31",
+    "currentValuationEmerald": 718017,
+    "currentValuationPCO": 2018987.134,
+    "website": null
+  },
+  {
+    "id": "Ocea01",
+    "date": "2013-12-31",
+    "currentValuationEmerald": 3661580.068,
+    "currentValuationPCO": 35608310.28,
+    "website": null
+  },
+  {
+    "id": "Open01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 8922699,
+    "currentValuationPCO": 122997862.2,
+    "website": "www.openmineral.com"
+  },
+  {
+    "id": "Opti01",
+    "date": "2018-06-30",
+    "currentValuationEmerald": 3020438.634,
+    "currentValuationPCO": 14424246.96,
+    "website": null
+  },
+  {
+    "id": "Orme01",
+    "date": "2008-12-31",
+    "currentValuationEmerald": 708996.9515,
+    "currentValuationPCO": null,
+    "website": null
+  },
+  {
+    "id": "Oxfo01",
+    "date": "2003-12-31",
+    "currentValuationEmerald": 0,
+    "currentValuationPCO": 0,
+    "website": null
+  },
+  {
+    "id": "P9701",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 22834264,
+    "currentValuationPCO": 166812758,
+    "website": "www.p97.com"
+  },
+  {
+    "id": "Pela01",
+    "date": "2014-12-31",
+    "currentValuationEmerald": 0,
+    "currentValuationPCO": 0,
+    "website": null
+  },
+  {
+    "id": "Peme01",
+    "date": "2006-12-31",
+    "currentValuationEmerald": 3126062,
+    "currentValuationPCO": null,
+    "website": null
+  },
+  {
+    "id": "Phas01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 4975304,
+    "currentValuationPCO": 84899375,
+    "website": "www.phasechange.com"
+  },
+  {
+    "id": "Poly01",
+    "date": "2008-12-31",
+    "currentValuationEmerald": 2013.129404,
+    "currentValuationPCO": 1157730,
+    "website": null
+  },
+  {
+    "id": "Powe01",
+    "date": "2005-12-31",
+    "currentValuationEmerald": 238804.9624,
+    "currentValuationPCO": 2400000,
+    "website": null
+  },
+  {
+    "id": "Powe02",
+    "date": "2019-03-31",
+    "currentValuationEmerald": 1146327.47,
+    "currentValuationPCO": 8786383.995,
+    "website": "www.powerhousedynamics.com"
+  },
+  {
+    "id": "Pure01",
+    "date": "2013-12-31",
+    "currentValuationEmerald": 4505915.153,
+    "currentValuationPCO": 337950197,
+    "website": null
+  },
+  {
+    "id": "RBE01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": null,
+    "currentValuationPCO": null,
+    "website": null
+  },
+  {
+    "id": "Rhom01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": null,
+    "currentValuationPCO": null,
+    "website": "www.rhombusenergysolutions.com"
+  },
+  {
+    "id": "Schm01",
+    "date": "2006-12-31",
+    "currentValuationEmerald": 5430299.49,
+    "currentValuationPCO": 266587999.2,
+    "website": null
+  },
+  {
+    "id": "Schm02",
+    "date": "2008-12-31",
+    "currentValuationEmerald": 1514189,
+    "currentValuationPCO": 19962725.76,
+    "website": null
+  },
+  {
+    "id": "Scie01",
+    "date": "2013-12-31",
+    "currentValuationEmerald": 114534.3919,
+    "currentValuationPCO": null,
+    "website": null
+  },
+  {
+    "id": "SDCm01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": null,
+    "currentValuationPCO": null,
+    "website": null
+  },
+  {
+    "id": "Secu01",
+    "date": "2018-09-30",
+    "currentValuationEmerald": 801963.6791,
+    "currentValuationPCO": 45231388.64,
+    "website": null
+  },
+  {
+    "id": "Sens01",
+    "date": "2015-12-31",
+    "currentValuationEmerald": 8393824.671,
+    "currentValuationPCO": 38398140.4,
+    "website": null
+  },
+  {
+    "id": "Sewe01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 879000,
+    "currentValuationPCO": 31000298.55,
+    "website": "www.sewerai.com"
+  },
+  {
+    "id": "Siel01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": null,
+    "currentValuationPCO": null,
+    "website": null
+  },
+  {
+    "id": "Skyl01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 74,
+    "currentValuationPCO": 10000,
+    "website": "www.skylarktx.com"
+  },
+  {
+    "id": "Sofi01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 2203643,
+    "currentValuationPCO": 8810424,
+    "website": "www.sofifiltration.com"
+  },
+  {
+    "id": "Spac01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 2130270,
+    "currentValuationPCO": 14200000000,
+    "website": "www.space-one.co.jp"
+  },
+  {
+    "id": "Spea01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 34984,
+    "currentValuationPCO": null,
+    "website": "www.spearpowersystems.com"
+  },
+  {
+    "id": "Syna01",
+    "date": "2013-12-31",
+    "currentValuationEmerald": 5987371.662,
+    "currentValuationPCO": 42648995.47,
+    "website": null
+  },
+  {
+    "id": "Taka01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 5704691,
+    "currentValuationPCO": 18330470,
+    "website": "www.takadu.com"
+  },
+  {
+    "id": "Trop01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 1225802,
+    "currentValuationPCO": 99864839.6,
+    "website": null
+  },
+  {
+    "id": "Urge01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 10675458,
+    "currentValuationPCO": 202960252.7,
+    "website": "www.urgent.ly"
+  },
+  {
+    "id": "Ushr01",
+    "date": "2019-03-31",
+    "currentValuationEmerald": 16465723.38,
+    "currentValuationPCO": 125778958.4,
+    "website": "www.ushrauto.com"
+  },
+  {
+    "id": "Vape01",
+    "date": "2011-12-31",
+    "currentValuationEmerald": 401730.3181,
+    "currentValuationPCO": 2000000,
+    "website": null
+  },
+  {
+    "id": "Vise01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 191483,
+    "currentValuationPCO": null,
+    "website": null
+  },
+  {
+    "id": "Whee01",
+    "date": "2021-06-30",
+    "currentValuationEmerald": 600000,
+    "currentValuationPCO": 332766371,
+    "website": "www.wheel.me"
+  },
+  {
+    "id": "xFar01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": 1354627,
+    "currentValuationPCO": 55641296,
+    "website": "www.xfarm.ag"
+  },
+  {
+    "id": "Xunl01",
+    "date": "2022-12-31",
+    "currentValuationEmerald": null,
+    "currentValuationPCO": null,
+    "website": null
+  },
+  {
+    "id": "Zoxy01",
+    "date": "2003-12-31",
+    "currentValuationEmerald": 0,
+    "currentValuationPCO": 0,
+    "website": null
+  }
+]
