@@ -2,7 +2,6 @@
   "name": "pearl-portal",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://krisspearlui.github.io/PearlUI/",
   "dependencies": {
     "@babel/core": "7.0.0",
     "@babel/plugin-syntax-flow": "7.14.5",
@@ -49,8 +48,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
