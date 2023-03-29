@@ -10,7 +10,6 @@ import {ColDef, ColGroupDef, ValueSetterParams} from 'ag-grid-community/dist/lib
 import { useAppDispatch } from '../../../../redux/store';
 import { RootState } from '../../../../redux/slices/rootSlice';
 import { CommitmentBasic, Fund, LP, PCO } from '../../../../models/lps/lpModels';
-import { FundSummary } from '../../../../models/funds/fundModels';
 import { dateValueFormatter, DefaultSideBarDef, getGridTheme, DefaultColumnDef,DefaultStatusPanelDef, quantityValueFormatter, percentageyValueFormatter } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { PCOSummary } from '../../../../models/pcos/pcoModels';
