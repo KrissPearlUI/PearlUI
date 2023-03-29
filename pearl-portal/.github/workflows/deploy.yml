@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: npm ci # replace with your package manager command
+        run: yarn install # replace with your package manager command
 
       - name: Build site
         run: yarn build # replace with your build command
@@ -23,5 +23,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages # replace with your GitHub Pages branch name
-          folder: build # replace with your build directory
+          folder: pearl-portal/build # replace with your build directory
           token: ${{ secrets.ACCESS_TOKEN }} # replace with your access token name
