@@ -1,18 +1,15 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import { useSelector} from 'react-redux';
-import {Alert,Autocomplete,AutocompleteRenderInputParams,capitalize, Grid, IconButton, InputAdornment, Paper, Snackbar, TextField, useTheme} from '@mui/material';
-import {AgGridReact} from 'ag-grid-react';
-import {GridApi, GridOptions, GridReadyEvent, ICellRendererParams, ValueGetterParams} from 'ag-grid-community';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useTheme } from '@mui/material';
+import { AgGridReact } from 'ag-grid-react';
+import { GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
-import {ColDef, ColGroupDef, ValueSetterParams} from 'ag-grid-community/dist/lib/entities/colDef';
-import { useAppDispatch } from '../../../../redux/store';
+import { ColDef, ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { RootState } from '../../../../redux/slices/rootSlice';
-import { CommitmentBasic, Fund, LP } from '../../../../models/lps/lpModels';
-import { dateValueFormatter, DefaultSideBarDef, getGridTheme, DefaultColumnDef,DefaultStatusPanelDef, quantityValueFormatter } from '../../../../helpers/agGrid';
+import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
-import { PCOInvestments, PCOSummary } from '../../../../models/pcos/pcoModels';
 
 
 const useStyles = makeStyles(() =>
@@ -20,7 +17,7 @@ const useStyles = makeStyles(() =>
         root: {
             display: 'flex',
             flex: 1,
-            overflow:'hidden',
+            overflow: 'hidden',
         },
         fill: {
             flex: 1,
@@ -33,20 +30,13 @@ const useStyles = makeStyles(() =>
 
 const PCOInvestmentsTableComponent = () => {
     const classes = useStyles();
-    const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
-    const {selectedPCO} = useSelector((state: RootState) => state.pcos);
-    const {funds} = useSelector((state: RootState) => state.funds);
-    const {transactions} = useSelector((state: RootState) => state.transactions);
-    const [gridApi, setGridApi] = useState<GridApi>();
-    const [value, setValue] = useState<string>('');
-    const [hasError, setHasError] = useState(false);
-    const [searchText, setSearchText] = useState<string | null>(null);
+    const { selectedPCO } = useSelector((state: RootState) => state.pcos);
+    const { funds } = useSelector((state: RootState) => state.funds);
+    const { transactions } = useSelector((state: RootState) => state.transactions);
+    const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
-    const [rowData,setRowData]=useState<any[]>([]);
-    const [selectedLPValue, setSelectedLPValue] = useState<LP | null>(null);
-    const [selectedPCOValue, setSelectedPCOValue] = useState<PCOSummary | null>(null);
-    const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
+    const [rowData, setRowData] = useState<any[]>([]);
 
     const gridOptions: GridOptions = {
         defaultColDef: DefaultColumnDef,
@@ -65,17 +55,17 @@ const PCOInvestmentsTableComponent = () => {
                 headerName: 'Date',
                 field: 'date',
                 minWidth: 100,
-                maxWidth:150,
+                maxWidth: 150,
                 enableRowGroup: true,
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: dateValueFormatter,
-            }, 
+            },
             {
                 headerName: 'Short Name',
                 field: 'shortName',
                 tooltipField: 'shortName',
                 suppressFiltersToolPanel: true,
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
             {
                 headerName: 'Amount Invested',
@@ -83,41 +73,27 @@ const PCOInvestmentsTableComponent = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'amountLocalCurrency',
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
             },
             {
                 headerName: 'Local Currency',
-                field:'localCcy',
+                field: 'localCcy',
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.localCcy ? params.data?.localCcy.toUpperCase() : '';
                 },
                 valueSetter: (params) => valueSetter(params, 'localCcy'),
-                cellStyle: {fontFamily: 'Raleway', color: theme.palette.text.primary},
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
         ];
     }, [theme]);
 
-    const onValueChange =  useCallback((event: any) => {
-        setSearchTextValue(event.target.value)
-        if(gridApi){
-            gridApi.setQuickFilter(event.target.value);
-        }
-    },[gridApi]);
-
-    const onCancelClick = useCallback(() => {
-        setSearchTextValue('');
-        if(gridApi){
-            gridApi.setQuickFilter('');
-        }
-    },[gridApi]);
-
-    const onGridReady = (params:GridReadyEvent) => {
+    const onGridReady = (params: GridReadyEvent) => {
         setGridApi(params?.api);
     };
 
-    const valueSetter = (params:ValueSetterParams, field:string) => {
+    const valueSetter = (params: ValueSetterParams, field: string) => {
         const value = params.newValue;
         const data = params.data;
         if (data[field] !== value) {
@@ -128,9 +104,6 @@ const PCOInvestmentsTableComponent = () => {
         }
     };
 
-    const handleClose = () => {
-        setHasError(false);
-    };
 
     const loadingOverlayRendererParams = useMemo(() => {
         return {
@@ -138,71 +111,35 @@ const PCOInvestmentsTableComponent = () => {
         };
     }, []);
 
-   /*  const autoGroupColumnDef = useMemo<ColDef>(() => {
-        return {
-          minWidth: 300,
-          cellRendererParams: {
-            footerValueGetter: (params: any) => {
-              const isRootLevel = params.node.level === -1;
-              if (isRootLevel) {
-                return 'Total';
-              }
-              else
-               return `Sub Total (${params.value})`;
-            },
-          },
-        };
-      }, []);
 
-      const createData: (count: number, gridApi:GridApi|null) => any[] = (
-        count: number,
-      ) => {
-        var result: any[] = [];
-        for (var i = 0; i < count; i++) {
-          result.push({
-            short: 'Total',
-            name: gridApi?gridApi.paginationGetRowCount():0,
-            totalCommitments: count,
-            totalInvestments:count,
-            reservesFees:count,
-          });
-        }
-        return result;
-      };
-
-      const pinnedBottomRowData = useMemo<any[]>(() => {
-        return createData(1, gridApi??null);
-      }, [gridApi]);
- */
-
-      useEffect(() => {
-        if(transactions && selectedPCO && funds){
-            const data= transactions.filter(x=>x.pcoId===selectedPCO.id)?.map(item=>({
+    useEffect(() => {
+        if (transactions && selectedPCO && funds) {
+            const data = transactions.filter(x => x.pcoId === selectedPCO.id)?.map(item => ({
                 ...item,
-                shortName:funds?.filter(x=>x.id===item.fundId)[0]?.shortName??'',
-                fundCcy:funds?.filter(x=>x.id===item.fundId)[0]?.currency??'',
-                localCcy:selectedPCO.localCurrency??''
+                shortName: funds?.filter(x => x.id === item.fundId)[0]?.shortName ?? '',
+                fundCcy: funds?.filter(x => x.id === item.fundId)[0]?.currency ?? '',
+                localCcy: selectedPCO.localCurrency ?? ''
             }))
 
             setRowData(data)
         }
-      }, [transactions, selectedPCO,funds]);
-    
+    }, [transactions, selectedPCO, funds]);
+
 
     return (
-            <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{flex:1}}>
-                <AgGridReact gridOptions={gridOptions}
-                            columnDefs={getColumnDefs}
-                            rowData={rowData}
-                            domLayout={'autoHeight'}
-                            onGridReady={onGridReady}
-                            loadingOverlayComponentParams={loadingOverlayRendererParams}
-                            loadingOverlayComponent={AGGridLoader}
-                            tooltipShowDelay={0}
-                            tooltipHideDelay={10000}
-                            />
-            </div>
-            
+        <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1 }}>
+            <AgGridReact gridOptions={gridOptions}
+                columnDefs={getColumnDefs}
+                rowData={rowData}
+                domLayout={'autoHeight'}
+                onGridReady={onGridReady}
+                loadingOverlayComponentParams={loadingOverlayRendererParams}
+                loadingOverlayComponent={AGGridLoader}
+                tooltipShowDelay={0}
+                tooltipHideDelay={10000}
+            />
+        </div>
+
     );
 };
 

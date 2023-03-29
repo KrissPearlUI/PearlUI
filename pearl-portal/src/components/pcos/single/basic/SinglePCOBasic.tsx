@@ -21,7 +21,6 @@ const SinglePCOBasic = () => {
     const [isFundsExpand, setIsFundsExpand] = useState<boolean>(false);
     const [isPCOsExpand, setIsPCOsExpand] = useState<boolean>(false);
     const [isExitsExpand, setIsExitsExpand] = useState<boolean>(false);
-    const [items, setItems] = useState<any[]>([]);
 
     const handleAccordionExp = (expanded: boolean, accordionId: string) => {
         if (accordionId === 'card-investments') {

@@ -4,7 +4,7 @@ import DatePicker from '../../shared/DatePicker';
 const DatePickerLPComponent = () => {
     const minimumDate = new Date('2019-10-01');
     const maximumDate = new Date();
-    const [date, setDate] = useState<any>(null);
+    const [, setDate] = useState<any>(null);
 
     /**
     * Sets the start date

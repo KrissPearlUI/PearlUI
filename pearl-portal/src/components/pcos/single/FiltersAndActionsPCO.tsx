@@ -1,11 +1,7 @@
-import {Box, Button, ButtonGroup, Fab, Grid,IconButton,InputAdornment,Paper,TextField,Typography} from '@mui/material';
-import {darken, useTheme} from "@mui/material/styles";
-import { useCallback, useEffect, useState } from 'react';
-import { setTopBarTitle } from '../../../redux/slices/appSlice';
-import { useAppDispatch } from '../../../redux/store';
-import {Theme} from "@mui/material";
-import {createStyles,makeStyles} from '@mui/styles';
-import LPChartComponent from '../../landing/LPChart';
+import { Fab, Grid, IconButton, InputAdornment, TextField } from '@mui/material';
+import { useCallback, useState } from 'react';
+import { Theme } from "@mui/material";
+import { createStyles, makeStyles } from '@mui/styles';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import CloseIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
@@ -38,85 +34,82 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface SingleSelectionProps {
-    selectedItem:string
-    handleButtonClick:any
+    selectedItem: string
+    handleButtonClick: any
 }
 
-const FiltersAndActionsPCOComponent = ({selectedItem,handleButtonClick}:SingleSelectionProps) => {
-    const classes=useStyles();
-    const theme=useTheme();
-    const dispatch = useAppDispatch();
-    const [searchText, setSearchText] = useState<string | null>(null);
+const FiltersAndActionsPCOComponent = ({ selectedItem, handleButtonClick }: SingleSelectionProps) => {
+    const classes = useStyles();
     const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
-    const [gridApi, setGridApi] = useState<GridApi>();
+    const [gridApi,] = useState<GridApi>();
 
-    const onValueChange =  useCallback((event: any) => {
+    const onValueChange = useCallback((event: any) => {
         setSearchTextValue(event.target.value)
-        if(gridApi){
+        if (gridApi) {
             gridApi.setQuickFilter(event.target.value);
         }
-    },[gridApi]);
+    }, [gridApi]);
 
     const onCancelClick = useCallback(() => {
         setSearchTextValue('');
-        if(gridApi){
+        if (gridApi) {
             gridApi.setQuickFilter('');
         }
-    },[gridApi]);
+    }, [gridApi]);
 
     return (
-       <>
-            {selectedItem==='basic'?<Fab
-                    color={'primary'}
-                    size="small"
-                    sx={{boxShadow:'none', alignSelf:'end'}}
-                    aria-label="editBtn" 
-                    onFocus={(e: any) => (e.target.blur())}                            
-                    className={classes.fabIcon}>
+        <>
+            {selectedItem === 'basic' ? <Fab
+                color={'primary'}
+                size="small"
+                sx={{ boxShadow: 'none', alignSelf: 'end' }}
+                aria-label="editBtn"
+                onFocus={(e: any) => (e.target.blur())}
+                className={classes.fabIcon}>
                 <EditRoundedIcon />
-                </Fab>
+            </Fab>
                 : <Grid container>
                     <Grid item>
-                    <TextField
-                        className={classes.searchBox}
-                        variant="outlined"
-                        size="small"
-                        placeholder="Search"
-                        aria-label="search"
-                        sx={{marginRight:'0.5em'}}
-                        value={searchTextValue}
-                        onChange={onValueChange}
-                        inputProps={{
-                            style: {height:'1.5em'},
-                        }}
-                        InputProps={{
-                            startAdornment: <InputAdornment position="start"><SearchIcon
-                                color="disabled"/></InputAdornment>,
-                            endAdornment: isValueEmpty(searchTextValue) ? null :
-                                <InputAdornment position="end">
-                                    <IconButton onClick={onCancelClick}><CloseIcon fontSize='small'/></IconButton>
-                                </InputAdornment>,
-                        }}
-                    />
+                        <TextField
+                            className={classes.searchBox}
+                            variant="outlined"
+                            size="small"
+                            placeholder="Search"
+                            aria-label="search"
+                            sx={{ marginRight: '0.5em' }}
+                            value={searchTextValue}
+                            onChange={onValueChange}
+                            inputProps={{
+                                style: { height: '1.5em' },
+                            }}
+                            InputProps={{
+                                startAdornment: <InputAdornment position="start"><SearchIcon
+                                    color="disabled" /></InputAdornment>,
+                                endAdornment: isValueEmpty(searchTextValue) ? null :
+                                    <InputAdornment position="end">
+                                        <IconButton onClick={onCancelClick}><CloseIcon fontSize='small' /></IconButton>
+                                    </InputAdornment>,
+                            }}
+                        />
                     </Grid>
-                    <Grid item sx={{marginRight:'0.5em'}} >
-                   <AddButton pageName='singleFund'/>
+                    <Grid item sx={{ marginRight: '0.5em' }} >
+                        <AddButton pageName='singleFund' />
                     </Grid>
-                    <Grid item sx={{marginRight:'0.5em'}} >
-                    <Fab
-                        color={'primary'}
-                        size="small"
-                        sx={{boxShadow:'none', alignSelf:'end'}}
-                        aria-label="editBtn" 
-                        onFocus={(e: any) => (e.target.blur())}                            
-                        className={classes.fabIcon}>
-                    <EditRoundedIcon />
-                    </Fab>
+                    <Grid item sx={{ marginRight: '0.5em' }} >
+                        <Fab
+                            color={'primary'}
+                            size="small"
+                            sx={{ boxShadow: 'none', alignSelf: 'end' }}
+                            aria-label="editBtn"
+                            onFocus={(e: any) => (e.target.blur())}
+                            className={classes.fabIcon}>
+                            <EditRoundedIcon />
+                        </Fab>
                     </Grid>
                     <Grid item >
-                    <ExportButton pageName='singleFund'/>
+                        <ExportButton pageName='singleFund' />
                     </Grid>
-                  </Grid>}
+                </Grid>}
         </>
     );
 };

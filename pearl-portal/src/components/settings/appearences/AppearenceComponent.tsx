@@ -76,7 +76,7 @@ export const routes = [
 const Appearence = () => {
     const theme = useTheme();
     const [pageExpandedState, setPageExpandedState] = useState<ExpandedPagesProps>({});
-    const [routesExpanded, setRoutesExpanded] = useState<any>();
+    const [, setRoutesExpanded] = useState<any>();
 
     const handleAccordionExpandedChange = (expanded: boolean, accountId: string) => {
         const currentAccountsExpandedState = { ...pageExpandedState };
@@ -96,7 +96,7 @@ const Appearence = () => {
             setPageExpandedState(obj);
             setRoutesExpanded(obj)
         }
-    }, [routes]);
+    }, []);
 
     return (
         <Grid container direction="column" alignItems="flex-start" justifyContent="flex-start" spacing={1} sx={{ marginRight: '1em' }}>
