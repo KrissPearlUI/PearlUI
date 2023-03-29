@@ -23,5 +23,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages # replace with your GitHub Pages branch name
-          folder: pearl-portal/build # replace with your build directory
+          folder: build # replace with your build directory
           token: ${{ secrets.ACCESS_TOKEN }} # replace with your access token name
