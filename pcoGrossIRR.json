@@ -1,0 +1,367 @@
+[
+    {
+      "PCO_ID": "Actn01",
+      "amountInvestedLocalCcy": 4992992.24,
+      "amountInvestedFundCcy": 4292520.520000001
+    },
+    {
+      "PCO_ID": "Acum01",
+      "amountInvestedLocalCcy": 1471580,
+      "amountInvestedFundCcy": 1466080.32
+    },
+    {
+      "PCO_ID": "Adva01",
+      "amountInvestedLocalCcy": 2747000,
+      "amountInvestedFundCcy": 2045673.02
+    },
+    {
+      "PCO_ID": "Agan01",
+      "amountInvestedLocalCcy": 4216596.41,
+      "amountInvestedFundCcy": 1024809.37
+    },
+    {
+      "PCO_ID": "Agra01",
+      "amountInvestedLocalCcy": 4182711.36,
+      "amountInvestedFundCcy": 4272391.959999999
+    },
+    {
+      "PCO_ID": "Alph01",
+      "amountInvestedLocalCcy": 1820999.57,
+      "amountInvestedFundCcy": 1552575.58
+    },
+    {
+      "PCO_ID": "Aqua01",
+      "amountInvestedLocalCcy": 7085611,
+      "amountInvestedFundCcy": 4209902.7
+    },
+    {
+      "PCO_ID": "Arxx01",
+      "amountInvestedLocalCcy": 10728664,
+      "amountInvestedFundCcy": 7765211.350000001
+    },
+    {
+      "PCO_ID": "Azzu01",
+      "amountInvestedLocalCcy": 5473237.9,
+      "amountInvestedFundCcy": 5473237.9
+    },
+    {
+      "PCO_ID": "Biop01",
+      "amountInvestedLocalCcy": 2055475,
+      "amountInvestedFundCcy": 2055475
+    },
+    {
+      "PCO_ID": "CDTI01",
+      "amountInvestedLocalCcy": 4567235.18,
+      "amountInvestedFundCcy": 3469678.98
+    },
+    {
+      "PCO_ID": "Cell01",
+      "amountInvestedLocalCcy": 150000,
+      "amountInvestedFundCcy": 106830
+    },
+    {
+      "PCO_ID": "Deep01",
+      "amountInvestedLocalCcy": 3500549.5,
+      "amountInvestedFundCcy": 3500549.5
+    },
+    {
+      "PCO_ID": "Eden01",
+      "amountInvestedLocalCcy": 162722,
+      "amountInvestedFundCcy": 128830.36
+    },
+    {
+      "PCO_ID": "Elco01",
+      "amountInvestedLocalCcy": 5004666.01,
+      "amountInvestedFundCcy": 5004666.01
+    },
+    {
+      "PCO_ID": "Emer03",
+      "amountInvestedLocalCcy": 10770172.14,
+      "amountInvestedFundCcy": 10770172.14
+    },
+    {
+      "PCO_ID": "Engi01",
+      "amountInvestedLocalCcy": 3187674.5,
+      "amountInvestedFundCcy": 3187674.5
+    },
+    {
+      "PCO_ID": "Enoc01",
+      "amountInvestedLocalCcy": 4859433,
+      "amountInvestedFundCcy": 4859433
+    },
+    {
+      "PCO_ID": "Ensp01",
+      "amountInvestedLocalCcy": 2750000,
+      "amountInvestedFundCcy": 2750000
+    },
+    {
+      "PCO_ID": "Eolo01",
+      "amountInvestedLocalCcy": 3999999.8,
+      "amountInvestedFundCcy": 3999999.8
+    },
+    {
+      "PCO_ID": "Ever01",
+      "amountInvestedLocalCcy": 4827843.94,
+      "amountInvestedFundCcy": 4729318.33
+    },
+    {
+      "PCO_ID": "Fido01",
+      "amountInvestedLocalCcy": 6604954,
+      "amountInvestedFundCcy": 8000412.7
+    },
+    {
+      "PCO_ID": "Flux01",
+      "amountInvestedLocalCcy": 1264420,
+      "amountInvestedFundCcy": 1264420
+    },
+    {
+      "PCO_ID": "Futu01",
+      "amountInvestedLocalCcy": 3041166.86,
+      "amountInvestedFundCcy": 2672803.43
+    },
+    {
+      "PCO_ID": "GeoD01",
+      "amountInvestedLocalCcy": 6299619.68,
+      "amountInvestedFundCcy": 4916907.22
+    },
+    {
+      "PCO_ID": "Hydr01",
+      "amountInvestedLocalCcy": 5462499.98,
+      "amountInvestedFundCcy": 4602694.75
+    },
+    {
+      "PCO_ID": "Iden01",
+      "amountInvestedLocalCcy": 5999999,
+      "amountInvestedFundCcy": 5999999
+    },
+    {
+      "PCO_ID": "Imag01",
+      "amountInvestedLocalCcy": 1494674.1,
+      "amountInvestedFundCcy": 1335253.09
+    },
+    {
+      "PCO_ID": "Inge01",
+      "amountInvestedLocalCcy": 4113958.56,
+      "amountInvestedFundCcy": 4113958.56
+    },
+    {
+      "PCO_ID": "Ioma01",
+      "amountInvestedLocalCcy": 2177240,
+      "amountInvestedFundCcy": 2151381.16
+    },
+    {
+      "PCO_ID": "Libr01",
+      "amountInvestedLocalCcy": 9218755.47,
+      "amountInvestedFundCcy": 6237414.710000001
+    },
+    {
+      "PCO_ID": "Luci01",
+      "amountInvestedLocalCcy": 794500,
+      "amountInvestedFundCcy": 610451
+    },
+    {
+      "PCO_ID": "Meea01",
+      "amountInvestedLocalCcy": 2499000,
+      "amountInvestedFundCcy": 2499000
+    },
+    {
+      "PCO_ID": "MetG01",
+      "amountInvestedLocalCcy": 1100013.22,
+      "amountInvestedFundCcy": 1100013.22
+    },
+    {
+      "PCO_ID": "O-fl01",
+      "amountInvestedLocalCcy": 4122279.16,
+      "amountInvestedFundCcy": 4122279.16
+    },
+    {
+      "PCO_ID": "Ocea01",
+      "amountInvestedLocalCcy": 10289746.31,
+      "amountInvestedFundCcy": 6044219.180000001
+    },
+    {
+      "PCO_ID": "Open01",
+      "amountInvestedLocalCcy": 7007495.12,
+      "amountInvestedFundCcy": 6027905
+    },
+    {
+      "PCO_ID": "Opti01",
+      "amountInvestedLocalCcy": 4782000,
+      "amountInvestedFundCcy": 3255490.68
+    },
+    {
+      "PCO_ID": "Orme01",
+      "amountInvestedLocalCcy": 1935910.11,
+      "amountInvestedFundCcy": 1935910.11
+    },
+    {
+      "PCO_ID": "Oxfo01",
+      "amountInvestedLocalCcy": 1670000.1,
+      "amountInvestedFundCcy": 2720058.85
+    },
+    {
+      "PCO_ID": "P9701",
+      "amountInvestedLocalCcy": 7690797.78,
+      "amountInvestedFundCcy": 6610261.41
+    },
+    {
+      "PCO_ID": "Pela01",
+      "amountInvestedLocalCcy": 7440902.07,
+      "amountInvestedFundCcy": 10646375.81
+    },
+    {
+      "PCO_ID": "Peme01",
+      "amountInvestedLocalCcy": 4328500,
+      "amountInvestedFundCcy": 4328500
+    },
+    {
+      "PCO_ID": "Phas01",
+      "amountInvestedLocalCcy": 6499998.79,
+      "amountInvestedFundCcy": 5742549.950000001
+    },
+    {
+      "PCO_ID": "Poly01",
+      "amountInvestedLocalCcy": 50000,
+      "amountInvestedFundCcy": 73965
+    },
+    {
+      "PCO_ID": "Powe01",
+      "amountInvestedLocalCcy": 2700000.64,
+      "amountInvestedFundCcy": 2635846.97
+    },
+    {
+      "PCO_ID": "Powe02",
+      "amountInvestedLocalCcy": 2935610.41,
+      "amountInvestedFundCcy": 2740182.16
+    },
+    {
+      "PCO_ID": "Pure01",
+      "amountInvestedLocalCcy": 9500000,
+      "amountInvestedFundCcy": 6066502
+    },
+    {
+      "PCO_ID": "RBE01",
+      "amountInvestedLocalCcy": 6565000,
+      "amountInvestedFundCcy": 4905759.34
+    },
+    {
+      "PCO_ID": "Rhom01",
+      "amountInvestedLocalCcy": 6533322.04,
+      "amountInvestedFundCcy": 5604439.06
+    },
+    {
+      "PCO_ID": "Schm01",
+      "amountInvestedLocalCcy": 1174492,
+      "amountInvestedFundCcy": 1174492
+    },
+    {
+      "PCO_ID": "Schm02",
+      "amountInvestedLocalCcy": 10353995,
+      "amountInvestedFundCcy": 10353995
+    },
+    {
+      "PCO_ID": "Scie01",
+      "amountInvestedLocalCcy": 3284268.91,
+      "amountInvestedFundCcy": 2689644.33
+    },
+    {
+      "PCO_ID": "SDCm01",
+      "amountInvestedLocalCcy": 17979925.84,
+      "amountInvestedFundCcy": 13993795.99
+    },
+    {
+      "PCO_ID": "Secu01",
+      "amountInvestedLocalCcy": 1889399.14,
+      "amountInvestedFundCcy": 1889399.14
+    },
+    {
+      "PCO_ID": "Sens01",
+      "amountInvestedLocalCcy": 9170218.100000001,
+      "amountInvestedFundCcy": 6786988.26
+    },
+    {
+      "PCO_ID": "Sewe01",
+      "amountInvestedLocalCcy": 3999999.03,
+      "amountInvestedFundCcy": 3909871.53
+    },
+    {
+      "PCO_ID": "Siel01",
+      "amountInvestedLocalCcy": 7876017.359999999,
+      "amountInvestedFundCcy": 5741899.51
+    },
+    {
+      "PCO_ID": "Skyl01",
+      "amountInvestedLocalCcy": 0,
+      "amountInvestedFundCcy": 0
+    },
+    {
+      "PCO_ID": "Sofi01",
+      "amountInvestedLocalCcy": 2645560,
+      "amountInvestedFundCcy": 3019814.7
+    },
+    {
+      "PCO_ID": "Spac01",
+      "amountInvestedLocalCcy": 300000000,
+      "amountInvestedFundCcy": 2073000
+    },
+    {
+      "PCO_ID": "Spea01",
+      "amountInvestedLocalCcy": 7443847,
+      "amountInvestedFundCcy": 6645216.6
+    },
+    {
+      "PCO_ID": "Syna01",
+      "amountInvestedLocalCcy": 8242526.8,
+      "amountInvestedFundCcy": 6122161.54
+    },
+    {
+      "PCO_ID": "Taka01",
+      "amountInvestedLocalCcy": 6678015,
+      "amountInvestedFundCcy": 5013934.39
+    },
+    {
+      "PCO_ID": "Trop01",
+      "amountInvestedLocalCcy": 3833820.85,
+      "amountInvestedFundCcy": 3519164.49
+    },
+    {
+      "PCO_ID": "Urge01",
+      "amountInvestedLocalCcy": 8383136.94,
+      "amountInvestedFundCcy": 7553414.2
+    },
+    {
+      "PCO_ID": "Ushr01",
+      "amountInvestedLocalCcy": 2040000,
+      "amountInvestedFundCcy": 1825073
+    },
+    {
+      "PCO_ID": "Vape01",
+      "amountInvestedLocalCcy": 7500001,
+      "amountInvestedFundCcy": 5210986
+    },
+    {
+      "PCO_ID": "Vise01",
+      "amountInvestedLocalCcy": 2500002.72,
+      "amountInvestedFundCcy": 2500002.72
+    },
+    {
+      "PCO_ID": "Whee01",
+      "amountInvestedLocalCcy": 5350250,
+      "amountInvestedFundCcy": 500000
+    },
+    {
+      "PCO_ID": "xFar01",
+      "amountInvestedLocalCcy": 2999982.82,
+      "amountInvestedFundCcy": 3027341.33
+    },
+    {
+      "PCO_ID": "Xunl01",
+      "amountInvestedLocalCcy": 25607589.4,
+      "amountInvestedFundCcy": 18633980.13
+    },
+    {
+      "PCO_ID": "Zoxy01",
+      "amountInvestedLocalCcy": 2486265.73,
+      "amountInvestedFundCcy": 2486265.73
+    }
+  ]

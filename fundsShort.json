@@ -1,0 +1,1700 @@
+[
+  {
+    "id": "ECFII",
+    "shortName": "ECFII",
+    "fundName": "Emerald Cleantech Fund II",
+    "currency": "EUR",
+    "totalCommitmentsFundCcy": 150480000,
+    "totalCommitmentsEUR": 150480000,
+    "numOfLPs": 30,
+	  "numOFPCOs": 17,
+    "vintage": "2005-10-21",
+    "sumCommittedAmountFundCcy": 150480000,
+    "sumCommittedAmountEUR": 150480000,
+    "sumManagementFeeFundCcy": 33051919.80000002,
+    "sumManagementFeeEUR": 33051919.80000002,
+    "sumOperationalExpensesFundCcy": 1708955.960000001,
+    "sumOperationalExpensesEUR": 1708955.960000001,
+    "sumAmountInvestedLocalCCy": 148626560.7,
+    "sumAmountInvestedFundCCy": 118835772.71,
+    "sumAmountInvestedEUR": 23718638.43115586,
+    "sumAmountRealizedLocalCCy": 28072267.53,
+    "sumAmountRealizedFundCCy": 21345392.57999999,
+    "sumAmountRealizedEUR": 4255461.030695056,
+    "sumNonRecycleFundCccy": 12685973.35199154,
+    "sumNonRecycleEUR": 12685973.35199154,
+    "lps":[
+      {
+        "id": "Aran01",
+        "shortName": "Arancia",
+        "name": "Arancia Industrial S.C.",
+        "committedAmount": 1000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Axpo01",
+        "shortName": "Axpo",
+        "name": "Axpo Holding AG",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Bosc01",
+        "shortName": "Bosch",
+        "name": "Robert Bosch Venture Capital GmbH",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "CDP01",
+        "shortName": "CDP Capital",
+        "name": "Caisse de Depot et Placement du Quebec",
+        "committedAmount": 10000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Chri01",
+        "shortName": "Christopher Reynolds",
+        "name": "The Christopher Reynolds Foundation",
+        "committedAmount": 1000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Citi01",
+        "shortName": "Citibank",
+        "name": "Vidacos Nominees Limited-Designation CPBOMCSH",
+        "committedAmount": 500000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Deer01",
+        "shortName": "Deere & Co.",
+        "name": "Deere & Company",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "DES02",
+        "shortName": "DES Holding",
+        "name": "DES Holdings V (B) LLC",
+        "committedAmount": 30000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Dive01",
+        "shortName": "Diversified PE",
+        "name": "Diversified Private Equity Investors VI, LP",
+        "committedAmount": 4000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Drit01",
+        "shortName": "Dritte Vermeogensverwaltung",
+        "name": "Dritte Vermeogensverwaltung Private Equity Futur 03 Environment GmbH",
+        "committedAmount": 2500000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "DSM01",
+        "shortName": "DSM",
+        "name": "DSM Venturing B.V. ",
+        "committedAmount": 3000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Emer01",
+        "shortName": "Emerald",
+        "name": "Emerald Technology Ventures AG",
+        "committedAmount": 750000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Fahr01",
+        "shortName": "Fahrni Mr",
+        "name": "Mr Fritz Fahrni",
+        "committedAmount": 50000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Firs01",
+        "shortName": "First State Super",
+        "name": "FSS Trustee Corporation as trustee for the First State Superannuation Scheme",
+        "committedAmount": 6600000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "FTQ01",
+        "shortName": "FTQ",
+        "name": "Fonds de Solidarite des travailleurs du Quebec (F.T.Q.)",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "GCM01",
+        "shortName": "GCM Grosvenor",
+        "name": "GCM Grosvenor- CT Cleantech Opportunities Fund, L.P.",
+        "committedAmount": 3000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Head01",
+        "shortName": "Headway",
+        "name": "Headway Investment Partners II L.P.",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Holl01",
+        "shortName": "Hollyport",
+        "name": "Sanne Trustee Services Ltd as Trustee of the Hollyport Secondary Opportunities V Unit Trust",
+        "committedAmount": 2500000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Kory01",
+        "shortName": "Korys",
+        "name": "Korys Investments NV",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "KPC01",
+        "shortName": "KPC Energy Ventures",
+        "name": "KPC Energy Ventures, Inc",
+        "committedAmount": 4000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Rabo01",
+        "shortName": "Rabo",
+        "name": "Rabo Ventures B.V. ",
+        "committedAmount": 25000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Robe02",
+        "shortName": "Robeco SAM Horeca",
+        "name": "Robeco SAM Horeca Clean Tech L.P. ",
+        "committedAmount": 2500000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Robe03",
+        "shortName": "Robeco SAM Secondary",
+        "name": "Robeco SAM Secondary Fund III L.P. ",
+        "committedAmount": 2500000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Rock01",
+        "shortName": "Rockefeller",
+        "name": "Rockefeller CleanTech Ventures Fund, LLC ",
+        "committedAmount": 780000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Sain01",
+        "shortName": "Saint Gobain",
+        "name": "Saint Gobain Performance Plastics Europe",
+        "committedAmount": 2500000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Schu01",
+        "shortName": "Schulz-Dornburg Mrs",
+        "name": "Mrs Ursula Schulz-Dornburg",
+        "committedAmount": 2000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Sunc01",
+        "shortName": "Suncor Energy Inc.",
+        "name": "Suncor Energy Inc.",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Unil01",
+        "shortName": "Unilever",
+        "name": "Unilever Swiss Holdings AG",
+        "committedAmount": 3800000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "VKR01",
+        "shortName": "VKR ",
+        "name": "VKR Holding A/S ",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Volv01",
+        "shortName": "Volvo",
+        "name": "Volvo Group Venture Capital",
+        "committedAmount": 2500000,
+        "fundCurrency": "EUR"
+      }
+    ],
+    "pcos":[
+      {
+        "id": "Arxx01",
+        "shortName": "Arxx Corporation",
+        "amountInvested": 7765211.350000001,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Azzu01",
+        "shortName": "Azzurro Semiconductors",
+        "amountInvested": 5473237.9,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Emer03",
+        "shortName": "EWT",
+        "amountInvested": 10770172.14,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Flux01",
+        "shortName": "Fluxxion",
+        "amountInvested": 1264420,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Iden01",
+        "shortName": "Identec Solutions",
+        "amountInvested": 5999999,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Luci01",
+        "shortName": "Lucintech",
+        "amountInvested": 610451,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "O-fl01",
+        "shortName": "O-flexx Technologies",
+        "amountInvested": 4122279.16,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Pure01",
+        "shortName": "Pure (PPIC)",
+        "amountInvested": 6066502,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "RBE01",
+        "shortName": "RBE",
+        "amountInvested": 4905759.34,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Schm02",
+        "shortName": "Schmack Biogas (ECFII)",
+        "amountInvested": 10353995,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "SDCm01",
+        "shortName": "SDCmaterials",
+        "amountInvested": 13993795.99,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Sens01",
+        "shortName": "Senscient",
+        "amountInvested": 6786988.26,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Siel01",
+        "shortName": "Sielo (fka Terralux)",
+        "amountInvested": 5741899.51,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Syna01",
+        "shortName": "SynapSense",
+        "amountInvested": 6122161.54,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Taka01",
+        "shortName": "Takadu",
+        "amountInvested": 5013934.39,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Vape01",
+        "shortName": "Vaperma",
+        "amountInvested": 5210986,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Xunl01",
+        "shortName": "Xunlight Corp.",
+        "amountInvested": 18633980.13,
+        "fundCurrency": "EUR"
+      }
+    ]
+  },
+  {
+    "id": "ECFIII",
+    "shortName": "ECFIII",
+    "fundName": "Emerald Cleantech Fund III",
+    "currency": "EUR",
+    "totalCommitmentsFundCcy": 72000000,
+    "totalCommitmentsEUR": 72000000,
+    "numOfLPs": 16,
+	  "numOFPCOs":16,
+    "vintage": "2012-09-03",
+    "sumCommittedAmountFundCcy": 72000000,
+    "sumCommittedAmountEUR": 72000000,
+    "sumManagementFeeFundCcy": 16836502.13306403,
+    "sumManagementFeeEUR": 16836502.13306403,
+    "sumOperationalExpensesFundCcy": 918571.6999999991,
+    "sumOperationalExpensesEUR": 918571.6999999991,
+    "sumAmountInvestedLocalCCy": 56497882.90999999,
+    "sumAmountInvestedFundCCy": 47277113.77999999,
+    "sumAmountInvestedEUR": 3939759.465907628,
+    "sumAmountRealizedLocalCCy": 50276199.09999999,
+    "sumAmountRealizedFundCCy": 42735241.8,
+    "sumAmountRealizedEUR": 3561270.135754919,
+    "sumNonRecycleFundCccy": 39519880.32154606,
+    "sumNonRecycleEUR": 39519880.32154606,
+    "terminated":[
+      {
+        "id":"332", "lpId":"Sibe01", "fundId":"ECFIII", "dateTermination":"2021-09-30"
+      }
+    ],
+    "lps":[
+      {
+        "id": "ABB01",
+        "shortName": "ABB",
+        "name": "ABB Technology Ventures",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Amer01",
+        "shortName": "ATAPCO",
+        "name": "American Trading and Production Corporation",
+        "committedAmount": 3000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Clar01",
+        "shortName": "Clariant",
+        "name": "Clariant International Ltd",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Doos01",
+        "shortName": "Doosan",
+        "name": "Doosan Heavy Industries & Construction Co., Ltd",
+        "committedAmount": 6000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Ecol01",
+        "shortName": "Ecolab",
+        "name": "Ecolab Inc.",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Emer01",
+        "shortName": "Emerald",
+        "name": "Emerald Technology Ventures AG",
+        "committedAmount": 1000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Evon01",
+        "shortName": "Evonik",
+        "name": "Evonik Industries AG",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "JSR01",
+        "shortName": "JSR Corporation",
+        "name": "JSR Corporation",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Juli01",
+        "shortName": "Julius Baer",
+        "name": "Bank Julius Baer & Co. Ltd.",
+        "committedAmount": 1000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Kory01",
+        "shortName": "Korys",
+        "name": "Korys Investments NV",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Mahl01",
+        "shortName": "Mahle",
+        "name": "Mahle International GmbH",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Mich01",
+        "shortName": "Michelin",
+        "name": "Michelin Ventures SAS",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Sibe01",
+        "shortName": "Sibelco",
+        "name": "Cofisa NV",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "SKTI01",
+        "shortName": "SKTIC",
+        "name": "SK Technology Innovation Company",
+        "committedAmount": 6000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Sulz01",
+        "shortName": "Sulzer",
+        "name": "Sulzer Ltd.",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Sunc01",
+        "shortName": "Suncor Energy Inc.",
+        "name": "Suncor Energy Inc.",
+        "committedAmount": 5000000,
+        "fundCurrency": "EUR"
+      }
+    ],
+    "pcos":[
+      {
+        "id": "Alph01",
+        "shortName": "Alphaics",
+        "amountInvested": 1040757.96,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Elco01",
+        "shortName": "Elcomax",
+        "amountInvested": 5004666.01,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "GeoD01",
+        "shortName": "GeoDigital",
+        "amountInvested": 4916907.22,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Hydr01",
+        "shortName": "Hydropoint",
+        "amountInvested": 2832427.7,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Libr01",
+        "shortName": "Librestream",
+        "amountInvested": 6237414.71,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "MetG01",
+        "shortName": "MetGen",
+        "amountInvested": 1100013.22,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Open01",
+        "shortName": "Open Mineral",
+        "amountInvested": 3417367.59,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Opti01",
+        "shortName": "Optimatics",
+        "amountInvested": 3255490.68,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "P9701",
+        "shortName": "P97",
+        "amountInvested": 6610261.41,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Phas01",
+        "shortName": "Phase Change",
+        "amountInvested": 3132300.01,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Powe02",
+        "shortName": "Powerhouse Dynamics",
+        "amountInvested": 1933907.65,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Secu01",
+        "shortName": "SecurityMatters",
+        "amountInvested": 1563624.23,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Trop01",
+        "shortName": "Tropic Biosciences",
+        "amountInvested": 2450381.2,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Ushr01",
+        "shortName": "Ushr",
+        "amountInvested": 1825073,
+        "fundCurrency": "EUR"
+      },
+      {
+        "id": "Vise01",
+        "shortName": "Visedo",
+        "amountInvested": 1956521.19,
+        "fundCurrency": "EUR"
+      }
+    ]
+  },
+  {
+    "id": "EEF",
+    "shortName": "EEF",
+    "fundName": "Emerald Energy Fund I",
+    "currency": "EUR",
+    "totalCommitmentsFundCcy": 48600000,
+    "totalCommitmentsEUR": 48600000,
+    "numOfLPs": 9,
+	  "numOFPCOs": 15,
+    "vintage": "2001-07-13",
+    "sumCommittedAmountFundCcy": 48600000,
+    "sumCommittedAmountEUR": 48600000,
+    "sumManagementFeeFundCcy": 9321730.809999967,
+    "sumManagementFeeEUR": 9321730.809999967,
+    "sumOperationalExpensesFundCcy": 617777.9400000002,
+    "sumOperationalExpensesEUR": 617777.9400000002,
+    "sumAmountInvestedLocalCCy": 37514574.64,
+    "sumAmountInvestedFundCCy": 35528627.63,
+    "sumAmountInvestedEUR": 11633735.00348255,
+    "sumAmountRealizedLocalCCy": 39280730.37,
+    "sumAmountRealizedFundCCy": 36579850.08,
+    "sumAmountRealizedEUR": 11290077.17389511,
+    "sumNonRecycleFundCccy": 36377516.93337902,
+    "sumNonRecycleEUR": 36377516.93337902,
+    "lps":[
+      {
+        "id": "CDP01",
+        "shortName": "CDP Capital",
+        "name": "Caisse de Depot et Placement du Quebec",
+        "committedAmount": 10000000
+      },
+      {
+        "id": "Clea01",
+        "shortName": "Clearstream",
+        "name": "Clearstream Banking S.A. AFS 102448",
+        "committedAmount": 500000
+      },
+      {
+        "id": "DES01",
+        "shortName": "DES Capital",
+        "name": "DES Capital Investissement",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Equi01",
+        "shortName": "Equinor",
+        "name": "Equinor Technology Venture AS",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Hydr01",
+        "shortName": "Hydro Quebec",
+        "name": "Hydro Quebec CapiTech Inc",
+        "committedAmount": 15000000
+      },
+      {
+        "id": "Mits01",
+        "shortName": "Mitsui Japan",
+        "name": "Mitsui & Co Limited",
+        "committedAmount": 3000000
+      },
+      {
+        "id": "OPG01",
+        "shortName": "OPG Investments",
+        "name": "OPG Investments Inc",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Shaw01",
+        "shortName": "Shaw Mr",
+        "name": "Mr Robert W Shaw, Jr",
+        "committedAmount": 100000
+      },
+      {
+        "id": "Sunc01",
+        "shortName": "Suncor Energy Inc.",
+        "name": "Suncor Energy Inc.",
+        "committedAmount": 5000000
+      }
+    ],
+    "pcos":[
+      {
+        "id": "Acum01",
+        "shortName": "Acumentrics (ex. CTP)",
+        "amountInvested": 1055577.15
+      },
+      {
+        "id": "CDTI01",
+        "shortName": "CDTI (ex. CSI)",
+        "amountInvested": 2890206.88
+      },
+      {
+        "id": "Cell01",
+        "shortName": "Cellex",
+        "amountInvested": 106830
+      },
+      {
+        "id": "Eden01",
+        "shortName": "Eden Energy (ex. Hyradix)",
+        "amountInvested": 128830.36
+      },
+      {
+        "id": "Engi01",
+        "shortName": "Enginion",
+        "amountInvested": 2295146.5
+      },
+      {
+        "id": "Enoc01",
+        "shortName": "Enocean",
+        "amountInvested": 3710691
+      },
+      {
+        "id": "Ever01",
+        "shortName": "Evergreen Solar",
+        "amountInvested": 3405109.09
+      },
+      {
+        "id": "Ocea01",
+        "shortName": "Oceanlinx",
+        "amountInvested": 4674164.4
+      },
+      {
+        "id": "Orme01",
+        "shortName": "Ormecon",
+        "amountInvested": 1399418.32
+      },
+      {
+        "id": "Pela01",
+        "shortName": "Pelamis Wave Power",
+        "amountInvested": 8138246.7
+      },
+      {
+        "id": "Peme01",
+        "shortName": "Pemeas",
+        "amountInvested": 3117050
+      },
+      {
+        "id": "Poly01",
+        "shortName": "PolyFuel",
+        "amountInvested": 73965
+      },
+      {
+        "id": "Powe01",
+        "shortName": "PowerZyme",
+        "amountInvested": 1897649
+      },
+      {
+        "id": "Schm01",
+        "shortName": "Schmack Biogas",
+        "amountInvested": 845635
+      },
+      {
+        "id": "Zoxy01",
+        "shortName": "Zoxy",
+        "amountInvested": 1790108.23
+      }
+    ]
+  },
+  {
+    "id": "EGETF",
+    "shortName": "EGETF",
+    "fundName": "Emerald Global Energy Transformation Fund",
+    "currency": "EUR",
+    "totalCommitmentsFundCcy": 15500000,
+    "totalCommitmentsEUR": 15500000,
+    "numOfLPs": 3,
+	  "numOFPCOs": 2,
+    "vintage": "2021-03-09",
+    "sumBaseAmountFundCccy": 15500000,
+    "sumBaseAmountEUR": 15500000,
+    "sumCommittedAmountFundCcy": 20100000,
+    "sumCommittedAmountEUR": 20100000,
+    "sumManagementFeeFundCcy": 588037.64,
+    "sumManagementFeeEUR": 588037.64,
+    "sumSetUpFeeFundCcy": 150000,
+    "sumSetUpFeeEUR": 150000,
+    "sumOperationalExpensesFundCcy": 3973000,
+    "sumOperationalExpensesEUR": 3973000,
+    "sumAmountInvestedLocalCCy": 637670.21,
+    "sumAmountInvestedFundCCy": 637670.21,
+    "sumAmountInvestedEUR": 620327.9241469759,
+    "lps":[
+      {
+        "id": "Emer01",
+        "shortName": "Emerald",
+        "name": "Emerald Technology Ventures AG",
+        "committedAmount": 500000
+      },
+      {
+        "id": "Pilo01",
+        "shortName": "Pilot",
+        "name": "Pilot Emerging Mobility and Energy LLC",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Sing01",
+        "shortName": "Singapore Power",
+        "name": "SP Impact Pte. Ltd.",
+        "committedAmount": 10000000
+      }
+    ],
+    "pcos":[
+      {
+        "id": "Ensp01",
+        "shortName": "Enspired",
+        "amountInvested": 364188
+      },
+      {
+        "id": "Eolo01",
+        "shortName": "Eologix",
+        "amountInvested": 273482.21
+      }
+    ]
+  },
+  {
+    "id": "EGWIF",
+    "shortName": "EGWIF",
+    "fundName": "Emerald Global Water Impact Fund",
+    "currency": "USD",
+    "totalCommitmentsFundCcy": 101000000,
+    "totalCommitmentsEUR": 89183222.9580574,
+    "numOfLPs": 5,
+	  "numOFPCOs": 5,
+    "vintage": "2020-07-08",
+    "sumCommittedAmountFundCcy": 101000000,
+    "sumCommittedAmountEUR": 103610997.1276159,
+    "sumManagementFeeFundCcy": 6853192.94,
+    "sumManagementFeeEUR": 6061092.456634524,
+    "sumOperationalExpensesFundCcy": 300000.02,
+    "sumOperationalExpensesEUR": 258067.5246054591,
+    "sumAmountInvestedLocalCCy": 14511361.65,
+    "sumAmountInvestedFundCCy": 12837893.87,
+    "sumAmountInvestedEUR": 10426584.35361665,
+    "sumAmountRealizedLocalCCy": 186440.75,
+    "sumAmountRealizedFundCCy": 208080.93,
+    "sumAmountRealizedEUR": 148405.1468922249,
+    "lps":[
+      {
+        "id": "Ecol02",
+        "shortName": "Ecolab (II)",
+        "name": "Ecolab U.S. 2 Inc.",
+        "committedAmount": 10000000
+      },
+      {
+        "id": "Emer01",
+        "shortName": "Emerald",
+        "name": "Emerald Technology Ventures AG",
+        "committedAmount": 1000000
+      },
+      {
+        "id": "Micr01",
+        "shortName": "Microsoft",
+        "name": "Microsoft Global Finance",
+        "committedAmount": 10000000
+      },
+      {
+        "id": "Skio01",
+        "shortName": "Skion",
+        "name": "Skion Water GmbH",
+        "committedAmount": 10000000
+      },
+      {
+        "id": "Tema01",
+        "shortName": "Temasek",
+        "name": "Birchtree Fund Investments Private Limited",
+        "committedAmount": 70000000
+      }
+    ],
+    "pcos":[
+      {
+        "id": "Agan01",
+        "shortName": "Aganova"
+      },
+      {
+        "id": "Fido01",
+        "shortName": "FIDO",
+        "amountInvested": 6042140.8
+      },
+      {
+        "id": "Sewe01",
+        "shortName": "SewerAI",
+        "amountInvested": 3061767.64
+      },
+      {
+        "id": "Sofi01",
+        "shortName": "Sofi Filatration",
+        "amountInvested": 2438074.7
+      },
+      {
+        "id": "xFar01",
+        "shortName": "xFarm",
+        "amountInvested": 1295910.73
+      }
+    ]
+  },
+  {
+    "id": "EIIF",
+    "shortName": "EIIF Guernsey",
+    "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
+    "currency": "EUR",
+    "totalCommitmentsFundCcy": 214500000,
+    "totalCommitmentsEUR": 214500000,
+    "numOfLPs": 38,
+	  "numOFPCOs": 22,
+    "vintage": "2016-05-17",
+    "sumBaseAmountFundCccy": 197016706,
+    "sumBaseAmountEUR": 197016706,
+    "sumCommittedAmountFundCcy": 194500000,
+    "sumCommittedAmountEUR": 194500000,
+    "sumManagementFeeFundCcy": 17459592.17,
+    "sumManagementFeeEUR": 17459592.17,
+    "sumSetUpFeeFundCcy": 1615000,
+    "sumSetUpFeeEUR": 1615000,
+    "sumOperationalExpensesFundCcy": 602629.1002819997,
+    "sumOperationalExpensesEUR": 602629.1002819997,
+    "sumAmountInvestedLocalCCy": 52624279.57,
+    "sumAmountInvestedFundCCy": 48084111.79000002,
+    "sumAmountInvestedEUR": 6565435.691592432,
+    "sumAmountRealizedLocalCCy": 33706847.02,
+    "sumAmountRealizedFundCCy": 31618835.58,
+    "sumAmountRealizedEUR": 3625390.556772773,
+    "sumNonRecycleFundCccy": 9448573.03886869,
+    "sumNonRecycleEUR": 9448573.03886869,
+    "sumRecycleFundCccy": 41670898.17317375,
+    "sumRecycleEUR": 41670898.17317375,
+    "sumReleasedDistributionsFundCccy": 549879.993917565,
+    "sumReleasedDistributionsEUR": 549879.993917565,
+    "sumEscrowFundCccy": 1099760.02784803,
+    "sumEscrowEUR": 1099760.02784803,
+    "terminated":[
+      {
+        "id":"16", "lpId":"SHV01", "fundId":"EIIF", "dateTermination":"2023-03-31"
+      },
+      {
+        "id":"20", "lpId":"Sibe01", "fundId":"EIIF", "dateTermination":"2021-09-30"
+      }
+    ],
+    "lps":[
+      {
+        "id": "ABB01",
+        "shortName": "ABB",
+        "name": "ABB Technology Ventures",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Alta01",
+        "shortName": "Altana",
+        "name": "ALTANA New Technologies GmbH",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Beka01",
+        "shortName": "Bekaert Investments",
+        "name": "Bekaert Investments NV",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Cate01",
+        "shortName": "Caterpillar",
+        "name": "Caterpillar Venture Capital Inc.",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Chev01",
+        "shortName": "Chevron",
+        "name": "CTTV Investments LLC",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Ciec01",
+        "shortName": "Ciech",
+        "name": "Ciech Spolka Akcyjna",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "DIC01",
+        "shortName": "DIC Corporation",
+        "name": "DIC Corporation",
+        "committedAmount": 10000000
+      },
+      {
+        "id": "Doos01",
+        "shortName": "Doosan",
+        "name": "Doosan Heavy Industries & Construction Co., Ltd",
+        "committedAmount": 6000000
+      },
+      {
+        "id": "Ecol01",
+        "shortName": "Ecolab",
+        "name": "Ecolab Inc.",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Emer01",
+        "shortName": "Emerald",
+        "name": "Emerald Technology Ventures AG",
+        "committedAmount": 1000000
+      },
+      {
+        "id": "Emer02",
+        "shortName": "Emerald (II)",
+        "name": "Emerald Technology Ventures AG (II)",
+        "committedAmount": 1000000
+      },
+      {
+        "id": "Eneo01",
+        "shortName": "Eneos",
+        "name": "ENEOS Innovation Partners Godo Kaisha",
+        "committedAmount": 7000000
+      },
+      {
+        "id": "Evon02",
+        "shortName": "Evonik II",
+        "name": "Evonik Venture Capital GmbH",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "GCV01",
+        "shortName": "GCV PTT",
+        "name": "GC Ventures Company Limited.",
+        "committedAmount": 4500000
+      },
+      {
+        "id": "Henk01",
+        "shortName": "Henkel",
+        "name": "Henkel AG & Co. KGaA",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Hera01",
+        "shortName": "Heraeus",
+        "name": "Heraeus Holding GmbH",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Idem01",
+        "shortName": "Idemitsu Kosan",
+        "name": "Idemitsu Kosan Co.,Ltd",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Ireo01",
+        "shortName": "Ireon",
+        "name": "Ireon Ventures Ltd",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "JSR01",
+        "shortName": "JSR Corporation",
+        "name": "JSR Corporation",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Lam01",
+        "shortName": "Lam",
+        "name": "Lam Research Capital LLC",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Lieb01",
+        "shortName": "Liebherr",
+        "name": "Liebherr-International AG",
+        "committedAmount": 10000000
+      },
+      {
+        "id": "Mahl01",
+        "shortName": "Mahle",
+        "name": "Mahle International GmbH",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Mich01",
+        "shortName": "Michelin",
+        "name": "Michelin Ventures SAS",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Mits02",
+        "shortName": "Mitsubishi",
+        "name": "Mitsubishi Chemical Holdings Corporation",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Mits03",
+        "shortName": "Mitsui",
+        "name": "Mitsui Fudosan Co. Ltd.",
+        "committedAmount": 10000000
+      },
+      {
+        "id": "Mura01",
+        "shortName": "Murata",
+        "name": "Murata Manufacturing Co. Ltd.",
+        "committedAmount": 10000000
+      },
+      {
+        "id": "Orle01",
+        "shortName": "PKN Orlen",
+        "name": "Orlen VC Sp. z.o.o.",
+        "committedAmount": 10000000
+      },
+      {
+        "id": "Sabi01",
+        "shortName": "SABIC",
+        "name": "SABIC Ventures B.V.",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "SCG01",
+        "shortName": "SCG",
+        "name": "Add Ventures Capital International Company Limited ",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Scho01",
+        "shortName": "Schott",
+        "name": "Schott AG",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Seki01",
+        "shortName": "Sekisui",
+        "name": "Sekisui Chemical Co Ltd",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "SHV01",
+        "shortName": "SHV Energy",
+        "name": "SHV Energy N.V.",
+        "committedAmount": 10000000
+      },
+      {
+        "id": "Sibe01",
+        "shortName": "Sibelco",
+        "name": "Cofisa NV",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Stih01",
+        "shortName": "Stihl",
+        "name": "STIHL Digital GmbH",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Sulz01",
+        "shortName": "Sulzer",
+        "name": "Sulzer Ltd.",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Sunc01",
+        "shortName": "Suncor Energy Inc.",
+        "name": "Suncor Energy Inc.",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Tupr01",
+        "shortName": "Tupras",
+        "name": "Tupras, Turkiye Petrol Rafinerileri A.S.",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Wast01",
+        "shortName": "Waste Management",
+        "name": "WM Organic Growth, Inc.",
+        "committedAmount": 5000000
+      }
+    ],
+    "pcos":[
+      {
+        "id": "Actn01",
+        "shortName": "Actnano",
+        "amountInvested": 4292520.520000001
+      },
+      {
+        "id": "Agan01",
+        "shortName": "Aganova",
+        "amountInvested": 1024809.37
+      },
+      {
+        "id": "Alph01",
+        "shortName": "Alphaics",
+        "amountInvested": 511817.62
+      },
+      {
+        "id": "Ensp01",
+        "shortName": "Enspired",
+        "amountInvested": 2385812
+      },
+      {
+        "id": "Eolo01",
+        "shortName": "Eologix",
+        "amountInvested": 1633886.52
+      },
+      {
+        "id": "Fido01",
+        "shortName": "FIDO",
+        "amountInvested": 1958271.9
+      },
+      {
+        "id": "Futu01",
+        "shortName": "Future Meat",
+        "amountInvested": 2672803.43
+      },
+      {
+        "id": "Hydr01",
+        "shortName": "Hydropoint",
+        "amountInvested": 1770267.05
+      },
+      {
+        "id": "Imag01",
+        "shortName": "Imagindairy",
+        "amountInvested": 1335253.09
+      },
+      {
+        "id": "Meea01",
+        "shortName": "Meeat",
+        "amountInvested": 2499000
+      },
+      {
+        "id": "Open01",
+        "shortName": "Open Mineral",
+        "amountInvested": 2610537.41
+      },
+      {
+        "id": "Phas01",
+        "shortName": "Phase Change",
+        "amountInvested": 2610249.94
+      },
+      {
+        "id": "Powe02",
+        "shortName": "Powerhouse Dynamics",
+        "amountInvested": 806274.5099999999
+      },
+      {
+        "id": "Rhom01",
+        "shortName": "Rhombus",
+        "amountInvested": 4769551.46
+      },
+      {
+        "id": "Secu01",
+        "shortName": "SecurityMatters",
+        "amountInvested": 325774.91
+      },
+      {
+        "id": "Sewe01",
+        "shortName": "SewerAI",
+        "amountInvested": 848103.89
+      },
+      {
+        "id": "Sofi01",
+        "shortName": "Sofi Filatration",
+        "amountInvested": 581740
+      },
+      {
+        "id": "Spea01",
+        "shortName": "Spear Power Systems",
+        "amountInvested": 4550328.55
+      },
+      {
+        "id": "Trop01",
+        "shortName": "Tropic Biosciences",
+        "amountInvested": 1068783.29
+      },
+      {
+        "id": "Urge01",
+        "shortName": "Urgently",
+        "amountInvested": 7553414.2
+      },
+      {
+        "id": "Vise01",
+        "shortName": "Visedo",
+        "amountInvested": 543481.53
+      },
+      {
+        "id": "xFar01",
+        "shortName": "xFarm",
+        "amountInvested": 1731430.6
+      }
+    ]
+  },
+  {
+    "id": "EIIFI",
+    "shortName": "EIIF Ireland",
+    "fundName": "Emerald Industrial Innovation Fund (Ireland)",
+    "currency": "EUR",
+    "totalCommitmentsFundCcy": 30500000,
+    "totalCommitmentsEUR": 30500000,
+    "numOfLPs": 6,
+	  "numOFPCOs": 1,
+    "vintage": "2022-07-29",
+    "sumBaseAmountFundCccy": 10500000,
+    "sumBaseAmountEUR": 10500000,
+    "sumCommittedAmountFundCcy": 10500000,
+    "sumCommittedAmountEUR": 10500000,
+    "sumManagementFeeFundCcy": 206462.82,
+    "sumManagementFeeEUR": 206462.82,
+    "sumSetUpFeeFundCcy": 150000,
+    "sumSetUpFeeEUR": 150000,
+    "sumOperationalExpensesFundCcy": 86250,
+    "sumOperationalExpensesEUR": 86250,
+    "sumAmountInvestedLocalCCy": 92631.07,
+    "sumAmountInvestedFundCCy": 92631.07,
+    "sumAmountInvestedEUR": 92631.07,
+    "lps":[
+      {
+        "id": "Alia01",
+        "shortName": "Aliaxis",
+        "name": "Aliaxis Ventures SA",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Brau03",
+        "shortName": "Braunberri",
+        "name": "333 Bush St Ventures SCR S.A.",
+        "committedAmount": 10000000
+      },
+      {
+        "id": "Emer01",
+        "shortName": "Emerald",
+        "name": "Emerald Technology Ventures AG",
+        "committedAmount": 500000
+      },
+      {
+        "id": "Lgch01",
+        "shortName": "LG",
+        "name": "LG Chem Fund I LLC",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Nest01",
+        "shortName": "Nestlé",
+        "name": "Nestlé Ventures S.A.",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Pilo01",
+        "shortName": "Pilot",
+        "name": "Pilot Emerging Mobility and Energy LLC",
+        "committedAmount": 5000000
+      }
+    ],
+    "pcos":[
+      {
+        "id": "Eolo01",
+        "shortName": "Eologix",
+        "amountInvested": 92631.07
+      }
+    ]
+  },
+  {
+    "id": "ESF",
+    "shortName": "ESF",
+    "fundName": "Emerald Sustainability Fund",
+    "currency": "EUR",
+    "totalCommitmentsFundCcy": 37800000,
+    "totalCommitmentsEUR": 37800000,
+    "numOfLPs": 18,
+	  "numOFPCOs": 20,
+    "vintage": "2000-11-15",
+    "sumCommittedAmountFundCcy": 37800000,
+    "sumCommittedAmountEUR": 37800000,
+    "sumManagementFeeFundCcy": 7508476.91,
+    "sumManagementFeeEUR": 7508476.91,
+    "sumSetUpFeeFundCcy": 18193.68,
+    "sumSetUpFeeEUR": 18193.68,
+    "sumOperationalExpensesFundCcy": 716202.8400000002,
+    "sumOperationalExpensesEUR": 716202.8400000002,
+    "sumAmountInvestedLocalCCy": 39433995.77,
+    "sumAmountInvestedFundCCy": 36003278.24,
+    "sumAmountInvestedEUR": 9757473.010297766,
+    "sumAmountRealizedLocalCCy": 39548632.63999999,
+    "sumAmountRealizedFundCCy": 35914173.93,
+    "sumAmountRealizedEUR": 9501104.230437594,
+    "sumNonRecycleFundCccy": 34483042.97271599,
+    "sumNonRecycleEUR": 34483042.97271599,
+    "lps":[
+      {
+        "id": "Brau01",
+        "shortName": "von Braun Ms",
+        "name": "Ms Johanna von Braun",
+        "committedAmount": 500000
+      },
+      {
+        "id": "Brau02",
+        "shortName": "von Braun Mr",
+        "name": "Mr Daniel von Braun",
+        "committedAmount": 500000
+      },
+      {
+        "id": "Brun01",
+        "shortName": "Brunner Dr",
+        "name": "Dr Eduard M Brunner",
+        "committedAmount": 500000
+      },
+      {
+        "id": "Brun02",
+        "shortName": "Zulliger Mr",
+        "name": "Mr Hans R Zulliger",
+        "committedAmount": 2000000
+      },
+      {
+        "id": "Calv01",
+        "shortName": "Calvert",
+        "name": "Calvert World Values International Equity Fund ",
+        "committedAmount": 1000000
+      },
+      {
+        "id": "Capi01",
+        "shortName": "Capital Dynamics",
+        "name": "Capital Dynamics Global Secondaries III",
+        "committedAmount": 2000000
+      },
+      {
+        "id": "Fahr01",
+        "shortName": "Fahrni Mr",
+        "name": "Mr Fritz Fahrni",
+        "committedAmount": 100000
+      },
+      {
+        "id": "Gene01",
+        "shortName": "General Oriental",
+        "name": "General Oriental Realisation Limited ",
+        "committedAmount": 600000
+      },
+      {
+        "id": "Glar01",
+        "shortName": "Glarner Pensionkasse",
+        "name": "Glarner Pensionkasse",
+        "committedAmount": 2000000
+      },
+      {
+        "id": "Groh01",
+        "shortName": "Grohe Mr",
+        "name": "Mr Bernd Grohe",
+        "committedAmount": 1600000
+      },
+      {
+        "id": "Hess01",
+        "shortName": "Hessler Dr",
+        "name": "Dr Sigrid Hessler",
+        "committedAmount": 500000
+      },
+      {
+        "id": "IVEC01",
+        "shortName": "IVEC",
+        "name": "IVEC Institutional Venture and Equity Capital GmbH (IVEC)",
+        "committedAmount": 10000000
+      },
+      {
+        "id": "Ritt01",
+        "shortName": "Ritter Mr",
+        "name": "Mr Alfred T Ritter ",
+        "committedAmount": 2500000
+      },
+      {
+        "id": "Robe01",
+        "shortName": "Robeco",
+        "name": "Robeco Clean Tech Private Equity II, L.P.",
+        "committedAmount": 4000000
+      },
+      {
+        "id": "Schu01",
+        "shortName": "Schulz-Dornburg Mrs",
+        "name": "Mrs Ursula Schulz-Dornburg",
+        "committedAmount": 2000000
+      },
+      {
+        "id": "Stic01",
+        "shortName": "Stichting custody Robeco (EUR)",
+        "name": "Stichting Custody Robeco Master Clean Tech II (EUR)",
+        "committedAmount": 4680000
+      },
+      {
+        "id": "Stic02",
+        "shortName": "Stichting custody Robeco (USD)",
+        "name": "Stichting Custody Robeco Master Clean Tech II (USD)",
+        "committedAmount": 1320000
+      },
+      {
+        "id": "Volk01",
+        "shortName": "Volkart",
+        "name": "Volkart Foundation",
+        "committedAmount": 2000000
+      }
+    ],
+    "pcos":[
+      {
+        "id": "Acum01",
+        "shortName": "Acumentrics (ex. CTP)",
+        "amountInvested": 410503.17
+      },
+      {
+        "id": "Adva01",
+        "shortName": "Advanced BioNutrition",
+        "amountInvested": 2045673.02
+      },
+      {
+        "id": "Agra01",
+        "shortName": "AgraQuest",
+        "amountInvested": 4272391.959999999
+      },
+      {
+        "id": "Aqua01",
+        "shortName": "AquaSpy",
+        "amountInvested": 4209902.7
+      },
+      {
+        "id": "Biop01",
+        "shortName": "Biopsytec",
+        "amountInvested": 2055475
+      },
+      {
+        "id": "CDTI01",
+        "shortName": "CDTI (ex. CSI)",
+        "amountInvested": 579472.1
+      },
+      {
+        "id": "Engi01",
+        "shortName": "Enginion",
+        "amountInvested": 892528
+      },
+      {
+        "id": "Enoc01",
+        "shortName": "Enocean",
+        "amountInvested": 1148742
+      },
+      {
+        "id": "Ever01",
+        "shortName": "Evergreen Solar",
+        "amountInvested": 1324209.24
+      },
+      {
+        "id": "Inge01",
+        "shortName": "Inge",
+        "amountInvested": 4113958.56
+      },
+      {
+        "id": "Ioma01",
+        "shortName": "Iomai",
+        "amountInvested": 2151381.16
+      },
+      {
+        "id": "Ocea01",
+        "shortName": "Oceanlinx",
+        "amountInvested": 1370054.78
+      },
+      {
+        "id": "Orme01",
+        "shortName": "Ormecon",
+        "amountInvested": 536491.79
+      },
+      {
+        "id": "Oxfo01",
+        "shortName": "Oxford Natural Products",
+        "amountInvested": 2720058.85
+      },
+      {
+        "id": "Pela01",
+        "shortName": "Pelamis Wave Power",
+        "amountInvested": 2508129.11
+      },
+      {
+        "id": "Peme01",
+        "shortName": "Pemeas",
+        "amountInvested": 1211450
+      },
+      {
+        "id": "Powe01",
+        "shortName": "PowerZyme",
+        "amountInvested": 738197.97
+      },
+      {
+        "id": "Schm01",
+        "shortName": "Schmack Biogas",
+        "amountInvested": 328857
+      },
+      {
+        "id": "Scie01",
+        "shortName": "Sciessent (ex. AgIon)",
+        "amountInvested": 2689644.33
+      },
+      {
+        "id": "Zoxy01",
+        "shortName": "Zoxy",
+        "amountInvested": 696157.5
+      }
+    ]
+  },
+  {
+    "id": "ESPIF",
+    "shortName": "ESPIF",
+    "fundName": "Emerald Sustainable Packaging Innovation Fund",
+    "currency": "EUR",
+    "totalCommitmentsFundCcy": 33000000,
+    "totalCommitmentsEUR": 33000000,
+    "numOfLPs": 6,
+	  "numOFPCOs": 0,
+    "vintage": "2022-02-24",
+    "sumBaseAmountFundCccy": 33000000,
+    "sumBaseAmountEUR": 33000000,
+    "sumCommittedAmountFundCcy": 61000000,
+    "sumCommittedAmountEUR": 61000000,
+    "sumManagementFeeFundCcy": 728858.66,
+    "sumManagementFeeEUR": 728858.66,
+    "sumSetUpFeeFundCcy": 325000,
+    "sumSetUpFeeEUR": 325000,
+    "sumOperationalExpensesFundCcy": 97500,
+    "sumOperationalExpensesEUR": 97500,
+    "lps":[
+      {
+        "id": "Beie01",
+        "shortName": "Beiersdorf",
+        "name": "Beiersdorf AG",
+        "committedAmount": 7500000
+      },
+      {
+        "id": "Chev01",
+        "shortName": "Chevron",
+        "name": "CTTV Investments LLC",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Emer01",
+        "shortName": "Emerald",
+        "name": "Emerald Technology Ventures AG",
+        "committedAmount": 500000
+      },
+      {
+        "id": "Henk01",
+        "shortName": "Henkel",
+        "name": "Henkel AG & Co. KGaA",
+        "committedAmount": 5000000
+      },
+      {
+        "id": "Huht01",
+        "shortName": "Huhtamäki",
+        "name": "Huhtamäki Oyj",
+        "committedAmount": 10000000
+      },
+      {
+        "id": "Wast01",
+        "shortName": "Waste Management",
+        "name": "WM Organic Growth, Inc.",
+        "committedAmount": 5000000
+      }
+    ],
+    "pcos":[]
+  },
+  {
+    "id": "NTV",
+    "shortName": "NTV LP",
+    "fundName": "Nabtesco Technology Ventures",
+    "currency": "EUR",
+    "totalCommitmentsFundCcy": 75000000,
+    "totalCommitmentsEUR": 75000000,
+    "numOfLPs": 2,
+	  "numOFPCOs": 6,
+    "vintage": "2018-08-01",
+    "sumBaseAmountFundCccy": 75000000,
+    "sumBaseAmountEUR": 75000000,
+    "sumCommittedAmountFundCcy": 75000000,
+    "sumCommittedAmountEUR": 75000000,
+    "sumManagementFeeFundCcy": 8233409.169999999,
+    "sumManagementFeeEUR": 8233409.169999999,
+    "sumSetUpFeeFundCcy": 600600.6,
+    "sumSetUpFeeEUR": 600600.6,
+    "sumAmountInvestedLocalCCy": 314177884.07,
+    "sumAmountInvestedFundCCy": 11003325.15,
+    "sumAmountInvestedEUR": 10996394.82485,
+    "sumAmountRealizedLocalCCy": 14724719.97,
+    "sumAmountRealizedFundCCy": 8521414.43,
+    "sumAmountRealizedEUR": 8512893.015570002,
+    "sumRecycleFundCccy": 8453501.739750002,
+    "sumRecycleEUR": 8453501.739750002,
+    "lps":[
+      {
+        "id": "Nabt01",
+        "shortName": "Nabtesco",
+        "name": "Nabtesco Corporation",
+        "committedAmount": 74925000
+      },
+      {
+        "id": "Nabt02",
+        "shortName": "Nabtesco GP",
+        "name": "Nabtesco Technology Ventures (Cayman) Ltd",
+        "committedAmount": 75000
+      }
+    ],
+    "pcos":[
+      {
+        "id": "Deep01",
+        "shortName": "DeepSea",
+        "amountInvested": 3500549.5
+      },
+      {
+        "id": "Eolo01",
+        "shortName": "Eologix",
+        "amountInvested": 2000000
+      },
+      {
+        "id": "Rhom01",
+        "shortName": "Rhombus",
+        "amountInvested": 834887.6
+      },
+      {
+        "id": "Spac01",
+        "shortName": "Space One",
+        "amountInvested": 2073000
+      },
+      {
+        "id": "Spea01",
+        "shortName": "Spear Power Systems",
+        "amountInvested": 2094888.05
+      },
+      {
+        "id": "Whee01",
+        "shortName": "Wheel.me",
+        "amountInvested": 500000
+      }
+    ]
+  }
+]
