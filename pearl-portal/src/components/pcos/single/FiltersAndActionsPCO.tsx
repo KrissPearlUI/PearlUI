@@ -11,7 +11,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
 import { GridApi } from 'ag-grid-community';
 import { isValueEmpty } from '../../../helpers/app';
-import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import AddButton from '../../shared/AddButton';
 import ExportButton from '../../shared/ExportButton';
 
