@@ -1,16 +1,9 @@
-import {Autocomplete, AutocompleteRenderInputParams, Grid,Paper,TextField,Typography} from '@mui/material';
-import {darken, useTheme} from "@mui/material/styles";
-import { useEffect, useState } from 'react';
-import { setTopBarTitle } from '../../../redux/slices/appSlice';
+import {useTheme} from "@mui/material/styles";
+import {useState } from 'react';
 import { useAppDispatch } from '../../../redux/store';
 import {Theme} from "@mui/material";
 import {createStyles,makeStyles} from '@mui/styles';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { LP } from '../../../models/lps/lpModels';
-import { RootState } from '../../../redux/slices/rootSlice';
-import { useSelector } from 'react-redux';
 import DatePicker from '../../shared/DatePicker';
-import { setSelectedLP } from '../../../redux/slices/lps/lpsSlice';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
