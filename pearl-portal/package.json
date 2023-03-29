@@ -2,6 +2,7 @@
   "name": "pearl-portal",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://krissPearlUI.github.io/PearlUI/pearl-portal",
   "dependencies": {
     "@babel/core": "7.0.0",
     "@babel/plugin-syntax-flow": "7.14.5",
@@ -45,6 +46,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy" : "yarn build",
+    "deploy" : "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
