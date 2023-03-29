@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/PearlUI/pearl-portal/static/css/main.59f8657a.css",
-    "main.js": "/PearlUI/pearl-portal/static/js/main.b3ed3306.js",
-    "static/media/LPMenuIcon.svg": "/PearlUI/pearl-portal/static/media/LPMenuIcon.bda5a9a7f2637044d6cf62751ff98947.svg",
-    "static/media/LogoIcon.svg": "/PearlUI/pearl-portal/static/media/LogoIcon.709b1cd7c9efe110497938ef370140b9.svg",
-    "static/media/UploadPicIcon.svg": "/PearlUI/pearl-portal/static/media/UploadPicIcon.b34292d0a64f196fd3eb07693441142c.svg",
-    "static/media/UsersIcon.svg": "/PearlUI/pearl-portal/static/media/UsersIcon.03fb8fc3560cd12f98bd7b44721897be.svg",
-    "static/media/GlobeIcon.svg": "/PearlUI/pearl-portal/static/media/GlobeIcon.b2864b3ea6b4d5684e52425399580390.svg",
-    "static/media/FundsMenuIcon.svg": "/PearlUI/pearl-portal/static/media/FundsMenuIcon.bc1dde6c04cad42b9d027ec096c86800.svg",
-    "index.html": "/PearlUI/pearl-portal/index.html",
-    "static/media/AppearanceIcon.svg": "/PearlUI/pearl-portal/static/media/AppearanceIcon.6aded6e1d59341b505796f9856729587.svg",
-    "main.59f8657a.css.map": "/PearlUI/pearl-portal/static/css/main.59f8657a.css.map",
-    "main.b3ed3306.js.map": "/PearlUI/pearl-portal/static/js/main.b3ed3306.js.map"
+    "main.css": "/PearlUI/static/css/main.59f8657a.css",
+    "main.js": "/PearlUI/static/js/main.df04c17b.js",
+    "static/media/LPMenuIcon.svg": "/PearlUI/static/media/LPMenuIcon.bda5a9a7f2637044d6cf62751ff98947.svg",
+    "static/media/LogoIcon.svg": "/PearlUI/static/media/LogoIcon.709b1cd7c9efe110497938ef370140b9.svg",
+    "static/media/UploadPicIcon.svg": "/PearlUI/static/media/UploadPicIcon.b34292d0a64f196fd3eb07693441142c.svg",
+    "static/media/UsersIcon.svg": "/PearlUI/static/media/UsersIcon.03fb8fc3560cd12f98bd7b44721897be.svg",
+    "static/media/GlobeIcon.svg": "/PearlUI/static/media/GlobeIcon.b2864b3ea6b4d5684e52425399580390.svg",
+    "static/media/FundsMenuIcon.svg": "/PearlUI/static/media/FundsMenuIcon.bc1dde6c04cad42b9d027ec096c86800.svg",
+    "index.html": "/PearlUI/index.html",
+    "static/media/AppearanceIcon.svg": "/PearlUI/static/media/AppearanceIcon.6aded6e1d59341b505796f9856729587.svg",
+    "main.59f8657a.css.map": "/PearlUI/static/css/main.59f8657a.css.map",
+    "main.df04c17b.js.map": "/PearlUI/static/js/main.df04c17b.js.map"
   },
   "entrypoints": [
     "static/css/main.59f8657a.css",
-    "static/js/main.b3ed3306.js"
+    "static/js/main.df04c17b.js"
   ]
 }
