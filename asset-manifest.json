@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PearlUI/static/css/main.59f8657a.css",
-    "main.js": "/PearlUI/static/js/main.df04c17b.js",
+    "main.js": "/PearlUI/static/js/main.9db7ea79.js",
     "static/media/LPMenuIcon.svg": "/PearlUI/static/media/LPMenuIcon.bda5a9a7f2637044d6cf62751ff98947.svg",
     "static/media/LogoIcon.svg": "/PearlUI/static/media/LogoIcon.709b1cd7c9efe110497938ef370140b9.svg",
     "static/media/UploadPicIcon.svg": "/PearlUI/static/media/UploadPicIcon.b34292d0a64f196fd3eb07693441142c.svg",
@@ -11,10 +11,10 @@
     "index.html": "/PearlUI/index.html",
     "static/media/AppearanceIcon.svg": "/PearlUI/static/media/AppearanceIcon.6aded6e1d59341b505796f9856729587.svg",
     "main.59f8657a.css.map": "/PearlUI/static/css/main.59f8657a.css.map",
-    "main.df04c17b.js.map": "/PearlUI/static/js/main.df04c17b.js.map"
+    "main.9db7ea79.js.map": "/PearlUI/static/js/main.9db7ea79.js.map"
   },
   "entrypoints": [
     "static/css/main.59f8657a.css",
-    "static/js/main.df04c17b.js"
+    "static/js/main.9db7ea79.js"
   ]
 }
