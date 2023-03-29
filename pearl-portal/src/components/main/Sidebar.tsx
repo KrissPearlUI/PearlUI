@@ -116,8 +116,6 @@ const SideBar = () => {
             {drawerOpen?
                 <ChevronLeftIcon style={{color: '#F3F3F3'}}/>
             :<MenuIcon style={{color: '#F3F3F3'}}/>}
-           {/*  <img src="../../Group.svg" alt="Kitten" height="30" width="30" style={{backgroundColor:'transparent'}} /> */}
-              {/*   {theme.direction === 'rtl' ? <ChevronRightIcon/> : <ChevronLeftIcon/>} */}
           </IconButton> 
         </DrawerHeader>
        {/*  <Divider/> */}
