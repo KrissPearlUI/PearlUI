@@ -14,6 +14,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { ReactComponent as GlobeIcon } from '../../assets/icons/GlobeIcon.svg';
+import { ReactComponent as LogoIcon } from '../../assets/icons/LogoIcon.svg';
 
 const useStyles = makeStyles((theme: Theme) =>
     ({
@@ -77,25 +79,14 @@ export const Topbar = () => {
                         className={clsx(classes.menuButton, drawerOpen && classes.menuButtonHidden)}
                     >
                         <MenuIcon/>
-                        {/* <img src="../../Group.svg" alt="Kitten" height="30" width="30" style={{backgroundColor:'transparent'}} /> */}
-                        {/* <MenuIcon/> */}
                     </IconButton>
-                    {/* <img src="../../logoName.svg" alt="Kitten" height="50" width="100" style={{backgroundColor:'transparent'}} /> */}
                     <Typography variant="h6" noWrap aria-label={'title'} sx={{marginLeft:'1em'}}>
                         {topBarTitle}
                     </Typography>
-                   {/*  <img src="../../Group.svg" alt="Kitten" height="50" width="150" style={{backgroundColor:'transparent'}} /> */}
                 </Grid>
                 <Grid item xs={8} sx={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flex: 1}}>
-                {isDarkTheme ?<img src="../../Globe_White_Trans.svg" alt="Kitten" height="40" width="40" style={{backgroundColor:'transparent', marginRight:'0.3em'}} />
-                : <img src="../../Globe_White_Trans_LightMode.svg" alt="Kitten" height="40" width="40" style={{backgroundColor:'transparent', marginRight:'0.3em'}} />}
-                {isDarkTheme ?<img src="../../logoName.svg" alt="Kitten" height="30" width="80" style={{backgroundColor:'transparent'}} />
-                : <img src="../../logoNameLight.svg" alt="Kitten" height="30" width="80" style={{backgroundColor:'transparent'}}/>}
-                   {/*  <IconButton color="inherit" onClick={handleThemeChange} aria-label="Light/Dark" sx={{marginLeft:'1em'}}>
-                        <Tooltip title="Toggle light/dark theme">
-                            <DarkModeIcon/>
-                        </Tooltip>
-                    </IconButton> */}
+                <GlobeIcon height="40" width="40" fill={theme.palette.mode==='dark'?'#008000' : '#1B4357'}/>
+                <LogoIcon height="30" width="80" fill={theme.palette.mode==='dark'?'white' : '#454545'}/>
                      <IconButton color="primary" onClick={handleThemeChange} aria-label="AccountPic" sx={{marginLeft:'1em'}}>
                         <Tooltip title="Upload an immage">
                             <AccountCircleIcon sx={{fontSize:'32px'}}/>

@@ -3,7 +3,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
-import {Grid,ListItem, ListItemButton, ListItemIcon, ListItemText, Tooltip} from '@mui/material';
+import {Grid,ListItem, ListItemButton, ListItemIcon, ListItemText, Tooltip, Typography} from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import TableChartIcon from '@mui/icons-material/TableChart';
 import React, { useState } from 'react';
@@ -20,6 +20,7 @@ import {ReactComponent as FundsMenuIcon} from "../../assets/icons/FundsMenuIcon.
 import BusinessIcon from '@mui/icons-material/Business';
 import SettingsIcon from '@mui/icons-material/Settings';
 import {LPMenuIcon} from "../../assets/icons/lpMenuIcon";
+import { ReactComponent as GlobeIcon } from '../../assets/icons/GlobeIcon.svg';
 
 const routes = [{key: 'Dashboard', url: '/'},
     {key: 'LPs', url: '/lpsOverview'},
@@ -106,7 +107,12 @@ const SideBar = () => {
                        }
                    }}>
         <DrawerHeader sx={{height:'50px'}}>
-           <IconButton onClick={() => dispatch(setIsDrawerOpen(!drawerOpen))}>
+        {drawerOpen &&
+        <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+            <GlobeIcon height="30" width="30" fill={'white'}/>
+            <Typography variant='body2' sx={{alignSelf:'center', fontWeight:600, marginLeft:'0.5em'}}>PEARL Portal</Typography>
+        </div>}
+            <IconButton onClick={() => dispatch(setIsDrawerOpen(!drawerOpen))}>
             {drawerOpen?
                 <ChevronLeftIcon style={{color: '#F3F3F3'}}/>
             :<MenuIcon style={{color: '#F3F3F3'}}/>}
