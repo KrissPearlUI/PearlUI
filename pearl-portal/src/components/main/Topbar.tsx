@@ -85,8 +85,8 @@ export const Topbar = () => {
                     </Typography>
                 </Grid>
                 <Grid item xs={8} sx={{display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flex: 1}}>
-                <GlobeIcon height="40" width="40" fill={'#1B4357'}/>
-                <LogoIcon height="30" width="80" fill={'#454545'}/>
+                <GlobeIcon height="40" width="40" fill={theme.palette.mode==='dark'?'#008000' : '#1B4357'}/>
+                <LogoIcon height="30" width="80" fill={theme.palette.mode==='dark'?'white' : '#454545'}/>
                      <IconButton color="primary" onClick={handleThemeChange} aria-label="AccountPic" sx={{marginLeft:'1em'}}>
                         <Tooltip title="Upload an immage">
                             <AccountCircleIcon sx={{fontSize:'32px'}}/>
