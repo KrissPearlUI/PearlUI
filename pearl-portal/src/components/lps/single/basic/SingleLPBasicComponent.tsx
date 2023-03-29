@@ -1,14 +1,8 @@
-import { Accordion, AccordionDetails, AccordionSummary, Autocomplete, AutocompleteRenderInputParams, Grid, IconButton, Paper, TextField, Typography } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Grid, IconButton, Paper, Typography } from '@mui/material';
 import { darken, lighten, useTheme } from "@mui/material/styles";
-import { useEffect, useState } from 'react';
-import { setTopBarTitle } from '../../../../redux/slices/appSlice';
-import { useAppDispatch } from '../../../../redux/store';
-import { Theme } from "@mui/material";
-import { createStyles, makeStyles } from '@mui/styles';
-import LPChartComponent from '../../../landing/LPChart';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/slices/rootSlice';
-import { Fund, LP, PCO } from '../../../../models/lps/lpModels';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LPFundsTable from './LPFundsTable';
 import LPPCOsTable from './LPPCOsTable';
@@ -17,105 +11,13 @@ import moment from 'moment';
 import LPExitsTable from './LPExitsTable';
 import { amountValueFormatter } from '../../../../helpers/app';
 
-const autocompleteInputStyles = makeStyles((theme: Theme) => ({
-    autocomplete: {
-        'borderRadius': 5,
-        'backgroundColor': 'transparent',
-        '& input::placeholder': {
-            color: theme.palette.text.primary
-        },
-        '& .Mui-disabled': {
-            color: theme.palette.text.primary,
-            opacity: 0.8
-        }
-    },
-    textInput: {
-        'color': theme.palette.text.primary,
-        'fontWeight': 800,
-        'fontFamily': 'Raleway',
-        /* 'height': '2.5em', */
-        'fontSize': 10,
-        '& .MuiIconButton-label': {
-            color: theme.palette.text.primary
-        }
-    },
-    clearIndicator: {
-        color: theme.palette.text.primary
-    }
-}));
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        chart: {
-            flex: 1,
-            textAlign: 'center',
-            display: 'flex',
-            alignContent: 'center',
-        },
-        summary: {
-            flex: 1
-        },
-        inputRoot: {
-            'borderRadius': 5,
-            'backgroundColor': 'transparent',
-            /*         '& .MuiOutlinedInput-notchedOutline': {
-                        borderColor: 'black'
-                    },*/
-            '&:hover .MuiOutlinedInput-notchedOutline': {
-                borderColor: theme.palette.primary.main
-            },
-            /*  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                  borderColor: 'black'
-              }, */
-            '& .MuiChip-root': {
-                color: theme.palette.text.primary,
-                backgroundColor: 'transparent',
-                borderRadius: 5
-            },
-            '& .MuiChip-deleteIconSmall': {
-                color: theme.palette.text.primary
-            }
-        },
-        option: {
-            'background': theme.palette.background.paper,
-            '&:hover': {
-                color: theme.palette.primary.main,
-                fontWeight: 400,
-                fontFamily: 'Raleway'
-            },
-            '&[aria-selected="true"]': {
-                background: theme.palette.background.paper,
-                color: theme.palette.primary.main,
-                fontWeight: 700,
-                fontFamily: 'Raleway'
-            }
-        },
-        popupIndicator: {
-            '&.MuiIconButton-root': {
-                color: theme.palette.text.primary
-            }
-        },
-        clearIndicator: {
-            color: theme.palette.text.primary
-        },
-    }),
-);
-
 const SingleLPBasic = () => {
-    const classes = useStyles();
     const theme = useTheme();
-    const autocompleteInputClasses = autocompleteInputStyles();
-    const dispatch = useAppDispatch();
     const { selectedLP } = useSelector((state: RootState) => state.lps);
-    const [selectedLPValue, setSelectedLPValue] = useState<any>(null);
     const [isCommitmentsExpand, setIsCommitmentsExpand] = useState<boolean>(false);
     const [isFundsExpand, setIsFundsExpand] = useState<boolean>(false);
     const [isPCOsExpand, setIsPCOsExpand] = useState<boolean>(false);
     const [isExitsExpand, setIsExitsExpand] = useState<boolean>(false);
-
-    const onLPChange = (event: any) => {
-        setSelectedLPValue(event);
-    };
 
     const handleAccordionExp = (expanded: boolean, accordionId: string) => {
         if (accordionId === 'card-commitments') {
@@ -458,27 +360,27 @@ const SingleLPBasic = () => {
                 <Paper elevation={3} sx={{ backgroundColor: theme.palette.background.paper, padding: '1em' }}>
                     <Grid container spacing={1} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexDirection: 'row' }}>
                         <Grid container spacing={1} item xs={12} md={4} lg={4} sx={{ display: 'flex', flexDirection: 'column' }}>
-                            <Grid item sx={{ display: 'flex', justifyContent: 'space-between', width: {xs:'290px', md: '270px', lg: '270px'} }}>
+                            <Grid item sx={{ display: 'flex', justifyContent: 'space-between', width: { xs: '290px', md: '270px', lg: '270px' } }}>
                                 <Typography sx={{ color: theme.palette.secondary.main, marginRight: '0.5em', fontWeight: 400 }}>Management Fee:</Typography>
                                 <Typography sx={{ color: theme.palette.text.primary, fontWeight: 500, textAlign: 'right', alignSelf: 'end' }}>
                                     {selectedLP?.fees && selectedLP.fees.filter(x => x.feeType === 'Management Fee')[0] ? `${amountValueFormatter(selectedLP.fees.filter(x => x.feeType === 'Management Fee')[0]?.amount / 5, '')} EUR` : ''}
                                 </Typography>
                             </Grid>
-                            <Grid item sx={{ display: 'flex', justifyContent: 'space-between', width: {xs:'290px', md: '270px', lg: '270px'} }}>
+                            <Grid item sx={{ display: 'flex', justifyContent: 'space-between', width: { xs: '290px', md: '270px', lg: '270px' } }}>
                                 <Typography sx={{ color: theme.palette.secondary.main, marginRight: '0.5em', fontWeight: 400 }}>Capital Paid In:</Typography>
                                 <Typography sx={{ color: theme.palette.text.primary, fontWeight: 500, textAlign: 'right' }}>{selectedLP?.capPaidIn}</Typography>
                             </Grid>
-                            <Grid item sx={{ display: 'flex', justifyContent: 'space-between', width: {xs:'290px', md: '270px', lg: '270px'} }}>
+                            <Grid item sx={{ display: 'flex', justifyContent: 'space-between', width: { xs: '290px', md: '270px', lg: '270px' } }}>
                                 <Typography sx={{ color: theme.palette.secondary.main, marginRight: '0.5em', fontWeight: 400 }}>Capital Distributed:</Typography>
                                 <Typography sx={{ color: theme.palette.text.primary, fontWeight: 500, textAlign: 'right' }}>{selectedLP?.totalDistributions ? `${amountValueFormatter(selectedLP?.totalDistributions ?? 0, '')} EUR` : ''}</Typography>
                             </Grid>
-                            <Grid item sx={{ display: 'flex', justifyContent: 'space-between', width: {xs:'290px', md: '270px', lg: '270px'} }}>
+                            <Grid item sx={{ display: 'flex', justifyContent: 'space-between', width: { xs: '290px', md: '270px', lg: '270px' } }}>
                                 <Typography sx={{ color: theme.palette.secondary.main, marginRight: '0.5em', fontWeight: 400 }}>Capital Invested:</Typography>
                                 <Typography sx={{ color: theme.palette.text.primary, fontWeight: 500, textAlign: 'right' }}>{selectedLP?.totalInvestments ? `${amountValueFormatter(selectedLP?.totalInvestments ?? 0, '')} EUR` : ''}</Typography>
                             </Grid>
                         </Grid>
                         <Grid container spacing={1} item xs={12} md={4} lg={4} sx={{ display: 'flex', flexDirection: 'column' }}>
-                            <Grid item sx={{ display: 'flex',justifyContent: 'space-between', width: {xs:'290px', md: '270px', lg: '270px'} }}>
+                            <Grid item sx={{ display: 'flex', justifyContent: 'space-between', width: { xs: '290px', md: '270px', lg: '270px' } }}>
                                 <Typography sx={{ color: theme.palette.secondary.main, marginRight: '0.5em', fontWeight: 400 }}>Recycling Reserves:</Typography>
                                 <Typography sx={{ color: theme.palette.text.primary, fontWeight: 500 }}>
                                     {selectedLP?.fees && selectedLP.fees.filter(x => x.feeType === 'Recycling Reserves')[0] ? `${amountValueFormatter(selectedLP.fees.filter(x => x.feeType === 'Recycling Reserves')[0]?.amount ?? 0, '')} EUR` : ''}
