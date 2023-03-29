@@ -1,17 +1,16 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import { useSelector} from 'react-redux';
-import {Alert,Autocomplete,AutocompleteRenderInputParams,capitalize, Grid, IconButton, InputAdornment, Paper, Snackbar, TextField, useTheme} from '@mui/material';
+import {useTheme} from '@mui/material';
 import {AgGridReact} from 'ag-grid-react';
-import {GridApi, GridOptions, GridReadyEvent, ICellRendererParams, ValueGetterParams} from 'ag-grid-community';
+import {GridApi, GridOptions, GridReadyEvent} from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 import {ColDef, ColGroupDef, ValueSetterParams} from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../../redux/store';
 import { RootState } from '../../../../redux/slices/rootSlice';
-import { CommitmentBasic, Fund, LP } from '../../../../models/lps/lpModels';
-import { FundSummary } from '../../../../models/funds/fundModels';
-import { dateValueFormatter, DefaultSideBarDef, getGridTheme, DefaultColumnDef,DefaultStatusPanelDef, quantityValueFormatter } from '../../../../helpers/agGrid';
+import { CommitmentBasic, LP } from '../../../../models/lps/lpModels';
+import { dateValueFormatter, getGridTheme, DefaultColumnDef,DefaultStatusPanelDef, quantityValueFormatter } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { PCOSummary } from '../../../../models/pcos/pcoModels';
 
