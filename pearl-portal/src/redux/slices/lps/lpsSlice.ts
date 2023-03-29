@@ -1,16 +1,16 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { LP, PCOExtended } from '../../../models/lps/lpModels';
 
 export interface LPsState {
     lps: LP[]
-    selectedLP:LP|null,
-    pcosExtended:PCOExtended[]
+    selectedLP: LP | null,
+    pcosExtended: PCOExtended[]
 }
 
 const initialState: LPsState = {
     lps: [],
-    selectedLP:null,
-    pcosExtended:[]
+    selectedLP: null,
+    pcosExtended: []
 };
 
 const lpsSlice = createSlice({

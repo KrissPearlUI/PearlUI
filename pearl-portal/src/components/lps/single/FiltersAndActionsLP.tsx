@@ -38,7 +38,7 @@ interface SingleSelectionProps {
     handleButtonClick: any
 }
 
-const FiltersAndActionsFundComponent = ({ selectedItem, handleButtonClick }: SingleSelectionProps) => {
+const FiltersAndActionsLPComponent = ({ selectedItem, handleButtonClick }: SingleSelectionProps) => {
     const classes = useStyles();
     const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
     const [gridApi, setGridApi] = useState<GridApi>();
@@ -114,4 +114,4 @@ const FiltersAndActionsFundComponent = ({ selectedItem, handleButtonClick }: Sin
     );
 };
 
-export default FiltersAndActionsFundComponent;
+export default FiltersAndActionsLPComponent;

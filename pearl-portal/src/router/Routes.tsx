@@ -1,5 +1,5 @@
-import React, {Suspense} from 'react';
-import {Route, Routes} from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import LoaderPage from '../pages/main/LoaderPage';
 import LandingPage from "../pages/landing/LandingPage";
 import LPsOverview from '../pages/lps/summary/LPsOverviewPage';
@@ -12,16 +12,16 @@ import SinglePCO from '../pages/pcos/single/SinglePCOPage';
 
 export const RoutesSwitch = () => {
     return (
-        <Suspense fallback={<LoaderPage/>}>
+        <Suspense fallback={<LoaderPage />}>
             <Routes>
-                <Route path={'/'} element={<LandingPage/>}/>
-                <Route path={'/lpsOverview'} element={<LPsOverview/>}/>
-                <Route path={'/lpsOverview/singleLP'} element={<SingleLP/>}/>
-                <Route path={'/fundsOverview'} element={<FundsOverview/>}/>
-                <Route path={'/fundsOverview/singleFund'} element={<SingleFund/>}/>
-                <Route path={'/pcosOverview'} element={<PCOsOverview/>}/>
-                <Route path={'/pcosOverview/singlePCO'} element={<SinglePCO/>}/>
-                <Route path={'/settings'} element={<Settings/>}/>
+                <Route path={'/'} element={<LandingPage />} />
+                <Route path={'/lpsOverview'} element={<LPsOverview />} />
+                <Route path={'/lpsOverview/singleLP'} element={<SingleLP />} />
+                <Route path={'/fundsOverview'} element={<FundsOverview />} />
+                <Route path={'/fundsOverview/singleFund'} element={<SingleFund />} />
+                <Route path={'/pcosOverview'} element={<PCOsOverview />} />
+                <Route path={'/pcosOverview/singlePCO'} element={<SinglePCO />} />
+                <Route path={'/settings'} element={<Settings />} />
             </Routes>
         </Suspense>
     );

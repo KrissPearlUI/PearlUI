@@ -1,19 +1,19 @@
-import {Theme} from "@mui/material";
-import {makeStyles} from '@mui/styles';
+import { Theme } from "@mui/material";
+import { makeStyles } from '@mui/styles';
 import { useEffect } from 'react';
 import { setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
 import PCOsOverviewTable from '../../../components/pcos/summary/PCOsOverviewTableComponent';
 
 const useStyles = makeStyles((theme: Theme) =>
-    ({
-        root: {
-            display: 'flex',
-            flex: 1,
-            paddingLeft:'0.2em',
-            paddingRight:'0.2em',
-        },
-    }),
+({
+    root: {
+        display: 'flex',
+        flex: 1,
+        paddingLeft: '0.2em',
+        paddingRight: '0.2em',
+    },
+}),
 );
 
 
@@ -30,7 +30,7 @@ const PCOsOverview = () => {
 
     return (
         <div className={classes.root}>
-            <PCOsOverviewTable/>
+            <PCOsOverviewTable />
             {/* <AddDialog pageName={'LPs'}/>
             <ExportDialog pageName={'LPs'}/> */}
         </div>

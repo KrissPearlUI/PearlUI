@@ -1,5 +1,5 @@
 import { DistributionBasic } from '../../models/distributions/distributionsModels';
-import {RestService} from '../RestService';
+import { RestService } from '../RestService';
 
 export class DistributionsDataService extends RestService {
     private _baseUrl = './distributions.json';
@@ -9,9 +9,9 @@ export class DistributionsDataService extends RestService {
      * @return LP[]
      */
     public async getAllDistributions(): Promise<DistributionBasic[]> {
-        return this.fetchData(this._baseUrl).then((res:any) => {
+        return this.fetchData(this._baseUrl).then((res: any) => {
             return res.data;
-        }).catch((err:any) => {
+        }).catch((err: any) => {
             console.log(err);
             return err;
         });

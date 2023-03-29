@@ -1,5 +1,5 @@
 import { PCOFinancial } from '../../models/pcos/pcoModels';
-import {RestService} from '../RestService';
+import { RestService } from '../RestService';
 
 export class PCOFinancialsDataService extends RestService {
     private _baseUrl = './pcoNavLatests.json';
@@ -9,9 +9,9 @@ export class PCOFinancialsDataService extends RestService {
      * @return PCOFinancial[]
      */
     public async getAllPCOsFinancials(): Promise<PCOFinancial[]> {
-        return this.fetchData(this._baseUrl).then((res:any) => {
+        return this.fetchData(this._baseUrl).then((res: any) => {
             return res.data;
-        }).catch((err:any) => {
+        }).catch((err: any) => {
             console.log(err);
             return err;
         });

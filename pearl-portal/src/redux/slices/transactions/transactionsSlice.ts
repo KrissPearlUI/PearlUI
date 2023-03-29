@@ -1,14 +1,14 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Transaction } from '../../../models/transactions/transactionsModels';
 
 export interface TransactionState {
     transactions: Transaction[]
-    selectedTransaction:Transaction|null
+    selectedTransaction: Transaction | null
 }
 
 const initialState: TransactionState = {
     transactions: [],
-    selectedTransaction:null
+    selectedTransaction: null
 };
 
 const transactionsSlice = createSlice({

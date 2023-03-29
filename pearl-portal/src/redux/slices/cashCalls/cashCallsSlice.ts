@@ -1,14 +1,14 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CashCall } from '../../../models/cashCalls/cashCallsModels';
 
 export interface CashCallState {
     cashCalls: CashCall[]
-    selectedCashCall:CashCall|null
+    selectedCashCall: CashCall | null
 }
 
 const initialState: CashCallState = {
     cashCalls: [],
-    selectedCashCall:null
+    selectedCashCall: null
 };
 
 const cashCallsSlice = createSlice({

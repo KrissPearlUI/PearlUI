@@ -10,7 +10,7 @@ export const fetchTransactions: any = () => async (dispatch: any) => {
         const transactionService = new TransactionDataService();
         const data = await transactionService.getAllTransactions();
         dispatch(setTransactions(data));
-    } catch (error:any) {
+    } catch (error: any) {
         dispatch(setErrorMessage(error));
     }
 };

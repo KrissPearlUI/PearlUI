@@ -11,7 +11,7 @@ export const fetchPCOs: any = () => async (dispatch: any) => {
         const pcosService = new PCODataService();
         const data = await pcosService.getAllPCOs();
         dispatch(setPCOs(data));
-    } catch (error:any) {
+    } catch (error: any) {
         dispatch(setErrorMessage(error));
     }
 };
@@ -24,7 +24,7 @@ export const fetchPCOsFinantials: any = () => async (dispatch: any) => {
         const pcosFinantialService = new PCOFinancialsDataService();
         const data = await pcosFinantialService.getAllPCOsFinancials();
         dispatch(setPCOsFinantials(data));
-    } catch (error:any) {
+    } catch (error: any) {
         dispatch(setErrorMessage(error));
     }
 };

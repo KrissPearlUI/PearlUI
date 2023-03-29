@@ -1,5 +1,5 @@
-import {createTheme} from '@mui/material';
-import {blue} from '@mui/material/colors';
+import { createTheme } from '@mui/material';
+import { blue } from '@mui/material/colors';
 
 /**
  * Creat light theme using material ui
@@ -9,7 +9,7 @@ import {blue} from '@mui/material/colors';
  */
 export const lightTheme = createTheme({
     typography: {
-        fontFamily:'Raleway',
+        fontFamily: 'Raleway',
         fontWeightLight: 300,
         fontWeightRegular: 400,
         fontWeightMedium: 600
@@ -87,7 +87,7 @@ export const lightTheme = createTheme({
  */
 export const darkTheme = createTheme({
     typography: {
-        fontFamily:'Raleway',
+        fontFamily: 'Raleway',
         fontWeightLight: 300,
         fontWeightRegular: 400,
         fontWeightMedium: 600

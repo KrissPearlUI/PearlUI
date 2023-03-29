@@ -1,5 +1,5 @@
 import { CashCall } from '../../models/cashCalls/cashCallsModels';
-import {RestService} from '../RestService';
+import { RestService } from '../RestService';
 
 export class CashCallDataService extends RestService {
     private _baseUrl = './cashCallsData.json';
@@ -9,9 +9,9 @@ export class CashCallDataService extends RestService {
      * @return LP[]
      */
     public async getAllCashCalls(): Promise<CashCall[]> {
-        return this.fetchData(this._baseUrl).then((res:any) => {
+        return this.fetchData(this._baseUrl).then((res: any) => {
             return res.data;
-        }).catch((err:any) => {
+        }).catch((err: any) => {
             console.log(err);
             return err;
         });

@@ -3,56 +3,56 @@ export interface LP {
     name: string,
     shortName: string,
     country?: string,
-    address?:string,
-    website?:string,
-    mainContact?:string,
-    relationshipPartner?:string,
-    relationshipSS?:string,
+    address?: string,
+    website?: string,
+    mainContact?: string,
+    relationshipPartner?: string,
+    relationshipSS?: string,
     type?: string,
-    firstInvestment?:string,
+    firstInvestment?: string,
     totalCommitments: number,
-    funds?:Fund[],
-    pcos?:PCO[],
+    funds?: Fund[],
+    pcos?: PCO[],
     commitments?: CommitmentBasic[],
-    exits?:Exits[],
-    totalInvestments?:number,
-    totalDistributions?:number,
-    reservesFees?:number,
-    tappedOot?:boolean,
-    numTerminated?:number,
-    terminated?:TerminationFundLP[],
-    fees:Fee[],
-    dryPowder?:number,
-    reserved?:number,
-    capPaidIn?:number,
-    avgDealsAvailable?:number,
-    capAvailable?:number,
-    dateTappedOut?:string,
-    kpis?:KPI
+    exits?: Exits[],
+    totalInvestments?: number,
+    totalDistributions?: number,
+    reservesFees?: number,
+    tappedOot?: boolean,
+    numTerminated?: number,
+    terminated?: TerminationFundLP[],
+    fees: Fee[],
+    dryPowder?: number,
+    reserved?: number,
+    capPaidIn?: number,
+    avgDealsAvailable?: number,
+    capAvailable?: number,
+    dateTappedOut?: string,
+    kpis?: KPI
 }
 
-export interface TerminationFundLP{
-    id?:string,
-    lpId?:string,
-    fundId?:string,
-    dateTermination?:string
+export interface TerminationFundLP {
+    id?: string,
+    lpId?: string,
+    fundId?: string,
+    dateTermination?: string
 }
 
 export interface LPFundsOverview {
     id: string,
     shortName: string,
     name: string,
-    committedAmount?:number,
-    fundCurrency:string,
+    committedAmount?: number,
+    fundCurrency: string,
     participationPercentage?: number,
-  }
+}
 
 export interface Fund {
     id: string,
     fundName: string,
     committedAmount?: number,
     amountInvested?: number,
-    fundCurrency:string
+    fundCurrency: string
 }
 
 export interface PCO {
@@ -60,20 +60,20 @@ export interface PCO {
     participationPercentage?: number,
     shortName: string,
     amountInvested?: number,
-    localCurrency?:string,
-    fundCurrency?:string,
+    localCurrency?: string,
+    fundCurrency?: string,
 }
 
 export interface PCOExtended extends PCO {
     pcoName: string,
     country: string,
-    dateFirstInvestment?:string,
-    dateExit?:string,
-    currentStage?:string,
-    initialStage?:string,
-    emeraldIndustry1?:string,
-    emeraldIndustry2?:string,
-    navEUR?:number,
+    dateFirstInvestment?: string,
+    dateExit?: string,
+    currentStage?: string,
+    initialStage?: string,
+    emeraldIndustry1?: string,
+    emeraldIndustry2?: string,
+    navEUR?: number,
 }
 
 export interface Commitment {
@@ -98,25 +98,25 @@ export interface KPI {
 }
 
 export interface CommitmentBasic {
-    id:string,
-    date?:string,
-    fundId?:string,
-    fundName?:string,
-    shortName?:string,
-    committedAmount?:number,
-    fundCurrency?:string,
-    transfered?:boolean
+    id: string,
+    date?: string,
+    fundId?: string,
+    fundName?: string,
+    shortName?: string,
+    committedAmount?: number,
+    fundCurrency?: string,
+    transfered?: boolean
 }
 
 export interface Exits {
-    id:string,
-    date?:string,
-    pcoId?:string,
-    pcoName?:string,
-    shortName?:string,
-    amountGained?:number,
-    fundCurrency?:string,
-    type?:string
+    id: string,
+    date?: string,
+    pcoId?: string,
+    pcoName?: string,
+    shortName?: string,
+    amountGained?: number,
+    fundCurrency?: string,
+    type?: string
 }
 
 export interface Distribution {

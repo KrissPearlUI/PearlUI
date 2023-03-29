@@ -10,7 +10,7 @@ export const fetchLPs: any = () => async (dispatch: any) => {
         const lpsService = new LPDataService();
         const data = await lpsService.getAllLPs();
         dispatch(setLPs(data));
-    } catch (error:any) {
+    } catch (error: any) {
         dispatch(setErrorMessage(error));
     }
 };

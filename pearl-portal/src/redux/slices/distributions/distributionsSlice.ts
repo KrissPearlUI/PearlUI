@@ -1,14 +1,14 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { DistributionBasic } from '../../../models/distributions/distributionsModels';
 
 export interface DistributionsState {
     distributions: DistributionBasic[]
-    selectedDistribution:DistributionBasic|null
+    selectedDistribution: DistributionBasic | null
 }
 
 const initialState: DistributionsState = {
     distributions: [],
-    selectedDistribution:null
+    selectedDistribution: null
 };
 
 const distributionsSlice = createSlice({

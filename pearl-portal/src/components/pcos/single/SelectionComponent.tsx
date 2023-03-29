@@ -1,10 +1,10 @@
-import {Box, Button, ButtonGroup, Fab, Grid,IconButton,InputAdornment,Paper,TextField,Typography} from '@mui/material';
-import {darken, useTheme} from "@mui/material/styles";
+import { Box, Button, ButtonGroup, Fab, Grid, IconButton, InputAdornment, Paper, TextField, Typography } from '@mui/material';
+import { darken, useTheme } from "@mui/material/styles";
 import { useCallback, useEffect, useState } from 'react';
 import { setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
-import {Theme} from "@mui/material";
-import {createStyles,makeStyles} from '@mui/styles';
+import { Theme } from "@mui/material";
+import { createStyles, makeStyles } from '@mui/styles';
 import LPChartComponent from '../../landing/LPChart';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import CloseIcon from '@mui/icons-material/Close';
@@ -39,58 +39,72 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface SingleSelectionProps {
-    selectedItem:string
-    handleButtonClick:any
+    selectedItem: string
+    handleButtonClick: any
 }
 
-const SelectionPCOComponent = ({selectedItem,handleButtonClick}:SingleSelectionProps) => {
-    const classes=useStyles();
-    const theme=useTheme();
+const SelectionPCOComponent = ({ selectedItem, handleButtonClick }: SingleSelectionProps) => {
+    const classes = useStyles();
+    const theme = useTheme();
     const dispatch = useAppDispatch();
     const [searchText, setSearchText] = useState<string | null>(null);
     const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
     const [gridApi, setGridApi] = useState<GridApi>();
 
-    const onValueChange =  useCallback((event: any) => {
+    const onValueChange = useCallback((event: any) => {
         setSearchTextValue(event.target.value)
-        if(gridApi){
+        if (gridApi) {
             gridApi.setQuickFilter(event.target.value);
         }
-    },[gridApi]);
+    }, [gridApi]);
 
     const onCancelClick = useCallback(() => {
         setSearchTextValue('');
-        if(gridApi){
+        if (gridApi) {
             gridApi.setQuickFilter('');
         }
-    },[gridApi]);
+    }, [gridApi]);
 
     return (
-            <ButtonGroup variant="outlined"  aria-label="outlined primary button group" sx={{height:36}}>
-                <Button sx={{fontSize: { xs: 10, md: 12, lg:12 },
-                backgroundColor:selectedItem==='basic'?theme.palette.primary.main:theme.palette.background.paper,
-                color: selectedItem==='basic'?'white':theme.palette.primary.main}}
+        <ButtonGroup variant="outlined" aria-label="outlined primary button group" sx={{ height: 36, overflow: 'auto', width: { xs: '500px', md: '100%', lg: '100%' } }}>
+            <Button sx={{
+                fontSize: { xs: 8, md: 12, lg: 12 },
+                backgroundColor: selectedItem === 'basic' ? theme.palette.primary.main : theme.palette.background.paper,
+                color: selectedItem === 'basic' ? 'white' : theme.palette.primary.main
+            }}
                 onClick={() => handleButtonClick('basic')}>
-                    Basic Information</Button>
-                <Button sx={{fontSize: { xs: 10, md: 12, lg:12 },backgroundColor:selectedItem==='contacts'?theme.palette.primary.main:theme.palette.background.paper,
-                color: selectedItem==='contacts'?'white':theme.palette.primary.main}} onClick={() => handleButtonClick('contacts')}>
-                    Contacts</Button>
-                <Button sx={{fontSize: { xs: 10, md: 12, lg:12 },backgroundColor:selectedItem==='transactions'?theme.palette.primary.main:theme.palette.background.paper,
-                color: selectedItem==='transactions'?'white':theme.palette.primary.main}} onClick={() => handleButtonClick('transactions')}>
-                    Transactions</Button>
-                    <Button sx={{fontSize: { xs: 10, md: 12, lg:12 },backgroundColor:selectedItem==='valuations'?theme.palette.primary.main:theme.palette.background.paper,
-                color: selectedItem==='valuations'?'white':theme.palette.primary.main}} onClick={() => handleButtonClick('valuations')}>
-                    Valuations</Button>
-                <Button sx={{fontSize: { xs: 10, md: 12, lg:12 },backgroundColor:selectedItem==='exitsReserves'?theme.palette.primary.main:theme.palette.background.paper,
-                color: selectedItem==='exitsReserves'?'white':theme.palette.primary.main}} onClick={() => handleButtonClick('exitsReserves')}>
-                    Exit & Reserves</Button>
-                    <Button sx={{fontSize: { xs: 10, md: 12, lg:12 },backgroundColor:selectedItem==='pcoFinantials'?theme.palette.primary.main:theme.palette.background.paper,
-                color: selectedItem==='pcoFinantials'?'white':theme.palette.primary.main}} onClick={() => handleButtonClick('pcoFinantials')}>
-                    PCO Finantials</Button>
-                <Button sx={{fontSize: { xs: 10, md: 12, lg:12 },backgroundColor:selectedItem==='documents'?theme.palette.primary.main:theme.palette.background.paper,
-                color: selectedItem==='documents'?'white':theme.palette.primary.main}} onClick={() => handleButtonClick('documents')}>
-                    Documents</Button>
-            </ButtonGroup>
+                Basic Information</Button>
+            <Button sx={{
+                fontSize: { xs: 8, md: 12, lg: 12 }, backgroundColor: selectedItem === 'contacts' ? theme.palette.primary.main : theme.palette.background.paper,
+                color: selectedItem === 'contacts' ? 'white' : theme.palette.primary.main
+            }} onClick={() => handleButtonClick('contacts')}>
+                Contacts</Button>
+            <Button sx={{
+                fontSize: { xs: 8, md: 12, lg: 12 }, backgroundColor: selectedItem === 'transactions' ? theme.palette.primary.main : theme.palette.background.paper,
+                color: selectedItem === 'transactions' ? 'white' : theme.palette.primary.main
+            }} onClick={() => handleButtonClick('transactions')}>
+                Transactions</Button>
+            <Button sx={{
+                fontSize: { xs: 8, md: 12, lg: 12 }, backgroundColor: selectedItem === 'valuations' ? theme.palette.primary.main : theme.palette.background.paper,
+                color: selectedItem === 'valuations' ? 'white' : theme.palette.primary.main
+            }} onClick={() => handleButtonClick('valuations')}>
+                Valuations</Button>
+            <Button sx={{
+                fontSize: { xs: 8, md: 12, lg: 12 }, backgroundColor: selectedItem === 'exitsReserves' ? theme.palette.primary.main : theme.palette.background.paper,
+                color: selectedItem === 'exitsReserves' ? 'white' : theme.palette.primary.main
+            }} onClick={() => handleButtonClick('exitsReserves')}>
+                Exit & Reserves</Button>
+            <Button sx={{
+                fontSize: { xs: 8, md: 12, lg: 12 }, backgroundColor: selectedItem === 'pcoFinantials' ? theme.palette.primary.main : theme.palette.background.paper,
+                color: selectedItem === 'pcoFinantials' ? 'white' : theme.palette.primary.main
+            }} onClick={() => handleButtonClick('pcoFinantials')}>
+                PCO Finantials</Button>
+            <Button sx={{
+                fontSize: { xs: 8, md: 12, lg: 12 }, backgroundColor: selectedItem === 'documents' ? theme.palette.primary.main : theme.palette.background.paper,
+                color: selectedItem === 'documents' ? 'white' : theme.palette.primary.main
+            }} onClick={() => handleButtonClick('documents')}>
+                Documents</Button>
+        </ButtonGroup>
     );
 };
 

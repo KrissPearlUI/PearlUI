@@ -1,4 +1,4 @@
-import { Button, ButtonGroup } from '@mui/material';
+import { Button, ButtonGroup, useMediaQuery } from '@mui/material';
 import { useTheme } from "@mui/material/styles";
 
 interface SingleSelectionProps {
@@ -6,15 +6,17 @@ interface SingleSelectionProps {
     handleButtonClick: any
 }
 
-const SelectionFundComponent = ({ selectedItem, handleButtonClick }: SingleSelectionProps) => {
+const SelectionLPComponent = ({ selectedItem, handleButtonClick }: SingleSelectionProps) => {
     const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const orientation = isMobile ? 'vertical' : 'horizontal';
 
     return (
-        <ButtonGroup variant="outlined" aria-label="outlined primary button group" sx={{ height: 36,overflow: 'auto', width: {xs:'500px', md:'100%', lg:'100%'} }}>
+        <ButtonGroup variant="outlined" aria-label="outlined primary button group" sx={{ height: 36, overflow: 'auto', width: {xs:'500px', md:'100%', lg:'100%'} }}>
             <Button sx={{
                 fontSize: { xs: 8, md: 12, lg: 12 },
                 backgroundColor: selectedItem === 'basic' ? theme.palette.primary.main : theme.palette.background.paper,
-                color: selectedItem === 'basic' ? 'white' : theme.palette.primary.main
+                color: selectedItem === 'basic' ? 'white' : theme.palette.primary.main,
             }}
                 onClick={() => handleButtonClick('basic')}>
                 Basic Information</Button>
@@ -23,6 +25,11 @@ const SelectionFundComponent = ({ selectedItem, handleButtonClick }: SingleSelec
                 color: selectedItem === 'commitments' ? 'white' : theme.palette.primary.main
             }} onClick={() => handleButtonClick('commitments')}>
                 Commitments</Button>
+            <Button sx={{
+                fontSize: { xs: 8, md: 12, lg: 12 }, backgroundColor: selectedItem === 'coinvestments' ? theme.palette.primary.main : theme.palette.background.paper,
+                color: selectedItem === 'coinvestments' ? 'white' : theme.palette.primary.main
+            }} onClick={() => handleButtonClick('coinvestments')}>
+                Co-Investments</Button>
             <Button sx={{
                 fontSize: { xs: 8, md: 12, lg: 12 }, backgroundColor: selectedItem === 'portfolio' ? theme.palette.primary.main : theme.palette.background.paper,
                 color: selectedItem === 'portfolio' ? 'white' : theme.palette.primary.main
@@ -47,4 +54,4 @@ const SelectionFundComponent = ({ selectedItem, handleButtonClick }: SingleSelec
     );
 };
 
-export default SelectionFundComponent;
+export default SelectionLPComponent;

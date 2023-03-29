@@ -1,5 +1,5 @@
 import { FundSummary } from '../../models/funds/fundModels';
-import {RestService} from '../RestService';
+import { RestService } from '../RestService';
 
 export class FundDataService extends RestService {
     private _baseUrl = './fundsShort.json';
@@ -9,9 +9,9 @@ export class FundDataService extends RestService {
      * @return LP[]
      */
     public async getAllFunds(): Promise<FundSummary[]> {
-        return this.fetchData(this._baseUrl).then((res:any) => {
+        return this.fetchData(this._baseUrl).then((res: any) => {
             return res.data;
-        }).catch((err:any) => {
+        }).catch((err: any) => {
             console.log(err);
             return err;
         });

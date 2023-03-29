@@ -10,7 +10,7 @@ export const fetchAllDistributions: any = () => async (dispatch: any) => {
         const distributionsService = new DistributionsDataService();
         const data = await distributionsService.getAllDistributions();
         dispatch(setDistributions(data));
-    } catch (error:any) {
+    } catch (error: any) {
         dispatch(setErrorMessage(error));
     }
 };

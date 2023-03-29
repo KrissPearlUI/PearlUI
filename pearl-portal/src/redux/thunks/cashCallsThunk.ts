@@ -10,7 +10,7 @@ export const fetchCashCalls: any = () => async (dispatch: any) => {
         const cashCallService = new CashCallDataService();
         const data = await cashCallService.getAllCashCalls();
         dispatch(setCashCalls(data));
-    } catch (error:any) {
+    } catch (error: any) {
         dispatch(setErrorMessage(error));
     }
 };

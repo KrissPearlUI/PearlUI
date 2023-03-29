@@ -1,5 +1,5 @@
-import {RestService} from '../RestService';
-import {LP} from "../../models/lps/lpModels";
+import { RestService } from '../RestService';
+import { LP } from "../../models/lps/lpModels";
 
 export class LPDataService extends RestService {
     private _baseUrl = './lpshort.json';
@@ -9,9 +9,9 @@ export class LPDataService extends RestService {
      * @return LP[]
      */
     public async getAllLPs(): Promise<LP[]> {
-        return this.fetchData(this._baseUrl).then((res:any) => {
+        return this.fetchData(this._baseUrl).then((res: any) => {
             return res.data;
-        }).catch((err:any) => {
+        }).catch((err: any) => {
             console.log(err);
             return err;
         });

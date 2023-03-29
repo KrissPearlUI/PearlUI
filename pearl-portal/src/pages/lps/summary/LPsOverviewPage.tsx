@@ -1,19 +1,19 @@
-import {Theme} from "@mui/material";
-import {makeStyles} from '@mui/styles';
+import { Theme } from "@mui/material";
+import { makeStyles } from '@mui/styles';
 import { useEffect } from 'react';
 import { setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
 import LPOverviewTable from '../../../components/lps/summary/LPOverviewTableComponents';
 
 const useStyles = makeStyles((theme: Theme) =>
-    ({
-        root: {
-            display: 'flex',
-            flex: 1,
-            paddingLeft:'0.2em',
-            paddingRight:'0.2em',
-        },
-    }),
+({
+    root: {
+        display: 'flex',
+        flex: 1,
+        paddingLeft: '0.2em',
+        paddingRight: '0.2em',
+    },
+}),
 );
 
 
@@ -30,7 +30,7 @@ const LPsOverview = () => {
 
     return (
         <div className={classes.root}>
-            <LPOverviewTable/>
+            <LPOverviewTable />
             {/* <AddDialog pageName={'LPs'}/>
             <ExportDialog pageName={'LPs'}/> */}
         </div>

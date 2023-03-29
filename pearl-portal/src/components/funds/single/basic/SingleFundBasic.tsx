@@ -158,7 +158,7 @@ const SingleFundBasic = () => {
             <Grid item xs={12}>
                 <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper, padding:'1em'}}>
                     <Grid container spacing={1} sx={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexDirection:'row'}}>
-                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid container spacing={1} item xs={12} md={4} lg={4} sx={{display:'flex',  flexDirection:'column'}}>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Domicile:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.country}</Typography>
@@ -172,7 +172,7 @@ const SingleFundBasic = () => {
                             <Typography sx={{color:theme.palette.text.primary,fontWeight:500}}>{selectedFund?.investmentComitee}</Typography>
                             </Grid>
                         </Grid>
-                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid container spacing={1} item xs={12} md={4} lg={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>First Closing Date:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.vintage ? moment(new Date(selectedFund?.vintage)).format('DD MMM YYYY'):''}</Typography>
@@ -186,7 +186,7 @@ const SingleFundBasic = () => {
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.currency}</Typography>
                             </Grid>
                         </Grid>
-                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid container spacing={1} item xs={12} md={4} lg={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Type:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.type}</Typography>
@@ -206,7 +206,7 @@ const SingleFundBasic = () => {
             <Grid item xs={12} sx={{flex:1}}>
                 <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper, padding:'1em'}}>
                 <Grid container spacing={1} sx={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexDirection:'row'}}>
-                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column',flex:1}}>
+                        <Grid container spacing={1} item xs={12} md={4} lg={4} sx={{display:'flex',  flexDirection:'column',flex:1}}>
                             <Grid item sx={{display:'flex'}}>
                             <Accordion
                             elevation={0}
@@ -342,13 +342,13 @@ const SingleFundBasic = () => {
                             </Accordion>
                             </Grid>
                         </Grid>
-                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid container spacing={1} item xs={12} md={4} lg={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Of which terminated:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>{selectedFund?.terminated ? selectedFund.terminated.length:0}</Typography>
                             </Grid>
                         </Grid>
-                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid container spacing={1} item xs={12} md={4} lg={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                         <Accordion
                             elevation={0}
@@ -462,7 +462,7 @@ const SingleFundBasic = () => {
             <Grid item xs={12}>
                 <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper,padding:'1em'}}>
                 <Grid container spacing={3} sx={{display:'flex', justifyContent:'flex-start', alignItems:'flex-start', flexDirection:'row'}}>
-                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid container spacing={1} item xs={12} md={4} lg={4} sx={{display:'flex',  flexDirection:'column'}}>
                             <Grid item sx={{display:'flex', justifyContent:'space-between', width:'280px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Currency:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500, textAlign:'right', alignSelf:'end'}}>
@@ -478,7 +478,7 @@ const SingleFundBasic = () => {
                             <Typography sx={{color:theme.palette.text.primary,fontWeight:500,textAlign:'right'}}>{amountValueFormatter(selectedFund?.sumBaseAmountFundCccy??0,'')}</Typography>
                             </Grid>
                         </Grid>
-                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid container spacing={1} item xs={12} md={4} lg={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex', justifyContent:'space-between',width:'280px'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Currency:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
@@ -500,7 +500,7 @@ const SingleFundBasic = () => {
             <Grid item xs={12}>
                 <Paper elevation={3} sx={{backgroundColor:theme.palette.background.paper,padding:'1em'}}>
                 <Grid container spacing={1} sx={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexDirection:'row'}}>
-                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid container spacing={1} item xs={12} md={4} lg={4} sx={{display:'flex',  flexDirection:'column'}}>
                             <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Net DPI:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
@@ -514,7 +514,7 @@ const SingleFundBasic = () => {
                                 </Typography>
                             </Grid>
                         </Grid>
-                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid container spacing={1} item xs={12} md={4} lg={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Net TVPI:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
@@ -528,7 +528,7 @@ const SingleFundBasic = () => {
                                 </Typography>
                             </Grid>
                         </Grid>
-                        <Grid container spacing={1} item xs={4} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid container spacing={1} item xs={12} md={4} lg={4} sx={{display:'flex',  flexDirection:'column'}}>
                         <Grid item sx={{display:'flex'}}>
                             <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:400}}>Net IRR:</Typography>
                             <Typography sx={{color:theme.palette.text.primary, fontWeight:500}}>
@@ -547,7 +547,7 @@ const SingleFundBasic = () => {
             </Grid>
             <Grid item xs={12}>
                 <Grid container spacing={3} sx={{display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexDirection:'row', paddingLeft:'0.2em', paddingTop:'0.8em'}}>
-                        <Grid item  xs={3} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid item  xs={12} md={3} lg={3} sx={{display:'flex',  flexDirection:'column'}}>
                             <Paper elevation={3} sx={{backgroundColor:theme.palette.mode==='light' ? 'rgba(37, 96, 126, 0.2)' : 'rgb(128, 192, 128,0.2)', padding:'0.5em',minHeight:'125px'}}>
                                 <Grid item sx={{display:'flex', justifyContent:'space-between', marginBottom:'0.5em'}}>
                                 <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:600, fontSize:16}}>Capital Called:</Typography>
@@ -571,7 +571,7 @@ const SingleFundBasic = () => {
                                 </Grid>
                             </Paper>
                         </Grid>
-                        <Grid item xs={3} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid item xs={12} md={3} lg={3} sx={{display:'flex',  flexDirection:'column'}}>
                             <Paper elevation={3} sx={{backgroundColor:theme.palette.mode==='light' ? 'rgba(37, 96, 126, 0.2)' : 'rgb(128, 192, 128,0.2)', padding:'0.5em', minHeight:'125px'}}>
                                 <Grid item sx={{display:'flex',justifyContent:'space-between',marginBottom:'0.5em'}}>
                                 <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:600, fontSize:16}}>Capital Invested:</Typography>
@@ -593,7 +593,7 @@ const SingleFundBasic = () => {
                                 </Grid>
                             </Paper>
                         </Grid>
-                        <Grid item xs={3} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid item xs={12} md={3} lg={3} sx={{display:'flex',  flexDirection:'column'}}>
                             <Paper elevation={3} sx={{backgroundColor:theme.palette.mode==='light' ? 'rgba(37, 96, 126, 0.2)' : 'rgb(128, 192, 128,0.2)', padding:'0.5em',minHeight:'125px'}}>
                                 <Grid item sx={{display:'flex',justifyContent:'space-between', marginBottom:'0.5em'}}>
                                 <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:600, fontSize:16}}>Capital Distributed:</Typography>
@@ -615,7 +615,7 @@ const SingleFundBasic = () => {
                                 </Grid>
                             </Paper>
                         </Grid>
-                        <Grid item xs={3} sx={{display:'flex',  flexDirection:'column'}}>
+                        <Grid item xs={12} md={3} lg={3} sx={{display:'flex',  flexDirection:'column'}}>
                              <Paper elevation={3} sx={{backgroundColor:theme.palette.mode==='light' ? 'rgba(37, 96, 126, 0.2)' : 'rgb(128, 192, 128,0.2)', padding:'0.5em',minHeight:'125px'}}>
                                 <Grid item sx={{display:'flex',justifyContent:'space-between', marginBottom:'0.5em'}}>
                                 <Typography sx={{color:theme.palette.secondary.main, marginRight:'0.5em', fontWeight:600, fontSize:16}}>Carried Interest:</Typography>

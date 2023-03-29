@@ -1,20 +1,20 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface MainState {
     drawerOpen: boolean;
     isDarkTheme: boolean;
-    topBarTitle:string;
-    userName:string;
-    activePath:string;
-    errorMessage?:string;
+    topBarTitle: string;
+    userName: string;
+    activePath: string;
+    errorMessage?: string;
 }
 
 const initialState: MainState = {
     drawerOpen: false,
     isDarkTheme: false,
-    topBarTitle:'Dashboard',
-    userName:'Jane Doe',
-    activePath:'/'
+    topBarTitle: 'Dashboard',
+    userName: 'Jane Doe',
+    activePath: '/'
 };
 
 const appSlice = createSlice({
@@ -45,20 +45,20 @@ const appSlice = createSlice({
         setTopBarTitle(state, action: PayloadAction<string>) {
             state.topBarTitle = action.payload;
         },
-         /**
-         * Set's the current logged in user name and last name
-         * @param state
-         * @param action
-         */
-         setUserName(state, action: PayloadAction<string>) {
+        /**
+        * Set's the current logged in user name and last name
+        * @param state
+        * @param action
+        */
+        setUserName(state, action: PayloadAction<string>) {
             state.userName = action.payload;
         },
-         /**
-         * Set's the current page url
-         * @param state
-         * @param action
-         */
-         setActivePath(state, action: PayloadAction<string>) {
+        /**
+        * Set's the current page url
+        * @param state
+        * @param action
+        */
+        setActivePath(state, action: PayloadAction<string>) {
             state.activePath = action.payload;
         },
         /**

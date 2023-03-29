@@ -1,5 +1,5 @@
 import { ValueGetterParams } from 'ag-grid-community';
-import {Md5} from 'ts-md5';
+import { Md5 } from 'ts-md5';
 
 /**
  * Getting avatar url
@@ -50,12 +50,12 @@ export const getBrowserLocales = (options = {}): string[] => {
 /**
  * Number formatter with maximum fraction digits of 6
  */
-export const numberFormatter = new Intl.NumberFormat(getBrowserLocale(), {maximumFractionDigits: 6});
+export const numberFormatter = new Intl.NumberFormat(getBrowserLocale(), { maximumFractionDigits: 6 });
 
 /**
  * Crypto number formatter with maximum fraction digits of 8
  */
-export const cryptoNumberFormatter = new Intl.NumberFormat(getBrowserLocale(), {maximumFractionDigits: 8});
+export const cryptoNumberFormatter = new Intl.NumberFormat(getBrowserLocale(), { maximumFractionDigits: 8 });
 
 /**
  * Fiat number formatter with maximum fraction digits of 2
@@ -68,7 +68,7 @@ export const fiatNumberFormatter = new Intl.NumberFormat(getBrowserLocale(), {
 /**
  * Fiat number formatter for valuation
  */
-export const fiatNumberFormatterNoDecimals = new Intl.NumberFormat(getBrowserLocale(),{
+export const fiatNumberFormatterNoDecimals = new Intl.NumberFormat(getBrowserLocale(), {
     maximumFractionDigits: 0,
     minimumFractionDigits: 0
 });
@@ -259,7 +259,7 @@ export const amountValueGetter = (params: ValueGetterParams): number => {
     if (params.data) {
         return params.data.quantity * params.data.price;
     } else
-    return 0;
+        return 0;
 };
 
 

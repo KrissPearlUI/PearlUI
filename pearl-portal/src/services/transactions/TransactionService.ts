@@ -1,5 +1,5 @@
 import { Transaction } from '../../models/transactions/transactionsModels';
-import {RestService} from '../RestService';
+import { RestService } from '../RestService';
 
 export class TransactionDataService extends RestService {
     private _baseUrl = './lpsTransactionsHistory.json';
@@ -9,9 +9,9 @@ export class TransactionDataService extends RestService {
      * @return Transaction[]
      */
     public async getAllTransactions(): Promise<Transaction[]> {
-        return this.fetchData(this._baseUrl).then((res:any) => {
+        return this.fetchData(this._baseUrl).then((res: any) => {
             return res.data;
-        }).catch((err:any) => {
+        }).catch((err: any) => {
             console.log(err);
             return err;
         });

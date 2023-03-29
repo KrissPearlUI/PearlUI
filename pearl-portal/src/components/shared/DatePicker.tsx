@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {Moment} from 'moment';
+import React, { useEffect, useState } from 'react';
+import { Moment } from 'moment';
 import makeStyles from '@mui/styles/makeStyles';
-import {Theme} from '@mui/material/styles';
+import { Theme } from '@mui/material/styles';
 import createStyles from '@mui/styles/createStyles';
-import {TextField} from '@mui/material';
+import { TextField } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -14,14 +14,14 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         textField: {
             width: '222px',
-            backgroundColor:theme.palette.background.paper,
+            backgroundColor: theme.palette.background.paper,
             borderColor: theme.palette.text.primary,
-            color:theme.palette.text.primary,
-            borderRadius:5,
+            color: theme.palette.text.primary,
+            borderRadius: 5,
             '& .MuiSvgIcon-root':
-                {
-                    color: theme.palette.text.primary
-                },
+            {
+                color: theme.palette.text.primary
+            },
 
             '& label': {
                 '&.Mui-focused': {
@@ -46,17 +46,17 @@ interface Props {
 }
 
 const DatePickerComponent = ({
-                                 label,
-                                 error,
-                                 helperText,
-                                 mask,
-                                 disabled,
-                                 minDate,
-                                 maxDate,
-                                 isStartDate,
-                                 onChange,
-                                 defaultValue,
-                             }: Props): JSX.Element => {
+    label,
+    error,
+    helperText,
+    mask,
+    disabled,
+    minDate,
+    maxDate,
+    isStartDate,
+    onChange,
+    defaultValue,
+}: Props): JSX.Element => {
     const classes = useStyles();
     const [value, setValue] = useState(null);
 
@@ -75,6 +75,7 @@ const DatePickerComponent = ({
         if (value) {
             onChange(value);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value]);
 
     /**
@@ -132,13 +133,13 @@ const DatePickerComponent = ({
             maxDate={maxDate}
             renderInput={(props: any) =>
                 <TextField {...props}
-                           mask={mask}
-                           label={label ? label : isStartDate ? 'From' : 'To'}
-                           variant={'outlined'}
-                           size={'small'}
-                           error={error}
-                           helperText={helperText}
-                           className={classes.textField}
+                    mask={mask}
+                    label={label ? label : isStartDate ? 'From' : 'To'}
+                    variant={'outlined'}
+                    size={'small'}
+                    error={error}
+                    helperText={helperText}
+                    className={classes.textField}
                 />}
         />
     );

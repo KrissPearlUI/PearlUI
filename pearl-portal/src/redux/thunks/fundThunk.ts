@@ -9,8 +9,8 @@ export const fetchFunds: any = () => async (dispatch: any) => {
     try {
         const fundsService = new FundDataService();
         const data = await fundsService.getAllFunds();
-        dispatch(setFunds(data));        
-    } catch (error:any) {                    
+        dispatch(setFunds(data));
+    } catch (error: any) {
         dispatch(setErrorMessage(error));
     }
 };                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

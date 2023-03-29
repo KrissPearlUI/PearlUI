@@ -1,5 +1,5 @@
 import { PCOSummary } from '../../models/pcos/pcoModels';
-import {RestService} from '../RestService';
+import { RestService } from '../RestService';
 
 export class PCODataService extends RestService {
     private _baseUrl = './pcosshort.json';
@@ -9,9 +9,9 @@ export class PCODataService extends RestService {
      * @return PCOSummary[]
      */
     public async getAllPCOs(): Promise<PCOSummary[]> {
-        return this.fetchData(this._baseUrl).then((res:any) => {
+        return this.fetchData(this._baseUrl).then((res: any) => {
             return res.data;
-        }).catch((err:any) => {
+        }).catch((err: any) => {
             console.log(err);
             return err;
         });

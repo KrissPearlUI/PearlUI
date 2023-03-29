@@ -1,4 +1,4 @@
-import {Grid} from '@mui/material';
+import { Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
@@ -19,56 +19,56 @@ import SinglePCOFinantialsComponent from '../../../components/pcos/single/finant
 
 const SinglePCO = () => {
     const dispatch = useAppDispatch();
-    const {funds,selectedFund} = useSelector((state: RootState) => state.funds);
-    const [selectedView,setSelectedView]=useState<string>('basic');
+    const { funds, selectedFund } = useSelector((state: RootState) => state.funds);
+    const [selectedView, setSelectedView] = useState<string>('basic');
 
-    const handleButtonClick = (buttonId:string) => {
+    const handleButtonClick = (buttonId: string) => {
         setSelectedView(buttonId);
     };
 
     useEffect(() => {
-        if(selectedFund){
+        if (selectedFund) {
             dispatch(setTopBarTitle(`${selectedFund.shortName} Details`));
-        } else{
+        } else {
             dispatch(setSelectedFund(funds[0]));
         }
-    }, [dispatch, selectedFund,funds])
+    }, [dispatch, selectedFund, funds])
 
     return (
-        <Grid container spacing={2} sx={{display:'flex', flex:1, width:'100%', height:'100%', justifyContent:'flex-start', alignItems:'start', flexDirection:'row', paddingLeft:'0.5em'}}>
-            <Grid item xs={12} md={12} lg={12} sx={{flex:1}}>
-                <Grid container spacing={2} sx={{display:'flex', flex:1, width:'100%', height:'100%',alignItems:'start'}}>
+        <Grid container spacing={2} sx={{ display: 'flex', flex: 1, width: '100%', height: '100%', justifyContent: 'flex-start', alignItems: 'start', flexDirection: 'row', paddingLeft: '0.5em' }}>
+            <Grid item xs={12} md={12} lg={12} sx={{ flex: 1 }}>
+                <Grid container spacing={2} sx={{ display: 'flex', flex: 1, width: '100%', height: '100%', alignItems: 'start' }}>
                     <Grid item xs={12} md={6} lg={6}>
-                        <AutocompletePCOComponent/>
+                        <AutocompletePCOComponent />
                     </Grid>
-                    <Grid item xs={12} md={6} lg={6} sx={{display:'flex', flex:1, justifyContent:{ xs:'flex-start', md:'flex-end', lg:'flex-end'}, alignSelf:'flex-end'}}>
-                        <DatePickerPCOComponent/>
+                    <Grid item xs={12} md={6} lg={6} sx={{ display: 'flex', flex: 1, justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' }, alignSelf: 'flex-end' }}>
+                        <DatePickerPCOComponent />
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={12} md={12} lg={12} sx={{flex:1}}>
-                <Grid container spacing={2} sx={{display:'flex', flex:1, width:'100%', height:'100%', alignItems:'start'}}>
+            <Grid item xs={12} md={12} lg={12} sx={{ flex: 1 }}>
+                <Grid container spacing={2} sx={{ display: 'flex', flex: 1, width: '100%', height: '100%', alignItems: 'start' }}>
                     <Grid item xs={12} md={8} lg={8}>
-                       <SelectionPCOComponent selectedItem={selectedView} handleButtonClick={handleButtonClick}/>
+                        <SelectionPCOComponent selectedItem={selectedView} handleButtonClick={handleButtonClick} />
                     </Grid>
-                    <Grid item xs={12} md={4} lg={4} sx={{display:'flex', flex:1, justifyContent:{ xs:'flex-start', md:'flex-end', lg:'flex-end'}, alignSelf:'flex-end'}}>
-                        <FiltersAndActionsPCOComponent selectedItem={selectedView} handleButtonClick={handleButtonClick}/>
+                    <Grid item xs={12} md={4} lg={4} sx={{ display: 'flex', flex: 1, justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' }, alignSelf: 'flex-end' }}>
+                        <FiltersAndActionsPCOComponent selectedItem={selectedView} handleButtonClick={handleButtonClick} />
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={12} md={12} lg={12} sx={{flex:1,height:'82%'}}>
-                {selectedView==='basic' ? <SinglePCOBasic/>
-                : selectedView==='contacts'
-                ?<SinglePCOContactsComponent/>
-                : selectedView==='transactions'
-                ? <SinglePCOTransactions/>
-                : selectedView==='valuations'
-                ? <SinglePCOValuationsComponent/>
-                : selectedView==='exitsReserves'
-                ?<SinglePCOExitsReservesComponent/>
-                : selectedView==='pcoFinantials'
-                ?<SinglePCOFinantialsComponent/>
-                :<SingleFundDocuments/>}
+            <Grid item xs={12} md={12} lg={12} sx={{ flex: 1, height: '82%' }}>
+                {selectedView === 'basic' ? <SinglePCOBasic />
+                    : selectedView === 'contacts'
+                        ? <SinglePCOContactsComponent />
+                        : selectedView === 'transactions'
+                            ? <SinglePCOTransactions />
+                            : selectedView === 'valuations'
+                                ? <SinglePCOValuationsComponent />
+                                : selectedView === 'exitsReserves'
+                                    ? <SinglePCOExitsReservesComponent />
+                                    : selectedView === 'pcoFinantials'
+                                        ? <SinglePCOFinantialsComponent />
+                                        : <SingleFundDocuments />}
             </Grid>
         </Grid>
     );

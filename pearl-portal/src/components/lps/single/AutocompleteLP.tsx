@@ -6,8 +6,8 @@ import { createStyles, makeStyles } from '@mui/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { RootState } from '../../../redux/slices/rootSlice';
 import { useSelector } from 'react-redux';
-import { FundSummary } from '../../../models/funds/fundModels';
-import { setSelectedFund } from '../../../redux/slices/funds/fundsSlice';
+import { LP } from '../../../models/lps/lpModels';
+import { setSelectedLP } from '../../../redux/slices/lps/lpsSlice';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -84,24 +84,24 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const AutocompleteFundComponent = () => {
+const AutocompleteLPComponent = () => {
     const classes = useStyles();
     const autocompleteInputClasses = autocompleteInputStyles();
     const dispatch = useAppDispatch();
-    const { funds, selectedFund } = useSelector((state: RootState) => state.funds);
-    const [selectedFundValue, setSelectedFundValue] = useState<FundSummary | null>(selectedFund);
+    const { lps, selectedLP } = useSelector((state: RootState) => state.lps);
+    const [selectedLPValue, setSelectedLPValue] = useState<LP | null>(selectedLP);
 
-    const onFundChange = (event: any) => {
-        setSelectedFundValue(event);
+    const onLPChange = (event: any) => {
+        setSelectedLPValue(event);
         if (event) {
-            dispatch(setSelectedFund(event));
+            dispatch(setSelectedLP(event));
         }
     };
 
 
     return (
         <Autocomplete
-            id={'fundsAutocomplete'}
+            id={'lpdAutocomplete'}
             popupIcon={<ExpandMoreIcon />}
             size={'small'}
             autoHighlight={true}
@@ -111,10 +111,10 @@ const AutocompleteFundComponent = () => {
             classes={classes}
             sx={{ marginRight: '1em', width: '320px' }}
             isOptionEqualToValue={(option, value) => option === value}
-            onChange={(e, value: FundSummary | null) => onFundChange(value)}
-            value={selectedFundValue ?? undefined}
-            options={funds ?? []}
-            getOptionLabel={(option: FundSummary | null) => option ? option.shortName : ''}
+            onChange={(e, value: LP | null) => onLPChange(value)}
+            value={selectedLPValue ?? undefined}
+            options={lps ?? []}
+            getOptionLabel={(option: LP | null) => option ? option.shortName : ''}
             renderInput={(params: AutocompleteRenderInputParams) => {
                 params.InputProps.className = autocompleteInputClasses.textInput;
                 return <TextField {...params}
@@ -122,10 +122,10 @@ const AutocompleteFundComponent = () => {
                     variant="standard"
                     autoComplete="off"
                     type={'text'}
-                    label='Select a Fund' />;
+                    label='Select a LP' />;
             }}
         />
     );
 };
 
-export default AutocompleteFundComponent;
+export default AutocompleteLPComponent;

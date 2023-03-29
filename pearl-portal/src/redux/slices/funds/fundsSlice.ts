@@ -1,14 +1,14 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { FundSummary } from '../../../models/funds/fundModels';
 
 export interface FundsState {
     funds: FundSummary[],
-    selectedFund:FundSummary|null
+    selectedFund: FundSummary | null
 }
 
 const initialState: FundsState = {
     funds: [],
-    selectedFund:null
+    selectedFund: null
 };
 
 const fundsSlice = createSlice({
@@ -28,7 +28,7 @@ const fundsSlice = createSlice({
          * @param state
          * @param action
          */
-        setSelectedFund(state, action: PayloadAction<FundSummary|null>) {
+        setSelectedFund(state, action: PayloadAction<FundSummary | null>) {
             state.selectedFund = action.payload;
         },
     }

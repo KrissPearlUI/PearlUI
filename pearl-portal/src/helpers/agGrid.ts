@@ -15,7 +15,7 @@ import {
     formatPercentage,
     formatPrice
 } from './app';
-import {Theme} from '@mui/material/styles';
+import { Theme } from '@mui/material/styles';
 import CustomTooltip from '../components/cellRenderers/CustomTooltipCellRenderer';
 
 /**
@@ -105,7 +105,7 @@ export const quantityValueFormatter = (params: ValueFormatterParams) => {
  */
 export const percentageyValueFormatter = (params: ValueFormatterParams) => {
     if (params.value) {
-        return `${(params.value*100).toFixed(2)} %`;
+        return `${(params.value * 100).toFixed(2)} %`;
     }
     return params.value;
 };
@@ -191,7 +191,7 @@ export const priceNumberFormater = (params: ValueFormatterParams): string => {
 
 export const displayPrecisionValueSizePrecision = (value: string, instruments: any, venueCode: string) => {
     if (value && instruments) {
-        return instruments.filter((x:any) => x.extendedCode === value && x.venueCode === venueCode)[0]?.sizePrecision ?? 2;
+        return instruments.filter((x: any) => x.extendedCode === value && x.venueCode === venueCode)[0]?.sizePrecision ?? 2;
     }
 };
 
@@ -226,9 +226,9 @@ export const DefaultStatusPanelDef = {
             statusPanel: 'agTotalRowCountComponent',
             align: 'left',
         },
-        {statusPanel: 'agFilteredRowCountComponent'},
-        {statusPanel: 'agSelectedRowCountComponent'},
-        {statusPanel: 'agAggregationComponent'},
+        { statusPanel: 'agFilteredRowCountComponent' },
+        { statusPanel: 'agSelectedRowCountComponent' },
+        { statusPanel: 'agAggregationComponent' },
     ],
 };
 

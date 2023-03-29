@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import DatePicker from '../../shared/DatePicker';
 
-const DatePickerFundComponent = () => {
+const DatePickerLPComponent = () => {
     const minimumDate = new Date('2019-10-01');
     const maximumDate = new Date();
     const [date, setDate] = useState<any>(null);
@@ -24,4 +24,4 @@ const DatePickerFundComponent = () => {
     );
 };
 
-export default DatePickerFundComponent;
+export default DatePickerLPComponent;
