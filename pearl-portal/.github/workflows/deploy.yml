@@ -22,6 +22,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: main # replace with your GitHub Pages branch name
+          branch: gh-pages # replace with your GitHub Pages branch name
           folder: build # replace with your build directory
           token: ${{ secrets.ACCESS_TOKEN }} # replace with your access token name
