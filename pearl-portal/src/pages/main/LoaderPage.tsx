@@ -4,7 +4,7 @@ import { useTheme } from "@mui/material/styles";
 const LoaderPage = () => {
     const theme = useTheme();
     return (
-        <div>
+        <div style={{display:'flex', justifyContent:'center', alignItems:'center', flex:1, height:'100%', width:'100%'}}>
             <div>
                 <Typography variant="h6" gutterBottom sx={{ color: theme.palette.text.primary }}>
                     Loading ...
