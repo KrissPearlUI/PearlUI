@@ -15,6 +15,7 @@ import SingleFundDocuments from '../../../components/funds/single/documents/Sing
 import SingleFundPortfolios from '../../../components/funds/single/portfolios/SingleFundPortfolios';
 import SingleFundTransactions from '../../../components/funds/single/transactions/SingleFundTransactions';
 import SingleFundCallsAndDistributions from '../../../components/funds/single/callsAndDistributions/SingleFundCallsAndDistributions';
+import { fetchFunds } from '../../../redux/thunks/fundThunk';
 
 const SingleFund = () => {
     const dispatch = useAppDispatch();
@@ -24,6 +25,10 @@ const SingleFund = () => {
     const handleButtonClick = (buttonId: string) => {
         setSelectedView(buttonId);
     };
+
+    useEffect(()=>{
+        dispatch(fetchFunds());
+    },[dispatch])
 
     useEffect(() => {
         if (selectedFund) {
@@ -38,7 +43,7 @@ const SingleFund = () => {
             <Grid item xs={12} md={12} lg={12} sx={{ flex: 1 }}>
                 <Grid container spacing={2} sx={{ display: 'flex', flex: 1, width: '100%', height: '100%', alignItems: 'start' }}>
                     <Grid item xs={12} md={6} lg={6}>
-                        <AutocompleteFundComponent />
+                        <AutocompleteFundComponent selectedFund={selectedFund}/>
                     </Grid>
                     <Grid item xs={12} md={6} lg={6} sx={{ display: 'flex', flex: 1, justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' }, alignSelf: 'flex-end' }}>
                         <DatePickerFundComponent />

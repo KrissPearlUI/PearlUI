@@ -84,11 +84,15 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const AutocompleteLPComponent = () => {
+interface AutocompleteLPProps {
+    selectedLP: LP | null,
+}
+
+const AutocompleteLPComponent = ({ selectedLP }: AutocompleteLPProps) => {
     const classes = useStyles();
     const autocompleteInputClasses = autocompleteInputStyles();
     const dispatch = useAppDispatch();
-    const { lps, selectedLP } = useSelector((state: RootState) => state.lps);
+    const { lps } = useSelector((state: RootState) => state.lps);
     const [selectedLPValue, setSelectedLPValue] = useState<LP | null>(selectedLP);
 
     const onLPChange = (event: any) => {

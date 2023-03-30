@@ -84,11 +84,15 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const AutocompletePCOComponent = () => {
+interface AutocompletePCOsProps {
+    selectedPCO: PCOSummary | null,
+}
+
+const AutocompletePCOComponent = ({ selectedPCO }: AutocompletePCOsProps) => {
     const classes = useStyles();
     const autocompleteInputClasses = autocompleteInputStyles();
     const dispatch = useAppDispatch();
-    const { pcos, selectedPCO } = useSelector((state: RootState) => state.pcos);
+    const { pcos } = useSelector((state: RootState) => state.pcos);
     const [selectedPCOValue, setSelectedPCOValue] = useState<PCOSummary | null>(selectedPCO);
 
     const onPCOChange = (event: any) => {

@@ -16,6 +16,7 @@ import AutocompleteLPComponent from '../../../components/lps/single/Autocomplete
 import DatePickerLPComponent from '../../../components/lps/single/DatePickerLP';
 import SelectionLPComponent from '../../../components/lps/single/SelectionComponentLP';
 import FiltersAndActionsLPComponent from '../../../components/lps/single/FiltersAndActionsLP';
+import { fetchLPs } from '../../../redux/thunks/lpThunk';
 
 const SingleLP = () => {
     const dispatch = useAppDispatch();
@@ -25,6 +26,10 @@ const SingleLP = () => {
     const handleButtonClick = (buttonId: string) => {
         setSelectedView(buttonId);
     };
+
+    useEffect(() => {
+        dispatch(fetchLPs());
+    }, [dispatch])
 
     useEffect(() => {
         if (selectedLP) {
@@ -39,7 +44,7 @@ const SingleLP = () => {
             <Grid item xs={12} sm={12} md={12} lg={12} sx={{ flex: 1 }}>
                 <Grid container spacing={2} sx={{ display: 'flex', flex: 1, width: '100%', height: '100%', alignItems: 'start' }}>
                     <Grid item xs={12} md={6} lg={6}>
-                        <AutocompleteLPComponent />
+                        <AutocompleteLPComponent selectedLP={selectedLP}/>
                     </Grid>
                     <Grid item xs={12} md={6} lg={6} sx={{ display: 'flex', flex: 1, justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' }, alignSelf: 'flex-end' }}>
                         <DatePickerLPComponent />

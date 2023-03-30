@@ -2,28 +2,88 @@ import IconButton from '@mui/material/IconButton';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import List from '@mui/material/List';
-import { ListItem, ListItemButton, ListItemIcon, ListItemText, Tooltip, Typography } from '@mui/material';
+import { Collapse, ListItem, ListItemButton, ListItemIcon, ListItemText, Tooltip, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import React from 'react';
-import { CSSObject, styled, Theme, useTheme } from '@mui/material/styles';
+import { CSSObject, lighten, styled, Theme, useTheme } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/store';
 import { useSelector } from 'react-redux';
 import { RootState } from "../../redux/slices/rootSlice";
-import { setActivePath, setIsDrawerOpen } from "../../redux/slices/appSlice";
+import { setActivePath, setIsDrawerOpen, setNavLinkState } from "../../redux/slices/appSlice";
 import MenuIcon from "@mui/icons-material/Menu";
 import { ReactComponent as LPIcon } from '../../assets/icons/LPMenuIcon.svg';
 import { ReactComponent as FundsMenuIcon } from "../../assets/icons/FundsMenuIcon.svg";
 import BusinessIcon from '@mui/icons-material/Business';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { ReactComponent as GlobeIcon } from '../../assets/icons/GlobeIcon.svg';
+import { makeStyles, createStyles } from '@mui/styles';
+import { RouteDefinition } from '../../router/models';
+import clsx from 'clsx';
+import { RootRouteDefinition } from '../../router/RootRouteDefinition';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const routes = [{ key: 'Dashboard', url: '/' },
 { key: 'LPs', url: '/lpsOverview' },
 { key: 'Funds', url: '/fundsOverview' },
 { key: 'PCOs', url: '/pcosOverview' },
 { key: 'Settings', url: '/settings' }];
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        logo: {
+            height: '1em',
+            margin: '1em .5em',
+            textAlign: 'right',
+            backgroundPosition: 'left',
+            backgroundOrigin: 'content-box',
+            padding: 1
+        },
+        drawerPaper: {
+            position: 'relative',
+            whiteSpace: 'nowrap',
+            flex: 1,
+            transition: theme.transitions.create('width', {
+                easing: theme.transitions.easing.sharp,
+                duration: theme.transitions.duration.enteringScreen,
+            }),
+        },
+        drawerPaperClose: {
+            overflowX: 'hidden',
+            transition: theme.transitions.create('width', {
+                easing: theme.transitions.easing.sharp,
+                duration: theme.transitions.duration.leavingScreen,
+            }),
+            width: theme.spacing(7),
+            [theme.breakpoints.up('sm')]: {
+                width: theme.spacing(8),
+            },
+        },
+        drawerLink: {
+            textDecoration: 'none',
+            color: theme.palette.text.primary,
+        },
+        drawerSubLink: {
+            paddingLeft: theme.spacing(6),
+            color: theme.palette.text.primary,
+        },
+        drawerButton: {
+            '&:hover': {
+                borderRight: `5px solid ${lighten(theme.palette.secondary.main, 0.3)}`,
+            }
+        },
+        drawerButtonActive: {
+            borderRight: `5px solid ${theme.palette.secondary.main}`,
+        },
+        avatar: {
+            marginRight: theme.spacing(1),
+            width: 48,
+            height: 48,
+        },
+    })
+);
 
 const openedMixin = (theme: Theme): CSSObject => ({
     width: 180,
@@ -73,6 +133,94 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
 );
 
+const NavLinkSection = (): JSX.Element => {
+    const classes = useStyles();
+    const dispatch = useAppDispatch();
+    const theme = useTheme();
+    const {navLinkState} = useSelector((state: RootState) => state.app);
+    const handleNavLinkExpand = (path: string) => {
+        dispatch(setNavLinkState(path));
+    };
+    const pathName = window.location.pathname;
+    const handleClick = () => {
+        dispatch(setIsDrawerOpen(false));
+    };
+
+    const renderNavLinks = (routes: RouteDefinition [], isSubLink: boolean) => {
+        return routes.map((route, index) => {
+            if (!route.children) {
+                return (
+                    <List key={`${index}-${route.path}`} component="div" >
+                        <NavLink to={route.path} className={clsx(classes.drawerLink)}>
+                            <ListItem
+                                button
+                                onClick={handleClick}
+                                selected={pathName === route.path}
+                                className={clsx(pathName
+                                    ? classes.drawerButton : '', isSubLink ? classes.drawerSubLink : '')}
+                            >
+                                <ListItemIcon>
+                                    <route.icon/>
+                                </ListItemIcon>
+                                <ListItemText primary={route?.name} sx={{color:'#F3F3F3'}}/>
+                            </ListItem>
+                        </NavLink>
+                    </List>
+                );
+            }
+            return (
+                <List key={`${index}-${route.path}`} disablePadding sx={{marginBottom:'0.5em'}}>
+                    {
+                        !route.icon ?
+                            <ListItem>
+                                <ListItemText primary={route?.name}>{route?.name}</ListItemText>
+                            </ListItem> :
+                            <ListItem
+                                button
+                                onClick={() => handleNavLinkExpand(route.path)}>
+                                {
+                                    route.icon && <ListItemIcon>
+                                        <route.icon/>
+                                    </ListItemIcon>
+                                }
+                                {
+                                    route.icon ? <ListItemText primary={route?.name}/> :
+                                        <ListItemText primary={route?.name}>{route?.name}</ListItemText>
+                                }
+                                {
+                                    !route.icon ? null : navLinkState[route.path] ? <ExpandLessIcon/> : <ExpandMoreIcon/>
+                                }
+                            </ListItem>
+                    }
+                    {
+                        !route.icon ? <Collapse
+                                in={true}
+                                timeout="auto"
+                                unmountOnExit>
+                                {
+                                    renderNavLinks(route.children, true)
+                                }
+                            </Collapse> :
+                            <Collapse
+                                in={navLinkState[route.path]}
+                                timeout="auto"
+                                unmountOnExit>
+                                {
+                                    renderNavLinks(route.children, true)
+                                }
+                            </Collapse>
+                    }
+                </List>
+            );
+        });
+    };
+
+
+    return (<>
+        {renderNavLinks(RootRouteDefinition.children??[], false)}
+    </>);
+};
+
 const SideBar = () => {
     const theme = useTheme();
     const navigate = useNavigate();
@@ -113,7 +261,7 @@ const SideBar = () => {
                     : <MenuIcon style={{ color: '#F3F3F3' }} />}
             </IconButton>
         </DrawerHeader>
-        <List sx={{ paddingTop: 0 }}>
+      <List sx={{ paddingTop: 0 }}>
             {routes?.map((route, index) => (
                 <ListItem key={route.key} disablePadding sx={{ display: 'block', marginBottom: '0.5em' }}
                     onClick={() => handleNavigation(route.url)}
@@ -155,7 +303,7 @@ const SideBar = () => {
                     </ListItemButton>
                 </ListItem>
             ))}
-        </List>
+        </List> 
     </Drawer>;
 };
 

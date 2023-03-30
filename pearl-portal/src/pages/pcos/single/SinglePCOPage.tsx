@@ -4,7 +4,6 @@ import { setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/slices/rootSlice';
-import { setSelectedFund } from '../../../redux/slices/funds/fundsSlice';
 import SingleFundDocuments from '../../../components/funds/single/documents/SingleFundDocuments';
 import AutocompletePCOComponent from '../../../components/pcos/single/AutocompletePCO';
 import DatePickerPCOComponent from '../../../components/pcos/single/DatePickerPCO';
@@ -16,10 +15,12 @@ import SinglePCOTransactions from '../../../components/pcos/single/transactions/
 import SinglePCOValuationsComponent from '../../../components/pcos/single/valuations/SinglePCOValuations';
 import SinglePCOExitsReservesComponent from '../../../components/pcos/single/exitsRealisations/SinglePCOExitsAndReserves';
 import SinglePCOFinantialsComponent from '../../../components/pcos/single/finantials/SinglePCOFinantials';
+import { fetchPCOs } from '../../../redux/thunks/pcoThunk';
+import { setSelectedPCO } from '../../../redux/slices/pcos/pcosSlice';
 
 const SinglePCO = () => {
     const dispatch = useAppDispatch();
-    const { funds, selectedFund } = useSelector((state: RootState) => state.funds);
+    const { pcos, selectedPCO } = useSelector((state: RootState) => state.pcos);
     const [selectedView, setSelectedView] = useState<string>('basic');
 
     const handleButtonClick = (buttonId: string) => {
@@ -27,19 +28,23 @@ const SinglePCO = () => {
     };
 
     useEffect(() => {
-        if (selectedFund) {
-            dispatch(setTopBarTitle(`${selectedFund.shortName} Details`));
+        dispatch(fetchPCOs());
+    }, [dispatch])
+
+    useEffect(() => {
+        if (selectedPCO) {
+            dispatch(setTopBarTitle(`${selectedPCO.shortName} Details`));
         } else {
-            dispatch(setSelectedFund(funds[0]));
+            dispatch(setSelectedPCO(pcos[0]));
         }
-    }, [dispatch, selectedFund, funds])
+    }, [dispatch, selectedPCO, pcos])
 
     return (
         <Grid container spacing={2} sx={{ display: 'flex', flex: 1, width: '100%', height: '100%', justifyContent: 'flex-start', alignItems: 'start', flexDirection: 'row', paddingLeft: '0.5em' }}>
             <Grid item xs={12} md={12} lg={12} sx={{ flex: 1 }}>
                 <Grid container spacing={2} sx={{ display: 'flex', flex: 1, width: '100%', height: '100%', alignItems: 'start' }}>
                     <Grid item xs={12} md={6} lg={6}>
-                        <AutocompletePCOComponent />
+                        <AutocompletePCOComponent selectedPCO={selectedPCO}/>
                     </Grid>
                     <Grid item xs={12} md={6} lg={6} sx={{ display: 'flex', flex: 1, justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' }, alignSelf: 'flex-end' }}>
                         <DatePickerPCOComponent />

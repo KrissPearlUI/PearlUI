@@ -363,7 +363,7 @@ const SinglePCOBasic = () => {
                             </Grid>
                             <Grid item sx={{ display: 'flex', justifyContent: 'space-between', width: '350px' }}>
                                 <Typography sx={{ color: theme.palette.secondary.main, marginRight: '0.5em', fontWeight: 400 }}>Realised:</Typography>
-                                <Typography sx={{ color: theme.palette.text.primary, fontWeight: 500 }}>{selectedPCO?.realised ?? ''}</Typography>
+                                <Typography sx={{ color: theme.palette.text.primary, fontWeight: 500 }}>{selectedPCO?.realised ? `${amountValueFormatter(selectedPCO?.realised ?? 0, '')} ${selectedPCO?.localCurrency}` : ''}</Typography>
                             </Grid>
                         </Grid>
                     </Grid>

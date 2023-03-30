@@ -84,20 +84,23 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const AutocompleteFundComponent = () => {
+interface AutocompleteFundProps {
+    selectedFund:FundSummary|null,  
+}
+
+const AutocompleteFundComponent = ({selectedFund}:AutocompleteFundProps) => {
     const classes = useStyles();
     const autocompleteInputClasses = autocompleteInputStyles();
     const dispatch = useAppDispatch();
-    const { funds, selectedFund } = useSelector((state: RootState) => state.funds);
+    const { funds } = useSelector((state: RootState) => state.funds);
     const [selectedFundValue, setSelectedFundValue] = useState<FundSummary | null>(selectedFund);
 
-    const onFundChange = (event: any) => {
+    const onFundChange = (event: FundSummary) => {
         setSelectedFundValue(event);
         if (event) {
             dispatch(setSelectedFund(event));
         }
     };
-
 
     return (
         <Autocomplete
@@ -111,10 +114,10 @@ const AutocompleteFundComponent = () => {
             classes={classes}
             sx={{ marginRight: '1em', width: '320px' }}
             isOptionEqualToValue={(option, value) => option === value}
-            onChange={(e, value: FundSummary | null) => onFundChange(value)}
-            value={selectedFundValue ?? undefined}
+            onChange={(e, value: FundSummary) => onFundChange(value)}
+            value={selectedFundValue ?? funds[0]}
             options={funds ?? []}
-            getOptionLabel={(option: FundSummary | null) => option ? option.shortName : ''}
+            getOptionLabel={(option: FundSummary) => option ? option.shortName : ''}
             renderInput={(params: AutocompleteRenderInputParams) => {
                 params.InputProps.className = autocompleteInputClasses.textInput;
                 return <TextField {...params}

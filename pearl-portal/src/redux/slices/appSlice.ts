@@ -7,6 +7,7 @@ export interface MainState {
     userName: string;
     activePath: string;
     errorMessage?: string;
+    navLinkState: any;
 }
 
 const initialState: MainState = {
@@ -14,7 +15,8 @@ const initialState: MainState = {
     isDarkTheme: false,
     topBarTitle: 'Dashboard',
     userName: 'Jane Doe',
-    activePath: '/'
+    activePath: '/',
+    navLinkState: {},
 };
 
 const appSlice = createSlice({
@@ -69,6 +71,11 @@ const appSlice = createSlice({
         setErrorMessage(state, action: PayloadAction<string>) {
             state.errorMessage = action.payload;
         },
+        setNavLinkState(state, action: PayloadAction<string>) {
+            const prevState = state.navLinkState;
+            const item = action.payload;
+            state.navLinkState = {...prevState, [item]: !prevState[item]};
+        },
     }
 });
 
@@ -78,7 +85,8 @@ export const {
     setTopBarTitle,
     setUserName,
     setActivePath,
-    setErrorMessage
+    setErrorMessage,
+    setNavLinkState
 } = appSlice.actions;
 
 export default appSlice.reducer;
