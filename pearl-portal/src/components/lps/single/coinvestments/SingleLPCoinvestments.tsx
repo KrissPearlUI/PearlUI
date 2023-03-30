@@ -141,7 +141,7 @@ const SingleLPCoinvestments = () => {
     }, []);
 
     useEffect(() => {
-        setRowData(selectedLP?.funds ?? []);
+        setRowData([]);
     }, [selectedLP])
 
     return (
