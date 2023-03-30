@@ -24,14 +24,15 @@
     "currentValuationEmerald": 8172815,
     "currentValuationPCO": 86961085.69,
     "website": "www.actnano.com",
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "EIIF",
         "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
         "amountInvested": 4992992.24
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -209,7 +210,8 @@
     "currentValuationEmerald": 0,
     "currentValuationPCO": 0,
     "website": null,
-    "funds":[
+    "realised": 1471580,
+    "funds": [
       {
         "id": "EEF",
         "fundName": "Emerald Energy Fund I",
@@ -221,7 +223,7 @@
         "amountInvested": 412043
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -411,14 +413,15 @@
     "currentValuationEmerald": null,
     "currentValuationPCO": null,
     "website": "www.advancedbionutrition.com",
-    "funds":[
+    "realised": 564758.95,
+    "funds": [
       {
         "id": "ESF",
         "fundName": "Emerald Sustainability Fund",
         "amountInvested": 2747000
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -554,7 +557,8 @@
     "currentValuationEmerald": 1022809,
     "currentValuationPCO": 16110978,
     "website": "www.aganova.es",
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "EGWIF",
         "fundName": "Emerald Global Water Impact Fund",
@@ -566,7 +570,7 @@
         "amountInvested": 1024809.37
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -840,14 +844,15 @@
     "currentValuationEmerald": 97663.3,
     "currentValuationPCO": 0,
     "website": null,
-    "funds":[
+    "realised": 4123833.36,
+    "funds": [
       {
         "id": "ESF",
         "fundName": "Emerald Sustainability Fund",
         "amountInvested": 4182711.36
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -982,8 +987,9 @@
     "numOfFunds": 2,
     "numOfLPS": 22,
     "status": "Unrealized",
+    "realised": null,
     "grossIRR": -1,
-    "funds":[
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
@@ -995,7 +1001,7 @@
         "amountInvested": 595652.71
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -1155,14 +1161,15 @@
     "numOfLPS": 18,
     "status": "Realized",
     "grossIRR": -0.497182,
-    "funds":[
+    "realised": 7085611,
+    "funds": [
       {
         "id": "ESF",
         "fundName": "Emerald Sustainability Fund",
         "amountInvested": 7085611
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -1298,14 +1305,15 @@
     "currentValuationEmerald": null,
     "currentValuationPCO": null,
     "website": null,
-    "funds":[
+    "realised": 10728664,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 10728664
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -1513,14 +1521,15 @@
     "numOfLPS": 30,
     "status": "Realized",
     "grossIRR": -1,
-    "funds":[
+    "realised": 5473237.899999999,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 5473237.9
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -1728,14 +1737,15 @@
     "currentValuationPCO": 944580,
     "website": null,
     "grossIRR": -1,
-    "funds":[
+    "realised": 2055475,
+    "funds": [
       {
         "id": "ESF",
         "fundName": "Emerald Sustainability Fund",
         "amountInvested": 2055475
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -1871,7 +1881,8 @@
     "numOfLPS": 27,
     "status": "Realized",
     "grossIRR": -0.084322,
-    "funds":[
+    "realised": 4567235.17,
+    "funds": [
       {
         "id": "EEF",
         "fundName": "Emerald Energy Fund I",
@@ -1883,7 +1894,7 @@
         "amountInvested": 734930.44
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -2073,14 +2084,15 @@
     "numOfLPS": 9,
     "status": "Realized",
     "grossIRR": 0.473194,
-    "funds":[
+    "realised": 150000,
+    "funds": [
       {
         "id": "EEF",
         "fundName": "Emerald Energy Fund I",
         "amountInvested": 150000
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "CDP01",
         "shortName": "CDP Capital",
@@ -2162,27 +2174,28 @@
     "numOfLPS": 2,
     "status": "Unrealized",
     "grossIRR": 0.1597,
-    "funds":[
+    "realised": null,
+    "funds": [
       {
-        "id":"NTV",
-        "fundName":"Nabtesco Technology Ventures",
-        "amountInvested":3500549.5
+        "id": "NTV",
+        "fundName": "Nabtesco Technology Ventures",
+        "amountInvested": 3500549.5
       }
     ],
-    "lps":[
+    "lps": [
       {
-        "id":"Nabt01",
-        "shortName":"Nabtesco",
-        "name":"Nabtesco Corporation",
-        "participationPercentage":0.999,
-        "amountInvested":34970.489505
+        "id": "Nabt01",
+        "shortName": "Nabtesco",
+        "name": "Nabtesco Corporation",
+        "participationPercentage": 0.999,
+        "amountInvested": 34970.489505
       },
       {
-        "id":"Nabt02",
-        "shortName":"Nabtesco GP",
-        "name":"Nabtesco Technology Ventures (Cayman) Ltd",
-        "participationPercentage":0.001,
-        "amountInvested":35.005495
+        "id": "Nabt02",
+        "shortName": "Nabtesco GP",
+        "name": "Nabtesco Technology Ventures (Cayman) Ltd",
+        "participationPercentage": 0.001,
+        "amountInvested": 35.005495
       }
     ]
   },
@@ -2211,76 +2224,77 @@
     "currentValuationEmerald": 1038.789112,
     "currentValuationPCO": 26163988.5,
     "website": null,
-    "funds":[
+    "realised": 162722,
+    "funds": [
       {
-        "id":"EEF",
-        "fundName":"Emerald Energy Fund I",
-        "amountInvested":162722  
+        "id": "EEF",
+        "fundName": "Emerald Energy Fund I",
+        "amountInvested": 162722
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "CDP01",
         "shortName": "CDP Capital",
         "name": "Caisse de Depot et Placement du Quebec",
         "participationPercentage": 0.205761317,
-        "amountInvested":334.818930249
+        "amountInvested": 334.818930249
       },
       {
         "id": "Clea01",
         "shortName": "Clearstream",
         "name": "Clearstream Banking S.A. AFS 102448",
         "participationPercentage": 0.010288066,
-        "amountInvested":1674.094675652
+        "amountInvested": 1674.094675652
       },
       {
         "id": "DES01",
         "shortName": "DES Capital",
         "name": "DES Capital Investissement",
         "participationPercentage": 0.102880658,
-        "amountInvested":16740.946431076
+        "amountInvested": 16740.946431076
       },
       {
         "id": "Equi01",
         "shortName": "Equinor",
         "name": "Equinor Technology Venture AS",
         "participationPercentage": 0.102880658,
-        "amountInvested":16740.946431076
+        "amountInvested": 16740.946431076
       },
       {
         "id": "Hydr01",
         "shortName": "Hydro Quebec",
         "name": "Hydro Quebec CapiTech Inc",
         "participationPercentage": 0.308641975,
-        "amountInvested":50222.83945595
+        "amountInvested": 50222.83945595
       },
       {
         "id": "Mits01",
         "shortName": "Mitsui Japan",
         "name": "Mitsui & Co Limited",
         "participationPercentage": 0.061728395,
-        "amountInvested":10044.56789119
+        "amountInvested": 10044.56789119
       },
       {
         "id": "OPG01",
         "shortName": "OPG Investments",
         "name": "OPG Investments Inc",
         "participationPercentage": 0.102880658,
-        "amountInvested":16740.946431076
+        "amountInvested": 16740.946431076
       },
       {
         "id": "Shaw01",
         "shortName": "Shaw Mr",
         "name": "Mr Robert W Shaw, Jr",
         "participationPercentage": 0.002057613,
-        "amountInvested":334.818902586
+        "amountInvested": 334.818902586
       },
       {
         "id": "Sunc01",
         "shortName": "Suncor Energy Inc.",
         "name": "Suncor Energy Inc.",
         "participationPercentage": 0.102880658,
-        "amountInvested":16740.946431076
+        "amountInvested": 16740.946431076
       }
     ]
   },
@@ -2309,14 +2323,15 @@
     "currentValuationEmerald": 0,
     "currentValuationPCO": 0,
     "website": null,
-    "funds":[
+    "realised": 5004666.01,
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
         "amountInvested": 5004666.01
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -2440,14 +2455,15 @@
     "currentValuationEmerald": null,
     "currentValuationPCO": null,
     "website": "www.ewtdirectwind.com",
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 10770172.14
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -2655,7 +2671,8 @@
     "currentValuationEmerald": 0,
     "currentValuationPCO": 0,
     "website": null,
-    "funds":[
+    "realised": 3187674.5,
+    "funds": [
       {
         "id": "EEF",
         "fundName": "Emerald Energy Fund I",
@@ -2667,7 +2684,7 @@
         "amountInvested": 892528
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -2858,7 +2875,8 @@
     "currentValuationEmerald": 3490354,
     "currentValuationPCO": 33729935,
     "website": "www.enocean.com",
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "EEF",
         "fundName": "Emerald Energy Fund I",
@@ -2870,7 +2888,7 @@
         "amountInvested": 1148742
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -3059,8 +3077,9 @@
     "currentValuationPCO": 31499991.47,
     "website": "www.enspired-trading.com",
     "status": "Unrealized",
+    "realised": null,
     "grossIRR": 0,
-    "funds":[
+    "funds": [
       {
         "id": "EGETF",
         "fundName": "Emerald Global Energy Transformation Fund",
@@ -3072,7 +3091,7 @@
         "amountInvested": 2385812
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -3274,7 +3293,8 @@
     "numOfLPS": 27,
     "status": "Realized",
     "grossIRR": 0.271574,
-    "funds":[
+    "realised": 4827843.94,
+    "funds": [
       {
         "id": "EEF",
         "fundName": "Emerald Energy Fund I",
@@ -3286,7 +3306,7 @@
         "amountInvested": 1351794.9
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -3475,7 +3495,8 @@
     "numOfLPS": 36,
     "status": "Unrealized",
     "grossIRR": -0.1265,
-    "funds":[
+    "realised": 250000,
+    "funds": [
       {
         "id": "EGWIF",
         "fundName": "Emerald Global Water Impact Fund",
@@ -3487,7 +3508,7 @@
         "amountInvested": 1679219.25
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -3737,14 +3758,15 @@
     "numOfLPS": 30,
     "status": "Realized",
     "grossIRR": -0.887588,
-    "funds":[
+    "realised": 1264420,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 1264420
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -3952,14 +3974,15 @@
     "numOfLPS": 21,
     "status": "Unrealized",
     "grossIRR": 1.042,
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "EIIF",
         "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
         "amountInvested": 3041166.86
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -4113,14 +4136,15 @@
     "numOfLPS": 16,
     "status": "Partially Realized",
     "grossIRR": 0.0719,
-    "funds":[
+    "realised": 1470833.33,
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
         "amountInvested": 6299619.68
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -4244,7 +4268,8 @@
     "numOfLPS": 23,
     "status": "Unrealized",
     "grossIRR": 0.313,
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
@@ -4256,7 +4281,7 @@
         "amountInvested": 2100961.37
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -4421,15 +4446,16 @@
     "currentValuationPCO": null,
     "website": null,
     "status": "Realized",
+    "realised": 5999999,
     "grossIRR": -1,
-    "funds":[
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 5999999
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -4637,14 +4663,15 @@
     "currentValuationPCO": 84908046.91,
     "website": "www.imagindairy.com",
     "grossIRR": 0.7445,
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "EIIF",
         "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
         "amountInvested": 1494674.1
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -4840,14 +4867,15 @@
     "currentValuationEmerald": 12538542,
     "currentValuationPCO": 75382380,
     "website": null,
-    "funds":[
+    "realised": 4113958.56,
+    "funds": [
       {
         "id": "ESF",
         "fundName": "Emerald Sustainability Fund",
         "amountInvested": 4113958.56
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -4983,14 +5011,15 @@
     "currentValuationEmerald": 1659791.435,
     "currentValuationPCO": null,
     "website": null,
-    "funds":[
+    "realised": 2177240,
+    "funds": [
       {
         "id": "ESF",
         "fundName": "Emerald Sustainability Fund",
         "amountInvested": 2177240
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -5126,14 +5155,15 @@
     "currentValuationEmerald": 9160311,
     "currentValuationPCO": 70186251,
     "website": "www.librestream.com",
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
         "amountInvested": 9218755.47
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -5257,14 +5287,15 @@
     "currentValuationPCO": null,
     "website": null,
     "grossIRR": -1,
-    "funds":[
+    "realised": 794500,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 794500
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -5472,14 +5503,15 @@
     "currentValuationPCO": 33216441,
     "website": "www.meeat.co",
     "grossIRR": 0,
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "EIIF",
         "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
         "amountInvested": 2499000
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -5693,14 +5725,15 @@
     "currentValuationEmerald": 385482,
     "currentValuationPCO": 3867054,
     "website": "www.metgen.com",
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
         "amountInvested": 1100013.22
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -5824,14 +5857,15 @@
     "currentValuationEmerald": 718017,
     "currentValuationPCO": 2018987.134,
     "website": null,
-    "funds":[
+    "realised": 4122279.16,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 4122279.16
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -6039,7 +6073,8 @@
     "currentValuationEmerald": 3661580.068,
     "currentValuationPCO": 35608310.28,
     "website": null,
-    "funds":[
+    "realised": 10289746.31,
+    "funds": [
       {
         "id": "EEF",
         "fundName": "Emerald Energy Fund I",
@@ -6051,7 +6086,7 @@
         "amountInvested": 2319829.97
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -6241,7 +6276,8 @@
     "currentValuationEmerald": 8922699,
     "currentValuationPCO": 122997862.2,
     "website": "www.openmineral.com",
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
@@ -6253,7 +6289,7 @@
         "amountInvested": 3034778.6
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -6431,14 +6467,15 @@
     "currentValuationEmerald": 3020438.634,
     "currentValuationPCO": 14424246.96,
     "website": null,
-    "funds":[
+    "realised": 4782000,
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
         "amountInvested": 4782000
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -6562,7 +6599,8 @@
     "currentValuationEmerald": 708996.9515,
     "currentValuationPCO": null,
     "website": null,
-    "funds":[
+    "realised": 1935910.11,
+    "funds": [
       {
         "id": "EEF",
         "fundName": "Emerald Energy Fund I",
@@ -6574,7 +6612,7 @@
         "amountInvested": 536491.79
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -6764,14 +6802,15 @@
     "currentValuationEmerald": 0,
     "currentValuationPCO": 0,
     "website": null,
-    "funds":[
+    "realised": 1670000.1,
+    "funds": [
       {
         "id": "ESF",
         "fundName": "Emerald Sustainability Fund",
         "amountInvested": 1670000.1
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -6907,14 +6946,15 @@
     "currentValuationEmerald": 22834264,
     "currentValuationPCO": 166812758,
     "website": "www.p97.com",
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
         "amountInvested": 7690797.78
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -7038,7 +7078,8 @@
     "currentValuationEmerald": 0,
     "currentValuationPCO": 0,
     "website": null,
-    "funds":[
+    "realised": 7440902.07,
+    "funds": [
       {
         "id": "EEF",
         "fundName": "Emerald Energy Fund I",
@@ -7050,7 +7091,7 @@
         "amountInvested": 1728906
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -7240,7 +7281,8 @@
     "numOfLPS": 27,
     "status": "Realized",
     "grossIRR": 0.536493,
-    "funds":[
+    "realised": 4328500,
+    "funds": [
       {
         "id": "EEF",
         "fundName": "Emerald Energy Fund I",
@@ -7252,7 +7294,7 @@
         "amountInvested": 1211450
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -7442,7 +7484,8 @@
     "numOfLPS": 26,
     "status": "Unrealized",
     "grossIRR": 0.1893,
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
@@ -7454,7 +7497,7 @@
         "amountInvested": 2954545.23
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -7638,14 +7681,15 @@
     "numOfLPS": 9,
     "status": "Realized",
     "grossIRR": -0.628196,
-    "funds":[
+    "realised": 50000,
+    "funds": [
       {
         "id": "EEF",
         "fundName": "Emerald Energy Fund I",
         "amountInvested": 50000
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "CDP01",
         "shortName": "CDP Capital",
@@ -7727,7 +7771,8 @@
     "numOfLPS": 27,
     "status": "Realized",
     "grossIRR": -0.1995,
-    "funds":[
+    "realised": 2700000.24,
+    "funds": [
       {
         "id": "EEF",
         "fundName": "Emerald Energy Fund I",
@@ -7739,7 +7784,7 @@
         "amountInvested": 756000.24
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -7929,7 +7974,8 @@
     "numOfLPS": 21,
     "status": "Realized",
     "grossIRR": -0.2069,
-    "funds":[
+    "realised": 15122414.87,
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
@@ -7941,7 +7987,7 @@
         "amountInvested": 863287.52
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -8095,14 +8141,15 @@
     "numOfLPS": 30,
     "status": "Realized",
     "grossIRR": 0.180785,
-    "funds":[
+    "realised": 9499999.999999998,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 9500000
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -8310,14 +8357,15 @@
     "currentValuationPCO": null,
     "website": null,
     "grossIRR": -1,
-    "funds":[
+    "realised": 6565000,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 6565000
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -8525,7 +8573,8 @@
     "currentValuationEmerald": null,
     "currentValuationPCO": null,
     "website": "www.rhombusenergysolutions.com",
-    "funds":[
+    "realised": 6533322,
+    "funds": [
       {
         "id": "EIIF",
         "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
@@ -8537,7 +8586,7 @@
         "amountInvested": 973047.5700000001
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -8727,7 +8776,8 @@
     "currentValuationEmerald": 5430299.49,
     "currentValuationPCO": 266587999.2,
     "website": null,
-    "funds":[
+    "realised": 1174492.01,
+    "funds": [
       {
         "id": "EEF",
         "fundName": "Emerald Energy Fund I",
@@ -8739,7 +8789,7 @@
         "amountInvested": 328857
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -8929,14 +8979,15 @@
     "currentValuationEmerald": 1514189,
     "currentValuationPCO": 19962725.76,
     "website": null,
-    "funds":[
+    "realised": 10353995,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 10353995
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -9144,14 +9195,15 @@
     "currentValuationEmerald": 114534.3919,
     "currentValuationPCO": null,
     "website": null,
-    "funds":[
+    "realised": 3284268.91,
+    "funds": [
       {
         "id": "ESF",
         "fundName": "Emerald Sustainability Fund",
         "amountInvested": 3284268.91
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -9287,14 +9339,15 @@
     "currentValuationEmerald": null,
     "currentValuationPCO": null,
     "website": null,
-    "funds":[
+    "realised": 17979925.84,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 17979925.84
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -9502,7 +9555,8 @@
     "currentValuationEmerald": 801963.6791,
     "currentValuationPCO": 45231388.64,
     "website": null,
-    "funds":[
+    "realised": 1889399.14,
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
@@ -9514,7 +9568,7 @@
         "amountInvested": 325774.91
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -9656,14 +9710,15 @@
     "currentValuationEmerald": 8393824.671,
     "currentValuationPCO": 38398140.4,
     "website": null,
-    "funds":[
+    "realised": 9170218.1,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 9170218.100000001
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -9871,7 +9926,8 @@
     "currentValuationEmerald": 879000,
     "currentValuationPCO": 31000298.55,
     "website": "www.sewerai.com",
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "EGWIF",
         "fundName": "Emerald Global Water Impact Fund",
@@ -9883,7 +9939,7 @@
         "amountInvested": 938531.39
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -10115,14 +10171,15 @@
     "currentValuationEmerald": null,
     "currentValuationPCO": null,
     "website": null,
-    "funds":[
+    "realised": 7876017.359999999,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 7876017.359999999
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -10313,7 +10370,7 @@
     "shortName": "Skylark",
     "city": "Stevenage",
     "state": null,
-    "country":"United Kingdom",
+    "country": "United Kingdom",
     "localCurrency": "GBP",
     "initialStage": "Initial Revenue",
     "currentStage": null,
@@ -10330,7 +10387,8 @@
     "currentValuationEmerald": 74,
     "currentValuationPCO": 10000,
     "website": "www.skylarktx.com",
-    "lps":[
+    "realised": null,
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -10508,7 +10566,8 @@
     "currentValuationEmerald": 2203643,
     "currentValuationPCO": 8810424,
     "website": "www.sofifiltration.com",
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "EIIF",
         "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
@@ -10520,7 +10579,7 @@
         "amountInvested": 2354037
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -10728,7 +10787,8 @@
     "currentValuationEmerald": 34984,
     "currentValuationPCO": null,
     "website": "www.spearpowersystems.com",
-    "funds":[
+    "realised": 7443847,
+    "funds": [
       {
         "id": "EIIF",
         "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
@@ -10740,7 +10800,7 @@
         "amountInvested": 2354037
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -10900,14 +10960,15 @@
     "currentValuationEmerald": 5987371.662,
     "currentValuationPCO": 42648995.47,
     "website": null,
-    "funds":[
+    "realised": 8242526.8,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 8242526.8
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -11115,14 +11176,15 @@
     "currentValuationEmerald": 5704691,
     "currentValuationPCO": 18330470,
     "website": "www.takadu.com",
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 6678015
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -11324,7 +11386,8 @@
     "currentValuationEmerald": 1225802,
     "currentValuationPCO": 99864839.6,
     "website": null,
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
@@ -11336,7 +11399,7 @@
         "amountInvested": 1169313.96
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -11514,14 +11577,15 @@
     "currentValuationEmerald": 10675458,
     "currentValuationPCO": 202960252.7,
     "website": "www.urgent.ly",
-    "funds":[
+    "realised": null,
+    "funds": [
       {
         "id": "EIIF",
         "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
         "amountInvested": 8383136.94
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -11687,14 +11751,15 @@
     "currentValuationEmerald": 16465723.38,
     "currentValuationPCO": 125778958.4,
     "website": "www.ushrauto.com",
-    "funds":[
+    "realised": 2040000,
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
         "amountInvested": 2040000
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -11818,14 +11883,15 @@
     "currentValuationEmerald": 401730.3181,
     "currentValuationPCO": 2000000,
     "website": null,
-    "funds":[
+    "realised": 7500001,
+    "funds": [
       {
         "id": "ECFII",
         "fundName": "Emerald Cleantech Fund II",
         "amountInvested": 7500001
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -12033,7 +12099,8 @@
     "currentValuationEmerald": 191483,
     "currentValuationPCO": null,
     "website": null,
-    "funds":[
+    "realised": 2500002.72,
+    "funds": [
       {
         "id": "ECFIII",
         "fundName": "Emerald Cleantech Fund III",
@@ -12045,7 +12112,7 @@
         "amountInvested": 543481.53
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -12184,7 +12251,7 @@
     "country": "Norway",
     "localCurrency": "NOK",
     "amountInvestedLocalCcy": 5350250,
-    "amountInvestedFundCcy": 500000,    
+    "amountInvestedFundCcy": 500000,
     "numOfFunds": 1,
     "numOfLPS": 2,
     "status": "Realized",
@@ -12192,14 +12259,15 @@
     "currentValuationEmerald": 600000,
     "currentValuationPCO": 332766371,
     "website": "www.wheel.me",
-    "funds":[
+    "realised": 5350250,
+    "funds": [
       {
-        "id":"NTV",
-        "fundName":"Nabtesco Technology Ventures",
-        "amountInvested":5350250  
+        "id": "NTV",
+        "fundName": "Nabtesco Technology Ventures",
+        "amountInvested": 5350250
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Nabt01",
         "shortName": "Nabtesco",
@@ -12238,19 +12306,20 @@
     "currentValuationEmerald": 1354627,
     "currentValuationPCO": 55641296,
     "website": "www.xfarm.ag",
-    "funds":[
+    "realised": null,
+    "funds": [
       {
-        "id":"EGWIF",
-        "fundName":"Emerald Global Water Impact Fund",
-        "amountInvested":1268552.22  
+        "id": "EGWIF",
+        "fundName": "Emerald Global Water Impact Fund",
+        "amountInvested": 1268552.22
       },
       {
-        "id":"EIIF",
-        "fundName":"Emerald Industrial Innovation Fund (Guernsey)",
-        "amountInvested":1731430.6
+        "id": "EIIF",
+        "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
+        "amountInvested": 1731430.6
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -12500,14 +12569,15 @@
     "currentValuationEmerald": null,
     "currentValuationPCO": null,
     "website": null,
-    "funds":[
+    "realised": 25607589.4,
+    "funds": [
       {
-        "id":"ECFII",
-        "fundName":"Emerald Cleantech Fund II",
-        "amountInvested":25607589.4  
+        "id": "ECFII",
+        "fundName": "Emerald Cleantech Fund II",
+        "amountInvested": 25607589.4
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -12715,19 +12785,20 @@
     "currentValuationEmerald": 0,
     "currentValuationPCO": 0,
     "website": null,
-    "funds":[
+    "realised": 2486265.73,
+    "funds": [
       {
-        "id":"EEF",
-        "fundName":"Emerald Energy Fund I",
-        "amountInvested":1790108.23  
+        "id": "EEF",
+        "fundName": "Emerald Energy Fund I",
+        "amountInvested": 1790108.23
       },
       {
-        "id":"ESF",
-        "fundName":"Emerald Sustainability Fund",
-        "amountInvested":696157.5
+        "id": "ESF",
+        "fundName": "Emerald Sustainability Fund",
+        "amountInvested": 696157.5
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
