@@ -69,7 +69,7 @@ const adminRows = [
         email: 'hans.dellenbach@emerald.vc',
         role: 'Admin',
         dateAdded: '05/10/2006',
-        picURL: '../../hansD.png'
+        picURL: 'hansD.png'
 
     },
     {
@@ -78,7 +78,7 @@ const adminRows = [
         email: 'marta.jerica@emerald.vc',
         role: 'Admin',
         dateAdded: '23/11/2019',
-        picURL: '../../marta.jpg'
+        picURL: 'marta.jpg'
     },
     {
         id: '3',
@@ -86,7 +86,7 @@ const adminRows = [
         email: 'stefan.riechsteinerd@emerald.vc',
         role: 'Admin',
         dateAdded: '15/04/2017',
-        picURL: '../../stefan.jpg'
+        picURL: 'stefan.jpg'
     },
     {
         id: '4',
@@ -94,7 +94,7 @@ const adminRows = [
         email: 'michael.zehnder@emerald.vc',
         role: 'Admin',
         dateAdded: '22/09/2022',
-        picURL: '../../michael.jpg'
+        picURL: 'michael.jpg'
     },
 
 ];
@@ -105,7 +105,7 @@ const accountRows = [
         name: 'Alex Mercandetti',
         email: 'alex.mercandetti@emerald.vc',
         role: 'Viewer',
-        picURL: '../../alexM.jpg'
+        picURL: 'alexM.jpg'
 
     },
     {
@@ -113,56 +113,56 @@ const accountRows = [
         name: 'Annina Winkler',
         email: 'annina.winkler@emerald.vc',
         role: 'Viewer',
-        picURL: '../../anninaW.jpg'
+        picURL: 'anninaW.jpg'
     },
     {
         id: '3',
         name: 'Clayton MacDougald',
         email: 'clayton.macdougald@emerald.vc',
         role: 'Viewer',
-        picURL: '../../claytonM.jpg'
+        picURL: 'claytonM.jpg'
     },
     {
         id: '4',
         name: 'Jessyca Wyss',
         email: 'jessyca.wyss@emerald.vc',
         role: 'Viewer',
-        picURL: '../../jessicaW.jpg'
+        picURL: 'jessicaW.jpg'
     },
     {
         id: '5',
         name: 'Isabelle Panto',
         email: 'isabelle.panto@emerald.vc',
         role: 'Viewer',
-        picURL: '../../isabelleP.jpg'
+        picURL: 'isabelleP.jpg'
     },
     {
         id: '6',
         name: 'Madjiguène Ndiaye',
         email: 'madjiguène.ndiaye@emerald.vc',
         role: 'Viewer',
-        picURL: '../../madjigueneN.jpg'
+        picURL: 'madjigueneN.jpg'
     },
     {
         id: '7',
         name: 'Max Hefti',
         email: 'max.hefti@emerald.vc',
         role: 'Viewer',
-        picURL: '../../maxH.jpg'
+        picURL: 'maxH.jpg'
     },
     {
         id: '8',
         name: 'Simone Riedel Riley',
         email: 'simone.riedel@emerald.vc',
         role: 'Viewer',
-        picURL: '../../simoneR.jpg'
+        picURL: 'simoneR.jpg'
     },
     {
         id: '9',
         name: 'Maryam Asadi',
         email: 'maryam.asadi@emerald.vc',
         role: 'Viewer',
-        picURL: '../../maryamA.jpg'
+        picURL: 'maryamA.jpg'
 
     },
     {
@@ -170,84 +170,84 @@ const accountRows = [
         name: 'Frank Balas',
         email: 'frank.balas@emerald.vc',
         role: 'Viewer',
-        picURL: '../../frankB.jpg'
+        picURL: 'frankB.jpg'
     },
     {
         id: '11',
         name: 'Thierry Borner',
         email: 'thierry.borner@emerald.vc',
         role: 'Viewer',
-        picURL: '../../thierryB.png'
+        picURL: 'thierryB.png'
     },
     {
         id: '12',
         name: 'Neil Cameron',
         email: 'neil.cameron@emerald.vc',
         role: 'Viewer',
-        picURL: '../../neilC.jpg'
+        picURL: 'neilC.jpg'
     },
     {
         id: '13',
         name: 'Graham Carey',
         email: 'graham.carey@emerald.vc',
         role: 'Viewer',
-        picURL: '../../grahamC.jpg'
+        picURL: 'grahamC.jpg'
     },
     {
         id: '14',
         name: 'Helge Daebel',
         email: 'helge.daebel@emerald.vc',
         role: 'Viewer',
-        picURL: '../../HelgeD.png'
+        picURL: 'HelgeD.png'
     },
     {
         id: '15',
         name: 'Pollene Diente',
         email: 'pollene.diente@emerald.vc',
         role: 'Viewer',
-        picURL: '../../polleneD.jpg'
+        picURL: 'polleneD.jpg'
     },
     {
         id: '16',
         name: 'Julien Dillon',
         email: 'julien.dillon@emerald.vc',
         role: 'Viewer',
-        picURL: '../../julienD.png'
+        picURL: 'julienD.png'
     },
     {
         id: '17',
         name: 'Gina Domanig',
         email: 'gina.domanig@emerald.vc',
         role: 'Viewer',
-        picURL: '../../ginaD.png'
+        picURL: 'ginaD.png'
     },
     {
         id: '18',
         name: 'Nico Domanig',
         email: 'nico.domanig@emerald.vc',
         role: 'Viewer',
-        picURL: '../../nicoD.png'
+        picURL: 'nicoD.png'
     },
     {
         id: '19',
         name: 'Stacy Fiehler',
         email: 'stacy.fiehler@emerald.vc',
         role: 'Viewer',
-        picURL: '../../stacyF.jpg'
+        picURL: 'stacyF.jpg'
     },
     {
         id: '20',
         name: 'Christoph Frei',
         email: 'christoph.frei@emerald.vc',
         role: 'Viewer',
-        picURL: '../../christophF.jpg'
+        picURL: 'christophF.jpg'
     },
     {
         id: '21',
         name: 'Anandhi Gokhale',
         email: 'anandhi.gokhale@emerald.vc',
         role: 'Viewer',
-        picURL: '../../anandhiG.png'
+        picURL: 'anandhiG.png'
 
     },
     {
@@ -255,119 +255,119 @@ const accountRows = [
         name: 'Philipp Hasler',
         email: 'philipp.hasler@emerald.vc',
         role: 'Viewer',
-        picURL: '../../philippH.jpg'
+        picURL: 'philippH.jpg'
     },
     {
         id: '23',
         name: 'Emmi Kaipio',
         email: 'emmi.kaipio@emerald.vc',
         role: 'Viewer',
-        picURL: '../../EmmiK.png'
+        picURL: 'EmmiK.png'
     },
     {
         id: '24',
         name: 'Kelven Lam',
         email: 'Kelven.lam@emerald.vc',
         role: 'Viewer',
-        picURL: '../../kelvenL.png'
+        picURL: 'kelvenL.png'
     },
     {
         id: '25',
         name: 'Mariam Lapointe',
         email: 'mariam.lapointe@emerald.vc',
         role: 'Viewer',
-        picURL: '../../mariamL.jpg'
+        picURL: 'mariamL.jpg'
     },
     {
         id: '26',
         name: 'Martina Looser',
         email: 'martina.looser@emerald.vc',
         role: 'Viewer',
-        picURL: '../../martinaL.png'
+        picURL: 'martinaL.png'
     },
     {
         id: '27',
         name: 'Stephen Marcus',
         email: 'stephen.marcus@emerald.vc',
         role: 'Viewer',
-        picURL: '../../stephenM.jpg'
+        picURL: 'stephenM.jpg'
     },
     {
         id: '28',
         name: 'Heather McHugh',
         email: 'heather.mchugh@emerald.vc',
         role: 'Viewer',
-        picURL: '../../heatherM.png'
+        picURL: 'heatherM.png'
     },
     {
         id: '29',
         name: 'Markus Moor',
         email: 'markus.moor@emerald.vc',
         role: 'Viewer',
-        picURL: '../../markusM.jpg'
+        picURL: 'markusM.jpg'
     },
     {
         id: '30',
         name: 'Tetsuya Mori',
         email: 'tetsuya.mori@emerald.vc',
         role: 'Viewer',
-        picURL: '../../tetsuyaM.png'
+        picURL: 'tetsuyaM.png'
     },
     {
         id: '31',
         name: 'Michal Natora',
         email: 'michal.natora@emerald.vc',
         role: 'Viewer',
-        picURL: '../../michalN.jpg'
+        picURL: 'michalN.jpg'
     },
     {
         id: '32',
         name: 'Fredric Petit',
         email: 'fredric.petit@emerald.vc',
         role: 'Viewer',
-        picURL: '../../fredricP.jpg'
+        picURL: 'fredricP.jpg'
     },
     {
         id: '33',
         name: 'Michael Revensburg',
         email: 'michael.revensburg@emerald.vc',
         role: 'Viewer',
-        picURL: '../../michaelR.jpg'
+        picURL: 'michaelR.jpg'
     },
     {
         id: '34',
         name: 'Petra Rüegg',
         email: 'petra.ruegg@emerald.vc',
         role: 'Viewer',
-        picURL: '../../petraR.jpg'
+        picURL: 'petraR.jpg'
     },
     {
         id: '35',
         name: 'Michèle Schneider',
         email: 'michele.schneider@emerald.vc',
         role: 'Viewer',
-        picURL: '../../micheleS.jpg'
+        picURL: 'micheleS.jpg'
     },
     {
         id: '36',
         name: 'Jun Da Tan',
         email: 'jun.tan@emerald.vc',
         role: 'Viewer',
-        picURL: '../../jundaT.png'
+        picURL: 'jundaT.png'
     },
     {
         id: '37',
         name: 'Charles Vaslet',
         email: 'charles.vaslet@emerald.vc',
         role: 'Viewer',
-        picURL: '../../charlesV.png'
+        picURL: 'charlesV.png'
     },
     {
         id: '38',
         name: 'Mehran Zaker',
         email: 'mehran.zaker@emerald.vc',
         role: 'Viewer',
-        picURL: '../../mehranZ.jpg'
+        picURL: 'mehranZ.jpg'
     }
 ];
 
@@ -375,7 +375,6 @@ const Users = () => {
     const classes = useStyles();
     const theme = useTheme();
     const [selected, setSelected] = useState<readonly string[]>([]);
-
 
     const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.checked) {
@@ -469,7 +468,7 @@ const Users = () => {
                                         <StyledTableCell align="left">
                                             <Grid container sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                                 <Grid item>
-                                                    <Avatar alt={row.name} src={row.picURL} />
+                                                    <Avatar alt={row.name} src={`${process.env.PUBLIC_URL}/${row.picURL}`} />
                                                 </Grid>
                                                 <Grid item sx={{ marginLeft: '1em' }}>
                                                     <Grid container>
@@ -561,7 +560,7 @@ const Users = () => {
                                         <StyledTableCell align="left">
                                             <Grid container sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                                 <Grid item>
-                                                    <Avatar alt={row.name} src={row.picURL} />
+                                                    <Avatar alt={row.name} src={`${process.env.PUBLIC_URL}/${row.picURL}`} />
                                                 </Grid>
                                                 <Grid item sx={{ marginLeft: '1em' }}>
                                                     <Grid container>
