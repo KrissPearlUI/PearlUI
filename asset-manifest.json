@@ -1,23 +1,7 @@
 {
   "files": {
     "main.css": "/PearlUI/static/css/main.59f8657a.css",
-    "main.js": "/PearlUI/static/js/main.f907e329.js",
-    "static/js/896.b087a7c3.chunk.js": "/PearlUI/static/js/896.b087a7c3.chunk.js",
-    "static/js/50.7cd2e66b.chunk.js": "/PearlUI/static/js/50.7cd2e66b.chunk.js",
-    "static/js/61.91ba6cdf.chunk.js": "/PearlUI/static/js/61.91ba6cdf.chunk.js",
-    "static/js/67.b84ea928.chunk.js": "/PearlUI/static/js/67.b84ea928.chunk.js",
-    "static/js/1.a4b6ad8f.chunk.js": "/PearlUI/static/js/1.a4b6ad8f.chunk.js",
-    "static/js/331.8c219507.chunk.js": "/PearlUI/static/js/331.8c219507.chunk.js",
-    "static/js/245.de24cd01.chunk.js": "/PearlUI/static/js/245.de24cd01.chunk.js",
-    "static/js/410.0d9de74e.chunk.js": "/PearlUI/static/js/410.0d9de74e.chunk.js",
-    "static/js/848.7984d1a9.chunk.js": "/PearlUI/static/js/848.7984d1a9.chunk.js",
-    "static/js/744.975f5d8a.chunk.js": "/PearlUI/static/js/744.975f5d8a.chunk.js",
-    "static/js/852.ae57fcd7.chunk.js": "/PearlUI/static/js/852.ae57fcd7.chunk.js",
-    "static/js/690.2764683b.chunk.js": "/PearlUI/static/js/690.2764683b.chunk.js",
-    "static/js/740.7a9ecbc3.chunk.js": "/PearlUI/static/js/740.7a9ecbc3.chunk.js",
-    "static/js/139.974e9f9b.chunk.js": "/PearlUI/static/js/139.974e9f9b.chunk.js",
-    "static/js/104.836061ba.chunk.js": "/PearlUI/static/js/104.836061ba.chunk.js",
-    "static/js/117.5daed1f7.chunk.js": "/PearlUI/static/js/117.5daed1f7.chunk.js",
+    "main.js": "/PearlUI/static/js/main.ec420dca.js",
     "static/media/LPMenuIcon.svg": "/PearlUI/static/media/LPMenuIcon.bda5a9a7f2637044d6cf62751ff98947.svg",
     "static/media/LogoIcon.svg": "/PearlUI/static/media/LogoIcon.709b1cd7c9efe110497938ef370140b9.svg",
     "static/media/UploadPicIcon.svg": "/PearlUI/static/media/UploadPicIcon.b34292d0a64f196fd3eb07693441142c.svg",
@@ -27,26 +11,10 @@
     "index.html": "/PearlUI/index.html",
     "static/media/AppearanceIcon.svg": "/PearlUI/static/media/AppearanceIcon.6aded6e1d59341b505796f9856729587.svg",
     "main.59f8657a.css.map": "/PearlUI/static/css/main.59f8657a.css.map",
-    "main.f907e329.js.map": "/PearlUI/static/js/main.f907e329.js.map",
-    "896.b087a7c3.chunk.js.map": "/PearlUI/static/js/896.b087a7c3.chunk.js.map",
-    "50.7cd2e66b.chunk.js.map": "/PearlUI/static/js/50.7cd2e66b.chunk.js.map",
-    "61.91ba6cdf.chunk.js.map": "/PearlUI/static/js/61.91ba6cdf.chunk.js.map",
-    "67.b84ea928.chunk.js.map": "/PearlUI/static/js/67.b84ea928.chunk.js.map",
-    "1.a4b6ad8f.chunk.js.map": "/PearlUI/static/js/1.a4b6ad8f.chunk.js.map",
-    "331.8c219507.chunk.js.map": "/PearlUI/static/js/331.8c219507.chunk.js.map",
-    "245.de24cd01.chunk.js.map": "/PearlUI/static/js/245.de24cd01.chunk.js.map",
-    "410.0d9de74e.chunk.js.map": "/PearlUI/static/js/410.0d9de74e.chunk.js.map",
-    "848.7984d1a9.chunk.js.map": "/PearlUI/static/js/848.7984d1a9.chunk.js.map",
-    "744.975f5d8a.chunk.js.map": "/PearlUI/static/js/744.975f5d8a.chunk.js.map",
-    "852.ae57fcd7.chunk.js.map": "/PearlUI/static/js/852.ae57fcd7.chunk.js.map",
-    "690.2764683b.chunk.js.map": "/PearlUI/static/js/690.2764683b.chunk.js.map",
-    "740.7a9ecbc3.chunk.js.map": "/PearlUI/static/js/740.7a9ecbc3.chunk.js.map",
-    "139.974e9f9b.chunk.js.map": "/PearlUI/static/js/139.974e9f9b.chunk.js.map",
-    "104.836061ba.chunk.js.map": "/PearlUI/static/js/104.836061ba.chunk.js.map",
-    "117.5daed1f7.chunk.js.map": "/PearlUI/static/js/117.5daed1f7.chunk.js.map"
+    "main.ec420dca.js.map": "/PearlUI/static/js/main.ec420dca.js.map"
   },
   "entrypoints": [
     "static/css/main.59f8657a.css",
-    "static/js/main.f907e329.js"
+    "static/js/main.ec420dca.js"
   ]
 }
