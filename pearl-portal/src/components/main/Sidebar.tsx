@@ -4,10 +4,10 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import List from '@mui/material/List';
 import { Collapse, ListItem, ListItemButton, ListItemIcon, ListItemText, Tooltip, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
-import React from 'react';
+import React, { useState } from 'react';
 import { CSSObject, lighten, styled, Theme, useTheme } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/store';
 import { useSelector } from 'react-redux';
 import { RootState } from "../../redux/slices/rootSlice";
@@ -24,6 +24,7 @@ import clsx from 'clsx';
 import { RootRouteDefinition } from '../../router/RootRouteDefinition';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Dashboard } from '@mui/icons-material';
 
 const routes = [{ key: 'Dashboard', url: '/' },
 { key: 'LPs', url: '/lpsOverview' },
@@ -66,7 +67,7 @@ const useStyles = makeStyles((theme: Theme) =>
             color: theme.palette.text.primary,
         },
         drawerSubLink: {
-            paddingLeft: theme.spacing(6),
+            //paddingLeft: theme.spacing(6),
             color: theme.palette.text.primary,
         },
         drawerButton: {
@@ -137,16 +138,38 @@ const NavLinkSection = (): JSX.Element => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const theme = useTheme();
-    const {navLinkState} = useSelector((state: RootState) => state.app);
-    const handleNavLinkExpand = (path: string) => {
-        dispatch(setNavLinkState(path));
-    };
-    const pathName = window.location.pathname;
-    const handleClick = () => {
-        dispatch(setIsDrawerOpen(false));
+    const location = useLocation();
+    const [navLinkState, setNavLinkState] = useState<Record<string, boolean>>({});
+    const {
+        activePath,
+        drawerOpen,
+    } = useSelector((state: RootState) => state.app);
+    const pathName = location.pathname;
+
+    const handleClick = (url: any) => {
+        Object.keys(navLinkState).forEach((key) => {
+            navLinkState[key] = false;
+        });
+        setNavLinkState({ ...navLinkState });
+        dispatch(setActivePath(url));
     };
 
-    const renderNavLinks = (routes: RouteDefinition [], isSubLink: boolean) => {
+    const handleNavLinkExpand = (path: string) => {
+        dispatch(setActivePath(path));
+        setNavLinkState((prevState) => {
+            return { ...prevState, [path]: !prevState[path] };
+        });
+    };
+    /*     const {navLinkState} = useSelector((state: RootState) => state.app);
+        const handleNavLinkExpand = (path: string) => {
+            dispatch(setNavLinkState(path));
+        };
+        const pathName = window.location.pathname;
+        const handleClick = () => {
+            dispatch(setIsDrawerOpen(false));
+        }; */
+
+    const renderNavLinks = (routes: RouteDefinition[], isSubLink: boolean) => {
         return routes.map((route, index) => {
             if (!route.children) {
                 return (
@@ -154,59 +177,92 @@ const NavLinkSection = (): JSX.Element => {
                         <NavLink to={route.path} className={clsx(classes.drawerLink)}>
                             <ListItem
                                 button
-                                onClick={handleClick}
-                                selected={pathName === route.path}
+                                onClick={() => { handleClick(route.path) }}
                                 className={clsx(pathName
                                     ? classes.drawerButton : '', isSubLink ? classes.drawerSubLink : '')}
+
+                                sx={{ backgroundColor: activePath === route.path ? 'rgba(255, 255, 255, 0.6)' : 'transparent' }}
                             >
                                 <ListItemIcon>
-                                    <route.icon/>
+                                    <route.icon />
                                 </ListItemIcon>
-                                <ListItemText primary={route?.name} sx={{color:'#F3F3F3'}}/>
+                                <ListItemText primary={route?.name} sx={{ color: '#F3F3F3' }} />
                             </ListItem>
                         </NavLink>
                     </List>
                 );
             }
             return (
-                <List key={`${index}-${route.path}`} disablePadding sx={{marginBottom:'0.5em'}}>
+                <List key={`${index}-${route.path}`} disablePadding sx={{ marginBottom: '0.5em' }}>
                     {
                         !route.icon ?
-                            <ListItem>
-                                <ListItemText primary={route?.name}>{route?.name}</ListItemText>
-                            </ListItem> :
-                            <ListItem
-                                button
-                                onClick={() => handleNavLinkExpand(route.path)}>
-                                {
-                                    route.icon && <ListItemIcon>
-                                        <route.icon/>
-                                    </ListItemIcon>
-                                }
-                                {
-                                    route.icon ? <ListItemText primary={route?.name}/> :
-                                        <ListItemText primary={route?.name}>{route?.name}</ListItemText>
-                                }
-                                {
-                                    !route.icon ? null : navLinkState[route.path] ? <ExpandLessIcon/> : <ExpandMoreIcon/>
-                                }
-                            </ListItem>
+                            <NavLink to={route.path} className={clsx(classes.drawerLink)}>
+                                <ListItem className={clsx(pathName
+                                    ? classes.drawerButton : '', isSubLink ? classes.drawerSubLink : '')}
+                                    sx={{ backgroundColor: activePath === route.path ? 'rgba(255, 255, 255, 0.6)' : 'transparent' }}>
+                                    <ListItemText primary={route?.name} sx={{ color: '#F3F3F3' }}>{route?.name}</ListItemText>
+                                </ListItem>
+                            </NavLink> :
+                            <NavLink to={route.path} className={clsx(classes.drawerLink)}>
+                                <ListItem
+                                    className={clsx(pathName
+                                        ? classes.drawerButton : '', isSubLink ? classes.drawerSubLink : '')}
+                                    button
+                                    onClick={() => handleNavLinkExpand(route.path)}
+                                    sx={{ backgroundColor: activePath === route.path ? 'rgba(255, 255, 255, 0.6)' : 'transparent' }}>
+                                    {
+                                        route.icon ? route.isChildren ? null : <ListItemIcon>
+                                            <route.icon />
+                                        </ListItemIcon> : null
+                                    }
+                                    {
+                                        route.icon ? <ListItemText primary={route?.name} sx={{ color: '#F3F3F3' }} /> :
+                                            <ListItemText primary={route?.name} sx={{ color: '#F3F3F3' }}>{route?.name}</ListItemText>
+                                    }
+                                    {
+                                        !route.icon ? null : navLinkState[route.path] ? <ExpandLessIcon sx={{ color: '#F3F3F3' }} /> : <ExpandMoreIcon sx={{ color: '#F3F3F3' }} />
+                                    }
+                                </ListItem>
+                            </NavLink>
                     }
                     {
                         !route.icon ? <Collapse
-                                in={true}
-                                timeout="auto"
-                                unmountOnExit>
-                                {
-                                    renderNavLinks(route.children, true)
-                                }
-                            </Collapse> :
+                            in={true}
+                            timeout="auto"
+                            unmountOnExit
+                            sx={{ color: '#F3F3F3' }}>
+                            {
+                                renderNavLinks(route.children, true)
+                            }
+                        </Collapse> :
                             <Collapse
                                 in={navLinkState[route.path]}
                                 timeout="auto"
-                                unmountOnExit>
+                                unmountOnExit
+                                sx={{ color: '#F3F3F3' }}>
                                 {
-                                    renderNavLinks(route.children, true)
+                                    route.children?.map((route, index) => {
+                                        return (<>
+                                            {drawerOpen ?
+                                                <List key={`${index}-${route.path}`} component="div" sx={{ paddingLeft: '0.8em' }} disablePadding>
+                                                    <NavLink to={route.path} className={clsx(classes.drawerLink)}>
+                                                        <ListItem
+                                                            button
+                                                            onClick={() => { handleClick(route.path) }}
+                                                            selected={pathName === route.path}
+                                                            className={clsx(pathName
+                                                                ? classes.drawerButton : '', isSubLink ? classes.drawerSubLink : '')}
+                                                            sx={{ backgroundColor: activePath === route.path ? 'rgba(255, 255, 255, 0.6)' : 'transparent' }}>
+                                                            <ListItemIcon>
+                                                                <route.icon />
+                                                            </ListItemIcon>
+                                                            <ListItemText primary={route?.name} sx={{ color: '#F3F3F3', marginLeft: '-1em' }} />
+                                                        </ListItem>
+                                                    </NavLink>
+                                                </List> : null}
+                                        </>
+                                        );
+                                    })
                                 }
                             </Collapse>
                     }
@@ -217,7 +273,7 @@ const NavLinkSection = (): JSX.Element => {
 
 
     return (<>
-        {renderNavLinks(RootRouteDefinition.children??[], false)}
+        {renderNavLinks(RootRouteDefinition.children ?? [], false)}
     </>);
 };
 
@@ -229,6 +285,7 @@ const SideBar = () => {
         activePath,
         drawerOpen,
     } = useSelector((state: RootState) => state.app);
+    const [openExtended, setopenExtended] = useState(false);
 
     /**
      * Closes the navigation menu and navigates to the specific url
@@ -239,6 +296,10 @@ const SideBar = () => {
         dispatch(setIsDrawerOpen(false));
         navigate(url);
     }
+
+    const handleExpanded = (route: any) => {
+        setopenExtended(!openExtended);
+    };
 
     return <Drawer variant="permanent"
         open={drawerOpen}
@@ -261,7 +322,14 @@ const SideBar = () => {
                     : <MenuIcon style={{ color: '#F3F3F3' }} />}
             </IconButton>
         </DrawerHeader>
-      <List sx={{ paddingTop: 0 }}>
+        <NavLinkSection />
+    </Drawer>;
+};
+
+export default SideBar;
+
+
+{/* <List sx={{ paddingTop: 0 }}>
             {routes?.map((route, index) => (
                 <ListItem key={route.key} disablePadding sx={{ display: 'block', marginBottom: '0.5em' }}
                     onClick={() => handleNavigation(route.url)}
@@ -303,8 +371,4 @@ const SideBar = () => {
                     </ListItemButton>
                 </ListItem>
             ))}
-        </List> 
-    </Drawer>;
-};
-
-export default SideBar;
+        </List>  */}

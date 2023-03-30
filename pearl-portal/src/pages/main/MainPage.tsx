@@ -2,7 +2,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import React from 'react';
 import { Grid, Theme } from "@mui/material";
 import makeStyles from '@mui/styles/makeStyles';
-import { RoutesSwitch } from "../../router/Routes";
+import { RoutesSwitch } from "../../router/RouteSwitch";
 import { useAppDispatch } from "../../redux/store";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/slices/rootSlice";
@@ -11,6 +11,7 @@ import Sidebar from "../../components/main/Sidebar";
 import { Topbar } from "../../components/main/Topbar";
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import NavigationMenu from '../../components/main/TestSideBar';
 
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
