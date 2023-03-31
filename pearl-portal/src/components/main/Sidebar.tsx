@@ -152,6 +152,7 @@ const NavLinkSection = (): JSX.Element => {
     const [isMenuHovered, setIsMenuHovered] = useState(false);
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
     const [expanded, setExpanded] = useState<boolean>(false);
+    const [openRoutes, setOpenRoutes] = useState<string[]>([]);
 
     const handleClick = (url: any) => {
         Object.keys(navLinkState).forEach((key) => {
@@ -159,6 +160,7 @@ const NavLinkSection = (): JSX.Element => {
         });
         setNavLinkState({ ...navLinkState });
         dispatch(setActivePath(url));
+        dispatch(setIsDrawerOpen(false));
     };
 
     const handleNavLinkExpand = (path: string) => {
@@ -167,6 +169,14 @@ const NavLinkSection = (): JSX.Element => {
             return { ...prevState, [path]: !prevState[path] };
         }); */
         setExpanded(true);
+        setOpenRoutes(prevOpenRoutes => {
+            const index = prevOpenRoutes.indexOf(path);
+            if (index > -1) {
+                return [...prevOpenRoutes.slice(0, index), ...prevOpenRoutes.slice(index + 1)];
+            } else {
+                return [...prevOpenRoutes, path];
+            }
+        });
         setNavLinkState((prevState) => {
             return { ...prevState, [path]: !prevState[path] };
         });
@@ -200,6 +210,8 @@ const NavLinkSection = (): JSX.Element => {
                     </List>
                 );
             } else {
+                const isOpen = openRoutes.includes(route.path);
+                const hasChildren = Boolean(route.children && route.children.length > 0);
                 const isExpanded = navLinkState[route.path];
                 return (
                     <List key={`${index}-${route.path}`} disablePadding sx={{ marginBottom: '0.5em' }} onMouseEnter={() => setIsMenuHovered(true)}>
@@ -221,9 +233,8 @@ const NavLinkSection = (): JSX.Element => {
                                 </ListItem>
                             </NavLink>
                         }
-                        {isExpanded &&
-                            <Collapse
-                                in={isExpanded}
+                        {hasChildren &&
+                            <Collapse in={isOpen}
                                 timeout="auto"
                                 unmountOnExit
                                 sx={{ color: '#F3F3F3' }}>
@@ -231,16 +242,17 @@ const NavLinkSection = (): JSX.Element => {
                                     route.children?.map((route, index) => {
                                         return (<>
                                             {drawerOpen ?
-                                                <List key={`${index}-${route.path}`} component="div" sx={{ paddingLeft: '0.8em' }} disablePadding>
+                                                <List key={`${index}-${route.path}`} component="div" disablePadding>
                                                     <NavLink to={route.path} className={clsx(classes.drawerLink)}>
                                                         <ListItem
                                                             button
                                                             onClick={() => { handleClick(route.path) }}
-                                                            selected={pathName === route.path}
                                                             className={clsx(pathName
                                                                 ? classes.drawerButton : '', isSubLink ? classes.drawerSubLink : '')}
-                                                            sx={{ backgroundColor: activePath === route.path ? 'rgba(255, 255, 255, 0.6)' : 'transparent' }}>
-                                                            <ListItemIcon>
+                                                            sx={{
+                                                                backgroundColor: activePath === route.path ? 'rgba(255, 255, 255, 0.6)' : 'transparent',
+                                                            }}>
+                                                            <ListItemIcon sx={{ marginLeft: '0.8em' }}>
                                                                 <route.icon />
                                                             </ListItemIcon>
                                                             <ListItemText primary={route?.name} sx={{ color: '#F3F3F3', marginLeft: '-1em' }} />
