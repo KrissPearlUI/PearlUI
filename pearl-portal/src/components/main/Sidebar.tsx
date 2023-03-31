@@ -4,7 +4,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import List from '@mui/material/List';
 import { Collapse, ListItem, ListItemButton, ListItemIcon, ListItemText, Tooltip, Typography } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CSSObject, lighten, styled, Theme, useTheme } from '@mui/material/styles';
 import MuiDrawer from '@mui/material/Drawer';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
@@ -134,6 +134,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
 );
 
+interface ExpandedPagesProps {
+    [key: string]: boolean;
+}
+
 const NavLinkSection = (): JSX.Element => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
@@ -148,7 +152,6 @@ const NavLinkSection = (): JSX.Element => {
     const [isMenuHovered, setIsMenuHovered] = useState(false);
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
     const [expanded, setExpanded] = useState<boolean>(false);
-    const [expandedPath, setExpandedPath] = useState<string | null>(null); // keep track of currently expanded path
 
     const handleClick = (url: any) => {
         Object.keys(navLinkState).forEach((key) => {
@@ -171,27 +174,6 @@ const NavLinkSection = (): JSX.Element => {
                     dispatch(setIsDrawerOpen(false));
                 } */
 
-        const ancestors = getAncestors(path);
-        setNavLinkState((prevState) => {
-            const newState = { ...prevState };
-            ancestors.forEach((ancestor) => {
-                newState[ancestor] = true;
-            });
-            return newState;
-        });
-    };
-
-
-    // helper function to get all the ancestor paths of a given path
-    const getAncestors = (path: string): string[] => {
-        const parts = path.split('/').filter((part) => part !== '');
-        const ancestors: string[] = [];
-        parts.reduce((prev, curr) => {
-            const path = prev + '/' + curr;
-            ancestors.push(path);
-            return path;
-        }, '');
-        return ancestors;
     };
 
 
