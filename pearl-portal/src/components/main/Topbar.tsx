@@ -78,7 +78,7 @@ export const Topbar = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap aria-label={'title'} sx={{ marginLeft: '1em' }}>
+                    <Typography variant="h6" noWrap aria-label={'title'} sx={{ marginLeft: drawerOpen ? '7em' : '1em' }}>
                         {topBarTitle}
                     </Typography>
                 </Grid>
