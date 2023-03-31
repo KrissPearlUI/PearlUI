@@ -43,7 +43,7 @@ const MainPage = () => {
 
             <div className={classes.root}>
                 <CssBaseline />
-                <div onBlur={() => drawerOpen ? dispatch(setIsDrawerOpen(!drawerOpen)) : null}>
+                <div >
                     <Topbar />
                     <Sidebar />
                 </div>
@@ -59,3 +59,5 @@ const MainPage = () => {
 };
 
 export default MainPage;
+
+//onBlur={() => drawerOpen ? dispatch(setIsDrawerOpen(!drawerOpen)) : null}

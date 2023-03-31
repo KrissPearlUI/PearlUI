@@ -11,7 +11,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/store';
 import { useSelector } from 'react-redux';
 import { RootState } from "../../redux/slices/rootSlice";
-import { setActivePath, setIsDrawerOpen, setNavLinkState } from "../../redux/slices/appSlice";
+import { setActivePath, setIsDrawerOpen } from "../../redux/slices/appSlice";
 import MenuIcon from "@mui/icons-material/Menu";
 import { ReactComponent as LPIcon } from '../../assets/icons/LPMenuIcon.svg';
 import { ReactComponent as FundsMenuIcon } from "../../assets/icons/FundsMenuIcon.svg";
@@ -145,6 +145,10 @@ const NavLinkSection = (): JSX.Element => {
         drawerOpen,
     } = useSelector((state: RootState) => state.app);
     const pathName = location.pathname;
+    const [isMenuHovered, setIsMenuHovered] = useState(false);
+    const [expandedItems, setExpandedItems] = useState<string[]>([]);
+    const [expanded, setExpanded] = useState<boolean>(false);
+    const [expandedPath, setExpandedPath] = useState<string | null>(null); // keep track of currently expanded path
 
     const handleClick = (url: any) => {
         Object.keys(navLinkState).forEach((key) => {
@@ -156,18 +160,40 @@ const NavLinkSection = (): JSX.Element => {
 
     const handleNavLinkExpand = (path: string) => {
         dispatch(setActivePath(path));
+        /* setNavLinkState((prevState) => {
+            return { ...prevState, [path]: !prevState[path] };
+        }); */
+        setExpanded(true);
         setNavLinkState((prevState) => {
             return { ...prevState, [path]: !prevState[path] };
         });
+        /*         if (!isMenuHovered) {
+                    dispatch(setIsDrawerOpen(false));
+                } */
+
+        const ancestors = getAncestors(path);
+        setNavLinkState((prevState) => {
+            const newState = { ...prevState };
+            ancestors.forEach((ancestor) => {
+                newState[ancestor] = true;
+            });
+            return newState;
+        });
     };
-    /*     const {navLinkState} = useSelector((state: RootState) => state.app);
-        const handleNavLinkExpand = (path: string) => {
-            dispatch(setNavLinkState(path));
-        };
-        const pathName = window.location.pathname;
-        const handleClick = () => {
-            dispatch(setIsDrawerOpen(false));
-        }; */
+
+
+    // helper function to get all the ancestor paths of a given path
+    const getAncestors = (path: string): string[] => {
+        const parts = path.split('/').filter((part) => part !== '');
+        const ancestors: string[] = [];
+        parts.reduce((prev, curr) => {
+            const path = prev + '/' + curr;
+            ancestors.push(path);
+            return path;
+        }, '');
+        return ancestors;
+    };
+
 
     const renderNavLinks = (routes: RouteDefinition[], isSubLink: boolean) => {
         return routes.map((route, index) => {
@@ -191,18 +217,11 @@ const NavLinkSection = (): JSX.Element => {
                         </NavLink>
                     </List>
                 );
-            }
-            return (
-                <List key={`${index}-${route.path}`} disablePadding sx={{ marginBottom: '0.5em' }}>
-                    {
-                        !route.icon ?
-                            <NavLink to={route.path} className={clsx(classes.drawerLink)}>
-                                <ListItem className={clsx(pathName
-                                    ? classes.drawerButton : '', isSubLink ? classes.drawerSubLink : '')}
-                                    sx={{ backgroundColor: activePath === route.path ? 'rgba(255, 255, 255, 0.6)' : 'transparent' }}>
-                                    <ListItemText primary={route?.name} sx={{ color: '#F3F3F3' }}>{route?.name}</ListItemText>
-                                </ListItem>
-                            </NavLink> :
+            } else {
+                const isExpanded = navLinkState[route.path];
+                return (
+                    <List key={`${index}-${route.path}`} disablePadding sx={{ marginBottom: '0.5em' }} onMouseEnter={() => setIsMenuHovered(true)}>
+                        {
                             <NavLink to={route.path} className={clsx(classes.drawerLink)}>
                                 <ListItem
                                     className={clsx(pathName
@@ -210,33 +229,19 @@ const NavLinkSection = (): JSX.Element => {
                                     button
                                     onClick={() => handleNavLinkExpand(route.path)}
                                     sx={{ backgroundColor: activePath === route.path ? 'rgba(255, 255, 255, 0.6)' : 'transparent' }}>
+                                    <ListItemIcon>
+                                        <route.icon />
+                                    </ListItemIcon>
+                                    <ListItemText primary={route?.name} sx={{ color: '#F3F3F3' }} />
                                     {
-                                        route.icon ? route.isChildren ? null : <ListItemIcon>
-                                            <route.icon />
-                                        </ListItemIcon> : null
-                                    }
-                                    {
-                                        route.icon ? <ListItemText primary={route?.name} sx={{ color: '#F3F3F3' }} /> :
-                                            <ListItemText primary={route?.name} sx={{ color: '#F3F3F3' }}>{route?.name}</ListItemText>
-                                    }
-                                    {
-                                        !route.icon ? null : navLinkState[route.path] ? <ExpandLessIcon sx={{ color: '#F3F3F3' }} /> : <ExpandMoreIcon sx={{ color: '#F3F3F3' }} />
+                                        navLinkState[route.path] ? <ExpandLessIcon sx={{ color: '#F3F3F3' }} /> : <ExpandMoreIcon sx={{ color: '#F3F3F3' }} />
                                     }
                                 </ListItem>
                             </NavLink>
-                    }
-                    {
-                        !route.icon ? <Collapse
-                            in={true}
-                            timeout="auto"
-                            unmountOnExit
-                            sx={{ color: '#F3F3F3' }}>
-                            {
-                                renderNavLinks(route.children, true)
-                            }
-                        </Collapse> :
+                        }
+                        {isExpanded &&
                             <Collapse
-                                in={navLinkState[route.path]}
+                                in={isExpanded}
                                 timeout="auto"
                                 unmountOnExit
                                 sx={{ color: '#F3F3F3' }}>
@@ -265,9 +270,10 @@ const NavLinkSection = (): JSX.Element => {
                                     })
                                 }
                             </Collapse>
-                    }
-                </List>
-            );
+                        }
+                    </List>
+                );
+            }
         });
     };
 
@@ -301,6 +307,17 @@ const SideBar = () => {
         setopenExtended(!openExtended);
     };
 
+    const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+        if (
+            event.type === 'keydown' &&
+            ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
+        ) {
+            return;
+        }
+
+        dispatch(setIsDrawerOpen(open));
+    };
+
     return <Drawer variant="permanent"
         open={drawerOpen}
         sx={{
@@ -314,13 +331,13 @@ const SideBar = () => {
             {drawerOpen &&
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <GlobeIcon height="30" width="30" fill={'white'} />
-                    <Typography variant='body2' sx={{ alignSelf: 'center', fontWeight: 600, marginLeft: '0.5em' }}>PEARL Portal</Typography>
+                    <Typography variant='body2' sx={{ alignSelf: 'center', fontWeight: 600, marginLeft: '0.5em', marginRight: '0.5em' }}>PEARL Portal</Typography>
                 </div>}
-            <IconButton onClick={() => dispatch(setIsDrawerOpen(!drawerOpen))}>
-                {drawerOpen ?
-                    <ChevronLeftIcon style={{ color: '#F3F3F3' }} />
-                    : <MenuIcon style={{ color: '#F3F3F3' }} />}
-            </IconButton>
+            {drawerOpen ?
+                <ChevronLeftIcon style={{ color: '#F3F3F3', cursor: 'pointer' }} onClick={() => dispatch(setIsDrawerOpen(false))} />
+                : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}>
+                    <MenuIcon style={{ color: '#F3F3F3', marginRight: '0.3em' }} onClick={() => dispatch(setIsDrawerOpen(true))} />
+                </div>}
         </DrawerHeader>
         <NavLinkSection />
     </Drawer>;
