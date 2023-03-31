@@ -228,7 +228,7 @@ const NavLinkSection = (): JSX.Element => {
                                     </ListItemIcon>
                                     <ListItemText primary={route?.name} sx={{ color: '#F3F3F3' }} />
                                     {
-                                        navLinkState[route.path] ? <ExpandLessIcon sx={{ color: '#F3F3F3' }} /> : <ExpandMoreIcon sx={{ color: '#F3F3F3' }} />
+                                        isOpen ? <ExpandLessIcon sx={{ color: '#F3F3F3' }} /> : <ExpandMoreIcon sx={{ color: '#F3F3F3' }} />
                                     }
                                 </ListItem>
                             </NavLink>
@@ -286,31 +286,6 @@ const SideBar = () => {
         drawerOpen,
     } = useSelector((state: RootState) => state.app);
     const [openExtended, setopenExtended] = useState(false);
-
-    /**
-     * Closes the navigation menu and navigates to the specific url
-     * @param url
-     */
-    const handleNavigation = (url: string) => {
-        dispatch(setActivePath(url));
-        dispatch(setIsDrawerOpen(false));
-        navigate(url);
-    }
-
-    const handleExpanded = (route: any) => {
-        setopenExtended(!openExtended);
-    };
-
-    const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
-        if (
-            event.type === 'keydown' &&
-            ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
-        ) {
-            return;
-        }
-
-        dispatch(setIsDrawerOpen(open));
-    };
 
     return <Drawer variant="permanent"
         open={drawerOpen}
