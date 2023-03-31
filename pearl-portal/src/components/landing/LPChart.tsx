@@ -1,30 +1,16 @@
-import {Theme,Typography} from '@mui/material';
-import {createStyles, useTheme} from "@mui/material/styles";
-import { makeStyles } from '@mui/styles';
-import { useAppDispatch } from '../../redux/store';
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        chart: {
-            flex: 1,
-            textAlign: 'center',
-            display: 'flex',
-            alignContent: 'center',
-        },
-    }),
-);
+import { Typography } from '@mui/material';
+import { useTheme } from "@mui/material/styles";
 
 const LPChartComponent = () => {
-    const theme=useTheme();
-    const dispatch = useAppDispatch();
-    
+    const theme = useTheme();
+
     return (
         <div>
             <div>
-                <Typography variant="h6" gutterBottom sx={{color: theme.palette.text.primary}}>
-                FundsOverview ...
+                <Typography variant="h6" gutterBottom sx={{ color: theme.palette.text.primary }}>
+                    FundsOverview ...
                 </Typography>
-            
+
             </div>
         </div>
     );

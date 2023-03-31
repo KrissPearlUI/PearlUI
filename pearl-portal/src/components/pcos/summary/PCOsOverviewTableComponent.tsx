@@ -289,42 +289,7 @@ const PCOsOverviewTable = () => {
         const otherPageUrl = `/pcosOverview/singlePCO`;
         navigate(otherPageUrl);
     }
-    /*  const autoGroupColumnDef = useMemo<ColDef>(() => {
-         return {
-           minWidth: 300,
-           cellRendererParams: {
-             footerValueGetter: (params: any) => {
-               const isRootLevel = params.node.level === -1;
-               if (isRootLevel) {
-                 return 'Total';
-               }
-               else
-                return `Sub Total (${params.value})`;
-             },
-           },
-         };
-       }, []);
- 
-       const createData: (count: number, gridApi:GridApi|null) => any[] = (
-         count: number,
-       ) => {
-         var result: any[] = [];
-         for (var i = 0; i < count; i++) {
-           result.push({
-             short: 'Total',
-             name: gridApi?gridApi.paginationGetRowCount():0,
-             totalCommitments: count,
-             totalInvestments:count,
-             reservesFees:count,
-           });
-         }
-         return result;
-       };
- 
-       const pinnedBottomRowData = useMemo<any[]>(() => {
-         return createData(1, gridApi??null);
-       }, [gridApi]);
-  */
+    
     useEffect(() => {
         dispatch(fetchLPs());
         dispatch(fetchFunds());
