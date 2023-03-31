@@ -148,7 +148,7 @@ const FundsOverviewTable = () => {
             }, 
             {
                 headerName: 'Total Commitments',
-                field: 'totalCommitments',
+                field: 'totalCommitmentsFundCcy',
                 enableRowGroup: true,
                 minWidth: 220,
                 type: 'numericColumn',
