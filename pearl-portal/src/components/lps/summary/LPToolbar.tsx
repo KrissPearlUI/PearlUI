@@ -192,7 +192,7 @@ const LPToolbar = ({ searchText,
                     }}
                 />
                 <Grid item sx={{ marginRight: '0.5em' }}>
-                    <AddButton pageName='lpsOverview' />
+                    <AddButton pageName='Add a LP' />
                 </Grid>
                 <ExportButton pageName='lpsOverview' />
             </Grid>

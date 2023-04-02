@@ -192,7 +192,7 @@ const FundsToolbar = ({ searchText,
                     }}
                 />
                 <Grid item sx={{ marginRight: '0.5em' }}>
-                    <AddButton pageName='lpsOverview' />
+                    <AddButton pageName='Add a Fund' />
                 </Grid>
                 <ExportButton pageName='lpsOverview' />
             </Grid>

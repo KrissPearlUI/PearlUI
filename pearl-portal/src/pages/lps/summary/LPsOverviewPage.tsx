@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
 import LPOverviewTable from '../../../components/lps/summary/LPOverviewTableComponents';
+import { AddDialogComponent } from "../../../components/shared/addPopup/AddPopupDialog";
 
 const useStyles = makeStyles((theme: Theme) =>
 ({
@@ -31,6 +32,7 @@ const LPsOverview = () => {
     return (
         <div className={classes.root}>
             <LPOverviewTable />
+            <AddDialogComponent pageName="lpsOverview" pageTitle="Add New Limited Partner"/>
             {/* <AddDialog pageName={'LPs'}/>
             <ExportDialog pageName={'LPs'}/> */}
         </div>

@@ -8,6 +8,8 @@ export interface MainState {
     activePath: string;
     errorMessage?: string;
     navLinkState: any;
+    addDialogOpen:boolean;
+    editDialogOpen:boolean;
 }
 
 const initialState: MainState = {
@@ -17,6 +19,8 @@ const initialState: MainState = {
     userName: 'Jane Doe',
     activePath: '/',
     navLinkState: {},
+    addDialogOpen:false,
+    editDialogOpen:false
 };
 
 const appSlice = createSlice({
@@ -76,6 +80,22 @@ const appSlice = createSlice({
             const item = action.payload;
             state.navLinkState = {...prevState, [item]: !prevState[item]};
         },
+        /**
+         * Set's if the add dialog is open
+         * @param state
+         * @param action
+         */
+        setAddDiaogOpen(state, action: PayloadAction<boolean>) {
+            state.addDialogOpen = action.payload;
+        },
+        /**
+         * Set's if the add dialog is open
+         * @param state
+         * @param action
+         */
+        setEditDiaogOpen(state, action: PayloadAction<boolean>) {
+            state.editDialogOpen = action.payload;
+        },
     }
 });
 
@@ -86,7 +106,9 @@ export const {
     setUserName,
     setActivePath,
     setErrorMessage,
-    setNavLinkState
+    setNavLinkState,
+    setAddDiaogOpen,
+    setEditDiaogOpen
 } = appSlice.actions;
 
 export default appSlice.reducer;

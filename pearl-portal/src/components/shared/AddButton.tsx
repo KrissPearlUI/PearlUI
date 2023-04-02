@@ -3,6 +3,8 @@ import { Fab, Tooltip } from '@mui/material';
 import { Theme } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
+import { useAppDispatch } from '../../redux/store';
+import { setAddDiaogOpen } from '../../redux/slices/appSlice';
 
 const useStyles = makeStyles((theme: Theme) =>
 ({
@@ -19,15 +21,13 @@ interface AddButtonProps {
 
 const AddButton = ({ pageName }: AddButtonProps) => {
     const classes = useStyles();
+    const dispatch = useAppDispatch();
 
-    /**
-     * Sets export window to true in order to create the window
-     */
-    const openDownloadDialog = async () => {
-        console.log('open download');
+    const openAddDialog = async () => {
+        dispatch(setAddDiaogOpen(true));
     };
 
-    return <Tooltip title="Add LP">
+    return <Tooltip title={pageName}>
         <span>
             <Fab
                 color={'primary'}
@@ -35,7 +35,7 @@ const AddButton = ({ pageName }: AddButtonProps) => {
                 sx={{ boxShadow: 'none' }}
                 aria-label="AddBtn"
                 onFocus={(e: any) => (e.target.blur())}
-                onClick={() => openDownloadDialog()}
+                onClick={() => openAddDialog()}
                 className={classes.fabIcon}>
                 <AddRoundedIcon />
             </Fab>

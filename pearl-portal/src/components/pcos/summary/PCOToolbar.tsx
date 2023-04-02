@@ -192,7 +192,7 @@ const PCOToolbar = ({ searchText,
                     }}
                 />
                 <Grid item sx={{ marginRight: '0.5em' }}>
-                    <AddButton pageName='lpsOverview' />
+                    <AddButton pageName='Add a PCO' />
                 </Grid>
                 <ExportButton pageName='lpsOverview' />
             </Grid>

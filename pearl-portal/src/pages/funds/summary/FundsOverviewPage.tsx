@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
 import FundsOverviewTable from '../../../components/funds/summary/FundsOverviewTableComponent';
+import { AddDialogComponent } from "../../../components/shared/addPopup/AddPopupDialog";
 
 const useStyles = makeStyles((theme: Theme) =>
 ({
@@ -31,6 +32,7 @@ const FundsOverview = () => {
     return (
         <div className={classes.root}>
             <FundsOverviewTable />
+            <AddDialogComponent pageName="fundsOverview" pageTitle="Add New Fund"/>
             {/* <AddDialog pageName={'LPs'}/>
             <ExportDialog pageName={'LPs'}/> */}
         </div>
