@@ -1,4 +1,4 @@
-import { Autocomplete, AutocompleteRenderInputParams, Fab, Grid, IconButton, InputAdornment, TextField, Typography } from '@mui/material';
+import { Autocomplete, AutocompleteRenderInputParams, Box, Fab, Grid, IconButton, InputAdornment, TextField, Typography } from '@mui/material';
 import { useCallback, useState } from 'react';
 import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
@@ -6,6 +6,7 @@ import { GridApi } from 'ag-grid-community';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { CountryList } from '../../../../models/shared/sharedModels';
 import { NewLP } from '../../../../models/lps/lpModels';
+import { useTheme } from "@mui/material/styles";
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -124,6 +125,7 @@ interface AddNewLPContentProps {
 
 const AddNewLPContentComponent = ({ setDisabled, disabled, newLP, setNewLP }: AddNewLPContentProps) => {
     const classes = useStyles();
+    const theme=useTheme();
     const autocompleteInputClasses = autocompleteInputStyles();
     const [country, setCountry] = useState<string | null>('');
     const [type, setType] = useState<string | null>('');
@@ -205,7 +207,7 @@ const AddNewLPContentComponent = ({ setDisabled, disabled, newLP, setNewLP }: Ad
                 setWebsite(value);
                 setNewLP({
                     ...newLP,
-                   website: value
+                    website: value
                 });
                 setDisabled(city === '' || name === '' || country === '' || type === '' || shortName === '');
                 break;
@@ -218,164 +220,182 @@ const AddNewLPContentComponent = ({ setDisabled, disabled, newLP, setNewLP }: Ad
         <Grid container spacing={2}>
             <Grid item>
                 <Typography variant='body2'>Name*</Typography>
-                <TextField
-                    className={classes.searchBox}
-                    variant="outlined"
-                    size="small"
-                    aria-label="name"
-                    value={name}
-                    helperText={!disabled && name === '' ? 'Required' : ''}
-                    onChange={(e) => onValueChange(e.target.value, 'name')}
-                    inputProps={{
-                        style: { height: '1em' },
-                    }}
-                />
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode==='dark' ? 'rgba(255, 255, 255, 0.15)':'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                    <TextField
+                        className={classes.searchBox}
+                        variant="outlined"
+                        size="small"
+                        aria-label="name"
+                        value={name}
+                        helperText={!disabled && name === '' ? 'Required' : ''}
+                        onChange={(e) => onValueChange(e.target.value, 'name')}
+                        inputProps={{
+                            style: { height: '1em' },
+                        }}
+                    />
+                </Box>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Short Name*</Typography>
-                <TextField
-                    className={classes.searchBox}
-                    variant="outlined"
-                    size="small"
-                    aria-label="name"
-                    value={shortName}
-                    helperText={!disabled && shortName === '' ? 'Required' : ''}
-                    onChange={(e) => onValueChange(e.target.value, 'shortName')}
-                    inputProps={{
-                        style: { height: '1em' },
-                    }}
-                />
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode==='dark' ? 'rgba(255, 255, 255, 0.15)':'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                    <TextField
+                        className={classes.searchBox}
+                        variant="outlined"
+                        size="small"
+                        aria-label="name"
+                        value={shortName}
+                        helperText={!disabled && shortName === '' ? 'Required' : ''}
+                        onChange={(e) => onValueChange(e.target.value, 'shortName')}
+                        inputProps={{
+                            style: { height: '1em' },
+                        }}
+                    />
+                </Box>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Address</Typography>
-                <TextField
-                    className={classes.searchBox}
-                    variant="outlined"
-                    size="small"
-                    aria-label="address"
-                    value={address}
-                    helperText={!disabled && address === '' ? 'Required' : ''}
-                    onChange={(e) => onValueChange(e.target.value, 'address')}
-                    inputProps={{
-                        style: { height: '1em' },
-                    }}
-                />
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode==='dark' ? 'rgba(255, 255, 255, 0.15)':'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                    <TextField
+                        className={classes.searchBox}
+                        variant="outlined"
+                        size="small"
+                        aria-label="address"
+                        value={address}
+                        helperText={!disabled && address === '' ? 'Required' : ''}
+                        onChange={(e) => onValueChange(e.target.value, 'address')}
+                        inputProps={{
+                            style: { height: '1em' },
+                        }}
+                    />
+                </Box>
             </Grid>
             <Grid container item sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Grid item xs={8}>
                     <Typography variant='body2'>City*</Typography>
-                    <TextField
-                        className={classes.textFildsSmall}
-                        sx={{ width: '250px' }}
-                        variant="outlined"
-                        size="small"
-                        aria-label="city"
-                        value={city}
-                        helperText={!disabled && city === '' ? 'Required' : ''}
-                        onChange={(e) => onValueChange(e.target.value, 'city')}
-                        inputProps={{
-                            style: { height: '1em' },
-                        }}
-                    />
+                    <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode==='dark' ? 'rgba(255, 255, 255, 0.15)':'rgba(0, 0, 0, 0.25)'}`, width: '250px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                        <TextField
+                            className={classes.textFildsSmall}
+                            sx={{ width: '250px' }}
+                            variant="outlined"
+                            size="small"
+                            aria-label="city"
+                            value={city}
+                            helperText={!disabled && city === '' ? 'Required' : ''}
+                            onChange={(e) => onValueChange(e.target.value, 'city')}
+                            inputProps={{
+                                style: { height: '1em' },
+                            }}
+                        />
+                    </Box>
                 </Grid>
                 <Grid item xs={4}>
                     <Typography variant='body2'>Postal Code</Typography>
-                    <TextField
-                        className={classes.textFildsSmall}
-                        variant="outlined"
-                        size="small"
-                        aria-label="city"
-                        value={postalCode}
-                        helperText={!disabled && postalCode === '' ? 'Required' : ''}
-                        onChange={(e) => onValueChange(e.target.value, 'postalCode')}
-                        inputProps={{
-                            style: { height: '1em' },
-                        }}
-                    />
+                    <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode==='dark' ? 'rgba(255, 255, 255, 0.15)':'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                        <TextField
+                            className={classes.textFildsSmall}
+                            variant="outlined"
+                            size="small"
+                            aria-label="city"
+                            value={postalCode}
+                            helperText={!disabled && postalCode === '' ? 'Required' : ''}
+                            onChange={(e) => onValueChange(e.target.value, 'postalCode')}
+                            inputProps={{
+                                style: { height: '1em' },
+                            }}
+                        />
+                    </Box>
                 </Grid>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Country*</Typography>
-                <Autocomplete
-                    id={'fundsAutocomplete'}
-                    popupIcon={<ExpandMoreIcon />}
-                    size={'small'}
-                    autoHighlight={true}
-                    autoSelect={true}
-                    autoComplete={false}
-                    classes={classes}
-                    sx={{ marginRight: '1em', width: '400px' }}
-                    isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: any) => onValueChange(value, 'country')}
-                    value={country ?? ''}
-                    options={CountryList.slice()}
-                    renderInput={(params: AutocompleteRenderInputParams) => {
-                        params.InputProps.className = autocompleteInputClasses.textInput;
-                        return <TextField {...params}
-                            className={autocompleteInputClasses.autocomplete}
-                            variant="outlined"
-                            autoComplete="off"
-                            helperText={!disabled && country === '' ? 'Required' : ''}
-                            type={'text'}
-                        />;
-                    }}
-                />
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode==='dark' ? 'rgba(255, 255, 255, 0.15)':'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                    <Autocomplete
+                        id={'fundsAutocomplete'}
+                        popupIcon={<ExpandMoreIcon />}
+                        size={'small'}
+                        autoHighlight={true}
+                        autoSelect={true}
+                        autoComplete={false}
+                        classes={classes}
+                        sx={{ marginRight: '1em', width: '400px' }}
+                        isOptionEqualToValue={(option, value) => option === value}
+                        onChange={(e, value: any) => onValueChange(value, 'country')}
+                        value={country ?? ''}
+                        options={CountryList.slice()}
+                        renderInput={(params: AutocompleteRenderInputParams) => {
+                            params.InputProps.className = autocompleteInputClasses.textInput;
+                            return <TextField {...params}
+                                className={autocompleteInputClasses.autocomplete}
+                                variant="outlined"
+                                autoComplete="off"
+                                helperText={!disabled && country === '' ? 'Required' : ''}
+                                type={'text'}
+                            />;
+                        }}
+                    />
+                </Box>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Type*</Typography>
-                <Autocomplete
-                    id={'fundsAutocomplete'}
-                    popupIcon={<ExpandMoreIcon />}
-                    size={'small'}
-                    autoHighlight={true}
-                    autoSelect={true}
-                    autoComplete={false}
-                    classes={classes}
-                    sx={{ marginRight: '1em', width: '400px' }}
-                    isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: any) => onValueChange(value, 'type')}
-                    value={type ?? ''}
-                    options={LPTypes.slice()}
-                    renderInput={(params: AutocompleteRenderInputParams) => {
-                        params.InputProps.className = autocompleteInputClasses.textInput;
-                        return <TextField {...params}
-                            className={autocompleteInputClasses.autocomplete}
-                            variant="outlined"
-                            autoComplete="off"
-                            helperText={!disabled && type === '' ? 'Required' : ''}
-                            type={'text'}
-                        />;
-                    }}
-                />
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode==='dark' ? 'rgba(255, 255, 255, 0.15)':'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                    <Autocomplete
+                        id={'fundsAutocomplete'}
+                        popupIcon={<ExpandMoreIcon />}
+                        size={'small'}
+                        autoHighlight={true}
+                        autoSelect={true}
+                        autoComplete={false}
+                        classes={classes}
+                        sx={{ marginRight: '1em', width: '400px' }}
+                        isOptionEqualToValue={(option, value) => option === value}
+                        onChange={(e, value: any) => onValueChange(value, 'type')}
+                        value={type ?? ''}
+                        options={LPTypes.slice()}
+                        renderInput={(params: AutocompleteRenderInputParams) => {
+                            params.InputProps.className = autocompleteInputClasses.textInput;
+                            return <TextField {...params}
+                                className={autocompleteInputClasses.autocomplete}
+                                variant="outlined"
+                                autoComplete="off"
+                                helperText={!disabled && type === '' ? 'Required' : ''}
+                                type={'text'}
+                            />;
+                        }}
+                    />
+                </Box>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Base Capital</Typography>
-                <TextField
-                    className={classes.searchBox}
-                    variant="outlined"
-                    size="small"
-                    aria-label="baseCapital"
-                    value={baseCapital}
-                    type={'number'}
-                    onChange={(e) => onValueChange(e.target.value, 'baseCapital')}
-                    inputProps={{
-                        style: { height: '1em' },
-                    }}
-                />
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode==='dark' ? 'rgba(255, 255, 255, 0.15)':'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                    <TextField
+                        className={classes.searchBox}
+                        variant="outlined"
+                        size="small"
+                        aria-label="baseCapital"
+                        value={baseCapital}
+                        type={'number'}
+                        onChange={(e) => onValueChange(e.target.value, 'baseCapital')}
+                        inputProps={{
+                            style: { height: '1em' },
+                        }}
+                    />
+                </Box>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Website</Typography>
-                <TextField
-                    className={classes.searchBox}
-                    variant="outlined"
-                    size="small"
-                    aria-label="website"
-                    value={website}
-                    onChange={(e) => onValueChange(e.target.value, 'website')}
-                    inputProps={{
-                        style: { height: '1em' },
-                    }}
-                />
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode==='dark' ? 'rgba(255, 255, 255, 0.15)':'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                    <TextField
+                        className={classes.searchBox}
+                        variant="outlined"
+                        size="small"
+                        aria-label="website"
+                        value={website}
+                        onChange={(e) => onValueChange(e.target.value, 'website')}
+                        inputProps={{
+                            style: { height: '1em' },
+                        }}
+                    />
+                </Box>
             </Grid>
 
         </Grid>
