@@ -239,13 +239,13 @@ const LPOverviewTable = () => {
                     funds: item.funds?.filter(child => child.id === event.id) ?? []
                 }))
                 .filter(item => item?.funds?.length > 0);
-
             if (selectedPCOValue && !searchTextValue) {
                 result = result.map(item => ({
                     ...item,
                     pcos: item.pcos?.filter(child => child.id === selectedPCOValue.id) ?? []
                 }))
                     .filter(item => item?.pcos?.length > 0);
+                setRowData(result);
             } else if (searchTextValue && !selectedPCOValue) {
                 setRowData(result);
                 gridApi?.setQuickFilter(searchTextValue);
@@ -262,7 +262,28 @@ const LPOverviewTable = () => {
                 setRowData(result);
             }
         } else {
-            setRowData(result);
+            if (selectedPCOValue && !searchTextValue) {
+                result = lps.map(item => ({
+                    ...item,
+                    pcos: item.pcos?.filter(child => child.id === selectedPCOValue.id) ?? []
+                }))
+                    .filter(item => item?.pcos?.length > 0);
+                setRowData(result);
+            } else if (searchTextValue && !selectedPCOValue) {
+                setRowData(lps);
+                gridApi?.setQuickFilter(searchTextValue);
+            } else if (selectedPCOValue && searchTextValue) {
+                result = lps.map(item => ({
+                    ...item,
+                    pcos: item.pcos?.filter(child => child.id === selectedPCOValue.id) ?? []
+                }))
+                    .filter(item => item?.pcos?.length > 0);
+                setRowData(result);
+                gridApi?.setQuickFilter(searchTextValue);
+            }
+            else {
+                setRowData(lps);
+            }
         }
     };
 
@@ -282,6 +303,7 @@ const LPOverviewTable = () => {
                     funds: item.funds?.filter(child => child.id === selectedFundValue.id) ?? []
                 }))
                     .filter(item => item?.funds?.length > 0);
+                setRowData(result);
             } else if (searchTextValue && !selectedFundValue) {
                 setRowData(result);
                 gridApi?.setQuickFilter(searchTextValue);
@@ -298,7 +320,28 @@ const LPOverviewTable = () => {
                 setRowData(result);
             }
         } else {
-            setRowData(result);
+            if (selectedFundValue && !searchTextValue) {
+                result = lps.map(item => ({
+                    ...item,
+                    funds: item.funds?.filter(child => child.id === selectedFundValue.id) ?? []
+                }))
+                    .filter(item => item?.funds?.length > 0);
+                setRowData(result);
+            } else if (searchTextValue && !selectedFundValue) {
+                setRowData(lps);
+                gridApi?.setQuickFilter(searchTextValue);
+            } else if (selectedFundValue && searchTextValue) {
+                result = lps.map(item => ({
+                    ...item,
+                    funds: item.funds?.filter(child => child.id === selectedFundValue.id) ?? []
+                }))
+                    .filter(item => item?.funds?.length > 0);
+                setRowData(result);
+                gridApi?.setQuickFilter(searchTextValue);
+            }
+            else {
+                setRowData(lps);
+            }
         }
     };
 
@@ -392,16 +435,6 @@ const LPOverviewTable = () => {
                     onRowClicked={handleRowClick}
                 />
             </div>
-            {/* {downloadPDFErrorMessage && downloadPDFErrorMessage.length > 0 &&
-                    <div>
-                        <Snackbar open={hasError} autoHideDuration={1500} onClose={handleClose}
-                                anchorOrigin={{vertical: 'top', horizontal: 'center'}}>
-                            <Alert onClose={handleClose} severity="error">
-                                {downloadPDFErrorMessage}
-                            </Alert>
-                        </Snackbar>
-                    </div>
-                } */}
         </Grid>
     );
 };

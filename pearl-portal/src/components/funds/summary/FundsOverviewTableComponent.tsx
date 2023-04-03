@@ -207,6 +207,7 @@ const FundsOverviewTable = () => {
                     pcos: item.pcos?.filter(child => child.id === selectedPCOValue.id) ?? []
                 }))
                     .filter(item => item?.pcos?.length > 0);
+                setRowData(result);
             } else if (searchTextValue && !selectedPCOValue) {
                 setRowData(result);
                 gridApi?.setQuickFilter(searchTextValue);
@@ -223,7 +224,28 @@ const FundsOverviewTable = () => {
                 setRowData(result);
             }
         } else {
-            setRowData(result);
+            if (selectedPCOValue && !searchTextValue) {
+                result = funds.map(item => ({
+                    ...item,
+                    pcos: item.pcos?.filter(child => child.id === selectedPCOValue.id) ?? []
+                }))
+                    .filter(item => item?.pcos?.length > 0);
+                setRowData(result);
+            } else if (searchTextValue && !selectedPCOValue) {
+                setRowData(funds);
+                gridApi?.setQuickFilter(searchTextValue);
+            } else if (selectedPCOValue && searchTextValue) {
+                result = funds.map(item => ({
+                    ...item,
+                    pcos: item.pcos?.filter(child => child.id === selectedPCOValue.id) ?? []
+                }))
+                    .filter(item => item?.pcos?.length > 0);
+                setRowData(result);
+                gridApi?.setQuickFilter(searchTextValue);
+            }
+            else {
+                setRowData(funds);
+            }
         }
     };
 
@@ -244,6 +266,7 @@ const FundsOverviewTable = () => {
                     lps: item.lps?.filter(child => child.id === selectedLPValue.id) ?? []
                 }))
                     .filter(item => item?.lps?.length > 0);
+                    setRowData(result);
             } else if (searchTextValue && !selectedLPValue) {
                 setRowData(result);
                 gridApi?.setQuickFilter(searchTextValue);
@@ -260,7 +283,28 @@ const FundsOverviewTable = () => {
                 setRowData(result);
             }
         } else {
-            setRowData(result);
+            if (selectedLPValue && !searchTextValue) {
+                result = funds.map(item => ({
+                    ...item,
+                    lps: item.lps?.filter(child => child.id === selectedLPValue.id) ?? []
+                }))
+                    .filter(item => item?.lps?.length > 0);
+                    setRowData(result);
+            } else if (searchTextValue && !selectedLPValue) {
+                setRowData(funds);
+                gridApi?.setQuickFilter(searchTextValue);
+            } else if (selectedLPValue && searchTextValue) {
+                result = funds.map(item => ({
+                    ...item,
+                    lps: item.lps?.filter(child => child.id === selectedLPValue.id) ?? []
+                }))
+                    .filter(item => item?.lps?.length > 0);
+                setRowData(result);
+                gridApi?.setQuickFilter(searchTextValue);
+            }
+            else {
+                setRowData(funds);
+            }
         }
     };
 

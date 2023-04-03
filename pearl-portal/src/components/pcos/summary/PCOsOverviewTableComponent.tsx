@@ -201,6 +201,7 @@ const PCOsOverviewTable = () => {
                     lps: item.lps?.filter(child => child.id === selectedLPValue.id) ?? []
                 }))
                     .filter(item => item?.lps?.length > 0);
+                setRowData(result);
             } else if (searchTextValue && !selectedLPValue) {
                 setRowData(result);
                 gridApi?.setQuickFilter(searchTextValue);
@@ -217,7 +218,28 @@ const PCOsOverviewTable = () => {
                 setRowData(result);
             }
         } else {
-            setRowData(result);
+            if (selectedLPValue && !searchTextValue) {
+                result = pcos.map(item => ({
+                    ...item,
+                    lps: item.lps?.filter(child => child.id === selectedLPValue.id) ?? []
+                }))
+                    .filter(item => item?.lps?.length > 0);
+                setRowData(result);
+            } else if (searchTextValue && !selectedLPValue) {
+                setRowData(pcos);
+                gridApi?.setQuickFilter(searchTextValue);
+            } else if (selectedLPValue && searchTextValue) {
+                result = pcos.map(item => ({
+                    ...item,
+                    lps: item.lps?.filter(child => child.id === selectedLPValue.id) ?? []
+                }))
+                    .filter(item => item?.lps?.length > 0);
+                setRowData(result);
+                gridApi?.setQuickFilter(searchTextValue);
+            }
+            else {
+                setRowData(pcos);
+            }
         }
     };
 
@@ -238,6 +260,7 @@ const PCOsOverviewTable = () => {
                     funds: item.funds?.filter(child => child.id === selectedFundValue.id) ?? []
                 }))
                     .filter(item => item?.funds?.length > 0);
+                setRowData(result);
             } else if (searchTextValue && !selectedFundValue) {
                 setRowData(result);
                 gridApi?.setQuickFilter(searchTextValue);
@@ -254,7 +277,28 @@ const PCOsOverviewTable = () => {
                 setRowData(result);
             }
         } else {
-            setRowData(result);
+            if (selectedFundValue && !searchTextValue) {
+                result = pcos.map(item => ({
+                    ...item,
+                    funds: item.funds?.filter(child => child.id === selectedFundValue.id) ?? []
+                }))
+                    .filter(item => item?.funds?.length > 0);
+                setRowData(result);
+            } else if (searchTextValue && !selectedFundValue) {
+                setRowData(pcos);
+                gridApi?.setQuickFilter(searchTextValue);
+            } else if (selectedFundValue && searchTextValue) {
+                result = pcos.map(item => ({
+                    ...item,
+                    funds: item.funds?.filter(child => child.id === selectedFundValue.id) ?? []
+                }))
+                    .filter(item => item?.funds?.length > 0);
+                setRowData(result);
+                gridApi?.setQuickFilter(searchTextValue);
+            }
+            else {
+                setRowData(pcos);
+            }
         }
     };
 
