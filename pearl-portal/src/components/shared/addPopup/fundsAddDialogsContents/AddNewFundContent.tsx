@@ -4,7 +4,8 @@ import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
 import { GridApi } from 'ag-grid-community';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { CountryList } from '../../../../models/shared/sharedModels';
+import { CountryList, CurrencyList } from '../../../../models/shared/sharedModels';
+import {  NewFund } from '../../../../models/funds/fundModels';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -113,31 +114,102 @@ const FundTypes = [
 ];
 
 interface AddNewLPContentProps {
-    setDisabled: any
+    disabled: boolean,
+    setDisabled: any,
+    newFund: NewFund | null,
+    setNewFund: (newState: any) => void,
 }
 
-const AddNewFundContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
+const AddNewFundContentComponent = ({ disabled, setDisabled, newFund, setNewFund }: AddNewLPContentProps) => {
     const classes = useStyles();
     const autocompleteInputClasses = autocompleteInputStyles();
-    const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
-    const [gridApi, setGridApi] = useState<GridApi>();
     const [selectedCountry, setSelectedCountry] = useState<string | null>('');
     const [selectedType, setSelectedType] = useState<string | null>('');
+    const [fundName, setFundName] = useState<string>('');
+    const [shortName, setShortName] = useState<string>('');
+    const [address, setAddress] = useState<string>('');
+    const [city, setCity] = useState<string>('');
+    const [postalCode, setPostalCode] = useState<string | number>('');
+    const [selectedCurrency, setSelectedCurrency] = useState<string | null>('');
 
-    const onValueChange = useCallback((event: any) => {
-        setSearchTextValue(event.target.value)
-        if (gridApi) {
-            gridApi.setQuickFilter(event.target.value);
+    const onValueChange = (value: string, field: string) => {
+        switch (field) {
+            case 'fundName':
+                setFundName(value);
+                setNewFund({
+                    ...newFund,
+                    ['fundName']: value
+                });
+                setDisabled(value === '' || shortName === '' || selectedCountry === '' || selectedType === '' || selectedCurrency === '');
+                break;
+            case 'shortName':
+                setShortName(value);
+                setNewFund({
+                    ...newFund,
+                    ['shortName']: value
+                });
+                setDisabled(value === '' || fundName === '' || selectedCountry === '' || selectedType === '' || selectedCurrency === '');
+                break;
+            case 'address':
+                setAddress(value);
+                setNewFund({
+                    ...newFund,
+                    ['address']: value
+                });
+                setDisabled(fundName === '' || shortName === '' || selectedCountry === '' || selectedType === '' || selectedCurrency === '');
+                break;
+            case 'city':
+                setCity(value);
+                setNewFund({
+                    ...newFund,
+                    ['city']: value
+                });
+                setDisabled(fundName === '' || shortName === '' || selectedCountry === '' || selectedType === '' || selectedCurrency === '');
+                break;
+            case 'postalCode':
+                setPostalCode(value);
+                setNewFund({
+                    ...newFund,
+                    ['postalCode']: value
+                });
+                setDisabled(fundName === '' || shortName === '' || selectedCountry === '' || selectedType === '' || selectedCurrency === '');
+                break;
+            case 'country':
+                setSelectedCountry(value);
+                setNewFund({
+                    ...newFund,
+                    ['country']: value
+                });
+                setDisabled(value === '' || fundName === '' || shortName === '' || selectedType === '' || selectedCurrency === '');
+                break;
+            case 'type':
+                setSelectedType(value);
+                setNewFund({
+                    ...newFund,
+                    ['type']: value
+                });
+                setDisabled(value === '' || fundName === '' || selectedCountry === '' || shortName === '' || selectedCurrency === '');
+                break;
+            case 'currency':
+                setSelectedCurrency(value);
+                setNewFund({
+                    ...newFund,
+                    ['currency']: value
+                });
+                setDisabled(value === '' || fundName === '' || selectedCountry === '' || selectedType === '' || shortName === '');
+                break;
+            default:
+                break;
         }
-    }, [gridApi]);
-
-    const onCountryChange = (event: any) => {
-        setSelectedCountry(event);
     };
 
-    const onFundTypeChange = (event: any) => {
-        setSelectedType(event);
-    };
+    /*     const onCountryChange = (event: any) => {
+            setSelectedCountry(event);
+        };
+    
+        const onFundTypeChange = (event: any) => {
+            setSelectedType(event);
+        }; */
 
     return (
         <Grid container spacing={2}>
@@ -147,9 +219,10 @@ const AddNewFundContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     className={classes.searchBox}
                     variant="outlined"
                     size="small"
-                    aria-label="name"
-                    value={searchTextValue}
-                    onChange={onValueChange}
+                    aria-label="fundName"
+                    value={fundName}
+                    helperText={!disabled && fundName === '' ? 'Required' : ''}
+                    onChange={(e) => onValueChange(e.target.value, 'fundName')}
                     inputProps={{
                         style: { height: '1em' },
                     }}
@@ -162,8 +235,9 @@ const AddNewFundContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     variant="outlined"
                     size="small"
                     aria-label="name"
-                    value={searchTextValue}
-                    onChange={onValueChange}
+                    value={shortName}
+                    helperText={!disabled && shortName === '' ? 'Required' : ''}
+                    onChange={(e) => onValueChange(e.target.value, 'shortName')}
                     inputProps={{
                         style: { height: '1em' },
                     }}
@@ -176,8 +250,8 @@ const AddNewFundContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     variant="outlined"
                     size="small"
                     aria-label="address"
-                    value={searchTextValue}
-                    onChange={onValueChange}
+                    value={address}
+                    onChange={(e) => onValueChange(e.target.value, 'address')}
                     inputProps={{
                         style: { height: '1em' },
                     }}
@@ -192,8 +266,8 @@ const AddNewFundContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                         variant="outlined"
                         size="small"
                         aria-label="city"
-                        value={searchTextValue}
-                        onChange={onValueChange}
+                        value={city}
+                        onChange={(e) => onValueChange(e.target.value, 'city')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -206,8 +280,8 @@ const AddNewFundContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                         variant="outlined"
                         size="small"
                         aria-label="city"
-                        value={searchTextValue}
-                        onChange={onValueChange}
+                        value={postalCode}
+                        onChange={(e) => onValueChange(e.target.value, 'postalCode')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -223,11 +297,10 @@ const AddNewFundContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     autoHighlight={true}
                     autoSelect={true}
                     autoComplete={false}
-                    disableClearable
                     classes={classes}
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: any) => onCountryChange(value)}
+                    onChange={(e, value: any) => onValueChange(value, 'country')}
                     value={selectedCountry ?? ''}
                     options={CountryList.slice()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
@@ -236,6 +309,7 @@ const AddNewFundContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
+                            helperText={!disabled && selectedCountry === '' ? 'Required' : ''}
                             type={'text'}
                         />;
                     }}
@@ -250,11 +324,10 @@ const AddNewFundContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     autoHighlight={true}
                     autoSelect={true}
                     autoComplete={false}
-                    disableClearable
                     classes={classes}
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: any) => onFundTypeChange(value)}
+                    onChange={(e, value: any) => onValueChange(value, 'type')}
                     value={selectedType ?? ''}
                     options={FundTypes.slice()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
@@ -263,6 +336,7 @@ const AddNewFundContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
+                            helperText={!disabled && selectedType === '' ? 'Required' : ''}
                             type={'text'}
                         />;
                     }}
@@ -270,15 +344,28 @@ const AddNewFundContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Currency*</Typography>
-                <TextField
-                    className={classes.searchBox}
-                    variant="outlined"
-                    size="small"
-                    aria-label="baseCapital"
-                    value={searchTextValue}
-                    onChange={onValueChange}
-                    inputProps={{
-                        style: { height: '1em' },
+                <Autocomplete
+                    id={'fundsAutocomplete'}
+                    popupIcon={<ExpandMoreIcon />}
+                    size={'small'}
+                    autoHighlight={true}
+                    autoSelect={true}
+                    autoComplete={false}
+                    classes={classes}
+                    sx={{ marginRight: '1em', width: '400px' }}
+                    isOptionEqualToValue={(option, value) => option === value}
+                    onChange={(e, value: any) => onValueChange(value, 'currency')}
+                    value={selectedCurrency ?? ''}
+                    options={CurrencyList?.map(x => x.code)?.slice()}
+                    renderInput={(params: AutocompleteRenderInputParams) => {
+                        params.InputProps.className = autocompleteInputClasses.textInput;
+                        return <TextField {...params}
+                            className={autocompleteInputClasses.autocomplete}
+                            variant="outlined"
+                            autoComplete="off"
+                            helperText={!disabled && selectedCurrency === '' ? 'Required' : ''}
+                            type={'text'}
+                        />;
                     }}
                 />
             </Grid>

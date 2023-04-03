@@ -52,3 +52,13 @@ export interface FundSummary {
     sumEscrowEUR?: number
 }
 
+export interface NewFund{
+    fundName?:string,
+    shortName?:string,
+    country?: string
+    address?: string,
+    city?:string,
+    postalCode?:string|number,
+    currency: string,
+    type?: string,
+}

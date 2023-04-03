@@ -56,3 +56,16 @@ export interface PCOInvestments {
     amountInvestedLocalCcy: number;
     amountInvestedFundCcy: number;
 }
+
+
+export interface NewPCO{
+    pcoName: string,
+    shortName?:string,
+    country?: string
+    address?: string,
+    city?:string,
+    postalCode?:string|number,
+    currency: string,
+    sector?: string,
+    website?:string
+}

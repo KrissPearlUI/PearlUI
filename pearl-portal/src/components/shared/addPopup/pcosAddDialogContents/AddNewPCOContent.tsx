@@ -4,7 +4,8 @@ import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
 import { GridApi } from 'ag-grid-community';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { CountryList } from '../../../../models/shared/sharedModels';
+import { CountryList, CurrencyList } from '../../../../models/shared/sharedModels';
+import { NewPCO } from '../../../../models/pcos/pcoModels';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -119,30 +120,102 @@ const PCOSectors = [
 ];
 
 interface AddNewLPContentProps {
-    setDisabled: any
+    disabled: boolean,
+    setDisabled: any,
+    newPCO: NewPCO | null,
+    setNewPCO: (newState: any) => void,
 }
 
-const AddNewPCOContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
+const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }: AddNewLPContentProps) => {
     const classes = useStyles();
     const autocompleteInputClasses = autocompleteInputStyles();
-    const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
-    const [gridApi, setGridApi] = useState<GridApi>();
     const [selectedCountry, setSelectedCountry] = useState<string | null>('');
     const [selectedSector, setSelectedSector] = useState<string | null>('');
+    const [pcoName, setPCOName] = useState<string>('');
+    const [shortName, setShortName] = useState<string>('');
+    const [address, setAddress] = useState<string>('');
+    const [city, setCity] = useState<string>('');
+    const [postalCode, setPostalCode] = useState<string | number>('');
+    const [selectedCurrency, setSelectedCurrency] = useState<string | null>('');
+    const [website, setWebsite] = useState<string>('');
 
-    const onValueChange = useCallback((event: any) => {
-        setSearchTextValue(event.target.value)
-        if (gridApi) {
-            gridApi.setQuickFilter(event.target.value);
+    const onValueChange = (value: string, field: string) => {
+        switch (field) {
+            case 'pcoName':
+                setPCOName(value);
+                setNewPCO({
+                    ...newPCO,
+                    ['pcoName']: value
+                });
+                setDisabled(value === '' || shortName === '' || selectedCountry === '' || selectedSector === '' || selectedCurrency === '');
+                break;
+            case 'shortName':
+                setShortName(value);
+                setNewPCO({
+                    ...newPCO,
+                    ['shortName']: value
+                });
+                setDisabled(value === '' || pcoName === '' || selectedCountry === '' || selectedSector === '' || selectedCurrency === '');
+                break;
+            case 'address':
+                setAddress(value);
+                setNewPCO({
+                    ...newPCO,
+                    ['address']: value
+                });
+                setDisabled(pcoName === '' || shortName === '' || selectedCountry === '' || selectedSector === '' || selectedCurrency === '');
+                break;
+            case 'city':
+                setCity(value);
+                setNewPCO({
+                    ...newPCO,
+                    ['city']: value
+                });
+                setDisabled(pcoName === '' || shortName === '' || selectedCountry === '' || selectedSector === '' || selectedCurrency === '');
+                break;
+            case 'postalCode':
+                setPostalCode(value);
+                setNewPCO({
+                    ...newPCO,
+                    ['postalCode']: value
+                });
+                setDisabled(pcoName === '' || shortName === '' || selectedCountry === '' || selectedSector === '' || selectedCurrency === '');
+                break;
+            case 'country':
+                setSelectedCountry(value);
+                setNewPCO({
+                    ...newPCO,
+                    ['country']: value
+                });
+                setDisabled(value === '' || pcoName === '' || shortName === '' || selectedSector === '' || selectedCurrency === '');
+                break;
+            case 'sector':
+                setSelectedSector(value);
+                setNewPCO({
+                    ...newPCO,
+                    ['sector']: value
+                });
+                setDisabled(value === '' || pcoName === '' || selectedCountry === '' || shortName === '' || selectedCurrency === '');
+                break;
+            case 'currency':
+                setSelectedCurrency(value);
+                setNewPCO({
+                    ...newPCO,
+                    ['currency']: value
+                });
+                setDisabled(value === '' || pcoName === '' || selectedCountry === '' || selectedSector === '' || shortName === '');
+                break;
+            case 'website':
+                setWebsite(value);
+                setNewPCO({
+                    ...newPCO,
+                    ['website']: value
+                });
+                setDisabled(selectedCurrency === '' || pcoName === '' || selectedCountry === '' || selectedSector === '' || shortName === '');
+                break;
+            default:
+                break;
         }
-    }, [gridApi]);
-
-    const onCountryChange = (event: any) => {
-        setSelectedCountry(event);
-    };
-
-    const onPCOSectorChange = (event: any) => {
-        setSelectedSector(event);
     };
 
     return (
@@ -154,8 +227,9 @@ const AddNewPCOContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     variant="outlined"
                     size="small"
                     aria-label="name"
-                    value={searchTextValue}
-                    onChange={onValueChange}
+                    value={pcoName}
+                    helperText={!disabled && pcoName === '' ? 'Required' : ''}
+                    onChange={(e) => onValueChange(e.target.value, 'pcoName')}
                     inputProps={{
                         style: { height: '1em' },
                     }}
@@ -167,9 +241,10 @@ const AddNewPCOContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     className={classes.searchBox}
                     variant="outlined"
                     size="small"
-                    aria-label="name"
-                    value={searchTextValue}
-                    onChange={onValueChange}
+                    aria-label="shortName"
+                    value={shortName}
+                    helperText={!disabled && shortName === '' ? 'Required' : ''}
+                    onChange={(e) => onValueChange(e.target.value, 'shortName')}
                     inputProps={{
                         style: { height: '1em' },
                     }}
@@ -182,8 +257,8 @@ const AddNewPCOContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     variant="outlined"
                     size="small"
                     aria-label="address"
-                    value={searchTextValue}
-                    onChange={onValueChange}
+                    value={address}
+                    onChange={(e) => onValueChange(e.target.value, 'address')}
                     inputProps={{
                         style: { height: '1em' },
                     }}
@@ -198,8 +273,8 @@ const AddNewPCOContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                         variant="outlined"
                         size="small"
                         aria-label="city"
-                        value={searchTextValue}
-                        onChange={onValueChange}
+                        value={city}
+                        onChange={(e) => onValueChange(e.target.value, 'city')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -212,8 +287,8 @@ const AddNewPCOContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                         variant="outlined"
                         size="small"
                         aria-label="city"
-                        value={searchTextValue}
-                        onChange={onValueChange}
+                        value={postalCode}
+                        onChange={(e) => onValueChange(e.target.value, 'postalCode')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -233,7 +308,7 @@ const AddNewPCOContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     classes={classes}
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: any) => onCountryChange(value)}
+                    onChange={(e, value: any) => onValueChange(value, 'country')}
                     value={selectedCountry ?? ''}
                     options={CountryList.slice()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
@@ -242,6 +317,7 @@ const AddNewPCOContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
+                            helperText={!disabled && selectedCountry === '' ? 'Required' : ''}
                             type={'text'}
                         />;
                     }}
@@ -260,7 +336,7 @@ const AddNewPCOContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     classes={classes}
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: any) => onPCOSectorChange(value)}
+                    onChange={(e, value: any) => onValueChange(value, 'sector')}
                     value={selectedSector ?? ''}
                     options={PCOSectors.slice()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
@@ -269,6 +345,7 @@ const AddNewPCOContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
+                            helperText={!disabled && selectedSector === '' ? 'Required' : ''}
                             type={'text'}
                         />
                     }}
@@ -276,15 +353,28 @@ const AddNewPCOContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Currency*</Typography>
-                <TextField
-                    className={classes.searchBox}
-                    variant="outlined"
-                    size="small"
-                    aria-label="baseCapital"
-                    value={searchTextValue}
-                    onChange={onValueChange}
-                    inputProps={{
-                        style: { height: '1em' },
+                <Autocomplete
+                    id={'fundsAutocomplete'}
+                    popupIcon={<ExpandMoreIcon />}
+                    size={'small'}
+                    autoHighlight={true}
+                    autoSelect={true}
+                    autoComplete={false}
+                    classes={classes}
+                    sx={{ marginRight: '1em', width: '400px' }}
+                    isOptionEqualToValue={(option, value) => option === value}
+                    onChange={(e, value: any) => onValueChange(value, 'currency')}
+                    value={selectedCurrency ?? ''}
+                    options={CurrencyList?.map(x => x.code)?.slice()}
+                    renderInput={(params: AutocompleteRenderInputParams) => {
+                        params.InputProps.className = autocompleteInputClasses.textInput;
+                        return <TextField {...params}
+                            className={autocompleteInputClasses.autocomplete}
+                            variant="outlined"
+                            autoComplete="off"
+                            helperText={!disabled && selectedCurrency === '' ? 'Required' : ''}
+                            type={'text'}
+                        />;
                     }}
                 />
             </Grid>
@@ -295,8 +385,8 @@ const AddNewPCOContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     variant="outlined"
                     size="small"
                     aria-label="website"
-                    value={searchTextValue}
-                    onChange={onValueChange}
+                    value={website}
+                    onChange={(e) => onValueChange(e.target.value, 'website')}
                     inputProps={{
                         style: { height: '1em' },
                     }}

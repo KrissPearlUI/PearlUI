@@ -5,6 +5,7 @@ import { createStyles, makeStyles } from '@mui/styles';
 import { GridApi } from 'ag-grid-community';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { CountryList } from '../../../../models/shared/sharedModels';
+import { NewLP } from '../../../../models/lps/lpModels';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -115,30 +116,102 @@ const LPTypes = [
 ];
 
 interface AddNewLPContentProps {
-    setDisabled: any
+    disabled: boolean,
+    setDisabled: any,
+    newLP: NewLP | null,
+    setNewLP: (newState: any) => void,
 }
 
-const AddNewLPContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
+const AddNewLPContentComponent = ({ setDisabled, disabled, newLP, setNewLP }: AddNewLPContentProps) => {
     const classes = useStyles();
     const autocompleteInputClasses = autocompleteInputStyles();
-    const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
-    const [gridApi, setGridApi] = useState<GridApi>();
     const [selectedCountry, setSelectedCountry] = useState<string | null>('');
     const [selectedType, setSelectedType] = useState<string | null>('');
+    const [name, setName] = useState<string>('');
+    const [shortName, setShortName] = useState<string>('');
+    const [address, setAddress] = useState<string>('');
+    const [city, setCity] = useState<string>('');
+    const [postalCode, setPostalCode] = useState<string | number>('');
+    const [baseCapital, setBaseCapital] = useState<number>(0);
+    const [website, setWebsite] = useState<string | null>('');
 
-    const onValueChange = useCallback((event: any) => {
-        setSearchTextValue(event.target.value)
-        if (gridApi) {
-            gridApi.setQuickFilter(event.target.value);
+    const onValueChange = (value: string, field: string) => {
+        switch (field) {
+            case 'name':
+                setName(value);
+                setNewLP({
+                    ...newLP,
+                    ['name']: value
+                });
+                setDisabled(value === '' || shortName === '' || selectedCountry === '' || selectedType === '' || city === '');
+                break;
+            case 'shortName':
+                setShortName(value);
+                setNewLP({
+                    ...newLP,
+                    ['shortName']: value
+                });
+                setDisabled(value === '' || name === '' || selectedCountry === '' || selectedType === '' || city === '');
+                break;
+            case 'address':
+                setAddress(value);
+                setNewLP({
+                    ...newLP,
+                    ['address']: value
+                });
+                setDisabled(name === '' || shortName === '' || selectedCountry === '' || selectedType === '' || city === '');
+                break;
+            case 'city':
+                setCity(value);
+                setNewLP({
+                    ...newLP,
+                    ['city']: value
+                });
+                setDisabled(name === '' || shortName === '' || selectedCountry === '' || selectedType === '' || value === '');
+                break;
+            case 'postalCode':
+                setPostalCode(value);
+                setNewLP({
+                    ...newLP,
+                    ['postalCode']: value
+                });
+                setDisabled(name === '' || shortName === '' || selectedCountry === '' || selectedType === '' || city === '');
+                break;
+            case 'country':
+                setSelectedCountry(value);
+                setNewLP({
+                    ...newLP,
+                    ['country']: value
+                });
+                setDisabled(value === '' || name === '' || shortName === '' || selectedType === '' || city === '');
+                break;
+            case 'type':
+                setSelectedType(value);
+                setNewLP({
+                    ...newLP,
+                    ['type']: value
+                });
+                setDisabled(value === '' || name === '' || selectedCountry === '' || shortName === '' || city === '');
+                break;
+            case 'baseCapital':
+                setBaseCapital(+value);
+                setNewLP({
+                    ...newLP,
+                    ['baseCapital']: +value
+                });
+                setDisabled(city === '' || name === '' || selectedCountry === '' || selectedType === '' || shortName === '');
+                break;
+            case 'website':
+                setWebsite(value);
+                setNewLP({
+                    ...newLP,
+                    ['website']: value
+                });
+                setDisabled(city === '' || name === '' || selectedCountry === '' || selectedType === '' || shortName === '');
+                break;
+            default:
+                break;
         }
-    }, [gridApi]);
-
-    const onCountryChange = (event: any) => {
-        setSelectedCountry(event);
-    };
-
-    const onLPTypeChange = (event: any) => {
-        setSelectedType(event);
     };
 
     return (
@@ -150,8 +223,9 @@ const AddNewLPContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     variant="outlined"
                     size="small"
                     aria-label="name"
-                    value={searchTextValue}
-                    onChange={onValueChange}
+                    value={name}
+                    helperText={!disabled && name === '' ? 'Required' : ''}
+                    onChange={(e) => onValueChange(e.target.value, 'name')}
                     inputProps={{
                         style: { height: '1em' },
                     }}
@@ -164,8 +238,9 @@ const AddNewLPContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     variant="outlined"
                     size="small"
                     aria-label="name"
-                    value={searchTextValue}
-                    onChange={onValueChange}
+                    value={shortName}
+                    helperText={!disabled && shortName === '' ? 'Required' : ''}
+                    onChange={(e) => onValueChange(e.target.value, 'shortName')}
                     inputProps={{
                         style: { height: '1em' },
                     }}
@@ -178,8 +253,9 @@ const AddNewLPContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     variant="outlined"
                     size="small"
                     aria-label="address"
-                    value={searchTextValue}
-                    onChange={onValueChange}
+                    value={address}
+                    helperText={!disabled && address === '' ? 'Required' : ''}
+                    onChange={(e) => onValueChange(e.target.value, 'address')}
                     inputProps={{
                         style: { height: '1em' },
                     }}
@@ -194,8 +270,9 @@ const AddNewLPContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                         variant="outlined"
                         size="small"
                         aria-label="city"
-                        value={searchTextValue}
-                        onChange={onValueChange}
+                        value={city}
+                        helperText={!disabled && city === '' ? 'Required' : ''}
+                        onChange={(e) => onValueChange(e.target.value, 'city')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -208,8 +285,9 @@ const AddNewLPContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                         variant="outlined"
                         size="small"
                         aria-label="city"
-                        value={searchTextValue}
-                        onChange={onValueChange}
+                        value={postalCode}
+                        helperText={!disabled && postalCode === '' ? 'Required' : ''}
+                        onChange={(e) => onValueChange(e.target.value, 'postalCode')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -229,7 +307,7 @@ const AddNewLPContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     classes={classes}
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: any) => onCountryChange(value)}
+                    onChange={(e, value: any) => onValueChange(value, 'country')}
                     value={selectedCountry ?? ''}
                     options={CountryList.slice()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
@@ -238,6 +316,7 @@ const AddNewLPContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
+                            helperText={!disabled && selectedCountry === '' ? 'Required' : ''}
                             type={'text'}
                         />;
                     }}
@@ -256,7 +335,7 @@ const AddNewLPContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     classes={classes}
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: any) => onLPTypeChange(value)}
+                    onChange={(e, value: any) => onValueChange(value, 'type')}
                     value={selectedType ?? ''}
                     options={LPTypes.slice()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
@@ -265,6 +344,7 @@ const AddNewLPContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
+                            helperText={!disabled && selectedType === '' ? 'Required' : ''}
                             type={'text'}
                         />;
                     }}
@@ -277,8 +357,9 @@ const AddNewLPContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     variant="outlined"
                     size="small"
                     aria-label="baseCapital"
-                    value={searchTextValue}
-                    onChange={onValueChange}
+                    value={baseCapital}
+                    type={'number'}
+                    onChange={(e) => onValueChange(e.target.value, 'baseCapital')}
                     inputProps={{
                         style: { height: '1em' },
                     }}
@@ -291,8 +372,8 @@ const AddNewLPContentComponent = ({ setDisabled }: AddNewLPContentProps) => {
                     variant="outlined"
                     size="small"
                     aria-label="website"
-                    value={searchTextValue}
-                    onChange={onValueChange}
+                    value={website}
+                    onChange={(e) => onValueChange(e.target.value, 'website')}
                     inputProps={{
                         style: { height: '1em' },
                     }}

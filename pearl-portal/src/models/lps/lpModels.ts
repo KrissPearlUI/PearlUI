@@ -135,3 +135,16 @@ export interface LPPCOInvestmentsRequest {
     id: string;
     currency: string;
 }
+
+
+export interface NewLP{
+    name?:string,
+    shortName?:string,
+    address?:string,
+    city?:string,
+    postalCode?:string|number,
+    country?:string,
+    type?:string,
+    baseCapital?:number,
+    website?:string
+}

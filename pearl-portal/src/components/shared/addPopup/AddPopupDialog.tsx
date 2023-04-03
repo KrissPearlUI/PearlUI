@@ -10,6 +10,9 @@ import AddIcon from '@mui/icons-material/Add';
 import AddNewLPContentComponent from './lpsAddDialoContents/AddNewLPContent';
 import AddNewFundContentComponent from './fundsAddDialogsContents/AddNewFundContent';
 import AddNewPCOContentComponent from './pcosAddDialogContents/AddNewPCOContent';
+import { FundSummary, NewFund } from '../../../models/funds/fundModels';
+import { NewPCO, PCOSummary } from '../../../models/pcos/pcoModels';
+import { LP, NewLP } from '../../../models/lps/lpModels';
 
 const transitionMethod = (props: TransitionProps & { children: ReactElement<any, any> }, ref: Ref<unknown>) => {
     // eslint-disable-next-line react/jsx-props-no-spreading
@@ -28,6 +31,9 @@ export const AddDialogComponent = ({ pageName, pageTitle }: AddDialogComponentPr
     const { addDialogOpen } = useSelector((state: RootState) => state.app);
     const [disabled, setDisabled] = useState<boolean>(true);
     const theme = useTheme()
+    const [newFund, setNewFund] = useState<NewFund | null>(null);
+    const [newLP,setNewLP]=useState<NewLP|null>(null);
+    const [newPCO,setNewPCO]=useState<NewPCO|null>(null);
 
     /**
      * Handles the closing of the dialog
@@ -35,6 +41,18 @@ export const AddDialogComponent = ({ pageName, pageTitle }: AddDialogComponentPr
     const handleClose = () => {
         dispatch(setAddDiaogOpen(false));
     };
+
+    const handleAddBtnClick=()=>{
+        let valid=false;
+        if(pageName==='fundsOverview'){
+            valid=newFund!==null && newFund.fundName!=='' && newFund.shortName!=='' && newFund.country!=='' && newFund.type!=='' && newFund.currency!=='';
+        } else if(pageName==='lpsOverview'){
+            valid=newLP!==null && newLP.name!=='' && newLP.shortName!=='' &&  newLP.city!=='' && newLP.country!=='' && newLP.type!=='';
+        } else if (pageName==='pcosOverview'){
+            valid=newPCO!==null && newPCO.pcoName!=='' && newPCO.shortName!=='' &&  newPCO.country!=='' && newPCO.sector!=='' && newPCO.currency!=='';
+        }
+        console.log(valid);
+    }
 
     return (
         <Dialog open={addDialogOpen} TransitionComponent={Transition}
@@ -70,10 +88,10 @@ export const AddDialogComponent = ({ pageName, pageTitle }: AddDialogComponentPr
             </DialogTitle>
             <DialogContent sx={{ display: 'flex', flex: 1, justifyContent: 'flex-start', height: '100%', backgroundColor: theme.palette.mode === 'light' ? '#F5F5F5' : '#06050A' }}>
                 {pageName === 'lpsOverview' ?
-                    <AddNewLPContentComponent setDisabled={setDisabled} />
+                    <AddNewLPContentComponent disabled={disabled} setDisabled={setDisabled} newLP={newLP} setNewLP={setNewLP}  />
                     : pageName === 'fundsOverview'
-                        ? <AddNewFundContentComponent setDisabled={setDisabled} />
-                        : <AddNewPCOContentComponent setDisabled={setDisabled} />}
+                        ? <AddNewFundContentComponent disabled={disabled} setDisabled={setDisabled} newFund={newFund} setNewFund={setNewFund} />
+                        : <AddNewPCOContentComponent disabled={disabled} setDisabled={setDisabled} newPCO={newPCO} setNewPCO={setNewPCO}  />}
             </DialogContent>
             <DialogActions sx={{ backgroundColor: theme.palette.mode === 'light' ? '#F5F5F5' : '#06050A' }}>
                 <Button
@@ -82,6 +100,7 @@ export const AddDialogComponent = ({ pageName, pageTitle }: AddDialogComponentPr
                     sx={{ textTransform: 'none' }}
                     startIcon={<AddIcon />}
                     disabled={disabled}
+                    onClick={handleAddBtnClick}
                 >
                     Add
                 </Button>
