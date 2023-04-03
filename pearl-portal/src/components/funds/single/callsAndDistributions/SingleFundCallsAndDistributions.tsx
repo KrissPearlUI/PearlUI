@@ -31,15 +31,20 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const SingleFundCallsAndDistributions = () => {
+interface SingleFundCallsAndDistributionsProps {
+    selectedCallDistView:string,
+    setSelecteCalDistdView:(value:string)=>void
+}
+
+
+const SingleFundCallsAndDistributions = ({selectedCallDistView,setSelecteCalDistdView}:SingleFundCallsAndDistributionsProps) => {
     const classes = useStyles();
     const { selectedLP } = useSelector((state: RootState) => state.lps);
     const theme = useTheme();
     const [, setRowData] = useState<Fund[]>([]);
-    const [selectedView, setSelectedView] = useState<string>('Calls');
 
     const handleChangeVaue = (value: any) => {
-        setSelectedView(value);
+        setSelecteCalDistdView(value);
     };
 
     useEffect(() => {
@@ -70,7 +75,7 @@ const SingleFundCallsAndDistributions = () => {
                                 exclusive
                                 sx={{ border: `1px solid ${theme.palette.primary.main}` }}
                                 style={{ cursor: 'pointer' }}
-                                value={selectedView}
+                                value={selectedCallDistView}
                                 onChange={(e, value) => {
                                     if (value) {
                                         handleChangeVaue(value);
@@ -82,12 +87,12 @@ const SingleFundCallsAndDistributions = () => {
                                     height: 32,
                                     width: 154,
                                     cursor: 'pointer',
-                                    backgroundColor: selectedView === 'Calls' ? theme.palette.primary.main : 'transparent'
+                                    backgroundColor: selectedCallDistView === 'Calls' ? theme.palette.primary.main : 'transparent'
 
                                 }}>
                                     <Typography style={{
                                         padding: '0.1em', fontWeight: 800, fontSize: '12px',
-                                        color: selectedView === 'Calls' ? 'white' : theme.palette.primary.main
+                                        color: selectedCallDistView === 'Calls' ? 'white' : theme.palette.primary.main
                                     }}
                                         variant={'body2'}> {'Calls'}</Typography>
 
@@ -98,11 +103,11 @@ const SingleFundCallsAndDistributions = () => {
                                         fontSize: 14,
                                         height: 32,
                                         width: 154,
-                                        backgroundColor: selectedView === 'Distributions' ? theme.palette.primary.main : 'transparent'
+                                        backgroundColor: selectedCallDistView === 'Distributions' ? theme.palette.primary.main : 'transparent'
                                     }}>
                                     <Typography style={{
                                         padding: '0.1em', fontWeight: 800, fontSize: '12px',
-                                        color: selectedView === 'Distributions' ? 'white' : theme.palette.primary.main
+                                        color: selectedCallDistView === 'Distributions' ? 'white' : theme.palette.primary.main
                                     }}
                                         variant={'body2'}> {'Distributions'}</Typography>
                                 </ToggleButton>
@@ -110,7 +115,7 @@ const SingleFundCallsAndDistributions = () => {
                         </Grid>
                     </Grid>
                 </Toolbar>
-                {selectedView === 'Calls' ? <SingleFundCallsTable /> : <SingleFundDistributionsTable />}
+                {selectedCallDistView === 'Calls' ? <SingleFundCallsTable /> : <SingleFundDistributionsTable />}
                 {/*  <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{flex:1}}>
                     <AgGridReact gridOptions={gridOptions}
                                 columnDefs={getColumnDefs}

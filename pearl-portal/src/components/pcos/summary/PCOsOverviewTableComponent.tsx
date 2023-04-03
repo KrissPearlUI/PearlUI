@@ -93,14 +93,14 @@ const PCOsOverviewTable = () => {
                     return params.data?.shortName;
                 },
                 valueSetter: (params) => valueSetter(params, 'shortName'),
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             },
             {
                 headerName: 'Name',
                 field: 'pcoName',
                 suppressFiltersToolPanel: true,
                 minWidth: 160,
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             },
             {
                 headerName: 'Headquarters',
@@ -112,7 +112,7 @@ const PCOsOverviewTable = () => {
                     return params.data?.country ? capitalize(params.data?.country.toString()) : '';
                 },
                 valueSetter: (params) => valueSetter(params, 'country'),
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             },
             {
                 headerName: 'Local Currency',
@@ -124,7 +124,7 @@ const PCOsOverviewTable = () => {
                     return params.data?.localCurrency ? params.data?.localCurrency.toUpperCase() : '';
                 },
                 valueSetter: (params) => valueSetter(params, 'localCurrency'),
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             },
             {
                 headerName: 'Total Investments',
@@ -132,7 +132,7 @@ const PCOsOverviewTable = () => {
                 enableRowGroup: true,
                 minWidth: 220,
                 type: 'numericColumn',
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
             },
             {
@@ -143,7 +143,7 @@ const PCOsOverviewTable = () => {
                 enableRowGroup: true,
                 tooltipField: 'funds',
                 tooltipComponentParams: { type: 'funds' },
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             },
             {
                 headerName: 'LPs',
@@ -153,7 +153,7 @@ const PCOsOverviewTable = () => {
                 enableRowGroup: true,
                 tooltipField: 'lps',
                 tooltipComponentParams: { type: 'lps' },
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             },
             {
                 headerName: 'Status',
@@ -165,7 +165,7 @@ const PCOsOverviewTable = () => {
                 minWidth: 110,
                 maxWidth: 130,
                 enableRowGroup: true,
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             }
         ];
     }, [theme]);
@@ -289,7 +289,7 @@ const PCOsOverviewTable = () => {
         const otherPageUrl = `/pcosOverview/singlePCO`;
         navigate(otherPageUrl);
     }
-    
+
     useEffect(() => {
         dispatch(fetchLPs());
         dispatch(fetchFunds());

@@ -35,7 +35,7 @@ const SingleFundDistributionsTable = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
-    const { lps, selectedLP } = useSelector((state: RootState) => state.lps);
+    const {  selectedFund } = useSelector((state: RootState) => state.funds);
     const { distributions } = useSelector((state: RootState) => state.distributions);
     const [gridApi, setGridApi] = useState<GridApi>();
     const theme = useTheme();
@@ -127,15 +127,15 @@ const SingleFundDistributionsTable = () => {
     }, [dispatch])
 
     useEffect(() => {
-        if (selectedLP && selectedLP.pcos && selectedLP.pcos.length > 0 && distributions) {
-            let data = distributions?.filter(x => x.lpId === selectedLP.id);
+        if (selectedFund && selectedFund.pcos && selectedFund.pcos.length > 0 && distributions) {
+            let data = distributions?.filter(x => x.fundId === selectedFund.id);
             data = data.map((item) => ({
                 ...item,
-                pcoShortName: selectedLP?.pcos?.filter(x => x.id === item.pcoId)[0]?.shortName ?? ''
+                pcoShortName: selectedFund?.pcos?.filter(x => x.id === item.pcoId)[0]?.shortName ?? ''
             }))
             setRowData(data ?? []);
         }
-    }, [distributions, selectedLP])
+    }, [distributions, selectedFund])
 
     return (
         <div className={clsx(getGridTheme(isDarkTheme), classes.fill)}>

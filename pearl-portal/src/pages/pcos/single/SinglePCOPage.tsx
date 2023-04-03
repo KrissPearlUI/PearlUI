@@ -17,6 +17,8 @@ import SinglePCOExitsReservesComponent from '../../../components/pcos/single/exi
 import SinglePCOFinantialsComponent from '../../../components/pcos/single/finantials/SinglePCOFinantials';
 import { fetchPCOs } from '../../../redux/thunks/pcoThunk';
 import { setSelectedPCO } from '../../../redux/slices/pcos/pcosSlice';
+import { AddDialogComponent } from '../../../components/shared/addPopup/AddPopupDialog';
+import { setSelectedFund } from '../../../redux/slices/funds/fundsSlice';
 
 const SinglePCO = () => {
     const dispatch = useAppDispatch();
@@ -29,6 +31,7 @@ const SinglePCO = () => {
 
     useEffect(() => {
         dispatch(fetchPCOs());
+        dispatch(setSelectedFund(null));
     }, [dispatch])
 
     useEffect(() => {
@@ -44,7 +47,7 @@ const SinglePCO = () => {
             <Grid item xs={12} md={12} lg={12} sx={{ flex: 1 }}>
                 <Grid container spacing={2} sx={{ display: 'flex', flex: 1, width: '100%', height: '100%', alignItems: 'start' }}>
                     <Grid item xs={12} md={6} lg={6}>
-                        <AutocompletePCOComponent selectedPCO={selectedPCO}/>
+                        <AutocompletePCOComponent selectedPCO={selectedPCO} />
                     </Grid>
                     <Grid item xs={12} md={6} lg={6} sx={{ display: 'flex', flex: 1, justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' }, alignSelf: 'flex-end' }}>
                         <DatePickerPCOComponent />
@@ -57,7 +60,9 @@ const SinglePCO = () => {
                         <SelectionPCOComponent selectedItem={selectedView} handleButtonClick={handleButtonClick} />
                     </Grid>
                     <Grid item xs={12} md={4} lg={4} sx={{ display: 'flex', flex: 1, justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' }, alignSelf: 'flex-end' }}>
-                        <FiltersAndActionsPCOComponent selectedItem={selectedView} handleButtonClick={handleButtonClick} />
+                        <FiltersAndActionsPCOComponent selectedItem={selectedView} handleButtonClick={handleButtonClick} addEditTooltip={selectedView === 'basic'
+                            ? 'pcoBasic'
+                            : 'transactions'} />
                     </Grid>
                 </Grid>
             </Grid>
@@ -75,6 +80,8 @@ const SinglePCO = () => {
                                         ? <SinglePCOFinantialsComponent />
                                         : <SingleFundDocuments />}
             </Grid>
+            <AddDialogComponent pageName={selectedView === 'transactions' ? 'transactions' : ''}
+                pageTitle={selectedView === 'transactions' ? 'Add New Transaction' : ''} />
         </Grid>
     );
 };

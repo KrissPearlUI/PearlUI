@@ -30,7 +30,7 @@ const lpsSlice = createSlice({
          * @param state
          * @param action
          */
-        setSelectedLP(state, action: PayloadAction<LP>) {
+        setSelectedLP(state, action: PayloadAction<LP | null>) {
             state.selectedLP = action.payload;
         },
         /**

@@ -135,7 +135,7 @@ const SingleLPToolbar = () => {
                             variant="standard"
                             autoComplete="off"
                             type={'text'}
-                            label='Select a LP' />;
+                            label='Select an LP' />;
                     }}
                 />
             </Grid>

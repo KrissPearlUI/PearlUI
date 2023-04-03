@@ -35,10 +35,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface SingleSelectionProps {
     selectedItem: string
-    handleButtonClick: any
+    handleButtonClick: any,
+    addEditTooltip: string
 }
 
-const FiltersAndActionsLPComponent = ({ selectedItem, handleButtonClick }: SingleSelectionProps) => {
+const FiltersAndActionsLPComponent = ({ selectedItem, handleButtonClick, addEditTooltip }: SingleSelectionProps) => {
     const classes = useStyles();
     const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
     const [gridApi, setGridApi] = useState<GridApi>();
@@ -93,7 +94,12 @@ const FiltersAndActionsLPComponent = ({ selectedItem, handleButtonClick }: Singl
                         />
                     </Grid>
                     <Grid item sx={{ marginRight: '0.5em' }} >
-                        <AddButton pageName='singleFund' />
+                        <AddButton pageName={addEditTooltip === 'commitments'
+                            ? 'Add New Commitment'
+                            : addEditTooltip === 'lpPortfolio' ? 'Add New Portfolio'
+                                : addEditTooltip === 'callsComponent' ? 'Add New Call'
+                                    : addEditTooltip === 'distributionComponent' ? 'Add New Distribution'
+                                        : 'Add New Transaction'} />
                     </Grid>
                     <Grid item sx={{ marginRight: '0.5em' }} >
                         <Fab

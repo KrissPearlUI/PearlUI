@@ -94,7 +94,7 @@ const FundsOverviewTable = () => {
                     return params.data?.id;
                 },
                 valueSetter: (params) => valueSetter(params, 'id'),
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             },
             {
                 headerName: 'Short',
@@ -106,14 +106,14 @@ const FundsOverviewTable = () => {
                     return params.data?.shortName;
                 },
                 valueSetter: (params) => valueSetter(params, 'shortName'),
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             },
             {
                 headerName: 'Name',
                 field: 'fundName',
                 suppressFiltersToolPanel: true,
                 minWidth: 200,
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             },
             {
                 headerName: 'Currency',
@@ -124,7 +124,7 @@ const FundsOverviewTable = () => {
                     return params.data?.currency ? params.data?.currency.toUpperCase() : '';
                 },
                 valueSetter: (params) => valueSetter(params, 'currency'),
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             },
             {
                 headerName: 'Vintage',
@@ -132,7 +132,7 @@ const FundsOverviewTable = () => {
                 minWidth: 100,
                 maxWidth: 150,
                 enableRowGroup: true,
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: dateValueFormatter,
             },
             {
@@ -141,7 +141,7 @@ const FundsOverviewTable = () => {
                 enableRowGroup: true,
                 minWidth: 220,
                 type: 'numericColumn',
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
             },
             {
@@ -152,7 +152,7 @@ const FundsOverviewTable = () => {
                 enableRowGroup: true,
                 tooltipField: 'lps',
                 tooltipComponentParams: { type: 'lps' },
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             },
             {
                 headerName: 'Active PCOs',
@@ -162,7 +162,7 @@ const FundsOverviewTable = () => {
                 tooltipField: 'pcos',
                 tooltipComponentParams: { type: 'pcos' },
                 enableRowGroup: true,
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             },
             {
                 headerName: 'Domicile',
@@ -171,7 +171,7 @@ const FundsOverviewTable = () => {
                 minWidth: 110,
                 maxWidth: 130,
                 enableRowGroup: true,
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             }
         ];
     }, [theme]);

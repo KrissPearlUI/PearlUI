@@ -129,14 +129,14 @@ interface AddNewLPContentProps {
 const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }: AddNewLPContentProps) => {
     const classes = useStyles();
     const autocompleteInputClasses = autocompleteInputStyles();
-    const [selectedCountry, setSelectedCountry] = useState<string | null>('');
-    const [selectedSector, setSelectedSector] = useState<string | null>('');
+    const [country, setCountry] = useState<string | null>('');
+    const [sector, setSector] = useState<string | null>('');
     const [pcoName, setPCOName] = useState<string>('');
     const [shortName, setShortName] = useState<string>('');
     const [address, setAddress] = useState<string>('');
     const [city, setCity] = useState<string>('');
     const [postalCode, setPostalCode] = useState<string | number>('');
-    const [selectedCurrency, setSelectedCurrency] = useState<string | null>('');
+    const [currency, setCurrency] = useState<string | null>('');
     const [website, setWebsite] = useState<string>('');
 
     const onValueChange = (value: string, field: string) => {
@@ -145,73 +145,73 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                 setPCOName(value);
                 setNewPCO({
                     ...newPCO,
-                    ['pcoName']: value
+                    pcoName: value
                 });
-                setDisabled(value === '' || shortName === '' || selectedCountry === '' || selectedSector === '' || selectedCurrency === '');
+                setDisabled(value === '' || shortName === '' || country === '' || sector === '' || currency === '');
                 break;
             case 'shortName':
                 setShortName(value);
                 setNewPCO({
                     ...newPCO,
-                    ['shortName']: value
+                    shortName: value
                 });
-                setDisabled(value === '' || pcoName === '' || selectedCountry === '' || selectedSector === '' || selectedCurrency === '');
+                setDisabled(value === '' || pcoName === '' || country === '' || sector === '' || currency === '');
                 break;
             case 'address':
                 setAddress(value);
                 setNewPCO({
                     ...newPCO,
-                    ['address']: value
+                    address: value
                 });
-                setDisabled(pcoName === '' || shortName === '' || selectedCountry === '' || selectedSector === '' || selectedCurrency === '');
+                setDisabled(pcoName === '' || shortName === '' || country === '' || sector === '' || currency === '');
                 break;
             case 'city':
                 setCity(value);
                 setNewPCO({
                     ...newPCO,
-                    ['city']: value
+                    city: value
                 });
-                setDisabled(pcoName === '' || shortName === '' || selectedCountry === '' || selectedSector === '' || selectedCurrency === '');
+                setDisabled(pcoName === '' || shortName === '' || country === '' || sector === '' || currency === '');
                 break;
             case 'postalCode':
                 setPostalCode(value);
                 setNewPCO({
                     ...newPCO,
-                    ['postalCode']: value
+                    postalCode: value
                 });
-                setDisabled(pcoName === '' || shortName === '' || selectedCountry === '' || selectedSector === '' || selectedCurrency === '');
+                setDisabled(pcoName === '' || shortName === '' || country === '' || sector === '' || currency === '');
                 break;
             case 'country':
-                setSelectedCountry(value);
+                setCountry(value);
                 setNewPCO({
                     ...newPCO,
-                    ['country']: value
+                    country: value
                 });
-                setDisabled(value === '' || pcoName === '' || shortName === '' || selectedSector === '' || selectedCurrency === '');
+                setDisabled(value === '' || pcoName === '' || shortName === '' || sector === '' || currency === '');
                 break;
             case 'sector':
-                setSelectedSector(value);
+                setSector(value);
                 setNewPCO({
                     ...newPCO,
-                    ['sector']: value
+                    sector: value
                 });
-                setDisabled(value === '' || pcoName === '' || selectedCountry === '' || shortName === '' || selectedCurrency === '');
+                setDisabled(value === '' || pcoName === '' || country === '' || shortName === '' || currency === '');
                 break;
             case 'currency':
-                setSelectedCurrency(value);
+                setCurrency(value);
                 setNewPCO({
                     ...newPCO,
-                    ['currency']: value
+                    currency: value
                 });
-                setDisabled(value === '' || pcoName === '' || selectedCountry === '' || selectedSector === '' || shortName === '');
+                setDisabled(value === '' || pcoName === '' || country === '' || sector === '' || shortName === '');
                 break;
             case 'website':
                 setWebsite(value);
                 setNewPCO({
                     ...newPCO,
-                    ['website']: value
+                    website: value
                 });
-                setDisabled(selectedCurrency === '' || pcoName === '' || selectedCountry === '' || selectedSector === '' || shortName === '');
+                setDisabled(currency === '' || pcoName === '' || country === '' || sector === '' || shortName === '');
                 break;
             default:
                 break;
@@ -304,12 +304,11 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                     autoHighlight={true}
                     autoSelect={true}
                     autoComplete={false}
-                    disableClearable
                     classes={classes}
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
                     onChange={(e, value: any) => onValueChange(value, 'country')}
-                    value={selectedCountry ?? ''}
+                    value={country ?? ''}
                     options={CountryList.slice()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
                         params.InputProps.className = autocompleteInputClasses.textInput;
@@ -317,7 +316,7 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
-                            helperText={!disabled && selectedCountry === '' ? 'Required' : ''}
+                            helperText={!disabled && country === '' ? 'Required' : ''}
                             type={'text'}
                         />;
                     }}
@@ -332,12 +331,11 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                     autoHighlight={true}
                     autoSelect={true}
                     autoComplete={false}
-                    disableClearable
                     classes={classes}
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
                     onChange={(e, value: any) => onValueChange(value, 'sector')}
-                    value={selectedSector ?? ''}
+                    value={sector ?? ''}
                     options={PCOSectors.slice()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
                         params.InputProps.className = autocompleteInputClasses.textInput;
@@ -345,7 +343,7 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
-                            helperText={!disabled && selectedSector === '' ? 'Required' : ''}
+                            helperText={!disabled && sector === '' ? 'Required' : ''}
                             type={'text'}
                         />
                     }}
@@ -364,7 +362,7 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
                     onChange={(e, value: any) => onValueChange(value, 'currency')}
-                    value={selectedCurrency ?? ''}
+                    value={currency ?? ''}
                     options={CurrencyList?.map(x => x.code)?.slice()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
                         params.InputProps.className = autocompleteInputClasses.textInput;
@@ -372,7 +370,7 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
-                            helperText={!disabled && selectedCurrency === '' ? 'Required' : ''}
+                            helperText={!disabled && currency === '' ? 'Required' : ''}
                             type={'text'}
                         />;
                     }}

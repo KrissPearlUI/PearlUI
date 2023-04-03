@@ -13,6 +13,16 @@ export interface PopoverPanelProps {
     balanceTableProps: any;
 }
 
+export interface NewCommitment {
+    fundId?: string,
+    fundName?: string,
+    committedAmount?: number,
+    fundCurrency?: string,
+    transfered?: boolean,
+    lpId?: string,
+    lpName?: string,
+}
+
 export const CurrencyList=[
     {name: "Afghan Afghani", code: "AFA"},
     {name: "Albanian Lek", code: "ALL"},

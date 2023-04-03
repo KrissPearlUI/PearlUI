@@ -15,7 +15,6 @@ import { fetchCashCalls } from '../../../../redux/thunks/cashCallsThunk';
 import { CashCall } from '../../../../models/cashCalls/cashCallsModels';
 import { capitalizeLetters } from '../../../../helpers/app';
 
-
 const useStyles = makeStyles(() =>
     createStyles({
         root: {
@@ -36,7 +35,7 @@ const SingleFundCallsTable = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
-    const { selectedLP } = useSelector((state: RootState) => state.lps);
+    const { selectedFund } = useSelector((state: RootState) => state.funds);
     const { cashCalls } = useSelector((state: RootState) => state.cashCalls);
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
@@ -131,15 +130,15 @@ const SingleFundCallsTable = () => {
     }, [dispatch])
 
     useEffect(() => {
-        if (selectedLP && selectedLP.pcos && selectedLP.pcos.length > 0 && cashCalls) {
-            let data = cashCalls?.filter(x => x.lpId === selectedLP.id);
+        if (selectedFund && selectedFund.pcos && selectedFund.pcos.length > 0 && cashCalls) {
+            let data = cashCalls?.filter(x => x.fundId === selectedFund.id);
             data = data.map((item) => ({
                 ...item,
-                pcoShortName: selectedLP?.pcos?.filter(x => x.id === item.pcoId)[0]?.shortName ?? ''
+                pcoShortName: selectedFund?.pcos?.filter(x => x.id === item.pcoId)[0]?.shortName ?? ''
             }))
             setRowData(data ?? []);
         }
-    }, [cashCalls, selectedLP])
+    }, [cashCalls, selectedFund])
 
     return (
         <div className={clsx(getGridTheme(isDarkTheme), classes.fill)}>

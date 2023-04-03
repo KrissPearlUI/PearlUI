@@ -1,11 +1,18 @@
-import { Autocomplete, AutocompleteRenderInputParams, Fab, Grid, IconButton, InputAdornment, TextField, Typography } from '@mui/material';
-import { useCallback, useState } from 'react';
+import { Autocomplete, AutocompleteRenderInputParams, Fab, FormControlLabel, Grid, IconButton, InputAdornment, Switch, TextField, Tooltip, Typography } from '@mui/material';
+import { useCallback, useEffect, useState } from 'react';
 import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
 import { GridApi } from 'ag-grid-community';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { CountryList, CurrencyList } from '../../../../models/shared/sharedModels';
-import { NewFund } from '../../../../models/funds/fundModels';
+import { CountryList, CurrencyList, NewCommitment } from '../../../../models/shared/sharedModels';
+import { LP } from '../../../../models/lps/lpModels';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../redux/slices/rootSlice';
+import { useAppDispatch } from '../../../../redux/store';
+import { fetchLPs } from '../../../../redux/thunks/lpThunk';
+import { FundSummary } from '../../../../models/funds/fundModels';
+import { setSelectedLP } from '../../../../redux/slices/lps/lpsSlice';
+import { setSelectedFund } from '../../../../redux/slices/funds/fundsSlice';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -54,6 +61,11 @@ const useStyles = makeStyles((theme: Theme) =>
             color: theme.palette.text.primary,
             fontFamily: 'Raleway',
             borderRadius: 5,
+        },
+        switchField: {
+            '& .MuiFormControlLabel-label': {
+                fontFamily: 'Raleway'
+            }
         },
         textFildsSmall: {
             marginRight: '1em',
@@ -108,180 +120,107 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
-const FundTypes = [
-    "Flex-term",
-    "General"
+const LPTypes = [
+    "Corporate",
+    "General Partner",
+    "Individual",
+    "Institutional",
 ];
 
-interface AddNewLPContentProps {
+interface AddNewCommitmentComponentProps {
     disabled: boolean,
     setDisabled: any,
-    newFund: NewFund | null,
-    setNewFund: (newState: any) => void,
+    newCommitment: NewCommitment | null,
+    setNewCommitment: (newState: any) => void
 }
 
-const AddNewFundContentComponent = ({ disabled, setDisabled, newFund, setNewFund }: AddNewLPContentProps) => {
+const AddNewCommitmentComponent = ({ setDisabled, disabled, newCommitment, setNewCommitment }: AddNewCommitmentComponentProps) => {
     const classes = useStyles();
+    const dispatch = useAppDispatch();
     const autocompleteInputClasses = autocompleteInputStyles();
-    const [country, setCountry] = useState<string | null>('');
-    const [type, setType] = useState<string | null>('');
-    const [fundName, setFundName] = useState<string>('');
-    const [shortName, setShortName] = useState<string>('');
-    const [address, setAddress] = useState<string>('');
-    const [city, setCity] = useState<string>('');
-    const [postalCode, setPostalCode] = useState<string | number>('');
-    const [currency, setCurrency] = useState<string | null>('');
+    const [committedAmount, setCommittedAmount] = useState<number>(0);
+    const [currency, setCurrency] = useState<string>('');
+    const [lpId, setLPId] = useState<string>('');
+    const [transfered, setTransfered] = useState<boolean>(false);
+    const { lps, selectedLP } = useSelector((state: RootState) => state.lps);
+    const [fundId, setFundId] = useState<string>('');
+    const { funds, selectedFund } = useSelector((state: RootState) => state.funds);
 
     const onValueChange = (value: string, field: string) => {
         switch (field) {
-            case 'fundName':
-                setFundName(value);
-                setNewFund({
-                    ...newFund,
-                    fundName: value
+            case 'lpId':
+                setLPId(value);
+                dispatch(setSelectedLP(lps?.filter(x => x.id === value)[0] ?? null))
+                setNewCommitment({
+                    ...newCommitment,
+                    lpId: value
                 });
-                setDisabled(value === '' || shortName === '' || country === '' || type === '' || currency === '');
+                setDisabled(value === '' || currency === '' || fundId === '' || committedAmount === 0);
                 break;
-            case 'shortName':
-                setShortName(value);
-                setNewFund({
-                    ...newFund,
-                    shortName: value
+            case 'fundId':
+                setFundId(value);
+                dispatch(setSelectedFund(funds?.filter(x => x.id === value)[0] ?? null))
+                setNewCommitment({
+                    ...newCommitment,
+                    fundId: value
                 });
-                setDisabled(value === '' || fundName === '' || country === '' || type === '' || currency === '');
-                break;
-            case 'address':
-                setAddress(value);
-                setNewFund({
-                    ...newFund,
-                    address: value
-                });
-                setDisabled(fundName === '' || shortName === '' || country === '' || type === '' || currency === '');
-                break;
-            case 'city':
-                setCity(value);
-                setNewFund({
-                    ...newFund,
-                    city: value
-                });
-                setDisabled(fundName === '' || shortName === '' || country === '' || type === '' || currency === '');
-                break;
-            case 'postalCode':
-                setPostalCode(value);
-                setNewFund({
-                    ...newFund,
-                    postalCode: value
-                });
-                setDisabled(fundName === '' || shortName === '' || country === '' || type === '' || currency === '');
-                break;
-            case 'country':
-                setCountry(value);
-                setNewFund({
-                    ...newFund,
-                    country: value
-                });
-                setDisabled(value === '' || fundName === '' || shortName === '' || type === '' || currency === '');
-                break;
-            case 'type':
-                setType(value);
-                setNewFund({
-                    ...newFund,
-                    type: value
-                });
-                setDisabled(value === '' || fundName === '' || country === '' || shortName === '' || currency === '');
+                setDisabled(value === '' || currency === '' || lpId === '' || committedAmount === 0);
                 break;
             case 'currency':
                 setCurrency(value);
-                setNewFund({
-                    ...newFund,
+                setNewCommitment({
+                    ...newCommitment,
                     currency: value
                 });
-                setDisabled(value === '' || fundName === '' || country === '' || type === '' || shortName === '');
+                setDisabled(value === '' || lpId === '' || fundId === '' || committedAmount === 0);
+                break;
+            case 'committedAmount':
+                setCommittedAmount(+value);
+                setNewCommitment({
+                    ...newCommitment,
+                    committedAmount: +value
+                });
+                setDisabled(currency === '' || lpId === '' || fundId === '' || +value === 0);
                 break;
             default:
                 break;
         }
     };
 
+    const optionLabel = (option: string | LP) => {
+        if (typeof (option) === 'string') {
+            return option;
+        } else {
+            return option.name ? option.name : option;
+        }
+    };
+
+    const optionLabelFund = (option: string | FundSummary) => {
+        if (typeof (option) === 'string') {
+            return option;
+        } else {
+            return option.fundName ? option.fundName : option;
+        }
+    };
+
+    const handleSwitchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setTransfered(event.target.checked);
+        setNewCommitment({
+            ...newCommitment,
+            transfered: event.target.checked
+        });
+        setDisabled(lpId === '' || currency === '' || fundId === '' || committedAmount === 0);
+    };
+
+    useEffect(() => {
+        dispatch(fetchLPs());
+    }, [dispatch])
+
+
     return (
         <Grid container spacing={2}>
             <Grid item>
-                <Typography variant='body2'>Name*</Typography>
-                <TextField
-                    className={classes.searchBox}
-                    variant="outlined"
-                    size="small"
-                    aria-label="fundName"
-                    value={fundName}
-                    helperText={!disabled && fundName === '' ? 'Required' : ''}
-                    onChange={(e) => onValueChange(e.target.value, 'fundName')}
-                    inputProps={{
-                        style: { height: '1em' },
-                    }}
-                />
-            </Grid>
-            <Grid item>
-                <Typography variant='body2'>Short Name*</Typography>
-                <TextField
-                    className={classes.searchBox}
-                    variant="outlined"
-                    size="small"
-                    aria-label="name"
-                    value={shortName}
-                    helperText={!disabled && shortName === '' ? 'Required' : ''}
-                    onChange={(e) => onValueChange(e.target.value, 'shortName')}
-                    inputProps={{
-                        style: { height: '1em' },
-                    }}
-                />
-            </Grid>
-            <Grid item>
-                <Typography variant='body2'>Address</Typography>
-                <TextField
-                    className={classes.searchBox}
-                    variant="outlined"
-                    size="small"
-                    aria-label="address"
-                    value={address}
-                    onChange={(e) => onValueChange(e.target.value, 'address')}
-                    inputProps={{
-                        style: { height: '1em' },
-                    }}
-                />
-            </Grid>
-            <Grid container item sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Grid item xs={8}>
-                    <Typography variant='body2'>City</Typography>
-                    <TextField
-                        className={classes.textFildsSmall}
-                        sx={{ width: '250px' }}
-                        variant="outlined"
-                        size="small"
-                        aria-label="city"
-                        value={city}
-                        onChange={(e) => onValueChange(e.target.value, 'city')}
-                        inputProps={{
-                            style: { height: '1em' },
-                        }}
-                    />
-                </Grid>
-                <Grid item xs={4}>
-                    <Typography variant='body2'>Postal Code</Typography>
-                    <TextField
-                        className={classes.textFildsSmall}
-                        variant="outlined"
-                        size="small"
-                        aria-label="city"
-                        value={postalCode}
-                        onChange={(e) => onValueChange(e.target.value, 'postalCode')}
-                        inputProps={{
-                            style: { height: '1em' },
-                        }}
-                    />
-                </Grid>
-            </Grid>
-            <Grid item>
-                <Typography variant='body2'>Country*</Typography>
+                <Typography variant='body2'>Limited Partner*</Typography>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -292,23 +231,28 @@ const AddNewFundContentComponent = ({ disabled, setDisabled, newFund, setNewFund
                     classes={classes}
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: any) => onValueChange(value, 'country')}
-                    value={country ?? ''}
-                    options={CountryList.slice()}
+                    onChange={(e, value: LP | null) => onValueChange(value ? value.id : '', 'lpId')}
+                    value={selectedLP ?? undefined}
+                    options={lps && lps.length > 0 ? lps.slice().sort(function (a, b) {
+                        if (a.id.toLowerCase() < b.id.toLowerCase()) return -1;
+                        if (a.id.toLowerCase() > b.id.toLowerCase()) return 1;
+                        return 0;
+                    }) : []}
+                    getOptionLabel={(option) => optionLabel(option).toString()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
                         params.InputProps.className = autocompleteInputClasses.textInput;
                         return <TextField {...params}
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
-                            helperText={!disabled && country === '' ? 'Required' : ''}
+                            helperText={!disabled && lpId === '' ? 'Required' : ''}
                             type={'text'}
                         />;
                     }}
                 />
             </Grid>
             <Grid item>
-                <Typography variant='body2'>Type*</Typography>
+                <Typography variant='body2'>Fund*</Typography>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -319,16 +263,21 @@ const AddNewFundContentComponent = ({ disabled, setDisabled, newFund, setNewFund
                     classes={classes}
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: any) => onValueChange(value, 'type')}
-                    value={type ?? ''}
-                    options={FundTypes.slice()}
+                    onChange={(e, value: FundSummary | null) => onValueChange(value ? value.id : '', 'fundId')}
+                    value={selectedFund ?? undefined}
+                    options={funds && funds.length > 0 ? funds.slice().sort(function (a, b) {
+                        if (a.id.toLowerCase() < b.id.toLowerCase()) return -1;
+                        if (a.id.toLowerCase() > b.id.toLowerCase()) return 1;
+                        return 0;
+                    }) : []}
+                    getOptionLabel={(option) => optionLabelFund(option).toString()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
                         params.InputProps.className = autocompleteInputClasses.textInput;
                         return <TextField {...params}
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
-                            helperText={!disabled && type === '' ? 'Required' : ''}
+                            helperText={!disabled && fundId === '' ? 'Required' : ''}
                             type={'text'}
                         />;
                     }}
@@ -343,6 +292,7 @@ const AddNewFundContentComponent = ({ disabled, setDisabled, newFund, setNewFund
                     autoHighlight={true}
                     autoSelect={true}
                     autoComplete={false}
+                    disableClearable
                     classes={classes}
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
@@ -361,8 +311,36 @@ const AddNewFundContentComponent = ({ disabled, setDisabled, newFund, setNewFund
                     }}
                 />
             </Grid>
+            <Grid item>
+                <Typography variant='body2'>Amount</Typography>
+                <TextField
+                    className={classes.searchBox}
+                    variant="outlined"
+                    size="small"
+                    aria-label="baseCapital"
+                    value={committedAmount}
+                    type={'number'}
+                    onChange={(e) => onValueChange(e.target.value, 'committedAmount')}
+                    inputProps={{
+                        style: { height: '1em' },
+                    }}
+                />
+            </Grid>
+            <Grid item>
+                <Typography variant='body2'>Transfer</Typography>
+                <Tooltip title={'Is transfer from one fund to another'}>
+                    <FormControlLabel
+                        control={
+                            <Switch color="primary" checked={transfered} onChange={handleSwitchChange} />}
+                        label={''}
+                        className={classes.switchField}
+                        labelPlacement="end"
+                    />
+                </Tooltip>
+            </Grid>
+
         </Grid>
     );
 };
 
-export default AddNewFundContentComponent;
+export default AddNewCommitmentComponent;

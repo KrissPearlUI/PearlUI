@@ -16,19 +16,25 @@ import SingleFundPortfolios from '../../../components/funds/single/portfolios/Si
 import SingleFundTransactions from '../../../components/funds/single/transactions/SingleFundTransactions';
 import SingleFundCallsAndDistributions from '../../../components/funds/single/callsAndDistributions/SingleFundCallsAndDistributions';
 import { fetchFunds } from '../../../redux/thunks/fundThunk';
+import { AddDialogComponent } from '../../../components/shared/addPopup/AddPopupDialog';
+import { setSelectedLP } from '../../../redux/slices/lps/lpsSlice';
+import { setSelectedPCO } from '../../../redux/slices/pcos/pcosSlice';
 
 const SingleFund = () => {
     const dispatch = useAppDispatch();
     const { funds, selectedFund } = useSelector((state: RootState) => state.funds);
     const [selectedView, setSelectedView] = useState<string>('basic');
+    const [selectedCallDistView, setSelecteCalDistdView] = useState<string>('Calls');
 
     const handleButtonClick = (buttonId: string) => {
         setSelectedView(buttonId);
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(fetchFunds());
-    },[dispatch])
+        dispatch(setSelectedLP(null));
+        dispatch(setSelectedPCO(null));
+    }, [dispatch])
 
     useEffect(() => {
         if (selectedFund) {
@@ -43,7 +49,7 @@ const SingleFund = () => {
             <Grid item xs={12} md={12} lg={12} sx={{ flex: 1 }}>
                 <Grid container spacing={2} sx={{ display: 'flex', flex: 1, width: '100%', height: '100%', alignItems: 'start' }}>
                     <Grid item xs={12} md={6} lg={6}>
-                        <AutocompleteFundComponent selectedFund={selectedFund}/>
+                        <AutocompleteFundComponent selectedFund={selectedFund} />
                     </Grid>
                     <Grid item xs={12} md={6} lg={6} sx={{ display: 'flex', flex: 1, justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' }, alignSelf: 'flex-end' }}>
                         <DatePickerFundComponent />
@@ -56,7 +62,13 @@ const SingleFund = () => {
                         <SelectionFundComponent selectedItem={selectedView} handleButtonClick={handleButtonClick} />
                     </Grid>
                     <Grid item xs={12} md={4} lg={4} sx={{ display: 'flex', flex: 1, justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' }, alignSelf: 'flex-end' }}>
-                        <FiltersAndActionsFundComponent selectedItem={selectedView} handleButtonClick={handleButtonClick} />
+                        <FiltersAndActionsFundComponent selectedItem={selectedView} handleButtonClick={handleButtonClick} addEditTooltip={selectedView === 'basic'
+                            ? 'fundBasic'
+                            : selectedView === 'commitments' ? 'commitments'
+                                : selectedView === 'portfolio' ? 'fundPortfolio'
+                                    : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'callsComponent'
+                                        : 'distributionComponent'
+                                        : 'transactions'} />
                     </Grid>
                 </Grid>
             </Grid>
@@ -67,11 +79,21 @@ const SingleFund = () => {
                         : selectedView === 'portfolio'
                             ? <SingleFundPortfolios />
                             : selectedView === 'callsDist'
-                                ? <SingleFundCallsAndDistributions />
+                                ? <SingleFundCallsAndDistributions selectedCallDistView={selectedCallDistView} setSelecteCalDistdView={setSelecteCalDistdView} />
                                 : selectedView === 'transactions'
                                     ? <SingleFundTransactions />
                                     : <SingleFundDocuments />}
             </Grid>
+            <AddDialogComponent pageName={selectedView === 'commitments' ? 'commitments'
+                : selectedView === 'portfolio' ? 'fundPortfolio'
+                    : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'callsComponent'
+                        : 'distributionComponent'
+                        : 'transactions'}
+                pageTitle={selectedView === 'commitments' ? 'Add New Commitment'
+                    : selectedView === 'portfolio' ? 'Add New Portfolio'
+                        : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'Add New Call'
+                            : 'Add New Distribution'
+                            : 'Add New Transaction'} />
         </Grid>
         /*  <Grid spacing={1} container sx={{display:'flex',flex:1, height:'100%', width:'100%', paddingLeft:'0.5em', flexDirection:'row', justifyContent:'flex-start', alignItems:'flex-start', overflow:'auto' }}>
              <Grid item sx={{display:'flex', justifyContent:'start', alignItems:'start', width:'100%', height:'8vh'}}>

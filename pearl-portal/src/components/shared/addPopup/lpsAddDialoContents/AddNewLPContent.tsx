@@ -125,15 +125,15 @@ interface AddNewLPContentProps {
 const AddNewLPContentComponent = ({ setDisabled, disabled, newLP, setNewLP }: AddNewLPContentProps) => {
     const classes = useStyles();
     const autocompleteInputClasses = autocompleteInputStyles();
-    const [selectedCountry, setSelectedCountry] = useState<string | null>('');
-    const [selectedType, setSelectedType] = useState<string | null>('');
+    const [country, setCountry] = useState<string | null>('');
+    const [type, setType] = useState<string | null>('');
     const [name, setName] = useState<string>('');
     const [shortName, setShortName] = useState<string>('');
     const [address, setAddress] = useState<string>('');
     const [city, setCity] = useState<string>('');
     const [postalCode, setPostalCode] = useState<string | number>('');
     const [baseCapital, setBaseCapital] = useState<number>(0);
-    const [website, setWebsite] = useState<string | null>('');
+    const [website, setWebsite] = useState<string>('');
 
     const onValueChange = (value: string, field: string) => {
         switch (field) {
@@ -141,73 +141,73 @@ const AddNewLPContentComponent = ({ setDisabled, disabled, newLP, setNewLP }: Ad
                 setName(value);
                 setNewLP({
                     ...newLP,
-                    ['name']: value
+                    name: value
                 });
-                setDisabled(value === '' || shortName === '' || selectedCountry === '' || selectedType === '' || city === '');
+                setDisabled(value === '' || shortName === '' || country === '' || type === '' || city === '');
                 break;
             case 'shortName':
                 setShortName(value);
                 setNewLP({
                     ...newLP,
-                    ['shortName']: value
+                    shortName: value
                 });
-                setDisabled(value === '' || name === '' || selectedCountry === '' || selectedType === '' || city === '');
+                setDisabled(value === '' || name === '' || country === '' || type === '' || city === '');
                 break;
             case 'address':
                 setAddress(value);
                 setNewLP({
                     ...newLP,
-                    ['address']: value
+                    address: value
                 });
-                setDisabled(name === '' || shortName === '' || selectedCountry === '' || selectedType === '' || city === '');
+                setDisabled(name === '' || shortName === '' || country === '' || type === '' || city === '');
                 break;
             case 'city':
                 setCity(value);
                 setNewLP({
                     ...newLP,
-                    ['city']: value
+                    city: value
                 });
-                setDisabled(name === '' || shortName === '' || selectedCountry === '' || selectedType === '' || value === '');
+                setDisabled(name === '' || shortName === '' || country === '' || type === '' || value === '');
                 break;
             case 'postalCode':
                 setPostalCode(value);
                 setNewLP({
                     ...newLP,
-                    ['postalCode']: value
+                    postalCode: value
                 });
-                setDisabled(name === '' || shortName === '' || selectedCountry === '' || selectedType === '' || city === '');
+                setDisabled(name === '' || shortName === '' || country === '' || type === '' || city === '');
                 break;
             case 'country':
-                setSelectedCountry(value);
+                setCountry(value);
                 setNewLP({
                     ...newLP,
-                    ['country']: value
+                    country: value
                 });
-                setDisabled(value === '' || name === '' || shortName === '' || selectedType === '' || city === '');
+                setDisabled(value === '' || name === '' || shortName === '' || type === '' || city === '');
                 break;
             case 'type':
-                setSelectedType(value);
+                setType(value);
                 setNewLP({
                     ...newLP,
-                    ['type']: value
+                    type: value
                 });
-                setDisabled(value === '' || name === '' || selectedCountry === '' || shortName === '' || city === '');
+                setDisabled(value === '' || name === '' || country === '' || shortName === '' || city === '');
                 break;
             case 'baseCapital':
                 setBaseCapital(+value);
                 setNewLP({
                     ...newLP,
-                    ['baseCapital']: +value
+                    baseCapital: +value
                 });
-                setDisabled(city === '' || name === '' || selectedCountry === '' || selectedType === '' || shortName === '');
+                setDisabled(city === '' || name === '' || country === '' || type === '' || shortName === '');
                 break;
             case 'website':
                 setWebsite(value);
                 setNewLP({
                     ...newLP,
-                    ['website']: value
+                   website: value
                 });
-                setDisabled(city === '' || name === '' || selectedCountry === '' || selectedType === '' || shortName === '');
+                setDisabled(city === '' || name === '' || country === '' || type === '' || shortName === '');
                 break;
             default:
                 break;
@@ -303,12 +303,11 @@ const AddNewLPContentComponent = ({ setDisabled, disabled, newLP, setNewLP }: Ad
                     autoHighlight={true}
                     autoSelect={true}
                     autoComplete={false}
-                    disableClearable
                     classes={classes}
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
                     onChange={(e, value: any) => onValueChange(value, 'country')}
-                    value={selectedCountry ?? ''}
+                    value={country ?? ''}
                     options={CountryList.slice()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
                         params.InputProps.className = autocompleteInputClasses.textInput;
@@ -316,7 +315,7 @@ const AddNewLPContentComponent = ({ setDisabled, disabled, newLP, setNewLP }: Ad
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
-                            helperText={!disabled && selectedCountry === '' ? 'Required' : ''}
+                            helperText={!disabled && country === '' ? 'Required' : ''}
                             type={'text'}
                         />;
                     }}
@@ -331,12 +330,11 @@ const AddNewLPContentComponent = ({ setDisabled, disabled, newLP, setNewLP }: Ad
                     autoHighlight={true}
                     autoSelect={true}
                     autoComplete={false}
-                    disableClearable
                     classes={classes}
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
                     onChange={(e, value: any) => onValueChange(value, 'type')}
-                    value={selectedType ?? ''}
+                    value={type ?? ''}
                     options={LPTypes.slice()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
                         params.InputProps.className = autocompleteInputClasses.textInput;
@@ -344,7 +342,7 @@ const AddNewLPContentComponent = ({ setDisabled, disabled, newLP, setNewLP }: Ad
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
-                            helperText={!disabled && selectedType === '' ? 'Required' : ''}
+                            helperText={!disabled && type === '' ? 'Required' : ''}
                             type={'text'}
                         />;
                     }}
