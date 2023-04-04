@@ -4,6 +4,8 @@ import { withStyles } from '@mui/styles';
 import { useTheme } from "@mui/material/styles";
 import { Check } from '@mui/icons-material';
 import GeneralInformationStepContentComponent from './GeneralInformationStepContent';
+import LPFinancialsStepContentComponent from './LPFinancialsStepContent';
+import KPIAndIRRStepContentComponent from './KPIAndIRRStepContent';
 
 const CustomStepConnector = withStyles({
     alternativeLabel: {
@@ -86,7 +88,10 @@ const LPBasicEditContentComponent = ({ steps, activeStep, setActiveStep }: EditL
                 </Stepper>
             </Grid>
             <Grid item xs={9}>
-            {activeStep === 0 && <GeneralInformationStepContentComponent />}
+                {activeStep === 0 ? <GeneralInformationStepContentComponent />
+                    : activeStep === 2
+                        ? <LPFinancialsStepContentComponent />
+                        : <KPIAndIRRStepContentComponent />}
             </Grid>
         </Grid>
     );
