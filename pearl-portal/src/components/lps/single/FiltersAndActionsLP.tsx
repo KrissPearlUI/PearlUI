@@ -2,13 +2,13 @@ import { Fab, Grid, IconButton, InputAdornment, TextField } from '@mui/material'
 import { useCallback, useState } from 'react';
 import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
-import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import CloseIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
 import { GridApi } from 'ag-grid-community';
 import { isValueEmpty } from '../../../helpers/app';
 import AddButton from '../../shared/AddButton';
 import ExportButton from '../../shared/ExportButton';
+import EditButton from '../../shared/EditButton';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -60,15 +60,7 @@ const FiltersAndActionsLPComponent = ({ selectedItem, handleButtonClick, addEdit
 
     return (
         <>
-            {selectedItem === 'basic' ? <Fab
-                color={'primary'}
-                size="small"
-                sx={{ boxShadow: 'none', alignSelf: 'end' }}
-                aria-label="editBtn"
-                onFocus={(e: any) => (e.target.blur())}
-                className={classes.fabIcon}>
-                <EditRoundedIcon />
-            </Fab>
+            {selectedItem === 'basic' ? <EditButton pageName={'Edit Basic Details'} />
                 : <Grid container>
                     <Grid item>
                         <TextField
@@ -102,15 +94,13 @@ const FiltersAndActionsLPComponent = ({ selectedItem, handleButtonClick, addEdit
                                         : 'Add New Transaction'} />
                     </Grid>
                     <Grid item sx={{ marginRight: '0.5em' }} >
-                        <Fab
-                            color={'primary'}
-                            size="small"
-                            sx={{ boxShadow: 'none', alignSelf: 'end' }}
-                            aria-label="editBtn"
-                            onFocus={(e: any) => (e.target.blur())}
-                            className={classes.fabIcon}>
-                            <EditRoundedIcon />
-                        </Fab>
+                        <EditButton pageName={addEditTooltip === 'lpBasic' ? 'Edit Basic Details' :
+                            addEditTooltip === 'commitments'
+                                ? 'Edit Commitment'
+                                : addEditTooltip === 'lpPortfolio' ? 'Edit Portfolio'
+                                    : addEditTooltip === 'callsComponent' ? 'Edit Call'
+                                        : addEditTooltip === 'distributionComponent' ? 'Edit Distribution'
+                                            : 'Edit Transaction'} />
                     </Grid>
                     <Grid item >
                         <ExportButton pageName='singleFund' />

@@ -20,6 +20,7 @@ import { fetchLPs } from '../../../redux/thunks/lpThunk';
 import { AddDialogComponent } from '../../../components/shared/addPopup/AddPopupDialog';
 import { setSelectedFund } from '../../../redux/slices/funds/fundsSlice';
 import { setSelectedPCO } from '../../../redux/slices/pcos/pcosSlice';
+import { EditDialogComponent } from '../../../components/shared/editPopup/EditPopupDialog';
 
 const SingleLP = () => {
     const dispatch = useAppDispatch();
@@ -97,6 +98,19 @@ const SingleLP = () => {
                         : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'Add New Call'
                             : 'Add New Distribution'
                             : 'Add New Transaction'} />
+
+            <EditDialogComponent pageName={selectedView === 'basic' ? 'lpBasic'
+            :selectedView === 'commitments' ? 'commitments'
+                : selectedView === 'portfolio' ? 'lpPortfolio'
+                    : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'callsComponent'
+                        : 'distributionComponent'
+                        : 'transactions'}
+                pageTitle={selectedView === 'basic' ? 'Edit Basic Details'
+                    :selectedView === 'commitments' ? 'Edit Commitment'
+                    : selectedView === 'portfolio' ? 'Edit Portfolio'
+                        : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'Edit Call'
+                            : 'Edit Distribution'
+                            : 'Edit Transaction'} />
         </Grid>
     );
 };
