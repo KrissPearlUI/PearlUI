@@ -56,6 +56,8 @@ const LPFundsTable = () => {
                     return params.data?.id;
                 },
                 tooltipField: 'id',
+                minWidth:90,
+                maxWidth:100,
                 valueSetter: (params) => valueSetter(params, 'id'),
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
@@ -79,6 +81,8 @@ const LPFundsTable = () => {
                 headerName: 'Currency',
                 field: 'fundCurrency',
                 enableRowGroup: true,
+                minWidth:90,
+                maxWidth:120,
                 valueGetter: (params) => {
                     return params.data?.fundCurrency ? params.data?.fundCurrency.toUpperCase() : '';
                 },

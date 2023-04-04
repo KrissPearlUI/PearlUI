@@ -42,6 +42,7 @@ const PCOLPsTable = () => {
         enableRangeSelection: true,
         animateRows: true,
         pagination: true,
+        paginationPageSize: 5,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
@@ -57,6 +58,8 @@ const PCOLPsTable = () => {
                     return params.data?.id;
                 },
                 tooltipField: 'id',
+                minWidth: 90,
+                maxWidth: 100,
                 valueSetter: (params) => valueSetter(params, 'id'),
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },

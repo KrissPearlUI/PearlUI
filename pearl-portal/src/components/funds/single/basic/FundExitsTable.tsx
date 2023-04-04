@@ -31,7 +31,7 @@ const useStyles = makeStyles(() =>
 const FundExitsTable = () => {
     const classes = useStyles();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
-    const { selectedLP } = useSelector((state: RootState) => state.lps);
+    const { selectedFund } = useSelector((state: RootState) => state.funds);
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<Exits[]>([]);
@@ -42,6 +42,7 @@ const FundExitsTable = () => {
         enableRangeSelection: true,
         animateRows: true,
         pagination: true,
+        paginationPageSize:5,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
@@ -53,7 +54,7 @@ const FundExitsTable = () => {
                 headerName: 'Date',
                 field: 'date',
                 minWidth: 100,
-                maxWidth: 150,
+                maxWidth: 140,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: dateValueFormatter,
@@ -77,6 +78,8 @@ const FundExitsTable = () => {
             {
                 headerName: 'Currency',
                 field: 'fundCurrency',
+                minWidth:90,
+                maxWidth:120,
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.fundCurrency ? params.data?.fundCurrency.toUpperCase() : '';
@@ -109,8 +112,8 @@ const FundExitsTable = () => {
     }, []);
 
     useEffect(() => {
-        setRowData(selectedLP?.exits ?? []);
-    }, [selectedLP])
+        setRowData(selectedFund?.exits ?? []);
+    }, [selectedFund])
 
     return (
         <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1 }}>

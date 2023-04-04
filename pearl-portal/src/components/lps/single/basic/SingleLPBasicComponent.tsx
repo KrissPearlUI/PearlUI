@@ -84,7 +84,7 @@ const SingleLPBasic = () => {
                     </Grid>
                 </Paper>
             </Grid>
-            <Grid item xs={12} sx={{ flex: 1 }}>
+            <Grid item xs={12} sx={{ flex: 1, overflow: 'auto' }}>
                 <Paper elevation={3} sx={{ backgroundColor: theme.palette.background.paper, padding: '1em' }}>
                     <Grid container spacing={1} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexDirection: 'row' }}>
                         <Grid container spacing={1} item xs={12} md={4} lg={4} sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -153,7 +153,7 @@ const SingleLPBasic = () => {
                                     {isCommitmentsExpand && selectedLP?.commitments && <AccordionDetails
                                         sx={{
                                             backgroundColor: theme.palette.background.paper,
-                                            width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
+                                            width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto', minWidth: { xs: '430px', md: '600px', lg: '600px' }, overflow: 'auto'
                                         }}>
                                         <LPCommitmentsTable />
                                     </AccordionDetails>}
@@ -224,7 +224,7 @@ const SingleLPBasic = () => {
                                     {isFundsExpand && selectedLP?.funds && <AccordionDetails
                                         sx={{
                                             backgroundColor: theme.palette.background.paper,
-                                            display: 'flex', height: '100%', pointerEvents: 'auto', flex: 1, marginLeft: '-1em', width: '380px'
+                                            display: 'flex', height: '100%', pointerEvents: 'auto', flex: 1, marginLeft: '-1em', width: '100%', minWidth: { xs: '430px', md: '600px', lg: '600px' }, overflow: 'auto'
                                         }}>
                                         <LPFundsTable />
                                     </AccordionDetails>}
@@ -289,7 +289,7 @@ const SingleLPBasic = () => {
                                     {isPCOsExpand && selectedLP?.pcos && <AccordionDetails
                                         sx={{
                                             backgroundColor: theme.palette.background.paper,
-                                            width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
+                                            width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto', marginLeft: { xs: 0, md: '-2em', lg: '-2em' }, minWidth: { xs: '430px', md: '450px', lg: '450px' }, overflow: 'auto'
                                         }}>
                                         <LPPCOsTable />
                                     </AccordionDetails>}
@@ -346,7 +346,7 @@ const SingleLPBasic = () => {
                                     {isExitsExpand && selectedLP?.exits && <AccordionDetails
                                         sx={{
                                             backgroundColor: theme.palette.background.paper,
-                                            width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
+                                            width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto', marginLeft: { xs: 0, md: '-3em', lg: '-3em' }, minWidth: { xs: '430px', md: '530px', lg: '530px' }, overflow: 'auto'
                                         }}>
                                         <LPExitsTable />
                                     </AccordionDetails>}

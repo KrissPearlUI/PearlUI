@@ -41,6 +41,7 @@ const FundLPsTable = () => {
         enableCellChangeFlash: true,
         enableRangeSelection: true,
         animateRows: true,
+        paginationPageSize: 5,
         pagination: true,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
@@ -79,6 +80,8 @@ const FundLPsTable = () => {
             {
                 headerName: 'Currency',
                 field: 'fundCurrency',
+                minWidth: 90,
+                maxWidth: 120,
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.fundCurrency ? params.data?.fundCurrency.toUpperCase() : '';

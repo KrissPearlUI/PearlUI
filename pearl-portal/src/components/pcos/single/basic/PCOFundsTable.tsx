@@ -42,6 +42,7 @@ const PCOFundsTable = () => {
         enableRangeSelection: true,
         animateRows: true,
         pagination: true,
+        paginationPageSize: 5,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
@@ -52,6 +53,8 @@ const PCOFundsTable = () => {
             {
                 headerName: 'Id',
                 field: 'id',
+                minWidth:90,
+                maxWidth:100,
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.id;
@@ -79,6 +82,8 @@ const PCOFundsTable = () => {
             {
                 headerName: 'Currency',
                 field: 'fundCurrency',
+                minWidth:90,
+                maxWidth:120,
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.fundCurrency ? params.data?.fundCurrency.toUpperCase() : '';

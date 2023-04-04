@@ -52,7 +52,7 @@ const LPCommitmentsTable = () => {
                 headerName: 'Date',
                 field: 'date',
                 minWidth: 100,
-                maxWidth: 150,
+                maxWidth: 140,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: dateValueFormatter,
@@ -76,6 +76,8 @@ const LPCommitmentsTable = () => {
             {
                 headerName: 'Currency',
                 field: 'fundCurrency',
+                minWidth:90,
+                maxWidth:120,
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.fundCurrency ? params.data?.fundCurrency.toUpperCase() : '';
@@ -112,7 +114,7 @@ const LPCommitmentsTable = () => {
     }, [selectedLP])
 
     return (
-        <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1 }}>
+        <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1, overflowX:'auto' }}>
             <AgGridReact gridOptions={gridOptions}
                 columnDefs={getColumnDefs}
                 rowData={rowData}

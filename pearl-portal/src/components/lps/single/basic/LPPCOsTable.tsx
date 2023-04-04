@@ -41,6 +41,7 @@ const LPPCOsTable = () => {
         enableRangeSelection: true,
         animateRows: true,
         pagination: true,
+        paginationPageSize:5,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,

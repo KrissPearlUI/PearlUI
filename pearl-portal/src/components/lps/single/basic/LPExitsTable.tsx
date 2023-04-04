@@ -41,6 +41,7 @@ const LPExitsTable = () => {
         enableRangeSelection: true,
         animateRows: true,
         pagination: true,
+        paginationPageSize:5,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
@@ -52,7 +53,7 @@ const LPExitsTable = () => {
                 headerName: 'Date',
                 field: 'date',
                 minWidth: 100,
-                maxWidth: 150,
+                maxWidth: 140,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: dateValueFormatter,
@@ -77,6 +78,8 @@ const LPExitsTable = () => {
                 headerName: 'Currency',
                 field: 'fundCurrency',
                 enableRowGroup: true,
+                minWidth:90,
+                maxWidth:120,
                 valueGetter: (params) => {
                     return params.data?.fundCurrency ? params.data?.fundCurrency.toUpperCase() : '';
                 },

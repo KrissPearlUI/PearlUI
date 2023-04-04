@@ -142,7 +142,7 @@ const FundsToolbar = ({ searchText,
                             variant="outlined"
                             autoComplete="off"
                             type={'text'}
-                            label='Select a LP' />;
+                            label='Select an LP' />;
                     }}
                 />
                 <Autocomplete

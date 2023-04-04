@@ -7,7 +7,7 @@
     "totalCommitmentsFundCcy": 150480000,
     "totalCommitmentsEUR": 150480000,
     "numOfLPs": 30,
-	  "numOFPCOs": 17,
+    "numOFPCOs": 17,
     "vintage": "2005-10-21",
     "sumCommittedAmountFundCcy": 150480000,
     "sumCommittedAmountEUR": 150480000,
@@ -23,7 +23,7 @@
     "sumAmountRealizedEUR": 4255461.030695056,
     "sumNonRecycleFundCccy": 12685973.35199154,
     "sumNonRecycleEUR": 12685973.35199154,
-    "lps":[
+    "lps": [
       {
         "id": "Aran01",
         "shortName": "Arancia",
@@ -235,7 +235,7 @@
         "fundCurrency": "EUR"
       }
     ],
-    "pcos":[
+    "pcos": [
       {
         "id": "Arxx01",
         "shortName": "Arxx Corporation",
@@ -348,7 +348,7 @@
     "totalCommitmentsFundCcy": 72000000,
     "totalCommitmentsEUR": 72000000,
     "numOfLPs": 16,
-	  "numOFPCOs":16,
+    "numOFPCOs": 16,
     "vintage": "2012-09-03",
     "sumCommittedAmountFundCcy": 72000000,
     "sumCommittedAmountEUR": 72000000,
@@ -364,12 +364,15 @@
     "sumAmountRealizedEUR": 3561270.135754919,
     "sumNonRecycleFundCccy": 39519880.32154606,
     "sumNonRecycleEUR": 39519880.32154606,
-    "terminated":[
+    "terminated": [
       {
-        "id":"332", "lpId":"Sibe01", "fundId":"ECFIII", "dateTermination":"2021-09-30"
+        "id": "332",
+        "lpId": "Sibe01",
+        "fundId": "ECFIII",
+        "dateTermination": "2021-09-30"
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -483,7 +486,7 @@
         "fundCurrency": "EUR"
       }
     ],
-    "pcos":[
+    "pcos": [
       {
         "id": "Alph01",
         "shortName": "Alphaics",
@@ -584,7 +587,7 @@
     "totalCommitmentsFundCcy": 48600000,
     "totalCommitmentsEUR": 48600000,
     "numOfLPs": 9,
-	  "numOFPCOs": 15,
+    "numOFPCOs": 15,
     "vintage": "2001-07-13",
     "sumCommittedAmountFundCcy": 48600000,
     "sumCommittedAmountEUR": 48600000,
@@ -600,7 +603,7 @@
     "sumAmountRealizedEUR": 11290077.17389511,
     "sumNonRecycleFundCccy": 36377516.93337902,
     "sumNonRecycleEUR": 36377516.93337902,
-    "lps":[
+    "lps": [
       {
         "id": "CDP01",
         "shortName": "CDP Capital",
@@ -656,7 +659,7 @@
         "committedAmount": 5000000
       }
     ],
-    "pcos":[
+    "pcos": [
       {
         "id": "Acum01",
         "shortName": "Acumentrics (ex. CTP)",
@@ -742,7 +745,7 @@
     "totalCommitmentsFundCcy": 15500000,
     "totalCommitmentsEUR": 15500000,
     "numOfLPs": 3,
-	  "numOFPCOs": 2,
+    "numOFPCOs": 2,
     "vintage": "2021-03-09",
     "sumBaseAmountFundCccy": 15500000,
     "sumBaseAmountEUR": 15500000,
@@ -757,7 +760,7 @@
     "sumAmountInvestedLocalCCy": 637670.21,
     "sumAmountInvestedFundCCy": 637670.21,
     "sumAmountInvestedEUR": 620327.9241469759,
-    "lps":[
+    "lps": [
       {
         "id": "Emer01",
         "shortName": "Emerald",
@@ -777,7 +780,7 @@
         "committedAmount": 10000000
       }
     ],
-    "pcos":[
+    "pcos": [
       {
         "id": "Ensp01",
         "shortName": "Enspired",
@@ -798,7 +801,7 @@
     "totalCommitmentsFundCcy": 101000000,
     "totalCommitmentsEUR": 89183222.9580574,
     "numOfLPs": 5,
-	  "numOFPCOs": 5,
+    "numOFPCOs": 5,
     "vintage": "2020-07-08",
     "sumCommittedAmountFundCcy": 101000000,
     "sumCommittedAmountEUR": 103610997.1276159,
@@ -812,7 +815,7 @@
     "sumAmountRealizedLocalCCy": 186440.75,
     "sumAmountRealizedFundCCy": 208080.93,
     "sumAmountRealizedEUR": 148405.1468922249,
-    "lps":[
+    "lps": [
       {
         "id": "Ecol02",
         "shortName": "Ecolab (II)",
@@ -844,7 +847,7 @@
         "committedAmount": 70000000
       }
     ],
-    "pcos":[
+    "pcos": [
       {
         "id": "Agan01",
         "shortName": "Aganova"
@@ -879,7 +882,7 @@
     "totalCommitmentsFundCcy": 214500000,
     "totalCommitmentsEUR": 214500000,
     "numOfLPs": 38,
-	  "numOFPCOs": 22,
+    "numOFPCOs": 22,
     "vintage": "2016-05-17",
     "sumBaseAmountFundCccy": 197016706,
     "sumBaseAmountEUR": 197016706,
@@ -905,15 +908,21 @@
     "sumReleasedDistributionsEUR": 549879.993917565,
     "sumEscrowFundCccy": 1099760.02784803,
     "sumEscrowEUR": 1099760.02784803,
-    "terminated":[
+    "terminated": [
       {
-        "id":"16", "lpId":"SHV01", "fundId":"EIIF", "dateTermination":"2023-03-31"
+        "id": "16",
+        "lpId": "SHV01",
+        "fundId": "EIIF",
+        "dateTermination": "2023-03-31"
       },
       {
-        "id":"20", "lpId":"Sibe01", "fundId":"EIIF", "dateTermination":"2021-09-30"
+        "id": "20",
+        "lpId": "Sibe01",
+        "fundId": "EIIF",
+        "dateTermination": "2021-09-30"
       }
     ],
-    "lps":[
+    "lps": [
       {
         "id": "ABB01",
         "shortName": "ABB",
@@ -1143,7 +1152,7 @@
         "committedAmount": 5000000
       }
     ],
-    "pcos":[
+    "pcos": [
       {
         "id": "Actn01",
         "shortName": "Actnano",
@@ -1254,6 +1263,881 @@
         "shortName": "xFarm",
         "amountInvested": 1731430.6
       }
+    ],
+    "exits": [
+      {
+        "date": "2022-06-10",
+        "pcoId": "Vise01",
+        "amountGained": 13228.75,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2022-06-10",
+        "pcoId": "Vise01",
+        "amountGained": 2645.75,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2022-06-10",
+        "pcoId": "Vise01",
+        "amountGained": 13228.75,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2022-06-10",
+        "pcoId": "Vise01",
+        "amountGained": 13228.75,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2022-06-10",
+        "pcoId": "Vise01",
+        "amountGained": 13228.75,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2022-06-10",
+        "pcoId": "Vise01",
+        "amountGained": 13228.75,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2022-06-10",
+        "pcoId": "Vise01",
+        "amountGained": 13228.75,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2022-06-10",
+        "pcoId": "Vise01",
+        "amountGained": 13228.75,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2022-06-10",
+        "pcoId": "Vise01",
+        "amountGained": 13228.75,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2022-06-10",
+        "pcoId": "Vise01",
+        "amountGained": 15874.5,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2021-07-21",
+        "pcoId": "Vise01",
+        "amountGained": 2494.63,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2021-07-21",
+        "pcoId": "Vise01",
+        "amountGained": 498.93,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2021-07-21",
+        "pcoId": "Vise01",
+        "amountGained": 2494.63,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2021-07-21",
+        "pcoId": "Vise01",
+        "amountGained": 2494.63,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2021-07-21",
+        "pcoId": "Vise01",
+        "amountGained": 2494.63,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2021-07-21",
+        "pcoId": "Vise01",
+        "amountGained": 2494.63,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2021-07-21",
+        "pcoId": "Vise01",
+        "amountGained": 2494.63,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2021-07-21",
+        "pcoId": "Vise01",
+        "amountGained": 2494.63,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2021-07-21",
+        "pcoId": "Vise01",
+        "amountGained": 2494.63,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2021-07-21",
+        "pcoId": "Vise01",
+        "amountGained": 2993.55,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-12-18",
+        "pcoId": "VOpt01",
+        "amountGained": 125859.1857,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-12-18",
+        "pcoId": "VOpt01",
+        "amountGained": 25171.83715,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-12-18",
+        "pcoId": "VOpt01",
+        "amountGained": 125859.1857,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-12-18",
+        "pcoId": "VOpt01",
+        "amountGained": 125859.1857,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-12-18",
+        "pcoId": "VOpt01",
+        "amountGained": 125859.1857,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-12-18",
+        "pcoId": "VOpt01",
+        "amountGained": 125859.1857,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-12-18",
+        "pcoId": "VOpt01",
+        "amountGained": 125859.1857,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-12-18",
+        "pcoId": "VOpt01",
+        "amountGained": 125859.1857,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-12-18",
+        "pcoId": "VOpt01",
+        "amountGained": 125859.1857,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-12-18",
+        "pcoId": "VOpt01",
+        "amountGained": 151031.0229,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-07-07",
+        "pcoId": "Secu01",
+        "amountGained": 62685.7,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-07-07",
+        "pcoId": "Secu01",
+        "amountGained": 12537.13,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-07-07",
+        "pcoId": "Secu01",
+        "amountGained": 62685.7,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-07-07",
+        "pcoId": "Secu01",
+        "amountGained": 62685.7,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-07-07",
+        "pcoId": "Secu01",
+        "amountGained": 62685.7,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-07-07",
+        "pcoId": "Secu01",
+        "amountGained": 62685.7,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-07-07",
+        "pcoId": "Secu01",
+        "amountGained": 62685.7,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-07-07",
+        "pcoId": "Secu01",
+        "amountGained": 62685.7,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-07-07",
+        "pcoId": "Secu01",
+        "amountGained": 62685.7,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2020-07-07",
+        "pcoId": "Secu01",
+        "amountGained": 75222.83,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-12-03",
+        "pcoId": "VOpt01",
+        "amountGained": 30554.85884,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-12-03",
+        "pcoId": "VOpt01",
+        "amountGained": 6110.971768,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-12-03",
+        "pcoId": "VOpt01",
+        "amountGained": 30554.85884,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-12-03",
+        "pcoId": "VOpt01",
+        "amountGained": 30554.85884,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-12-03",
+        "pcoId": "VOpt01",
+        "amountGained": 30554.85884,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-12-03",
+        "pcoId": "VOpt01",
+        "amountGained": 30554.85884,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-12-03",
+        "pcoId": "VOpt01",
+        "amountGained": 30554.85884,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-12-03",
+        "pcoId": "VOpt01",
+        "amountGained": 30554.85884,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-12-03",
+        "pcoId": "VOpt01",
+        "amountGained": 30554.85884,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-12-03",
+        "pcoId": "VOpt01",
+        "amountGained": 36665.83061,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics, Powerhouse Dynamics, Ushr",
+        "shortName": "Optimatics, PhD, Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-12-03",
+        "pcoId": "Secu01",
+        "amountGained": 307946.86,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-12-03",
+        "pcoId": "Powe02",
+        "amountGained": 82135.53,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Powerhouse Dynamics Inc.",
+        "shortName": "Powerhouse Dynamics",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-12-03",
+        "pcoId": "Ushr01",
+        "amountGained": 1029499.38,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Ushr Inc.",
+        "shortName": "Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-12-03",
+        "pcoId": "GeoD01",
+        "amountGained": 112884.29,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "GeoDigital International Inc",
+        "shortName": "GeoDigital",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-26",
+        "pcoId": "Vise01",
+        "amountGained": 541259.38,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Powe02",
+        "amountGained": 16427.11,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Powerhouse Dynamics Inc.",
+        "shortName": "Powerhouse Dynamics",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Powe02",
+        "amountGained": 82135.53,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Powerhouse Dynamics Inc.",
+        "shortName": "Powerhouse Dynamics",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Powe02",
+        "amountGained": 82135.53,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Powerhouse Dynamics Inc.",
+        "shortName": "Powerhouse Dynamics",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Powe02",
+        "amountGained": 82135.53,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Powerhouse Dynamics Inc.",
+        "shortName": "Powerhouse Dynamics",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Powe02",
+        "amountGained": 82135.53,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Powerhouse Dynamics Inc.",
+        "shortName": "Powerhouse Dynamics",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Powe02",
+        "amountGained": 82135.53,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Powerhouse Dynamics Inc.",
+        "shortName": "Powerhouse Dynamics",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Powe02",
+        "amountGained": 82135.53,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Powerhouse Dynamics Inc.",
+        "shortName": "Powerhouse Dynamics",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Powe02",
+        "amountGained": 82135.53,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Powerhouse Dynamics Inc.",
+        "shortName": "Powerhouse Dynamics",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Powe02",
+        "amountGained": 98562.64,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Powerhouse Dynamics Inc.",
+        "shortName": "Powerhouse Dynamics",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Ushr01",
+        "amountGained": 205899.88,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Ushr Inc.",
+        "shortName": "Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Ushr01",
+        "amountGained": 1029499.38,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Ushr Inc.",
+        "shortName": "Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Ushr01",
+        "amountGained": 1029499.38,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Ushr Inc.",
+        "shortName": "Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Ushr01",
+        "amountGained": 1029499.38,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Ushr Inc.",
+        "shortName": "Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Ushr01",
+        "amountGained": 1029499.38,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Ushr Inc.",
+        "shortName": "Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Ushr01",
+        "amountGained": 1029499.38,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Ushr Inc.",
+        "shortName": "Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Ushr01",
+        "amountGained": 1029499.38,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Ushr Inc.",
+        "shortName": "Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Ushr01",
+        "amountGained": 1029499.38,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Ushr Inc.",
+        "shortName": "Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "Ushr01",
+        "amountGained": 1235399.26,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Ushr Inc.",
+        "shortName": "Ushr",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "GeoD01",
+        "amountGained": 22576.86,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "GeoDigital International Inc",
+        "shortName": "GeoDigital",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "GeoD01",
+        "amountGained": 112884.29,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "GeoDigital International Inc",
+        "shortName": "GeoDigital",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "GeoD01",
+        "amountGained": 112884.29,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "GeoDigital International Inc",
+        "shortName": "GeoDigital",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "GeoD01",
+        "amountGained": 112884.29,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "GeoDigital International Inc",
+        "shortName": "GeoDigital",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "GeoD01",
+        "amountGained": 112884.29,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "GeoDigital International Inc",
+        "shortName": "GeoDigital",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "GeoD01",
+        "amountGained": 112884.29,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "GeoDigital International Inc",
+        "shortName": "GeoDigital",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "GeoD01",
+        "amountGained": 112884.29,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "GeoDigital International Inc",
+        "shortName": "GeoDigital",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "GeoD01",
+        "amountGained": 112884.29,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "GeoDigital International Inc",
+        "shortName": "GeoDigital",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-06-07",
+        "pcoId": "GeoD01",
+        "amountGained": 135461.15,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "GeoDigital International Inc",
+        "shortName": "GeoDigital",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-05-14",
+        "pcoId": "Secu01",
+        "amountGained": 61589.37,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-05-14",
+        "pcoId": "Secu01",
+        "amountGained": 307946.86,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-05-14",
+        "pcoId": "Secu01",
+        "amountGained": 307946.86,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-05-14",
+        "pcoId": "Secu01",
+        "amountGained": 307946.86,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-05-14",
+        "pcoId": "Secu01",
+        "amountGained": 307946.86,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-05-14",
+        "pcoId": "Secu01",
+        "amountGained": 307946.86,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-05-14",
+        "pcoId": "Secu01",
+        "amountGained": 307946.86,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-05-14",
+        "pcoId": "Secu01",
+        "amountGained": 307946.86,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2019-05-14",
+        "pcoId": "Secu01",
+        "amountGained": 369536.24,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "SecurityMatters B.V.",
+        "shortName": "SecurityMatters",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2018-11-02",
+        "pcoId": "Opti01",
+        "amountGained": 87177.51,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics Holdings Pty Ltd",
+        "shortName": "Optimatics",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2018-11-02",
+        "pcoId": "Opti01",
+        "amountGained": 435887.57,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics Holdings Pty Ltd",
+        "shortName": "Optimatics",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2018-11-02",
+        "pcoId": "Opti01",
+        "amountGained": 435887.57,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Optimatics Holdings Pty Ltd",
+        "shortName": "Optimatics",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2018-04-23",
+        "pcoId": "Vise01",
+        "amountGained": 541259.38,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2017-12-12",
+        "pcoId": "Vise01",
+        "amountGained": 108251.88,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      },
+      {
+        "date": "2017-12-12",
+        "pcoId": "Vise01",
+        "amountGained": 541259.38,
+        "type": "Non-Recallable Distributions",
+        "pcoName": "Visedo OY",
+        "shortName": "Visedo",
+        "fundCurrency": "EUR"
+      }
     ]
   },
   {
@@ -1264,7 +2148,7 @@
     "totalCommitmentsFundCcy": 30500000,
     "totalCommitmentsEUR": 30500000,
     "numOfLPs": 6,
-	  "numOFPCOs": 1,
+    "numOFPCOs": 1,
     "vintage": "2022-07-29",
     "sumBaseAmountFundCccy": 10500000,
     "sumBaseAmountEUR": 10500000,
@@ -1279,7 +2163,7 @@
     "sumAmountInvestedLocalCCy": 92631.07,
     "sumAmountInvestedFundCCy": 92631.07,
     "sumAmountInvestedEUR": 92631.07,
-    "lps":[
+    "lps": [
       {
         "id": "Alia01",
         "shortName": "Aliaxis",
@@ -1317,7 +2201,7 @@
         "committedAmount": 5000000
       }
     ],
-    "pcos":[
+    "pcos": [
       {
         "id": "Eolo01",
         "shortName": "Eologix",
@@ -1333,7 +2217,7 @@
     "totalCommitmentsFundCcy": 37800000,
     "totalCommitmentsEUR": 37800000,
     "numOfLPs": 18,
-	  "numOFPCOs": 20,
+    "numOFPCOs": 20,
     "vintage": "2000-11-15",
     "sumCommittedAmountFundCcy": 37800000,
     "sumCommittedAmountEUR": 37800000,
@@ -1351,7 +2235,7 @@
     "sumAmountRealizedEUR": 9501104.230437594,
     "sumNonRecycleFundCccy": 34483042.97271599,
     "sumNonRecycleEUR": 34483042.97271599,
-    "lps":[
+    "lps": [
       {
         "id": "Brau01",
         "shortName": "von Braun Ms",
@@ -1461,7 +2345,7 @@
         "committedAmount": 2000000
       }
     ],
-    "pcos":[
+    "pcos": [
       {
         "id": "Acum01",
         "shortName": "Acumentrics (ex. CTP)",
@@ -1572,7 +2456,7 @@
     "totalCommitmentsFundCcy": 33000000,
     "totalCommitmentsEUR": 33000000,
     "numOfLPs": 6,
-	  "numOFPCOs": 0,
+    "numOFPCOs": 0,
     "vintage": "2022-02-24",
     "sumBaseAmountFundCccy": 33000000,
     "sumBaseAmountEUR": 33000000,
@@ -1584,7 +2468,7 @@
     "sumSetUpFeeEUR": 325000,
     "sumOperationalExpensesFundCcy": 97500,
     "sumOperationalExpensesEUR": 97500,
-    "lps":[
+    "lps": [
       {
         "id": "Beie01",
         "shortName": "Beiersdorf",
@@ -1622,7 +2506,7 @@
         "committedAmount": 5000000
       }
     ],
-    "pcos":[]
+    "pcos": []
   },
   {
     "id": "NTV",
@@ -1632,7 +2516,7 @@
     "totalCommitmentsFundCcy": 75000000,
     "totalCommitmentsEUR": 75000000,
     "numOfLPs": 2,
-	  "numOFPCOs": 6,
+    "numOFPCOs": 6,
     "vintage": "2018-08-01",
     "sumBaseAmountFundCccy": 75000000,
     "sumBaseAmountEUR": 75000000,
@@ -1650,7 +2534,7 @@
     "sumAmountRealizedEUR": 8512893.015570002,
     "sumRecycleFundCccy": 8453501.739750002,
     "sumRecycleEUR": 8453501.739750002,
-    "lps":[
+    "lps": [
       {
         "id": "Nabt01",
         "shortName": "Nabtesco",
@@ -1664,7 +2548,7 @@
         "committedAmount": 75000
       }
     ],
-    "pcos":[
+    "pcos": [
       {
         "id": "Deep01",
         "shortName": "DeepSea",

@@ -177,7 +177,7 @@ const SinglePCOBasic = () => {
                                     {isCommitmentsExpand && selectedPCO?.lps && <AccordionDetails
                                         sx={{
                                             backgroundColor: theme.palette.background.paper,
-                                            width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
+                                            width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto',minWidth: { xs: '430px', md: '600px', lg: '600px' }, overflow: 'auto'
                                         }}>
                                         <PCOInvestmentsTableComponent />
                                     </AccordionDetails>}
@@ -248,7 +248,7 @@ const SinglePCOBasic = () => {
                                     {isFundsExpand && selectedPCO?.lps && <AccordionDetails
                                         sx={{
                                             backgroundColor: theme.palette.background.paper,
-                                            display: 'flex', height: '100%', pointerEvents: 'auto', flex: 1, marginLeft: '-1em', width: '380px'
+                                            display: 'flex', height: '100%', pointerEvents: 'auto', flex: 1, marginLeft: '-1em', width: '100%',minWidth: { xs: '430px', md: '600px', lg: '600px' }, overflow: 'auto'
                                         }}>
                                         <PCOLPsTable />
                                     </AccordionDetails>}
@@ -307,7 +307,7 @@ const SinglePCOBasic = () => {
                                     {isPCOsExpand && selectedPCO?.funds && <AccordionDetails
                                         sx={{
                                             backgroundColor: theme.palette.background.paper,
-                                            width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
+                                            width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto',minWidth: { xs: '430px', md: '600px', lg: '600px' }, overflow: 'auto'
                                         }}>
                                         <PCOFundsTable />
                                     </AccordionDetails>}

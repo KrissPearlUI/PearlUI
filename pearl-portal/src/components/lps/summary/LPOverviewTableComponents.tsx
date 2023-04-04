@@ -114,7 +114,7 @@ const LPOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             },
             {
-                headerName: 'Total Commitments',
+                headerName: 'Commited Capital',
                 field: 'totalCommitments',
                 enableRowGroup: true,
                 minWidth: 220,

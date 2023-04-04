@@ -8,7 +8,7 @@ import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 import { ColDef, ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { RootState } from '../../../../redux/slices/rootSlice';
-import { CommitmentBasic } from '../../../../models/lps/lpModels';
+import { CommitmentBasic, LP } from '../../../../models/lps/lpModels';
 import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
 
@@ -31,7 +31,8 @@ const useStyles = makeStyles(() =>
 const FundCommitmentsTable = () => {
     const classes = useStyles();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
-    const { selectedLP } = useSelector((state: RootState) => state.lps);
+    const { lps } = useSelector((state: RootState) => state.lps);
+    const { selectedFund } = useSelector((state: RootState) => state.funds);
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<CommitmentBasic[]>([]);
@@ -42,6 +43,7 @@ const FundCommitmentsTable = () => {
         enableRangeSelection: true,
         animateRows: true,
         pagination: true,
+        paginationPageSize:5,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
@@ -53,15 +55,15 @@ const FundCommitmentsTable = () => {
                 headerName: 'Date',
                 field: 'date',
                 minWidth: 100,
-                maxWidth: 150,
+                maxWidth: 140,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: dateValueFormatter,
             },
             {
                 headerName: 'Short Name',
-                field: 'shortName',
-                tooltipField: 'shortName',
+                field: 'lpShortName',
+                tooltipField: 'lpShortName',
                 suppressFiltersToolPanel: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
@@ -77,6 +79,8 @@ const FundCommitmentsTable = () => {
             {
                 headerName: 'Currency',
                 field: 'fundCurrency',
+                minWidth:90,
+                maxWidth:120,
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.fundCurrency ? params.data?.fundCurrency.toUpperCase() : '';
@@ -146,8 +150,15 @@ const FundCommitmentsTable = () => {
   */
 
     useEffect(() => {
-        setRowData(selectedLP?.commitments ?? []);
-    }, [selectedLP])
+        if (lps && selectedFund) {
+            const data = lps?.flatMap((lp: LP) =>
+                lp?.commitments?.filter((commitment: CommitmentBasic) => commitment.fundId === selectedFund?.id)
+                    .map((item) => ({ lpShortName: lp.shortName, ...item }))
+            );
+            const filteredCommitments: CommitmentBasic[] = data.filter((commitment) => commitment !== undefined) as CommitmentBasic[];
+            setRowData(filteredCommitments);
+        }
+    }, [lps, selectedFund])
 
     return (
         <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1 }}>

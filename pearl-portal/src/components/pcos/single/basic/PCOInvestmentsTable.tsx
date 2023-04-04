@@ -44,6 +44,7 @@ const PCOInvestmentsTableComponent = () => {
         enableRangeSelection: true,
         animateRows: true,
         pagination: true,
+        paginationPageSize: 5,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
@@ -55,7 +56,7 @@ const PCOInvestmentsTableComponent = () => {
                 headerName: 'Date',
                 field: 'date',
                 minWidth: 100,
-                maxWidth: 150,
+                maxWidth: 140,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: dateValueFormatter,
@@ -79,6 +80,8 @@ const PCOInvestmentsTableComponent = () => {
             {
                 headerName: 'Local Currency',
                 field: 'localCcy',
+                minWidth:90,
+                maxWidth:120,
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.localCcy ? params.data?.localCcy.toUpperCase() : '';
