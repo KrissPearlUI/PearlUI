@@ -145,10 +145,13 @@ const LPTypes = [
 ];
 
 interface InvestmentsStepContentProps {
-    selectedPCO: PCOSummary | null
+    selectedPCO: PCOSummary | null,
+    setSelectedPCO: React.Dispatch<React.SetStateAction<PCOSummary | null>>,
+    disabled: boolean,
+    setDisabled: any
 }
 
-const InvestmentsStepContentComponent = ({ selectedPCO }: InvestmentsStepContentProps) => {
+const InvestmentsStepContentComponent = ({ selectedPCO, setSelectedPCO, disabled, setDisabled }: InvestmentsStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
     const [investmentsExpanded, setInvestmentsExpanded] = useState<boolean>(false);

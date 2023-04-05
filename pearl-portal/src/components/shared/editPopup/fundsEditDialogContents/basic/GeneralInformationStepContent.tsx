@@ -140,10 +140,13 @@ const FundTypes = [
 ];
 
 interface GeneralInformationStepContentProps {
-    selectedFund: FundSummary | null
+    selectedFund: FundSummary | null,
+    setSelectedFund: React.Dispatch<React.SetStateAction<FundSummary | null>>,
+    disabled: boolean,
+    setDisabled: any
 }
 
-const GeneralInformationStepContentComponent = ({ selectedFund }: GeneralInformationStepContentProps) => {
+const GeneralInformationStepContentComponent = ({ selectedFund, setSelectedFund, disabled, setDisabled }: GeneralInformationStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
     const autocompleteInputClasses = autocompleteInputStyles();
@@ -157,6 +160,91 @@ const GeneralInformationStepContentComponent = ({ selectedFund }: GeneralInforma
     const [aifmContact, setAIFMContact] = useState<string>(selectedFund?.aifmContact ?? '');
     const [type, setType] = useState<string | null>(selectedFund?.type ?? '');
 
+    const onValueChange = (value: string, field: string) => {
+        if (selectedFund) {
+            switch (field) {
+                case 'domicile':
+                    setDomicile(value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        country: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'address':
+                    setAddress(value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        address: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'investmentComitee':
+                    setInvestmentComitee(value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        investmentComitee: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'currency':
+                    setCurrency(value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        currency: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'type':
+                    setType(value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        type: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'aifm':
+                    setAIFM(value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        aifm: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'aifmContact':
+                    setAIFMContact(value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        aifmContact: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    const onDateChange = (value: any, field: string) => {
+        if (field === 'vintage') {
+            setFirstClosingDate(value);
+            if (selectedFund) {
+                setSelectedFund({
+                    ...selectedFund,
+                    ['vintage']: value
+                });
+            }
+        } else {
+            setFinalClosingDate(value);
+            if (selectedFund) {
+                setSelectedFund({
+                    ...selectedFund,
+                    finalClosingDate: value
+                });
+            }
+        }
+    }
+
     return (
         <Grid container spacing={2} sx={{ flex: 1, width: '100%', marginTop: '0.2em' }}>
             <Grid item>
@@ -168,6 +256,7 @@ const GeneralInformationStepContentComponent = ({ selectedFund }: GeneralInforma
                         label='Domicile'
                         aria-label="name"
                         value={domicile}
+                        onChange={(e) => onValueChange(e.target.value, 'domicile')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -188,6 +277,7 @@ const GeneralInformationStepContentComponent = ({ selectedFund }: GeneralInforma
                         label='Address'
                         aria-label="name"
                         value={address}
+                        onChange={(e) => onValueChange(e.target.value, 'address')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -208,6 +298,7 @@ const GeneralInformationStepContentComponent = ({ selectedFund }: GeneralInforma
                         label='Investment Comittee'
                         aria-label="name"
                         value={investmentComitee}
+                        onChange={(e) => onValueChange(e.target.value, 'investmentComitee')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -228,7 +319,7 @@ const GeneralInformationStepContentComponent = ({ selectedFund }: GeneralInforma
                         disableFuture
                         value={firstClosingDate ? moment(new Date(firstClosingDate)).format('DD MMM YYYY') : null}
                         disableHighlightToday
-                        onChange={() => { return; }}
+                        onChange={(e) => onDateChange(e ?? '', 'vintage')}
                         renderInput={(props: any) =>
                             <TextField {...props}
                                 label={'First Closing Date'}
@@ -252,7 +343,7 @@ const GeneralInformationStepContentComponent = ({ selectedFund }: GeneralInforma
                         disableFuture
                         value={finalClosingDate ? moment(new Date(finalClosingDate)).format('DD MMM YYYY') : null}
                         disableHighlightToday
-                        onChange={() => { return; }}
+                        onChange={(e) => onDateChange(e ?? '', 'finalClosingDate')}
                         renderInput={(props: any) =>
                             <TextField {...props}
                                 label={'Final Closing Date'}
@@ -277,6 +368,7 @@ const GeneralInformationStepContentComponent = ({ selectedFund }: GeneralInforma
                         aria-label="website"
                         label='Currency'
                         value={currency}
+                        onChange={(e) => onValueChange(e.target.value, 'currency')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -299,6 +391,7 @@ const GeneralInformationStepContentComponent = ({ selectedFund }: GeneralInforma
                         autoSelect={true}
                         autoComplete={false}
                         classes={classes}
+                        onChange={(e, value: any) => onValueChange(value, 'type')}
                         sx={{ marginRight: '1em', width: '440px' }}
                         isOptionEqualToValue={(option, value) => option === value}
                         value={type ?? ''}
@@ -330,6 +423,7 @@ const GeneralInformationStepContentComponent = ({ selectedFund }: GeneralInforma
                         aria-label="baseCapital"
                         label='AIFM'
                         value={aifm}
+                        onChange={(e) => onValueChange(e.target.value, 'aifm')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -350,6 +444,7 @@ const GeneralInformationStepContentComponent = ({ selectedFund }: GeneralInforma
                         aria-label="website"
                         label='AIFM Contact'
                         value={aifmContact}
+                        onChange={(e) => onValueChange(e.target.value, 'aifmContact')}
                         inputProps={{
                             style: { height: '1em' },
                         }}

@@ -139,10 +139,13 @@ const LPTypes = [
 ];
 
 interface KPIAndIRRStepContentProps {
-    selectedLP: LP | null
+    selectedLP: LP | null,
+    setSelectedLP: React.Dispatch<React.SetStateAction<LP | null>>,
+    disabled: boolean,
+    setDisabled: any
 }
 
-const KPIAndIRRStepContentComponent = ({ selectedLP }: KPIAndIRRStepContentProps) => {
+const KPIAndIRRStepContentComponent = ({ selectedLP, setSelectedLP, disabled, setDisabled }: KPIAndIRRStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
     const autocompleteInputClasses = autocompleteInputStyles();
@@ -152,6 +155,81 @@ const KPIAndIRRStepContentComponent = ({ selectedLP }: KPIAndIRRStepContentProps
     const [grossTVPI, setGrossTVPI] = useState<number | null>(selectedLP?.kpis?.grossTVPI ? selectedLP?.kpis?.grossTVPI : null);
     const [netIRR, setNetIRR] = useState<number | null>(selectedLP?.kpis?.netIRR ? selectedLP?.kpis?.netIRR : null);
     const [grossIRR, setGrossIRR] = useState<number | null>(selectedLP?.kpis?.grossIRR ? selectedLP?.kpis?.grossIRR : null);
+
+    const onValueChange = (value: string, field: string) => {
+        if (selectedLP) {
+            switch (field) {
+                case 'netDPI':
+                    setNetDPI(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        kpis: {
+                            ...selectedLP.kpis,
+                            netDPI: +value
+                        }
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'grossDPI':
+                    setGrossDPI(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        kpis: {
+                            ...selectedLP.kpis,
+                            grossDPI: +value
+                        }
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'netTVPI':
+                    setNetTVPI(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        kpis: {
+                            ...selectedLP.kpis,
+                            netTVPI: +value
+                        }
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'grossTVPI':
+                    setGrossTVPI(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        kpis: {
+                            ...selectedLP.kpis,
+                            grossTVPI: +value
+                        }
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'netIRR':
+                    setNetIRR(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        kpis: {
+                            ...selectedLP.kpis,
+                            netIRR: +value
+                        }
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'grossIRR':
+                    setGrossIRR(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        kpis: {
+                            ...selectedLP.kpis,
+                            grossIRR: +value
+                        }
+                    });
+                    setDisabled(value === '');
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 
     return (
         <Grid container spacing={2} sx={{ flex: 1, width: '100%', marginTop: '0.2em' }}>
@@ -164,6 +242,7 @@ const KPIAndIRRStepContentComponent = ({ selectedLP }: KPIAndIRRStepContentProps
                         label='Net DPI'
                         aria-label="name"
                         value={netDPI}
+                        onChange={(e) => onValueChange(e.target.value, 'netDPI')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -184,6 +263,7 @@ const KPIAndIRRStepContentComponent = ({ selectedLP }: KPIAndIRRStepContentProps
                         label='Gross DPI'
                         aria-label="name"
                         value={grossDPI}
+                        onChange={(e) => onValueChange(e.target.value, 'grossDPI')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -204,6 +284,7 @@ const KPIAndIRRStepContentComponent = ({ selectedLP }: KPIAndIRRStepContentProps
                         aria-label="website"
                         label='Net TVPI'
                         value={netTVPI}
+                        onChange={(e) => onValueChange(e.target.value, 'netTVPI')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -224,6 +305,7 @@ const KPIAndIRRStepContentComponent = ({ selectedLP }: KPIAndIRRStepContentProps
                         aria-label="baseCapital"
                         label='Gross TVPI'
                         value={grossTVPI}
+                        onChange={(e) => onValueChange(e.target.value, 'grossTVPI')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -244,6 +326,7 @@ const KPIAndIRRStepContentComponent = ({ selectedLP }: KPIAndIRRStepContentProps
                         aria-label="website"
                         label='Net IRR'
                         value={netIRR ? (netIRR * 100).toFixed(2) : null}
+                        onChange={(e) => onValueChange(e.target.value, 'netIRR')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -264,6 +347,7 @@ const KPIAndIRRStepContentComponent = ({ selectedLP }: KPIAndIRRStepContentProps
                         aria-label="website"
                         label='Gross IRR'
                         value={grossIRR}
+                        onChange={(e) => onValueChange(e.target.value, 'grossIRR')}
                         inputProps={{
                             style: { height: '1em' },
                         }}

@@ -142,10 +142,13 @@ const LPTypes = [
 ];
 
 interface PCOFinancialsStepContentProps {
-    selectedPCO: PCOSummary | null
+    selectedPCO: PCOSummary | null,
+    setSelectedPCO: React.Dispatch<React.SetStateAction<PCOSummary | null>>,
+    disabled: boolean,
+    setDisabled: any
 }
 
-const PCOFinancialsStepContentComponent = ({ selectedPCO }: PCOFinancialsStepContentProps) => {
+const PCOFinancialsStepContentComponent = ({ selectedPCO, setSelectedPCO, disabled, setDisabled }: PCOFinancialsStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
     const autocompleteInputClasses = autocompleteInputStyles();
@@ -157,7 +160,6 @@ const PCOFinancialsStepContentComponent = ({ selectedPCO }: PCOFinancialsStepCon
     const [realised, setRealised] = useState<number | null>(selectedPCO?.realised ?? null);
     const [currentRound, setCurrentRound] = useState<string>(selectedPCO?.currentRound ?? '');
     const [dateLastRound, setdateLastRound] = useState<string>(selectedPCO?.lastRound ?? '');
-    const [holdingTime, setHoldingTime] = useState<string>('');
 
     const dateDifference = (date1: string, date2: string) => {
         const date1Date = new Date(date1);
@@ -171,11 +173,81 @@ const PCOFinancialsStepContentComponent = ({ selectedPCO }: PCOFinancialsStepCon
         return returnString;
     }
 
-    useEffect(() => {
-        if (selectedPCO && selectedPCO?.dateInitalInvestment && selectedPCO?.dateExit === null) {
-            setHoldingTime(dateDifference(selectedPCO.dateInitalInvestment ?? '', (new Date()).toISOString()));
+    const onValueChange = (value: string, field: string) => {
+        if (selectedPCO) {
+            switch (field) {
+                case 'amountInvestedFundCcy':
+                    setAmountInvestedEUR(+value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        amountInvestedFundCcy: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'amountInvestedLocalCcy':
+                    setAmountInvestedLocalCCy(+value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        amountInvestedLocalCcy: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'grossIRR':
+                    setGrossIRR(+value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        grossIRR: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'currentValuationPCO':
+                    setCurrentValuationOfCompany(+value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        currentValuationPCO: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'currentValuationEmerald':
+                    setValuationEmerald(+value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        currentValuationEmerald: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'realised':
+                    setRealised(+value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        realised: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'currentRound':
+                    setCurrentRound(value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        currentRound: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                default:
+                    break;
+            }
         }
-    }, [selectedPCO]);
+    };
+
+    const onDateChange = (value: any, field: string) => {
+        setdateLastRound(value);
+        if (selectedPCO) {
+            setSelectedPCO({
+                ...selectedPCO,
+                lastRound: value
+            });
+        }
+
+    }
 
     return (
         <Grid container spacing={2} sx={{ flex: 1, width: '100%', marginTop: '0.2em' }}>
@@ -188,6 +260,7 @@ const PCOFinancialsStepContentComponent = ({ selectedPCO }: PCOFinancialsStepCon
                         label='Amount Invested (EUR)'
                         aria-label="name"
                         value={amountInvestedEUR ? amountValueFormatter(amountInvestedEUR, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'amountInvestedFundCcy')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -208,6 +281,7 @@ const PCOFinancialsStepContentComponent = ({ selectedPCO }: PCOFinancialsStepCon
                         label={`Amount Original Ccy (${selectedPCO?.localCurrency})`}
                         aria-label="name"
                         value={amountInvestedLocalCcy ? amountValueFormatter(amountInvestedLocalCcy, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'amountInvestedLocalCcy')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -228,6 +302,7 @@ const PCOFinancialsStepContentComponent = ({ selectedPCO }: PCOFinancialsStepCon
                         aria-label="website"
                         label='Gross IRR'
                         value={grossIRR ? (grossIRR * 100).toFixed(2) : null}
+                        onChange={(e) => onValueChange(e.target.value, 'grossIRR')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -249,6 +324,7 @@ const PCOFinancialsStepContentComponent = ({ selectedPCO }: PCOFinancialsStepCon
                         label='Current Round'
                         aria-label="name"
                         value={currentRound}
+                        onChange={(e) => onValueChange(e.target.value, 'currentRound')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -268,7 +344,7 @@ const PCOFinancialsStepContentComponent = ({ selectedPCO }: PCOFinancialsStepCon
                         disableFuture
                         value={dateLastRound ? moment(new Date(dateLastRound)).format('DD MMM YYYY') : null}
                         disableHighlightToday
-                        onChange={() => { return; }}
+                        onChange={(e) => onDateChange(e ?? '', 'dateLastRound')}
                         renderInput={(props: any) =>
                             <TextField {...props}
                                 label={'Date of Last Round'}
@@ -284,26 +360,6 @@ const PCOFinancialsStepContentComponent = ({ selectedPCO }: PCOFinancialsStepCon
                     />
                 </Box>
             </Grid>
-            <Grid item>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                    <TextField
-                        className={classes.searchBox}
-                        variant="outlined"
-                        size="small"
-                        aria-label="website"
-                        label='Holding Time'
-                        value={holdingTime}
-                        inputProps={{
-                            style: { height: '1em' },
-                        }}
-                        InputLabelProps={{
-                            sx: {
-                                fontSize: 'small'
-                            }
-                        }}
-                    />
-                </Box>
-            </Grid>
             <Divider sx={{ marginTop: '0.8em', marginBottom: 0, marginLeft: '1em', minWidth: '440px' }} />
             <Grid item>
                 <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
@@ -314,6 +370,7 @@ const PCOFinancialsStepContentComponent = ({ selectedPCO }: PCOFinancialsStepCon
                         aria-label="website"
                         label='Current Valuation of Company'
                         value={currentValuationOfCompany ? amountValueFormatter(currentValuationOfCompany, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'currentValuationPCO')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -334,6 +391,7 @@ const PCOFinancialsStepContentComponent = ({ selectedPCO }: PCOFinancialsStepCon
                         aria-label="website"
                         label='Valuation of Emerald Holding'
                         value={valuationEmerald ? amountValueFormatter(valuationEmerald, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'currentValuationEmerald')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -354,6 +412,7 @@ const PCOFinancialsStepContentComponent = ({ selectedPCO }: PCOFinancialsStepCon
                         aria-label="baseCapital"
                         label='Realised'
                         value={realised ? amountValueFormatter(realised, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'realised')}
                         inputProps={{
                             style: { height: '1em' },
                         }}

@@ -141,18 +141,70 @@ const LPTypes = [
 ];
 
 interface FundFinancialsStepContentProps {
-    selectedFund: FundSummary | null
+    selectedFund: FundSummary | null,
+    setSelectedFund: React.Dispatch<React.SetStateAction<FundSummary | null>>,
+    disabled: boolean,
+    setDisabled: any
 }
 
-const FundFinancialsStepContentComponent = ({ selectedFund }: FundFinancialsStepContentProps) => {
+const FundFinancialsStepContentComponent = ({ selectedFund, setSelectedFund, disabled, setDisabled }: FundFinancialsStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
     const autocompleteInputClasses = autocompleteInputStyles();
-    const [commitedCapital, setCommittesCapital] = useState<number | null>(selectedFund?.sumCommittedAmountFundCcy??null);
-    const [baseCapital, setBaseCapital] = useState<number | null>(selectedFund?.sumBaseAmountFundCccy??null);
-    const [terminatedCommited, setTerminatedCommited] = useState<number | null>(selectedFund?.terminatedCommitedCapital??null);
+    const [commitedCapital, setCommittesCapital] = useState<number | null>(selectedFund?.sumCommittedAmountFundCcy ?? null);
+    const [baseCapital, setBaseCapital] = useState<number | null>(selectedFund?.sumBaseAmountFundCccy ?? null);
+    const [terminatedCommited, setTerminatedCommited] = useState<number | null>(selectedFund?.terminatedCommitedCapital ?? null);
     const [terminatedBase, setTerminatedBase] = useState<number | null>(selectedFund?.terminatedBaseCapital ?? null);
     const [currency, setCurrency] = useState<string>(selectedFund?.currency ?? '');
+
+    const onValueChange = (value: string, field: string) => {
+        if (selectedFund) {
+            switch (field) {
+                case 'commitedCapital':
+                    setCommittesCapital(+value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        sumCommittedAmountFundCcy: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'baseCapital':
+                    setBaseCapital(+value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        sumBaseAmountFundCccy: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'terminatedCommited':
+                    setTerminatedCommited(+value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        terminatedCommitedCapital: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'terminatedBase':
+                    setTerminatedBase(+value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        terminatedBaseCapital: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'currency':
+                    setCurrency(value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        currency: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 
     return (
         <Grid container spacing={2} sx={{ flex: 1, width: '100%', marginTop: '0.2em' }}>
@@ -164,7 +216,8 @@ const FundFinancialsStepContentComponent = ({ selectedFund }: FundFinancialsStep
                         size="small"
                         label='Committed Capital'
                         aria-label="name"
-                        value={commitedCapital? amountValueFormatter(commitedCapital,''):null}
+                        value={commitedCapital ? amountValueFormatter(commitedCapital, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'commitedCapital')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -184,7 +237,8 @@ const FundFinancialsStepContentComponent = ({ selectedFund }: FundFinancialsStep
                         size="small"
                         label='Base Capital'
                         aria-label="name"
-                        value={baseCapital? amountValueFormatter(baseCapital,''):null}
+                        value={baseCapital ? amountValueFormatter(baseCapital, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'baseCapital')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -204,7 +258,8 @@ const FundFinancialsStepContentComponent = ({ selectedFund }: FundFinancialsStep
                         size="small"
                         aria-label="website"
                         label='Of which terminated (Commited Capital)'
-                        value={terminatedCommited? amountValueFormatter(terminatedCommited,''):null}
+                        value={terminatedCommited ? amountValueFormatter(terminatedCommited, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'terminatedCommited')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -224,7 +279,8 @@ const FundFinancialsStepContentComponent = ({ selectedFund }: FundFinancialsStep
                         size="small"
                         label='Of which terminated (Base Capital)'
                         aria-label="name"
-                        value={terminatedBase? amountValueFormatter(terminatedBase,''):null}
+                        value={terminatedBase ? amountValueFormatter(terminatedBase, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'terminatedBase')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -244,7 +300,8 @@ const FundFinancialsStepContentComponent = ({ selectedFund }: FundFinancialsStep
                         size="small"
                         aria-label="website"
                         label='Fund Currency'
-                        value={currency??null}
+                        value={currency ?? null}
+                        onChange={(e) => onValueChange(e.target.value, 'currency')}
                         inputProps={{
                             style: { height: '1em' },
                         }}

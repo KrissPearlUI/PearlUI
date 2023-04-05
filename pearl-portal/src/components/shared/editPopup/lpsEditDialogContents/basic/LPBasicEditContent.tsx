@@ -9,6 +9,7 @@ import KPIAndIRRStepContentComponent from './KPIAndIRRStepContent';
 import CommitmentsStepContentComponent from './CommitmentsStepContent';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../../redux/slices/rootSlice';
+import { LP } from '../../../../../models/lps/lpModels';
 
 const CustomStepConnector = withStyles({
     alternativeLabel: {
@@ -56,12 +57,15 @@ interface EditLPBasicContentProps {
     steps: string[],
     activeStep: number,
     setActiveStep: React.Dispatch<React.SetStateAction<number>>,
+    selectedLP: LP | null,
+    setSelectedLP: React.Dispatch<React.SetStateAction<LP | null>>,
+    disabled: boolean,
+    setDisabled: any
 }
 
-const LPBasicEditContentComponent = ({ steps, activeStep, setActiveStep }: EditLPBasicContentProps) => {
+const LPBasicEditContentComponent = ({ steps, activeStep, setActiveStep, selectedLP, setSelectedLP, disabled, setDisabled }: EditLPBasicContentProps) => {
     const theme = useTheme();
     const [activeLabel, setActiveLabel] = useState<string>(steps[0]);
-    const { selectedLP } = useSelector((state: RootState) => state.lps);
 
     /**
      * Changes the current active step
@@ -92,12 +96,12 @@ const LPBasicEditContentComponent = ({ steps, activeStep, setActiveStep }: EditL
                 </Stepper>
             </Grid>
             <Grid item xs={9} sx={{ minWidth: '450px', marginLeft: '2.3em' }}>
-                {activeStep === 0 ? <GeneralInformationStepContentComponent selectedLP={selectedLP} />
+                {activeStep === 0 ? <GeneralInformationStepContentComponent selectedLP={selectedLP} setSelectedLP={setSelectedLP} disabled={disabled} setDisabled={setDisabled} />
                     : activeStep === 1
-                        ? <CommitmentsStepContentComponent selectedLP={selectedLP} />
+                        ? <CommitmentsStepContentComponent selectedLP={selectedLP} setSelectedLP={setSelectedLP} disabled={disabled} setDisabled={setDisabled} />
                         : activeStep === 2
-                            ? <LPFinancialsStepContentComponent selectedLP={selectedLP} />
-                            : <KPIAndIRRStepContentComponent selectedLP={selectedLP} />}
+                            ? <LPFinancialsStepContentComponent selectedLP={selectedLP} setSelectedLP={setSelectedLP} disabled={disabled} setDisabled={setDisabled} />
+                            : <KPIAndIRRStepContentComponent selectedLP={selectedLP} setSelectedLP={setSelectedLP} disabled={disabled} setDisabled={setDisabled} />}
             </Grid>
         </Grid>
     );

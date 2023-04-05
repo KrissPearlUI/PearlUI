@@ -8,6 +8,7 @@ import { RootState } from '../../../../../redux/slices/rootSlice';
 import GeneralInformationStepContentComponent from './GeneralInformationStepContent';
 import InvestmentsStepContentComponent from './InvestmentsStepContent';
 import PCOFinancialsStepContentComponent from './PCOFinancialsStepContent';
+import { PCOSummary } from '../../../../../models/pcos/pcoModels';
 
 const CustomStepConnector = withStyles({
     alternativeLabel: {
@@ -51,12 +52,15 @@ interface EditFundBasicContentProps {
     steps: string[],
     activeStep: number,
     setActiveStep: React.Dispatch<React.SetStateAction<number>>,
+    selectedPCO: PCOSummary | null,
+    setSelectedPCO: React.Dispatch<React.SetStateAction<PCOSummary | null>>,
+    disabled: boolean,
+    setDisabled: any
 }
 
-const PCOBasicEditContentComponent = ({ steps, activeStep, setActiveStep }: EditFundBasicContentProps) => {
+const PCOBasicEditContentComponent = ({ steps, activeStep, setActiveStep, selectedPCO, setSelectedPCO, disabled, setDisabled }: EditFundBasicContentProps) => {
     const theme = useTheme();
     const [activeLabel, setActiveLabel] = useState<string>(steps[0]);
-    const { selectedPCO } = useSelector((state: RootState) => state.pcos);
 
     /**
      * Changes the current active step
@@ -87,10 +91,10 @@ const PCOBasicEditContentComponent = ({ steps, activeStep, setActiveStep }: Edit
                 </Stepper>
             </Grid>
             <Grid item xs={9} sx={{ minWidth: '450px', marginLeft: '2.3em' }}>
-                {activeStep === 0 ? <GeneralInformationStepContentComponent selectedPCO={selectedPCO} />
+                {activeStep === 0 ? <GeneralInformationStepContentComponent selectedPCO={selectedPCO} setSelectedPCO={setSelectedPCO} disabled={disabled} setDisabled={setDisabled} />
                     : activeStep === 1
-                        ? <InvestmentsStepContentComponent selectedPCO={selectedPCO} />
-                        : <PCOFinancialsStepContentComponent selectedPCO={selectedPCO} />}
+                        ? <InvestmentsStepContentComponent selectedPCO={selectedPCO} setSelectedPCO={setSelectedPCO} disabled={disabled} setDisabled={setDisabled} />
+                        : <PCOFinancialsStepContentComponent selectedPCO={selectedPCO} setSelectedPCO={setSelectedPCO} disabled={disabled} setDisabled={setDisabled} />}
             </Grid>
         </Grid>
     );

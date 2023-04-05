@@ -141,10 +141,13 @@ const PCOStatus = [
 ];
 
 interface GeneralInformationStepContentProps {
-    selectedPCO: PCOSummary | null
+    selectedPCO: PCOSummary | null,
+    setSelectedPCO: React.Dispatch<React.SetStateAction<PCOSummary | null>>,
+    disabled: boolean,
+    setDisabled: any
 }
 
-const GeneralInformationStepContentComponent = ({ selectedPCO }: GeneralInformationStepContentProps) => {
+const GeneralInformationStepContentComponent = ({ selectedPCO, setSelectedPCO, disabled, setDisabled }: GeneralInformationStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
     const autocompleteInputClasses = autocompleteInputStyles();
@@ -159,6 +162,99 @@ const GeneralInformationStepContentComponent = ({ selectedPCO }: GeneralInformat
     const [status, setStatus] = useState<string | null>(selectedPCO?.status ?? '');
     const [website, setWebsite] = useState<string | null>(selectedPCO?.website ?? '');
 
+    const onValueChange = (value: string, field: string) => {
+        if (selectedPCO) {
+            switch (field) {
+                case 'domicile':
+                    setDomicile(value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        country: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'address':
+                    setAddress(value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        address: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'sector':
+                    setSector(value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        emeraldIndustry2: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'currentStage':
+                    setCurrentStage(value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        currentStage: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'status':
+                    setStatus(value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        status: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'website':
+                    setWebsite(value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        website: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'boardSeat':
+                    setBoardSeat(value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        boardSeat: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'currentDealteam':
+                    setCurrentDealTeam(value);
+                    setSelectedPCO({
+                        ...selectedPCO,
+                        currentDealteam: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    const onDateChange = (value: any, field: string) => {
+        if (field === 'dateInitalInvestment') {
+            setDateInvestment(value);
+            if (selectedPCO) {
+                setSelectedPCO({
+                    ...selectedPCO,
+                    dateInitalInvestment: value
+                });
+            }
+        } else {
+            setDateExit(value);
+            if (selectedPCO) {
+                setSelectedPCO({
+                    ...selectedPCO,
+                    dateExit: value
+                });
+            }
+        }
+    }
+
     return (
         <Grid container spacing={2} sx={{ flex: 1, width: '100%', marginTop: '0.2em' }}>
             <Grid item>
@@ -170,6 +266,7 @@ const GeneralInformationStepContentComponent = ({ selectedPCO }: GeneralInformat
                         label='Domicile'
                         aria-label="name"
                         value={domicile}
+                        onChange={(e) => onValueChange(e.target.value, 'domicile')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -190,6 +287,7 @@ const GeneralInformationStepContentComponent = ({ selectedPCO }: GeneralInformat
                         label='Address'
                         aria-label="name"
                         value={address}
+                        onChange={(e) => onValueChange(e.target.value, 'address')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -210,6 +308,7 @@ const GeneralInformationStepContentComponent = ({ selectedPCO }: GeneralInformat
                         label='Website'
                         aria-label="name"
                         value={website}
+                        onChange={(e) => onValueChange(e.target.value, 'website')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -229,8 +328,8 @@ const GeneralInformationStepContentComponent = ({ selectedPCO }: GeneralInformat
                         inputFormat={'dd/MM/yyyy'}
                         disableFuture
                         value={dateInvestment ? moment(new Date(dateInvestment)).format('DD MMM YYYY') : null}
+                        onChange={(e) => onDateChange(e ?? '', 'dateInitalInvestment')}
                         disableHighlightToday
-                        onChange={() => { return; }}
                         renderInput={(props: any) =>
                             <TextField {...props}
                                 label={'Date Invested'}
@@ -255,6 +354,7 @@ const GeneralInformationStepContentComponent = ({ selectedPCO }: GeneralInformat
                         aria-label="website"
                         label='Sector'
                         value={sector}
+                        onChange={(e) => onValueChange(e.target.value, 'sector')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -275,6 +375,7 @@ const GeneralInformationStepContentComponent = ({ selectedPCO }: GeneralInformat
                         aria-label="baseCapital"
                         label='Current Stage'
                         value={currentStage}
+                        onChange={(e) => onValueChange(e.target.value, 'currentStage')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -296,6 +397,7 @@ const GeneralInformationStepContentComponent = ({ selectedPCO }: GeneralInformat
                         aria-label="baseCapital"
                         label='Board Seat'
                         value={boardSeat}
+                        onChange={(e) => onValueChange(e.target.value, 'boardSeat')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -316,6 +418,7 @@ const GeneralInformationStepContentComponent = ({ selectedPCO }: GeneralInformat
                         aria-label="baseCapital"
                         label='Current Deal Team'
                         value={currentDealTeam}
+                        onChange={(e) => onValueChange(e.target.value, 'currentDealTeam')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -341,6 +444,7 @@ const GeneralInformationStepContentComponent = ({ selectedPCO }: GeneralInformat
                         isOptionEqualToValue={(option, value) => option === value}
                         value={status ?? ''}
                         options={PCOStatus.slice()}
+                        onChange={(e, value: any) => onValueChange(value, 'status')}
                         renderInput={(params: AutocompleteRenderInputParams) => {
                             params.InputProps.className = autocompleteInputClasses.textInput;
                             return <TextField {...params}
@@ -367,7 +471,7 @@ const GeneralInformationStepContentComponent = ({ selectedPCO }: GeneralInformat
                         disableFuture
                         value={dateExit ? moment(new Date(dateExit)).format('DD MMM YYYY') : null}
                         disableHighlightToday
-                        onChange={() => { return; }}
+                        onChange={(e) => onDateChange(e ?? '', 'dateExit')}
                         renderInput={(props: any) =>
                             <TextField {...props}
                                 label={'Date of Exit'}

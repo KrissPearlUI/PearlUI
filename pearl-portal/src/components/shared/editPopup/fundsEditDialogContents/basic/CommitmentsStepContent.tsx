@@ -148,10 +148,13 @@ const LPTypes = [
 ];
 
 interface CommitmentsStepContentProps {
-    selectedFund: FundSummary | null
+    selectedFund: FundSummary | null,
+    setSelectedFund: React.Dispatch<React.SetStateAction<FundSummary | null>>,
+    disabled: boolean,
+    setDisabled: any
 }
 
-const CommitmentsStepContentComponent = ({ selectedFund }: CommitmentsStepContentProps) => {
+const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabled, setDisabled }: CommitmentsStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
     const [commitmentsExpanded, setCommitmentsExpanded] = useState<boolean>(false);

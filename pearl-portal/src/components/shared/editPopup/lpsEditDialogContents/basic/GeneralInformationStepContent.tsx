@@ -140,10 +140,13 @@ const LPTypes = [
 ];
 
 interface GeneralInformationStepContentProps {
-    selectedLP: LP | null
+    selectedLP: LP | null,
+    setSelectedLP: React.Dispatch<React.SetStateAction<LP | null>>,
+    disabled: boolean,
+    setDisabled: any
 }
 
-const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformationStepContentProps) => {
+const GeneralInformationStepContentComponent = ({ selectedLP, setSelectedLP, disabled, setDisabled }: GeneralInformationStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
     const autocompleteInputClasses = autocompleteInputStyles();
@@ -158,8 +161,101 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
     const [website, setWebsite] = useState<string>(selectedLP?.website ?? '');
     const [type, setType] = useState<string | null>(selectedLP?.type ?? '');
 
+    const onValueChange = (value: string, field: string) => {
+        if (selectedLP) {
+            switch (field) {
+                case 'domicile':
+                    setDomicile(value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        country: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'address':
+                    setAddress(value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        address: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'city':
+                    setCity(value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        city: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'postalCode':
+                    setPostalCode(value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        postalCode: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'type':
+                    setType(value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        type: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'website':
+                    setWebsite(value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        website: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'mainContact':
+                    setmainContact(value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        mainContact: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'relationshipPartner':
+                    setRelationshipPartner(value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        relationshipPartner: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'relationshipSS':
+                    setRelationshipSS(value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        relationshipSS: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
+    const onDateChange = (value: any, field: string) => {
+        if (field === 'firstInvestment') {
+            setFirstInvestment(value);
+            if (selectedLP) {
+                setSelectedLP({
+                    ...selectedLP,
+                    firstInvestment: value
+                });
+            }
+        }
+    }
+
     return (
-        <Grid container spacing={2} sx={{ flex: 1, width: '100%', marginTop:'0.2em' }}>
+        <Grid container spacing={2} sx={{ flex: 1, width: '100%', marginTop: '0.2em' }}>
             <Grid item>
                 <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <TextField
@@ -169,6 +265,7 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                         label='Domicile'
                         aria-label="name"
                         value={domicile}
+                        onChange={(e) => onValueChange(e.target.value, 'domicile')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -189,6 +286,7 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                         label='Address'
                         aria-label="name"
                         value={address}
+                        onChange={(e) => onValueChange(e.target.value, 'address')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -211,6 +309,7 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                             label='City'
                             aria-label="city"
                             value={city}
+                            onChange={(e) => onValueChange(e.target.value, 'city')}
                             inputProps={{
                                 style: { height: '1em' },
                             }}
@@ -232,6 +331,7 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                             aria-label="city"
                             label='Postal Code'
                             value={postalCode}
+                            onChange={(e) => onValueChange(e.target.value, 'postalCode')}
                             inputProps={{
                                 style: { height: '1em' },
                             }}
@@ -253,6 +353,7 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                         aria-label="website"
                         label='Website'
                         value={website}
+                        onChange={(e) => onValueChange(e.target.value, 'website')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -273,7 +374,7 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                         disableFuture
                         value={firstInvestment ? moment(new Date(firstInvestment)).format('DD MMM YYYY') : null}
                         disableHighlightToday
-                        onChange={() => { return; }}
+                        onChange={(e) => onDateChange(e ?? '', 'firstInvestment')}
                         renderInput={(props: any) =>
                             <TextField {...props}
                                 label={'First Investment'}
@@ -302,6 +403,7 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                         sx={{ marginRight: '1em', width: '440px' }}
                         isOptionEqualToValue={(option, value) => option === value}
                         value={type ?? ''}
+                        onChange={(e, value: any) => onValueChange(value, 'type')}
                         options={LPTypes.slice()}
                         renderInput={(params: AutocompleteRenderInputParams) => {
                             params.InputProps.className = autocompleteInputClasses.textInput;
@@ -331,6 +433,7 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                         aria-label="baseCapital"
                         label='Main Contact'
                         value={mainContact}
+                        onChange={(e) => onValueChange(e.target.value, 'mainContact')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -351,6 +454,7 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                         aria-label="website"
                         label='Relationship Partner'
                         value={relationshipPartner}
+                        onChange={(e) => onValueChange(e.target.value, 'relationshipPartner')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -371,6 +475,7 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                         aria-label="website"
                         label='Relationship SS'
                         value={relationshipSS}
+                        onChange={(e) => onValueChange(e.target.value, 'relationshipSS')}
                         inputProps={{
                             style: { height: '1em' },
                         }}

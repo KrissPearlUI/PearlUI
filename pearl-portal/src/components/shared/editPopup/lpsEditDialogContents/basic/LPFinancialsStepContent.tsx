@@ -140,10 +140,13 @@ const LPTypes = [
 ];
 
 interface LPFinancialsStepContentProps {
-    selectedLP: LP | null
+    selectedLP: LP | null,
+    setSelectedLP: React.Dispatch<React.SetStateAction<LP | null>>,
+    disabled: boolean,
+    setDisabled: any
 }
 
-const LPFinancialsStepContentComponent = ({ selectedLP }: LPFinancialsStepContentProps) => {
+const LPFinancialsStepContentComponent = ({ selectedLP, setSelectedLP, disabled, setDisabled }: LPFinancialsStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
     const autocompleteInputClasses = autocompleteInputStyles();
@@ -159,6 +162,117 @@ const LPFinancialsStepContentComponent = ({ selectedLP }: LPFinancialsStepConten
     const [tappedOut, setTappedOut] = useState<boolean>(selectedLP?.tappedOot ?? false);
     const [estimatedUntilTappedOut, setEstimatedUntilTapedOut] = useState<string>(selectedLP?.dateTappedOut ?? '');
 
+    const onValueChange = (value: string, field: string) => {
+        if (selectedLP) {
+            switch (field) {
+                case 'managementFee':
+                    setManagementFee(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        fees: selectedLP.fees.map(item => {
+                            if (item.feeType === 'Management Fee') {
+                                // update the item with id 2
+                                return { ...item, amount: +value };
+                            }
+                            // leave all other items unchanged
+                            return item;
+                        })
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'recyclingReserves':
+                    setRecyclingReserves(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        fees: selectedLP.fees.map(item => {
+                            if (item.feeType === 'Recycling Reserves') {
+                                // update the item with id 2
+                                return { ...item, amount: +value };
+                            }
+                            // leave all other items unchanged
+                            return item;
+                        })
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'capPaidIn':
+                    setCapitalPaidIn(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        capPaidIn: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'capitalDistributed':
+                    setCapitalDistributed(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        totalDistributions: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'capitalInvested':
+                    setCapitalinvested(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        totalInvestments: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'capAvailable':
+                    setAvailableCapital(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        capAvailable: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'reserved':
+                    setReserved(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        reserved: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'dryPowder':
+                    setDryPowder(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        dryPowder: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'avgDealsAvailable':
+                    setNumAvgDeals(+value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        avgDealsAvailable: +value
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'tappedOut':
+                    setTappedOut(value?.toLowerCase() === 'false' ? false : value?.toLowerCase() === 'true' ? true : false);
+                    setSelectedLP({
+                        ...selectedLP,
+                        tappedOot: value?.toLowerCase() === 'false' ? false : value?.toLowerCase() === 'true' ? true : false
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'dateTappedOut':
+                    setEstimatedUntilTapedOut(value);
+                    setSelectedLP({
+                        ...selectedLP,
+                        dateTappedOut: value
+                    });
+                    setDisabled(value === '');
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
     return (
         <Grid container spacing={2} sx={{ flex: 1, width: '100%', marginTop: '0.2em' }}>
             <Grid item>
@@ -169,7 +283,8 @@ const LPFinancialsStepContentComponent = ({ selectedLP }: LPFinancialsStepConten
                         size="small"
                         label='Management Fees'
                         aria-label="name"
-                        value={managementFee? amountValueFormatter(managementFee,''):null}
+                        value={managementFee ? amountValueFormatter(managementFee, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'managementFee')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -189,7 +304,8 @@ const LPFinancialsStepContentComponent = ({ selectedLP }: LPFinancialsStepConten
                         size="small"
                         label='Capital Paid In'
                         aria-label="name"
-                        value={capitalPaidIn? amountValueFormatter(capitalPaidIn,''):null}
+                        value={capitalPaidIn ? amountValueFormatter(capitalPaidIn, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'capPaidIn')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -209,7 +325,8 @@ const LPFinancialsStepContentComponent = ({ selectedLP }: LPFinancialsStepConten
                         size="small"
                         aria-label="website"
                         label='Capital Distributed'
-                        value={capitalDistributed? amountValueFormatter(capitalDistributed,''):null}
+                        value={capitalDistributed ? amountValueFormatter(capitalDistributed, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'capitalDistributed')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -229,7 +346,8 @@ const LPFinancialsStepContentComponent = ({ selectedLP }: LPFinancialsStepConten
                         size="small"
                         label='Capital Invested'
                         aria-label="name"
-                        value={capitalInvested? amountValueFormatter(capitalInvested,''):null}
+                        value={capitalInvested ? amountValueFormatter(capitalInvested, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'capitalInvested')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -250,7 +368,8 @@ const LPFinancialsStepContentComponent = ({ selectedLP }: LPFinancialsStepConten
                         size="small"
                         aria-label="website"
                         label='Recycling Reserves'
-                        value={recyclingReserves? amountValueFormatter(recyclingReserves,''):null}
+                        value={recyclingReserves ? amountValueFormatter(recyclingReserves, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'recyclingReserves')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -270,7 +389,8 @@ const LPFinancialsStepContentComponent = ({ selectedLP }: LPFinancialsStepConten
                         size="small"
                         aria-label="website"
                         label='Available Capital to be called'
-                        value={availablecapital? amountValueFormatter(availablecapital,''):null}
+                        value={availablecapital ? amountValueFormatter(availablecapital, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'capAvailable')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -290,7 +410,8 @@ const LPFinancialsStepContentComponent = ({ selectedLP }: LPFinancialsStepConten
                         size="small"
                         aria-label="website"
                         label='Reserved'
-                        value={reserved? amountValueFormatter(reserved,''):null}
+                        value={reserved ? amountValueFormatter(reserved, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'reserved')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -310,7 +431,8 @@ const LPFinancialsStepContentComponent = ({ selectedLP }: LPFinancialsStepConten
                         size="small"
                         aria-label="website"
                         label='Dry Powder'
-                        value={dryPowder? amountValueFormatter(dryPowder,''):null}
+                        value={dryPowder ? amountValueFormatter(dryPowder, '') : null}
+                        onChange={(e) => onValueChange(e.target.value, 'dryPowder')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -332,6 +454,7 @@ const LPFinancialsStepContentComponent = ({ selectedLP }: LPFinancialsStepConten
                         aria-label="baseCapital"
                         label='Num. of avg. deals available'
                         value={numAvgDeals}
+                        onChange={(e) => onValueChange(e.target.value, 'avgDealsAvailable')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -354,6 +477,7 @@ const LPFinancialsStepContentComponent = ({ selectedLP }: LPFinancialsStepConten
                             label='Tapped Out'
                             aria-label="city"
                             value={tappedOut}
+                            onChange={(e) => onValueChange(e.target.value, 'tappedOut')}
                             inputProps={{
                                 style: { height: '1em' },
                             }}
@@ -375,6 +499,7 @@ const LPFinancialsStepContentComponent = ({ selectedLP }: LPFinancialsStepConten
                             aria-label="city"
                             label='Estimated until tapped out'
                             value={estimatedUntilTappedOut}
+                            onChange={(e) => onValueChange(e.target.value, 'dateTappedOut')}
                             inputProps={{
                                 style: { height: '1em' },
                             }}

@@ -9,6 +9,7 @@ import GeneralInformationStepContentComponent from './GeneralInformationStepCont
 import CommitmentsStepContentComponent from './CommitmentsStepContent';
 import FundFinancialsStepContentComponent from './FundFinancialsStepContent';
 import KPIAndIRRStepContentComponent from './KPIAndIRRStepContent';
+import { FundSummary } from '../../../../../models/funds/fundModels';
 
 const CustomStepConnector = withStyles({
     alternativeLabel: {
@@ -56,12 +57,15 @@ interface EditFundBasicContentProps {
     steps: string[],
     activeStep: number,
     setActiveStep: React.Dispatch<React.SetStateAction<number>>,
+    selectedFund: FundSummary | null,
+    setSelectedFund: React.Dispatch<React.SetStateAction<FundSummary | null>>,
+    disabled: boolean,
+    setDisabled: any
 }
 
-const FundBasicEditContentComponent = ({ steps, activeStep, setActiveStep }: EditFundBasicContentProps) => {
+const FundBasicEditContentComponent = ({ steps, activeStep, setActiveStep, selectedFund, setSelectedFund, disabled, setDisabled }: EditFundBasicContentProps) => {
     const theme = useTheme();
     const [activeLabel, setActiveLabel] = useState<string>(steps[0]);
-    const { selectedFund } = useSelector((state: RootState) => state.funds);
 
     /**
      * Changes the current active step
@@ -92,12 +96,12 @@ const FundBasicEditContentComponent = ({ steps, activeStep, setActiveStep }: Edi
                 </Stepper>
             </Grid>
             <Grid item xs={9} sx={{ minWidth: '450px', marginLeft: '2.3em' }}>
-                {activeStep === 0 ? <GeneralInformationStepContentComponent selectedFund={selectedFund} />
+                {activeStep === 0 ? <GeneralInformationStepContentComponent selectedFund={selectedFund} setSelectedFund={setSelectedFund} disabled={disabled} setDisabled={setDisabled}/>
                     : activeStep === 1
-                        ? <CommitmentsStepContentComponent selectedFund={selectedFund} />
+                        ? <CommitmentsStepContentComponent selectedFund={selectedFund} setSelectedFund={setSelectedFund} disabled={disabled} setDisabled={setDisabled}/>
                         : activeStep === 2
-                            ? <FundFinancialsStepContentComponent selectedFund={selectedFund} />
-                            : <KPIAndIRRStepContentComponent selectedFund={selectedFund} />}
+                            ? <FundFinancialsStepContentComponent selectedFund={selectedFund} setSelectedFund={setSelectedFund} disabled={disabled} setDisabled={setDisabled}/>
+                            : <KPIAndIRRStepContentComponent selectedFund={selectedFund} setSelectedFund={setSelectedFund} disabled={disabled} setDisabled={setDisabled}/>}
             </Grid>
         </Grid>
     );

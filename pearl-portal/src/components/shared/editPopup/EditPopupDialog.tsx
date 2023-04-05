@@ -7,9 +7,9 @@ import { useAppDispatch } from '../../../redux/store';
 import { RootState } from '../../../redux/slices/rootSlice';
 import { setEditDiaogOpen } from '../../../redux/slices/appSlice';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
-import { NewFund } from '../../../models/funds/fundModels';
-import { NewPCO } from '../../../models/pcos/pcoModels';
-import { NewLP } from '../../../models/lps/lpModels';
+import { FundSummary, NewFund } from '../../../models/funds/fundModels';
+import { NewPCO, PCOSummary } from '../../../models/pcos/pcoModels';
+import { LP, NewLP } from '../../../models/lps/lpModels';
 import { NewCommitment } from '../../../models/shared/sharedModels';
 import { NewTransaction } from '../../../models/transactions/transactionsModels';
 import { NewCashCall } from '../../../models/cashCalls/cashCallsModels';
@@ -97,7 +97,7 @@ export const EditDialogComponent = ({ pageName, pageTitle }: AddDialogComponentP
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const { editDialogOpen } = useSelector((state: RootState) => state.app);
-    const [disabled, setDisabled] = useState<boolean>(true);
+    const [disabled, setDisabled] = useState<boolean>(false);
     const theme = useTheme()
     const [newFund, setNewFund] = useState<NewFund | null>(null);
     const [newLP, setNewLP] = useState<NewLP | null>(null);
@@ -112,16 +112,24 @@ export const EditDialogComponent = ({ pageName, pageTitle }: AddDialogComponentP
     const [activeStepLP, setActiveStepLP] = useState<number>(0);
     const [activeStepFund, setActiveStepFund] = useState<number>(0);
     const [activeStepPCO, setActiveStepPCO] = useState<number>(0);
-
+    const { selectedFund } = useSelector((state: RootState) => state.funds);
+    const [selectedFundLocal, setSelectedFundLocal] = useState<FundSummary | null>(selectedFund ?? null)
+    const { selectedLP } = useSelector((state: RootState) => state.lps);
+    const [selectedLPLocal, setSelectedLPLocal] = useState<LP | null>(selectedLP ?? null);
+    const { selectedPCO } = useSelector((state: RootState) => state.pcos);
+    const [selectedPCOLocal, setSelectedPCOLocal] = useState<PCOSummary | null>(selectedPCO ?? null);
     /**
      * Handles the closing of the dialog
      */
     const handleClose = () => {
+        setSelectedFundLocal(selectedFund);
+        setSelectedLPLocal(selectedLP);
+        setSelectedPCOLocal(selectedPCO);
         setActiveStepLP(0);
         dispatch(setEditDiaogOpen(false));
     };
 
-    const handleAddBtnClick = () => {
+    const handleEditBtnClick = () => {
         let valid = false;
         if (pageName === 'fundsOverview') {
             valid = newFund !== null && newFund.fundName !== '' && newFund.shortName !== '' && newFund.country !== '' && newFund.type !== '' && newFund.currency !== '';
@@ -196,10 +204,10 @@ export const EditDialogComponent = ({ pageName, pageTitle }: AddDialogComponentP
                 </Grid>
             </DialogTitle>
             <DialogContent sx={{ display: 'flex', flex: 1, justifyContent: 'flex-start', height: '100%', backgroundColor: theme.palette.mode === 'light' ? '#F5F5F5' : '#06050A' }}>
-                {pageName === 'lpBasic' ? <LPBasicEditContentComponent steps={stepsLP} activeStep={activeStepLP} setActiveStep={setActiveStepLP} />
+                {pageName === 'lpBasic' ? <LPBasicEditContentComponent steps={stepsLP} activeStep={activeStepLP} setActiveStep={setActiveStepLP} selectedLP={selectedLPLocal} setSelectedLP={setSelectedLPLocal} disabled={disabled} setDisabled={setDisabled} />
                     : pageName === 'fundBasic'
-                        ? <FundBasicEditContentComponent steps={stepsFund} activeStep={activeStepFund} setActiveStep={setActiveStepFund} />
-                        : <PCOBasicEditContentComponent steps={stepsPCO} activeStep={activeStepPCO} setActiveStep={setActiveStepPCO} />}
+                        ? <FundBasicEditContentComponent steps={stepsFund} activeStep={activeStepFund} setActiveStep={setActiveStepFund} selectedFund={selectedFundLocal} setSelectedFund={setSelectedFundLocal} disabled={disabled} setDisabled={setDisabled} />
+                        : <PCOBasicEditContentComponent steps={stepsPCO} activeStep={activeStepPCO} setActiveStep={setActiveStepPCO} selectedPCO={selectedPCOLocal} setSelectedPCO={setSelectedPCOLocal} disabled={disabled} setDisabled={setDisabled} />}
             </DialogContent>
             <DialogActions sx={{ backgroundColor: theme.palette.mode === 'light' ? '#F5F5F5' : '#06050A' }}>
                 {pageName === 'lpBasic' ?
@@ -223,7 +231,8 @@ export const EditDialogComponent = ({ pageName, pageTitle }: AddDialogComponentP
                                 color="primary"
                                 sx={{ textTransform: 'none', height: 36 }}
                                 startIcon={<EditRoundedIcon />}
-                                onClick={handleAddBtnClick}
+                                disabled={disabled}
+                                onClick={handleEditBtnClick}
                             >Edit</Button>
                         </div>
                     )
@@ -248,7 +257,8 @@ export const EditDialogComponent = ({ pageName, pageTitle }: AddDialogComponentP
                                     color="primary"
                                     sx={{ textTransform: 'none', height: 36 }}
                                     startIcon={<EditRoundedIcon />}
-                                    onClick={handleAddBtnClick}
+                                    disabled={disabled}
+                                    onClick={handleEditBtnClick}
                                 >Edit</Button>
                             </div>
                         ) : pageName === 'pcoBasic' ?
@@ -272,7 +282,8 @@ export const EditDialogComponent = ({ pageName, pageTitle }: AddDialogComponentP
                                         color="primary"
                                         sx={{ textTransform: 'none', height: 36 }}
                                         startIcon={<EditRoundedIcon />}
-                                        onClick={handleAddBtnClick}
+                                        disabled={disabled}
+                                        onClick={handleEditBtnClick}
                                     >Edit</Button>
                                 </div>
                             ) : <Button
@@ -281,7 +292,7 @@ export const EditDialogComponent = ({ pageName, pageTitle }: AddDialogComponentP
                                 sx={{ textTransform: 'none' }}
                                 startIcon={<EditRoundedIcon />}
                                 disabled={disabled}
-                                onClick={handleAddBtnClick}
+                                onClick={handleEditBtnClick}
                             >
                                 Edit
                             </Button>

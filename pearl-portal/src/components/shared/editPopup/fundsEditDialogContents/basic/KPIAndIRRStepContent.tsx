@@ -140,10 +140,13 @@ const LPTypes = [
 ];
 
 interface KPIAndIRRStepContentProps {
-    selectedFund: FundSummary | null
+    selectedFund: FundSummary | null,
+    setSelectedFund: React.Dispatch<React.SetStateAction<FundSummary | null>>,
+    disabled: boolean,
+    setDisabled: any
 }
 
-const KPIAndIRRStepContentComponent = ({ selectedFund }: KPIAndIRRStepContentProps) => {
+const KPIAndIRRStepContentComponent = ({ selectedFund, setSelectedFund, disabled, setDisabled }: KPIAndIRRStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
     const autocompleteInputClasses = autocompleteInputStyles();
@@ -153,6 +156,81 @@ const KPIAndIRRStepContentComponent = ({ selectedFund }: KPIAndIRRStepContentPro
     const [grossTVPI, setGrossTVPI] = useState<number | null>(selectedFund?.kpis?.grossTVPI ? selectedFund?.kpis?.grossTVPI : null);
     const [netIRR, setNetIRR] = useState<number | null>(selectedFund?.kpis?.netIRR ? selectedFund?.kpis?.netIRR : null);
     const [grossIRR, setGrossIRR] = useState<number | null>(selectedFund?.kpis?.grossIRR ? selectedFund?.kpis?.grossIRR : null);
+
+    const onValueChange = (value: string, field: string) => {
+        if (selectedFund) {
+            switch (field) {
+                case 'netDPI':
+                    setNetDPI(+value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        kpis: {
+                            ...selectedFund.kpis,
+                            netDPI: +value
+                        }
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'grossDPI':
+                    setGrossDPI(+value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        kpis: {
+                            ...selectedFund.kpis,
+                            grossDPI: +value
+                        }
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'netTVPI':
+                    setNetTVPI(+value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        kpis: {
+                            ...selectedFund.kpis,
+                            netTVPI: +value
+                        }
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'grossTVPI':
+                    setGrossTVPI(+value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        kpis: {
+                            ...selectedFund.kpis,
+                            grossTVPI: +value
+                        }
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'netIRR':
+                    setNetIRR(+value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        kpis: {
+                            ...selectedFund.kpis,
+                            netIRR: +value
+                        }
+                    });
+                    setDisabled(value === '');
+                    break;
+                case 'grossIRR':
+                    setGrossIRR(+value);
+                    setSelectedFund({
+                        ...selectedFund,
+                        kpis: {
+                            ...selectedFund.kpis,
+                            grossIRR: +value
+                        }
+                    });
+                    setDisabled(value === '');
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 
     return (
         <Grid container spacing={2} sx={{ flex: 1, width: '100%', marginTop: '0.2em' }}>
@@ -165,6 +243,7 @@ const KPIAndIRRStepContentComponent = ({ selectedFund }: KPIAndIRRStepContentPro
                         label='Net DPI'
                         aria-label="name"
                         value={netDPI}
+                        onChange={(e) => onValueChange(e.target.value, 'netDPI')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -185,6 +264,7 @@ const KPIAndIRRStepContentComponent = ({ selectedFund }: KPIAndIRRStepContentPro
                         label='Gross DPI'
                         aria-label="name"
                         value={grossDPI}
+                        onChange={(e) => onValueChange(e.target.value, 'grossDPI')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -205,6 +285,7 @@ const KPIAndIRRStepContentComponent = ({ selectedFund }: KPIAndIRRStepContentPro
                         aria-label="website"
                         label='Net TVPI'
                         value={netTVPI}
+                        onChange={(e) => onValueChange(e.target.value, 'netTVPI')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -225,6 +306,7 @@ const KPIAndIRRStepContentComponent = ({ selectedFund }: KPIAndIRRStepContentPro
                         aria-label="baseCapital"
                         label='Gross TVPI'
                         value={grossTVPI}
+                        onChange={(e) => onValueChange(e.target.value, 'grossTVPI')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -245,6 +327,7 @@ const KPIAndIRRStepContentComponent = ({ selectedFund }: KPIAndIRRStepContentPro
                         aria-label="website"
                         label='Net IRR'
                         value={netIRR ? (netIRR * 100).toFixed(2) : null}
+                        onChange={(e) => onValueChange(e.target.value, 'netIRR')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -265,6 +348,7 @@ const KPIAndIRRStepContentComponent = ({ selectedFund }: KPIAndIRRStepContentPro
                         aria-label="website"
                         label='Gross IRR'
                         value={grossIRR}
+                        onChange={(e) => onValueChange(e.target.value, 'grossIRR')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
