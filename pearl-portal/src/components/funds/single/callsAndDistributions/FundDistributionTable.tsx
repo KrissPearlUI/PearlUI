@@ -106,6 +106,7 @@ const SingleFundDistributionsTable = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'amount',
+                filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
             },

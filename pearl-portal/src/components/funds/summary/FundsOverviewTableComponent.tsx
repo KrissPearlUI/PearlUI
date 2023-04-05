@@ -136,11 +136,12 @@ const FundsOverviewTable = () => {
                 valueFormatter: dateValueFormatter,
             },
             {
-                headerName: 'Total Commitments',
+                headerName: 'Commited Capital',
                 field: 'totalCommitmentsFundCcy',
                 enableRowGroup: true,
                 minWidth: 220,
                 type: 'numericColumn',
+                filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
             },

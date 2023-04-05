@@ -85,6 +85,7 @@ const SingleFundCommitments = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'committedAmount',
+                filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
             },

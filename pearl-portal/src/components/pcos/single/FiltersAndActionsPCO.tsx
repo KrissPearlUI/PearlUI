@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
             alignSelf: 'center',
         },
         searchBox: {
-            width: '320px',
+            width: '370px',
             marginRight: '1em',
             backgroundColor: theme.palette.background.paper,
             color: theme.palette.text.primary,
@@ -88,9 +88,6 @@ const FiltersAndActionsPCOComponent = ({ selectedItem, handleButtonClick, addEdi
                     </Grid>
                     <Grid item sx={{ marginRight: '0.5em' }} >
                         <AddButton pageName={addEditTooltip === 'transactions' ? 'Add New Transaction' : ''} />
-                    </Grid>
-                    <Grid item sx={{ marginRight: '0.5em' }} >
-                        <EditButton pageName={addEditTooltip === 'pcoBasic' ? 'Edit Basic Details' : 'Edit Transaction'} />
                     </Grid>
                     <Grid item >
                         <ExportButton pageName='singleFund' />

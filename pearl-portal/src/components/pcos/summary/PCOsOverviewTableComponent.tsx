@@ -127,11 +127,12 @@ const PCOsOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
             },
             {
-                headerName: 'Total Investments',
+                headerName: 'Invested Capital',
                 field: 'amountInvestedLocalCcy',
                 enableRowGroup: true,
                 minWidth: 220,
                 type: 'numericColumn',
+                filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
             },

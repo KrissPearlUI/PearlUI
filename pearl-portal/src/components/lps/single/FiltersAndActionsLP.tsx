@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
             alignSelf: 'center',
         },
         searchBox: {
-            width: '320px',
+            width: '370px',
             marginRight: '1em',
             backgroundColor: theme.palette.background.paper,
             color: theme.palette.text.primary,
@@ -93,15 +93,15 @@ const FiltersAndActionsLPComponent = ({ selectedItem, handleButtonClick, addEdit
                                     : addEditTooltip === 'distributionComponent' ? 'Add New Distribution'
                                         : 'Add New Transaction'} />
                     </Grid>
-                    <Grid item sx={{ marginRight: '0.5em' }} >
-                        <EditButton pageName={addEditTooltip === 'lpBasic' ? 'Edit Basic Details' :
+                    {/* <Grid item sx={{ marginRight: '0.5em' }} >
+                        {addEditTooltip === 'lpBasic' && <EditButton pageName={addEditTooltip === 'lpBasic' ? 'Edit Basic Details' :
                             addEditTooltip === 'commitments'
                                 ? 'Edit Commitment'
                                 : addEditTooltip === 'lpPortfolio' ? 'Edit Portfolio'
                                     : addEditTooltip === 'callsComponent' ? 'Edit Call'
                                         : addEditTooltip === 'distributionComponent' ? 'Edit Distribution'
-                                            : 'Edit Transaction'} />
-                    </Grid>
+                                            : 'Edit Transaction'} />}
+                    </Grid> */}
                     <Grid item >
                         <ExportButton pageName='singleFund' />
                     </Grid>

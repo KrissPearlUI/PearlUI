@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
             alignSelf: 'center',
         },
         searchBox: {
-            width: '320px',
+            width: '370px',
             marginRight: '1em',
             backgroundColor: theme.palette.background.paper,
             color: theme.palette.text.primary,
@@ -92,15 +92,6 @@ const FiltersAndActionsFundComponent = ({ selectedItem, handleButtonClick, addEd
                             : addEditTooltip === 'fundPortfolio' ? 'Add New Portfolio'
                                 : addEditTooltip === 'fundCallsDist' ? 'Add New Call'
                                     : 'Add New Transaction'} />
-                    </Grid>
-                    <Grid item sx={{ marginRight: '0.5em' }} >
-                        <EditButton pageName={addEditTooltip === 'fundBasic' ? 'Edit Basic Details' :
-                            addEditTooltip === 'commitments'
-                                ? 'Edit Commitment'
-                                : addEditTooltip === 'fundPortfolio' ? 'Edit Portfolio'
-                                    : addEditTooltip === 'callsComponent' ? 'Edit Call'
-                                        : addEditTooltip === 'distributionComponent' ? 'Edit Distribution'
-                                            : 'Edit Transaction'} />
                     </Grid>
                     <Grid item >
                         <ExportButton pageName='singleFund' />
