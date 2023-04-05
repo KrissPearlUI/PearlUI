@@ -19,6 +19,7 @@ import { fetchPCOs } from '../../../redux/thunks/pcoThunk';
 import { setSelectedPCO } from '../../../redux/slices/pcos/pcosSlice';
 import { AddDialogComponent } from '../../../components/shared/addPopup/AddPopupDialog';
 import { setSelectedFund } from '../../../redux/slices/funds/fundsSlice';
+import { EditDialogComponent } from '../../../components/shared/editPopup/EditPopupDialog';
 
 const SinglePCO = () => {
     const dispatch = useAppDispatch();
@@ -82,6 +83,8 @@ const SinglePCO = () => {
             </Grid>
             <AddDialogComponent pageName={selectedView === 'transactions' ? 'transactions' : ''}
                 pageTitle={selectedView === 'transactions' ? 'Add New Transaction' : ''} />
+            <EditDialogComponent pageName={selectedView === 'basic' ? 'pcoBasic' : 'transactions'}
+                pageTitle={selectedView === 'basic' ? 'Edit Basic Details' : 'Edit Transaction'} />
         </Grid>
     );
 };

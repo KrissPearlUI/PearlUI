@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { withStyles } from '@mui/styles';
 import { useTheme } from "@mui/material/styles";
 import { Check } from '@mui/icons-material';
-import GeneralInformationStepContentComponent from './GeneralInformationStepContent';
-import LPFinancialsStepContentComponent from './LPFinancialsStepContent';
-import KPIAndIRRStepContentComponent from './KPIAndIRRStepContent';
-import CommitmentsStepContentComponent from './CommitmentsStepContent';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../../redux/slices/rootSlice';
+import GeneralInformationStepContentComponent from './GeneralInformationStepContent';
+import CommitmentsStepContentComponent from './CommitmentsStepContent';
+import FundFinancialsStepContentComponent from './FundFinancialsStepContent';
+import KPIAndIRRStepContentComponent from './KPIAndIRRStepContent';
 
 const CustomStepConnector = withStyles({
     alternativeLabel: {
@@ -49,19 +49,19 @@ const CustomStepIcon = (props: any) => {
 }
 
 const getSteps = () => {
-    return ['General Information', 'Commitments', 'LP Financials', 'KPIs & IRR'];
+    return ['General Information', 'Commitments', 'Fund Financials', 'KPIs & IRR'];
 };
 
-interface EditLPBasicContentProps {
+interface EditFundBasicContentProps {
     steps: string[],
     activeStep: number,
     setActiveStep: React.Dispatch<React.SetStateAction<number>>,
 }
 
-const LPBasicEditContentComponent = ({ steps, activeStep, setActiveStep }: EditLPBasicContentProps) => {
+const FundBasicEditContentComponent = ({ steps, activeStep, setActiveStep }: EditFundBasicContentProps) => {
     const theme = useTheme();
     const [activeLabel, setActiveLabel] = useState<string>(steps[0]);
-    const { selectedLP } = useSelector((state: RootState) => state.lps);
+    const { selectedFund } = useSelector((state: RootState) => state.funds);
 
     /**
      * Changes the current active step
@@ -92,32 +92,15 @@ const LPBasicEditContentComponent = ({ steps, activeStep, setActiveStep }: EditL
                 </Stepper>
             </Grid>
             <Grid item xs={9} sx={{ minWidth: '450px', marginLeft: '2.3em' }}>
-                {activeStep === 0 ? <GeneralInformationStepContentComponent selectedLP={selectedLP} />
+                {activeStep === 0 ? <GeneralInformationStepContentComponent selectedFund={selectedFund} />
                     : activeStep === 1
-                        ? <CommitmentsStepContentComponent selectedLP={selectedLP} />
+                        ? <CommitmentsStepContentComponent selectedFund={selectedFund} />
                         : activeStep === 2
-                            ? <LPFinancialsStepContentComponent selectedLP={selectedLP} />
-                            : <KPIAndIRRStepContentComponent selectedLP={selectedLP} />}
+                            ? <FundFinancialsStepContentComponent selectedFund={selectedFund} />
+                            : <KPIAndIRRStepContentComponent selectedFund={selectedFund} />}
             </Grid>
         </Grid>
     );
 };
 
-export default LPBasicEditContentComponent;
-
-
-{/* <Stepper orientation="vertical" activeStep={activeStep}>
-                    {steps.map((label, index) => (
-                        <Step key={label}>
-                            <StepLabel StepIconComponent={CustomStepIcon} onClick={() => handleSetActiveStep(label)}>
-                                <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                                    {label}
-                                </div>
-                            </StepLabel>
-                            <StepContent  sx={{ mt: 4, ml: 4 }}>
-
-                            </StepContent>
-
-                        </Step>
-                    ))}
-                </Stepper> */}
+export default FundBasicEditContentComponent;

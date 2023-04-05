@@ -28,7 +28,9 @@ export interface LP {
     avgDealsAvailable?: number,
     capAvailable?: number,
     dateTappedOut?: string,
-    kpis?: KPI
+    kpis?: KPI,
+    city?: string,
+    postalCode?: string
 }
 
 export interface TerminationFundLP {
@@ -137,14 +139,14 @@ export interface LPPCOInvestmentsRequest {
 }
 
 
-export interface NewLP{
-    name?:string,
-    shortName?:string,
-    address?:string,
-    city?:string,
-    postalCode?:string|number,
-    country?:string,
-    type?:string,
-    baseCapital?:number,
-    website?:string
+export interface NewLP {
+    name?: string,
+    shortName?: string,
+    address?: string,
+    city?: string,
+    postalCode?: string | number,
+    country?: string,
+    type?: string,
+    baseCapital?: number,
+    website?: string
 }

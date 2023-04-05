@@ -3,12 +3,11 @@ import { useState } from 'react';
 import { withStyles } from '@mui/styles';
 import { useTheme } from "@mui/material/styles";
 import { Check } from '@mui/icons-material';
-import GeneralInformationStepContentComponent from './GeneralInformationStepContent';
-import LPFinancialsStepContentComponent from './LPFinancialsStepContent';
-import KPIAndIRRStepContentComponent from './KPIAndIRRStepContent';
-import CommitmentsStepContentComponent from './CommitmentsStepContent';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../../redux/slices/rootSlice';
+import GeneralInformationStepContentComponent from './GeneralInformationStepContent';
+import InvestmentsStepContentComponent from './InvestmentsStepContent';
+import PCOFinancialsStepContentComponent from './PCOFinancialsStepContent';
 
 const CustomStepConnector = withStyles({
     alternativeLabel: {
@@ -48,20 +47,16 @@ const CustomStepIcon = (props: any) => {
     );
 }
 
-const getSteps = () => {
-    return ['General Information', 'Commitments', 'LP Financials', 'KPIs & IRR'];
-};
-
-interface EditLPBasicContentProps {
+interface EditFundBasicContentProps {
     steps: string[],
     activeStep: number,
     setActiveStep: React.Dispatch<React.SetStateAction<number>>,
 }
 
-const LPBasicEditContentComponent = ({ steps, activeStep, setActiveStep }: EditLPBasicContentProps) => {
+const PCOBasicEditContentComponent = ({ steps, activeStep, setActiveStep }: EditFundBasicContentProps) => {
     const theme = useTheme();
     const [activeLabel, setActiveLabel] = useState<string>(steps[0]);
-    const { selectedLP } = useSelector((state: RootState) => state.lps);
+    const { selectedPCO } = useSelector((state: RootState) => state.pcos);
 
     /**
      * Changes the current active step
@@ -92,32 +87,13 @@ const LPBasicEditContentComponent = ({ steps, activeStep, setActiveStep }: EditL
                 </Stepper>
             </Grid>
             <Grid item xs={9} sx={{ minWidth: '450px', marginLeft: '2.3em' }}>
-                {activeStep === 0 ? <GeneralInformationStepContentComponent selectedLP={selectedLP} />
+                {activeStep === 0 ? <GeneralInformationStepContentComponent selectedPCO={selectedPCO} />
                     : activeStep === 1
-                        ? <CommitmentsStepContentComponent selectedLP={selectedLP} />
-                        : activeStep === 2
-                            ? <LPFinancialsStepContentComponent selectedLP={selectedLP} />
-                            : <KPIAndIRRStepContentComponent selectedLP={selectedLP} />}
+                        ? <InvestmentsStepContentComponent selectedPCO={selectedPCO} />
+                        : <PCOFinancialsStepContentComponent selectedPCO={selectedPCO} />}
             </Grid>
         </Grid>
     );
 };
 
-export default LPBasicEditContentComponent;
-
-
-{/* <Stepper orientation="vertical" activeStep={activeStep}>
-                    {steps.map((label, index) => (
-                        <Step key={label}>
-                            <StepLabel StepIconComponent={CustomStepIcon} onClick={() => handleSetActiveStep(label)}>
-                                <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-                                    {label}
-                                </div>
-                            </StepLabel>
-                            <StepContent  sx={{ mt: 4, ml: 4 }}>
-
-                            </StepContent>
-
-                        </Step>
-                    ))}
-                </Stepper> */}
+export default PCOBasicEditContentComponent;

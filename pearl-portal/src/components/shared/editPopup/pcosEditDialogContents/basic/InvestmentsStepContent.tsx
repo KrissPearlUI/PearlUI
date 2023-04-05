@@ -10,10 +10,10 @@ import { darken, useTheme } from "@mui/material/styles";
 import { DatePicker } from '@mui/x-date-pickers';
 import { minHeight } from '@mui/system';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
-import LPCommitmentsStepContentTable from './LPCommitmentsStepContentTable';
-import LPFundsStepContentTable from './LPFundsStepContentTable';
-import LPPCOsStepContentTable from './LPPCOsStepContentTable';
-import LPExitsStepContentTable from './LPExitsStepContentTable';
+import { PCOSummary } from '../../../../../models/pcos/pcoModels';
+import PCOInvestmentsStepContentTableComponent from './PCOInvestmentsStepContentTable';
+import PCOLPsStepContentTable from './PCOLPSStepContentTaple';
+import PCOFundsStepContentTable from './PCOFundsStepContentTable';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -144,27 +144,24 @@ const LPTypes = [
     "Institutional",
 ];
 
-interface CommitmentsStepContentProps {
-    selectedLP: LP | null
+interface InvestmentsStepContentProps {
+    selectedPCO: PCOSummary | null
 }
 
-const CommitmentsStepContentComponent = ({ selectedLP }: CommitmentsStepContentProps) => {
+const InvestmentsStepContentComponent = ({ selectedPCO }: InvestmentsStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
-    const [commitmentsExpanded, setCommitmentsExpanded] = useState<boolean>(false);
+    const [investmentsExpanded, setInvestmentsExpanded] = useState<boolean>(false);
     const [fundsExpanded, setFundsExpanded] = useState<boolean>(false);
-    const [pcosExpanded, setPCOsExpanded] = useState<boolean>(false);
-    const [exitsExpanded, setExitsExpanded] = useState<boolean>(false);
+    const [lpsExpanded, setLPsExpanded] = useState<boolean>(false);
 
     const handleAccordionExp = (expanded: boolean, cardName: string) => {
-        if (cardName === 'commitments') {
-            setCommitmentsExpanded(!commitmentsExpanded);
+        if (cardName === 'investments') {
+            setInvestmentsExpanded(!investmentsExpanded);
         } else if (cardName === 'funds') {
             setFundsExpanded(!fundsExpanded);
-        } else if (cardName === 'pcos') {
-            setPCOsExpanded(!pcosExpanded);
         } else {
-            setExitsExpanded(!exitsExpanded);
+            setLPsExpanded(!lpsExpanded);
         }
     };
 
@@ -174,9 +171,9 @@ const CommitmentsStepContentComponent = ({ selectedLP }: CommitmentsStepContentP
                 <Grid item xs={10}>
                     <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '390px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                         <Accordion
-                            key={`card-commitments`}
-                            expanded={commitmentsExpanded}
-                            onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'commitments')}
+                            key={`card-investments`}
+                            expanded={investmentsExpanded}
+                            onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'investments')}
                             sx={{ marginBottom: '0.5em', backgroundColor: theme.palette.background.paper, width: '390px', borderLeft: `1px solid rgba(133, 133, 133,0.5)`, borderRight: `1px solid rgba(133, 133, 133,0.5)`, borderTop: `1px solid rgba(133, 133, 133,0.5)`, borderBottom: 'none' }}
                         >
                             <AccordionSummary
@@ -199,10 +196,10 @@ const CommitmentsStepContentComponent = ({ selectedLP }: CommitmentsStepContentP
                                 <Grid container
                                     sx={{ display: 'flex', flex: 1, height: '100%', width: '100%', alignItems: 'center' }}>
                                     <Grid container>
-                                        <Typography variant='body1' sx={{ color: theme.palette.text.primary, fontWeight: 600 }}>Commitments</Typography>
+                                        <Typography variant='body1' sx={{ color: theme.palette.text.primary, fontWeight: 600 }}>Investments</Typography>
                                     </Grid>
                                     <Grid container>
-                                        <Typography variant='body2' sx={{ color: theme.palette.mode === 'light' ? 'rgba(69, 69, 69, 0.7)' : darken(theme.palette.text.primary, 0.4), fontWeight: 400, fontSize: '14px' }}>{`${selectedLP?.commitments?.length} Commitments`}</Typography>
+                                        <Typography variant='body2' sx={{ color: theme.palette.mode === 'light' ? 'rgba(69, 69, 69, 0.7)' : darken(theme.palette.text.primary, 0.4), fontWeight: 400, fontSize: '14px' }}>{`${selectedPCO?.numOfLPS} Investments`}</Typography>
                                     </Grid>
                                 </Grid>
                             </AccordionSummary>
@@ -211,13 +208,13 @@ const CommitmentsStepContentComponent = ({ selectedLP }: CommitmentsStepContentP
                                     backgroundColor: theme.palette.background.paper,
                                     width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
                                 }}>
-                                {commitmentsExpanded && <LPCommitmentsStepContentTable />}
+                                {investmentsExpanded && <PCOInvestmentsStepContentTableComponent />}
                             </AccordionDetails>
                         </Accordion>
                     </Box>
                 </Grid>
                 <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'end', flex: 1, marginLeft: '2em', alignItems: 'start', marginTop: '0.6em' }}>
-                    <Tooltip title={"Add a new commitment"}>
+                    <Tooltip title={"Add a new investment"}>
                         <Box
                             sx={{
                                 width: '30px',
@@ -257,6 +254,78 @@ const CommitmentsStepContentComponent = ({ selectedLP }: CommitmentsStepContentP
                 <Grid item xs={10}>
                     <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '390px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                         <Accordion
+                            key={`card-lps`}
+                            expanded={lpsExpanded}
+                            onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'lps')}
+                            sx={{ marginBottom: '0.5em', backgroundColor: theme.palette.background.paper, width: '390px', borderLeft: `1px solid rgba(133, 133, 133,0.5)`, borderRight: `1px solid rgba(133, 133, 133,0.5)`, borderTop: `1px solid rgba(133, 133, 133,0.5)`, borderBottom: 'none' }}
+                        >
+                            <AccordionSummary
+                                sx={{ height: '40px' }}
+                                /* sx={{
+                                    'cursor': 'pointer',
+                                    'width': '100%',
+                                    'minHeight': '68px !important',
+                                    'paddingTop': 0,
+                                    'backgroundColor': theme.palette.background.paper,
+                                   
+                                }} */
+                                expandIcon={
+                                    <IconButton>
+                                        <ExpandMoreIcon
+                                            sx={{ pointerEvents: 'auto', cursor: 'pointer' }} />
+                                    </IconButton>
+                                }
+                            >
+                                <Grid container
+                                    sx={{ display: 'flex', flex: 1, height: '100%', width: '100%', alignItems: 'center' }}>
+                                    <Grid container>
+                                        <Typography variant='body1' sx={{ color: theme.palette.text.primary, fontWeight: 600 }}>LPs</Typography>
+                                    </Grid>
+                                    <Grid container>
+                                        <Typography variant='body2' sx={{ color: theme.palette.mode === 'light' ? 'rgba(69, 69, 69, 0.7)' : darken(theme.palette.text.primary, 0.4), fontWeight: 400, fontSize: '14px' }}>{`${selectedPCO?.numOfLPS} LPs`}</Typography>
+                                    </Grid>
+                                </Grid>
+                            </AccordionSummary>
+                            <AccordionDetails
+                                sx={{
+                                    backgroundColor: theme.palette.background.paper,
+                                    width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
+                                }}>
+                                {lpsExpanded && <PCOLPsStepContentTable />}
+                            </AccordionDetails>
+                        </Accordion>
+                    </Box>
+                </Grid>
+                <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'end', flex: 1, marginLeft: '2em', alignItems: 'start', marginTop: '0.6em' }}>
+                    <Tooltip title={"Add a new investment from LP"}>
+                        <Box
+                            sx={{
+                                width: '30px',
+                                height: '30px',
+                                bgcolor: theme.palette.primary.main,
+                                color: 'white',
+                                borderRadius: '50%',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.4)',
+                                transition: 'box-shadow 0.2s ease-in-out',
+                                '&:hover': {
+                                    cursor: 'pointer',
+                                    boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.6)',
+                                    backgroundColor: darken(theme.palette.primary.main, 0.2)
+                                }
+                            }}
+                        >
+                            <AddRoundedIcon fontSize='small' sx={{ height: 20, width: 20 }} />
+                        </Box>
+                    </Tooltip>
+                </Grid>
+            </Grid>
+            <Grid item xs={12} md={12} sx={{ display: 'flex', justifyContent: 'space-between', flex: 1, width: '100%', flexDirection: 'row', minWidth: '400px' }}>
+                <Grid item xs={10}>
+                    <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '390px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                        <Accordion
                             key={`card-funds`}
                             expanded={fundsExpanded}
                             onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'funds')}
@@ -285,7 +354,7 @@ const CommitmentsStepContentComponent = ({ selectedLP }: CommitmentsStepContentP
                                         <Typography variant='body1' sx={{ color: theme.palette.text.primary, fontWeight: 600 }}>Funds</Typography>
                                     </Grid>
                                     <Grid container>
-                                        <Typography variant='body2' sx={{ color: theme.palette.mode === 'light' ? 'rgba(69, 69, 69, 0.7)' : darken(theme.palette.text.primary, 0.4), fontWeight: 400, fontSize: '14px' }}>{`${selectedLP?.funds?.length} Funds`}</Typography>
+                                        <Typography variant='body2' sx={{ color: theme.palette.mode === 'light' ? 'rgba(69, 69, 69, 0.7)' : darken(theme.palette.text.primary, 0.4), fontWeight: 400, fontSize: '14px' }}>{`${selectedPCO?.numOfFunds} Funds`}</Typography>
                                     </Grid>
                                 </Grid>
                             </AccordionSummary>
@@ -294,157 +363,13 @@ const CommitmentsStepContentComponent = ({ selectedLP }: CommitmentsStepContentP
                                     backgroundColor: theme.palette.background.paper,
                                     width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
                                 }}>
-                                {fundsExpanded && <LPFundsStepContentTable />}
+                                {fundsExpanded && <PCOFundsStepContentTable />}
                             </AccordionDetails>
                         </Accordion>
                     </Box>
                 </Grid>
                 <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'end', flex: 1, marginLeft: '2em', alignItems: 'start', marginTop: '0.6em' }}>
-                    <Tooltip title={"Add a new commitment to a fund"}>
-                        <Box
-                            sx={{
-                                width: '30px',
-                                height: '30px',
-                                bgcolor: theme.palette.primary.main,
-                                color: 'white',
-                                borderRadius: '50%',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.4)',
-                                transition: 'box-shadow 0.2s ease-in-out',
-                                '&:hover': {
-                                    cursor: 'pointer',
-                                    boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.6)',
-                                    backgroundColor: darken(theme.palette.primary.main, 0.2)
-                                }
-                            }}
-                        >
-                            <AddRoundedIcon fontSize='small' sx={{ height: 20, width: 20 }} />
-                        </Box>
-                    </Tooltip>
-                </Grid>
-            </Grid>
-            <Grid item xs={12} md={12} sx={{ display: 'flex', justifyContent: 'space-between', flex: 1, width: '100%', flexDirection: 'row', minWidth: '400px' }}>
-                <Grid item xs={10}>
-                    <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '390px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                        <Accordion
-                            key={`card-pcos`}
-                            expanded={pcosExpanded}
-                            onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'pcos')}
-                            sx={{ marginBottom: '0.5em', backgroundColor: theme.palette.background.paper, width: '390px', borderLeft: `1px solid rgba(133, 133, 133,0.5)`, borderRight: `1px solid rgba(133, 133, 133,0.5)`, borderTop: `1px solid rgba(133, 133, 133,0.5)`, borderBottom: 'none' }}
-                        >
-                            <AccordionSummary
-                                sx={{ height: '40px' }}
-                                /* sx={{
-                                    'cursor': 'pointer',
-                                    'width': '100%',
-                                    'minHeight': '68px !important',
-                                    'paddingTop': 0,
-                                    'backgroundColor': theme.palette.background.paper,
-                                   
-                                }} */
-                                expandIcon={
-                                    <IconButton>
-                                        <ExpandMoreIcon
-                                            sx={{ pointerEvents: 'auto', cursor: 'pointer' }} />
-                                    </IconButton>
-                                }
-                            >
-                                <Grid container
-                                    sx={{ display: 'flex', flex: 1, height: '100%', width: '100%', alignItems: 'center' }}>
-                                    <Grid container>
-                                        <Typography variant='body1' sx={{ color: theme.palette.text.primary, fontWeight: 600 }}>PCOs</Typography>
-                                    </Grid>
-                                    <Grid container>
-                                        <Typography variant='body2' sx={{ color: theme.palette.mode === 'light' ? 'rgba(69, 69, 69, 0.7)' : darken(theme.palette.text.primary, 0.4), fontWeight: 400, fontSize: '14px' }}>{`${selectedLP?.pcos?.length} PCOs`}</Typography>
-                                    </Grid>
-                                </Grid>
-                            </AccordionSummary>
-                            <AccordionDetails
-                                sx={{
-                                    backgroundColor: theme.palette.background.paper,
-                                    width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
-                                }}>
-                                {pcosExpanded && <LPPCOsStepContentTable />}
-                            </AccordionDetails>
-                        </Accordion>
-                    </Box>
-                </Grid>
-                <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'end', flex: 1, marginLeft: '2em', alignItems: 'start', marginTop: '0.6em' }}>
-                    <Tooltip title={"Add a new investment to a PCO"}>
-                        <Box
-                            sx={{
-                                width: '30px',
-                                height: '30px',
-                                bgcolor: theme.palette.primary.main,
-                                color: 'white',
-                                borderRadius: '50%',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.4)',
-                                transition: 'box-shadow 0.2s ease-in-out',
-                                '&:hover': {
-                                    cursor: 'pointer',
-                                    boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.6)',
-                                    backgroundColor: darken(theme.palette.primary.main, 0.2)
-                                }
-                            }}
-                        >
-                            <AddRoundedIcon fontSize='small' sx={{ height: 20, width: 20 }} />
-                        </Box>
-                    </Tooltip>
-                </Grid>
-            </Grid>
-            <Grid item xs={12} md={12} sx={{ display: 'flex', justifyContent: 'space-between', flex: 1, width: '100%', flexDirection: 'row', minWidth: '400px' }}>
-                <Grid item xs={10}>
-                    <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '390px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                        <Accordion
-                            key={`card-exits`}
-                            expanded={exitsExpanded}
-                            onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'exits')}
-                            sx={{ marginBottom: '0.5em', backgroundColor: theme.palette.background.paper, width: '390px', borderLeft: `1px solid rgba(133, 133, 133,0.5)`, borderRight: `1px solid rgba(133, 133, 133,0.5)`, borderTop: `1px solid rgba(133, 133, 133,0.5)`, borderBottom: 'none' }}
-                        >
-                            <AccordionSummary
-                                sx={{ height: '40px' }}
-                                /* sx={{
-                                    'cursor': 'pointer',
-                                    'width': '100%',
-                                    'minHeight': '68px !important',
-                                    'paddingTop': 0,
-                                    'backgroundColor': theme.palette.background.paper,
-                                   
-                                }} */
-                                expandIcon={
-                                    <IconButton>
-                                        <ExpandMoreIcon
-                                            sx={{ pointerEvents: 'auto', cursor: 'pointer' }} />
-                                    </IconButton>
-                                }
-                            >
-                                <Grid container
-                                    sx={{ display: 'flex', flex: 1, height: '100%', width: '100%', alignItems: 'center' }}>
-                                    <Grid container>
-                                        <Typography variant='body1' sx={{ color: theme.palette.text.primary, fontWeight: 600 }}>Exits</Typography>
-                                    </Grid>
-                                    <Grid container>
-                                        <Typography variant='body2' sx={{ color: theme.palette.mode === 'light' ? 'rgba(69, 69, 69, 0.7)' : darken(theme.palette.text.primary, 0.4), fontWeight: 400, fontSize: '14px' }}>{`${selectedLP?.exits?.length} Exits`}</Typography>
-                                    </Grid>
-                                </Grid>
-                            </AccordionSummary>
-                            <AccordionDetails
-                                sx={{
-                                    backgroundColor: theme.palette.background.paper,
-                                    width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
-                                }}>
-                                {exitsExpanded && <LPExitsStepContentTable />}
-                            </AccordionDetails>
-                        </Accordion>
-                    </Box>
-                </Grid>
-                <Grid item xs={2} sx={{ display: 'flex', justifyContent: 'end', flex: 1, marginLeft: '2em', alignItems: 'start', marginTop: '0.6em' }}>
-                    <Tooltip title={"Add a new exit"}>
+                    <Tooltip title={"Add a new investment from Fund"}>
                         <Box
                             sx={{
                                 width: '30px',
@@ -473,4 +398,4 @@ const CommitmentsStepContentComponent = ({ selectedLP }: CommitmentsStepContentP
     );
 };
 
-export default CommitmentsStepContentComponent;
+export default InvestmentsStepContentComponent;

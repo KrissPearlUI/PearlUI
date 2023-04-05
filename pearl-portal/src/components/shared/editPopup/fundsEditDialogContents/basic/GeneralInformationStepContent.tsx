@@ -9,6 +9,7 @@ import { LP, NewLP } from '../../../../../models/lps/lpModels';
 import { useTheme } from "@mui/material/styles";
 import { DatePicker } from '@mui/x-date-pickers';
 import moment from 'moment';
+import { FundSummary } from '../../../../../models/funds/fundModels';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -132,34 +133,32 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
-const LPTypes = [
-    "Corporate",
-    "General Partner",
-    "Individual",
-    "Institutional",
+
+const FundTypes = [
+    "Flex-term",
+    "General"
 ];
 
 interface GeneralInformationStepContentProps {
-    selectedLP: LP | null
+    selectedFund: FundSummary | null
 }
 
-const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformationStepContentProps) => {
+const GeneralInformationStepContentComponent = ({ selectedFund }: GeneralInformationStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
     const autocompleteInputClasses = autocompleteInputStyles();
-    const [domicile, setDomicile] = useState<string | null>(selectedLP?.country ?? '');
-    const [mainContact, setmainContact] = useState<string | null>(selectedLP?.mainContact ?? '');
-    const [relationshipPartner, setRelationshipPartner] = useState<string>(selectedLP?.relationshipPartner ?? '');
-    const [relationshipSS, setRelationshipSS] = useState<string>(selectedLP?.relationshipSS ?? '');
-    const [address, setAddress] = useState<string>(selectedLP?.address ? selectedLP.address?.split(',')[0] : '');
-    const [city, setCity] = useState<string>(selectedLP?.city ? selectedLP.city : selectedLP?.address ? selectedLP.address?.split(',')[1].split(' ')[2] : '');
-    const [postalCode, setPostalCode] = useState<string | number>(selectedLP?.postalCode ? selectedLP.postalCode : selectedLP?.address ? selectedLP.address?.split(',')[1].split(' ')[1] : '');
-    const [firstInvestment, setFirstInvestment] = useState<string>(selectedLP?.firstInvestment ?? '');
-    const [website, setWebsite] = useState<string>(selectedLP?.website ?? '');
-    const [type, setType] = useState<string | null>(selectedLP?.type ?? '');
+    const [domicile, setDomicile] = useState<string | null>(selectedFund?.country ?? '');
+    const [investmentComitee, setInvestmentComitee] = useState<string | null>(selectedFund?.investmentComitee ?? '');
+    const [finalClosingDate, setFinalClosingDate] = useState<string>(selectedFund?.finalClosingDate ?? '');
+    const [currency, setCurrency] = useState<string>(selectedFund?.currency ?? '');
+    const [address, setAddress] = useState<string>(selectedFund?.address ? selectedFund.address?.split(',')[0] : '');
+    const [aifm, setAIFM] = useState<string | number>(selectedFund?.aifm ?? '');
+    const [firstClosingDate, setFirstClosingDate] = useState<string>(selectedFund?.vintage ?? '');
+    const [aifmContact, setAIFMContact] = useState<string>(selectedFund?.aifmContact ?? '');
+    const [type, setType] = useState<string | null>(selectedFund?.type ?? '');
 
     return (
-        <Grid container spacing={2} sx={{ flex: 1, width: '100%', marginTop:'0.2em' }}>
+        <Grid container spacing={2} sx={{ flex: 1, width: '100%', marginTop: '0.2em' }}>
             <Grid item>
                 <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <TextField
@@ -200,49 +199,74 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                     />
                 </Box>
             </Grid>
-            <Grid container item sx={{ display: 'flex', justifyContent: 'space-between', flex: 1 }} spacing={4}>
-                <Grid item xs={8}>
-                    <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '280px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                        <TextField
-                            className={classes.textFildsSmall}
-                            sx={{ width: '280px' }}
-                            variant="outlined"
-                            size="small"
-                            label='City'
-                            aria-label="city"
-                            value={city}
-                            inputProps={{
-                                style: { height: '1em' },
-                            }}
-                            InputLabelProps={{
-                                sx: {
-                                    fontSize: 'small'
-                                }
-                            }}
-                        />
-                    </Box>
-                </Grid>
-                <Grid item xs={4}>
-                    <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, minWidth: '130px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                        <TextField
-                            className={classes.textFildsSmall}
-                            variant="outlined"
-                            sx={{ minWidth: '130px' }}
-                            size="small"
-                            aria-label="city"
-                            label='Postal Code'
-                            value={postalCode}
-                            inputProps={{
-                                style: { height: '1em' },
-                            }}
-                            InputLabelProps={{
-                                sx: {
-                                    fontSize: 'small'
-                                }
-                            }}
-                        />
-                    </Box>
-                </Grid>
+            <Grid item>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                    <TextField
+                        className={classes.searchBox}
+                        variant="outlined"
+                        size="small"
+                        label='Investment Comittee'
+                        aria-label="name"
+                        value={investmentComitee}
+                        inputProps={{
+                            style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
+                        }}
+                    />
+                </Box>
+            </Grid>
+            <Divider sx={{ marginTop: '1.5em', marginBottom: '0.5em', marginLeft: '1em', minWidth: '440px' }} />
+            <Grid item >
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '440px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                    <DatePicker
+                        className={classes.datePickers}
+                        inputFormat={'dd/MM/yyyy'}
+                        disableFuture
+                        value={firstClosingDate ? moment(new Date(firstClosingDate)).format('DD MMM YYYY') : null}
+                        disableHighlightToday
+                        onChange={() => { return; }}
+                        renderInput={(props: any) =>
+                            <TextField {...props}
+                                label={'First Closing Date'}
+                                variant={'outlined'}
+                                size={'small'}
+                                className={classes.textField}
+                                InputLabelProps={{
+                                    sx: {
+                                        fontSize: 'small'
+                                    }
+                                }}
+                            />}
+                    />
+                </Box>
+            </Grid>
+            <Grid item >
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '440px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                    <DatePicker
+                        className={classes.datePickers}
+                        inputFormat={'dd/MM/yyyy'}
+                        disableFuture
+                        value={finalClosingDate ? moment(new Date(finalClosingDate)).format('DD MMM YYYY') : null}
+                        disableHighlightToday
+                        onChange={() => { return; }}
+                        renderInput={(props: any) =>
+                            <TextField {...props}
+                                label={'Final Closing Date'}
+                                variant={'outlined'}
+                                size={'small'}
+                                className={classes.textField}
+                                InputLabelProps={{
+                                    sx: {
+                                        fontSize: 'small'
+                                    }
+                                }}
+                            />}
+                    />
+                </Box>
             </Grid>
             <Grid item>
                 <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
@@ -251,8 +275,8 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                         variant="outlined"
                         size="small"
                         aria-label="website"
-                        label='Website'
-                        value={website}
+                        label='Currency'
+                        value={currency}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -267,30 +291,6 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
             <Divider sx={{ marginTop: '1.5em', marginBottom: '0.5em', marginLeft: '1em', minWidth: '440px' }} />
             <Grid item>
                 <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '440px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                    <DatePicker
-                        className={classes.datePickers}
-                        inputFormat={'dd/MM/yyyy'}
-                        disableFuture
-                        value={firstInvestment ? moment(new Date(firstInvestment)).format('DD MMM YYYY') : null}
-                        disableHighlightToday
-                        onChange={() => { return; }}
-                        renderInput={(props: any) =>
-                            <TextField {...props}
-                                label={'First Investment'}
-                                variant={'outlined'}
-                                size={'small'}
-                                className={classes.textField}
-                                InputLabelProps={{
-                                    sx: {
-                                        fontSize: 'small'
-                                    }
-                                }}
-                            />}
-                    />
-                </Box>
-            </Grid>
-            <Grid item>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '440px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <Autocomplete
                         id={'fundsAutocomplete'}
                         popupIcon={<ExpandMoreIcon />}
@@ -302,7 +302,7 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                         sx={{ marginRight: '1em', width: '440px' }}
                         isOptionEqualToValue={(option, value) => option === value}
                         value={type ?? ''}
-                        options={LPTypes.slice()}
+                        options={FundTypes.slice()}
                         renderInput={(params: AutocompleteRenderInputParams) => {
                             params.InputProps.className = autocompleteInputClasses.textInput;
                             return <TextField {...params}
@@ -321,7 +321,6 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                     />
                 </Box>
             </Grid>
-            <Divider sx={{ marginTop: '1.5em', marginBottom: '0.5em', marginLeft: '1em', minWidth: '440px' }} />
             <Grid item>
                 <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <TextField
@@ -329,8 +328,8 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                         variant="outlined"
                         size="small"
                         aria-label="baseCapital"
-                        label='Main Contact'
-                        value={mainContact}
+                        label='AIFM'
+                        value={aifm}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -349,28 +348,8 @@ const GeneralInformationStepContentComponent = ({ selectedLP }: GeneralInformati
                         variant="outlined"
                         size="small"
                         aria-label="website"
-                        label='Relationship Partner'
-                        value={relationshipPartner}
-                        inputProps={{
-                            style: { height: '1em' },
-                        }}
-                        InputLabelProps={{
-                            sx: {
-                                fontSize: 'small'
-                            }
-                        }}
-                    />
-                </Box>
-            </Grid>
-            <Grid item>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                    <TextField
-                        className={classes.searchBox}
-                        variant="outlined"
-                        size="small"
-                        aria-label="website"
-                        label='Relationship SS'
-                        value={relationshipSS}
+                        label='AIFM Contact'
+                        value={aifmContact}
                         inputProps={{
                             style: { height: '1em' },
                         }}

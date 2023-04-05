@@ -5,9 +5,10 @@ import { createStyles, makeStyles } from '@mui/styles';
 import { GridApi } from 'ag-grid-community';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { CountryList } from '../../../../../models/shared/sharedModels';
-import { NewLP } from '../../../../../models/lps/lpModels';
+import { LP, NewLP } from '../../../../../models/lps/lpModels';
 import { useTheme } from "@mui/material/styles";
 import { DatePicker } from '@mui/x-date-pickers';
+import { amountValueFormatter } from '../../../../../helpers/app';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -50,7 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
             alignSelf: 'center',
         },
         searchBox: {
-            width: '435px',
+            width: '440px',
             marginRight: '1em',
             backgroundColor: theme.palette.background.paper,
             color: theme.palette.text.primary,
@@ -138,22 +139,28 @@ const LPTypes = [
     "Institutional",
 ];
 
-const LPFinancialsStepContentComponent = () => {
+interface LPFinancialsStepContentProps {
+    selectedLP: LP | null
+}
+
+const LPFinancialsStepContentComponent = ({ selectedLP }: LPFinancialsStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
     const autocompleteInputClasses = autocompleteInputStyles();
-    const [country, setCountry] = useState<string | null>('');
-    const [type, setType] = useState<string | null>('');
-    const [name, setName] = useState<string>('');
-    const [shortName, setShortName] = useState<string>('');
-    const [address, setAddress] = useState<string>('');
-    const [city, setCity] = useState<string>('');
-    const [postalCode, setPostalCode] = useState<string | number>('');
-    const [baseCapital, setBaseCapital] = useState<number>(0);
-    const [website, setWebsite] = useState<string>('');
+    const [managementFee, setManagementFee] = useState<number | null>(selectedLP?.fees?.filter(x => x.feeType === 'Management Fee')[0] ? selectedLP?.fees?.filter(x => x.feeType === 'Management Fee')[0].amount : null);
+    const [capitalPaidIn, setCapitalPaidIn] = useState<number | null>(selectedLP?.capPaidIn ?? null);
+    const [capitalDistributed, setCapitalDistributed] = useState<number | null>(selectedLP?.totalDistributions ?? null);
+    const [capitalInvested, setCapitalinvested] = useState<number | null>(selectedLP?.totalInvestments ?? null);
+    const [recyclingReserves, setRecyclingReserves] = useState<number | null>(selectedLP?.fees?.filter(x => x.feeType === 'Recycling Reserves')[0] ? selectedLP?.fees?.filter(x => x.feeType === 'Recycling Reserves')[0].amount : null);
+    const [availablecapital, setAvailableCapital] = useState<number | null>(selectedLP?.capAvailable ?? null);
+    const [reserved, setReserved] = useState<number | null>(selectedLP?.reserved ?? null);
+    const [dryPowder, setDryPowder] = useState<number | null>(selectedLP?.dryPowder ?? null);
+    const [numAvgDeals, setNumAvgDeals] = useState<number | null>(selectedLP?.avgDealsAvailable ?? null);
+    const [tappedOut, setTappedOut] = useState<boolean>(selectedLP?.tappedOot ?? false);
+    const [estimatedUntilTappedOut, setEstimatedUntilTapedOut] = useState<string>(selectedLP?.dateTappedOut ?? '');
 
     return (
-        <Grid container spacing={2} sx={{ flex: 1, width: '100%' }}>
+        <Grid container spacing={2} sx={{ flex: 1, width: '100%', marginTop: '0.2em' }}>
             <Grid item>
                 <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <TextField
@@ -162,9 +169,14 @@ const LPFinancialsStepContentComponent = () => {
                         size="small"
                         label='Management Fees'
                         aria-label="name"
-                        value={name}
+                        value={managementFee? amountValueFormatter(managementFee,''):null}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
@@ -177,9 +189,14 @@ const LPFinancialsStepContentComponent = () => {
                         size="small"
                         label='Capital Paid In'
                         aria-label="name"
-                        value={shortName}
+                        value={capitalPaidIn? amountValueFormatter(capitalPaidIn,''):null}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
@@ -192,9 +209,14 @@ const LPFinancialsStepContentComponent = () => {
                         size="small"
                         aria-label="website"
                         label='Capital Distributed'
-                        value={website}
+                        value={capitalDistributed? amountValueFormatter(capitalDistributed,''):null}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
@@ -207,14 +229,19 @@ const LPFinancialsStepContentComponent = () => {
                         size="small"
                         label='Capital Invested'
                         aria-label="name"
-                        value={shortName}
+                        value={capitalInvested? amountValueFormatter(capitalInvested,''):null}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
             </Grid>
-            <Divider sx={{ width: '100%',  marginTop: '0.8em', marginBottom: 0, marginLeft: '1em', minWidth: '435px' }} />
+            <Divider sx={{ marginTop: '0.8em', marginBottom: 0, marginLeft: '1em', minWidth: '440px' }} />
             <Grid item>
                 <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <TextField
@@ -223,9 +250,14 @@ const LPFinancialsStepContentComponent = () => {
                         size="small"
                         aria-label="website"
                         label='Recycling Reserves'
-                        value={website}
+                        value={recyclingReserves? amountValueFormatter(recyclingReserves,''):null}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
@@ -238,9 +270,14 @@ const LPFinancialsStepContentComponent = () => {
                         size="small"
                         aria-label="website"
                         label='Available Capital to be called'
-                        value={website}
+                        value={availablecapital? amountValueFormatter(availablecapital,''):null}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
@@ -253,9 +290,14 @@ const LPFinancialsStepContentComponent = () => {
                         size="small"
                         aria-label="website"
                         label='Reserved'
-                        value={website}
+                        value={reserved? amountValueFormatter(reserved,''):null}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
@@ -268,14 +310,19 @@ const LPFinancialsStepContentComponent = () => {
                         size="small"
                         aria-label="website"
                         label='Dry Powder'
-                        value={website}
+                        value={dryPowder? amountValueFormatter(dryPowder,''):null}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
             </Grid>
-            <Divider sx={{ width: '100%', marginTop: '0.8em', marginBottom: 0, marginLeft: '1em', minWidth: '435px' }} />
+            <Divider sx={{ marginTop: '0.8em', marginBottom: 0, marginLeft: '1em', minWidth: '440px' }} />
             <Grid item>
                 <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <TextField
@@ -284,8 +331,14 @@ const LPFinancialsStepContentComponent = () => {
                         size="small"
                         aria-label="baseCapital"
                         label='Num. of avg. deals available'
+                        value={numAvgDeals}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
@@ -300,25 +353,35 @@ const LPFinancialsStepContentComponent = () => {
                             size="small"
                             label='Tapped Out'
                             aria-label="city"
-                            value={city}
+                            value={tappedOut}
                             inputProps={{
                                 style: { height: '1em' },
+                            }}
+                            InputLabelProps={{
+                                sx: {
+                                    fontSize: 'small'
+                                }
                             }}
                         />
                     </Box>
                 </Grid>
                 <Grid item xs={8}>
-                    <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, minWidth: '300px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                    <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, minWidth: '290px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                         <TextField
                             className={classes.textFildsSmall}
                             variant="outlined"
-                            sx={{ minWidth: '300px' }}
+                            sx={{ minWidth: '290px' }}
                             size="small"
                             aria-label="city"
                             label='Estimated until tapped out'
-                            value={postalCode}
+                            value={estimatedUntilTappedOut}
                             inputProps={{
                                 style: { height: '1em' },
+                            }}
+                            InputLabelProps={{
+                                sx: {
+                                    fontSize: 'small'
+                                }
                             }}
                         />
                     </Box>

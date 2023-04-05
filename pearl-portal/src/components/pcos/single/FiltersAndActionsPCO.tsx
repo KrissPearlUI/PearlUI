@@ -90,13 +90,7 @@ const FiltersAndActionsPCOComponent = ({ selectedItem, handleButtonClick, addEdi
                         <AddButton pageName={addEditTooltip === 'transactions' ? 'Add New Transaction' : ''} />
                     </Grid>
                     <Grid item sx={{ marginRight: '0.5em' }} >
-                    <EditButton pageName={addEditTooltip === 'pcoBasic' ? 'Edit Basic Details' :
-                            addEditTooltip === 'commitments'
-                                ? 'Edit Commitment'
-                                : addEditTooltip === 'pcoPortfolio' ? 'Edit Portfolio'
-                                    : addEditTooltip === 'callsComponent' ? 'Edit Call'
-                                        : addEditTooltip === 'distributionComponent' ? 'Edit Distribution'
-                                            : 'Edit Transaction'} />
+                        <EditButton pageName={addEditTooltip === 'pcoBasic' ? 'Edit Basic Details' : 'Edit Transaction'} />
                     </Grid>
                     <Grid item >
                         <ExportButton pageName='singleFund' />

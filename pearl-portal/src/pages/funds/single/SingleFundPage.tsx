@@ -19,6 +19,7 @@ import { fetchFunds } from '../../../redux/thunks/fundThunk';
 import { AddDialogComponent } from '../../../components/shared/addPopup/AddPopupDialog';
 import { setSelectedLP } from '../../../redux/slices/lps/lpsSlice';
 import { setSelectedPCO } from '../../../redux/slices/pcos/pcosSlice';
+import { EditDialogComponent } from '../../../components/shared/editPopup/EditPopupDialog';
 
 const SingleFund = () => {
     const dispatch = useAppDispatch();
@@ -94,6 +95,18 @@ const SingleFund = () => {
                         : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'Add New Call'
                             : 'Add New Distribution'
                             : 'Add New Transaction'} />
+            <EditDialogComponent pageName={selectedView === 'basic' ? 'fundBasic'
+                : selectedView === 'commitments' ? 'commitments'
+                    : selectedView === 'portfolio' ? 'fundPortfolio'
+                        : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'callsComponent'
+                            : 'distributionComponent'
+                            : 'transactions'}
+                pageTitle={selectedView === 'basic' ? 'Edit Basic Details'
+                    : selectedView === 'commitments' ? 'Edit Commitment'
+                        : selectedView === 'portfolio' ? 'Edit Portfolio'
+                            : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'Edit Call'
+                                : 'Edit Distribution'
+                                : 'Edit Transaction'} />
         </Grid>
         /*  <Grid spacing={1} container sx={{display:'flex',flex:1, height:'100%', width:'100%', paddingLeft:'0.5em', flexDirection:'row', justifyContent:'flex-start', alignItems:'flex-start', overflow:'auto' }}>
              <Grid item sx={{display:'flex', justifyContent:'start', alignItems:'start', width:'100%', height:'8vh'}}>

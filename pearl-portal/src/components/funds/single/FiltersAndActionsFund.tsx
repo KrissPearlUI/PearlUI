@@ -37,10 +37,10 @@ const useStyles = makeStyles((theme: Theme) =>
 interface SingleSelectionProps {
     selectedItem: string
     handleButtonClick: any,
-    addEditTooltip:string
+    addEditTooltip: string
 }
 
-const FiltersAndActionsFundComponent = ({ selectedItem, handleButtonClick,addEditTooltip }: SingleSelectionProps) => {
+const FiltersAndActionsFundComponent = ({ selectedItem, handleButtonClick, addEditTooltip }: SingleSelectionProps) => {
     const classes = useStyles();
     const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
     const [gridApi, setGridApi] = useState<GridApi>();
@@ -87,14 +87,14 @@ const FiltersAndActionsFundComponent = ({ selectedItem, handleButtonClick,addEdi
                         />
                     </Grid>
                     <Grid item sx={{ marginRight: '0.5em' }} >
-                        <AddButton pageName={addEditTooltip==='commitments'
-                        ?'Add New Commitment'
-                        :addEditTooltip==='fundPortfolio' ?'Add New Portfolio'
-                        :addEditTooltip==='fundCallsDist'?'Add New Call'
-                        :'Add New Transaction'}  />
+                        <AddButton pageName={addEditTooltip === 'commitments'
+                            ? 'Add New Commitment'
+                            : addEditTooltip === 'fundPortfolio' ? 'Add New Portfolio'
+                                : addEditTooltip === 'fundCallsDist' ? 'Add New Call'
+                                    : 'Add New Transaction'} />
                     </Grid>
                     <Grid item sx={{ marginRight: '0.5em' }} >
-                    <EditButton pageName={addEditTooltip === 'fundBasic' ? 'Edit Basic Details' :
+                        <EditButton pageName={addEditTooltip === 'fundBasic' ? 'Edit Basic Details' :
                             addEditTooltip === 'commitments'
                                 ? 'Edit Commitment'
                                 : addEditTooltip === 'fundPortfolio' ? 'Edit Portfolio'

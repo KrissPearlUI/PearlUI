@@ -5,7 +5,7 @@ import { createStyles, makeStyles } from '@mui/styles';
 import { GridApi } from 'ag-grid-community';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { CountryList } from '../../../../../models/shared/sharedModels';
-import { NewLP } from '../../../../../models/lps/lpModels';
+import { LP, NewLP } from '../../../../../models/lps/lpModels';
 import { useTheme } from "@mui/material/styles";
 import { DatePicker } from '@mui/x-date-pickers';
 
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme: Theme) =>
             alignSelf: 'center',
         },
         searchBox: {
-            width: '435px',
+            width: '440px',
             marginRight: '1em',
             backgroundColor: theme.palette.background.paper,
             color: theme.palette.text.primary,
@@ -138,22 +138,23 @@ const LPTypes = [
     "Institutional",
 ];
 
-const KPIAndIRRStepContentComponent = () => {
+interface KPIAndIRRStepContentProps {
+    selectedLP: LP | null
+}
+
+const KPIAndIRRStepContentComponent = ({ selectedLP }: KPIAndIRRStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
     const autocompleteInputClasses = autocompleteInputStyles();
-    const [country, setCountry] = useState<string | null>('');
-    const [type, setType] = useState<string | null>('');
-    const [name, setName] = useState<string>('');
-    const [shortName, setShortName] = useState<string>('');
-    const [address, setAddress] = useState<string>('');
-    const [city, setCity] = useState<string>('');
-    const [postalCode, setPostalCode] = useState<string | number>('');
-    const [baseCapital, setBaseCapital] = useState<number>(0);
-    const [website, setWebsite] = useState<string>('');
+    const [netDPI, setNetDPI] = useState<number | null>(selectedLP?.kpis?.netDPI ? selectedLP?.kpis?.netDPI : null);
+    const [grossDPI, setGrossDPI] = useState<number | null>(selectedLP?.kpis?.grossDPI ? selectedLP?.kpis?.grossDPI : null);
+    const [netTVPI, setNetTVPI] = useState<number | null>(selectedLP?.kpis?.netTVPI ? selectedLP?.kpis?.netTVPI : null);
+    const [grossTVPI, setGrossTVPI] = useState<number | null>(selectedLP?.kpis?.grossTVPI ? selectedLP?.kpis?.grossTVPI : null);
+    const [netIRR, setNetIRR] = useState<number | null>(selectedLP?.kpis?.netIRR ? selectedLP?.kpis?.netIRR : null);
+    const [grossIRR, setGrossIRR] = useState<number | null>(selectedLP?.kpis?.grossIRR ? selectedLP?.kpis?.grossIRR : null);
 
     return (
-        <Grid container spacing={2} sx={{ flex: 1, width: '100%' }}>
+        <Grid container spacing={2} sx={{ flex: 1, width: '100%', marginTop: '0.2em' }}>
             <Grid item>
                 <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <TextField
@@ -162,9 +163,14 @@ const KPIAndIRRStepContentComponent = () => {
                         size="small"
                         label='Net DPI'
                         aria-label="name"
-                        value={name}
+                        value={netDPI}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
@@ -177,14 +183,19 @@ const KPIAndIRRStepContentComponent = () => {
                         size="small"
                         label='Gross DPI'
                         aria-label="name"
-                        value={shortName}
+                        value={grossDPI}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
             </Grid>
-            <Grid item style={{paddingTop:'3em'}}>
+            <Grid item style={{ paddingTop: '3em' }}>
                 <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <TextField
                         className={classes.searchBox}
@@ -192,14 +203,19 @@ const KPIAndIRRStepContentComponent = () => {
                         size="small"
                         aria-label="website"
                         label='Net TVPI'
-                        value={website}
+                        value={netTVPI}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
             </Grid>
-            <Grid item style={{ paddingBottom:'2em'}}>
+            <Grid item style={{ paddingBottom: '2em' }}>
                 <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <TextField
                         className={classes.searchBox}
@@ -207,8 +223,14 @@ const KPIAndIRRStepContentComponent = () => {
                         size="small"
                         aria-label="baseCapital"
                         label='Gross TVPI'
+                        value={grossTVPI}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
@@ -221,9 +243,14 @@ const KPIAndIRRStepContentComponent = () => {
                         size="small"
                         aria-label="website"
                         label='Net IRR'
-                        value={website}
+                        value={netIRR ? (netIRR * 100).toFixed(2) : null}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
@@ -236,9 +263,14 @@ const KPIAndIRRStepContentComponent = () => {
                         size="small"
                         aria-label="website"
                         label='Gross IRR'
-                        value={website}
+                        value={grossIRR}
                         inputProps={{
                             style: { height: '1em' },
+                        }}
+                        InputLabelProps={{
+                            sx: {
+                                fontSize: 'small'
+                            }
                         }}
                     />
                 </Box>
