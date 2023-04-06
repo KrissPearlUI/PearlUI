@@ -1,6 +1,6 @@
 import { Accordion, AccordionDetails, AccordionSummary, Grid, IconButton, Paper, Typography } from '@mui/material';
 import { darken, lighten, useTheme } from "@mui/material/styles";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/slices/rootSlice';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -18,6 +18,8 @@ const SingleFundBasic = () => {
     const [isFundsExpand, setIsFundsExpand] = useState<boolean>(false);
     const [isPCOsExpand, setIsPCOsExpand] = useState<boolean>(false);
     const [isExitsExpand, setIsExitsExpand] = useState<boolean>(false);
+    const { distributions } = useSelector((state: RootState) => state.distributions);
+    const [numExit, setNumExit] = useState<number>(0);
 
     const handleAccordionExp = (expanded: boolean, accordionId: string) => {
         if (accordionId === 'card-commitments') {
@@ -54,6 +56,12 @@ const SingleFundBasic = () => {
 
         return carriedInterest <= 0 ? '' : `${amountValueFormatter(carriedInterest, '')} ${fundCurrency}`;
     };
+
+    useEffect(() => {
+        if (distributions && selectedFund) {
+            setNumExit(distributions?.filter(x => x.fundId === selectedFund.id)?.length ?? 0);
+        }
+    }, [distributions, selectedFund])
 
     return (
         <Grid container spacing={2} sx={{ display: 'flex', flex: 1, justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'row', paddingRight: '0.5em', overflow: 'auto', paddingBottom: '1em' }}>
@@ -245,7 +253,7 @@ const SingleFundBasic = () => {
                                     {isFundsExpand && selectedFund?.lps && <AccordionDetails
                                         sx={{
                                             backgroundColor: theme.palette.background.paper,
-                                            display: 'flex', height: '100%', pointerEvents: 'auto', flex: 1, marginLeft: '-1em', width: '100%',minWidth: { xs: '430px', md: '600px', lg: '600px' }, overflow: 'auto'
+                                            display: 'flex', height: '100%', pointerEvents: 'auto', flex: 1, marginLeft: '-1em', width: '100%', minWidth: { xs: '430px', md: '600px', lg: '600px' }, overflow: 'auto'
                                         }}>
                                         <FundLpsTable />
                                     </AccordionDetails>}
@@ -310,7 +318,7 @@ const SingleFundBasic = () => {
                                     {isPCOsExpand && selectedFund?.pcos && <AccordionDetails
                                         sx={{
                                             backgroundColor: theme.palette.background.paper,
-                                            width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto',marginLeft: { xs: 0, md: '-2em', lg: '-2em' }, minWidth: { xs: '430px', md: '450px', lg: '450px' }, overflow: 'auto'
+                                            width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto', marginLeft: { xs: 0, md: '-2em', lg: '-2em' }, minWidth: { xs: '430px', md: '450px', lg: '450px' }, overflow: 'auto'
                                         }}>
                                         <FundPCOsTable />
                                     </AccordionDetails>}
@@ -359,7 +367,7 @@ const SingleFundBasic = () => {
                                             </Grid>
                                             <Grid item>
                                                 <Typography sx={{ color: theme.palette.text.primary, fontWeight: 500 }}>
-                                                    {selectedFund?.exits?.length ?? 0}
+                                                    {numExit ?? 0}
                                                 </Typography>
                                             </Grid>
                                         </Grid>

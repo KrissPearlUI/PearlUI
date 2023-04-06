@@ -278,7 +278,6 @@ const PCOLPEditComponent = ({ setDisabled, disabled, newInvestment, setNewInvest
                         aria-label="baseCapital"
                         value={participationPercentage}
                         label={'Participation Percentage'}
-                        type={'number'}
                         onChange={(e) => onValueChange(e.target.value, 'participationPercentage')}
                         inputProps={{
                             style: { height: '1em' },

@@ -30,6 +30,8 @@ import LPExitsEditContentCmponent from './lpsEditDialogContents/commitmentsChild
 import FundCommitmentEditContentComponent from './fundsEditDialogContents/commitmentsChildEdit/FundCommitmentsEditContent';
 import FundLPsEditContentComponent from './fundsEditDialogContents/commitmentsChildEdit/FundLPsEditContent';
 import FundPCOsEditContentComponent from './fundsEditDialogContents/commitmentsChildEdit/FundPCOsEditContent';
+import FundExitsStepContentTable from './fundsEditDialogContents/basic/FundExitsStepContentTable';
+import FundsExitEditContentComponent from './fundsEditDialogContents/commitmentsChildEdit/FundExitsEditContent';
 
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -231,6 +233,7 @@ export const EditChildDialogComponent = ({ open, pageName, pageTitle }: EditChil
                                             : pageName === 'fundCommitments' ? <FundCommitmentEditContentComponent disabled={disabled} setDisabled={setDisabled} newCommitment={selectedCommitmentLocal} setNewCommitment={setSelectedCommitmentLocal} />
                                                 : pageName === 'fundLPs' ? <FundLPsEditContentComponent disabled={disabled} setDisabled={setDisabled} newCommitment={selectedCommitmentLocal} setNewCommitment={setSelectedCommitmentLocal} />
                                                     : pageName === 'fundPCOs' ? <FundPCOsEditContentComponent disabled={disabled} setDisabled={setDisabled} newInvestment={selectedInvetsmentLocal} setNewInvestment={setSelecetdInvestmentLocal} />
+                                                        : pageName==='fundExits'? <FundsExitEditContentComponent disabled={disabled} setDisabled={setDisabled} newDistribution={selectedExitLocal} setNewDistribution={setSelectedExitLocal} />
                                                         : null}
             </DialogContent>
             <DialogActions sx={{ backgroundColor: theme.palette.mode === 'light' ? '#F5F5F5' : '#06050A' }}>

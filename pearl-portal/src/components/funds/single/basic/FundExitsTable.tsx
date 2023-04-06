@@ -13,6 +13,8 @@ import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelD
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { fetchAllDistributions } from '../../../../redux/thunks/distributionsThunk';
 import { useAppDispatch } from '../../../../redux/store';
+import { fetchPCOs } from '../../../../redux/thunks/pcoThunk';
+import { iteratorSymbol } from 'immer/dist/internal';
 
 
 const useStyles = makeStyles(() =>
@@ -36,6 +38,7 @@ const FundExitsTable = () => {
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedFund } = useSelector((state: RootState) => state.funds);
     const { distributions } = useSelector((state: RootState) => state.distributions);
+    const { pcos } = useSelector((state: RootState) => state.pcos);
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<any[]>([]);
@@ -65,8 +68,8 @@ const FundExitsTable = () => {
             },
             {
                 headerName: 'Short Name',
-                field: 'shortName',
-                tooltipField: 'shortName',
+                field: 'pcoShortName',
+                tooltipField: 'pcoShortName',
                 suppressFiltersToolPanel: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
@@ -117,13 +120,21 @@ const FundExitsTable = () => {
 
     useEffect(() => {
         dispatch(fetchAllDistributions());
+        dispatch(fetchPCOs());
     }, [dispatch])
 
     useEffect(() => {
-        if (selectedFund && distributions) {
-            setRowData(distributions?.filter(x => x.fundId === selectedFund.id) ?? []);
+        if (selectedFund && distributions && pcos) {
+            const data = distributions?.filter(x => x.fundId === selectedFund.id);
+            const filteredData = data.map((item) => ({
+                ...item,
+                pcoShortName: selectedFund?.pcos?.filter(x => x.id === item.pcoId)[0]?.shortName ?? '',
+                pcoName: pcos?.filter(x => x.id === item.pcoId)[0]?.pcoName ?? '',
+                fundCurrency: selectedFund.currency ?? ''
+            }))
+            setRowData(filteredData ?? []);
         }
-    }, [distributions])
+    }, [distributions, pcos])
 
     return (
         <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1 }}>

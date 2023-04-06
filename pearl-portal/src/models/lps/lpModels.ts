@@ -123,14 +123,15 @@ export interface Exits {
 
 
 export interface EditExit {
-    id: string,
+    id?: string,
     date?: string,
     pcoId?: string,
     pcoName?: string,
     shortName?: string,
     amountGained?: number,
     fundCurrency?: string,
-    type?: string
+    type?: string,
+    fundId?:string,
 }
 
 export interface Distribution {

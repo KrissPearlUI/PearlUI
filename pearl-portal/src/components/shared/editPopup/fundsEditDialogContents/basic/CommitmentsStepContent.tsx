@@ -19,6 +19,8 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../../../../redux/slices/rootSlice';
 import { AddChildDialogComponent } from '../../../addPopup/AddChildDialog';
 import { EditChildDialogComponent } from '../../EditChildDialog';
+import { useAppDispatch } from '../../../../../redux/store';
+import { fetchAllDistributions } from '../../../../../redux/thunks/distributionsThunk';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -159,6 +161,7 @@ interface CommitmentsStepContentProps {
 const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabled, setDisabled }: CommitmentsStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
+    const dispatch = useAppDispatch();
     const [commitmentsExpanded, setCommitmentsExpanded] = useState<boolean>(false);
     const [lpsExpanded, setLpsExpanded] = useState<boolean>(false);
     const [pcosExpanded, setPCOsExpanded] = useState<boolean>(false);
@@ -169,6 +172,8 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
     const [pageName, setPageName] = useState<string>('');
     const { editChildDialogOpen } = useSelector((state: RootState) => state.app);
     const [editPageName, setEditPageName] = useState<string>('');
+    const { distributions } = useSelector((state: RootState) => state.distributions);
+    const [numExit, setNumExit] = useState<number>(0);
 
     const handleAccordionExp = (expanded: boolean, cardName: string) => {
         if (cardName === 'commitments') {
@@ -188,6 +193,10 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
     }
 
     useEffect(() => {
+        dispatch(fetchAllDistributions());
+    }, [dispatch])
+
+    useEffect(() => {
         if (lps && selectedFund) {
             const data = lps?.flatMap((lp: LP) =>
                 lp?.commitments?.filter((commitment: CommitmentBasic) => commitment.fundId === selectedFund?.id)
@@ -197,6 +206,13 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
             setNuberOfCommitments(filteredCommitments?.length);
         }
     }, [lps, selectedFund])
+
+
+    useEffect(() => {
+        if (distributions && selectedFund) {
+            setNumExit(distributions?.filter(x => x.fundId === selectedFund.id)?.length ?? 0);
+        }
+    }, [distributions, selectedFund])
 
     return (
         <Grid container spacing={2} sx={{ flex: 1, width: '100%', display: 'flex', justifyContent: 'start', marginTop: '0.2em' }}>
@@ -241,7 +257,7 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
                                     backgroundColor: theme.palette.background.paper,
                                     width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
                                 }}>
-                                {commitmentsExpanded && <FundCommitmentsStepContentTable  setEditPageName={setEditPageName}/>}
+                                {commitmentsExpanded && <FundCommitmentsStepContentTable setEditPageName={setEditPageName} />}
                             </AccordionDetails>
                         </Accordion>
                     </Box>
@@ -398,7 +414,7 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
                                     backgroundColor: theme.palette.background.paper,
                                     width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
                                 }}>
-                                {pcosExpanded && <FundPCOsStepContentTable setEditPageName={setEditPageName}/>}
+                                {pcosExpanded && <FundPCOsStepContentTable setEditPageName={setEditPageName} />}
                             </AccordionDetails>
                         </Accordion>
                     </Box>
@@ -462,7 +478,7 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
                                         <Typography variant='body1' sx={{ color: theme.palette.text.primary, fontWeight: 600 }}>Exits</Typography>
                                     </Grid>
                                     <Grid container>
-                                        <Typography variant='body2' sx={{ color: theme.palette.mode === 'light' ? 'rgba(69, 69, 69, 0.7)' : darken(theme.palette.text.primary, 0.4), fontWeight: 400, fontSize: '14px' }}>{`${selectedFund?.exits?.length} Exits`}</Typography>
+                                        <Typography variant='body2' sx={{ color: theme.palette.mode === 'light' ? 'rgba(69, 69, 69, 0.7)' : darken(theme.palette.text.primary, 0.4), fontWeight: 400, fontSize: '14px' }}>{`${numExit} Exits`}</Typography>
                                     </Grid>
                                 </Grid>
                             </AccordionSummary>
@@ -504,7 +520,7 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
                 </Grid>
             </Grid>
             {addChildDialogOpen && <AddChildDialogComponent open={addChildDialogOpen} pageName={pageName} pageTitle={pageName === 'fundCommitments' ? 'Add New Commitment' : pageName === 'fundLPs' ? 'Add New Comitment From LP' : pageName === 'fundPCOs' ? 'Add New Investment To PCO' : 'Add New Exit'} setDialogOpen={setAddChildDialogOpen} />}
-            {editChildDialogOpen && <EditChildDialogComponent open={editChildDialogOpen} pageName={editPageName} pageTitle={editPageName === 'fundCommitments' ? 'Edit Commitment' : editPageName === 'fundLPS' ? 'Edit Commitment From LP' : editPageName === 'fundPCOs' ? 'Edit Investment To PCO' : 'Edit Exit'}  />}
+            {editChildDialogOpen && <EditChildDialogComponent open={editChildDialogOpen} pageName={editPageName} pageTitle={editPageName === 'fundCommitments' ? 'Edit Commitment' : editPageName === 'fundLPS' ? 'Edit Commitment From LP' : editPageName === 'fundPCOs' ? 'Edit Investment To PCO' : 'Edit Exit'} />}
         </Grid>
     );
 };

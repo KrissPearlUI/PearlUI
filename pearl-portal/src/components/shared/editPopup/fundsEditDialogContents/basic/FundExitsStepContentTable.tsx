@@ -8,11 +8,15 @@ import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 import { ColDef, ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { RootState } from '../../../../../redux/slices/rootSlice';
-import { Exits } from '../../../../../models/lps/lpModels';
+import { EditExit, Exits } from '../../../../../models/lps/lpModels';
 import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../../helpers/agGrid';
 import AGGridLoader from '../../../../shared/AGGridLoader';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import { useAppDispatch } from '../../../../../redux/store';
+import { setEditChildDiaogOpen } from '../../../../../redux/slices/appSlice';
+import { setSelectedExit } from '../../../../../redux/slices/lps/lpsSlice';
+import { fetchAllDistributions } from '../../../../../redux/thunks/distributionsThunk';
+import { fetchPCOs } from '../../../../../redux/thunks/pcoThunk';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -33,15 +37,19 @@ interface FundLPsStepContentTableProps {
     setEditPageName: any,
 }
 
-const FundExitsStepContentTable = ({setEditPageName}:FundLPsStepContentTableProps) => {
+const FundExitsStepContentTable = ({ setEditPageName }: FundLPsStepContentTableProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
-    const { isDarkTheme, editChildDialogOpen } = useSelector((state: RootState) => state.app);    
+    const { isDarkTheme, editChildDialogOpen } = useSelector((state: RootState) => state.app);
     const { selectedFund } = useSelector((state: RootState) => state.funds);
+    const { distributions } = useSelector((state: RootState) => state.distributions);
+    const { pcos } = useSelector((state: RootState) => state.pcos);
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
-    const [rowData, setRowData] = useState<Exits[]>([]);
+    const [rowData, setRowData] = useState<any[]>([]);
     const [editCommitmentDialogOpen, setEditCommitmentDialogOpen] = useState<boolean>(false);
+    const [editialogOpen, setEditDialogOpen] = useState<boolean>(false);
+    const [selectedExitLocal, setSelectedExitLocal] = useState<any>(null);
 
     const gridOptions: GridOptions = {
         defaultColDef: DefaultColumnDef,
@@ -57,7 +65,19 @@ const FundExitsStepContentTable = ({setEditPageName}:FundLPsStepContentTableProp
 
     const ButtonCellRenderer = (props: any) => {
         const handleEditClick = () => {
-            setEditCommitmentDialogOpen(true);
+            if (props.data) {
+                setEditPageName('fundExits');
+                setEditDialogOpen(!editChildDialogOpen);
+                const exit: EditExit = {
+                    fundId: selectedFund?.id,
+                    pcoId: props.data.pcoId,
+                    amountGained: props.data.amount,
+                    date: props.data.distDate
+                }
+
+                setSelectedExitLocal(exit);
+                //handleOpenEditChildDialog('investments');
+            }
         };
 
         return <span key={props.data.id} style={{ display: 'flex', width: '100%', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}>
@@ -69,7 +89,7 @@ const FundExitsStepContentTable = ({setEditPageName}:FundLPsStepContentTableProp
         return [
             {
                 headerName: 'Date',
-                field: 'date',
+                field: 'distDate',
                 minWidth: 100,
                 maxWidth: 140,
                 enableRowGroup: true,
@@ -78,17 +98,17 @@ const FundExitsStepContentTable = ({setEditPageName}:FundLPsStepContentTableProp
             },
             {
                 headerName: 'Short Name',
-                field: 'shortName',
+                field: 'pcoShortName',
                 tooltipField: 'shortName',
                 suppressFiltersToolPanel: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
             {
                 headerName: 'Amount Returned',
-                field: 'amountGained',
+                field: 'amount',
                 enableRowGroup: true,
                 type: 'numericColumn',
-                tooltipField: 'amountGained',
+                tooltipField: 'amount',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
             },
@@ -135,8 +155,30 @@ const FundExitsStepContentTable = ({setEditPageName}:FundLPsStepContentTableProp
     }, []);
 
     useEffect(() => {
-        setRowData(selectedFund?.exits ?? []);
-    }, [selectedFund])
+        dispatch(fetchAllDistributions());
+        dispatch(fetchPCOs());
+    }, [dispatch])
+
+
+    useEffect(() => {
+        if (selectedFund && distributions && pcos) {
+            const data = distributions?.filter(x => x.fundId === selectedFund.id);
+            const filteredData = data.map((item) => ({
+                ...item,
+                pcoShortName: selectedFund?.pcos?.filter(x => x.id === item.pcoId)[0]?.shortName ?? '',
+                pcoName: pcos?.filter(x => x.id === item.pcoId)[0]?.pcoName ?? '',
+                fundCurrency: selectedFund.currency ?? ''
+            }))
+            setRowData(filteredData ?? []);
+        }
+    }, [distributions, pcos])
+
+    useEffect(() => {
+        if (selectedExitLocal && editialogOpen) {
+            dispatch(setSelectedExit(selectedExitLocal));
+            dispatch(setEditChildDiaogOpen(!editChildDialogOpen));
+        }
+    }, [selectedExitLocal, editialogOpen, dispatch])
 
     return (
         <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1 }}>
