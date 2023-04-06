@@ -8,7 +8,7 @@ import { RootState } from '../../../redux/slices/rootSlice';
 import { setEditDiaogOpen } from '../../../redux/slices/appSlice';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
 import { FundSummary, NewFund } from '../../../models/funds/fundModels';
-import { NewPCO, PCOSummary } from '../../../models/pcos/pcoModels';
+import { NewInvestment, NewPCO, PCOSummary } from '../../../models/pcos/pcoModels';
 import { LP, NewLP } from '../../../models/lps/lpModels';
 import { NewCommitment } from '../../../models/shared/sharedModels';
 import { NewTransaction } from '../../../models/transactions/transactionsModels';
@@ -20,6 +20,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import FundBasicEditContentComponent from './fundsEditDialogContents/basic/FundBasicEditContent';
 import PCOBasicEditContentComponent from './pcosEditDialogContents/basic/PCOBasicEditContent';
+import PCOInvestmentEditContentComponent from './pcosEditDialogContents/basic/commitmnetsChildEdit/PCOInvestmentEditContent';
 
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
@@ -88,12 +89,15 @@ const getStepsPCO = () => {
     return ['General Information', 'Investments', 'PCO Financials'];
 };
 
-interface AddDialogComponentProps {
+interface EditChildDialogComponentProps {
     pageName: string,
-    pageTitle: string
+    pageTitle: string,
+    open: boolean,
+    setDialogOpen: any,
+    seletedItem: any
 }
 
-export const EditDialogComponent = ({ pageName, pageTitle }: AddDialogComponentProps) => {
+export const EditChildDialogComponent = ({ open, pageName, pageTitle, setDialogOpen, seletedItem }: EditChildDialogComponentProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const { editDialogOpen } = useSelector((state: RootState) => state.app);
@@ -116,8 +120,10 @@ export const EditDialogComponent = ({ pageName, pageTitle }: AddDialogComponentP
     const [selectedFundLocal, setSelectedFundLocal] = useState<FundSummary | null>(selectedFund ?? null)
     const { selectedLP } = useSelector((state: RootState) => state.lps);
     const [selectedLPLocal, setSelectedLPLocal] = useState<LP | null>(selectedLP ?? null);
-    const { selectedPCO } = useSelector((state: RootState) => state.pcos);
+    const { selectedPCO, selectedInvestment } = useSelector((state: RootState) => state.pcos);
     const [selectedPCOLocal, setSelectedPCOLocal] = useState<PCOSummary | null>(selectedPCO ?? null);
+    const [selectedInvetsmentLocal, setSelecetdInvestmentLocal] = useState<NewInvestment | null>(selectedInvestment ? selectedInvestment : null)
+
     /**
      * Handles the closing of the dialog
      */
@@ -128,7 +134,7 @@ export const EditDialogComponent = ({ pageName, pageTitle }: AddDialogComponentP
         setActiveStepLP(0);
         setActiveStepFund(0);
         setActiveStepPCO(0);
-        dispatch(setEditDiaogOpen(false));
+        setDialogOpen(false);
     };
 
     const handleEditBtnClick = () => {
@@ -174,8 +180,8 @@ export const EditDialogComponent = ({ pageName, pageTitle }: AddDialogComponentP
     };
 
     return (
-        <Dialog open={editDialogOpen} TransitionComponent={Transition}
-            maxWidth={'sm'}
+        <Dialog open={open} TransitionComponent={Transition}
+            maxWidth={'xs'}
             fullWidth
             aria-label={'dialog extra data client'}>
             <DialogTitle sx={{
@@ -206,99 +212,21 @@ export const EditDialogComponent = ({ pageName, pageTitle }: AddDialogComponentP
                 </Grid>
             </DialogTitle>
             <DialogContent sx={{ display: 'flex', flex: 1, justifyContent: 'flex-start', height: '100%', backgroundColor: theme.palette.mode === 'light' ? '#F5F5F5' : '#06050A' }}>
-                {pageName === 'lpBasic' ? <LPBasicEditContentComponent steps={stepsLP} activeStep={activeStepLP} setActiveStep={setActiveStepLP} selectedLP={selectedLPLocal} setSelectedLP={setSelectedLPLocal} disabled={disabled} setDisabled={setDisabled} />
-                    : pageName === 'fundBasic'
-                        ? <FundBasicEditContentComponent steps={stepsFund} activeStep={activeStepFund} setActiveStep={setActiveStepFund} selectedFund={selectedFundLocal} setSelectedFund={setSelectedFundLocal} disabled={disabled} setDisabled={setDisabled} />
-                        : <PCOBasicEditContentComponent steps={stepsPCO} activeStep={activeStepPCO} setActiveStep={setActiveStepPCO} selectedPCO={selectedPCOLocal} setSelectedPCO={setSelectedPCOLocal} disabled={disabled} setDisabled={setDisabled} />}
+                {open  && pageName === 'investments' ? <PCOInvestmentEditContentComponent disabled={disabled} setDisabled={setDisabled} newInvestment={selectedInvetsmentLocal} setNewInvestment={setSelecetdInvestmentLocal} />
+                    : null}
             </DialogContent>
             <DialogActions sx={{ backgroundColor: theme.palette.mode === 'light' ? '#F5F5F5' : '#06050A' }}>
-                {pageName === 'lpBasic' ?
-                    activeStepLP !== stepsLP.length && (
-                        <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                            <Button disabled={activeStepLP === 0} onClick={() => handleBack(pageName)}
-                                startIcon={<ArrowBackIosNewIcon fontSize='small' sx={{ width: 16, height: 16 }} />}
-                                sx={{ display: activeStepLP === 0 ? 'none' : 'flex', marginRight: '1em', textTransform: 'none', height: 36 }} variant="outlined">
-                                {`Back`}
-                            </Button>
-                            <Button
-                                variant="outlined"
-                                endIcon={<ArrowBackIosNewIcon fontSize='small' sx={{ transform: 'rotate(180deg)', width: 16, height: 16 }} />}
-                                onClick={() => handleNext(pageName)}
-                                sx={{ display: activeStepLP === stepsLP.length - 1 ? 'none' : 'flex', marginRight: '1em', textTransform: 'none', height: 36 }}
-                            >
-                                Next
-                            </Button>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                sx={{ textTransform: 'none', height: 36 }}
-                                startIcon={<EditRoundedIcon />}
-                                disabled={disabled}
-                                onClick={handleEditBtnClick}
-                            >Edit</Button>
-                        </div>
-                    )
-                    : pageName === 'fundBasic' ?
-                        activeStepFund !== stepsFund.length && (
-                            <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                                <Button disabled={activeStepFund === 0} onClick={() => handleBack(pageName)}
-                                    startIcon={<ArrowBackIosNewIcon fontSize='small' sx={{ width: 16, height: 16 }} />}
-                                    sx={{ display: activeStepFund === 0 ? 'none' : 'flex', marginRight: '1em', textTransform: 'none', height: 36 }} variant="outlined">
-                                    {`Back`}
-                                </Button>
-                                <Button
-                                    variant="outlined"
-                                    endIcon={<ArrowBackIosNewIcon fontSize='small' sx={{ transform: 'rotate(180deg)', width: 16, height: 16 }} />}
-                                    onClick={() => handleNext(pageName)}
-                                    sx={{ display: activeStepFund === stepsFund.length - 1 ? 'none' : 'flex', marginRight: '1em', textTransform: 'none', height: 36 }}
-                                >
-                                    Next
-                                </Button>
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    sx={{ textTransform: 'none', height: 36 }}
-                                    startIcon={<EditRoundedIcon />}
-                                    disabled={disabled}
-                                    onClick={handleEditBtnClick}
-                                >Edit</Button>
-                            </div>
-                        ) : pageName === 'pcoBasic' ?
-                            activeStepPCO !== stepsPCO.length && (
-                                <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-                                    <Button disabled={activeStepPCO === 0} onClick={() => handleBack(pageName)}
-                                        startIcon={<ArrowBackIosNewIcon fontSize='small' sx={{ width: 16, height: 16 }} />}
-                                        sx={{ display: activeStepPCO === 0 ? 'none' : 'flex', marginRight: '1em', textTransform: 'none', height: 36 }} variant="outlined">
-                                        {`Back`}
-                                    </Button>
-                                    <Button
-                                        variant="outlined"
-                                        endIcon={<ArrowBackIosNewIcon fontSize='small' sx={{ transform: 'rotate(180deg)', width: 16, height: 16 }} />}
-                                        onClick={() => handleNext(pageName)}
-                                        sx={{ display: activeStepPCO === stepsPCO.length - 1 ? 'none' : 'flex', marginRight: '1em', textTransform: 'none', height: 36 }}
-                                    >
-                                        Next
-                                    </Button>
-                                    <Button
-                                        variant="contained"
-                                        color="primary"
-                                        sx={{ textTransform: 'none', height: 36 }}
-                                        startIcon={<EditRoundedIcon />}
-                                        disabled={disabled}
-                                        onClick={handleEditBtnClick}
-                                    >Edit</Button>
-                                </div>
-                            ) : <Button
-                                variant="contained"
-                                color="primary"
-                                sx={{ textTransform: 'none' }}
-                                startIcon={<EditRoundedIcon />}
-                                disabled={disabled}
-                                onClick={handleEditBtnClick}
-                            >
-                                Edit
-                            </Button>
-                }
+                <Button
+                    variant="contained"
+                    color="primary"
+                    sx={{ textTransform: 'none' }}
+                    startIcon={<EditRoundedIcon />}
+                    disabled={disabled}
+                    onClick={handleEditBtnClick}
+                >
+                    Edit
+                </Button>
+
             </DialogActions>
         </Dialog>
     );

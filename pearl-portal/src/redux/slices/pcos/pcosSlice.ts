@@ -5,12 +5,14 @@ export interface PCOsState {
     pcos: PCOSummary[],
     pcosFinancials: PCOFinancial[],
     selectedPCO: PCOSummary | null,
+    selectedInvestment:any
 }
 
 const initialState: PCOsState = {
     pcos: [],
     pcosFinancials: [],
     selectedPCO: null,
+    selectedInvestment:null
 };
 
 const pcosSlice = createSlice({
@@ -41,6 +43,9 @@ const pcosSlice = createSlice({
         setSelectedPCO(state, action: PayloadAction<PCOSummary | null>) {
             state.selectedPCO = action.payload;
         },
+        setSelectedInvestment(state, action: PayloadAction<any>) {
+            state.selectedInvestment = action.payload;
+        },
     }
 });
 
@@ -48,6 +53,7 @@ export const {
     setPCOs,
     setPCOsFinantials,
     setSelectedPCO,
+    setSelectedInvestment
 } = pcosSlice.actions;
 
 export default pcosSlice.reducer;

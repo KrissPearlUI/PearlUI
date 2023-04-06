@@ -17,6 +17,7 @@ import FundExitsStepContentTable from './FundExitsStepContentTable';
 import { FundSummary } from '../../../../../models/funds/fundModels';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../../redux/slices/rootSlice';
+import { AddChildDialogComponent } from '../../../addPopup/AddChildDialog';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -163,6 +164,8 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
     const [exitsExpanded, setExitsExpanded] = useState<boolean>(false);
     const [numOfCommitments, setNuberOfCommitments] = useState<number>(0);
     const { lps } = useSelector((state: RootState) => state.lps);
+    const [addChildDialogOpen, setAddChildDialogOpen] = useState<boolean>(false);
+    const [pageName, setPageName] = useState<string>('');
 
     const handleAccordionExp = (expanded: boolean, cardName: string) => {
         if (cardName === 'commitments') {
@@ -175,6 +178,11 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
             setExitsExpanded(!exitsExpanded);
         }
     };
+
+    const handleOpenChildDialog = (accordion: string) => {
+        setPageName(accordion);
+        setAddChildDialogOpen(!addChildDialogOpen);
+    }
 
     useEffect(() => {
         if (lps && selectedFund) {
@@ -255,6 +263,7 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
                                     backgroundColor: darken(theme.palette.primary.main, 0.2)
                                 }
                             }}
+                            onClick={() => { handleOpenChildDialog('fundCommitments') }}
                         >
                             <AddRoundedIcon fontSize='small' sx={{ height: 20, width: 20 }} />
                         </Box>
@@ -338,6 +347,7 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
                                     backgroundColor: darken(theme.palette.primary.main, 0.2)
                                 }
                             }}
+                            onClick={() => { handleOpenChildDialog('fundLPs') }}
                         >
                             <AddRoundedIcon fontSize='small' sx={{ height: 20, width: 20 }} />
                         </Box>
@@ -410,6 +420,7 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
                                     backgroundColor: darken(theme.palette.primary.main, 0.2)
                                 }
                             }}
+                            onClick={() => { handleOpenChildDialog('fundPCOs') }}
                         >
                             <AddRoundedIcon fontSize='small' sx={{ height: 20, width: 20 }} />
                         </Box>
@@ -482,12 +493,14 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
                                     backgroundColor: darken(theme.palette.primary.main, 0.2)
                                 }
                             }}
+                            onClick={() => { handleOpenChildDialog('fundExits') }}
                         >
                             <AddRoundedIcon fontSize='small' sx={{ height: 20, width: 20 }} />
                         </Box>
                     </Tooltip>
                 </Grid>
             </Grid>
+            {addChildDialogOpen && <AddChildDialogComponent open={addChildDialogOpen} pageName={pageName} pageTitle={pageName === 'fundCommitments' ? 'Add New Commitment' : pageName === 'fundLPs' ? 'Add New Comitment From LP' : pageName === 'fundPCOs' ? 'Add New Investment To PCO' : 'Add New Exit'} setDialogOpen={setAddChildDialogOpen} />}
         </Grid>
     );
 };

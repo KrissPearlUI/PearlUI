@@ -14,6 +14,8 @@ import { PCOSummary } from '../../../../../models/pcos/pcoModels';
 import PCOInvestmentsStepContentTableComponent from './PCOInvestmentsStepContentTable';
 import PCOLPsStepContentTable from './PCOLPSStepContentTaple';
 import PCOFundsStepContentTable from './PCOFundsStepContentTable';
+import { AddChildDialogComponent } from '../../../addPopup/AddChildDialog';
+import { EditChildDialogComponent } from '../../EditChildDialog';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -157,6 +159,13 @@ const InvestmentsStepContentComponent = ({ selectedPCO, setSelectedPCO, disabled
     const [investmentsExpanded, setInvestmentsExpanded] = useState<boolean>(false);
     const [fundsExpanded, setFundsExpanded] = useState<boolean>(false);
     const [lpsExpanded, setLPsExpanded] = useState<boolean>(false);
+    const [addChildDialogOpen, setAddChildDialogOpen] = useState<boolean>(false);
+    const [pageName, setPageName] = useState<string>('');
+    const [editChildDialogOpen, setEditChildDialogOpen] = useState<boolean>(false);
+    const [editPageName, setEditPageName] = useState<string>('');
+    const [selectedInvetsment, setSelectedInvestment] = useState<any>(null);
+    const [selectedPCOLP, setSelectedPCOLP] = useState<any>(null);
+    const [selectedPCOFund, setSelectedPCOFund] = useState<any>(null);
 
     const handleAccordionExp = (expanded: boolean, cardName: string) => {
         if (cardName === 'investments') {
@@ -167,6 +176,11 @@ const InvestmentsStepContentComponent = ({ selectedPCO, setSelectedPCO, disabled
             setLPsExpanded(!lpsExpanded);
         }
     };
+
+    const handleOpenChildDialog = (accordion: string) => {
+        setPageName(accordion);
+        setAddChildDialogOpen(!addChildDialogOpen);
+    }
 
     return (
         <Grid container spacing={2} sx={{ flex: 1, width: '100%', display: 'flex', justifyContent: 'start', marginTop: '0.2em' }}>
@@ -211,7 +225,7 @@ const InvestmentsStepContentComponent = ({ selectedPCO, setSelectedPCO, disabled
                                     backgroundColor: theme.palette.background.paper,
                                     width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
                                 }}>
-                                {investmentsExpanded && <PCOInvestmentsStepContentTableComponent />}
+                                {investmentsExpanded && <PCOInvestmentsStepContentTableComponent setSelectedInvestment={setSelectedInvestment} setEditPageName={setEditPageName} setEditChildDialogOpen={setEditChildDialogOpen} editChildDialogOpen={editChildDialogOpen}/>}
                             </AccordionDetails>
                         </Accordion>
                     </Box>
@@ -236,6 +250,7 @@ const InvestmentsStepContentComponent = ({ selectedPCO, setSelectedPCO, disabled
                                     backgroundColor: darken(theme.palette.primary.main, 0.2)
                                 }
                             }}
+                            onClick={() => { handleOpenChildDialog('investments') }}
                         >
                             <AddRoundedIcon fontSize='small' sx={{ height: 20, width: 20 }} />
                         </Box>
@@ -319,6 +334,7 @@ const InvestmentsStepContentComponent = ({ selectedPCO, setSelectedPCO, disabled
                                     backgroundColor: darken(theme.palette.primary.main, 0.2)
                                 }
                             }}
+                            onClick={() => { handleOpenChildDialog('pcoLPs') }}
                         >
                             <AddRoundedIcon fontSize='small' sx={{ height: 20, width: 20 }} />
                         </Box>
@@ -391,12 +407,14 @@ const InvestmentsStepContentComponent = ({ selectedPCO, setSelectedPCO, disabled
                                     backgroundColor: darken(theme.palette.primary.main, 0.2)
                                 }
                             }}
+                            onClick={() => { handleOpenChildDialog('pcoFunds') }}
                         >
                             <AddRoundedIcon fontSize='small' sx={{ height: 20, width: 20 }} />
                         </Box>
                     </Tooltip>
                 </Grid>
             </Grid>
+            {addChildDialogOpen && <AddChildDialogComponent open={addChildDialogOpen} pageName={pageName} pageTitle={pageName === 'investments' ? 'Add New Investment' : pageName === 'pcoLPs' ? 'Add New Investment From LP' : 'Add New Investment From Fund'} setDialogOpen={setAddChildDialogOpen} />}
         </Grid>
     );
 };

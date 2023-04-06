@@ -1,4 +1,4 @@
-import { Autocomplete, AutocompleteRenderInputParams, Fab, Grid, IconButton, InputAdornment, TextField, Typography } from '@mui/material';
+import { Autocomplete, AutocompleteRenderInputParams, Fab, Grid, IconButton, InputAdornment, TextField, Typography,Box } from '@mui/material';
 import { useCallback, useState } from 'react';
 import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
@@ -6,6 +6,7 @@ import { GridApi } from 'ag-grid-community';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { CountryList, CurrencyList } from '../../../../models/shared/sharedModels';
 import { NewPCO } from '../../../../models/pcos/pcoModels';
+import { useTheme } from "@mui/material/styles";
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -129,6 +130,7 @@ interface AddNewLPContentProps {
 const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }: AddNewLPContentProps) => {
     const classes = useStyles();
     const autocompleteInputClasses = autocompleteInputStyles();
+    const theme = useTheme();
     const [country, setCountry] = useState<string | null>('');
     const [sector, setSector] = useState<string | null>('');
     const [pcoName, setPCOName] = useState<string>('');
@@ -222,6 +224,7 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
         <Grid container spacing={2}>
             <Grid item>
                 <Typography variant='body2'>Name*</Typography>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <TextField
                     className={classes.searchBox}
                     variant="outlined"
@@ -234,9 +237,11 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                         style: { height: '1em' },
                     }}
                 />
+                </Box>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Short Name*</Typography>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <TextField
                     className={classes.searchBox}
                     variant="outlined"
@@ -249,9 +254,11 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                         style: { height: '1em' },
                     }}
                 />
+                </Box>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Address</Typography>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <TextField
                     className={classes.searchBox}
                     variant="outlined"
@@ -263,10 +270,12 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                         style: { height: '1em' },
                     }}
                 />
+                </Box>
             </Grid>
             <Grid container item sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Grid item xs={8}>
                     <Typography variant='body2'>City</Typography>
+                    <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '250px',borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <TextField
                         className={classes.textFildsSmall}
                         sx={{ width: '250px' }}
@@ -279,9 +288,11 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                             style: { height: '1em' },
                         }}
                     />
+                    </Box>
                 </Grid>
                 <Grid item xs={4}>
                     <Typography variant='body2'>Postal Code</Typography>
+                    <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <TextField
                         className={classes.textFildsSmall}
                         variant="outlined"
@@ -293,10 +304,12 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                             style: { height: '1em' },
                         }}
                     />
+                    </Box>
                 </Grid>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Country*</Typography>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -321,9 +334,11 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                         />;
                     }}
                 />
+                </Box>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Sector*</Typography>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -348,9 +363,11 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                         />
                     }}
                 />
+                </Box>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Currency*</Typography>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -375,9 +392,11 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                         />;
                     }}
                 />
+                </Box>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Website</Typography>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <TextField
                     className={classes.searchBox}
                     variant="outlined"
@@ -389,6 +408,7 @@ const AddNewPCOContentComponent = ({ setDisabled, disabled, newPCO, setNewPCO }:
                         style: { height: '1em' },
                     }}
                 />
+                </Box>
             </Grid>
         </Grid>
     );

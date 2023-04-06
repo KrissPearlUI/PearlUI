@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
@@ -11,6 +11,8 @@ import { RootState } from '../../../../../redux/slices/rootSlice';
 import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../../helpers/agGrid';
 import AGGridLoader from '../../../../shared/AGGridLoader';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
+import { fetchFunds } from '../../../../../redux/thunks/fundThunk';
+import { useAppDispatch } from '../../../../../redux/store';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -27,9 +29,16 @@ const useStyles = makeStyles(() =>
     })
 );
 
+interface PCOInvestmentsStepContentTableComponentProps {
+    setSelectedInvestment: any,
+    setEditPageName: any,
+    setEditChildDialogOpen: any,
+    editChildDialogOpen: any
+}
 
-const PCOInvestmentsStepContentTableComponent = () => {
+const PCOInvestmentsStepContentTableComponent = ({ setSelectedInvestment, setEditPageName, setEditChildDialogOpen, editChildDialogOpen }: PCOInvestmentsStepContentTableComponentProps) => {
     const classes = useStyles();
+    const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedPCO } = useSelector((state: RootState) => state.pcos);
     const { funds } = useSelector((state: RootState) => state.funds);
@@ -37,7 +46,6 @@ const PCOInvestmentsStepContentTableComponent = () => {
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<any[]>([]);
-    const [editCommitmentDialogOpen, setEditCommitmentDialogOpen] = useState<boolean>(false);
 
     const gridOptions: GridOptions = {
         defaultColDef: DefaultColumnDef,
@@ -52,8 +60,15 @@ const PCOInvestmentsStepContentTableComponent = () => {
     };
 
     const ButtonCellRenderer = (props: any) => {
+        const handleOpenEditChildDialog = (accordion: string) => {
+            setEditPageName(accordion);
+            setEditChildDialogOpen(!editChildDialogOpen);
+        }
         const handleEditClick = () => {
-            setEditCommitmentDialogOpen(true);
+            if (props.data) {
+                setSelectedInvestment(props.data);
+                //handleOpenEditChildDialog('investments');
+            }
         };
 
         return <span key={props.data.id} style={{ display: 'flex', width: '100%', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}>
@@ -91,8 +106,8 @@ const PCOInvestmentsStepContentTableComponent = () => {
             {
                 headerName: 'Local Currency',
                 field: 'localCcy',
-                minWidth:90,
-                maxWidth:120,
+                minWidth: 90,
+                maxWidth: 120,
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.localCcy ? params.data?.localCcy.toUpperCase() : '';
@@ -131,6 +146,9 @@ const PCOInvestmentsStepContentTableComponent = () => {
         };
     }, []);
 
+    useEffect(() => {
+        dispatch(fetchFunds());
+    }, [dispatch])
 
     useEffect(() => {
         if (transactions && selectedPCO && funds) {

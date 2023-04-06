@@ -1,4 +1,4 @@
-import { Autocomplete, AutocompleteRenderInputParams, Fab, FormControlLabel, Grid, IconButton, InputAdornment, Switch, TextField, Tooltip, Typography, Box } from '@mui/material';
+import { Autocomplete, AutocompleteRenderInputParams, Box, Fab, FormControlLabel, Grid, IconButton, InputAdornment, Switch, TextField, Tooltip, Typography } from '@mui/material';
 import { useCallback, useEffect, useState } from 'react';
 import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
@@ -18,6 +18,7 @@ import { setSelectedPCO } from '../../../../redux/slices/pcos/pcosSlice';
 import { PCOSummary } from '../../../../models/pcos/pcoModels';
 import { fetchFunds } from '../../../../redux/thunks/fundThunk';
 import { fetchPCOs } from '../../../../redux/thunks/pcoThunk';
+import { LPDistributionTypes, NewDistribution } from '../../../../models/distributions/distributionsModels';
 import { useTheme } from "@mui/material/styles";
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
@@ -133,14 +134,14 @@ const LPTypes = [
     "Institutional",
 ];
 
-interface AddNewCommitmentComponentProps {
+interface AddNewLPExitComponentProps {
     disabled: boolean,
     setDisabled: any,
-    newTransaction: NewTransaction | null,
-    setNewTransaction: (newState: any) => void
+    newDistribution: NewDistribution | null,
+    setNewDistribution: (newState: any) => void
 }
 
-const AddNewTransactionComponent = ({ setDisabled, disabled, newTransaction, setNewTransaction }: AddNewCommitmentComponentProps) => {
+const AddNewLPExitComponent = ({ setDisabled, disabled, newDistribution, setNewDistribution }: AddNewLPExitComponentProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const autocompleteInputClasses = autocompleteInputStyles();
@@ -151,61 +152,39 @@ const AddNewTransactionComponent = ({ setDisabled, disabled, newTransaction, set
     const { pcos, selectedPCO } = useSelector((state: RootState) => state.pcos);
     const [fundId, setFundId] = useState<string>('');
     const { funds, selectedFund } = useSelector((state: RootState) => state.funds);
+    const { lps, selectedLP } = useSelector((state: RootState) => state.lps);
     const [transType, setTransType] = useState<string>('');
     const [investmentType, setInvestmentType] = useState<string>('');
     const [securityType, setSecurityType] = useState<string>('');
+    const lpId = selectedLP?.id ?? '';
+    const lpName = selectedLP?.shortName ?? '';
 
     const onValueChange = (value: string, field: string) => {
         switch (field) {
             case 'pcoId':
                 setPCOId(value);
                 dispatch(setSelectedPCO(pcos?.filter(x => x.id === value)[0] ?? null))
-                setNewTransaction({
-                    ...newTransaction,
+                setNewDistribution({
+                    ...newDistribution,
                     pcoId: value
                 });
-                setDisabled(value === '' || transType === '' || fundId === '' || securityType === '' || amountFundCurrency === 0 || ((transType === 'Investment' || transType === 'Spin-off') && investmentType === ''));
-                break;
-            case 'fundId':
-                setFundId(value);
-                dispatch(setSelectedFund(funds?.filter(x => x.id === value)[0] ?? null))
-                setNewTransaction({
-                    ...newTransaction,
-                    fundId: value
-                });
-                setDisabled(value === '' || transType === '' || pcoId === '' || securityType === '' || amountFundCurrency === 0 || ((transType === 'Investment' || transType === 'Spin-off') && investmentType === ''));
+                setDisabled(value === '' || transType === '' || amountFundCurrency === 0);
                 break;
             case 'transType':
                 setTransType(value);
-                setNewTransaction({
-                    ...newTransaction,
+                setNewDistribution({
+                    ...newDistribution,
                     transType: value
                 });
-                setDisabled(value === '' || pcoId === '' || fundId === '' || securityType === '' || amountFundCurrency === 0 || ((transType === 'Investment' || transType === 'Spin-off') && investmentType === ''));
-                break;
-            case 'securityType':
-                setSecurityType(value);
-                setNewTransaction({
-                    ...newTransaction,
-                    securityType: value
-                });
-                setDisabled(value === '' || transType === '' || fundId === '' || pcoId === '' || amountFundCurrency === 0 || ((transType === 'Investment' || transType === 'Spin-off') && investmentType === ''));
+                setDisabled(value === '' || pcoId === '' || amountFundCurrency === 0);
                 break;
             case 'amountFundCurrency':
                 setAmountFundCurrency(+value);
-                setNewTransaction({
-                    ...newTransaction,
+                setNewDistribution({
+                    ...newDistribution,
                     amountFundCurrency: +value
                 });
-                setDisabled(+value === 0 || transType === '' || fundId === '' || pcoId === '' || pcoId === '' || ((transType === 'Investment' || transType === 'Spin-off') && investmentType === ''));
-                break;
-            case 'investmentType':
-                setInvestmentType(value);
-                setNewTransaction({
-                    ...newTransaction,
-                    investmentType: value
-                });
-                setDisabled(value === '' || transType === '' || fundId === '' || pcoId === '' || amountFundCurrency === 0);
+                setDisabled(+value === 0 || transType === '' || pcoId === '');
                 break;
             default:
                 break;
@@ -228,51 +207,43 @@ const AddNewTransactionComponent = ({ setDisabled, disabled, newTransaction, set
         }
     };
 
+    const optionLabelLP = (option: string | LP) => {
+        if (typeof (option) === 'string') {
+            return option;
+        } else {
+            return option.name ? option.name : option;
+        }
+    };
+
     useEffect(() => {
         dispatch(fetchFunds());
         dispatch(fetchPCOs());
+        dispatch(fetchLPs());
     }, [dispatch])
 
 
     return (
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ paddingTop: '10px' }}>
             <Grid item>
-                <Typography variant='body2'>Fund*</Typography>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                <Autocomplete
-                    id={'fundsAutocomplete'}
-                    popupIcon={<ExpandMoreIcon />}
-                    size={'small'}
-                    autoHighlight={true}
-                    autoSelect={true}
-                    autoComplete={false}
-                    classes={classes}
-                    sx={{ marginRight: '1em', width: '400px' }}
-                    isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: FundSummary | null) => onValueChange(value ? value.id : '', 'fundId')}
-                    value={selectedFund ?? undefined}
-                    options={funds && funds.length > 0 ? funds.slice().sort(function (a, b) {
-                        if (a.id.toLowerCase() < b.id.toLowerCase()) return -1;
-                        if (a.id.toLowerCase() > b.id.toLowerCase()) return 1;
-                        return 0;
-                    }) : []}
-                    getOptionLabel={(option) => optionLabelFund(option).toString()}
-                    renderInput={(params: AutocompleteRenderInputParams) => {
-                        params.InputProps.className = autocompleteInputClasses.textInput;
-                        return <TextField {...params}
-                            className={autocompleteInputClasses.autocomplete}
-                            variant="outlined"
-                            autoComplete="off"
-                            helperText={!disabled && fundId === '' ? 'Required' : ''}
-                            type={'text'}
-                        />;
+            <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+            <TextField
+                    className={classes.searchBox}
+                    variant="outlined"
+                    size="small"
+                    label={'LP'}
+                    aria-label="baseCapital"
+                    value={lpName}
+                    inputProps={{
+                        style: { height: '1em' },
+                    }}
+                    InputProps={{
+                        readOnly: true,
                     }}
                 />
                 </Box>
             </Grid>
             <Grid item>
-                <Typography variant='body2'>Portfolio Company*</Typography>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+            <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -297,6 +268,7 @@ const AddNewTransactionComponent = ({ setDisabled, disabled, newTransaction, set
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
+                            label={'PCO'}
                             helperText={!disabled && pcoId === '' ? 'Required' : ''}
                             type={'text'}
                         />;
@@ -305,8 +277,7 @@ const AddNewTransactionComponent = ({ setDisabled, disabled, newTransaction, set
                 </Box>
             </Grid>
             <Grid item>
-                <Typography variant='body2'>Transaction Type*</Typography>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+            <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -320,13 +291,14 @@ const AddNewTransactionComponent = ({ setDisabled, disabled, newTransaction, set
                     isOptionEqualToValue={(option, value) => option === value}
                     onChange={(e, value: any) => onValueChange(value, 'transType')}
                     value={transType ?? ''}
-                    options={TransactionType?.slice()}
+                    options={LPDistributionTypes?.slice()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
                         params.InputProps.className = autocompleteInputClasses.textInput;
                         return <TextField {...params}
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
+                            label={'Transaction Type*'}
                             helperText={!disabled && transType === '' ? 'Required' : ''}
                             type={'text'}
                         />;
@@ -334,85 +306,25 @@ const AddNewTransactionComponent = ({ setDisabled, disabled, newTransaction, set
                 />
                 </Box>
             </Grid>
-            {(transType === 'Investment' || transType === 'Spin-off') && <Grid item>
-                <Typography variant='body2'>Investment Type*</Typography>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                <Autocomplete
-                    id={'fundsAutocomplete'}
-                    popupIcon={<ExpandMoreIcon />}
-                    size={'small'}
-                    autoHighlight={true}
-                    autoSelect={true}
-                    autoComplete={false}
-                    disableClearable
-                    classes={classes}
-                    sx={{ marginRight: '1em', width: '400px' }}
-                    isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: any) => onValueChange(value, 'investmentType')}
-                    value={investmentType ?? ''}
-                    options={InvestmentType?.slice()}
-                    renderInput={(params: AutocompleteRenderInputParams) => {
-                        params.InputProps.className = autocompleteInputClasses.textInput;
-                        return <TextField {...params}
-                            className={autocompleteInputClasses.autocomplete}
-                            variant="outlined"
-                            autoComplete="off"
-                            helperText={!disabled && investmentType === '' ? 'Required' : ''}
-                            type={'text'}
-                        />;
+            <Grid item>
+            <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                <TextField
+                    className={classes.searchBox}
+                    variant="outlined"
+                    size="small"
+                    aria-label="baseCapital"
+                    value={amountFundCurrency}
+                    type={'number'}
+                    label={'Amount'}
+                    onChange={(e) => onValueChange(e.target.value, 'amountFundCurrency')}
+                    inputProps={{
+                        style: { height: '1em' },
                     }}
                 />
-                </Box>
-            </Grid>}
-            <Grid item>
-                <Typography variant='body2'>Security Type*</Typography>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                <Autocomplete
-                    id={'fundsAutocomplete'}
-                    popupIcon={<ExpandMoreIcon />}
-                    size={'small'}
-                    autoHighlight={true}
-                    autoSelect={true}
-                    autoComplete={false}
-                    disableClearable
-                    classes={classes}
-                    sx={{ marginRight: '1em', width: '400px' }}
-                    isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: any) => onValueChange(value, 'securityType')}
-                    value={securityType ?? ''}
-                    options={SecurityType?.slice()}
-                    renderInput={(params: AutocompleteRenderInputParams) => {
-                        params.InputProps.className = autocompleteInputClasses.textInput;
-                        return <TextField {...params}
-                            className={autocompleteInputClasses.autocomplete}
-                            variant="outlined"
-                            autoComplete="off"
-                            helperText={!disabled && securityType === '' ? 'Required' : ''}
-                            type={'text'}
-                        />;
-                    }}
-                />
-                </Box>
-            </Grid>
-            <Grid item>
-                <Typography variant='body2'>Amount</Typography>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                    <TextField
-                        className={classes.searchBox}
-                        variant="outlined"
-                        size="small"
-                        aria-label="baseCapital"
-                        value={amountFundCurrency}
-                        type={'number'}
-                        onChange={(e) => onValueChange(e.target.value, 'amountFundCurrency')}
-                        inputProps={{
-                            style: { height: '1em' },
-                        }}
-                    />
                 </Box>
             </Grid>
         </Grid>
     );
 };
 
-export default AddNewTransactionComponent;
+export default AddNewLPExitComponent;

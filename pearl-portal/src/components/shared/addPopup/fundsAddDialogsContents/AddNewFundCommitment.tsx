@@ -1,4 +1,4 @@
-import { Autocomplete, AutocompleteRenderInputParams, Fab, FormControlLabel, Grid, IconButton, InputAdornment, Switch, TextField, Tooltip, Typography,Box} from '@mui/material';
+import { Autocomplete, AutocompleteRenderInputParams, Box, Fab, FormControlLabel, Grid, IconButton, InputAdornment, Switch, TextField, Tooltip, Typography } from '@mui/material';
 import { useCallback, useEffect, useState } from 'react';
 import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
@@ -13,6 +13,7 @@ import { fetchLPs } from '../../../../redux/thunks/lpThunk';
 import { FundSummary } from '../../../../models/funds/fundModels';
 import { setSelectedLP } from '../../../../redux/slices/lps/lpsSlice';
 import { setSelectedFund } from '../../../../redux/slices/funds/fundsSlice';
+import { fetchFunds } from '../../../../redux/thunks/fundThunk';
 import { useTheme } from "@mui/material/styles";
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
@@ -128,45 +129,36 @@ const LPTypes = [
     "Institutional",
 ];
 
-interface AddNewCommitmentComponentProps {
+interface AddNewFundCommitmentComponentProps {
     disabled: boolean,
     setDisabled: any,
     newCommitment: NewCommitment | null,
     setNewCommitment: (newState: any) => void
 }
 
-const AddNewCommitmentComponent = ({ setDisabled, disabled, newCommitment, setNewCommitment }: AddNewCommitmentComponentProps) => {
+const AddNewFundCommitmentComponent = ({ setDisabled, disabled, newCommitment, setNewCommitment }: AddNewFundCommitmentComponentProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
-    const autocompleteInputClasses = autocompleteInputStyles();
     const theme = useTheme();
+    const autocompleteInputClasses = autocompleteInputStyles();
     const [committedAmount, setCommittedAmount] = useState<number>(0);
     const [currency, setCurrency] = useState<string>('');
-    const [lpId, setLPId] = useState<string>('');
-    const [transfered, setTransfered] = useState<boolean>(false);
     const { lps, selectedLP } = useSelector((state: RootState) => state.lps);
-    const [fundId, setFundId] = useState<string>('');
+    const [transfered, setTransfered] = useState<boolean>(false);
+    const [lpId, setLPId] = useState<string>('');
     const { funds, selectedFund } = useSelector((state: RootState) => state.funds);
+    const fundId = selectedFund?.id ?? '';
+    const fundName = selectedFund?.shortName ?? '';
 
     const onValueChange = (value: string, field: string) => {
         switch (field) {
             case 'lpId':
                 setLPId(value);
-                dispatch(setSelectedLP(lps?.filter(x => x.id === value)[0] ?? null))
                 setNewCommitment({
                     ...newCommitment,
                     lpId: value
                 });
-                setDisabled(value === '' || currency === '' || fundId === '' || committedAmount === 0);
-                break;
-            case 'fundId':
-                setFundId(value);
-                dispatch(setSelectedFund(funds?.filter(x => x.id === value)[0] ?? null))
-                setNewCommitment({
-                    ...newCommitment,
-                    fundId: value
-                });
-                setDisabled(value === '' || currency === '' || lpId === '' || committedAmount === 0);
+                setDisabled(value === '' || currency === '' || committedAmount === 0);
                 break;
             case 'currency':
                 setCurrency(value);
@@ -174,7 +166,7 @@ const AddNewCommitmentComponent = ({ setDisabled, disabled, newCommitment, setNe
                     ...newCommitment,
                     currency: value
                 });
-                setDisabled(value === '' || lpId === '' || fundId === '' || committedAmount === 0);
+                setDisabled(value === '' || lpId === '' || committedAmount === 0);
                 break;
             case 'committedAmount':
                 setCommittedAmount(+value);
@@ -182,7 +174,7 @@ const AddNewCommitmentComponent = ({ setDisabled, disabled, newCommitment, setNe
                     ...newCommitment,
                     committedAmount: +value
                 });
-                setDisabled(currency === '' || lpId === '' || fundId === '' || +value === 0);
+                setDisabled(currency === '' || lpId === '' || +value === 0);
                 break;
             default:
                 break;
@@ -220,10 +212,27 @@ const AddNewCommitmentComponent = ({ setDisabled, disabled, newCommitment, setNe
 
 
     return (
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ paddingTop: '10px' }}>
             <Grid item>
-                <Typography variant='body2'>Limited Partner*</Typography>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                    <TextField
+                        className={classes.searchBox}
+                        variant="outlined"
+                        size="small"
+                        label={'Fund'}
+                        aria-label="baseCapital"
+                        value={fundName}
+                        inputProps={{
+                            style: { height: '1em' },
+                        }}
+                        InputProps={{
+                            readOnly: true,
+                        }}
+                    />
+                </Box>
+            </Grid>
+            <Grid item>
+            <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -248,40 +257,7 @@ const AddNewCommitmentComponent = ({ setDisabled, disabled, newCommitment, setNe
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
-                            helperText={!disabled && lpId === '' ? 'Required' : ''}
-                            type={'text'}
-                        />;
-                    }}
-                />
-                </Box>
-            </Grid>
-            <Grid item>
-                <Typography variant='body2'>Fund*</Typography>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                <Autocomplete
-                    id={'fundsAutocomplete'}
-                    popupIcon={<ExpandMoreIcon />}
-                    size={'small'}
-                    autoHighlight={true}
-                    autoSelect={true}
-                    autoComplete={false}
-                    classes={classes}
-                    sx={{ marginRight: '1em', width: '400px' }}
-                    isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: FundSummary | null) => onValueChange(value ? value.id : '', 'fundId')}
-                    value={selectedFund ?? undefined}
-                    options={funds && funds.length > 0 ? funds.slice().sort(function (a, b) {
-                        if (a.id.toLowerCase() < b.id.toLowerCase()) return -1;
-                        if (a.id.toLowerCase() > b.id.toLowerCase()) return 1;
-                        return 0;
-                    }) : []}
-                    getOptionLabel={(option) => optionLabelFund(option).toString()}
-                    renderInput={(params: AutocompleteRenderInputParams) => {
-                        params.InputProps.className = autocompleteInputClasses.textInput;
-                        return <TextField {...params}
-                            className={autocompleteInputClasses.autocomplete}
-                            variant="outlined"
-                            autoComplete="off"
+                            label={'LP*'}
                             helperText={!disabled && fundId === '' ? 'Required' : ''}
                             type={'text'}
                         />;
@@ -290,8 +266,7 @@ const AddNewCommitmentComponent = ({ setDisabled, disabled, newCommitment, setNe
                 </Box>
             </Grid>
             <Grid item>
-                <Typography variant='body2'>Currency*</Typography>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+            <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -312,6 +287,7 @@ const AddNewCommitmentComponent = ({ setDisabled, disabled, newCommitment, setNe
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
+                            label={'Currency*'}
                             helperText={!disabled && currency === '' ? 'Required' : ''}
                             type={'text'}
                         />;
@@ -320,20 +296,20 @@ const AddNewCommitmentComponent = ({ setDisabled, disabled, newCommitment, setNe
                 </Box>
             </Grid>
             <Grid item>
-                <Typography variant='body2'>Amount</Typography>
                 <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                <TextField
-                    className={classes.searchBox}
-                    variant="outlined"
-                    size="small"
-                    aria-label="baseCapital"
-                    value={committedAmount}
-                    type={'number'}
-                    onChange={(e) => onValueChange(e.target.value, 'committedAmount')}
-                    inputProps={{
-                        style: { height: '1em' },
-                    }}
-                />
+                    <TextField
+                        className={classes.searchBox}
+                        variant="outlined"
+                        size="small"
+                        aria-label="baseCapital"
+                        value={committedAmount}
+                        label={'Amount*'}
+                        type={'number'}
+                        onChange={(e) => onValueChange(e.target.value, 'committedAmount')}
+                        inputProps={{
+                            style: { height: '1em' },
+                        }}
+                    />
                 </Box>
             </Grid>
             <Grid item>
@@ -353,4 +329,4 @@ const AddNewCommitmentComponent = ({ setDisabled, disabled, newCommitment, setNe
     );
 };
 
-export default AddNewCommitmentComponent;
+export default AddNewFundCommitmentComponent;

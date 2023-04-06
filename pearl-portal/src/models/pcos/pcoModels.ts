@@ -58,14 +58,25 @@ export interface PCOInvestments {
 }
 
 
-export interface NewPCO{
+export interface NewPCO {
     pcoName: string,
-    shortName?:string,
+    shortName?: string,
     country?: string
     address?: string,
-    city?:string,
-    postalCode?:string|number,
+    city?: string,
+    postalCode?: string | number,
     currency: string,
     sector?: string,
-    website?:string
+    website?: string
+}
+
+export interface NewInvestment {
+    fundId?: string,
+    lpId?: string,
+    transType?: string,
+    transTypeLP?: string,
+    invetsmentType?: string,
+    amount?: number,
+    pcoId?: string,
+    dateInvestment?: string
 }

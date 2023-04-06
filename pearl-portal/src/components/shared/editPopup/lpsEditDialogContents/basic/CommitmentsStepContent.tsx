@@ -14,6 +14,7 @@ import LPCommitmentsStepContentTable from './LPCommitmentsStepContentTable';
 import LPFundsStepContentTable from './LPFundsStepContentTable';
 import LPPCOsStepContentTable from './LPPCOsStepContentTable';
 import LPExitsStepContentTable from './LPExitsStepContentTable';
+import { AddChildDialogComponent } from '../../../addPopup/AddChildDialog';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -158,6 +159,8 @@ const CommitmentsStepContentComponent = ({ selectedLP, setSelectedLP, disabled, 
     const [fundsExpanded, setFundsExpanded] = useState<boolean>(false);
     const [pcosExpanded, setPCOsExpanded] = useState<boolean>(false);
     const [exitsExpanded, setExitsExpanded] = useState<boolean>(false);
+    const [addChildDialogOpen, setAddChildDialogOpen] = useState<boolean>(false);
+    const [pageName, setPageName] = useState<string>('');
 
     const handleAccordionExp = (expanded: boolean, cardName: string) => {
         if (cardName === 'commitments') {
@@ -170,6 +173,11 @@ const CommitmentsStepContentComponent = ({ selectedLP, setSelectedLP, disabled, 
             setExitsExpanded(!exitsExpanded);
         }
     };
+
+    const handleOpenChildDialog = (accordion: string) => {
+        setPageName(accordion);
+        setAddChildDialogOpen(!addChildDialogOpen);
+    }
 
     return (
         <Grid container spacing={2} sx={{ flex: 1, width: '100%', display: 'flex', justifyContent: 'start', marginTop: '0.2em' }}>
@@ -239,6 +247,7 @@ const CommitmentsStepContentComponent = ({ selectedLP, setSelectedLP, disabled, 
                                     backgroundColor: darken(theme.palette.primary.main, 0.2)
                                 }
                             }}
+                            onClick={() => { handleOpenChildDialog('lpCommitments') }}
                         >
                             <AddRoundedIcon fontSize='small' sx={{ height: 20, width: 20 }} />
                         </Box>
@@ -322,6 +331,7 @@ const CommitmentsStepContentComponent = ({ selectedLP, setSelectedLP, disabled, 
                                     backgroundColor: darken(theme.palette.primary.main, 0.2)
                                 }
                             }}
+                            onClick={() => { handleOpenChildDialog('lpFunds') }}
                         >
                             <AddRoundedIcon fontSize='small' sx={{ height: 20, width: 20 }} />
                         </Box>
@@ -394,6 +404,7 @@ const CommitmentsStepContentComponent = ({ selectedLP, setSelectedLP, disabled, 
                                     backgroundColor: darken(theme.palette.primary.main, 0.2)
                                 }
                             }}
+                            onClick={() => { handleOpenChildDialog('lpPCOs') }}
                         >
                             <AddRoundedIcon fontSize='small' sx={{ height: 20, width: 20 }} />
                         </Box>
@@ -466,12 +477,14 @@ const CommitmentsStepContentComponent = ({ selectedLP, setSelectedLP, disabled, 
                                     backgroundColor: darken(theme.palette.primary.main, 0.2)
                                 }
                             }}
+                            onClick={() => { handleOpenChildDialog('lpExits') }}
                         >
                             <AddRoundedIcon fontSize='small' sx={{ height: 20, width: 20 }} />
                         </Box>
                     </Tooltip>
                 </Grid>
             </Grid>
+            {addChildDialogOpen && <AddChildDialogComponent open={addChildDialogOpen} pageName={pageName} pageTitle={pageName === 'lpCommitments' ? 'Add New Commitment' : pageName === 'lpFunds' ? 'Add New Comitment To Fund' : pageName === 'lpPCOs' ? 'Add New Investment To PCO' : 'Add New Exit'} setDialogOpen={setAddChildDialogOpen} />}
         </Grid>
     );
 };

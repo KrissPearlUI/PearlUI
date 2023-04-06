@@ -1,4 +1,4 @@
-import { Autocomplete, AutocompleteRenderInputParams, Fab, FormControlLabel, Grid, IconButton, InputAdornment, Switch, TextField, Tooltip, Typography } from '@mui/material';
+import { Autocomplete, AutocompleteRenderInputParams, Fab, FormControlLabel, Grid, IconButton, InputAdornment, Switch, TextField, Tooltip, Typography,Box } from '@mui/material';
 import { useCallback, useEffect, useState } from 'react';
 import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
@@ -19,6 +19,7 @@ import { PCOSummary } from '../../../../models/pcos/pcoModels';
 import { fetchFunds } from '../../../../redux/thunks/fundThunk';
 import { fetchPCOs } from '../../../../redux/thunks/pcoThunk';
 import { LPDistributionTypes, NewDistribution } from '../../../../models/distributions/distributionsModels';
+import { useTheme } from "@mui/material/styles";
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -144,6 +145,7 @@ const AddNewDistributionComponent = ({ setDisabled, disabled, newDistribution, s
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const autocompleteInputClasses = autocompleteInputStyles();
+    const theme = useTheme();
     const [amountFundCurrency, setAmountFundCurrency] = useState<number>(0);
     const [currency, setCurrency] = useState<string>('');
     const [pcoId, setPCOId] = useState<string>('');
@@ -241,6 +243,7 @@ const AddNewDistributionComponent = ({ setDisabled, disabled, newDistribution, s
         <Grid container spacing={2}>
             <Grid item>
                 <Typography variant='body2'>Limited Partner*</Typography>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -270,9 +273,11 @@ const AddNewDistributionComponent = ({ setDisabled, disabled, newDistribution, s
                         />;
                     }}
                 />
+                </Box>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Fund*</Typography>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -302,9 +307,11 @@ const AddNewDistributionComponent = ({ setDisabled, disabled, newDistribution, s
                         />;
                     }}
                 />
+                </Box>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Portfolio Company*</Typography>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -334,9 +341,11 @@ const AddNewDistributionComponent = ({ setDisabled, disabled, newDistribution, s
                         />;
                     }}
                 />
+                </Box>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Transaction Type*</Typography>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -362,9 +371,11 @@ const AddNewDistributionComponent = ({ setDisabled, disabled, newDistribution, s
                         />;
                     }}
                 />
+                </Box>
             </Grid>
             <Grid item>
                 <Typography variant='body2'>Amount</Typography>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <TextField
                     className={classes.searchBox}
                     variant="outlined"
@@ -377,6 +388,7 @@ const AddNewDistributionComponent = ({ setDisabled, disabled, newDistribution, s
                         style: { height: '1em' },
                     }}
                 />
+                </Box>
             </Grid>
         </Grid>
     );

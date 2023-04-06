@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme: Theme) =>
             flex: 1,
         },
         textField: {
-            width: '435px',
+            width: '440px',
             backgroundColor: theme.palette.background.paper,
             borderColor: theme.palette.text.primary,
             color: theme.palette.text.primary,

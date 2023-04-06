@@ -4,21 +4,19 @@ import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
 import { GridApi } from 'ag-grid-community';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { CountryList, CurrencyList, NewCommitment } from '../../../../models/shared/sharedModels';
+import { CountryList, CurrencyList } from '../../../../models/shared/sharedModels';
 import { LP } from '../../../../models/lps/lpModels';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/slices/rootSlice';
 import { useAppDispatch } from '../../../../redux/store';
 import { fetchLPs } from '../../../../redux/thunks/lpThunk';
 import { FundSummary } from '../../../../models/funds/fundModels';
-import { setLPs, setSelectedLP } from '../../../../redux/slices/lps/lpsSlice';
+import { setSelectedLP } from '../../../../redux/slices/lps/lpsSlice';
 import { setSelectedFund } from '../../../../redux/slices/funds/fundsSlice';
-import { InvestmentType, NewTransaction, SecurityType, Transaction, TransactionType } from '../../../../models/transactions/transactionsModels';
-import { setSelectedPCO } from '../../../../redux/slices/pcos/pcosSlice';
-import { PCOSummary } from '../../../../models/pcos/pcoModels';
 import { fetchFunds } from '../../../../redux/thunks/fundThunk';
 import { fetchPCOs } from '../../../../redux/thunks/pcoThunk';
-import { LPCashCallType, NewCashCall } from '../../../../models/cashCalls/cashCallsModels';
+import { NewInvestment, PCOSummary } from '../../../../models/pcos/pcoModels';
+import { InvestmentType } from '../../../../models/transactions/transactionsModels';
 import { useTheme } from "@mui/material/styles";
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
@@ -134,74 +132,61 @@ const LPTypes = [
     "Institutional",
 ];
 
-interface AddNewCommitmentComponentProps {
+interface AddNewLPToPCOinvestmentComponentProps {
     disabled: boolean,
     setDisabled: any,
-    newCashCall: NewCashCall | null,
-    setNewCashCall: (newState: any) => void
+    newInvestment: NewInvestment | null,
+    setNewInvestment: (newState: any) => void
 }
 
-const AddNewCashCallComponent = ({ setDisabled, disabled, newCashCall, setNewCashCall }: AddNewCommitmentComponentProps) => {
+const AddNewLPToPCOinvestmentComponent = ({ setDisabled, disabled, newInvestment, setNewInvestment }: AddNewLPToPCOinvestmentComponentProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const autocompleteInputClasses = autocompleteInputStyles();
     const theme = useTheme();
-    const [amountFundCurrency, setAmountFundCurrency] = useState<number>(0);
+    const [amount, setAmount] = useState<number>(0);
     const [currency, setCurrency] = useState<string>('');
-    const [pcoId, setPCOId] = useState<string>('');
-    const { pcos, selectedPCO } = useSelector((state: RootState) => state.pcos);
-    const [fundId, setFundId] = useState<string>('');
-    const { funds, selectedFund } = useSelector((state: RootState) => state.funds);
     const { lps, selectedLP } = useSelector((state: RootState) => state.lps);
-    const [transType, setTransType] = useState<string>('');
+    const lpId = selectedLP?.id ?? '';
+    const lpName = selectedLP?.shortName ?? '';
+    const [transfered, setTransfered] = useState<boolean>(false);
+    const [pcoId, setPcoId] = useState<string>('');
+    const { pcos,selectedPCO } = useSelector((state: RootState) => state.pcos);
     const [investmentType, setInvestmentType] = useState<string>('');
-    const [securityType, setSecurityType] = useState<string>('');
-    const [lpId, setLPId] = useState<string>('');
 
     const onValueChange = (value: string, field: string) => {
         switch (field) {
-            case 'lpId':
-                setLPId(value);
-                dispatch(setSelectedLP(lps?.filter(x => x.id === value)[0] ?? null))
-                setNewCashCall({
-                    ...newCashCall,
-                    lpId: value
-                });
-                setDisabled(value === '' || transType === '' || fundId === '' || pcoId === '' || amountFundCurrency === 0);
-                break;
             case 'pcoId':
-                setPCOId(value);
-                dispatch(setSelectedPCO(pcos?.filter(x => x.id === value)[0] ?? null))
-                setNewCashCall({
-                    ...newCashCall,
+                setPcoId(value);
+                setNewInvestment({
+                    ...newInvestment,
                     pcoId: value
                 });
-                setDisabled(value === '' || transType === '' || fundId === '' || lpId === '' || amountFundCurrency === 0);
+                setDisabled(value === '' || currency === '' || amount === 0);
                 break;
-            case 'fundId':
-                setFundId(value);
-                dispatch(setSelectedFund(funds?.filter(x => x.id === value)[0] ?? null))
-                setNewCashCall({
-                    ...newCashCall,
-                    fundId: value
+            case 'currency':
+                setCurrency(value);
+                setNewInvestment({
+                    ...newInvestment,
+                    currency: value
                 });
-                setDisabled(value === '' || transType === '' || pcoId === '' || lpId === '' || amountFundCurrency === 0);
+                setDisabled(value === '' || pcoId === '' || amount === 0);
                 break;
-            case 'transType':
-                setTransType(value);
-                setNewCashCall({
-                    ...newCashCall,
-                    transType: value
+            case 'investmentType':
+                setInvestmentType(value);
+                setNewInvestment({
+                    ...newInvestment,
+                    investmentType: value
                 });
-                setDisabled(value === '' || lpId === '' || fundId === '' || pcoId === '' || amountFundCurrency === 0);
+                setDisabled(value === '' || pcoId === '' || amount === 0);
                 break;
-            case 'amountFundCurrency':
-                setAmountFundCurrency(+value);
-                setNewCashCall({
-                    ...newCashCall,
-                    amountFundCurrency: +value
+            case 'amount':
+                setAmount(+value);
+                setNewInvestment({
+                    ...newInvestment,
+                    amount: +value
                 });
-                setDisabled(+value === 0 || transType === '' || fundId === '' || pcoId === '' || lpId === '');
+                setDisabled(currency === '' || pcoId === '' || +value === 0);
                 break;
             default:
                 break;
@@ -215,103 +200,33 @@ const AddNewCashCallComponent = ({ setDisabled, disabled, newCashCall, setNewCas
             return option.pcoName ? option.pcoName : option;
         }
     };
-
-    const optionLabelFund = (option: string | FundSummary) => {
-        if (typeof (option) === 'string') {
-            return option;
-        } else {
-            return option.fundName ? option.fundName : option;
-        }
-    };
-
-    const optionLabelLP = (option: string | LP) => {
-        if (typeof (option) === 'string') {
-            return option;
-        } else {
-            return option.name ? option.name : option;
-        }
-    };
-
     useEffect(() => {
-        dispatch(fetchFunds());
         dispatch(fetchPCOs());
-        dispatch(fetchLPs());
     }, [dispatch])
 
 
     return (
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ paddingTop: '10px' }}>
             <Grid item>
-                <Typography variant='body2'>Limited Partner*</Typography>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                <Autocomplete
-                    id={'fundsAutocomplete'}
-                    popupIcon={<ExpandMoreIcon />}
-                    size={'small'}
-                    autoHighlight={true}
-                    autoSelect={true}
-                    autoComplete={false}
-                    classes={classes}
-                    sx={{ marginRight: '1em', width: '400px' }}
-                    isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: LP | null) => onValueChange(value ? value.id : '', 'lpId')}
-                    value={selectedLP ?? undefined}
-                    options={lps && lps.length > 0 ? lps.slice().sort(function (a, b) {
-                        if (a.id.toLowerCase() < b.id.toLowerCase()) return -1;
-                        if (a.id.toLowerCase() > b.id.toLowerCase()) return 1;
-                        return 0;
-                    }) : []}
-                    getOptionLabel={(option) => optionLabelLP(option).toString()}
-                    renderInput={(params: AutocompleteRenderInputParams) => {
-                        params.InputProps.className = autocompleteInputClasses.textInput;
-                        return <TextField {...params}
-                            className={autocompleteInputClasses.autocomplete}
-                            variant="outlined"
-                            autoComplete="off"
-                            helperText={!disabled && lpId === '' ? 'Required' : ''}
-                            type={'text'}
-                        />;
+            <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                <TextField
+                    className={classes.searchBox}
+                    variant="outlined"
+                    size="small"
+                    label={'LP'}
+                    aria-label="baseCapital"
+                    value={lpName}
+                    inputProps={{
+                        style: { height: '1em' },
+                    }}
+                    InputProps={{
+                        readOnly: true,
                     }}
                 />
                 </Box>
             </Grid>
             <Grid item>
-                <Typography variant='body2'>Fund*</Typography>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                <Autocomplete
-                    id={'fundsAutocomplete'}
-                    popupIcon={<ExpandMoreIcon />}
-                    size={'small'}
-                    autoHighlight={true}
-                    autoSelect={true}
-                    autoComplete={false}
-                    classes={classes}
-                    sx={{ marginRight: '1em', width: '400px' }}
-                    isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: FundSummary | null) => onValueChange(value ? value.id : '', 'fundId')}
-                    value={selectedFund ?? undefined}
-                    options={funds && funds.length > 0 ? funds.slice().sort(function (a, b) {
-                        if (a.id.toLowerCase() < b.id.toLowerCase()) return -1;
-                        if (a.id.toLowerCase() > b.id.toLowerCase()) return 1;
-                        return 0;
-                    }) : []}
-                    getOptionLabel={(option) => optionLabelFund(option).toString()}
-                    renderInput={(params: AutocompleteRenderInputParams) => {
-                        params.InputProps.className = autocompleteInputClasses.textInput;
-                        return <TextField {...params}
-                            className={autocompleteInputClasses.autocomplete}
-                            variant="outlined"
-                            autoComplete="off"
-                            helperText={!disabled && fundId === '' ? 'Required' : ''}
-                            type={'text'}
-                        />;
-                    }}
-                />
-                </Box>
-            </Grid>
-            <Grid item>
-                <Typography variant='body2'>Portfolio Company*</Typography>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+            <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -336,6 +251,7 @@ const AddNewCashCallComponent = ({ setDisabled, disabled, newCashCall, setNewCas
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
+                            label={'PCO'}
                             helperText={!disabled && pcoId === '' ? 'Required' : ''}
                             type={'text'}
                         />;
@@ -344,8 +260,7 @@ const AddNewCashCallComponent = ({ setDisabled, disabled, newCashCall, setNewCas
                 </Box>
             </Grid>
             <Grid item>
-                <Typography variant='body2'>Transaction Type*</Typography>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+            <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <Autocomplete
                     id={'fundsAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
@@ -357,16 +272,17 @@ const AddNewCashCallComponent = ({ setDisabled, disabled, newCashCall, setNewCas
                     classes={classes}
                     sx={{ marginRight: '1em', width: '400px' }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: any) => onValueChange(value, 'transType')}
-                    value={transType ?? ''}
-                    options={LPCashCallType?.slice()}
+                    onChange={(e, value: any) => onValueChange(value, 'currency')}
+                    value={currency ?? ''}
+                    options={CurrencyList?.map(x => x.code)?.slice()}
                     renderInput={(params: AutocompleteRenderInputParams) => {
                         params.InputProps.className = autocompleteInputClasses.textInput;
                         return <TextField {...params}
                             className={autocompleteInputClasses.autocomplete}
                             variant="outlined"
                             autoComplete="off"
-                            helperText={!disabled && transType === '' ? 'Required' : ''}
+                            label={'Currency'}
+                            helperText={!disabled && currency === '' ? 'Required' : ''}
                             type={'text'}
                         />;
                     }}
@@ -374,16 +290,46 @@ const AddNewCashCallComponent = ({ setDisabled, disabled, newCashCall, setNewCas
                 </Box>
             </Grid>
             <Grid item>
-                <Typography variant='body2'>Amount</Typography>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+            <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                <Autocomplete
+                    id={'fundsAutocomplete'}
+                    popupIcon={<ExpandMoreIcon />}
+                    size={'small'}
+                    autoHighlight={true}
+                    autoSelect={true}
+                    autoComplete={false}
+                    disableClearable
+                    classes={classes}
+                    sx={{ marginRight: '1em', width: '400px' }}
+                    isOptionEqualToValue={(option, value) => option === value}
+                    onChange={(e, value: any) => onValueChange(value, 'investmentType')}
+                    value={investmentType ?? ''}
+                    options={InvestmentType?.slice()}
+                    renderInput={(params: AutocompleteRenderInputParams) => {
+                        params.InputProps.className = autocompleteInputClasses.textInput;
+                        return <TextField {...params}
+                            className={autocompleteInputClasses.autocomplete}
+                            variant="outlined"
+                            autoComplete="off"
+                            label={'Investment Type'}
+                            helperText={!disabled && investmentType === '' ? 'Required' : ''}
+                            type={'text'}
+                        />;
+                    }}
+                />
+                </Box>
+            </Grid>
+            <Grid item>
+            <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                 <TextField
                     className={classes.searchBox}
                     variant="outlined"
                     size="small"
                     aria-label="baseCapital"
-                    value={amountFundCurrency}
+                    value={amount}
                     type={'number'}
-                    onChange={(e) => onValueChange(e.target.value, 'amountFundCurrency')}
+                    label={'Amount'}
+                    onChange={(e) => onValueChange(e.target.value, 'amount')}
                     inputProps={{
                         style: { height: '1em' },
                     }}
@@ -394,4 +340,4 @@ const AddNewCashCallComponent = ({ setDisabled, disabled, newCashCall, setNewCas
     );
 };
 
-export default AddNewCashCallComponent;
+export default AddNewLPToPCOinvestmentComponent;
