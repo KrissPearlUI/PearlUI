@@ -4,25 +4,25 @@ import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
 import { GridApi } from 'ag-grid-community';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { CountryList, CurrencyList, NewCommitment } from '../../../../../../models/shared/sharedModels';
-import { LP } from '../../../../../../models/lps/lpModels';
+import { CountryList, CurrencyList, NewCommitment } from '../../../../../models/shared/sharedModels';
+import { EditExit, LP } from '../../../../../models/lps/lpModels';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../../../../redux/slices/rootSlice';
-import { useAppDispatch } from '../../../../../../redux/store';
-import { fetchLPs } from '../../../../../../redux/thunks/lpThunk';
-import { FundSummary } from '../../../../../../models/funds/fundModels';
-import { setLPs, setSelectedLP } from '../../../../../../redux/slices/lps/lpsSlice';
-import { setSelectedFund } from '../../../../../../redux/slices/funds/fundsSlice';
-import { InvestmentType, NewTransaction, SecurityType, Transaction, TransactionType } from '../../../../../../models/transactions/transactionsModels';
-import { setSelectedPCO } from '../../../../../../redux/slices/pcos/pcosSlice';
-import { EditInvestment, NewInvestment, PCOSummary } from '../../../../../../models/pcos/pcoModels';
-import { fetchFunds } from '../../../../../../redux/thunks/fundThunk';
-import { fetchPCOs } from '../../../../../../redux/thunks/pcoThunk';
-import { LPCashCallType } from '../../../../../../models/cashCalls/cashCallsModels';
-import { DatePicker } from '@mui/x-date-pickers';
+import { RootState } from '../../../../../redux/slices/rootSlice';
+import { useAppDispatch } from '../../../../../redux/store';
+import { fetchLPs } from '../../../../../redux/thunks/lpThunk';
+import { FundSummary } from '../../../../../models/funds/fundModels';
+import { setLPs, setSelectedLP } from '../../../../../redux/slices/lps/lpsSlice';
+import { setSelectedFund } from '../../../../../redux/slices/funds/fundsSlice';
+import { InvestmentType, NewTransaction, SecurityType, Transaction, TransactionType } from '../../../../../models/transactions/transactionsModels';
+import { setSelectedPCO } from '../../../../../redux/slices/pcos/pcosSlice';
+import { PCOSummary } from '../../../../../models/pcos/pcoModels';
+import { fetchFunds } from '../../../../../redux/thunks/fundThunk';
+import { fetchPCOs } from '../../../../../redux/thunks/pcoThunk';
+import { LPDistributionTypes, NewDistribution } from '../../../../../models/distributions/distributionsModels';
 import { useTheme } from "@mui/material/styles";
+import { DatePicker } from '@mui/x-date-pickers';
 import moment from 'moment';
-import { amountValueFormatter } from '../../../../../../helpers/app';
+import { amountValueFormatter } from '../../../../../helpers/app';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -72,6 +72,11 @@ const useStyles = makeStyles((theme: Theme) =>
             fontFamily: 'Raleway',
             borderRadius: 5,
         },
+        switchField: {
+            '& .MuiFormControlLabel-label': {
+                fontFamily: 'Raleway'
+            }
+        },
         datePickers: {
             width: '100%',
             flex: 1,
@@ -92,11 +97,6 @@ const useStyles = makeStyles((theme: Theme) =>
                     color: theme.palette.text.primary
                 }
             },
-        },
-        switchField: {
-            '& .MuiFormControlLabel-label': {
-                fontFamily: 'Raleway'
-            }
         },
         textFildsSmall: {
             marginRight: '1em',
@@ -151,7 +151,6 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     }),
 );
-
 const LPTypes = [
     "Corporate",
     "General Partner",
@@ -159,63 +158,72 @@ const LPTypes = [
     "Institutional",
 ];
 
-interface PCOInvestmentEditContentComponentProps {
+interface AddNewLPExitComponentProps {
     disabled: boolean,
     setDisabled: any,
-    newInvestment: EditInvestment | null,
-    setNewInvestment: (newState: any) => void,
+    newDistribution: EditExit | null,
+    setNewDistribution: (newState: any) => void
 }
 
-const PCOInvestmentEditContentComponent = ({ setDisabled, disabled, newInvestment, setNewInvestment }: PCOInvestmentEditContentComponentProps) => {
+const LPExitsEditContentCmponent = ({ setDisabled, disabled, newDistribution, setNewDistribution }: AddNewLPExitComponentProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
-    const theme = useTheme();
     const autocompleteInputClasses = autocompleteInputStyles();
-    const [amountLocalCurrency, setAmountLocalCurrency] = useState<any>(newInvestment?.amountLocalCurrency ?? 0);
+    const theme = useTheme();
+    const [amountGained, setAmountGained] = useState<any>(0);
     const [currency, setCurrency] = useState<string>('');
+    const [pcoId, setPCOId] = useState<string>('');
     const { pcos, selectedPCO } = useSelector((state: RootState) => state.pcos);
-    const pcoId = selectedPCO?.id ?? '';
-    const pcoName = selectedPCO?.shortName ?? '';
+    const [fundId, setFundId] = useState<string>('');
     const { funds, selectedFund } = useSelector((state: RootState) => state.funds);
     const { lps, selectedLP } = useSelector((state: RootState) => state.lps);
     const [transType, setTransType] = useState<string>('');
     const [investmentType, setInvestmentType] = useState<string>('');
     const [securityType, setSecurityType] = useState<string>('');
-    const [fundId, setFundId] = useState<string>(newInvestment?.fundId ?? '');
-    const [date, setDateInvestment] = useState<string>(newInvestment?.date ?? '');
-    const [selectedFundLocal, setSelectedFundLocal] = useState<any>(funds && newInvestment ? funds.filter(x => x.id === newInvestment?.fundId)[0] ?? null : null)
+    const lpId = selectedLP?.id ?? '';
+    const lpName = selectedLP?.shortName ?? '';
+    const [date, setDateExit] = useState<string>(newDistribution?.date ?? '');
+    const [selectedPCOLocal, setSelectedPCOLocal] = useState<any>(pcos && newDistribution ? pcos.filter(x => x.id === newDistribution?.pcoId)[0] ?? null : null)
     const [isFirstOpen, setIsFirstOpen] = useState<boolean>(true);
 
     const onValueChange = (value: string, field: string) => {
         setIsFirstOpen(false);
         switch (field) {
-            case 'fundId':
-                setFundId(value);
-                setSelectedFundLocal(funds?.filter(x => x.id === value)[0] ?? null)
-                setNewInvestment({
-                    ...newInvestment,
-                    fundId: value
+            case 'pcoId':
+                setPCOId(value);
+                setSelectedPCOLocal(pcos?.filter(x => x.id === value)[0] ?? null);
+                setNewDistribution({
+                    ...newDistribution,
+                    pcoId: value
                 });
-                setDisabled(value === '' || investmentType === '' || amountLocalCurrency === 0);
+                setDisabled(value === '');
                 break;
-            case 'investmentType':
-                setInvestmentType(value);
-                setNewInvestment({
-                    ...newInvestment,
-                    investmentType: value
+            case 'transType':
+                setTransType(value);
+                setNewDistribution({
+                    ...newDistribution,
+                    transType: value
                 });
-                setDisabled(value === '' || fundId === '' || amountLocalCurrency === 0);
+                setDisabled(value === '' || pcoId === '');
                 break;
-            case 'amountLocalCurrency':
-                setAmountLocalCurrency(+value);
-                setNewInvestment({
-                    ...newInvestment,
-                    amountLocalCurrency: +value
+            case 'amountGained':
+                setAmountGained(+value);
+                setNewDistribution({
+                    ...newDistribution,
+                    amountGained: +value
                 });
-                setDisabled(+value === 0 || investmentType === '' || fundId === '');
+                setDisabled(+value === 0 || pcoId === '');
                 break;
             default:
                 break;
+        }
+    };
+
+    const optionLabel = (option: string | PCOSummary) => {
+        if (typeof (option) === 'string') {
+            return option;
+        } else {
+            return option.pcoName ? option.pcoName : option;
         }
     };
 
@@ -227,35 +235,61 @@ const PCOInvestmentEditContentComponent = ({ setDisabled, disabled, newInvestmen
         }
     };
 
+    const optionLabelLP = (option: string | LP) => {
+        if (typeof (option) === 'string') {
+            return option;
+        } else {
+            return option.name ? option.name : option;
+        }
+    };
+
     const onDateChange = (value: any, field: string) => {
         if (field === 'date') {
-            setDateInvestment(value);
-            if (selectedPCO) {
-                setNewInvestment({
-                    ...selectedPCO,
+            setDateExit(value);
+            if (newDistribution) {
+                setNewDistribution({
+                    ...newDistribution,
                     date: value
                 });
             }
         }
     }
 
+
     useEffect(() => {
         dispatch(fetchFunds());
+        dispatch(fetchPCOs());
+        dispatch(fetchLPs());
     }, [dispatch])
 
-
     useEffect(() => {
-        if (newInvestment !== null && newInvestment !== undefined && funds && isFirstOpen && InvestmentType) {
-            setAmountLocalCurrency(amountValueFormatter(newInvestment.amountLocalCurrency ?? 0, ''));
-            setDateInvestment(newInvestment.date ?? '');
-            setSelectedFund(funds && newInvestment ? funds.filter(x => x.id === newInvestment?.fundId)[0] ?? null : null);
-            setInvestmentType(InvestmentType.filter(x => x === newInvestment.invetsmentType)[0] ?? '');
+        if (newDistribution !== null && newDistribution !== undefined && pcos && isFirstOpen) {
+            setSelectedPCOLocal(pcos && newDistribution ? pcos.filter(x => x.id === newDistribution?.pcoId)[0] ?? null : null);
+            setAmountGained(amountValueFormatter(newDistribution.amountGained ?? 0, ''));
+            setDateExit(newDistribution.date ?? '');
         }
-    }, [newInvestment, funds, isFirstOpen, InvestmentType]);
-
+    }, [newDistribution, pcos, isFirstOpen]);
 
     return (
         <Grid container spacing={2} sx={{ paddingTop: '10px' }}>
+            <Grid item>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                    <TextField
+                        className={classes.searchBox}
+                        variant="outlined"
+                        size="small"
+                        label={'LP'}
+                        aria-label="baseCapital"
+                        value={lpName}
+                        inputProps={{
+                            style: { height: '1em' },
+                        }}
+                        InputProps={{
+                            readOnly: true,
+                        }}
+                    />
+                </Box>
+            </Grid>
             <Grid item>
                 <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <Autocomplete
@@ -268,41 +302,23 @@ const PCOInvestmentEditContentComponent = ({ setDisabled, disabled, newInvestmen
                         classes={classes}
                         sx={{ marginRight: '1em', width: '400px' }}
                         isOptionEqualToValue={(option, value) => option === value}
-                        onChange={(e, value: FundSummary | null) => onValueChange(value ? value.id : '', 'fundId')}
-                        value={selectedFundLocal ?? undefined}
-                        options={funds && funds.length > 0 ? funds.slice().sort(function (a, b) {
+                        onChange={(e, value: PCOSummary | null) => onValueChange(value ? value.id : '', 'pcoId')}
+                        value={selectedPCOLocal ?? undefined}
+                        options={pcos && pcos.length > 0 ? pcos.slice().sort(function (a, b) {
                             if (a.id.toLowerCase() < b.id.toLowerCase()) return -1;
                             if (a.id.toLowerCase() > b.id.toLowerCase()) return 1;
                             return 0;
                         }) : []}
-                        getOptionLabel={(option) => optionLabelFund(option).toString()}
+                        getOptionLabel={(option) => optionLabel(option).toString()}
                         renderInput={(params: AutocompleteRenderInputParams) => {
                             params.InputProps.className = autocompleteInputClasses.textInput;
                             return <TextField {...params}
                                 className={autocompleteInputClasses.autocomplete}
                                 variant="outlined"
                                 autoComplete="off"
-                                label={'Fund'}
+                                label={'PCO'}
                                 type={'text'}
                             />;
-                        }}
-                    />
-                </Box>
-            </Grid>
-            <Grid item>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                    <TextField
-                        className={classes.searchBox}
-                        variant="outlined"
-                        size="small"
-                        label={'PCO'}
-                        aria-label="baseCapital"
-                        value={pcoName}
-                        inputProps={{
-                            style: { height: '1em' },
-                        }}
-                        InputProps={{
-                            readOnly: true,
                         }}
                     />
                 </Box>
@@ -318,7 +334,7 @@ const PCOInvestmentEditContentComponent = ({ setDisabled, disabled, newInvestmen
                         disableHighlightToday
                         renderInput={(props: any) =>
                             <TextField {...props}
-                                label={'Date Invested'}
+                                label={'Date Exit'}
                                 variant={'outlined'}
                                 size={'small'}
                                 className={classes.textField}
@@ -332,44 +348,15 @@ const PCOInvestmentEditContentComponent = ({ setDisabled, disabled, newInvestmen
                 </Box>
             </Grid>
             <Grid item>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                    <Autocomplete
-                        id={'fundsAutocomplete'}
-                        popupIcon={<ExpandMoreIcon />}
-                        size={'small'}
-                        autoHighlight={true}
-                        autoSelect={true}
-                        autoComplete={false}
-                        disableClearable
-                        classes={classes}
-                        sx={{ marginRight: '1em', width: '400px' }}
-                        isOptionEqualToValue={(option, value) => option === value}
-                        onChange={(e, value: any) => onValueChange(value, 'investmentType')}
-                        value={investmentType ?? ''}
-                        options={InvestmentType?.slice()}
-                        renderInput={(params: AutocompleteRenderInputParams) => {
-                            params.InputProps.className = autocompleteInputClasses.textInput;
-                            return <TextField {...params}
-                                className={autocompleteInputClasses.autocomplete}
-                                variant="outlined"
-                                autoComplete="off"
-                                label={'Investment Type'}
-                                type={'text'}
-                            />;
-                        }}
-                    />
-                </Box>
-            </Grid>
-            <Grid item>
-                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
                     <TextField
                         className={classes.searchBox}
                         variant="outlined"
                         size="small"
                         aria-label="baseCapital"
-                        value={amountLocalCurrency}
+                        value={amountGained}
                         label={'Amount'}
-                        onChange={(e) => onValueChange(e.target.value, 'amountLocalCurrency')}
+                        onChange={(e) => onValueChange(e.target.value, 'amountGained')}
                         inputProps={{
                             style: { height: '1em' },
                         }}
@@ -380,4 +367,4 @@ const PCOInvestmentEditContentComponent = ({ setDisabled, disabled, newInvestmen
     );
 };
 
-export default PCOInvestmentEditContentComponent;
+export default LPExitsEditContentCmponent;

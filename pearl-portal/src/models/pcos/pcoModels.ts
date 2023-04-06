@@ -80,3 +80,16 @@ export interface NewInvestment {
     pcoId?: string,
     dateInvestment?: string
 }
+
+export interface EditInvestment {
+    fundId?: string,
+    lpId?: string,
+    transType?: string,
+    transTypeLP?: string,
+    invetsmentType?: string,
+    amountLocalCurrency?: number,
+    pcoId?: string,
+    date?: string,
+    participationPercentage?: number
+    amountInvested?: number
+}

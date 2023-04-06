@@ -18,6 +18,7 @@ import { FundSummary } from '../../../../../models/funds/fundModels';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../../redux/slices/rootSlice';
 import { AddChildDialogComponent } from '../../../addPopup/AddChildDialog';
+import { EditChildDialogComponent } from '../../EditChildDialog';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -166,6 +167,8 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
     const { lps } = useSelector((state: RootState) => state.lps);
     const [addChildDialogOpen, setAddChildDialogOpen] = useState<boolean>(false);
     const [pageName, setPageName] = useState<string>('');
+    const { editChildDialogOpen } = useSelector((state: RootState) => state.app);
+    const [editPageName, setEditPageName] = useState<string>('');
 
     const handleAccordionExp = (expanded: boolean, cardName: string) => {
         if (cardName === 'commitments') {
@@ -238,7 +241,7 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
                                     backgroundColor: theme.palette.background.paper,
                                     width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
                                 }}>
-                                {commitmentsExpanded && <FundCommitmentsStepContentTable />}
+                                {commitmentsExpanded && <FundCommitmentsStepContentTable  setEditPageName={setEditPageName}/>}
                             </AccordionDetails>
                         </Accordion>
                     </Box>
@@ -322,7 +325,7 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
                                     backgroundColor: theme.palette.background.paper,
                                     width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
                                 }}>
-                                {lpsExpanded && <FundLPsStepContentTable />}
+                                {lpsExpanded && <FundLPsStepContentTable setEditPageName={setEditPageName} />}
                             </AccordionDetails>
                         </Accordion>
                     </Box>
@@ -395,7 +398,7 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
                                     backgroundColor: theme.palette.background.paper,
                                     width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
                                 }}>
-                                {pcosExpanded && <FundPCOsStepContentTable />}
+                                {pcosExpanded && <FundPCOsStepContentTable setEditPageName={setEditPageName}/>}
                             </AccordionDetails>
                         </Accordion>
                     </Box>
@@ -468,7 +471,7 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
                                     backgroundColor: theme.palette.background.paper,
                                     width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
                                 }}>
-                                {exitsExpanded && <FundExitsStepContentTable />}
+                                {exitsExpanded && <FundExitsStepContentTable setEditPageName={setEditPageName} />}
                             </AccordionDetails>
                         </Accordion>
                     </Box>
@@ -501,6 +504,7 @@ const CommitmentsStepContentComponent = ({ selectedFund, setSelectedFund, disabl
                 </Grid>
             </Grid>
             {addChildDialogOpen && <AddChildDialogComponent open={addChildDialogOpen} pageName={pageName} pageTitle={pageName === 'fundCommitments' ? 'Add New Commitment' : pageName === 'fundLPs' ? 'Add New Comitment From LP' : pageName === 'fundPCOs' ? 'Add New Investment To PCO' : 'Add New Exit'} setDialogOpen={setAddChildDialogOpen} />}
+            {editChildDialogOpen && <EditChildDialogComponent open={editChildDialogOpen} pageName={editPageName} pageTitle={editPageName === 'fundCommitments' ? 'Edit Commitment' : editPageName === 'fundLPS' ? 'Edit Commitment From LP' : editPageName === 'fundPCOs' ? 'Edit Investment To PCO' : 'Edit Exit'}  />}
         </Grid>
     );
 };

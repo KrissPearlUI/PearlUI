@@ -121,6 +121,18 @@ export interface Exits {
     type?: string
 }
 
+
+export interface EditExit {
+    id: string,
+    date?: string,
+    pcoId?: string,
+    pcoName?: string,
+    shortName?: string,
+    amountGained?: number,
+    fundCurrency?: string,
+    type?: string
+}
+
 export interface Distribution {
     recyclingReserveDistributions: number,
     nonRecallableDistributions: number,

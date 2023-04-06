@@ -11,6 +11,8 @@ import { RootState } from '../../../../redux/slices/rootSlice';
 import { Exits } from '../../../../models/lps/lpModels';
 import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
+import { fetchAllDistributions } from '../../../../redux/thunks/distributionsThunk';
+import { useAppDispatch } from '../../../../redux/store';
 
 
 const useStyles = makeStyles(() =>
@@ -30,11 +32,13 @@ const useStyles = makeStyles(() =>
 
 const FundExitsTable = () => {
     const classes = useStyles();
+    const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedFund } = useSelector((state: RootState) => state.funds);
+    const { distributions } = useSelector((state: RootState) => state.distributions);
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
-    const [rowData, setRowData] = useState<Exits[]>([]);
+    const [rowData, setRowData] = useState<any[]>([]);
 
     const gridOptions: GridOptions = {
         defaultColDef: DefaultColumnDef,
@@ -42,7 +46,7 @@ const FundExitsTable = () => {
         enableRangeSelection: true,
         animateRows: true,
         pagination: true,
-        paginationPageSize:5,
+        paginationPageSize: 5,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
@@ -52,7 +56,7 @@ const FundExitsTable = () => {
         return [
             {
                 headerName: 'Date',
-                field: 'date',
+                field: 'distDate',
                 minWidth: 100,
                 maxWidth: 140,
                 enableRowGroup: true,
@@ -68,7 +72,7 @@ const FundExitsTable = () => {
             },
             {
                 headerName: 'Amount Returned',
-                field: 'amountGained',
+                field: 'amount',
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'amountGained',
@@ -78,8 +82,8 @@ const FundExitsTable = () => {
             {
                 headerName: 'Currency',
                 field: 'fundCurrency',
-                minWidth:90,
-                maxWidth:120,
+                minWidth: 90,
+                maxWidth: 120,
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.fundCurrency ? params.data?.fundCurrency.toUpperCase() : '';
@@ -112,8 +116,14 @@ const FundExitsTable = () => {
     }, []);
 
     useEffect(() => {
-        setRowData(selectedFund?.exits ?? []);
-    }, [selectedFund])
+        dispatch(fetchAllDistributions());
+    }, [dispatch])
+
+    useEffect(() => {
+        if (selectedFund && distributions) {
+            setRowData(distributions?.filter(x => x.fundId === selectedFund.id) ?? []);
+        }
+    }, [distributions])
 
     return (
         <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1 }}>

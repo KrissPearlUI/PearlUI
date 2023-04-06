@@ -12,6 +12,10 @@ import { PCO } from '../../../../../models/lps/lpModels';
 import { getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../../helpers/agGrid';
 import AGGridLoader from '../../../../shared/AGGridLoader';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
+import { useAppDispatch } from '../../../../../redux/store';
+import { EditInvestment } from '../../../../../models/pcos/pcoModels';
+import { setSelectedInvestment } from '../../../../../redux/slices/pcos/pcosSlice';
+import { setEditChildDiaogOpen } from '../../../../../redux/slices/appSlice';
 
 
 const useStyles = makeStyles(() =>
@@ -29,14 +33,20 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const FundPCOsStepContentTable = () => {
+interface FundLPsStepContentTableProps {
+    setEditPageName: any,
+}
+const FundPCOsStepContentTable = ({ setEditPageName }: FundLPsStepContentTableProps) => {
     const classes = useStyles();
-    const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
+    const dispatch = useAppDispatch();
+    const { isDarkTheme, editChildDialogOpen } = useSelector((state: RootState) => state.app);
     const { selectedFund } = useSelector((state: RootState) => state.funds);
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<PCO[]>([]);
     const [editCommitmentDialogOpen, setEditCommitmentDialogOpen] = useState<boolean>(false);
+    const [editialogOpen, setEditDialogOpen] = useState<boolean>(false);
+    const [selectedInvetsmentLocal, setSelectedInvetsmentLocal] = useState<any>(null);
 
     const gridOptions: GridOptions = {
         defaultColDef: DefaultColumnDef,
@@ -52,9 +62,18 @@ const FundPCOsStepContentTable = () => {
 
     const ButtonCellRenderer = (props: any) => {
         const handleEditClick = () => {
-            setEditCommitmentDialogOpen(true);
+            if (props.data) {
+                setEditPageName('fundPCOs');
+                setEditDialogOpen(!editChildDialogOpen);
+                const investment: EditInvestment = {
+                    fundId: selectedFund?.id,
+                    pcoId: props.data?.id,
+                    amountInvested: props.data?.amountInvested
+                }
+                setSelectedInvetsmentLocal(investment);
+                //handleOpenEditChildDialog('investments');
+            }
         };
-
         return <span key={props.data.id} style={{ display: 'flex', width: '100%', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}>
             <EditRoundedIcon style={{ color: theme.palette.primary.main, width: '100%', alignSelf: 'center' }} onClick={() => handleEditClick()} />
         </span>;
@@ -101,6 +120,14 @@ const FundPCOsStepContentTable = () => {
     useEffect(() => {
         setRowData(selectedFund?.pcos ?? []);
     }, [selectedFund])
+
+
+    useEffect(() => {
+        if (selectedInvetsmentLocal && editialogOpen) {
+            dispatch(setSelectedInvestment(selectedInvetsmentLocal));
+            dispatch(setEditChildDiaogOpen(!editChildDialogOpen));
+        }
+    }, [selectedInvetsmentLocal, editialogOpen, dispatch])
 
     return (
         <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1 }}>

@@ -4,13 +4,17 @@ import { LP, PCOExtended } from '../../../models/lps/lpModels';
 export interface LPsState {
     lps: LP[]
     selectedLP: LP | null,
-    pcosExtended: PCOExtended[]
+    pcosExtended: PCOExtended[],
+    selectedCommitment: any,
+    selectedExit:any
 }
 
 const initialState: LPsState = {
     lps: [],
     selectedLP: null,
-    pcosExtended: []
+    pcosExtended: [],
+    selectedCommitment: null,
+    selectedExit:null
 };
 
 const lpsSlice = createSlice({
@@ -41,13 +45,21 @@ const lpsSlice = createSlice({
         setPCOsExtended(state, action: PayloadAction<PCOExtended[]>) {
             state.pcosExtended = action.payload;
         },
+        setSelectedCommitment(state, action: PayloadAction<any>) {
+            state.selectedCommitment = action.payload;
+        },
+        setSelectedExit(state, action: PayloadAction<any>) {
+            state.selectedExit = action.payload;
+        },
     }
 });
 
 export const {
     setLPs,
     setSelectedLP,
-    setPCOsExtended
+    setPCOsExtended,
+    setSelectedCommitment,
+    setSelectedExit
 } = lpsSlice.actions;
 
 export default lpsSlice.reducer;

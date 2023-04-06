@@ -11,6 +11,10 @@ import { RootState } from '../../../../../redux/slices/rootSlice';
 import { getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../../helpers/agGrid';
 import AGGridLoader from '../../../../shared/AGGridLoader';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
+import { setSelectedInvestment } from '../../../../../redux/slices/pcos/pcosSlice';
+import { useAppDispatch } from '../../../../../redux/store';
+import { setEditChildDiaogOpen } from '../../../../../redux/slices/appSlice';
+import { EditInvestment } from '../../../../../models/pcos/pcoModels';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -27,15 +31,22 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const PCOFundsStepContentTable = () => {
+interface PCOInvestmentsStepContentTableComponentProps {
+    setEditPageName: any,
+}
+
+const PCOFundsStepContentTable = ({ setEditPageName }: PCOInvestmentsStepContentTableComponentProps) => {
     const classes = useStyles();
-    const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
+    const dispatch = useAppDispatch();
+    const { isDarkTheme, editChildDialogOpen } = useSelector((state: RootState) => state.app);
     const { funds } = useSelector((state: RootState) => state.funds);
     const { selectedPCO } = useSelector((state: RootState) => state.pcos);
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<any[]>([]);
     const [editCommitmentDialogOpen, setEditCommitmentDialogOpen] = useState<boolean>(false);
+    const [editialogOpen, setEditDialogOpen] = useState<boolean>(false);
+    const [selectedInvestmentLocal, setSelectedInvestmentLocal] = useState<any>(null);
 
     const gridOptions: GridOptions = {
         defaultColDef: DefaultColumnDef,
@@ -51,7 +62,17 @@ const PCOFundsStepContentTable = () => {
 
     const ButtonCellRenderer = (props: any) => {
         const handleEditClick = () => {
-            setEditCommitmentDialogOpen(true);
+            if (props.data) {
+                setSelectedInvestmentLocal(props.data);
+                setEditPageName('pcoFunds');
+                setEditDialogOpen(!editChildDialogOpen);
+                const investment: EditInvestment = {
+                    pcoId: selectedPCO?.id,
+                    fundId: props.data?.id,
+                    amountInvested: props.data?.amountInvested
+                }
+                setSelectedInvestmentLocal(investment);                //handleOpenEditChildDialog('investments');
+            }
         };
 
         return <span key={props.data.id} style={{ display: 'flex', width: '100%', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}>
@@ -142,6 +163,13 @@ const PCOFundsStepContentTable = () => {
             setRowData(data ?? []);
         }
     }, [selectedPCO, funds])
+
+    useEffect(() => {
+        if (selectedInvestmentLocal && editialogOpen) {
+            dispatch(setSelectedInvestment(selectedInvestmentLocal));
+            dispatch(setEditChildDiaogOpen(!editChildDialogOpen));
+        }
+    }, [selectedInvestmentLocal, editialogOpen, dispatch])
 
     return (
         <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1 }}>

@@ -12,6 +12,7 @@ import { Exits } from '../../../../../models/lps/lpModels';
 import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../../helpers/agGrid';
 import AGGridLoader from '../../../../shared/AGGridLoader';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
+import { useAppDispatch } from '../../../../../redux/store';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -28,9 +29,14 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const FundExitsStepContentTable = () => {
+interface FundLPsStepContentTableProps {
+    setEditPageName: any,
+}
+
+const FundExitsStepContentTable = ({setEditPageName}:FundLPsStepContentTableProps) => {
     const classes = useStyles();
-    const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
+    const dispatch = useAppDispatch();
+    const { isDarkTheme, editChildDialogOpen } = useSelector((state: RootState) => state.app);    
     const { selectedFund } = useSelector((state: RootState) => state.funds);
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();

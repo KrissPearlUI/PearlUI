@@ -364,7 +364,7 @@ const SingleFundBasic = () => {
                                             </Grid>
                                         </Grid>
                                     </AccordionSummary>
-                                    {isExitsExpand && selectedFund?.exits && <AccordionDetails
+                                    {isExitsExpand && selectedFund && <AccordionDetails
                                         sx={{
                                             backgroundColor: theme.palette.background.paper,
                                             width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto', marginLeft: { xs: 0, md: '-2em', lg: '-2em' }, minWidth: { xs: '430px', md: '450px', lg: '450px' }, overflow: 'auto'

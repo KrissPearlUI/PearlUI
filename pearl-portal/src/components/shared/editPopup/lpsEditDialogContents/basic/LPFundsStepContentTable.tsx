@@ -12,6 +12,10 @@ import { Fund } from '../../../../../models/lps/lpModels';
 import { getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../../helpers/agGrid';
 import AGGridLoader from '../../../../shared/AGGridLoader';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
+import { useAppDispatch } from '../../../../../redux/store';
+import { setSelectedCommitment } from '../../../../../redux/slices/lps/lpsSlice';
+import { setEditChildDiaogOpen } from '../../../../../redux/slices/appSlice';
+import { EditCommitment } from '../../../../../models/shared/sharedModels';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -28,14 +32,23 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const LPFundsStepContentTable = () => {
+
+interface LPFundsStepContentTableProps {
+    setEditPageName: any,
+}
+
+
+const LPFundsStepContentTable = ({ setEditPageName }: LPFundsStepContentTableProps) => {
     const classes = useStyles();
-    const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
+    const dispatch = useAppDispatch();
+    const { isDarkTheme, editChildDialogOpen } = useSelector((state: RootState) => state.app);
     const { selectedLP } = useSelector((state: RootState) => state.lps);
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<Fund[]>([]);
     const [editCommitmentDialogOpen, setEditCommitmentDialogOpen] = useState<boolean>(false);
+    const [editialogOpen, setEditDialogOpen] = useState<boolean>(false);
+    const [selectedCommitmentLocal, setSelectedCommitmentLocal] = useState<any>(null);
 
     const gridOptions: GridOptions = {
         defaultColDef: DefaultColumnDef,
@@ -50,7 +63,17 @@ const LPFundsStepContentTable = () => {
 
     const ButtonCellRenderer = (props: any) => {
         const handleEditClick = () => {
-            setEditCommitmentDialogOpen(true);
+            if (props.data) {
+                setEditPageName('lpFunds');
+                setEditDialogOpen(!editChildDialogOpen);
+                const commitment: EditCommitment = {
+                    lpId: selectedLP?.id,
+                    lpName:selectedLP?.name,
+                    fundId: props.data?.id,
+                    committedAmount: props.data?.committedAmount
+                }
+                setSelectedCommitmentLocal(commitment);             
+            }
         };
 
         return <span key={props.data.id} style={{ display: 'flex', width: '100%', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}>
@@ -69,8 +92,8 @@ const LPFundsStepContentTable = () => {
                     return params.data?.id;
                 },
                 tooltipField: 'id',
-                minWidth:90,
-                maxWidth:100,
+                minWidth: 90,
+                maxWidth: 100,
                 valueSetter: (params) => valueSetter(params, 'id'),
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
@@ -94,8 +117,8 @@ const LPFundsStepContentTable = () => {
                 headerName: 'Currency',
                 field: 'fundCurrency',
                 enableRowGroup: true,
-                minWidth:90,
-                maxWidth:120,
+                minWidth: 90,
+                maxWidth: 120,
                 valueGetter: (params) => {
                     return params.data?.fundCurrency ? params.data?.fundCurrency.toUpperCase() : '';
                 },
@@ -136,6 +159,14 @@ const LPFundsStepContentTable = () => {
     useEffect(() => {
         setRowData(selectedLP?.funds ?? []);
     }, [selectedLP])
+
+
+    useEffect(() => {
+        if (selectedCommitmentLocal && editialogOpen) {
+            dispatch(setSelectedCommitment(selectedCommitmentLocal));
+            dispatch(setEditChildDiaogOpen(!editChildDialogOpen));
+        }
+    }, [selectedCommitmentLocal, editialogOpen, dispatch])
 
     return (
         <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1 }}>

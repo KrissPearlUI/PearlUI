@@ -12,6 +12,9 @@ import { Exits } from '../../../../../models/lps/lpModels';
 import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../../helpers/agGrid';
 import AGGridLoader from '../../../../shared/AGGridLoader';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
+import { useAppDispatch } from '../../../../../redux/store';
+import { setEditChildDiaogOpen } from '../../../../../redux/slices/appSlice';
+import { setSelectedExit } from '../../../../../redux/slices/lps/lpsSlice';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -28,14 +31,22 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const LPExitsStepContentTable = () => {
+
+interface LPExitsStepContentTableProps {
+    setEditPageName: any,
+}
+
+const LPExitsStepContentTable = ({setEditPageName}:LPExitsStepContentTableProps) => {
     const classes = useStyles();
-    const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
+    const dispatch = useAppDispatch();
+    const { isDarkTheme, editChildDialogOpen } = useSelector((state: RootState) => state.app);
     const { selectedLP } = useSelector((state: RootState) => state.lps);
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<Exits[]>([]);
     const [editCommitmentDialogOpen, setEditCommitmentDialogOpen] = useState<boolean>(false);
+    const [editialogOpen, setEditDialogOpen] = useState<boolean>(false);
+    const [selectedExitLocal, setSelectedExitLocal] = useState<any>(null);
 
     const gridOptions: GridOptions = {
         defaultColDef: DefaultColumnDef,
@@ -50,10 +61,14 @@ const LPExitsStepContentTable = () => {
     };
 
     const ButtonCellRenderer = (props: any) => {
-        const handleEditClick = () => {
-            setEditCommitmentDialogOpen(true);
+      const handleEditClick = () => {
+            if (props.data) {
+                setSelectedExitLocal(props.data);
+                setEditPageName('lpExits');
+                setEditDialogOpen(!editChildDialogOpen);
+                //handleOpenEditChildDialog('investments');
+            }
         };
-
         return <span key={props.data.id} style={{ display: 'flex', width: '100%', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}>
             <EditRoundedIcon style={{ color: theme.palette.primary.main, width: '100%', alignSelf: 'center' }} onClick={() => handleEditClick()} />
         </span>;
@@ -132,6 +147,13 @@ const LPExitsStepContentTable = () => {
     useEffect(() => {
         setRowData(selectedLP?.exits ?? []);
     }, [selectedLP])
+
+    useEffect(() => {
+        if (selectedExitLocal && editialogOpen) {
+            dispatch(setSelectedExit(selectedExitLocal));
+            dispatch(setEditChildDiaogOpen(!editChildDialogOpen));
+        }
+    }, [selectedExitLocal, editialogOpen, dispatch])
 
     return (
         <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1 }}>

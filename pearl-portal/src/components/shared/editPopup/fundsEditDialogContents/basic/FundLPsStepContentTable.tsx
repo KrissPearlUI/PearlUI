@@ -12,7 +12,10 @@ import { LPFundsOverview } from '../../../../../models/lps/lpModels';
 import { getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../../helpers/agGrid';
 import AGGridLoader from '../../../../shared/AGGridLoader';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
-
+import { useAppDispatch } from '../../../../../redux/store';
+import { setSelectedCommitment } from '../../../../../redux/slices/lps/lpsSlice';
+import { setEditChildDiaogOpen } from '../../../../../redux/slices/appSlice';
+import { EditCommitment } from '../../../../../models/shared/sharedModels';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -29,14 +32,22 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const FundLPsStepContentTable = () => {
+interface FundLPsStepContentTableProps {
+    setEditPageName: any,
+}
+
+
+const FundLPsStepContentTable = ({ setEditPageName }: FundLPsStepContentTableProps) => {
     const classes = useStyles();
-    const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
+    const dispatch = useAppDispatch();
+    const { isDarkTheme, editChildDialogOpen } = useSelector((state: RootState) => state.app);
     const { selectedFund } = useSelector((state: RootState) => state.funds);
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<LPFundsOverview[]>([]);
     const [editCommitmentDialogOpen, setEditCommitmentDialogOpen] = useState<boolean>(false);
+    const [editialogOpen, setEditDialogOpen] = useState<boolean>(false);
+    const [selectedCommitmentLocal, setSelectedCommitmentLocal] = useState<any>(null);
 
     const gridOptions: GridOptions = {
         defaultColDef: DefaultColumnDef,
@@ -50,10 +61,19 @@ const FundLPsStepContentTable = () => {
         statusBar: DefaultStatusPanelDef,
     };
 
-    
+
     const ButtonCellRenderer = (props: any) => {
         const handleEditClick = () => {
-            setEditCommitmentDialogOpen(true);
+            if (props.data) {
+                setEditPageName('fundLPs');
+                setEditDialogOpen(!editChildDialogOpen);
+                const commitment: EditCommitment = {
+                    fundId: selectedFund?.id,
+                    lpId: props.data?.id,
+                    committedAmount: props.data?.committedAmount
+                }
+                setSelectedCommitmentLocal(commitment);
+            }
         };
 
         return <span key={props.data.id} style={{ display: 'flex', width: '100%', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}>
@@ -135,6 +155,14 @@ const FundLPsStepContentTable = () => {
     useEffect(() => {
         setRowData(selectedFund?.lps ?? []);
     }, [selectedFund])
+
+    useEffect(() => {
+        if (selectedCommitmentLocal && editialogOpen) {
+            dispatch(setSelectedCommitment(selectedCommitmentLocal));
+            dispatch(setEditChildDiaogOpen(!editChildDialogOpen));
+        }
+    }, [selectedCommitmentLocal, editialogOpen, dispatch])
+
 
     return (
         <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1 }}>

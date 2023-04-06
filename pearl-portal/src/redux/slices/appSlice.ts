@@ -10,6 +10,7 @@ export interface MainState {
     navLinkState: any;
     addDialogOpen:boolean;
     editDialogOpen:boolean;
+    editChildDialogOpen:boolean
 }
 
 const initialState: MainState = {
@@ -20,7 +21,8 @@ const initialState: MainState = {
     activePath: '/',
     navLinkState: {},
     addDialogOpen:false,
-    editDialogOpen:false
+    editDialogOpen:false,
+    editChildDialogOpen:false
 };
 
 const appSlice = createSlice({
@@ -96,6 +98,9 @@ const appSlice = createSlice({
         setEditDiaogOpen(state, action: PayloadAction<boolean>) {
             state.editDialogOpen = action.payload;
         },
+        setEditChildDiaogOpen(state, action: PayloadAction<boolean>) {
+            state.editChildDialogOpen = action.payload;
+        },
     }
 });
 
@@ -108,7 +113,8 @@ export const {
     setErrorMessage,
     setNavLinkState,
     setAddDiaogOpen,
-    setEditDiaogOpen
+    setEditDiaogOpen,
+    setEditChildDiaogOpen
 } = appSlice.actions;
 
 export default appSlice.reducer;

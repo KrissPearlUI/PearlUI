@@ -16,6 +16,8 @@ import PCOLPsStepContentTable from './PCOLPSStepContentTaple';
 import PCOFundsStepContentTable from './PCOFundsStepContentTable';
 import { AddChildDialogComponent } from '../../../addPopup/AddChildDialog';
 import { EditChildDialogComponent } from '../../EditChildDialog';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../../redux/slices/rootSlice';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -156,12 +158,12 @@ interface InvestmentsStepContentProps {
 const InvestmentsStepContentComponent = ({ selectedPCO, setSelectedPCO, disabled, setDisabled }: InvestmentsStepContentProps) => {
     const classes = useStyles();
     const theme = useTheme();
+    const { editChildDialogOpen } = useSelector((state: RootState) => state.app);
     const [investmentsExpanded, setInvestmentsExpanded] = useState<boolean>(false);
     const [fundsExpanded, setFundsExpanded] = useState<boolean>(false);
     const [lpsExpanded, setLPsExpanded] = useState<boolean>(false);
     const [addChildDialogOpen, setAddChildDialogOpen] = useState<boolean>(false);
     const [pageName, setPageName] = useState<string>('');
-    const [editChildDialogOpen, setEditChildDialogOpen] = useState<boolean>(false);
     const [editPageName, setEditPageName] = useState<string>('');
     const [selectedInvetsment, setSelectedInvestment] = useState<any>(null);
     const [selectedPCOLP, setSelectedPCOLP] = useState<any>(null);
@@ -225,7 +227,7 @@ const InvestmentsStepContentComponent = ({ selectedPCO, setSelectedPCO, disabled
                                     backgroundColor: theme.palette.background.paper,
                                     width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
                                 }}>
-                                {investmentsExpanded && <PCOInvestmentsStepContentTableComponent setSelectedInvestment={setSelectedInvestment} setEditPageName={setEditPageName} setEditChildDialogOpen={setEditChildDialogOpen} editChildDialogOpen={editChildDialogOpen}/>}
+                                {investmentsExpanded && <PCOInvestmentsStepContentTableComponent setEditPageName={setEditPageName} />}
                             </AccordionDetails>
                         </Accordion>
                     </Box>
@@ -309,7 +311,7 @@ const InvestmentsStepContentComponent = ({ selectedPCO, setSelectedPCO, disabled
                                     backgroundColor: theme.palette.background.paper,
                                     width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
                                 }}>
-                                {lpsExpanded && <PCOLPsStepContentTable />}
+                                {lpsExpanded && <PCOLPsStepContentTable setEditPageName={setEditPageName}/>}
                             </AccordionDetails>
                         </Accordion>
                     </Box>
@@ -382,7 +384,7 @@ const InvestmentsStepContentComponent = ({ selectedPCO, setSelectedPCO, disabled
                                     backgroundColor: theme.palette.background.paper,
                                     width: '100%', padding: '0.1em', display: 'flex', height: '100%', pointerEvents: 'auto'
                                 }}>
-                                {fundsExpanded && <PCOFundsStepContentTable />}
+                                {fundsExpanded && <PCOFundsStepContentTable setEditPageName={setEditPageName} />}
                             </AccordionDetails>
                         </Accordion>
                     </Box>
@@ -415,6 +417,7 @@ const InvestmentsStepContentComponent = ({ selectedPCO, setSelectedPCO, disabled
                 </Grid>
             </Grid>
             {addChildDialogOpen && <AddChildDialogComponent open={addChildDialogOpen} pageName={pageName} pageTitle={pageName === 'investments' ? 'Add New Investment' : pageName === 'pcoLPs' ? 'Add New Investment From LP' : 'Add New Investment From Fund'} setDialogOpen={setAddChildDialogOpen} />}
+            {editChildDialogOpen && <EditChildDialogComponent open={editChildDialogOpen} pageName={editPageName} pageTitle={editPageName === 'investments' ? 'Edit Investment' : editPageName === 'pcoLPs' ? 'Edit Investment From LP' : editPageName === 'pcoFunds' ? 'Edit Investment From Fund' : ''}  />}
         </Grid>
     );
 };
