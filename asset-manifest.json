@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/PearlUI/static/css/main.59f8657a.css",
-    "main.js": "/PearlUI/static/js/main.5ad06581.js",
+    "main.js": "/PearlUI/static/js/main.7116fd40.js",
     "static/js/838.2464422b.chunk.js": "/PearlUI/static/js/838.2464422b.chunk.js",
     "static/js/50.9fae2e6a.chunk.js": "/PearlUI/static/js/50.9fae2e6a.chunk.js",
     "static/js/61.773b58fa.chunk.js": "/PearlUI/static/js/61.773b58fa.chunk.js",
     "static/js/67.e245d990.chunk.js": "/PearlUI/static/js/67.e245d990.chunk.js",
-    "static/js/1.5a7abbef.chunk.js": "/PearlUI/static/js/1.5a7abbef.chunk.js",
-    "static/js/331.4ffe515e.chunk.js": "/PearlUI/static/js/331.4ffe515e.chunk.js",
-    "static/js/245.f02327b0.chunk.js": "/PearlUI/static/js/245.f02327b0.chunk.js",
+    "static/js/1.8ff3a0da.chunk.js": "/PearlUI/static/js/1.8ff3a0da.chunk.js",
+    "static/js/331.2bd199f8.chunk.js": "/PearlUI/static/js/331.2bd199f8.chunk.js",
+    "static/js/245.aefd48e3.chunk.js": "/PearlUI/static/js/245.aefd48e3.chunk.js",
     "static/js/117.c11d2de1.chunk.js": "/PearlUI/static/js/117.c11d2de1.chunk.js",
     "static/js/219.0221a46c.chunk.js": "/PearlUI/static/js/219.0221a46c.chunk.js",
     "static/js/373.0d67a270.chunk.js": "/PearlUI/static/js/373.0d67a270.chunk.js",
@@ -17,8 +17,7 @@
     "static/js/270.320ab286.chunk.js": "/PearlUI/static/js/270.320ab286.chunk.js",
     "static/js/677.51dadd8c.chunk.js": "/PearlUI/static/js/677.51dadd8c.chunk.js",
     "static/js/254.4b7964d0.chunk.js": "/PearlUI/static/js/254.4b7964d0.chunk.js",
-    "static/js/899.63653087.chunk.js": "/PearlUI/static/js/899.63653087.chunk.js",
-    "static/js/753.1ba269b6.chunk.js": "/PearlUI/static/js/753.1ba269b6.chunk.js",
+    "static/js/505.f805c499.chunk.js": "/PearlUI/static/js/505.f805c499.chunk.js",
     "static/media/LPMenuIcon.svg": "/PearlUI/static/media/LPMenuIcon.bda5a9a7f2637044d6cf62751ff98947.svg",
     "static/media/LogoIcon.svg": "/PearlUI/static/media/LogoIcon.709b1cd7c9efe110497938ef370140b9.svg",
     "static/media/UploadPicIcon.svg": "/PearlUI/static/media/UploadPicIcon.b34292d0a64f196fd3eb07693441142c.svg",
@@ -30,14 +29,14 @@
     "index.html": "/PearlUI/index.html",
     "static/media/AppearanceIcon.svg": "/PearlUI/static/media/AppearanceIcon.6aded6e1d59341b505796f9856729587.svg",
     "main.59f8657a.css.map": "/PearlUI/static/css/main.59f8657a.css.map",
-    "main.5ad06581.js.map": "/PearlUI/static/js/main.5ad06581.js.map",
+    "main.7116fd40.js.map": "/PearlUI/static/js/main.7116fd40.js.map",
     "838.2464422b.chunk.js.map": "/PearlUI/static/js/838.2464422b.chunk.js.map",
     "50.9fae2e6a.chunk.js.map": "/PearlUI/static/js/50.9fae2e6a.chunk.js.map",
     "61.773b58fa.chunk.js.map": "/PearlUI/static/js/61.773b58fa.chunk.js.map",
     "67.e245d990.chunk.js.map": "/PearlUI/static/js/67.e245d990.chunk.js.map",
-    "1.5a7abbef.chunk.js.map": "/PearlUI/static/js/1.5a7abbef.chunk.js.map",
-    "331.4ffe515e.chunk.js.map": "/PearlUI/static/js/331.4ffe515e.chunk.js.map",
-    "245.f02327b0.chunk.js.map": "/PearlUI/static/js/245.f02327b0.chunk.js.map",
+    "1.8ff3a0da.chunk.js.map": "/PearlUI/static/js/1.8ff3a0da.chunk.js.map",
+    "331.2bd199f8.chunk.js.map": "/PearlUI/static/js/331.2bd199f8.chunk.js.map",
+    "245.aefd48e3.chunk.js.map": "/PearlUI/static/js/245.aefd48e3.chunk.js.map",
     "117.c11d2de1.chunk.js.map": "/PearlUI/static/js/117.c11d2de1.chunk.js.map",
     "219.0221a46c.chunk.js.map": "/PearlUI/static/js/219.0221a46c.chunk.js.map",
     "373.0d67a270.chunk.js.map": "/PearlUI/static/js/373.0d67a270.chunk.js.map",
@@ -46,11 +45,10 @@
     "270.320ab286.chunk.js.map": "/PearlUI/static/js/270.320ab286.chunk.js.map",
     "677.51dadd8c.chunk.js.map": "/PearlUI/static/js/677.51dadd8c.chunk.js.map",
     "254.4b7964d0.chunk.js.map": "/PearlUI/static/js/254.4b7964d0.chunk.js.map",
-    "899.63653087.chunk.js.map": "/PearlUI/static/js/899.63653087.chunk.js.map",
-    "753.1ba269b6.chunk.js.map": "/PearlUI/static/js/753.1ba269b6.chunk.js.map"
+    "505.f805c499.chunk.js.map": "/PearlUI/static/js/505.f805c499.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.59f8657a.css",
-    "static/js/main.5ad06581.js"
+    "static/js/main.7116fd40.js"
   ]
 }
