@@ -1,7 +1,7 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import { useEffect } from 'react';
-import { setTopBarTitle } from '../../../redux/slices/appSlice';
+import { setActivePath, setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
 import FundsOverviewTable from '../../../components/funds/summary/FundsOverviewTableComponent';
 import { AddDialogComponent } from "../../../components/shared/addPopup/AddPopupDialog";
@@ -27,6 +27,7 @@ const FundsOverview = () => {
      */
     useEffect(() => {
         dispatch(setTopBarTitle("Funds Overview"));
+        dispatch(setActivePath('/fundsOverview'));
     }, [dispatch])
 
     return (

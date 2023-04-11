@@ -1,6 +1,6 @@
 import { Grid, Paper, Typography } from '@mui/material';
 import { useEffect } from 'react';
-import { setTopBarTitle } from '../../redux/slices/appSlice';
+import { setActivePath, setTopBarTitle } from '../../redux/slices/appSlice';
 import { useAppDispatch } from '../../redux/store';
 import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
@@ -35,6 +35,7 @@ const LandingrPage = () => {
      */
     useEffect(() => {
         dispatch(setTopBarTitle("Dashboard"));
+        dispatch(setActivePath('/'));
     }, [dispatch])
 
 

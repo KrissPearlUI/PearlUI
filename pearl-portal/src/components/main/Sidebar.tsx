@@ -11,7 +11,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/store';
 import { useSelector } from 'react-redux';
 import { RootState } from "../../redux/slices/rootSlice";
-import { setActivePath, setIsDrawerOpen } from "../../redux/slices/appSlice";
+import { setActivePath, setIsDrawerOpen, setNavLinkStatePaths } from "../../redux/slices/appSlice";
 import MenuIcon from "@mui/icons-material/Menu";
 import { ReactComponent as LPIcon } from '../../assets/icons/LPMenuIcon.svg';
 import { ReactComponent as FundsMenuIcon } from "../../assets/icons/FundsMenuIcon.svg";
@@ -147,6 +147,7 @@ const NavLinkSection = (): JSX.Element => {
     const {
         activePath,
         drawerOpen,
+        navLinkStatePaths
     } = useSelector((state: RootState) => state.app);
     const pathName = location.pathname;
     const [isMenuHovered, setIsMenuHovered] = useState(false);
@@ -160,11 +161,13 @@ const NavLinkSection = (): JSX.Element => {
         });
         setNavLinkState({ ...navLinkState });
         dispatch(setActivePath(url));
+        dispatch(setNavLinkStatePaths(url));
         dispatch(setIsDrawerOpen(false));
     };
 
     const handleNavLinkExpand = (path: string) => {
         dispatch(setActivePath(path));
+        dispatch(setNavLinkStatePaths(path));
         /* setNavLinkState((prevState) => {
             return { ...prevState, [path]: !prevState[path] };
         }); */

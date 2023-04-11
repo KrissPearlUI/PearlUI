@@ -6,7 +6,7 @@ import MyAccount from '../../components/settings/account/MyAccountComponents';
 import Appearence from '../../components/settings/appearences/AppearenceComponent';
 import Users from '../../components/settings/users/UsersComponent';
 import { SettingsType } from '../../models/settings/settingsModels';
-import { setTopBarTitle } from '../../redux/slices/appSlice';
+import { setActivePath, setTopBarTitle } from '../../redux/slices/appSlice';
 import { useAppDispatch } from '../../redux/store';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { ReactComponent as AppearanceIcon } from '../../assets/icons/AppearanceIcon.svg';
@@ -32,6 +32,7 @@ const Settings = () => {
      */
     useEffect(() => {
         dispatch(setTopBarTitle("Settings"));
+        dispatch(setActivePath('/settings'));
     }, [dispatch])
 
     return (

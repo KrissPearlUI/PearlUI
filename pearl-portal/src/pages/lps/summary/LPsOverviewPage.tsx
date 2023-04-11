@@ -1,7 +1,7 @@
 import { Theme } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import { useEffect } from 'react';
-import { setTopBarTitle } from '../../../redux/slices/appSlice';
+import { setActivePath, setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
 import LPOverviewTable from '../../../components/lps/summary/LPOverviewTableComponents';
 import { AddDialogComponent } from "../../../components/shared/addPopup/AddPopupDialog";
@@ -27,6 +27,7 @@ const LPsOverview = () => {
      */
     useEffect(() => {
         dispatch(setTopBarTitle("Limited Partners Overview"));
+        dispatch(setActivePath('/lpsOverview'));
     }, [dispatch])
 
     return (

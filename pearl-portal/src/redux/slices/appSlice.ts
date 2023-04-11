@@ -7,7 +7,7 @@ export interface MainState {
     userName: string;
     activePath: string;
     errorMessage?: string;
-    navLinkState: any;
+    navLinkStatePaths: any;
     addDialogOpen:boolean;
     editDialogOpen:boolean;
     editChildDialogOpen:boolean
@@ -18,8 +18,8 @@ const initialState: MainState = {
     isDarkTheme: false,
     topBarTitle: 'Dashboard',
     userName: 'Jane Doe',
-    activePath: '/',
-    navLinkState: {},
+    activePath: '',
+    navLinkStatePaths: {},
     addDialogOpen:false,
     editDialogOpen:false,
     editChildDialogOpen:false
@@ -77,10 +77,10 @@ const appSlice = createSlice({
         setErrorMessage(state, action: PayloadAction<string>) {
             state.errorMessage = action.payload;
         },
-        setNavLinkState(state, action: PayloadAction<string>) {
-            const prevState = state.navLinkState;
+        setNavLinkStatePaths(state, action: PayloadAction<string>) {
+            const prevState = state.navLinkStatePaths;
             const item = action.payload;
-            state.navLinkState = {...prevState, [item]: !prevState[item]};
+            state.navLinkStatePaths = {...prevState, [item]: !prevState[item]};
         },
         /**
          * Set's if the add dialog is open
@@ -111,7 +111,7 @@ export const {
     setUserName,
     setActivePath,
     setErrorMessage,
-    setNavLinkState,
+    setNavLinkStatePaths,
     setAddDiaogOpen,
     setEditDiaogOpen,
     setEditChildDiaogOpen
