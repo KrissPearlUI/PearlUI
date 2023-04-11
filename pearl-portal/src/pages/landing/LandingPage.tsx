@@ -58,12 +58,12 @@ const LandingrPage = () => {
                 </Paper>
             </Grid>
             <Grid container spacing={2} item xs={12} md={12} lg={12}>
-                <Grid item xs={6} md={6} lg={6}>
+                <Grid item xs={12} md={6} lg={6}>
                     <Paper elevation={3} style={{ padding: '0.5em', paddingBottom: 0, height: '470px' }}>
                         <FundsChartComponent />
                     </Paper>
                 </Grid>
-                <Grid item xs={6} md={6} lg={6}>
+                <Grid item xs={12} md={6} lg={6}>
                     <Paper elevation={3} style={{ padding: '0.5em', paddingBottom: 0, height: '470px' }}>
                         <PCOChartComponent />
                     </Paper>

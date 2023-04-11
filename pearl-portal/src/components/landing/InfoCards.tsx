@@ -14,40 +14,40 @@ const InfoCardsComponent = () => {
 
     return (
         <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flex: 1 }}>
-            <Grid item xs={4} sx={{display:'flex',justifyContent:'start'}}>
+            <Grid item xs={12} md={4} lg={4} sx={{display:'flex',justifyContent:'start'}}>
                 <Paper elevation={3} sx={{height:100, width:310}}>
                     <Grid container spacing={2} sx={{ display: 'flex', flex: 1, justifyContent: 'flex-start', alignItems: 'flex-start', padding: '0.5em' }}>
                         <Grid item xs={12} sx={{ display: 'flex', flex: 1, justifyContent: 'space-between' }}>
                             <Typography variant='h6'>Limited Partners</Typography>
                             <LPInfoBoxIcon fill={theme.palette.primary.main} />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={12} sx={{marginTop:'-0.5em'}}>
                             <Typography variant='h5' sx={{ fontWeight: 600 }}>{lps?.length ?? 0}</Typography>
                         </Grid>
                     </Grid>
                 </Paper>
             </Grid>
-            <Grid item xs={4} sx={{display:'flex',justifyContent:'center'}}>
+            <Grid item xs={12} md={4} lg={4} sx={{display:'flex',justifyContent:{xs: 'start', md:'center', lg:'center'}}}>
                 <Paper elevation={3} sx={{height:100, width:310}} >
                     <Grid container spacing={2} sx={{ display: 'flex', flex: 1, justifyContent: 'flex-start', alignItems: 'flex-start', padding: '0.5em' }}>
                         <Grid item xs={12} sx={{ display: 'flex', flex: 1, justifyContent: 'space-between' }}>
                             <Typography variant='h6'>Funds</Typography>
                             <FundsInfoCardIcon fill={theme.palette.primary.main} />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={12} sx={{marginTop:'-0.5em'}}>
                             <Typography variant='h5' sx={{ fontWeight: 600 }}>{funds?.length ?? 0}</Typography>
                         </Grid>
                     </Grid>
                 </Paper>
             </Grid>
-            <Grid item xs={4} sx={{display:'flex',justifyContent:'end'}}>
+            <Grid item xs={12} md={4} lg={4} sx={{display:'flex',justifyContent:{xs: 'start', md:'end', lg:'end'}}}>
                 <Paper elevation={3} sx={{height:100, width:310}}>
                     <Grid container spacing={2} sx={{ display: 'flex', flex: 1, justifyContent: 'flex-start', alignItems: 'flex-start', padding: '0.5em' }}>
                         <Grid item xs={12} sx={{ display: 'flex', flex: 1, justifyContent: 'space-between' }}>
                             <Typography variant='h6'>Portfolio Companies</Typography>
                             <PCOInfoBoxIcon fill={theme.palette.primary.main} />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={12} sx={{marginTop:'-0.5em'}}>
                             <Typography variant='h5' sx={{ fontWeight: 600 }}>{pcos?.length ?? 0}</Typography>
                         </Grid>
                     </Grid>
