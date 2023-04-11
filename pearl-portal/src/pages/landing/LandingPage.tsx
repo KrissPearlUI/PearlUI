@@ -5,6 +5,12 @@ import { useAppDispatch } from '../../redux/store';
 import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
 import LPChartComponent from '../../components/landing/LPChart';
+import FundsChartComponent from '../../components/landing/FundsChart';
+import { fetchFunds } from '../../redux/thunks/fundThunk';
+import { fetchLPs } from '../../redux/thunks/lpThunk';
+import { fetchPCOs } from '../../redux/thunks/pcoThunk';
+import InfoCardsComponent from '../../components/landing/InfoCards';
+import PCOChartComponent from '../../components/landing/PCOChart';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -20,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-const LoaderPage = () => {
+const LandingrPage = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
 
@@ -31,27 +37,39 @@ const LoaderPage = () => {
         dispatch(setTopBarTitle("Dashboard"));
     }, [dispatch])
 
+
+    useEffect(() => {
+        dispatch(fetchFunds());
+        dispatch(fetchLPs());
+        dispatch(fetchPCOs());
+    }, [dispatch])
+
     return (
-        <div style={{ display: 'flex', flex: 1 }}>
-            <Grid container sx={{ display: 'flex', flex: 1, justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'column' }}>
-                <Grid item xs={6} md={6} lg={6} className={classes.summary}>
-                    <Paper elevation={3} style={{ marginBottom: '1em' }}>
-                        <Grid item container className={classes.chart}>
-                            <LPChartComponent />
-                        </Grid>
+        <Grid container spacing={2} sx={{ display: 'flex', flex: 1, justifyContent: 'flex-start', alignItems: 'flex-start', padding: '0.5em', marginBottom: 0, paddingBottom: 0 }}>
+            <Grid item xs={12} md={12} lg={12}>
+                <InfoCardsComponent />
+            </Grid>
+            <Grid item xs={12} md={12} lg={12} className={classes.summary}>
+                <Paper elevation={3} style={{ marginBottom: '1em' }}>
+                    <Grid item container className={classes.chart}>
+                        <LPChartComponent />
+                    </Grid>
+                </Paper>
+            </Grid>
+            <Grid container spacing={2} item xs={12} md={12} lg={12}>
+                <Grid item xs={6} md={6} lg={6}>
+                    <Paper elevation={3} style={{ padding: '0.5em', paddingBottom: 0, height: '470px' }}>
+                        <FundsChartComponent />
                     </Paper>
                 </Grid>
-                <Grid container item xs={6} md={6} lg={6}>
-                    <Typography>
-                        test1
-                    </Typography>
-                    <Typography>
-                        test2
-                    </Typography>
+                <Grid item xs={6} md={6} lg={6}>
+                    <Paper elevation={3} style={{ padding: '0.5em', paddingBottom: 0, height: '470px' }}>
+                        <PCOChartComponent />
+                    </Paper>
                 </Grid>
             </Grid>
-        </div>
+        </Grid>
     );
 };
 
-export default LoaderPage;
+export default LandingrPage;
