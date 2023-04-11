@@ -1,12 +1,13 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
 import { GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
+import { ColDef, Column } from 'ag-grid-community';
 import clsx from 'clsx';
-import { ColDef, ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
+import { ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../../redux/store';
 import { RootState } from '../../../../redux/slices/rootSlice';
 import { CommitmentBasic } from '../../../../models/lps/lpModels';
@@ -39,7 +40,28 @@ const SingleLPCommitments = () => {
     const { selectedLP } = useSelector((state: RootState) => state.lps);
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
-    const [rowData, setRowData] = useState<CommitmentBasic[]>([]);
+    const [rowData, setRowData] = useState<any[]>([]);
+    const gridApiRef = useRef<GridApi>();
+    const [totals, setTotals] = useState<Record<string, number>>({});
+
+    const computeTotals = () => {
+        const columns = ['committedAmount'];
+        const newTotals: Record<string, number> = {};
+        columns.forEach((column) => {
+            newTotals[column] = rowData.reduce(
+                (sum, { [column]: value }) => sum + value,
+                0
+            );
+        });
+        setTotals(newTotals);
+    };
+
+    interface FrameworkComponentsProps {
+        agColumnHeader: React.FC<{
+            column: Column;
+            totals: Record<string, number>;
+        }>;
+    }
 
     const gridOptions: GridOptions = {
         defaultColDef: DefaultColumnDef,
@@ -50,6 +72,8 @@ const SingleLPCommitments = () => {
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
+        groupIncludeFooter: true,
+        groupIncludeTotalFooter:true
     };
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
@@ -86,10 +110,11 @@ const SingleLPCommitments = () => {
             {
                 headerName: 'Commitment',
                 field: 'committedAmount',
-                enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'committedAmount',
                 filter: 'agNumberColumnFilter',
+                aggFunc: 'sum',
+                enableValue: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
             },
@@ -120,6 +145,33 @@ const SingleLPCommitments = () => {
 
     const onGridReady = (params: GridReadyEvent) => {
         setGridApi(params?.api);
+        const api = params.api;
+        const columnApi = params.columnApi;
+
+        const calculateTotals = () => {
+            let total = 0;
+            const displayedColumns = columnApi.getAllDisplayedColumns();
+            displayedColumns.forEach((column) => {
+                if (column.getColDef().type === 'numericColumn') {
+                    const colId = column.getColId();
+                    let sum = 0;
+
+                    api.forEachNodeAfterFilterAndSort((node) => {
+                        const value = Number(node.data[colId]);
+                        if (!isNaN(value)) {
+                            sum += value;
+                        }
+                    });
+
+                    total=sum;
+                    totals[colId] = sum;
+                }
+            });
+            setTotals({ ...totals, Total: total });
+        };
+
+        calculateTotals();
+
     };
 
     const valueSetter = (params: ValueSetterParams, field: string) => {
@@ -139,6 +191,7 @@ const SingleLPCommitments = () => {
         };
     }, []);
 
+
     useEffect(() => {
         dispatch(fetchCashCalls());
     }, [dispatch])
@@ -147,16 +200,78 @@ const SingleLPCommitments = () => {
         setRowData(selectedLP?.commitments ?? []);
     }, [selectedLP])
 
+    interface FrameworkComponentsProps {
+        agColumnFooter: React.FC<{
+          column: Column;
+          totals: Record<string, number>;
+        }>;
+      }
+      
+      const frameworkComponents: FrameworkComponentsProps = {
+        agColumnHeader: ({ column }) => {
+            const total = totals[column.getColId()];
+          return (
+            <div style={{ display: 'flex', justifyContent: total?'end':'start', flex:1, textAlign:total?'right':'left' }}>
+                {column.getColDef().headerName}
+            </div>
+          );
+        },
+        agColumnFooter: ({ column }) => {
+            const total = totals[column.getColId()];
+            return <div>Total: {total != null ? total.toFixed(2) : '-'}</div>;
+          }
+      };
+
     return (
         <div className={clsx(getGridTheme(isDarkTheme), classes.fill)}>
             <AgGridReact gridOptions={gridOptions}
                 columnDefs={getColumnDefs}
                 rowData={rowData}
-                onGridReady={onGridReady}
                 loadingOverlayComponentParams={loadingOverlayRendererParams}
                 loadingOverlayComponent={AGGridLoader}
                 tooltipShowDelay={0}
                 tooltipHideDelay={10000}
+                getRowNodeId={(data) => data.id}
+                onGridReady={onGridReady}
+                frameworkComponents={frameworkComponents}
+                context={{ totals }}
+               /*  onGridReady={(params) => {
+                    setGridApi(params.api);
+                    if (!gridApiRef.current) {
+                        gridApiRef.current = params.api;
+                    }
+
+                    const api = params.api;
+                    const columnApi = params.columnApi;
+
+                    const calculateTotals = () => {
+                        let total = 0;
+                        const displayedColumns = columnApi.getAllDisplayedColumns();
+                        displayedColumns.forEach((column) => {
+                            if (column.getColDef().type === 'numericColumn') {
+                                const colId = column.getColId();
+                                let sum = 0;
+
+                                gridApiRef.current?.forEachNodeAfterFilterAndSort((node) => {
+                                    const value = Number(node.data[colId]);
+                                    if (!isNaN(value)) {
+                                        sum += value;
+                                    }
+                                });
+
+                                total=sum;
+                                totals[colId] = sum;
+                            }
+                        });
+                        setTotals({ ...totals, Total: total });
+                    };
+
+                    calculateTotals();
+
+                    api.addEventListener('rowValueChanged', calculateTotals);
+                    api.addEventListener('rowDataChanged', calculateTotals);
+                    api.addEventListener('cellValueChanged', calculateTotals);
+                }} */
             />
         </div>
 
