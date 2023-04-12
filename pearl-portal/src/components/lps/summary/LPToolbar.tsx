@@ -1,5 +1,5 @@
 import React from 'react';
-import { Autocomplete, AutocompleteRenderInputParams, Grid, IconButton, InputAdornment, TextField, Theme } from '@mui/material';
+import { Autocomplete, AutocompleteRenderInputParams, Grid, IconButton, InputAdornment, Paper, Popper, TextField, Theme } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
 import makeStyles from '@mui/styles/makeStyles';
@@ -91,12 +91,29 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
 }));
 
+interface AutocompletePopperProps {
+    children: React.ReactNode;
+    anchorEl: HTMLElement | null;
+    // add any other props that your component needs
+}
+
+const AutocompletePopper = (props: any) => {
+    const { children, ...popperProps } = props;
+    const inputWidth = props.anchorEl?.clientWidth;
+
+    return (
+        <Popper {...popperProps} style={{ width: inputWidth }}>
+            <Paper>{children}</Paper>
+        </Popper>
+    );
+}
+
 interface LPToolbarProps {
     searchText: string | null;
     funds: FundSummary[] | null;
     pcos: PCOSummary[] | null;
-    selectedFundValue: FundSummary | null,
-    selectedPCOValue: PCOSummary | null,
+    selectedFundValue: FundSummary[] | null,
+    selectedPCOValue: PCOSummary[] | null,
     searchTextValue: string | null,
     onValueChange: (v: any) => void,
     onCancelClick: (v: any) => void,
@@ -118,21 +135,22 @@ const LPToolbar = ({ searchText,
     const autocompleteInputClasses = autocompleteInputStyles()
 
     return (
-        <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', marginBottom: '0.5em', width: '100%', overflow: 'hidden', paddingTop: '0.1em' }}>
+        <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', marginBottom: '0.5em', width: '100%', overflow: 'hidden', paddingTop: { xs: '0.5em', md: '0.1em', lg: '0.1em' } }}>
             <Grid container item xs={12} sm={12} md={6} lg={6}
                 sx={{ display: 'flex' }}>
                 <Autocomplete
                     id={'fundAutocomplete'}
+                    multiple
                     popupIcon={<ExpandMoreIcon />}
                     size={'small'}
                     autoHighlight={true}
                     autoSelect={true}
                     autoComplete={false}
                     classes={classes}
-                    sx={{ marginRight: '1em', width: '320px' }}
+                    sx={{ marginRight: '1em', width: selectedFundValue && selectedFundValue.length > 3 ? '730px' : '320px', marginBottom: { xs: '1em', md: selectedFundValue && selectedFundValue.length > 3 ? '1em' : 0, lg: selectedFundValue && selectedFundValue.length > 3 ? '1em' : 0 } }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: FundSummary | null) => onFundChange(value)}
-                    value={selectedFundValue ?? null}
+                    onChange={(e, value) => onFundChange(value)}
+                    value={selectedFundValue ?? []}
                     options={funds ?? []}
                     getOptionLabel={(option: FundSummary) => option ? option.id : ''}
                     renderInput={(params: AutocompleteRenderInputParams) => {
@@ -142,21 +160,25 @@ const LPToolbar = ({ searchText,
                             variant="outlined"
                             autoComplete="off"
                             type={'text'}
+                            style={{ width: selectedFundValue && selectedFundValue.length > 3 ? '730px' : '320px' }}
                             label='Select a fund' />;
                     }}
+                    PopperComponent={AutocompletePopper}
                 />
                 <Autocomplete
                     popupIcon={<ExpandMoreIcon />}
                     size={'small'}
                     id={'pcoAutocomplete'}
+                    multiple
                     autoHighlight={true}
+                    limitTags={5}
                     autoSelect={true}
                     autoComplete={false}
                     classes={classes}
-                    sx={{ marginRight: '1em', width: '320px' }}
+                    sx={{ marginRight: '1em', width: selectedPCOValue && selectedPCOValue.length > 2 ? '730px' : '320px', marginTop: { xs: 0, md: selectedPCOValue && selectedPCOValue.length > 2 ? '1em' : 0, lg: selectedPCOValue && selectedPCOValue.length > 2 ? '1em' : 0 } }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: PCOSummary | null) => onPCOChange(value)}
-                    value={selectedPCOValue ?? null}
+                    onChange={(e, value) => onPCOChange(value.slice(0, 5))}
+                    value={selectedPCOValue ?? []}
                     options={pcos ?? []}
                     getOptionLabel={(option: PCOSummary) => option ? option.shortName : ''}
                     renderInput={(params: AutocompleteRenderInputParams) => {
@@ -166,13 +188,14 @@ const LPToolbar = ({ searchText,
                             variant="outlined"
                             autoComplete="off"
                             type={'text'}
+                            style={{ width: selectedPCOValue && selectedPCOValue.length > 2 ? '730px' : '320px' }}
                             label='Select a PCO'
                         />;
                     }}
                 />
             </Grid>
-            <Grid item xs={12} sm={12} md={6} lg={6} justifyContent='flex-end'
-                sx={{ display: 'flex' }}>
+            <Grid item xs={12} sm={12} md={6} lg={6}
+                sx={{ display: 'flex', justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' } }}>
                 <TextField
                     className={classes.searchBox}
                     variant="outlined"

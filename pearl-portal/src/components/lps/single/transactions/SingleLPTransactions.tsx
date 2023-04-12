@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community';
+import { Column, GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
@@ -40,6 +40,14 @@ const SingleLPTransactions = () => {
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<Transaction[]>([]);
+    const [totals, setTotals] = useState<Record<string, number>>({});
+
+    interface FrameworkComponentsProps {
+        agColumnHeader: React.FC<{
+            column: Column;
+            totals: Record<string, number>;
+        }>;
+    }
 
     const gridOptions: GridOptions = {
         defaultColDef: DefaultColumnDef,
@@ -50,6 +58,8 @@ const SingleLPTransactions = () => {
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
+        groupIncludeFooter: true,
+        groupIncludeTotalFooter:true
     };
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
@@ -99,6 +109,8 @@ const SingleLPTransactions = () => {
                 type: 'numericColumn',
                 tooltipField: 'amountFundCurrency',
                 filter: 'agNumberColumnFilter',
+                aggFunc: 'sum',
+                enableValue: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
             },
@@ -109,6 +121,8 @@ const SingleLPTransactions = () => {
                 type: 'numericColumn',
                 tooltipField: 'amountLocalCurrency',
                 filter: 'agNumberColumnFilter',
+                aggFunc: 'sum',
+                enableValue: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
             },
@@ -173,6 +187,32 @@ const SingleLPTransactions = () => {
 
     const onGridReady = (params: GridReadyEvent) => {
         setGridApi(params?.api);
+        const api = params.api;
+        const columnApi = params.columnApi;
+
+        const calculateTotals = () => {
+            let total = 0;
+            const displayedColumns = columnApi.getAllDisplayedColumns();
+            displayedColumns.forEach((column) => {
+                if (column.getColDef().type === 'numericColumn') {
+                    const colId = column.getColId();
+                    let sum = 0;
+
+                    api.forEachNodeAfterFilterAndSort((node) => {
+                        const value = Number(node.data[colId]);
+                        if (!isNaN(value)) {
+                            sum += value;
+                        }
+                    });
+
+                    total=sum;
+                    totals[colId] = sum;
+                }
+            });
+            setTotals({ ...totals, Total: total });
+        };
+
+        calculateTotals();
     };
 
     const loadingOverlayRendererParams = useMemo(() => {
@@ -181,6 +221,27 @@ const SingleLPTransactions = () => {
         };
     }, []);
 
+    interface FrameworkComponentsProps {
+        agColumnFooter: React.FC<{
+          column: Column;
+          totals: Record<string, number>;
+        }>;
+      }
+      
+      const frameworkComponents: FrameworkComponentsProps = {
+        agColumnHeader: ({ column }) => {
+            const total = totals[column.getColId()];
+          return (
+            <div style={{ display: 'flex', justifyContent: total?'end':'start', flex:1, textAlign:total?'right':'left' }}>
+                {column.getColDef().headerName}
+            </div>
+          );
+        },
+        agColumnFooter: ({ column }) => {
+            const total = totals[column.getColId()];
+            return <div style={{fontWeight:600}}>Total: {total != null ? total.toFixed(2) : '-'}</div>;
+          }
+      };
 
     useEffect(() => {
         dispatch(fetchTransactions());
@@ -204,6 +265,8 @@ const SingleLPTransactions = () => {
                 loadingOverlayComponent={AGGridLoader}
                 tooltipShowDelay={0}
                 tooltipHideDelay={10000}
+                 frameworkComponents={frameworkComponents}
+                context={{ totals }}
             />
         </div>
 

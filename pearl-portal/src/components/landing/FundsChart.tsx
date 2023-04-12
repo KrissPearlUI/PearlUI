@@ -142,13 +142,13 @@ const FundsChartComponent = () => {
             let chartData: any[] = [];
             const groupedByFund: { [key: string]: number } = funds.reduce(
                 (acc: { [key: string]: number }, item) => {
-                    const { id, sumCommittedAmountFundCcy } = item;
-                    acc[id] = (acc[id] || 0) + (sumCommittedAmountFundCcy ? sumCommittedAmountFundCcy : 0);
+                    const { id, sumCommittedAmountEUR } = item;
+                    acc[id] = (acc[id] || 0) + (sumCommittedAmountEUR ? sumCommittedAmountEUR : 0);
                     return acc;
                 },
                 {}
             );
-            total = funds.reduce((sum, dataPoint) => sum + (dataPoint.sumCommittedAmountFundCcy ? dataPoint.sumCommittedAmountFundCcy : 0), 0);
+            total = funds.reduce((sum, dataPoint) => sum + (dataPoint.sumCommittedAmountEUR ? dataPoint.sumCommittedAmountEUR : 0), 0);
             chartData = Object.entries(groupedByFund).map(([name, y]) => ({
                 name,
                 y,

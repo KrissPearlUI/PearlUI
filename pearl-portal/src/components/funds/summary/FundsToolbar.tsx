@@ -95,8 +95,8 @@ interface FundsToolbarProps {
     searchText: string | null;
     lps: LP[] | null;
     pcos: PCOSummary[] | null;
-    selectedLPValue: LP | null,
-    selectedPCOValue: PCOSummary | null,
+    selectedLPValue: LP[] | null,
+    selectedPCOValue: PCOSummary[] | null,
     searchTextValue: string | null,
     onValueChange: (v: any) => void,
     onCancelClick: (v: any) => void,
@@ -118,21 +118,23 @@ const FundsToolbar = ({ searchText,
     const autocompleteInputClasses = autocompleteInputStyles();
 
     return (
-        <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', marginBottom: '0.5em', width: '100%', overflow: 'hidden', paddingTop: '0.1em' }}>
+        <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', marginBottom: '0.5em', width: '100%', overflow: 'hidden', paddingTop: { xs: '0.5em', md: '0.1em', lg: '0.1em' } }}>
             <Grid container item xs={12} sm={12} md={6} lg={6}
                 sx={{ display: 'flex' }}>
                 <Autocomplete
                     id={'lpdAutocomplete'}
                     popupIcon={<ExpandMoreIcon />}
                     size={'small'}
+                    multiple
                     autoHighlight={true}
                     autoSelect={true}
                     autoComplete={false}
                     classes={classes}
-                    sx={{ marginRight: '1em', width: '320px' }}
+                    limitTags={5}
+                    sx={{ marginRight: '1em', width: selectedLPValue && selectedLPValue.length > 2 ? '730px' : '320px', marginBottom: { xs: '1em', md: selectedLPValue && selectedLPValue.length > 3 ? '1em' : 0, lg: selectedLPValue && selectedLPValue.length > 3 ? '1em' : 0 } }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: LP | null) => onLPChange(value)}
-                    value={selectedLPValue ?? null}
+                    onChange={(e, value) => onLPChange(value.slice(0, 5))}
+                    value={selectedLPValue ?? []}
                     options={lps ?? []}
                     getOptionLabel={(option: LP) => option ? option.shortName : ''}
                     renderInput={(params: AutocompleteRenderInputParams) => {
@@ -142,6 +144,7 @@ const FundsToolbar = ({ searchText,
                             variant="outlined"
                             autoComplete="off"
                             type={'text'}
+                            style={{ width: selectedLPValue && selectedLPValue.length > 2 ? '730px' : '320px' }}
                             label='Select an LP' />;
                     }}
                 />
@@ -153,10 +156,12 @@ const FundsToolbar = ({ searchText,
                     autoSelect={true}
                     autoComplete={false}
                     classes={classes}
-                    sx={{ marginRight: '1em', width: '320px' }}
+                    multiple
+                    limitTags={5}
+                    sx={{ marginRight: '1em', width: selectedPCOValue && selectedPCOValue.length > 2 ? '730px' : '320px', marginTop: { xs: 0, md: selectedPCOValue && selectedPCOValue.length > 2 ? '1em' : 0, lg: selectedPCOValue && selectedPCOValue.length > 2 ? '1em' : 0 } }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: PCOSummary | null) => onPCOChange(value)}
-                    value={selectedPCOValue ?? null}
+                    onChange={(e, value) => onPCOChange(value.slice(0, 5))}
+                    value={selectedPCOValue ?? []}
                     options={pcos ?? []}
                     getOptionLabel={(option: PCOSummary) => option ? option.shortName : ''}
                     renderInput={(params: AutocompleteRenderInputParams) => {
@@ -166,13 +171,14 @@ const FundsToolbar = ({ searchText,
                             variant="outlined"
                             autoComplete="off"
                             type={'text'}
+                            style={{ width: selectedPCOValue && selectedPCOValue.length > 2 ? '730px' : '320px' }}
                             label='Select a PCO'
                         />;
                     }}
                 />
             </Grid>
-            <Grid item xs={12} sm={12} md={6} lg={6} justifyContent='flex-end'
-                sx={{ display: 'flex' }}>
+            <Grid item xs={12} sm={12} md={6} lg={6}
+                sx={{ display: 'flex', justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' } }}>
                 <TextField
                     className={classes.searchBox}
                     variant="outlined"

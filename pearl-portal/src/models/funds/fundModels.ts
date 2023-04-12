@@ -49,16 +49,16 @@ export interface FundSummary {
     sumReleasedDistributionsFundCccy?: number,
     sumReleasedDistributionsEUR?: number,
     sumEscrowFundCccy?: number,
-    sumEscrowEUR?: number
+    sumEscrowEUR?: number,
 }
 
-export interface NewFund{
-    fundName?:string,
-    shortName?:string,
+export interface NewFund {
+    fundName?: string,
+    shortName?: string,
     country?: string
     address?: string,
-    city?:string,
-    postalCode?:string|number,
+    city?: string,
+    postalCode?: string | number,
     currency: string,
     type?: string,
 }

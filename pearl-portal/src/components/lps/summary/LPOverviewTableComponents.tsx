@@ -65,8 +65,8 @@ const LPOverviewTable = () => {
     const [allFunds, setAllFunds] = useState<FundSummary[] | null>([]);
     const [allPCOs, setAllPCOs] = useState<PCOSummary[] | null>([]);
     const [rowData, setRowData] = useState<LP[]>([]);
-    const [selectedFundValue, setSelectedFundValue] = useState<FundSummary | null>(null);
-    const [selectedPCOValue, setSelectedPCOValue] = useState<PCOSummary | null>(null);
+    const [selectedFundValues, setSelectedFundValues] = useState<FundSummary[] | null>([]);
+    const [selectedPCOValues, setSelectedPCOValues] = useState<PCOSummary[] | null>([]);
     const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
 
     const gridOptions: GridOptions = {
@@ -232,32 +232,30 @@ const LPOverviewTable = () => {
         }
     }, [gridApi]);
 
-    const onFundChange = (event: any) => {
-        setSelectedFundValue(event);
+    const onFundChange = (event: FundSummary[] | null) => {
+        setSelectedFundValues(event);
         let result = lps;
-        if (event) {
-            result = lps
-                .map(item => ({
-                    ...item,
-                    funds: item.funds?.filter(child => child.id === event.id) ?? []
-                }))
-                .filter(item => item?.funds?.length > 0);
-            if (selectedPCOValue && !searchTextValue) {
-                result = result.map(item => ({
-                    ...item,
-                    pcos: item.pcos?.filter(child => child.id === selectedPCOValue.id) ?? []
-                }))
-                    .filter(item => item?.pcos?.length > 0);
+        if (event && event.length > 0) {
+            result = lps.filter(item1 =>
+                item1?.funds?.some(item2 => event.some(val => val.id === item2.id))
+            );
+            /*  result = result
+                 .map(item => ({
+                     ...item,
+                     funds: lps.filter(item1 =>
+                         item1?.funds?.some(item2 => event.some(val => val.id === item2.id)))
+                 }))
+                 .filter(item => item?.funds?.length > 0); */
+            if (selectedPCOValues && selectedPCOValues.length > 0 && !searchTextValue) {
+                result = result.filter(item1 =>
+                    item1?.pcos?.some(item2 => selectedPCOValues.some(val => val.id === item2.id)));
                 setRowData(result);
-            } else if (searchTextValue && !selectedPCOValue) {
+            } else if (searchTextValue && !selectedPCOValues) {
                 setRowData(result);
                 gridApi?.setQuickFilter(searchTextValue);
-            } else if (selectedPCOValue && searchTextValue) {
-                result = result.map(item => ({
-                    ...item,
-                    pcos: item.pcos?.filter(child => child.id === selectedPCOValue.id) ?? []
-                }))
-                    .filter(item => item?.pcos?.length > 0);
+            } else if (selectedPCOValues && selectedPCOValues.length > 0 && searchTextValue) {
+                result = result.filter(item1 =>
+                    item1?.pcos?.some(item2 => selectedPCOValues.some(val => val.id === item2.id)));
                 setRowData(result);
                 gridApi?.setQuickFilter(searchTextValue);
             }
@@ -265,22 +263,16 @@ const LPOverviewTable = () => {
                 setRowData(result);
             }
         } else {
-            if (selectedPCOValue && !searchTextValue) {
-                result = lps.map(item => ({
-                    ...item,
-                    pcos: item.pcos?.filter(child => child.id === selectedPCOValue.id) ?? []
-                }))
-                    .filter(item => item?.pcos?.length > 0);
+            if (selectedPCOValues && selectedPCOValues.length > 0 && !searchTextValue) {
+                result = lps?.filter(item1 =>
+                    item1?.pcos?.some(item2 => selectedPCOValues.some(val => val.id === item2.id)));
                 setRowData(result);
-            } else if (searchTextValue && !selectedPCOValue) {
+            } else if (searchTextValue && !selectedPCOValues) {
                 setRowData(lps);
                 gridApi?.setQuickFilter(searchTextValue);
-            } else if (selectedPCOValue && searchTextValue) {
-                result = lps.map(item => ({
-                    ...item,
-                    pcos: item.pcos?.filter(child => child.id === selectedPCOValue.id) ?? []
-                }))
-                    .filter(item => item?.pcos?.length > 0);
+            } else if (selectedPCOValues && selectedPCOValues.length > 0 && searchTextValue) {
+                result = lps?.filter(item1 =>
+                    item1?.pcos?.some(item2 => selectedPCOValues.some(val => val.id === item2.id)));
                 setRowData(result);
                 gridApi?.setQuickFilter(searchTextValue);
             }
@@ -290,32 +282,24 @@ const LPOverviewTable = () => {
         }
     };
 
-    const onPCOChange = (event: any) => {
-        setSelectedPCOValue(event);
+    const onPCOChange = (event: PCOSummary[] | null) => {
+        setSelectedPCOValues(event);
         let result = lps;
-        if (event) {
-            result = result.map(item => ({
-                ...item,
-                pcos: item.pcos?.filter(child => child.id === event.id) ?? []
-            }))
-                .filter(item => item?.pcos?.length > 0);
+        if (event && event.length > 0) {
+            result = lps.filter(item1 =>
+                item1?.pcos?.some(item2 => event.some(val => val.id === item2.id))
+            );
 
-            if (selectedFundValue && !searchTextValue) {
-                result = result.map(item => ({
-                    ...item,
-                    funds: item.funds?.filter(child => child.id === selectedFundValue.id) ?? []
-                }))
-                    .filter(item => item?.funds?.length > 0);
+            if (selectedFundValues && selectedFundValues?.length > 0 && !searchTextValue) {
+                result = result.filter(item1 =>
+                    item1?.funds?.some(item2 => selectedFundValues.some(val => val.id === item2.id)));
                 setRowData(result);
-            } else if (searchTextValue && !selectedFundValue) {
+            } else if (searchTextValue && !selectedFundValues) {
                 setRowData(result);
                 gridApi?.setQuickFilter(searchTextValue);
-            } else if (selectedFundValue && searchTextValue) {
-                result = result.map(item => ({
-                    ...item,
-                    funds: item.funds?.filter(child => child.id === selectedFundValue.id) ?? []
-                }))
-                    .filter(item => item?.funds?.length > 0);
+            } else if (selectedFundValues && selectedFundValues?.length > 0 && searchTextValue) {
+                result = result.filter(item1 =>
+                    item1?.funds?.some(item2 => selectedFundValues.some(val => val.id === item2.id)));
                 setRowData(result);
                 gridApi?.setQuickFilter(searchTextValue);
             }
@@ -323,22 +307,16 @@ const LPOverviewTable = () => {
                 setRowData(result);
             }
         } else {
-            if (selectedFundValue && !searchTextValue) {
-                result = lps.map(item => ({
-                    ...item,
-                    funds: item.funds?.filter(child => child.id === selectedFundValue.id) ?? []
-                }))
-                    .filter(item => item?.funds?.length > 0);
+            if (selectedFundValues && selectedFundValues?.length > 0 && !searchTextValue) {
+                result = lps?.filter(item1 =>
+                    item1?.funds?.some(item2 => selectedFundValues.some(val => val.id === item2.id)));
                 setRowData(result);
-            } else if (searchTextValue && !selectedFundValue) {
+            } else if (searchTextValue && !selectedFundValues) {
                 setRowData(lps);
                 gridApi?.setQuickFilter(searchTextValue);
-            } else if (selectedFundValue && searchTextValue) {
-                result = lps.map(item => ({
-                    ...item,
-                    funds: item.funds?.filter(child => child.id === selectedFundValue.id) ?? []
-                }))
-                    .filter(item => item?.funds?.length > 0);
+            } else if (selectedFundValues && selectedFundValues?.length > 0 && searchTextValue) {
+                result = lps?.filter(item1 =>
+                    item1?.funds?.some(item2 => selectedFundValues.some(val => val.id === item2.id)));
                 setRowData(result);
                 gridApi?.setQuickFilter(searchTextValue);
             }
@@ -418,8 +396,8 @@ const LPOverviewTable = () => {
             <LPToolbar searchText={searchText}
                 funds={allFunds}
                 pcos={allPCOs}
-                selectedFundValue={selectedFundValue}
-                selectedPCOValue={selectedPCOValue}
+                selectedFundValue={selectedFundValues}
+                selectedPCOValue={selectedPCOValues}
                 searchTextValue={searchTextValue}
                 onValueChange={onValueChange}
                 onCancelClick={onCancelClick}

@@ -63,7 +63,6 @@ const PCOLPsStepContentTable = ({ setEditPageName }: PCOInvestmentsStepContentTa
     const ButtonCellRenderer = (props: any) => {
         const handleEditClick = () => {
             if (props.data) {
-                setSelectedInvestmentLocal(props.data);
                 setEditPageName('pcoLPs');
                 setEditDialogOpen(!editChildDialogOpen);
                 const investment: EditInvestment = {

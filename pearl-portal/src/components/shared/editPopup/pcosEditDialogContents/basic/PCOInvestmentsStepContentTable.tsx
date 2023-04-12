@@ -63,7 +63,6 @@ const PCOInvestmentsStepContentTableComponent = ({ setEditPageName }: PCOInvestm
     const ButtonCellRenderer = (props: any) => {
         const handleEditClick = () => {
             if (props.data) {
-                setSelectedInvestmentLocal(props.data);
                 setEditPageName('investments');
                 setEditDialogOpen(!editChildDialogOpen);
                 setSelectedInvestmentLocal(props.data);

@@ -95,8 +95,8 @@ interface PCOToolbarProps {
     searchText: string | null;
     funds: FundSummary[] | null;
     lps: LP[] | null;
-    selectedFundValue: FundSummary | null,
-    selectedLPValue: LP | null,
+    selectedFundValue: FundSummary[] | null,
+    selectedLPValue: LP[] | null,
     searchTextValue: string | null,
     onValueChange: (v: any) => void,
     onCancelClick: (v: any) => void,
@@ -118,7 +118,7 @@ const PCOToolbar = ({ searchText,
     const autocompleteInputClasses = autocompleteInputStyles();
 
     return (
-        <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', marginBottom: '0.5em', width: '100%', overflow: 'hidden', paddingTop: '0.1em' }}>
+        <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', marginBottom: '0.5em', width: '100%', overflow: 'hidden', paddingTop: { xs: '0.5em', md: '0.1em', lg: '0.1em' } }}>
             <Grid container item xs={12} sm={12} md={6} lg={6}
                 sx={{ display: 'flex' }}>
                 <Autocomplete
@@ -129,10 +129,11 @@ const PCOToolbar = ({ searchText,
                     autoSelect={true}
                     autoComplete={false}
                     classes={classes}
-                    sx={{ marginRight: '1em', width: '320px' }}
+                    multiple
+                    sx={{ marginRight: '1em', width: selectedFundValue && selectedFundValue.length > 3 ? '730px' : '320px', marginBottom: { xs: '1em', md: selectedFundValue && selectedFundValue.length > 3 ? '1em' : 0, lg: selectedFundValue && selectedFundValue.length > 3 ? '1em' : 0 } }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: FundSummary | null) => onFundChange(value)}
-                    value={selectedFundValue ?? null}
+                    onChange={(e, value) => onFundChange(value)}
+                    value={selectedFundValue ?? []}
                     options={funds ?? []}
                     getOptionLabel={(option: FundSummary) => option ? option.id : ''}
                     renderInput={(params: AutocompleteRenderInputParams) => {
@@ -142,6 +143,7 @@ const PCOToolbar = ({ searchText,
                             variant="outlined"
                             autoComplete="off"
                             type={'text'}
+                            style={{ width: selectedFundValue && selectedFundValue.length > 3 ? '730px' : '320px' }}
                             label='Select a fund' />;
                     }}
                 />
@@ -153,10 +155,12 @@ const PCOToolbar = ({ searchText,
                     autoSelect={true}
                     autoComplete={false}
                     classes={classes}
-                    sx={{ marginRight: '1em', width: '320px' }}
+                    multiple
+                    limitTags={5}
+                    sx={{ marginRight: '1em', width: selectedLPValue && selectedLPValue.length > 2 ? '730px' : '320px', marginTop: { xs: 0, md: selectedLPValue && selectedLPValue.length > 2 ? '1em' : 0, lg: selectedLPValue && selectedLPValue.length > 2 ? '1em' : 0 } }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value: LP | null) => onLPChange(value)}
-                    value={selectedLPValue ?? null}
+                    onChange={(e, value) => onLPChange(value.slice(0, 5))}
+                    value={selectedLPValue ?? []}
                     options={lps ?? []}
                     getOptionLabel={(option: LP) => option ? option.shortName : ''}
                     renderInput={(params: AutocompleteRenderInputParams) => {
@@ -166,13 +170,14 @@ const PCOToolbar = ({ searchText,
                             variant="outlined"
                             autoComplete="off"
                             type={'text'}
+                            style={{ width: selectedLPValue && selectedLPValue.length > 2 ? '730px' : '320px' }}
                             label='Select an LP'
                         />;
                     }}
                 />
             </Grid>
-            <Grid item xs={12} sm={12} md={6} lg={6} justifyContent='flex-end'
-                sx={{ display: 'flex' }}>
+            <Grid item xs={12} sm={12} md={6} lg={6}
+                sx={{ display: 'flex', justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' } }}>
                 <TextField
                     className={classes.searchBox}
                     variant="outlined"
