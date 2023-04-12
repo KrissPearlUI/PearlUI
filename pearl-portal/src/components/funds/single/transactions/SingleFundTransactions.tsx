@@ -13,6 +13,7 @@ import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelD
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { fetchTransactions } from '../../../../redux/thunks/transactionsThunk';
 import { Transaction } from '../../../../models/transactions/transactionsModels';
+import { capitalizeLetters } from '../../../../helpers/app';
 
 
 const useStyles = makeStyles(() =>
@@ -70,10 +71,13 @@ const SingleFundTransactions = () => {
                 valueFormatter: dateValueFormatter,
             },
             {
-                headerName: 'Fund ID',
-                field: 'fundId',
+                headerName: 'LP Short Name',
+                field: 'lpShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                valueGetter: (params) => {
+                    return params.data?.lpShortName ? capitalizeLetters(params.data?.lpShortName) : params.data?.lpId;
+                }
             },
             {
                 headerName: 'Investment Type',
@@ -82,10 +86,13 @@ const SingleFundTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
             {
-                headerName: 'PCO ID',
-                field: 'pcoId',
+                headerName: 'PCO Short Name',
+                field: 'pcoShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                valueGetter: (params) => {
+                    return params.data?.pcoShortName ? capitalizeLetters(params.data?.pcoShortName) : params.data?.pcoId;
+                }
             },
             {
                 headerName: 'Security Type',
@@ -187,9 +194,13 @@ const SingleFundTransactions = () => {
     }, [dispatch])
 
     useEffect(() => {
-        if (selectedFund && transactions) {
-            const filteredData = transactions?.filter(item => item.fundId === selectedFund.id);
-
+        if (selectedFund && selectedFund.pcos && selectedFund.pcos.length > 0 && transactions) {
+            let filteredData = transactions?.filter(item => item.fundId === selectedFund.id);
+            filteredData = filteredData.map((item) => ({
+                ...item,
+                pcoShortName: selectedFund?.pcos?.filter(x => x.id?.toLowerCase() === item?.pcoId?.toLowerCase())[0]?.shortName ?? '',
+                lpShortName: selectedFund?.lps?.filter(x => x.id?.toLowerCase() === item.lpId?.toLowerCase())[0]?.shortName ?? ''
+            }))
             setRowData(filteredData ?? []);
         }
     }, [transactions, selectedFund])

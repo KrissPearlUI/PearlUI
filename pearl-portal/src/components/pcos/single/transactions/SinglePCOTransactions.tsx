@@ -13,6 +13,7 @@ import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelD
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { fetchTransactions } from '../../../../redux/thunks/transactionsThunk';
 import { Transaction } from '../../../../models/transactions/transactionsModels';
+import { capitalizeLetters } from '../../../../helpers/app';
 
 
 const useStyles = makeStyles(() =>
@@ -60,7 +61,7 @@ const SinglePCOTransactions = () => {
                 field: 'id',
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, marginLeft: 30 },
             },
             {
                 headerName: 'Date',
@@ -72,6 +73,8 @@ const SinglePCOTransactions = () => {
             {
                 headerName: 'Fund ID',
                 field: 'fundId',
+                rowGroup: true,
+                hide: true,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
@@ -82,10 +85,13 @@ const SinglePCOTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
             {
-                headerName: 'LP ID',
-                field: 'lpId',
+                headerName: 'LP Short Name',
+                field: 'lpShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                valueGetter: (params) => {
+                    return params.data?.lpShortName ? capitalizeLetters(params.data?.lpShortName) : params.data?.lpId;
+                }
             },
             {
                 headerName: 'Security Type',
@@ -187,9 +193,12 @@ const SinglePCOTransactions = () => {
     }, [dispatch])
 
     useEffect(() => {
-        if (selectedPCO && transactions) {
-            const filteredData = transactions?.filter(item => item.pcoId === selectedPCO.id);
-
+        if (selectedPCO && selectedPCO.lps && selectedPCO.lps.length > 0 && transactions) {
+            let filteredData = transactions?.filter(item => item.pcoId === selectedPCO.id);
+            filteredData = filteredData.map((item) => ({
+                ...item,
+                lpShortName: selectedPCO?.lps?.filter(x => x.id?.toLowerCase() === item.lpId?.toLowerCase())[0]?.shortName ?? ''
+            }))
             setRowData(filteredData ?? []);
         }
     }, [transactions, selectedPCO])
@@ -204,6 +213,7 @@ const SinglePCOTransactions = () => {
                 loadingOverlayComponent={AGGridLoader}
                 tooltipShowDelay={0}
                 tooltipHideDelay={10000}
+                groupDisplayType={'groupRows'}
             />
         </div>
 

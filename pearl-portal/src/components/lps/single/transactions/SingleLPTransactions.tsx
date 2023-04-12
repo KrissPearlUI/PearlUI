@@ -13,6 +13,7 @@ import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelD
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { fetchTransactions } from '../../../../redux/thunks/transactionsThunk';
 import { Transaction } from '../../../../models/transactions/transactionsModels';
+import { capitalizeLetters } from '../../../../helpers/app';
 
 
 const useStyles = makeStyles(() =>
@@ -59,7 +60,7 @@ const SingleLPTransactions = () => {
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
         groupIncludeFooter: true,
-        groupIncludeTotalFooter:true
+        groupIncludeTotalFooter: true
     };
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
@@ -69,7 +70,7 @@ const SingleLPTransactions = () => {
                 field: 'id',
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, marginLeft: 30 },
             },
             {
                 headerName: 'Date',
@@ -81,6 +82,8 @@ const SingleLPTransactions = () => {
             {
                 headerName: 'Fund ID',
                 field: 'fundId',
+                rowGroup: true,
+                hide: true,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
@@ -91,10 +94,13 @@ const SingleLPTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
             {
-                headerName: 'PCO ID',
-                field: 'pcoId',
+                headerName: 'PCO Short Name',
+                field: 'pcoShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                valueGetter: (params) => {
+                    return params.data?.pcoShortName ? capitalizeLetters(params.data?.pcoShortName) : params.data?.pcoId;
+                }
             },
             {
                 headerName: 'Security Type',
@@ -205,7 +211,7 @@ const SingleLPTransactions = () => {
                         }
                     });
 
-                    total=sum;
+                    total = sum;
                     totals[colId] = sum;
                 }
             });
@@ -223,34 +229,37 @@ const SingleLPTransactions = () => {
 
     interface FrameworkComponentsProps {
         agColumnFooter: React.FC<{
-          column: Column;
-          totals: Record<string, number>;
+            column: Column;
+            totals: Record<string, number>;
         }>;
-      }
-      
-      const frameworkComponents: FrameworkComponentsProps = {
+    }
+
+    const frameworkComponents: FrameworkComponentsProps = {
         agColumnHeader: ({ column }) => {
             const total = totals[column.getColId()];
-          return (
-            <div style={{ display: 'flex', justifyContent: total?'end':'start', flex:1, textAlign:total?'right':'left' }}>
-                {column.getColDef().headerName}
-            </div>
-          );
+            return (
+                <div style={{ display: 'flex', justifyContent: total ? 'end' : 'start', flex: 1, textAlign: total ? 'right' : 'left' }}>
+                    {column.getColDef().headerName}
+                </div>
+            );
         },
         agColumnFooter: ({ column }) => {
             const total = totals[column.getColId()];
-            return <div style={{fontWeight:600}}>Total: {total != null ? total.toFixed(2) : '-'}</div>;
-          }
-      };
+            return <div style={{ fontWeight: 600 }}>Total: {total != null ? total.toFixed(2) : '-'}</div>;
+        }
+    };
 
     useEffect(() => {
         dispatch(fetchTransactions());
     }, [dispatch])
 
     useEffect(() => {
-        if (selectedLP && transactions) {
-            const filteredData = transactions?.filter(item => item.lpId === selectedLP.id);
-
+        if (selectedLP && selectedLP.pcos && selectedLP.pcos.length > 0 && transactions) {
+            let filteredData = transactions?.filter(item => item.lpId === selectedLP.id);
+            filteredData = filteredData.map((item) => ({
+                ...item,
+                pcoShortName: selectedLP?.pcos?.filter(x => x.id?.toLowerCase() === item?.pcoId?.toLowerCase())[0]?.shortName ?? ''
+            }))
             setRowData(filteredData ?? []);
         }
     }, [transactions, selectedLP])
@@ -265,8 +274,9 @@ const SingleLPTransactions = () => {
                 loadingOverlayComponent={AGGridLoader}
                 tooltipShowDelay={0}
                 tooltipHideDelay={10000}
-                 frameworkComponents={frameworkComponents}
+                frameworkComponents={frameworkComponents}
                 context={{ totals }}
+                groupDisplayType={'groupRows'}
             />
         </div>
 

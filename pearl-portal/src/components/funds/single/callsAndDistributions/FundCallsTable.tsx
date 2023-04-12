@@ -62,10 +62,13 @@ const SingleFundCallsTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
             {
-                headerName: 'Fund ID',
-                field: 'fundId',
+                headerName: 'LP Short Name',
+                field: 'lpShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                valueGetter: (params) => {
+                    return params.data?.lpShortName ? capitalizeLetters(params.data?.lpShortName) : params.data?.lpId;
+                }
             },
             {
                 headerName: 'LP ID',
@@ -135,7 +138,8 @@ const SingleFundCallsTable = () => {
             let data = cashCalls?.filter(x => x.fundId === selectedFund.id);
             data = data.map((item) => ({
                 ...item,
-                pcoShortName: selectedFund?.pcos?.filter(x => x.id === item.pcoId)[0]?.shortName ?? ''
+                pcoShortName: selectedFund?.pcos?.filter(x => x.id?.toLowerCase() === item.pcoId?.toLowerCase())[0]?.shortName ?? '',
+                lpShortName: selectedFund?.lps?.filter(x => x.id?.toLowerCase() === item.lpId?.toLowerCase())[0]?.shortName ?? ''
             }))
             setRowData(data ?? []);
         }

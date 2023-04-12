@@ -60,11 +60,13 @@ const SingleLPCallsTable = () => {
                 field: 'id',
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, marginLeft: 30 },
             },
             {
                 headerName: 'Fund ID',
                 field: 'fundId',
+                rowGroup: true,
+                hide: true,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
@@ -137,7 +139,7 @@ const SingleLPCallsTable = () => {
             let data = cashCalls?.filter(x => x.lpId === selectedLP.id);
             data = data.map((item) => ({
                 ...item,
-                pcoShortName: selectedLP?.pcos?.filter(x => x.id === item.pcoId)[0]?.shortName ?? ''
+                pcoShortName: selectedLP?.pcos?.filter(x => x.id?.toLowerCase() === item.pcoId?.toLowerCase())[0]?.shortName ?? ''
             }))
             setRowData(data ?? []);
         }
@@ -153,6 +155,7 @@ const SingleLPCallsTable = () => {
                 loadingOverlayComponent={AGGridLoader}
                 tooltipShowDelay={0}
                 tooltipHideDelay={10000}
+                groupDisplayType={'groupRows'}
             />
         </div>
 

@@ -13,6 +13,7 @@ import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelD
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { DistributionBasic } from '../../../../models/distributions/distributionsModels';
 import { fetchAllDistributions } from '../../../../redux/thunks/distributionsThunk';
+import { capitalizeLetters } from '../../../../helpers/app';
 
 
 const useStyles = makeStyles(() =>
@@ -59,12 +60,14 @@ const SingleLPDistributionsTable = () => {
                 field: 'id',
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, marginLeft: 30 },
             },
             {
                 headerName: 'Fund ID',
                 field: 'fundId',
                 enableRowGroup: true,
+                rowGroup: true,
+                hide: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
             {
@@ -85,6 +88,9 @@ const SingleLPDistributionsTable = () => {
                 field: 'pcoShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                valueGetter: (params) => {
+                    return params.data?.pcoShortName ? capitalizeLetters(params.data?.pcoShortName) : params.data?.pcoId;
+                }
             },
             {
                 headerName: 'Notice Date',
@@ -133,7 +139,7 @@ const SingleLPDistributionsTable = () => {
             let data = distributions?.filter(x => x.lpId === selectedLP.id);
             data = data.map((item) => ({
                 ...item,
-                pcoShortName: selectedLP?.pcos?.filter(x => x.id === item.pcoId)[0]?.shortName ?? ''
+                pcoShortName: selectedLP?.pcos?.filter(x => x.id?.toLowerCase() === item.pcoId?.toLowerCase())[0]?.shortName ?? ''
             }))
             setRowData(data ?? []);
         }
@@ -149,6 +155,7 @@ const SingleLPDistributionsTable = () => {
                 loadingOverlayComponent={AGGridLoader}
                 tooltipShowDelay={0}
                 tooltipHideDelay={10000}
+                groupDisplayType={'groupRows'}
             />
         </div>
 
