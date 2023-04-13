@@ -74,6 +74,22 @@ export const fiatNumberFormatterNoDecimals = new Intl.NumberFormat(getBrowserLoc
 });
 
 /**
+ * Fiat number formatter for valuation
+ */
+export const prePostMoneyNumberFormatter = new Intl.NumberFormat(getBrowserLocale(), {
+    maximumFractionDigits: 1,
+    minimumFractionDigits: 1
+});
+
+/**
+ * Fiat number formatter for valuation
+ */
+export const forexNumberFormatter = new Intl.NumberFormat(getBrowserLocale(), {
+    maximumFractionDigits: 4,
+    minimumFractionDigits: 4
+});
+
+/**
  * Number formatter with maximum fraction digits of 4
  */
 export const customPriceFormatter = new Intl.NumberFormat(getBrowserLocale(), {

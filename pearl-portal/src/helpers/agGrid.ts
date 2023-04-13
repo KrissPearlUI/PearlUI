@@ -11,9 +11,11 @@ import {
     customPriceFormatter,
     fiatNumberFormatter,
     fiatNumberFormatterNoDecimals,
+    forexNumberFormatter,
     formatMargin,
     formatPercentage,
-    formatPrice
+    formatPrice,
+    prePostMoneyNumberFormatter
 } from './app';
 import { Theme } from '@mui/material/styles';
 import CustomTooltip from '../components/cellRenderers/CustomTooltipCellRenderer';
@@ -95,6 +97,28 @@ export const guidValueFormatter = (params: ValueFormatterParams) => {
 export const quantityValueFormatter = (params: ValueFormatterParams) => {
     if (params.value) {
         return fiatNumberFormatterNoDecimals.format(params.value);
+    }
+    return params.value;
+};
+
+/**
+ * Cell formatter for formatting forex
+ * @param params
+ */
+export const forexValueFormatter = (params: ValueFormatterParams) => {
+    if (params.value) {
+        return forexNumberFormatter.format(params.value);
+    }
+    return params.value;
+};
+
+/**
+ * Cell formatter for formatting pre and post money
+ * @param params
+ */
+export const prePostmoneyValueFormatter = (params: ValueFormatterParams) => {
+    if (params.value) {
+        return prePostMoneyNumberFormatter.format(params.value);
     }
     return params.value;
 };
@@ -216,6 +240,22 @@ export const numberCellRenderer = (params: ICellRendererParams) => {
         return `${sign}${formattedBeforeDot}.${afterDot}`;
     }
 };
+
+export const filterParams = {
+    comparator: (a: number | null, b: number | null) => {
+        // Handle null values
+        if (a == null) {
+            return b == null ? 0 : 1;
+        }
+        if (b == null) {
+            return -1;
+        }
+
+        // Sort numerically
+        return a - b;
+    }
+};
+
 
 /**
  * Setting ag-grid default status panel definitions

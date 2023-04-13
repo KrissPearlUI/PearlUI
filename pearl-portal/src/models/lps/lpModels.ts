@@ -107,7 +107,10 @@ export interface CommitmentBasic {
     shortName?: string,
     committedAmount?: number,
     fundCurrency?: string,
-    transfered?: boolean
+    transfered?: boolean, 
+    lpId?:string,
+    lpShortName?:string,
+    lpName?:string
 }
 
 export interface Exits {

@@ -9,7 +9,7 @@ import clsx from 'clsx';
 import { ColDef, ColGroupDef } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../../redux/store';
 import { RootState } from '../../../../redux/slices/rootSlice';
-import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../helpers/agGrid';
+import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, DefaultSideBarDef } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { DistributionBasic } from '../../../../models/distributions/distributionsModels';
 import { fetchAllDistributions } from '../../../../redux/thunks/distributionsThunk';
@@ -51,6 +51,7 @@ const SingleLPDistributionsTable = () => {
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
+        sideBar: DefaultSideBarDef,
     };
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {

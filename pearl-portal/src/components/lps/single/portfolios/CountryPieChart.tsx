@@ -34,7 +34,6 @@ const CountryPieChart = ({ chartDataValues }: any) => {
                 name: 'Investment',
                 data: chartDataValues,
                 size: "100%",
-                showInLegend: true,
                 dataLabels: {
                     enabled: true,
                     format: '{point.percentage:.1f}%',
@@ -48,13 +47,13 @@ const CountryPieChart = ({ chartDataValues }: any) => {
                 },
             }
         ],
-        plotOptions: {
+        /* plotOptions: {
             pie: {
                 showInLegend: true,
             }
-        },
+        }, */
         colors: ['#2E41A0', '##779DD6', '#25607E', '#2667FF', '#457FD7', '#62B6CB', '#00B4D8', '#1B4357', '#86C7E3', '#56CFE1', '#64DFDF', '#5E60CE'],
-        legend: {
+        /* legend: {
             enabled: true, // show the legend
             align: 'center',
             verticalAlign: 'bottom',
@@ -65,7 +64,7 @@ const CountryPieChart = ({ chartDataValues }: any) => {
             itemMarginBottom: 10,
             itemMarginRight: 10,
             maxHeight: 100, // set
-        },
+        }, */
     };
 
 

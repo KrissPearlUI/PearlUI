@@ -9,7 +9,7 @@ import clsx from 'clsx';
 import { ColDef, ColGroupDef } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../../redux/store';
 import { RootState } from '../../../../redux/slices/rootSlice';
-import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../helpers/agGrid';
+import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, forexValueFormatter, prePostmoneyValueFormatter, DefaultSideBarDef } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { fetchTransactions } from '../../../../redux/thunks/transactionsThunk';
 import { Transaction } from '../../../../models/transactions/transactionsModels';
@@ -60,7 +60,8 @@ const SingleLPTransactions = () => {
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
         groupIncludeFooter: true,
-        groupIncludeTotalFooter: true
+        groupIncludeTotalFooter: true,
+        sideBar: DefaultSideBarDef,
     };
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
@@ -140,7 +141,7 @@ const SingleLPTransactions = () => {
                 tooltipField: 'forexNT',
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
-                valueFormatter: quantityValueFormatter,
+                valueFormatter: forexValueFormatter,
             },
             {
                 headerName: 'Pre Money Valuation',
@@ -150,7 +151,7 @@ const SingleLPTransactions = () => {
                 tooltipField: 'preMoneyValuation',
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
-                valueFormatter: quantityValueFormatter,
+                valueFormatter: prePostmoneyValueFormatter,
             },
             {
                 headerName: 'Post Money Valuation',
@@ -160,7 +161,7 @@ const SingleLPTransactions = () => {
                 tooltipField: 'postMoneyValuation',
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
-                valueFormatter: quantityValueFormatter,
+                valueFormatter: prePostmoneyValueFormatter,
             },
             {
                 headerName: 'Warrant Security Type',

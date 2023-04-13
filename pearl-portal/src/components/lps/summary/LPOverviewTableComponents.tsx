@@ -3,13 +3,14 @@ import { useSelector } from 'react-redux';
 import { capitalize, Grid, useTheme } from '@mui/material';
 import { RootState } from '../../../redux/slices/rootSlice';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent, ValueGetterParams } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, ISetFilterParams, ValueGetterParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import {
     DefaultColumnDef,
     DefaultSideBarDef,
     DefaultStatusPanelDef,
+    filterParams,
     getGridTheme,
     quantityValueFormatter
 } from '../../../helpers/agGrid';
@@ -80,7 +81,7 @@ const LPOverviewTable = () => {
         sideBar: DefaultSideBarDef,
         statusBar: DefaultStatusPanelDef,
     };
-
+      
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
         return [
             {
@@ -139,6 +140,7 @@ const LPOverviewTable = () => {
                         return 0;
                 },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: filterParams,
             },
             {
                 headerName: 'Active PCOs',
@@ -156,6 +158,7 @@ const LPOverviewTable = () => {
                         return 0;
                 },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: filterParams,
             },
             {
                 headerName: 'Type',

@@ -11,6 +11,7 @@ import {
     DefaultColumnDef,
     DefaultSideBarDef,
     DefaultStatusPanelDef,
+    filterParams,
     getGridTheme,
     quantityValueFormatter,
 } from '../../../helpers/agGrid';
@@ -154,6 +155,7 @@ const FundsOverviewTable = () => {
                 tooltipField: 'lps',
                 tooltipComponentParams: { type: 'lps' },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: filterParams,
             },
             {
                 headerName: 'Active PCOs',
@@ -164,6 +166,7 @@ const FundsOverviewTable = () => {
                 tooltipComponentParams: { type: 'pcos' },
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: filterParams,
             },
             {
                 headerName: 'Domicile',

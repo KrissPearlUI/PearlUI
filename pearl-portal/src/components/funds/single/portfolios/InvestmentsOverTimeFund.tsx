@@ -14,19 +14,20 @@ export interface ChartItem extends PCOExtended {
     y: number;
 }
 
-const InvestmentsOverTime = () => {
+const InvestmentsOverTimeFund = () => {
     const theme = useTheme();
     const [totalValue, setTotalValuee] = useState<number>(0);
     const [chartDataValues, setChartDataValues] = useState<Array<any>>([]);
     const { transactions } = useSelector((state: RootState) => state.transactions);
-    const { selectedLP, pcosExtended } = useSelector((state: RootState) => state.lps);
+    const { selectedFund } = useSelector((state: RootState) => state.funds);
+    const {  pcosExtended } = useSelector((state: RootState) => state.lps);
     const [type,] = React.useState('byAmount');
 
     useEffect(() => {
-        if (transactions && selectedLP && pcosExtended) {
+        if (transactions && selectedFund && pcosExtended) {
             let total: number = 0;
             total = pcosExtended.reduce((sum, dataPoint) => sum + (dataPoint.amountInvested ? dataPoint.amountInvested : 0), 0);
-            let dataByYear = transactions.filter(x => x.lpId === selectedLP.id).sort((a, b) => new Date(a.date).getFullYear() - new Date(b.date).getFullYear()).slice()
+            let dataByYear = transactions.filter(x => x.fundId === selectedFund.id).sort((a, b) => new Date(a.date).getFullYear() - new Date(b.date).getFullYear()).slice()
             dataByYear = dataByYear.reduce((acc: any, item: any) => {
                 const year = new Date(item.date).getFullYear().toString();
                 if (!acc[year]) {
@@ -39,7 +40,7 @@ const InvestmentsOverTime = () => {
             setTotalValuee(total);
             setChartDataValues(dataByYear);
         }
-    }, [transactions, type, pcosExtended, selectedLP]);
+    }, [transactions, type, pcosExtended, selectedFund]);
 
     const options = {
         chart: {
@@ -62,7 +63,7 @@ const InvestmentsOverTime = () => {
         },
         series: [
             {
-                name: "Amount",
+                name: "",
                 data: Object.values(chartDataValues).map((yearData: any) =>
                     yearData.reduce((acc: any, item: any) => acc + item.amountEUR, 0)
                 ),
@@ -97,4 +98,4 @@ const InvestmentsOverTime = () => {
     );
 };
 
-export default React.memo(InvestmentsOverTime);
+export default React.memo(InvestmentsOverTimeFund);

@@ -11,7 +11,7 @@ import { ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entit
 import { useAppDispatch } from '../../../../redux/store';
 import { RootState } from '../../../../redux/slices/rootSlice';
 import { CommitmentBasic } from '../../../../models/lps/lpModels';
-import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../helpers/agGrid';
+import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, DefaultSideBarDef } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { fetchCashCalls } from '../../../../redux/thunks/cashCallsThunk';
 
@@ -59,6 +59,7 @@ const SingleLPCommitments = () => {
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
+        sideBar: DefaultSideBarDef,
         groupIncludeFooter: true,
         groupIncludeTotalFooter: true
     };

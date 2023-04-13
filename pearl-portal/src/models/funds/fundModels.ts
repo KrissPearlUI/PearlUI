@@ -1,4 +1,4 @@
-import { Exits, KPI, LP, LPFundsOverview, PCO, TerminationFundLP } from "../lps/lpModels";
+import { CommitmentBasic, Exits, KPI, LP, LPFundsOverview, PCO, TerminationFundLP } from "../lps/lpModels";
 
 export interface FundSummary {
     id: string,
@@ -50,6 +50,7 @@ export interface FundSummary {
     sumReleasedDistributionsEUR?: number,
     sumEscrowFundCccy?: number,
     sumEscrowEUR?: number,
+    commitments?: CommitmentBasic[]
 }
 
 export interface NewFund {

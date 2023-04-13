@@ -19,7 +19,7 @@ import { fetchTransactions } from '../../../../redux/thunks/transactionsThunk';
 import PortfolioByStage from '../../../lps/single/portfolios/PortfolioByStage';
 import PortfolioByCountry from '../../../lps/single/portfolios/PortfolioByCountry';
 import PortfolioByIndustry from '../../../lps/single/portfolios/PortfolioByIndustry';
-import InvestmentsOverTime from '../../../lps/single/portfolios/InvestmentsOverTime';
+import InvestmentsOverTimeFund from './InvestmentsOverTimeFund';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -329,7 +329,7 @@ const SingleFundPortfolios = () => {
                         <AccordionDetails style={{
                             width: '100%', display: 'flex', flex: 1, height: '100%', minHeight: '200px'
                         }}>
-                            {isPortfolioByInvestmentsExpand && <InvestmentsOverTime />}
+                            {isPortfolioByInvestmentsExpand && <InvestmentsOverTimeFund />}
                         </AccordionDetails>
                     </Accordion>
                 </Paper>

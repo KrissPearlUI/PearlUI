@@ -10,6 +10,7 @@ import {
     DefaultColumnDef,
     DefaultSideBarDef,
     DefaultStatusPanelDef,
+    filterParams,
     getGridTheme,
     quantityValueFormatter,
 } from '../../../helpers/agGrid';
@@ -145,6 +146,7 @@ const PCOsOverviewTable = () => {
                 tooltipField: 'funds',
                 tooltipComponentParams: { type: 'funds' },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: filterParams,
             },
             {
                 headerName: 'LPs',
@@ -155,6 +157,7 @@ const PCOsOverviewTable = () => {
                 tooltipField: 'lps',
                 tooltipComponentParams: { type: 'lps' },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: filterParams,
             },
             {
                 headerName: 'Status',

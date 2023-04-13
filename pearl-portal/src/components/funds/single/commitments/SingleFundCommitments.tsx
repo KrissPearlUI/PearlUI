@@ -9,7 +9,7 @@ import clsx from 'clsx';
 import { ColDef, ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { RootState } from '../../../../redux/slices/rootSlice';
 import { CommitmentBasic } from '../../../../models/lps/lpModels';
-import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter } from '../../../../helpers/agGrid';
+import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, DefaultSideBarDef } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
 
 const useStyles = makeStyles(() =>
@@ -46,6 +46,7 @@ const SingleFundCommitments = () => {
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
+        sideBar: DefaultSideBarDef,
     };
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
@@ -59,13 +60,13 @@ const SingleFundCommitments = () => {
             },
             {
                 headerName: 'LP ID',
-                field: 'id',
+                field: 'lpId',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
             {
                 headerName: 'Short Name',
-                field: 'shortName',
+                field: 'lpShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
             },
@@ -136,7 +137,7 @@ const SingleFundCommitments = () => {
     }, []);
 
     useEffect(() => {
-        setRowData(selectedFund?.lps ?? []);
+        setRowData(selectedFund?.commitments ?? []);
     }, [selectedFund])
 
     return (
