@@ -83,18 +83,18 @@ const LPOverviewTable = () => {
     };
 
 
-/*     valueGetter: (params: ValueGetterParams) => {
-        if (params && params.data) {
-            if (selectedFundValues && selectedFundValues.length > 0) {
-                const fundsSelected: Fund[] | null = params.data.funds?.filter((item2: Fund) => selectedFundValues.some(val => val.id === item2.id));
-                return fundsSelected && fundsSelected.length > 0 ? fundsSelected.reduce((a: number, v: Fund) => a = a + (v.committedAmount ?? 0), 0) : params.data.totalCommitments ?? 0
+    /*     valueGetter: (params: ValueGetterParams) => {
+            if (params && params.data) {
+                if (selectedFundValues && selectedFundValues.length > 0) {
+                    const fundsSelected: Fund[] | null = params.data.funds?.filter((item2: Fund) => selectedFundValues.some(val => val.id === item2.id));
+                    return fundsSelected && fundsSelected.length > 0 ? fundsSelected.reduce((a: number, v: Fund) => a = a + (v.committedAmount ?? 0), 0) : params.data.totalCommitments ?? 0
+                } else {
+                    return params.data.totalCommitments ?? 0
+                }
             } else {
-                return params.data.totalCommitments ?? 0
+                return 0;
             }
-        } else {
-            return 0;
-        }
-    }, */
+        }, */
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
         return [
@@ -272,7 +272,7 @@ const LPOverviewTable = () => {
                 } as INumberFilterParams,
             }
         ];
-    }, [theme]);
+    }, [theme, selectedFundValues]);
 
     const onValueChange = useCallback((event: any) => {
         setSearchTextValue(event.target.value)
