@@ -157,7 +157,7 @@ const PCOToolbar = ({ searchText,
                     classes={classes}
                     multiple
                     limitTags={5}
-                    sx={{ marginRight: '1em', width: selectedLPValue && selectedLPValue.length > 2 ? '730px' : '320px', marginTop: { xs: 0, md: selectedLPValue && selectedLPValue.length > 2 ? '1em' : 0, lg: selectedLPValue && selectedLPValue.length > 2 ? '1em' : 0 } }}
+                    sx={{ marginRight: '1em', width: selectedLPValue && selectedLPValue.length > 2 ? '730px' : '320px' }}
                     isOptionEqualToValue={(option, value) => option === value}
                     onChange={(e, value) => onLPChange(value.slice(0, 5))}
                     value={selectedLPValue ?? []}

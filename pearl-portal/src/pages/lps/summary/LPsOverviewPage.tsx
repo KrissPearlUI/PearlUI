@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
         flex: 1,
         paddingLeft: '0.2em',
         paddingRight: '0.2em',
+        paddingBottom:'0.5em'
     },
 }),
 );

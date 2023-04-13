@@ -175,7 +175,7 @@ const LPToolbar = ({ searchText,
                     autoSelect={true}
                     autoComplete={false}
                     classes={classes}
-                    sx={{ marginRight: '1em', width: selectedPCOValue && selectedPCOValue.length > 2 ? '730px' : '320px', marginTop: { xs: 0, md: selectedPCOValue && selectedPCOValue.length > 2 ? '1em' : 0, lg: selectedPCOValue && selectedPCOValue.length > 2 ? '1em' : 0 } }}
+                    sx={{ marginRight: '1em', width: selectedPCOValue && selectedPCOValue.length > 2 ? '730px' : '320px' }}
                     isOptionEqualToValue={(option, value) => option === value}
                     onChange={(e, value) => onPCOChange(value.slice(0, 5))}
                     value={selectedPCOValue ?? []}

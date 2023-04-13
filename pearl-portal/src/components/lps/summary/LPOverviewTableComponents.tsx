@@ -75,13 +75,13 @@ const LPOverviewTable = () => {
         enableCellChangeFlash: true,
         enableRangeSelection: true,
         animateRows: true,
-        pagination: true,
+        pagination: false,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         sideBar: DefaultSideBarDef,
         statusBar: DefaultStatusPanelDef,
     };
-      
+
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
         return [
             {
@@ -407,7 +407,7 @@ const LPOverviewTable = () => {
                 onFundChange={onFundChange}
                 onPCOChange={onPCOChange}
             />
-            <div className={clsx(getGridTheme(isDarkTheme), classes.fill)}>
+            <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ height: selectedFundValues?.length === 0 && selectedPCOValues?.length === 0 ? '93%' : ((selectedFundValues && selectedFundValues.length > 3) || (selectedPCOValues && selectedPCOValues.length > 2)) ? '84.5%' : '93%' }}>
                 <AgGridReact gridOptions={gridOptions}
                     columnDefs={getColumnDefs}
                     rowData={rowData}

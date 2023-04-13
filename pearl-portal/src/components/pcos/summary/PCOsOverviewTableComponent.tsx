@@ -76,7 +76,7 @@ const PCOsOverviewTable = () => {
         enableCellChangeFlash: true,
         enableRangeSelection: true,
         animateRows: true,
-        pagination: true,
+        pagination: false,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         sideBar: DefaultSideBarDef,
@@ -346,7 +346,7 @@ const PCOsOverviewTable = () => {
                 onFundChange={onFundChange}
                 onLPChange={onLPChange}
             />
-            <div className={clsx(getGridTheme(isDarkTheme), classes.fill)}>
+            <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ height: selectedLPValues?.length === 0 && selectedFundValues?.length === 0 ? '93%' : ((selectedLPValues && selectedLPValues.length > 2) || (selectedFundValues && selectedFundValues.length > 3)) ? '84.5%' : '93%' }}>
                 <AgGridReact gridOptions={gridOptions}
                     columnDefs={getColumnDefs}
                     rowData={rowData}
