@@ -17,7 +17,7 @@ import {
 import clsx from 'clsx';
 import { ColDef, ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../redux/store';
-import { LP } from '../../../models/lps/lpModels';
+import { Fund, LP } from '../../../models/lps/lpModels';
 import AGGridLoader from '../../shared/AGGridLoader';
 import LPToolbar from './LPToolbar';
 import { setSelectedLP } from '../../../redux/slices/lps/lpsSlice';
@@ -82,6 +82,20 @@ const LPOverviewTable = () => {
         statusBar: DefaultStatusPanelDef,
     };
 
+
+/*     valueGetter: (params: ValueGetterParams) => {
+        if (params && params.data) {
+            if (selectedFundValues && selectedFundValues.length > 0) {
+                const fundsSelected: Fund[] | null = params.data.funds?.filter((item2: Fund) => selectedFundValues.some(val => val.id === item2.id));
+                return fundsSelected && fundsSelected.length > 0 ? fundsSelected.reduce((a: number, v: Fund) => a = a + (v.committedAmount ?? 0), 0) : params.data.totalCommitments ?? 0
+            } else {
+                return params.data.totalCommitments ?? 0
+            }
+        } else {
+            return 0;
+        }
+    }, */
+
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
         return [
             {
@@ -96,7 +110,7 @@ const LPOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Name',
@@ -106,7 +120,7 @@ const LPOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Headquarters',
@@ -121,7 +135,7 @@ const LPOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Commited Capital',
@@ -132,9 +146,21 @@ const LPOverviewTable = () => {
                 type: 'numericColumn',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
+                valueGetter: (params: ValueGetterParams) => {
+                    if (params && params.data) {
+                        if (selectedFundValues && selectedFundValues.length > 0) {
+                            const fundsSelected: Fund[] | null = params.data.funds?.filter((item2: Fund) => selectedFundValues.some(val => val.id === item2.id));
+                            return fundsSelected && fundsSelected.length > 0 ? fundsSelected.reduce((a: number, v: Fund) => a = a + (v.committedAmount ?? 0), 0) : params.data.totalCommitments ?? 0
+                        } else {
+                            return params.data.totalCommitments ?? 0
+                        }
+                    } else {
+                        return 0;
+                    }
+                },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Funds',
@@ -188,7 +214,7 @@ const LPOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Capital Invested',
@@ -201,7 +227,7 @@ const LPOverviewTable = () => {
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Reserved',
@@ -214,7 +240,7 @@ const LPOverviewTable = () => {
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Capital Distributed',
@@ -228,7 +254,7 @@ const LPOverviewTable = () => {
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Tapped Out',
@@ -243,7 +269,7 @@ const LPOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             }
         ];
     }, [theme]);
