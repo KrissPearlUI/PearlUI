@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { capitalize, Grid, useTheme } from '@mui/material';
 import { RootState } from '../../../redux/slices/rootSlice';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent, ISetFilterParams, ValueGetterParams } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams, ISetFilterParams, ValueGetterParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import {
@@ -94,6 +94,9 @@ const LPOverviewTable = () => {
                 },
                 valueSetter: (params) => valueSetter(params, 'shortName'),
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Name',
@@ -101,6 +104,9 @@ const LPOverviewTable = () => {
                 suppressFiltersToolPanel: true,
                 minWidth: 120,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Headquarters',
@@ -113,6 +119,9 @@ const LPOverviewTable = () => {
                 },
                 valueSetter: (params) => valueSetter(params, 'country'),
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Commited Capital',
@@ -123,6 +132,9 @@ const LPOverviewTable = () => {
                 type: 'numericColumn',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Funds',
@@ -174,6 +186,9 @@ const LPOverviewTable = () => {
                         return '';
                 },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Capital Invested',
@@ -184,6 +199,9 @@ const LPOverviewTable = () => {
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Reserved',
@@ -194,6 +212,9 @@ const LPOverviewTable = () => {
                 type: 'numericColumn',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Capital Distributed',
@@ -205,6 +226,9 @@ const LPOverviewTable = () => {
                 suppressFiltersToolPanel: true,
                 minWidth: 80,
                 valueFormatter: quantityValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Tapped Out',
@@ -217,6 +241,9 @@ const LPOverviewTable = () => {
                 maxWidth: 130,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             }
         ];
     }, [theme]);

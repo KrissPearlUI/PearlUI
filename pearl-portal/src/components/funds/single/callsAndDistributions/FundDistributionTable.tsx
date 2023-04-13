@@ -2,14 +2,14 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 import { ColDef, ColGroupDef } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../../redux/store';
 import { RootState } from '../../../../redux/slices/rootSlice';
-import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, DefaultSideBarDef } from '../../../../helpers/agGrid';
+import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, DefaultSideBarDef, dateFilterParams } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { DistributionBasic } from '../../../../models/distributions/distributionsModels';
 import { fetchAllDistributions } from '../../../../redux/thunks/distributionsThunk';
@@ -62,6 +62,9 @@ const SingleFundDistributionsTable = () => {
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'LP Short Name',
@@ -70,7 +73,10 @@ const SingleFundDistributionsTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
                     return params.data?.lpShortName ? capitalizeLetters(params.data?.lpShortName) : params.data?.lpId;
-                }
+                },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'LP ID',
@@ -78,29 +84,42 @@ const SingleFundDistributionsTable = () => {
                 enableRowGroup: true,
                 hide: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'LP Type',
                 field: 'lpType',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'PCO Short Name',
                 field: 'pcoShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Notice Date',
                 field: 'noticeDate',
                 enableRowGroup: true,
+                filter: 'agDateColumnFilter',
+                filterParams: dateFilterParams,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: dateValueFormatter,
             },
             {
                 headerName: 'Distribution Date',
                 field: 'distDate',
+                filter: 'agDateColumnFilter',
+                filterParams: dateFilterParams,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: dateValueFormatter,
@@ -114,6 +133,9 @@ const SingleFundDistributionsTable = () => {
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
         ];
     }, [theme]);

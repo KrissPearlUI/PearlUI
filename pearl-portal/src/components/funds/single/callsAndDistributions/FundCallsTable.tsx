@@ -2,14 +2,14 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 import { ColDef, ColGroupDef } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../../redux/store';
 import { RootState } from '../../../../redux/slices/rootSlice';
-import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, DefaultSideBarDef } from '../../../../helpers/agGrid';
+import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, DefaultSideBarDef, dateFilterParams } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { fetchCashCalls } from '../../../../redux/thunks/cashCallsThunk';
 import { CashCall } from '../../../../models/cashCalls/cashCallsModels';
@@ -61,6 +61,9 @@ const SingleFundCallsTable = () => {
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'LP Short Name',
@@ -69,7 +72,10 @@ const SingleFundCallsTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
                     return params.data?.lpShortName ? capitalizeLetters(params.data?.lpShortName) : params.data?.lpId;
-                }
+                },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'LP ID',
@@ -77,12 +83,18 @@ const SingleFundCallsTable = () => {
                 hide: true,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'LP Type',
                 field: 'lpType',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'PCO Short Name',
@@ -91,12 +103,17 @@ const SingleFundCallsTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
                     return params.data?.pcoShortName ? capitalizeLetters(params.data?.pcoShortName) : params.data?.pcoId;
-                }
+                },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Call Date',
                 field: 'callDate',
                 enableRowGroup: true,
+                filter: 'agDateColumnFilter',
+                filterParams: dateFilterParams,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: dateValueFormatter,
             },
@@ -104,6 +121,8 @@ const SingleFundCallsTable = () => {
                 headerName: 'Due Date',
                 field: 'dueDate',
                 enableRowGroup: true,
+                filter: 'agDateColumnFilter',
+                filterParams: dateFilterParams,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: dateValueFormatter,
             },
@@ -116,6 +135,9 @@ const SingleFundCallsTable = () => {
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
         ];
     }, [theme]);

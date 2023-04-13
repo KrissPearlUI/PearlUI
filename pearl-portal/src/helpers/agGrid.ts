@@ -253,8 +253,31 @@ export const filterParams = {
 
         // Sort numerically
         return a - b;
-    }
+    },
+    buttons: ['reset'],
 };
+
+export const dateFilterParams = {
+    comparator: (filterLocalDateAtMidnight: Date, cellValue: string) => {
+      var dateAsString = cellValue;
+      if (dateAsString == null) return -1;
+      var cellDate = new Date(cellValue);
+      if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
+        return 0;
+      }
+      if (cellDate < filterLocalDateAtMidnight) {
+        return -1;
+      }
+      if (cellDate > filterLocalDateAtMidnight) {
+        return 1;
+      }
+      return 0;
+    },
+    minValidYear: 2000,
+    maxValidYear: new Date().getFullYear,
+    inRangeFloatingFilterDateFormat: 'Do MMM YYYY',
+    buttons: ['reset'],
+  };
 
 
 /**

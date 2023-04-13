@@ -2,14 +2,14 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 import { ColDef, ColGroupDef } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../../redux/store';
 import { RootState } from '../../../../redux/slices/rootSlice';
-import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, forexValueFormatter, prePostmoneyValueFormatter, DefaultSideBarDef } from '../../../../helpers/agGrid';
+import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, forexValueFormatter, prePostmoneyValueFormatter, DefaultSideBarDef, dateFilterParams } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { fetchTransactions } from '../../../../redux/thunks/transactionsThunk';
 import { Transaction } from '../../../../models/transactions/transactionsModels';
@@ -63,11 +63,16 @@ const SingleFundTransactions = () => {
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Date',
                 field: 'date',
                 enableRowGroup: true,
+                filter: 'agDateColumnFilter',
+                filterParams: dateFilterParams,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: dateValueFormatter,
             },
@@ -78,13 +83,19 @@ const SingleFundTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
                     return params.data?.lpShortName ? capitalizeLetters(params.data?.lpShortName) : params.data?.lpId;
-                }
+                },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Investment Type',
                 field: 'investmentType',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'PCO Short Name',
@@ -93,13 +104,19 @@ const SingleFundTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
                     return params.data?.pcoShortName ? capitalizeLetters(params.data?.pcoShortName) : params.data?.pcoId;
-                }
+                },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Security Type',
                 field: 'securityType',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Amount Fund Currency',
@@ -110,6 +127,9 @@ const SingleFundTransactions = () => {
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Amount Local Currency',
@@ -120,6 +140,9 @@ const SingleFundTransactions = () => {
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Forex NT',
@@ -130,6 +153,9 @@ const SingleFundTransactions = () => {
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: forexValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Pre Money Valuation',
@@ -140,6 +166,9 @@ const SingleFundTransactions = () => {
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: prePostmoneyValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Post Money Valuation',
@@ -150,6 +179,9 @@ const SingleFundTransactions = () => {
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: prePostmoneyValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Warrant Security Type',
@@ -157,6 +189,9 @@ const SingleFundTransactions = () => {
                 enableRowGroup: true,
                 hide: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Warrant Strike',
@@ -168,6 +203,9 @@ const SingleFundTransactions = () => {
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Due Date',
@@ -176,6 +214,9 @@ const SingleFundTransactions = () => {
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: dateValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
         ];
     }, [theme]);

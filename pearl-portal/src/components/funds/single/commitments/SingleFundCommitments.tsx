@@ -2,14 +2,14 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent} from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams} from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
 import { ColDef, ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { RootState } from '../../../../redux/slices/rootSlice';
 import { CommitmentBasic } from '../../../../models/lps/lpModels';
-import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, DefaultSideBarDef } from '../../../../helpers/agGrid';
+import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, DefaultSideBarDef, dateFilterParams } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
 
 const useStyles = makeStyles(() =>
@@ -57,18 +57,27 @@ const SingleFundCommitments = () => {
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'LP ID',
                 field: 'lpId',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Short Name',
                 field: 'lpShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Currency',
@@ -79,6 +88,9 @@ const SingleFundCommitments = () => {
                 },
                 valueSetter: (params) => valueSetter(params, 'fundCurrency'),
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Commitment',
@@ -89,10 +101,15 @@ const SingleFundCommitments = () => {
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Commitment Date',
                 field: 'date',
+                filter: 'agDateColumnFilter',
+                filterParams: dateFilterParams,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: dateValueFormatter,
@@ -102,6 +119,9 @@ const SingleFundCommitments = () => {
                 field: 'ipDate',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Transfer',
@@ -111,6 +131,9 @@ const SingleFundCommitments = () => {
                 valueGetter: (params) => {
                     return params.data?.transfered ? 'x' : '';
                 },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
         ];
     }, [theme]);

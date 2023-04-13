@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { capitalize, Grid, useTheme } from '@mui/material';
 import { RootState } from '../../../redux/slices/rootSlice';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent, ValueGetterParams } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams, ValueGetterParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import {
@@ -95,6 +95,9 @@ const PCOsOverviewTable = () => {
                 },
                 valueSetter: (params) => valueSetter(params, 'shortName'),
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Name',
@@ -102,6 +105,9 @@ const PCOsOverviewTable = () => {
                 suppressFiltersToolPanel: true,
                 minWidth: 160,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Headquarters',
@@ -114,6 +120,9 @@ const PCOsOverviewTable = () => {
                 },
                 valueSetter: (params) => valueSetter(params, 'country'),
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Local Currency',
@@ -126,6 +135,9 @@ const PCOsOverviewTable = () => {
                 },
                 valueSetter: (params) => valueSetter(params, 'localCurrency'),
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Invested Capital',
@@ -136,6 +148,9 @@ const PCOsOverviewTable = () => {
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Funds',
@@ -170,6 +185,9 @@ const PCOsOverviewTable = () => {
                 maxWidth: 130,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             }
         ];
     }, [theme]);

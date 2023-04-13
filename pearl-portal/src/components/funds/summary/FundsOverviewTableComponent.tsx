@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux';
 import { Grid, useTheme } from '@mui/material';
 import { RootState } from '../../../redux/slices/rootSlice';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import {
+    dateFilterParams,
     dateValueFormatter,
     DefaultColumnDef,
     DefaultSideBarDef,
@@ -96,6 +97,9 @@ const FundsOverviewTable = () => {
                 },
                 valueSetter: (params) => valueSetter(params, 'id'),
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Short',
@@ -108,6 +112,9 @@ const FundsOverviewTable = () => {
                 },
                 valueSetter: (params) => valueSetter(params, 'shortName'),
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Name',
@@ -115,6 +122,9 @@ const FundsOverviewTable = () => {
                 suppressFiltersToolPanel: true,
                 minWidth: 200,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Currency',
@@ -126,6 +136,9 @@ const FundsOverviewTable = () => {
                 },
                 valueSetter: (params) => valueSetter(params, 'currency'),
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'Vintage',
@@ -135,6 +148,8 @@ const FundsOverviewTable = () => {
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: dateValueFormatter,
+                filter: 'agDateColumnFilter',
+                filterParams: dateFilterParams,
             },
             {
                 headerName: 'Commited Capital',
@@ -145,6 +160,9 @@ const FundsOverviewTable = () => {
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             },
             {
                 headerName: 'LPs',
@@ -176,6 +194,9 @@ const FundsOverviewTable = () => {
                 maxWidth: 130,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                  } as INumberFilterParams,
             }
         ];
     }, [theme]);
