@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/PearlUI/static/css/main.59f8657a.css",
-    "main.js": "/PearlUI/static/js/main.7578ba81.js",
+    "main.js": "/PearlUI/static/js/main.a337cfce.js",
     "static/js/730.a4a96051.chunk.js": "/PearlUI/static/js/730.a4a96051.chunk.js",
-    "static/js/468.e40ab827.chunk.js": "/PearlUI/static/js/468.e40ab827.chunk.js",
-    "static/js/61.344544e4.chunk.js": "/PearlUI/static/js/61.344544e4.chunk.js",
-    "static/js/67.5fca5f3a.chunk.js": "/PearlUI/static/js/67.5fca5f3a.chunk.js",
+    "static/js/468.e60e711d.chunk.js": "/PearlUI/static/js/468.e60e711d.chunk.js",
+    "static/js/61.51b6bb57.chunk.js": "/PearlUI/static/js/61.51b6bb57.chunk.js",
+    "static/js/67.94fb7845.chunk.js": "/PearlUI/static/js/67.94fb7845.chunk.js",
     "static/js/998.10607def.chunk.js": "/PearlUI/static/js/998.10607def.chunk.js",
     "static/js/78.57581c87.chunk.js": "/PearlUI/static/js/78.57581c87.chunk.js",
     "static/js/245.51685486.chunk.js": "/PearlUI/static/js/245.51685486.chunk.js",
@@ -35,11 +35,11 @@
     "index.html": "/PearlUI/index.html",
     "static/media/AppearanceIcon.svg": "/PearlUI/static/media/AppearanceIcon.6aded6e1d59341b505796f9856729587.svg",
     "main.59f8657a.css.map": "/PearlUI/static/css/main.59f8657a.css.map",
-    "main.7578ba81.js.map": "/PearlUI/static/js/main.7578ba81.js.map",
+    "main.a337cfce.js.map": "/PearlUI/static/js/main.a337cfce.js.map",
     "730.a4a96051.chunk.js.map": "/PearlUI/static/js/730.a4a96051.chunk.js.map",
-    "468.e40ab827.chunk.js.map": "/PearlUI/static/js/468.e40ab827.chunk.js.map",
-    "61.344544e4.chunk.js.map": "/PearlUI/static/js/61.344544e4.chunk.js.map",
-    "67.5fca5f3a.chunk.js.map": "/PearlUI/static/js/67.5fca5f3a.chunk.js.map",
+    "468.e60e711d.chunk.js.map": "/PearlUI/static/js/468.e60e711d.chunk.js.map",
+    "61.51b6bb57.chunk.js.map": "/PearlUI/static/js/61.51b6bb57.chunk.js.map",
+    "67.94fb7845.chunk.js.map": "/PearlUI/static/js/67.94fb7845.chunk.js.map",
     "998.10607def.chunk.js.map": "/PearlUI/static/js/998.10607def.chunk.js.map",
     "78.57581c87.chunk.js.map": "/PearlUI/static/js/78.57581c87.chunk.js.map",
     "245.51685486.chunk.js.map": "/PearlUI/static/js/245.51685486.chunk.js.map",
@@ -58,6 +58,6 @@
   },
   "entrypoints": [
     "static/css/main.59f8657a.css",
-    "static/js/main.7578ba81.js"
+    "static/js/main.a337cfce.js"
   ]
 }
