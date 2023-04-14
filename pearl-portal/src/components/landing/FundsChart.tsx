@@ -24,6 +24,10 @@ const FundsChartComponent = () => {
         name: string;
         y: number;
         showInLegend?: boolean;
+        totalInvestment: number;
+        totalCommitments: number;
+        numberOfLPS: number;
+        numberOfPCOs: number;
     }
 
     interface ExtendedSeries extends Highcharts.Series {
@@ -68,6 +72,38 @@ const FundsChartComponent = () => {
                 },
             }
         ],
+        tooltip: {
+            useHTML: true,
+            zIndex: 999,
+            formatter: function (this: any) {
+                const data: any = this.point.options;
+                const title: any = `<div style="font-weight: bold; margin-bottom: 5px; color:#1B4357; font-size:14px; font-family:Raleway;">${data.name}</div>`;
+                const table = `
+                <table style="width: 100%;">
+                  <tr>
+                    <td style="text-align: left; padding-right: 10px; color:#1B4357; font-size:12px; font-weight: bold; font-family:Raleway;">Commited Capital:</td>
+                    <td style="text-align: right; color:#1B4357; font-size:12px; font-weight: bold; font-family:Raleway;">Number of LPs:</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left; padding-right: 10px; color:rgba(0, 128, 0, 1); font-size:12px; font-family:Raleway;">${amountValueFormatter(data.totalCommitments, '')} EUR</td>
+                    <td style="text-align: right; color:rgba(0, 128, 0, 1); font-size:12px; font-family:Raleway;">${data.numberOfLPS}</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left; padding-right: 10px; color:#1B4357; font-size:12px; font-weight: bold; font-family:Raleway;">Invested Capital:</td>
+                    <td style="text-align: right; color:#1B4357; font-size:12px; font-weight: bold; font-family:Raleway;">Number of PCOs:</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left; padding-right: 10px; color:rgba(0, 128, 0, 1); font-size:12px; font-family:Raleway;">${amountValueFormatter(data.totalInvestment, '')} EUR</td>
+                    <td style="text-align: right; color:rgba(0, 128, 0, 1); font-size:12px; font-family:Raleway;">${data.numberOfPCOs}</td>
+                  </tr>
+                </table>
+              `;
+                return title + table;
+            }
+        },
+        /* tooltip: {
+            pointFormat: '<br> Committed Capital: {point.totalCommitments} EUR <br> Invested Capital: {point.totalInvestment} EUR <br> Number of LPs: {point.numberOfLPS} <br> Number of PCOs: {point.numberOfPCOs}'
+        }, */
         plotOptions: {
             pie: {
                 showInLegend: false,
@@ -137,7 +173,7 @@ const FundsChartComponent = () => {
     }, [dispatch])
 
     useEffect(() => {
-        if (funds) {
+        if (funds && funds.length > 0) {
             let total: number = 0;
             let chartData: any[] = [];
             const groupedByFund: { [key: string]: number } = funds.reduce(
@@ -151,9 +187,16 @@ const FundsChartComponent = () => {
             total = funds.reduce((sum, dataPoint) => sum + (dataPoint.sumCommittedAmountEUR ? dataPoint.sumCommittedAmountEUR : 0), 0);
             chartData = Object.entries(groupedByFund).map(([name, y]) => ({
                 name,
-                y,
+                y
             }));
 
+            chartData = chartData.map((item) => ({
+                ...item,
+                totalInvestment: funds?.filter(x => x.id === item.name)[0]?.sumAmountInvestedEUR ?? 0,
+                totalCommitments: funds?.filter(x => x.id === item.name)[0]?.sumCommittedAmountEUR ?? 0,
+                numberOfLPS: funds?.filter(x => x.id === item.name)[0]?.numOfLPs ?? 0,
+                numberOfPCOs: funds?.filter(x => x.id === item.name)[0]?.numOFPCOs ?? 0,
+            }))
             setTotalValuee(total);
             setChartDataValues(chartData);
         }

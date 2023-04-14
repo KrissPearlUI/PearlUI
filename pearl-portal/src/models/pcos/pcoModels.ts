@@ -37,7 +37,14 @@ export interface PCOSummary {
     lastRound?: string,
     currentValuationPCO?: number,
     currentValuationEmerald?: number,
-    realised?: number
+    realised?: number,
+    revenueAndEbitda?: RevenueEbitda[]
+}
+
+export interface RevenueEbitda {
+    date?: string,
+    revenue?: number,
+    ebitda?: number
 }
 
 export interface PCOFinancial {
