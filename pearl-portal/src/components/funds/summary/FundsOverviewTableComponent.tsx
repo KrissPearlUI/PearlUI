@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Grid, useTheme } from '@mui/material';
 import { RootState } from '../../../redux/slices/rootSlice';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams, ITooltipParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import {
@@ -19,7 +19,7 @@ import {
 import clsx from 'clsx';
 import { ColDef, ColGroupDef, ValueGetterParams, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../redux/store';
-import { LP, LPFundsOverview } from '../../../models/lps/lpModels';
+import { LP, LPFundsOverview, PCO } from '../../../models/lps/lpModels';
 import AGGridLoader from '../../shared/AGGridLoader';
 import { fetchLPs } from '../../../redux/thunks/lpThunk';
 import { FundSummary } from '../../../models/funds/fundModels';
@@ -159,10 +159,21 @@ const FundsOverviewTable = () => {
                 minWidth: 220,
                 type: 'numericColumn',
                 filter: 'agNumberColumnFilter',
-                tooltipField: 'totalCommitmentsFundCcy',
                 tooltipComponentParams: { valueType: 'number' },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
+                tooltipValueGetter: (params: ITooltipParams<any, any>) => {
+                    if (params && params.data) {
+                        if (selectedLPValues && selectedLPValues.length > 0) {
+                            const lpsSelected: LPFundsOverview[] | null = params.data.lps?.filter((item2: LPFundsOverview) => selectedLPValues.some(val => val.id === item2.id));
+                            return lpsSelected && lpsSelected.length > 0 ? lpsSelected.reduce((a: number, v: LPFundsOverview) => a = a + (v.committedAmount ?? 0), 0) : params.data.totalCommitmentsFundCcy ?? 0
+                        } else {
+                            return params.data.totalCommitmentsFundCcy ?? 0
+                        }
+                    } else {
+                        return 0;
+                    }
+                },
                 valueGetter: (params: ValueGetterParams) => {
                     if (params && params.data) {
                         if (selectedLPValues && selectedLPValues.length > 0) {
@@ -185,21 +196,71 @@ const FundsOverviewTable = () => {
                 minWidth: 90,
                 maxWidth: 100,
                 enableRowGroup: true,
-                tooltipField: 'lps',
                 tooltipComponentParams: { type: 'lps' },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: filterParams,
+                tooltipValueGetter: (params: ITooltipParams<any, any>) => {
+                    if (params && params.data) {
+                        if (selectedLPValues && selectedLPValues.length > 0) {
+                            const lpsSelected: LPFundsOverview[] | null = params.data.lps?.filter((item2: LPFundsOverview) => selectedLPValues.some(val => val.id === item2.id));
+                            return lpsSelected ?? params.data.lps
+                        }
+                        else {
+                            return params.data.lps
+                        }
+                    }
+                    else
+                        return 0;
+                },
+                valueGetter: (params: ValueGetterParams) => {
+                    if (params && params.data) {
+                        if (selectedLPValues && selectedLPValues.length > 0) {
+                            const lpsSelected: LPFundsOverview[] | null = params.data.lps?.filter((item2: LPFundsOverview) => selectedLPValues.some(val => val.id === item2.id));
+                            return lpsSelected && lpsSelected.length > 0 ? lpsSelected.length : params.data.lps?.length ?? 0
+                        }
+                        else {
+                            return params.data.lps?.length ?? 0
+                        }
+                    }
+                    else
+                        return 0;
+                },
             },
             {
                 headerName: 'Active PCOs',
                 field: 'numOFPCOs',
                 minWidth: 100,
                 maxWidth: 140,
-                tooltipField: 'pcos',
                 tooltipComponentParams: { type: 'pcos' },
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: filterParams,
+                tooltipValueGetter: (params: ITooltipParams<any, any>) => {
+                    if (params && params.data) {
+                        if (selectedPCOValues && selectedPCOValues.length > 0) {
+                            const pcosSelected: PCO[] | null = params.data.pcos?.filter((item2: PCO) => selectedPCOValues.some(val => val.id === item2.id));
+                            return pcosSelected ?? params.data.pcos
+                        }
+                        else {
+                            return params.data.pcos
+                        }
+                    }
+                    else
+                        return 0;
+                },
+                valueGetter: (params: ValueGetterParams) => {
+                    if (params && params.data) {
+                        if (selectedPCOValues && selectedPCOValues.length > 0) {
+                            const pcosSelected: PCO[] | null = params.data.pcos?.filter((item2: PCO) => selectedPCOValues.some(val => val.id === item2.id));
+                            return pcosSelected && pcosSelected.length > 0 ? pcosSelected.length : params.data.pcos?.length ?? 0
+                        }
+                        else {
+                            return params.data.pcos?.length ?? 0
+                        }
+                    }
+                    else
+                        return 0;
+                },
             },
             {
                 headerName: 'Domicile',
@@ -214,7 +275,7 @@ const FundsOverviewTable = () => {
                 } as INumberFilterParams,
             }
         ];
-    }, [theme, selectedLPValues]);
+    }, [theme, selectedLPValues, selectedPCOValues]);
 
     const onValueChange = useCallback((event: any) => {
         setSearchTextValue(event.target.value)
