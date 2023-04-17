@@ -31,7 +31,7 @@ const CustomTooltip = (props: ITooltipParams & { type: string, valueType: string
         setMouseOverTooltip(false);
     };
 
-    if (props) {
+    if (props && props.value) {
         if (props.type === 'funds' && props.data) {
             return (
                 <Grid container style={{
@@ -41,7 +41,7 @@ const CustomTooltip = (props: ITooltipParams & { type: string, valueType: string
                     flexDirection: 'column',
                     backgroundColor: theme.palette.background.default,
                 }}>
-                    {props.data.funds.map((item: Fund) =>
+                    {props.value.map((item: Fund) =>
                         <Grid container item style={{
                             display: 'flex',
                             justifyContent: 'start',
@@ -66,7 +66,7 @@ const CustomTooltip = (props: ITooltipParams & { type: string, valueType: string
                                 }}>{`${item.committedAmount ? amountValueFormatter(item.committedAmount, '') : amountValueFormatter(item.amountInvested ?? 0, '')} ${item.fundCurrency ? item.fundCurrency.toLocaleUpperCase() : ''}`}</span>
                         </Grid>)}
                 </Grid>)
-        } else if (props.type === 'pcos' && props.data) {
+        } else if (props.type === 'pcos' && props.value) {
             return (
                 <Grid container style={{
                     display: 'flex',
@@ -77,7 +77,7 @@ const CustomTooltip = (props: ITooltipParams & { type: string, valueType: string
                 }}
                     onMouseEnter={handleTooltipMouseEnter}
                     onMouseLeave={handleTooltipMouseLeave}>
-                    {props.data.pcos.map((item: PCO) =>
+                    {props.value.map((item: PCO) =>
                         <Grid container item style={{
                             display: 'flex',
                             justifyContent: 'start',
@@ -104,7 +104,7 @@ const CustomTooltip = (props: ITooltipParams & { type: string, valueType: string
                                 }}>{`${amountValueFormatter(item.amountInvested ?? 0, '')} ${item.localCurrency ? item.localCurrency.toUpperCase() : item.fundCurrency ? item.fundCurrency.toLocaleUpperCase() : ''}`}</span>
                         </Grid>)}
                 </Grid>)
-        } if (props.type === 'lps' && props.data) {
+        } if (props.type === 'lps' && props.value) {
             return (
                 <Grid container style={{
                     display: 'flex',
@@ -113,7 +113,7 @@ const CustomTooltip = (props: ITooltipParams & { type: string, valueType: string
                     flexDirection: 'column',
                     backgroundColor: theme.palette.background.default,
                 }}>
-                    {props.data.lps.map((item: LPFundsOverview) =>
+                    {props.value.map((item: LPFundsOverview) =>
                         <Grid container item style={{
                             display: 'flex',
                             justifyContent: 'start',

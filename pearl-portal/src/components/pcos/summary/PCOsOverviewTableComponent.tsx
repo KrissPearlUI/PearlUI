@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { capitalize, Grid, useTheme } from '@mui/material';
 import { RootState } from '../../../redux/slices/rootSlice';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams, ValueGetterParams } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams, ITooltipParams, ValueGetterParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import {
@@ -174,8 +174,33 @@ const PCOsOverviewTable = () => {
                 minWidth: 90,
                 maxWidth: 100,
                 enableRowGroup: true,
-                tooltipField: 'funds',
                 tooltipComponentParams: { type: 'funds' },
+                tooltipValueGetter: (params: ITooltipParams<any, any>) => {
+                    if (params && params.data) {
+                        if (selectedFundValues && selectedFundValues.length > 0) {
+                            const fundsSelected: Fund[] | null = params.data.funds?.filter((item2: Fund) => selectedFundValues.some(val => val.id === item2.id));
+                            return fundsSelected ?? params.data.funds;
+                        }
+                        else {
+                            return params.data.funds;
+                        }
+                    }
+                    else
+                        return 0;
+                },
+                valueGetter: (params: ValueGetterParams) => {
+                    if (params && params.data) {
+                        if (selectedFundValues && selectedFundValues.length > 0) {
+                            const fundsSelected: Fund[] | null = params.data.funds?.filter((item2: Fund) => selectedFundValues.some(val => val.id === item2.id));
+                            return fundsSelected && fundsSelected.length > 0 ? fundsSelected.length : params.data.numOfFunds ?? 0
+                        }
+                        else {
+                            return params.data.numOfFunds ?? 0
+                        }
+                    }
+                    else
+                        return 0;
+                },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: filterParams,
             },

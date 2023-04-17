@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { capitalize, Grid, useTheme } from '@mui/material';
 import { RootState } from '../../../redux/slices/rootSlice';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams, ISetFilterParams, ValueGetterParams } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams, ISetFilterParams, ITooltipParams, ValueGetterParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import {
@@ -182,12 +182,30 @@ const LPOverviewTable = () => {
                 field: 'funds',
                 minWidth: 90,
                 maxWidth: 100,
-                tooltipField: 'funds',
                 tooltipComponentParams: { type: 'funds' },
+                tooltipValueGetter: (params: ITooltipParams<any, any>) => {
+                    if (params && params.data) {
+                        if (selectedFundValues && selectedFundValues.length > 0) {
+                            const fundsSelected: Fund[] | null = params.data.funds?.filter((item2: Fund) => selectedFundValues.some(val => val.id === item2.id));
+                            return fundsSelected ?? params.data.funds;
+                        }
+                        else {
+                            return params.data.funds;
+                        }
+                    }
+                    else
+                        return 0;
+                },
                 enableRowGroup: true,
                 valueGetter: (params: ValueGetterParams) => {
-                    if (params?.data?.funds) {
-                        return params.data.funds.length ?? 0
+                    if (params && params.data) {
+                        if (selectedFundValues && selectedFundValues.length > 0) {
+                            const fundsSelected: Fund[] | null = params.data.funds?.filter((item2: Fund) => selectedFundValues.some(val => val.id === item2.id));
+                            return fundsSelected && fundsSelected.length > 0 ? fundsSelected.length : params.data.funds?.length ?? 0
+                        }
+                        else {
+                            return params.data.funds?.length ?? 0
+                        }
                     }
                     else
                         return 0;
