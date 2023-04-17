@@ -20,6 +20,7 @@ import PortfolioByStage from './PortfolioByStage';
 import PortfolioByIndustry from './PortfolioByIndustry';
 import InvestmentsOverTime from './InvestmentsOverTime';
 import { fetchTransactions } from '../../../../redux/thunks/transactionsThunk';
+import { fetchFunds } from '../../../../redux/thunks/fundThunk';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -46,6 +47,7 @@ const SingleLPPortfolios = () => {
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedLP } = useSelector((state: RootState) => state.lps);
+    const { funds } = useSelector((state: RootState) => state.funds);
     const { pcos, pcosFinancials } = useSelector((state: RootState) => state.pcos);
     const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
@@ -65,6 +67,12 @@ const SingleLPPortfolios = () => {
         groupDisplayType: 'multipleColumns',
         sideBar: DefaultSideBarDef,
         statusBar: DefaultStatusPanelDef,
+        autoGroupColumnDef: {
+            width: 200,
+            headerName: 'Fund ID',
+            minWidth: 130,
+            hide: true, // set the hide property to true to hide the column
+          },
     };
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
@@ -80,11 +88,24 @@ const SingleLPPortfolios = () => {
                 },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
+            },
+            {
+                headerName: 'Fund ID',
+                field: 'fundId',
+                rowGroup: true,
+                minWidth:250,
+                hide:true,
+                enableRowGroup: true,
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
+                filterParams: {
+                    buttons: ['reset'],
+                } as INumberFilterParams,
             },
             {
                 headerName: 'PCO Name',
                 field: 'pcoName',
+                tooltipField: 'pcoName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
@@ -92,7 +113,7 @@ const SingleLPPortfolios = () => {
                 },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: '1st Investment',
@@ -109,12 +130,13 @@ const SingleLPPortfolios = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'amountInvested',
+                tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'NAV EUR',
@@ -122,59 +144,65 @@ const SingleLPPortfolios = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'navEUR',
+                tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Country',
                 field: 'country',
                 enableRowGroup: true,
+                tooltipField: 'country',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Industry 1',
                 field: 'emeraldIndustry1',
                 enableRowGroup: true,
+                tooltipField: 'emeraldIndustry1',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Industry 2',
                 field: 'emeraldIndustry2',
                 hide: true,
                 enableRowGroup: true,
+                tooltipField: 'emeraldIndustry2',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Current Stage',
                 field: 'currentStage',
                 enableRowGroup: true,
+                tooltipField: 'currentStage',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Initial Stage',
                 field: 'initialtStage',
+                tooltipField: 'initialtStage',
                 hide: true,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Date Exit',
@@ -184,7 +212,7 @@ const SingleLPPortfolios = () => {
                 valueFormatter: dateValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
         ];
     }, [theme]);
@@ -214,12 +242,13 @@ const SingleLPPortfolios = () => {
 
     useEffect(() => {
         dispatch(fetchPCOs());
+        dispatch(fetchFunds());
         dispatch(fetchPCOsFinantials());
         dispatch(fetchTransactions());
     }, [dispatch])
 
     useEffect(() => {
-        if (selectedLP && pcos && selectedLP.pcos && selectedLP.pcos?.length > 0 && pcosFinancials?.length > 0) {
+        if (selectedLP && pcos && pcos.length > 0 && funds && funds.length > 0 && selectedLP.pcos && selectedLP.pcos?.length > 0 && pcosFinancials?.length > 0) {
             let data = selectedLP.pcos.map(pco => ({
                 ...pco,
                 pcoName: pcos.filter(x => x.id === pco.id)[0]?.pcoName ?? '',
@@ -230,13 +259,15 @@ const SingleLPPortfolios = () => {
                 dateExit: pcos.filter(x => x.id === pco.id)[0]?.dateExit ?? '',
                 emeraldIndustry1: pcos.filter(x => x.id === pco.id)[0]?.emeraldIndustry1,
                 emeraldIndustry2: pcos.filter(x => x.id === pco.id)[0]?.emeraldIndustry2,
-                navEUR: pcosFinancials.filter(x => x.pcoId === pco.id)[0]?.sumNavFundCcy ?? 0
+                navEUR: pcosFinancials.filter(x => x.pcoId === pco.id)[0]?.sumNavFundCcy ?? 0,
+                fundId: selectedLP?.funds?.filter((item) => pcos.filter(z=>z.id===pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                fundName: selectedLP?.funds?.filter((item) => pcos.filter(z=>z.id===pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.fundName ?? '',
             }
             ));
             setRowData(data ?? []);
             dispatch(setPCOsExtended(data))
         }
-    }, [selectedLP, pcos, pcosFinancials,dispatch])
+    }, [selectedLP, pcos, pcosFinancials, funds, dispatch])
 
     return (
         <Grid container spacing={1} sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start', flex: 1, overflow: 'auto', height: '100%' }}>

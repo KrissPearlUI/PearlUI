@@ -99,6 +99,7 @@ const SingleLPCallsTable = () => {
             {
                 headerName: 'PCO Short Name',
                 field: 'pcoShortName',
+                tooltipField:'pcoShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
@@ -133,6 +134,7 @@ const SingleLPCallsTable = () => {
                 type: 'numericColumn',
                 tooltipField: 'amount',
                 filter: 'agNumberColumnFilter',
+                tooltipComponentParams: { valueType: 'number' },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
                 filterParams: {

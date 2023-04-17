@@ -68,6 +68,7 @@ const SingleFundCallsTable = () => {
             {
                 headerName: 'LP Short Name',
                 field: 'lpShortName',
+                tooltipField:'lpShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
@@ -99,6 +100,7 @@ const SingleFundCallsTable = () => {
             {
                 headerName: 'PCO Short Name',
                 field: 'pcoShortName',
+                tooltipField:'pcoShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
@@ -132,6 +134,7 @@ const SingleFundCallsTable = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'amount',
+                tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,

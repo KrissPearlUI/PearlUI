@@ -7,7 +7,7 @@ import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import { ColDef, Column } from 'ag-grid-community';
 import clsx from 'clsx';
-import { ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
+import { ColGroupDef, ValueGetterParams, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../../redux/store';
 import { RootState } from '../../../../redux/slices/rootSlice';
 import { CommitmentBasic } from '../../../../models/lps/lpModels';
@@ -89,6 +89,7 @@ const SingleLPCommitments = () => {
                 headerName: 'Fund Name',
                 field: 'fundName',
                 enableRowGroup: true,
+                tooltipField:'fundName',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
@@ -112,6 +113,7 @@ const SingleLPCommitments = () => {
                 field: 'committedAmount',
                 type: 'numericColumn',
                 tooltipField: 'committedAmount',
+                tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 aggFunc: 'sum',
                 enableValue: true,
@@ -151,6 +153,21 @@ const SingleLPCommitments = () => {
                     buttons: ['reset'],
                   } as INumberFilterParams,
             },
+            {
+                headerName: 'Tapped Out',
+                field: 'tappedOot',
+                valueGetter: (params: ValueGetterParams) => {
+                    return params?.data?.tappedOot ? 'Yes' : 'No'
+                },
+                suppressFiltersToolPanel: true,
+                minWidth: 110,
+                maxWidth: 130,
+                enableRowGroup: true,
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                } as INumberFilterParams,
+            }
         ];
     }, [theme]);
 

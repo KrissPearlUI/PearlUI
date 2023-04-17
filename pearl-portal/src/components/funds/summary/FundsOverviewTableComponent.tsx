@@ -17,9 +17,9 @@ import {
     quantityValueFormatter,
 } from '../../../helpers/agGrid';
 import clsx from 'clsx';
-import { ColDef, ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
+import { ColDef, ColGroupDef, ValueGetterParams, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../redux/store';
-import { LP } from '../../../models/lps/lpModels';
+import { LP, LPFundsOverview } from '../../../models/lps/lpModels';
 import AGGridLoader from '../../shared/AGGridLoader';
 import { fetchLPs } from '../../../redux/thunks/lpThunk';
 import { FundSummary } from '../../../models/funds/fundModels';
@@ -99,7 +99,7 @@ const FundsOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Short',
@@ -114,17 +114,18 @@ const FundsOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Name',
                 field: 'fundName',
                 suppressFiltersToolPanel: true,
                 minWidth: 200,
+                tooltipField: 'fundname',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Currency',
@@ -138,7 +139,7 @@ const FundsOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Vintage',
@@ -158,11 +159,25 @@ const FundsOverviewTable = () => {
                 minWidth: 220,
                 type: 'numericColumn',
                 filter: 'agNumberColumnFilter',
+                tooltipField: 'totalCommitmentsFundCcy',
+                tooltipComponentParams: { valueType: 'number' },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
+                valueGetter: (params: ValueGetterParams) => {
+                    if (params && params.data) {
+                        if (selectedLPValues && selectedLPValues.length > 0) {
+                            const lpsSelected: LPFundsOverview[] | null = params.data.lps?.filter((item2: LPFundsOverview) => selectedLPValues.some(val => val.id === item2.id));
+                            return lpsSelected && lpsSelected.length > 0 ? lpsSelected.reduce((a: number, v: LPFundsOverview) => a = a + (v.committedAmount ?? 0), 0) : params.data.totalCommitmentsFundCcy ?? 0
+                        } else {
+                            return params.data.totalCommitmentsFundCcy ?? 0
+                        }
+                    } else {
+                        return 0;
+                    }
+                },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'LPs',
@@ -196,10 +211,10 @@ const FundsOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             }
         ];
-    }, [theme]);
+    }, [theme, selectedLPValues]);
 
     const onValueChange = useCallback((event: any) => {
         setSearchTextValue(event.target.value)

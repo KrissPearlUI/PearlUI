@@ -73,6 +73,7 @@ const SingleFundCommitments = () => {
             {
                 headerName: 'Short Name',
                 field: 'lpShortName',
+                tooltipField:'lpShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
@@ -98,6 +99,7 @@ const SingleFundCommitments = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'committedAmount',
+                tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,

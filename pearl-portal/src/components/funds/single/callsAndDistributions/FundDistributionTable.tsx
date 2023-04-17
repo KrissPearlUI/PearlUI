@@ -70,6 +70,7 @@ const SingleFundDistributionsTable = () => {
                 headerName: 'LP Short Name',
                 field: 'lpShortName',
                 enableRowGroup: true,
+                tooltipField:'lpShortName',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
                     return params.data?.lpShortName ? capitalizeLetters(params.data?.lpShortName) : params.data?.lpId;
@@ -101,6 +102,7 @@ const SingleFundDistributionsTable = () => {
                 headerName: 'PCO Short Name',
                 field: 'pcoShortName',
                 enableRowGroup: true,
+                tooltipField:'pcoShortName',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
@@ -130,6 +132,7 @@ const SingleFundDistributionsTable = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'amount',
+                tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,

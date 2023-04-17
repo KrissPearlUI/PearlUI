@@ -17,7 +17,7 @@ import {
 import clsx from 'clsx';
 import { ColDef, ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../redux/store';
-import { Fund, LP } from '../../../models/lps/lpModels';
+import { Fund, LP, PCO } from '../../../models/lps/lpModels';
 import AGGridLoader from '../../shared/AGGridLoader';
 import LPToolbar from './LPToolbar';
 import { setSelectedLP } from '../../../redux/slices/lps/lpsSlice';
@@ -99,9 +99,21 @@ const LPOverviewTable = () => {
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
         return [
             {
+                headerName: 'ID',
+                field: 'id',
+                suppressFiltersToolPanel: true,
+                minWidth: 120,
+                hide: true,
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                filterParams: {
+                    buttons: ['reset'],
+                } as INumberFilterParams,
+            },
+            {
                 headerName: 'Short',
                 field: 'shortName',
                 minWidth: 115,
+                tooltipField: 'shortName',
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.shortName;
@@ -117,6 +129,7 @@ const LPOverviewTable = () => {
                 field: 'name',
                 suppressFiltersToolPanel: true,
                 minWidth: 120,
+                tooltipField: 'name',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
@@ -144,6 +157,8 @@ const LPOverviewTable = () => {
                 minWidth: 220,
                 filter: 'agNumberColumnFilter',
                 type: 'numericColumn',
+                tooltipField: 'totalCommitments',
+                tooltipComponentParams: { valueType: 'number' },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
                 valueGetter: (params: ValueGetterParams) => {
@@ -219,12 +234,26 @@ const LPOverviewTable = () => {
             {
                 headerName: 'Capital Invested',
                 field: 'totalInvestments',
-                minWidth: 80,
+                minWidth: 185,
                 type: 'numericColumn',
                 filter: 'agNumberColumnFilter',
+                tooltipField: 'totalInvestments',
+                tooltipComponentParams: { valueType: 'number' },
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
+                valueGetter: (params: ValueGetterParams) => {
+                    if (params && params.data) {
+                        if (selectedPCOValues && selectedPCOValues.length > 0) {
+                            const pcosSelected: PCO[] | null = params.data.pcos?.filter((item2: PCO) => selectedPCOValues.some(val => val.id === item2.id));
+                            return pcosSelected && pcosSelected.length > 0 ? pcosSelected.reduce((a: number, v: PCO) => a = a + (v.amountInvested ?? 0), 0) : params.data.totalInvestments ?? 0
+                        } else {
+                            return params.data.totalInvestments ?? 0
+                        }
+                    } else {
+                        return 0;
+                    }
+                },
                 filterParams: {
                     buttons: ['reset'],
                 } as INumberFilterParams,
@@ -233,9 +262,11 @@ const LPOverviewTable = () => {
                 headerName: 'Reserved',
                 field: 'reservesFees',
                 enableRowGroup: true,
-                minWidth: 185,
+                minWidth: 100,
                 filter: 'agNumberColumnFilter',
                 type: 'numericColumn',
+                tooltipField: 'reservesFees',
+                tooltipComponentParams: { valueType: 'number' },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
@@ -247,16 +278,17 @@ const LPOverviewTable = () => {
                 field: 'totalDistributions',
                 filter: 'agNumberColumnFilter',
                 tooltipField: 'totalDistributions',
+                tooltipComponentParams: { valueType: 'number' },
                 type: 'numericColumn',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 suppressFiltersToolPanel: true,
-                minWidth: 80,
+                minWidth: 185,
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
                 } as INumberFilterParams,
             },
-            {
+           /*  {
                 headerName: 'Tapped Out',
                 field: 'tappedOot',
                 valueGetter: (params: ValueGetterParams) => {
@@ -270,9 +302,9 @@ const LPOverviewTable = () => {
                 filterParams: {
                     buttons: ['reset'],
                 } as INumberFilterParams,
-            }
+            } */
         ];
-    }, [theme, selectedFundValues]);
+    }, [theme, selectedFundValues, selectedPCOValues]);
 
     const onValueChange = useCallback((event: any) => {
         setSearchTextValue(event.target.value)

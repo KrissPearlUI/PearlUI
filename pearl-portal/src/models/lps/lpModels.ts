@@ -76,6 +76,8 @@ export interface PCOExtended extends PCO {
     emeraldIndustry1?: string,
     emeraldIndustry2?: string,
     navEUR?: number,
+    fundId?: string,
+    fundName?: string
 }
 
 export interface Commitment {
@@ -107,10 +109,10 @@ export interface CommitmentBasic {
     shortName?: string,
     committedAmount?: number,
     fundCurrency?: string,
-    transfered?: boolean, 
-    lpId?:string,
-    lpShortName?:string,
-    lpName?:string
+    transfered?: boolean,
+    lpId?: string,
+    lpShortName?: string,
+    lpName?: string
 }
 
 export interface Exits {
@@ -134,7 +136,7 @@ export interface EditExit {
     amountGained?: number,
     fundCurrency?: string,
     type?: string,
-    fundId?:string,
+    fundId?: string,
 }
 
 export interface Distribution {

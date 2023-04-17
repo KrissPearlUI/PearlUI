@@ -79,6 +79,7 @@ const SingleFundTransactions = () => {
             {
                 headerName: 'LP Short Name',
                 field: 'lpShortName',
+                tooltipField:'lpShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
@@ -100,6 +101,7 @@ const SingleFundTransactions = () => {
             {
                 headerName: 'PCO Short Name',
                 field: 'pcoShortName',
+                tooltipField:'pcoShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
@@ -112,6 +114,7 @@ const SingleFundTransactions = () => {
             {
                 headerName: 'Security Type',
                 field: 'securityType',
+                tooltipField:'securityType',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
@@ -124,6 +127,7 @@ const SingleFundTransactions = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'amountFundCurrency',
+                tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
@@ -137,6 +141,7 @@ const SingleFundTransactions = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'amountLocalCurrency',
+                tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
@@ -150,6 +155,7 @@ const SingleFundTransactions = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'forexNT',
+                tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: forexValueFormatter,
@@ -163,6 +169,7 @@ const SingleFundTransactions = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'preMoneyValuation',
+                tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: prePostmoneyValueFormatter,
@@ -176,6 +183,7 @@ const SingleFundTransactions = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'postMoneyValuation',
+                tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: prePostmoneyValueFormatter,
@@ -200,6 +208,7 @@ const SingleFundTransactions = () => {
                 hide: true,
                 type: 'numericColumn',
                 tooltipField: 'warrantStrike',
+                tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,

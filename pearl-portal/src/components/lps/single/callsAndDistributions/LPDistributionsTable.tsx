@@ -99,6 +99,7 @@ const SingleLPDistributionsTable = () => {
             {
                 headerName: 'PCO Short Name',
                 field: 'pcoShortName',
+                tooltipField:'pcoShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
@@ -132,7 +133,8 @@ const SingleLPDistributionsTable = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'amount',
-                filter: 'agNumberColumnFilter',
+                tooltipComponentParams: { valueType: 'number' },
+                filter: 'agNumberColumnFilter',              
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
                 filterParams: {

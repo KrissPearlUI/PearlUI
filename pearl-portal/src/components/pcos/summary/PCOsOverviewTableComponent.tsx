@@ -18,7 +18,7 @@ import clsx from 'clsx';
 import { capitalizeLetters } from '../../../helpers/app';
 import { ColDef, ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../redux/store';
-import { LP } from '../../../models/lps/lpModels';
+import { Fund, LP } from '../../../models/lps/lpModels';
 import AGGridLoader from '../../shared/AGGridLoader';
 import { fetchLPs } from '../../../redux/thunks/lpThunk';
 import { FundSummary } from '../../../models/funds/fundModels';
@@ -90,6 +90,7 @@ const PCOsOverviewTable = () => {
                 field: 'shortName',
                 minWidth: 115,
                 enableRowGroup: true,
+                tooltipField:'shortName',
                 valueGetter: (params) => {
                     return params.data?.shortName;
                 },
@@ -97,17 +98,18 @@ const PCOsOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Name',
                 field: 'pcoName',
                 suppressFiltersToolPanel: true,
                 minWidth: 160,
+                tooltipField:'pcoName',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Headquarters',
@@ -122,7 +124,7 @@ const PCOsOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Local Currency',
@@ -137,7 +139,7 @@ const PCOsOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Invested Capital',
@@ -146,11 +148,25 @@ const PCOsOverviewTable = () => {
                 minWidth: 220,
                 type: 'numericColumn',
                 filter: 'agNumberColumnFilter',
+                tooltipField: 'amountInvestedLocalCcy',
+                tooltipComponentParams: { valueType: 'number' },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
+                valueGetter: (params: ValueGetterParams) => {
+                    if (params && params.data) {
+                        if (selectedFundValues && selectedFundValues.length > 0) {
+                            const fundsSelected: Fund[] | null = params.data.funds?.filter((item2: Fund) => selectedFundValues.some(val => val.id === item2.id));
+                            return fundsSelected && fundsSelected.length > 0 ? fundsSelected.reduce((a: number, v: Fund) => a = a + (v.amountInvested ?? 0), 0) : params.data.amountInvestedLocalCcy ?? 0
+                        } else {
+                            return params.data.amountInvestedLocalCcy ?? 0
+                        }
+                    } else {
+                        return 0;
+                    }
+                },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Funds',
@@ -187,10 +203,10 @@ const PCOsOverviewTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             }
         ];
-    }, [theme]);
+    }, [theme, selectedFundValues]);
 
     const onValueChange = useCallback((event: any) => {
         setSearchTextValue(event.target.value)
