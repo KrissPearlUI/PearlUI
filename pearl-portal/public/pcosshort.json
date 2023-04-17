@@ -14482,23 +14482,7 @@
     "website": "www.3ememtech.com",
     "numOfFunds": 3,
     "revenueAndEbitda": [],
-    "funds": [
-      {
-        "id": "EIIF",
-        "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
-        "amountInvested": null
-      },
-      {
-        "id": "EIIFI",
-        "fundName": "Emerald Industrial Innovation Fund (Ireland)",
-        "amountInvested": null
-      },
-      {
-        "id": "EGWIF",
-        "fundName": "Emerald Global Water Impact Fund",
-        "amountInvested": null
-      }
-    ]
+    "funds": []
   },
   {
     "id": "Anci01",
@@ -14554,18 +14538,7 @@
     "website": "www.bnovate.com",
     "numOfFunds": 2,
     "revenueAndEbitda": [],
-    "funds": [
-      {
-        "id": "EIIF",
-        "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
-        "amountInvested": null
-      },
-      {
-        "id": "EGWIF",
-        "fundName": "Emerald Global Water Impact Fund",
-        "amountInvested": null
-      }
-    ]
+    "funds": []
   },
   {
     "id": "Enma01",
@@ -14585,23 +14558,7 @@
     "website": "www.enmacc.de",
     "numOfFunds": 3,
     "revenueAndEbitda": [],
-    "funds": [
-      {
-        "id": "EIIF",
-        "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
-        "amountInvested": null
-      },
-      {
-        "id": "EIIFI",
-        "fundName": "Emerald Industrial Innovation Fund (Ireland)",
-        "amountInvested": null
-      },
-      {
-        "id": "EGETF",
-        "fundName": "Emerald Global Energy Transformation Fund",
-        "amountInvested": null
-      }
-    ]
+    "funds": []
   },
   {
     "id": "Eolo01",
@@ -14626,17 +14583,22 @@
       {
         "id": "EIIF",
         "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
-        "amountInvested": null
+        "amountInvested": 1633886.52
       },
       {
         "id": "EIIFI",
         "fundName": "Emerald Industrial Innovation Fund (Ireland)",
-        "amountInvested": null
+        "amountInvested": 92631.07
       },
       {
         "id": "EGETF",
         "fundName": "Emerald Global Energy Transformation Fund",
-        "amountInvested": null
+        "amountInvested": 273482.21
+      },
+      {
+        "id": "NTV",
+        "fundName": "Nabtesco Technology Ventures",
+        "amountInvested": 2000000
       }
     ],
     "revenueAndEbitda": [
@@ -14825,23 +14787,7 @@
     "website": "www.nanograf.com",
     "numOfFunds": 3,
     "revenueAndEbitda": [],
-    "funds": [
-      {
-        "id": "EIIF",
-        "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
-        "amountInvested": null
-      },
-      {
-        "id": "EIIFI",
-        "fundName": "Emerald Industrial Innovation Fund (Ireland)",
-        "amountInvested": null
-      },
-      {
-        "id": "EGETF",
-        "fundName": "Emerald Global Energy Transformation Fund",
-        "amountInvested": null
-      }
-    ]
+    "funds": []
   },
   {
     "id": "NCAT01",
@@ -14897,23 +14843,7 @@
     "website": "www.paptic.com",
     "numOfFunds": 3,
     "revenueAndEbitda": [],
-    "funds": [
-      {
-        "id": "EIIF",
-        "fundName": "Emerald Industrial Innovation Fund (Guernsey)",
-        "amountInvested": null
-      },
-      {
-        "id": "EIIFI",
-        "fundName": "Emerald Industrial Innovation Fund (Ireland)",
-        "amountInvested": null
-      },
-      {
-        "id": "ESPIF",
-        "fundName": "Emerald Sustainable Packaging Innovation Fund",
-        "amountInvested": null
-      }
-    ]
+    "funds": []
   },
   {
     "id": "Spac01",

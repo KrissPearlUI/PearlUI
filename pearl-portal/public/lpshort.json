@@ -72,7 +72,7 @@
 				"shortName": "Actnano",
 				"participationPercentage": 0.040671923,
 				"amountInvested": 174585.06406536,
-				"localCurrency": "EUR"
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -641,7 +641,7 @@
 				"shortName": "Actnano",
 				"participationPercentage": 0.038823616,
 				"amountInvested": 166651.1683406003,
-				"localCurrency": "EUR"
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -921,7 +921,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.038823616,
-				"amountInvested": 166651.1683406003
+				"amountInvested": 166651.1683406003,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -1349,7 +1350,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.038823616,
-				"amountInvested": 166651.1683406003
+				"amountInvested": 166651.1683406003,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -1524,7 +1526,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.077647232,
-				"amountInvested": 333302.3366812007
+				"amountInvested": 333302.3366812007,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -1834,7 +1837,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.039844149,
-				"amountInvested": 171031.8271844375
+				"amountInvested": 171031.8271844375,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -2470,7 +2474,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.007941355,
-				"amountInvested": 34088.42929410461
+				"amountInvested": 34088.42929410461,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -3268,7 +3273,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.007764723,
-				"amountInvested": 33330.23280961596
+				"amountInvested": 33330.23280961596,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -3690,7 +3696,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.038823616,
-				"amountInvested": 166651.1683406003
+				"amountInvested": 166651.1683406003,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -3936,7 +3943,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.038823616,
-				"amountInvested": 166651.1683406003
+				"amountInvested": 166651.1683406003,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -4344,7 +4352,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.038823616,
-				"amountInvested": 166651.1683406003
+				"amountInvested": 166651.1683406003,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -4607,7 +4616,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.039674304,
-				"amountInvested": 170302.7640367181
+				"amountInvested": 170302.7640367181,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -5181,7 +5191,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.039821802,
-				"amountInvested": 170935.9022283771
+				"amountInvested": 170935.9022283771,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -5737,7 +5748,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.039822742,
-				"amountInvested": 170939.9371976659
+				"amountInvested": 170939.9371976659,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -6305,7 +6317,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.077647232,
-				"amountInvested": 333302.3366812007
+				"amountInvested": 333302.3366812007,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -6579,7 +6592,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.039822975,
-				"amountInvested": 170940.937354947
+				"amountInvested": 170940.937354947,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Alph01",
@@ -7101,7 +7115,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.039822998,
-				"amountInvested": 170941.036082919
+				"amountInvested": 170941.036082919,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -7699,13 +7714,15 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.039693281,
-				"amountInvested": 170384.2231986261
+				"amountInvested": 170384.2231986261,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.102880658,
-				"amountInvested": 150831.3080024505
+				"amountInvested": 150831.3080024505,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -8375,7 +8392,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.038823616,
-				"amountInvested": 166651.1683406003
+				"amountInvested": 166651.1683406003,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -9893,19 +9911,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.013227513,
-				"amountInvested": 5429.93601771621
+				"amountInvested": 5429.93601771621,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.013227513,
-				"amountInvested": 27059.1664657993
+				"amountInvested": 27059.1664657993,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.013227513,
-				"amountInvested": 56513.1201919955
+				"amountInvested": 56513.1201919955,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -10225,19 +10246,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.013227513,
-				"amountInvested": 5429.93601771621
+				"amountInvested": 5429.93601771621,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.013227513,
-				"amountInvested": 27059.1664657993
+				"amountInvested": 27059.1664657993,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.013227513,
-				"amountInvested": 56513.1201919955
+				"amountInvested": 56513.1201919955,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -10516,19 +10540,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.013227513,
-				"amountInvested": 5429.93601771621
+				"amountInvested": 5429.93601771621,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.013227513,
-				"amountInvested": 27059.1664657993
+				"amountInvested": 27059.1664657993,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.013227513,
-				"amountInvested": 56513.1201919955
+				"amountInvested": 56513.1201919955,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -10677,19 +10704,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 21719.744481368
+				"amountInvested": 21719.744481368,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 108236.66790887
+				"amountInvested": 108236.66790887,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 226052.485040374
+				"amountInvested": 226052.485040374,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -10838,19 +10868,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.026455026,
-				"amountInvested": 10859.8720354324
+				"amountInvested": 10859.8720354324,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.026455026,
-				"amountInvested": 54118.3329315985
+				"amountInvested": 54118.3329315985,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.026455026,
-				"amountInvested": 113026.240383991
+				"amountInvested": 113026.240383991,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -10999,19 +11032,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 21719.744481368
+				"amountInvested": 21719.744481368,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 108236.66790887
+				"amountInvested": 108236.66790887,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 226052.485040374
+				"amountInvested": 226052.485040374,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -11175,7 +11211,8 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.205761317,
-				"amountInvested": 217196.944579107
+				"amountInvested": 217196.944579107,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Arxx01",
@@ -11896,7 +11933,8 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.010288066,
-				"amountInvested": 10859.8473872919
+				"amountInvested": 10859.8473872919,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "CDTI01",
@@ -12051,7 +12089,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.04782425,
-				"amountInvested": 205286.57447861
+				"amountInvested": 205286.57447861,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -12702,7 +12741,8 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.102880658,
-				"amountInvested": 108598.471761765
+				"amountInvested": 108598.471761765,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "CDTI01",
@@ -12848,19 +12888,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.002645503,
-				"amountInvested": 1085.98736774451
+				"amountInvested": 1085.98736774451,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.002645503,
-				"amountInvested": 5411.83411142906
+				"amountInvested": 5411.83411142906,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.002645503,
-				"amountInvested": 11302.6257473559
+				"amountInvested": 11302.6257473559,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -13555,7 +13598,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.034941255,
-				"amountInvested": 149986.054082053
+				"amountInvested": 149986.054082053,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Rhom01",
@@ -13656,19 +13700,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.015873016,
-				"amountInvested": 6515.92338546072
+				"amountInvested": 6515.92338546072,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.015873016,
-				"amountInvested": 32471.0005772283
+				"amountInvested": 32471.0005772283,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.015873016,
-				"amountInvested": 67815.7459393514
+				"amountInvested": 67815.7459393514,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -13817,19 +13864,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 21719.744481368
+				"amountInvested": 21719.744481368,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 108236.66790887
+				"amountInvested": 108236.66790887,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 226052.485040374
+				"amountInvested": 226052.485040374,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -13978,19 +14028,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.042328042,
-				"amountInvested": 17375.7954208931
+				"amountInvested": 17375.7954208931,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.042328042,
-				"amountInvested": 86589.3335088269
+				"amountInvested": 86589.3335088269,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.042328042,
-				"amountInvested": 180841.986323342
+				"amountInvested": 180841.986323342,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -14304,19 +14357,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.013227513,
-				"amountInvested": 5429.93601771621
+				"amountInvested": 5429.93601771621,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.013227513,
-				"amountInvested": 27059.1664657993
+				"amountInvested": 27059.1664657993,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.013227513,
-				"amountInvested": 56513.1201919955
+				"amountInvested": 56513.1201919955,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -14647,7 +14703,8 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.308641975,
-				"amountInvested": 325795.416340871
+				"amountInvested": 325795.416340871,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "CDTI01",
@@ -14859,19 +14916,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.264550265,
-				"amountInvested": 108598.72240684
+				"amountInvested": 108598.72240684,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.264550265,
-				"amountInvested": 541183.33954435
+				"amountInvested": 541183.33954435,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.264550265,
-				"amountInvested": 1130262.42520187
+				"amountInvested": 1130262.42520187,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -15766,7 +15826,8 @@
 				"id": "Whee01",
 				"shortName": "Wheel.me",
 				"participationPercentage": 0.999,
-				"amountInvested": 499500
+				"amountInvested": 499500,
+				"localCurrency":"NOK"
 			},
 			{
 				"id": "Rhom01",
@@ -15831,7 +15892,8 @@
 				"id": "Whee01",
 				"shortName": "Wheel.me",
 				"participationPercentage": 0.001,
-				"amountInvested": 500
+				"amountInvested": 500,
+				"localCurrency":"NOK"
 			},
 			{
 				"id": "Rhom01",
@@ -15929,7 +15991,8 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.102880658,
-				"amountInvested": 108598.471761765
+				"amountInvested": 108598.471761765,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "CDTI01",
@@ -16328,19 +16391,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.066137566,
-				"amountInvested": 27149.6804990842
+				"amountInvested": 27149.6804990842,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.066137566,
-				"amountInvested": 135295.834374669
+				"amountInvested": 135295.834374669,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.066137566,
-				"amountInvested": 282565.605232369
+				"amountInvested": 282565.605232369,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -16489,19 +16555,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.105820106,
-				"amountInvested": 43439.488962736
+				"amountInvested": 43439.488962736,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.105820106,
-				"amountInvested": 216473.33581774
+				"amountInvested": 216473.33581774,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.105820106,
-				"amountInvested": 452104.970080748
+				"amountInvested": 452104.970080748,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -17079,7 +17148,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.038823616,
-				"amountInvested": 166651.1683406
+				"amountInvested": 166651.1683406,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agan01",
@@ -17425,7 +17495,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.038823616,
-				"amountInvested": 166651.1683406
+				"amountInvested": 166651.1683406,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Rhom01",
@@ -17612,19 +17683,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 21719.744481368
+				"amountInvested": 21719.744481368,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 108236.66790887
+				"amountInvested": 108236.66790887,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 226052.485040374
+				"amountInvested": 226052.485040374,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -17922,7 +17996,8 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.002057613,
-				"amountInvested": 2171.96926634295
+				"amountInvested": 2171.96926634295,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "CDTI01",
@@ -18308,19 +18383,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.123809524,
-				"amountInvested": 50824.2020781911
+				"amountInvested": 50824.2020781911,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.123809524,
-				"amountInvested": 253273.802865843
+				"amountInvested": 253273.802865843,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.123809524,
-				"amountInvested": 528962.814909027
+				"amountInvested": 528962.814909027,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -18469,19 +18547,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.034920635,
-				"amountInvested": 14335.0313659129
+				"amountInvested": 14335.0313659129,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.034920635,
-				"amountInvested": 71436.2008607677
+				"amountInvested": 71436.2008607677,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.034920635,
-				"amountInvested": 149194.640212095
+				"amountInvested": 149194.640212095,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -18784,7 +18865,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.038823616,
-				"amountInvested": 166651.1683406
+				"amountInvested": 166651.1683406,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Rhom01",
@@ -19171,19 +19253,22 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 21719.744481368
+				"amountInvested": 21719.744481368,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Adva01",
 				"shortName": "Advanced BioNutrition",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 108236.66790887
+				"amountInvested": 108236.66790887,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Agra01",
 				"shortName": "AgraQuest",
 				"participationPercentage": 0.052910053,
-				"amountInvested": 226052.485040374
+				"amountInvested": 226052.485040374,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Aqua01",
@@ -19618,7 +19703,8 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.102880658,
-				"amountInvested": 108598.471761765
+				"amountInvested": 108598.471761765,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "CDTI01",
@@ -20059,7 +20145,8 @@
 				"id": "Actn01",
 				"shortName": "Actnano",
 				"participationPercentage": 0.038823616,
-				"amountInvested": 166651.1683406
+				"amountInvested": 166651.1683406,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "Rhom01",
@@ -20297,7 +20384,8 @@
 				"id": "Acum01",
 				"shortName": "Acumentrics (ex. CTP)",
 				"participationPercentage": 0.061728395,
-				"amountInvested": 65159.0832681743
+				"amountInvested": 65159.0832681743,
+				"localCurrency": "USD"
 			},
 			{
 				"id": "CDTI01",

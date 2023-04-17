@@ -17,7 +17,7 @@ import {
 import clsx from 'clsx';
 import { ColDef, ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../redux/store';
-import { Fund, LP, PCO } from '../../../models/lps/lpModels';
+import { Exits, Fund, LP, PCO } from '../../../models/lps/lpModels';
 import AGGridLoader from '../../shared/AGGridLoader';
 import LPToolbar from './LPToolbar';
 import { setSelectedLP } from '../../../redux/slices/lps/lpsSlice';
@@ -157,10 +157,21 @@ const LPOverviewTable = () => {
                 minWidth: 220,
                 filter: 'agNumberColumnFilter',
                 type: 'numericColumn',
-                tooltipField: 'totalCommitments',
                 tooltipComponentParams: { valueType: 'number' },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
+                tooltipValueGetter: (params: ITooltipParams<any, any>) => {
+                    if (params && params.data) {
+                        if (selectedFundValues && selectedFundValues.length > 0) {
+                            const fundsSelected: Fund[] | null = params.data.funds?.filter((item2: Fund) => selectedFundValues.some(val => val.id === item2.id));
+                            return fundsSelected && fundsSelected.length > 0 ? fundsSelected.reduce((a: number, v: Fund) => a = a + (v.committedAmount ?? 0), 0) : params.data.totalCommitments ?? 0
+                        } else {
+                            return params.data.totalCommitments ?? 0
+                        }
+                    } else {
+                        return 0;
+                    }
+                },
                 valueGetter: (params: ValueGetterParams) => {
                     if (params && params.data) {
                         if (selectedFundValues && selectedFundValues.length > 0) {
@@ -218,15 +229,56 @@ const LPOverviewTable = () => {
                 field: 'pcos',
                 minWidth: 100,
                 maxWidth: 140,
-                tooltipField: 'pcos',
                 tooltipComponentParams: { type: 'pcos' },
                 enableRowGroup: true,
-                valueGetter: (params: ValueGetterParams) => {
-                    if (params?.data?.pcos) {
-                        return params.data.pcos.length ?? 0
-                    }
-                    else
+                tooltipValueGetter: (params: ITooltipParams<any, any>) => {
+                    if (params && params.data) {
+                        if (selectedPCOValues && selectedPCOValues.length > 0) {
+                            const pcosSelected: PCO[] | null = params.data.pcos?.filter((item2: PCO) => selectedPCOValues.some(val => val.id === item2.id));
+                            return pcosSelected ?? params.data.pcos
+                        } else if (selectedPCOValues && selectedPCOValues.length <= 0 && selectedFundValues && selectedFundValues.length > 0) {
+                            let data = params.data.pcos?.map((pco: PCO) => ({
+                                ...pco,
+                                localCurrency: pcos.find((item: PCOSummary) => item.id === pco.id)?.localCurrency ?? '',
+                                fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                            }
+                            ));
+
+                            const filteredPortfolioCompaniesA = data?.filter((company: any) =>
+                                selectedFundValues.map((b) => b.id).includes(company.fundId)
+                            );
+                            return filteredPortfolioCompaniesA ?? params.data.pcos
+                        }
+                        else {
+                            return params.data.pcos
+                        }
+                    } else {
                         return 0;
+                    }
+                },
+                valueGetter: (params: ValueGetterParams) => {
+                    if (params && params.data) {
+                        if (selectedPCOValues && selectedPCOValues.length > 0 && selectedFundValues && selectedFundValues?.length <= 0) {
+                            const pcosSelected: PCO[] | null = params.data.pcos?.filter((item2: PCO) => selectedPCOValues.some(val => val.id === item2.id));
+                            return pcosSelected && pcosSelected.length > 0 ? pcosSelected.length : params.data.pcos?.length ?? 0
+                        } else if (selectedPCOValues && selectedPCOValues.length <= 0 && selectedFundValues && selectedFundValues.length > 0) {
+                            let data = params.data.pcos?.map((pco: PCO) => ({
+                                ...pco,
+                                fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                            }
+                            ));
+
+                            const filteredPortfolioCompaniesA = data?.filter((company: any) =>
+                                selectedFundValues.map((b) => b.id).includes(company.fundId)
+                            );
+                            return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.length : params.data.pcos?.length
+                        }
+                        else {
+                            return params.data.pcos?.length ?? 0
+                        }
+                    } else {
+                        return 0;
+                    }
                 },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: filterParams,
@@ -255,17 +307,52 @@ const LPOverviewTable = () => {
                 minWidth: 185,
                 type: 'numericColumn',
                 filter: 'agNumberColumnFilter',
-                tooltipField: 'totalInvestments',
                 tooltipComponentParams: { valueType: 'number' },
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 valueFormatter: quantityValueFormatter,
-                valueGetter: (params: ValueGetterParams) => {
+                tooltipValueGetter: (params: ITooltipParams<any, any>) => {
                     if (params && params.data) {
-                        if (selectedPCOValues && selectedPCOValues.length > 0) {
+                        if (selectedPCOValues && selectedPCOValues.length > 0 && selectedFundValues && selectedFundValues.length <= 0) {
                             const pcosSelected: PCO[] | null = params.data.pcos?.filter((item2: PCO) => selectedPCOValues.some(val => val.id === item2.id));
                             return pcosSelected && pcosSelected.length > 0 ? pcosSelected.reduce((a: number, v: PCO) => a = a + (v.amountInvested ?? 0), 0) : params.data.totalInvestments ?? 0
-                        } else {
+                        } else if (selectedPCOValues && selectedPCOValues.length <= 0 && selectedFundValues && selectedFundValues.length > 0) {
+                            let data = params.data.pcos?.map((pco: PCO) => ({
+                                ...pco,
+                                fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                            }
+                            ));
+
+                            const filteredPortfolioCompaniesA = data?.filter((company: any) =>
+                                selectedFundValues.map((b) => b.id).includes(company.fundId)
+                            );
+                            return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.reduce((a: number, v: PCO) => a = a + (v.amountInvested ?? 0), 0) : params.data.totalInvestments
+                        }
+                        else {
+                            return params.data.totalInvestments ?? 0
+                        }
+                    } else {
+                        return 0;
+                    }
+                },
+                valueGetter: (params: ValueGetterParams) => {
+                    if (params && params.data) {
+                        if (selectedPCOValues && selectedPCOValues.length > 0 && selectedFundValues && selectedFundValues.length <= 0) {
+                            const pcosSelected: PCO[] | null = params.data.pcos?.filter((item2: PCO) => selectedPCOValues.some(val => val.id === item2.id));
+                            return pcosSelected && pcosSelected.length > 0 ? pcosSelected.reduce((a: number, v: PCO) => a = a + (v.amountInvested ?? 0), 0) : params.data.totalInvestments ?? 0
+                        } else if (selectedPCOValues && selectedPCOValues.length <= 0 && selectedFundValues && selectedFundValues.length > 0) {
+                            let data = params.data.pcos?.map((pco: PCO) => ({
+                                ...pco,
+                                fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                            }
+                            ));
+
+                            const filteredPortfolioCompaniesA = data?.filter((company: any) =>
+                                selectedFundValues.map((b) => b.id).includes(company.fundId)
+                            );
+                            return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.reduce((a: number, v: PCO) => a = a + (v.amountInvested ?? 0), 0) : params.data.totalInvestments
+                        }
+                        else {
                             return params.data.totalInvestments ?? 0
                         }
                     } else {
@@ -295,13 +382,60 @@ const LPOverviewTable = () => {
                 headerName: 'Capital Distributed',
                 field: 'totalDistributions',
                 filter: 'agNumberColumnFilter',
-                tooltipField: 'totalDistributions',
                 tooltipComponentParams: { valueType: 'number' },
                 type: 'numericColumn',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 suppressFiltersToolPanel: true,
                 minWidth: 185,
                 valueFormatter: quantityValueFormatter,
+                tooltipValueGetter: (params: ITooltipParams<any, any>) => {
+                    if (params && params.data) {
+                        if (selectedPCOValues && selectedPCOValues.length > 0 && selectedFundValues && selectedFundValues.length <= 0) {
+                            const pcosSelected: Exits[] | null = params.data.exits?.filter((item2: Exits) => selectedPCOValues.some(val => val.id === item2.pcoId));
+                            return pcosSelected && pcosSelected.length > 0 ? pcosSelected.reduce((a: number, v: Exits) => a = a + (v.amountGained ?? 0), 0) : params.data.totalDistributions ?? 0
+                        } else if (selectedPCOValues && selectedPCOValues.length <= 0 && selectedFundValues && selectedFundValues.length > 0) {
+                            let data = params.data.exits?.map((pco: Exits) => ({
+                                ...pco,
+                                fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.pcoId)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                            }
+                            ));
+
+                            const filteredPortfolioCompaniesA = data?.filter((company: any) =>
+                                selectedFundValues.map((b) => b.id).includes(company.fundId)
+                            );
+                            return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.reduce((a: number, v: Exits) => a = a + (v.amountGained ?? 0), 0) : params.data.totalDistributions
+                        }
+                        else {
+                            return params.data.totalDistributions ?? 0
+                        }
+                    } else {
+                        return 0;
+                    }
+                },
+                valueGetter: (params: ValueGetterParams) => {
+                    if (params && params.data) {
+                        if (selectedPCOValues && selectedPCOValues.length > 0 && selectedFundValues && selectedFundValues.length <= 0) {
+                            const pcosSelected: Exits[] | null = params.data.exits?.filter((item2: Exits) => selectedPCOValues.some(val => val.id === item2.pcoId));
+                            return pcosSelected && pcosSelected.length > 0 ? pcosSelected.reduce((a: number, v: Exits) => a = a + (v.amountGained ?? 0), 0) : params.data.totalDistributions ?? 0
+                        } else if (selectedPCOValues && selectedPCOValues.length <= 0 && selectedFundValues && selectedFundValues.length > 0) {
+                            let data = params.data.exits?.map((pco: Exits) => ({
+                                ...pco,
+                                fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.pcoId)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                            }
+                            ));
+
+                            const filteredPortfolioCompaniesA = data?.filter((company: any) =>
+                                selectedFundValues.map((b) => b.id).includes(company.fundId)
+                            );
+                            return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.reduce((a: number, v: Exits) => a = a + (v.amountGained ?? 0), 0) : params.data.totalDistributions
+                        }
+                        else {
+                            return params.data.totalDistributions ?? 0
+                        }
+                    } else {
+                        return 0;
+                    }
+                },
                 filterParams: {
                     buttons: ['reset'],
                 } as INumberFilterParams,
@@ -322,7 +456,7 @@ const LPOverviewTable = () => {
                  } as INumberFilterParams,
              } */
         ];
-    }, [theme, selectedFundValues, selectedPCOValues]);
+    }, [theme, selectedFundValues, selectedPCOValues, pcos]);
 
     const onValueChange = useCallback((event: any) => {
         setSearchTextValue(event.target.value)
