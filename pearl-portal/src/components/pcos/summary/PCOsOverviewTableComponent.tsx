@@ -18,7 +18,7 @@ import clsx from 'clsx';
 import { capitalizeLetters } from '../../../helpers/app';
 import { ColDef, ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../redux/store';
-import { Fund, LP } from '../../../models/lps/lpModels';
+import { Fund, LP, LPFundsOverview } from '../../../models/lps/lpModels';
 import AGGridLoader from '../../shared/AGGridLoader';
 import { fetchLPs } from '../../../redux/thunks/lpThunk';
 import { FundSummary } from '../../../models/funds/fundModels';
@@ -210,10 +210,35 @@ const PCOsOverviewTable = () => {
                 minWidth: 100,
                 maxWidth: 140,
                 enableRowGroup: true,
-                tooltipField: 'lps',
                 tooltipComponentParams: { type: 'lps' },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: filterParams,
+                tooltipValueGetter: (params: ITooltipParams<any, any>) => {
+                    if (params && params.data) {
+                        if (selectedLPValues && selectedLPValues.length > 0) {
+                            const lpsSelected: LPFundsOverview[] | null = params.data.lps?.filter((item2: LPFundsOverview) => selectedLPValues.some(val => val.id === item2.id));
+                            return lpsSelected ?? params.data.lps;
+                        }
+                        else {
+                            return params.data.lps;
+                        }
+                    }
+                    else
+                        return 0;
+                },
+                valueGetter: (params: ValueGetterParams) => {
+                    if (params && params.data) {
+                        if (selectedLPValues && selectedLPValues.length > 0) {
+                            const lpsSelected: LPFundsOverview[] | null = params.data.lps?.filter((item2: LPFundsOverview) => selectedLPValues.some(val => val.id === item2.id));
+                            return lpsSelected && lpsSelected.length > 0 ? lpsSelected.length : params.data.numOfLPS ?? 0
+                        }
+                        else {
+                            return params.data.numOfLPS ?? 0
+                        }
+                    }
+                    else
+                        return 0;
+                },
             },
             {
                 headerName: 'Status',
@@ -231,7 +256,7 @@ const PCOsOverviewTable = () => {
                 } as INumberFilterParams,
             }
         ];
-    }, [theme, selectedFundValues]);
+    }, [theme, selectedFundValues, selectedLPValues]);
 
     const onValueChange = useCallback((event: any) => {
         setSearchTextValue(event.target.value)
