@@ -85,6 +85,7 @@ const SingleFundPortfolios = () => {
             {
                 headerName: 'PCO Name',
                 field: 'pcoName',
+                tooltipField:'pcoName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
@@ -109,6 +110,7 @@ const SingleFundPortfolios = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'amountInvested',
+                tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
@@ -122,6 +124,7 @@ const SingleFundPortfolios = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'navEUR',
+                tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
@@ -133,6 +136,7 @@ const SingleFundPortfolios = () => {
                 headerName: 'Country',
                 field: 'country',
                 enableRowGroup: true,
+                tooltipField:'country',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
@@ -142,6 +146,7 @@ const SingleFundPortfolios = () => {
                 headerName: 'Industry 1',
                 field: 'emeraldIndustry1',
                 enableRowGroup: true,
+                tooltipField:'emeraldIndustry1',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
@@ -150,6 +155,7 @@ const SingleFundPortfolios = () => {
             {
                 headerName: 'Industry 2',
                 field: 'emeraldIndustry2',
+                tooltipField:'emeraldIndustry2',
                 hide: true,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -160,6 +166,7 @@ const SingleFundPortfolios = () => {
             {
                 headerName: 'Current Stage',
                 field: 'currentStage',
+                tooltipField:'currentStage',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
@@ -169,6 +176,7 @@ const SingleFundPortfolios = () => {
             {
                 headerName: 'Initial Stage',
                 field: 'initialtStage',
+                tooltipField:'initialtStage',
                 hide: true,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },

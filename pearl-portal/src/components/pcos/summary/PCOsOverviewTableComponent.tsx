@@ -90,7 +90,7 @@ const PCOsOverviewTable = () => {
                 field: 'shortName',
                 minWidth: 115,
                 enableRowGroup: true,
-                tooltipField:'shortName',
+                tooltipField: 'shortName',
                 valueGetter: (params) => {
                     return params.data?.shortName;
                 },
@@ -105,7 +105,7 @@ const PCOsOverviewTable = () => {
                 field: 'pcoName',
                 suppressFiltersToolPanel: true,
                 minWidth: 160,
-                tooltipField:'pcoName',
+                tooltipField: 'pcoName',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
                 filterParams: {
                     buttons: ['reset'],
@@ -222,7 +222,7 @@ const PCOsOverviewTable = () => {
         }
     }, [gridApi]);
 
-    const onFundChange = (event: React.SyntheticEvent,values: FundSummary[] | null) => {
+    const onFundChange = (event: React.SyntheticEvent, values: FundSummary[] | null) => {
         event.preventDefault();
         event.stopPropagation();
         if (event.nativeEvent.type === 'focusout') return;
@@ -272,7 +272,7 @@ const PCOsOverviewTable = () => {
         }
     };
 
-    const onLPChange = (event: React.SyntheticEvent,values: LP[] | null) => {
+    const onLPChange = (event: React.SyntheticEvent, values: LP[] | null) => {
         event.preventDefault();
         event.stopPropagation();
         if (event.nativeEvent.type === 'focusout') return;

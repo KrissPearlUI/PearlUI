@@ -63,7 +63,7 @@ const InvestmentsOverTimeFund = () => {
         },
         series: [
             {
-                name: "",
+                name: "Amount",
                 data: Object.values(chartDataValues).map((yearData: any) =>
                     yearData.reduce((acc: any, item: any) => acc + item.amountEUR, 0)
                 ),
