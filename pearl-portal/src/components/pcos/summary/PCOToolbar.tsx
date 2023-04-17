@@ -100,8 +100,8 @@ interface PCOToolbarProps {
     searchTextValue: string | null,
     onValueChange: (v: any) => void,
     onCancelClick: (v: any) => void,
-    onFundChange: (v: any) => void,
-    onLPChange: (v: any) => void,
+    onFundChange: (v: any, s: any) => void,
+    onLPChange: (v: any, s: any) => void,
 }
 
 const PCOToolbar = ({ searchText,
@@ -132,7 +132,7 @@ const PCOToolbar = ({ searchText,
                     multiple
                     sx={{ marginRight: '1em', width: selectedFundValue && selectedFundValue.length > 3 ? '730px' : '320px', marginBottom: { xs: '1em', md: selectedFundValue && selectedFundValue.length > 3 ? '1em' : 0, lg: selectedFundValue && selectedFundValue.length > 3 ? '1em' : 0 } }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value) => onFundChange(value)}
+                    onChange={(e, value) => onFundChange(e, value)}
                     value={selectedFundValue ?? []}
                     options={funds ?? []}
                     getOptionLabel={(option: FundSummary) => option ? option.id : ''}
@@ -159,7 +159,7 @@ const PCOToolbar = ({ searchText,
                     limitTags={5}
                     sx={{ marginRight: '1em', width: selectedLPValue && selectedLPValue.length > 2 ? '730px' : '320px' }}
                     isOptionEqualToValue={(option, value) => option === value}
-                    onChange={(e, value) => onLPChange(value.slice(0, 5))}
+                    onChange={(e, value) => onLPChange(e, value.slice(0, 5))}
                     value={selectedLPValue ?? []}
                     options={lps ?? []}
                     getOptionLabel={(option: LP) => option ? option.shortName : ''}

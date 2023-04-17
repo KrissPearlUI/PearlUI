@@ -95,10 +95,13 @@ const AutocompleteLPComponent = ({ selectedLP }: AutocompleteLPProps) => {
     const { lps } = useSelector((state: RootState) => state.lps);
     const [selectedLPValue, setSelectedLPValue] = useState<LP | null>(selectedLP);
 
-    const onLPChange = (event: any) => {
-        setSelectedLPValue(event);
-        if (event) {
-            dispatch(setSelectedLP(event));
+    const onLPChange = (event: React.SyntheticEvent, value: any) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.nativeEvent.type === 'focusout') return;
+        setSelectedLPValue(value);
+        if (value) {
+            dispatch(setSelectedLP(value));
         }
     };
 
@@ -115,7 +118,7 @@ const AutocompleteLPComponent = ({ selectedLP }: AutocompleteLPProps) => {
             classes={classes}
             sx={{ marginRight: '1em', width: '320px' }}
             isOptionEqualToValue={(option, value) => option === value}
-            onChange={(e, value: LP | null) => onLPChange(value)}
+            onChange={(e, value: LP | null) => onLPChange(e, value)}
             value={selectedLPValue ?? undefined}
             options={lps ?? []}
             getOptionLabel={(option: LP | null) => option ? option.shortName : ''}

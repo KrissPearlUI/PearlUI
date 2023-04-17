@@ -95,10 +95,13 @@ const AutocompletePCOComponent = ({ selectedPCO }: AutocompletePCOsProps) => {
     const { pcos } = useSelector((state: RootState) => state.pcos);
     const [selectedPCOValue, setSelectedPCOValue] = useState<PCOSummary | null>(selectedPCO);
 
-    const onPCOChange = (event: any) => {
-        setSelectedPCOValue(event);
-        if (event) {
-            dispatch(setSelectedPCO(event));
+    const onPCOChange = (event: React.SyntheticEvent, value: any) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.nativeEvent.type === 'focusout') return;
+        setSelectedPCOValue(value);
+        if (value) {
+            dispatch(setSelectedPCO(value));
         }
     };
 
@@ -114,7 +117,7 @@ const AutocompletePCOComponent = ({ selectedPCO }: AutocompletePCOsProps) => {
             classes={classes}
             sx={{ marginRight: '1em', width: '320px' }}
             isOptionEqualToValue={(option, value) => option === value}
-            onChange={(e, value: PCOSummary | null) => onPCOChange(value)}
+            onChange={(e, value: PCOSummary | null) => onPCOChange(e, value)}
             value={selectedPCOValue ?? undefined}
             options={pcos ?? []}
             getOptionLabel={(option: PCOSummary | null) => option ? option.shortName : ''}

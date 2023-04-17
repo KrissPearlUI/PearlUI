@@ -85,20 +85,23 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface AutocompleteFundProps {
-    selectedFund:FundSummary|null,  
+    selectedFund: FundSummary | null,
 }
 
-const AutocompleteFundComponent = ({selectedFund}:AutocompleteFundProps) => {
+const AutocompleteFundComponent = ({ selectedFund }: AutocompleteFundProps) => {
     const classes = useStyles();
     const autocompleteInputClasses = autocompleteInputStyles();
     const dispatch = useAppDispatch();
     const { funds } = useSelector((state: RootState) => state.funds);
     const [selectedFundValue, setSelectedFundValue] = useState<FundSummary | null>(selectedFund);
 
-    const onFundChange = (event: FundSummary) => {
-        setSelectedFundValue(event);
-        if (event) {
-            dispatch(setSelectedFund(event));
+    const onFundChange = (event: React.SyntheticEvent, value: FundSummary) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.nativeEvent.type === 'focusout') return;
+        setSelectedFundValue(value);
+        if (value) {
+            dispatch(setSelectedFund(value));
         }
     };
 
@@ -114,7 +117,7 @@ const AutocompleteFundComponent = ({selectedFund}:AutocompleteFundProps) => {
             classes={classes}
             sx={{ marginRight: '1em', width: '320px' }}
             isOptionEqualToValue={(option, value) => option === value}
-            onChange={(e, value: FundSummary) => onFundChange(value)}
+            onChange={(e, value: FundSummary) => onFundChange(e, value)}
             value={selectedFundValue ?? funds[0]}
             options={funds ?? []}
             getOptionLabel={(option: FundSummary) => option ? option.shortName : ''}

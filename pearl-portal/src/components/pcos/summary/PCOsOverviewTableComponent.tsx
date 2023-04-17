@@ -222,12 +222,15 @@ const PCOsOverviewTable = () => {
         }
     }, [gridApi]);
 
-    const onFundChange = (event: FundSummary[] | null) => {
-        setSelectedFundValues(event);
+    const onFundChange = (event: React.SyntheticEvent,values: FundSummary[] | null) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.nativeEvent.type === 'focusout') return;
+        setSelectedFundValues(values);
         let result = pcos;
-        if (event && event.length > 0) {
+        if (values && values.length > 0) {
             result = pcos.filter(item1 =>
-                item1?.funds?.some(item2 => event.some(val => val.id === item2.id))
+                item1?.funds?.some(item2 => values.some(val => val.id === item2.id))
             );
             if (selectedLPValues && selectedLPValues.length > 0 && !searchTextValue) {
                 result = result.filter(item1 =>
@@ -269,12 +272,15 @@ const PCOsOverviewTable = () => {
         }
     };
 
-    const onLPChange = (event: LP[] | null) => {
-        setSelectedLPValues(event);
+    const onLPChange = (event: React.SyntheticEvent,values: LP[] | null) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.nativeEvent.type === 'focusout') return;
+        setSelectedLPValues(values);
         let result = pcos;
-        if (event && event.length > 0) {
+        if (values && values.length > 0) {
             result = pcos.filter(item1 =>
-                item1?.lps?.some(item2 => event.some(val => val.id === item2.id))
+                item1?.lps?.some(item2 => values.some(val => val.id === item2.id))
             );
 
 

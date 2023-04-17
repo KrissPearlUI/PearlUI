@@ -288,21 +288,21 @@ const LPOverviewTable = () => {
                     buttons: ['reset'],
                 } as INumberFilterParams,
             },
-           /*  {
-                headerName: 'Tapped Out',
-                field: 'tappedOot',
-                valueGetter: (params: ValueGetterParams) => {
-                    return params?.data?.tappedOot ? 'Yes' : 'No'
-                },
-                suppressFiltersToolPanel: true,
-                minWidth: 110,
-                maxWidth: 130,
-                enableRowGroup: true,
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
-                filterParams: {
-                    buttons: ['reset'],
-                } as INumberFilterParams,
-            } */
+            /*  {
+                 headerName: 'Tapped Out',
+                 field: 'tappedOot',
+                 valueGetter: (params: ValueGetterParams) => {
+                     return params?.data?.tappedOot ? 'Yes' : 'No'
+                 },
+                 suppressFiltersToolPanel: true,
+                 minWidth: 110,
+                 maxWidth: 130,
+                 enableRowGroup: true,
+                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                 filterParams: {
+                     buttons: ['reset'],
+                 } as INumberFilterParams,
+             } */
         ];
     }, [theme, selectedFundValues, selectedPCOValues]);
 
@@ -320,12 +320,15 @@ const LPOverviewTable = () => {
         }
     }, [gridApi]);
 
-    const onFundChange = (event: FundSummary[] | null) => {
-        setSelectedFundValues(event);
+    const onFundChange = (event: React.SyntheticEvent, values: FundSummary[] | null) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.nativeEvent.type === 'focusout') return;
+        setSelectedFundValues(values);
         let result = lps;
-        if (event && event.length > 0) {
+        if (values && values.length > 0) {
             result = lps.filter(item1 =>
-                item1?.funds?.some(item2 => event.some(val => val.id === item2.id))
+                item1?.funds?.some(item2 => values.some(val => val.id === item2.id))
             );
             /*  result = result
                  .map(item => ({
@@ -370,12 +373,15 @@ const LPOverviewTable = () => {
         }
     };
 
-    const onPCOChange = (event: PCOSummary[] | null) => {
-        setSelectedPCOValues(event);
+    const onPCOChange = (event: React.SyntheticEvent, values: PCOSummary[] | null) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.nativeEvent.type === 'focusout') return;
+        setSelectedPCOValues(values);
         let result = lps;
-        if (event && event.length > 0) {
+        if (values && values.length > 0) {
             result = lps.filter(item1 =>
-                item1?.pcos?.some(item2 => event.some(val => val.id === item2.id))
+                item1?.pcos?.some(item2 => values.some(val => val.id === item2.id))
             );
 
             if (selectedFundValues && selectedFundValues?.length > 0 && !searchTextValue) {
