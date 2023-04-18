@@ -64,7 +64,7 @@ const SingleLPDistributionsTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, marginLeft: 30 },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Fund ID',
@@ -75,7 +75,7 @@ const SingleLPDistributionsTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'LP ID',
@@ -85,7 +85,7 @@ const SingleLPDistributionsTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'LP Type',
@@ -94,12 +94,12 @@ const SingleLPDistributionsTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'PCO Short Name',
                 field: 'pcoShortName',
-                tooltipField:'pcoShortName',
+                tooltipField: 'pcoShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
@@ -107,7 +107,7 @@ const SingleLPDistributionsTable = () => {
                 },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Notice Date',
@@ -134,12 +134,13 @@ const SingleLPDistributionsTable = () => {
                 type: 'numericColumn',
                 tooltipField: 'amount',
                 tooltipComponentParams: { valueType: 'number' },
-                filter: 'agNumberColumnFilter',              
+                filter: 'agNumberColumnFilter',
+                aggFunc: 'sum',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
         ];
     }, [theme]);
@@ -180,7 +181,9 @@ const SingleLPDistributionsTable = () => {
                 loadingOverlayComponent={AGGridLoader}
                 tooltipShowDelay={0}
                 tooltipHideDelay={10000}
-                groupDisplayType={'groupRows'}
+                groupDisplayType={'singleColumn'}
+                showOpenedGroup={true}
+                suppressAggFuncInHeader={true}
             />
         </div>
 

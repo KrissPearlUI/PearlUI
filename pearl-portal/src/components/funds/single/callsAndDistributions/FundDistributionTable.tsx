@@ -13,7 +13,7 @@ import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelD
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { DistributionBasic } from '../../../../models/distributions/distributionsModels';
 import { fetchAllDistributions } from '../../../../redux/thunks/distributionsThunk';
-import { capitalizeLetters } from '../../../../helpers/app';
+import { amountValueFormatter, capitalizeLetters } from '../../../../helpers/app';
 
 
 const useStyles = makeStyles(() =>
@@ -31,6 +31,31 @@ const useStyles = makeStyles(() =>
         }
     })
 );
+
+const CustomStatusBar = (props: any) => {
+    const theme = useTheme();
+
+    const sumCommittedAmount = () => {
+        const api = props.api;
+        let sumCommitted = 0;
+        api.forEachNode((node: any) => {
+            if (node.group) {
+                return;
+            }
+            sumCommitted += Number(node.data.amount);
+        });
+        return <div>Total Amount: <strong>{amountValueFormatter(sumCommitted ?? 0, '')}</strong></div>;
+    };
+
+
+    return (
+        <div className="ag-status-bar" role="status">
+            <div className="ag-status-bar-part ag-status-name-value" style={{ fontFamily: 'Raleway', color: theme.palette.mode==='dark'?'white':'black', lineHeight:1.5, fontWeight:500}}>
+                {sumCommittedAmount()}
+            </div>
+        </div>
+    );
+};
 
 const SingleFundDistributionsTable = () => {
     const classes = useStyles();
@@ -50,8 +75,18 @@ const SingleFundDistributionsTable = () => {
         pagination: true,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
-        statusBar: DefaultStatusPanelDef,
         sideBar: DefaultSideBarDef,
+        statusBar: {
+            statusPanels: [
+                {
+                    statusPanel: 'agTotalRowCountComponent',
+                    align: 'left',
+                },
+                {
+                    statusPanelFramework: CustomStatusBar,
+                },
+            ],
+        }
     };
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
@@ -130,6 +165,7 @@ const SingleFundDistributionsTable = () => {
                 headerName: 'Amount',
                 field: 'amount',
                 enableRowGroup: true,
+                enableValue: true,
                 type: 'numericColumn',
                 tooltipField: 'amount',
                 tooltipComponentParams: { valueType: 'number' },

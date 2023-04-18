@@ -57,10 +57,10 @@ const SingleLPTransactions = () => {
         animateRows: true,
         pagination: true,
         enableCellTextSelection: true,
-        groupDisplayType: 'multipleColumns',
+        /* groupDisplayType: 'multipleColumns', */
         statusBar: DefaultStatusPanelDef,
-        groupIncludeFooter: true,
-        groupIncludeTotalFooter: true,
+        /*  groupIncludeFooter: true,
+         groupIncludeTotalFooter: true, */
         sideBar: DefaultSideBarDef,
     };
 
@@ -74,7 +74,7 @@ const SingleLPTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, marginLeft: 30 },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Date',
@@ -94,7 +94,7 @@ const SingleLPTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Investment Type',
@@ -103,33 +103,34 @@ const SingleLPTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'PCO Short Name',
                 field: 'pcoShortName',
                 enableRowGroup: true,
-                tooltipField:'pcoShortName',
+                tooltipField: 'pcoShortName',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
                     return params.data?.pcoShortName ? capitalizeLetters(params.data?.pcoShortName) : params.data?.pcoId;
                 },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Security Type',
                 field: 'securityType',
-                tooltipField:'securityType',
+                tooltipField: 'securityType',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Amount Fund Currency',
+                headerValueGetter: (params) => {return params.colDef.headerName},
                 field: 'amountFundCurrency',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -142,10 +143,11 @@ const SingleLPTransactions = () => {
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Amount Local Currency',
+                headerValueGetter: () => {return 'Amount Local Currency'},
                 field: 'amountLocalCurrency',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -158,7 +160,7 @@ const SingleLPTransactions = () => {
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Forex NT',
@@ -172,7 +174,7 @@ const SingleLPTransactions = () => {
                 valueFormatter: forexValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Pre Money Valuation',
@@ -186,7 +188,7 @@ const SingleLPTransactions = () => {
                 valueFormatter: prePostmoneyValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Post Money Valuation',
@@ -200,7 +202,7 @@ const SingleLPTransactions = () => {
                 valueFormatter: prePostmoneyValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Warrant Security Type',
@@ -210,7 +212,7 @@ const SingleLPTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Warrant Strike',
@@ -225,7 +227,7 @@ const SingleLPTransactions = () => {
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Due Date',
@@ -236,10 +238,17 @@ const SingleLPTransactions = () => {
                 valueFormatter: dateValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
         ];
     }, [theme]);
+
+    const autoGroupColumnDef = useMemo<ColDef>(() => {
+        return {
+            headerName: 'Fund Id',
+            minWidth: 300,
+        };
+    }, []);
 
     const onGridReady = (params: GridReadyEvent) => {
         setGridApi(params?.api);
@@ -324,9 +333,12 @@ const SingleLPTransactions = () => {
                 loadingOverlayComponent={AGGridLoader}
                 tooltipShowDelay={0}
                 tooltipHideDelay={10000}
-                frameworkComponents={frameworkComponents}
-                context={{ totals }}
-                groupDisplayType={'groupRows'}
+                /*  frameworkComponents={frameworkComponents}
+                 context={{ totals }} */
+                groupDisplayType={'singleColumn'}
+                showOpenedGroup={true}
+                autoGroupColumnDef={autoGroupColumnDef}
+                suppressAggFuncInHeader={true}
             />
         </div>
 

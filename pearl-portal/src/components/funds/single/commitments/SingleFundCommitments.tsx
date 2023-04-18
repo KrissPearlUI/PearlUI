@@ -11,6 +11,7 @@ import { RootState } from '../../../../redux/slices/rootSlice';
 import { CommitmentBasic } from '../../../../models/lps/lpModels';
 import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, DefaultSideBarDef, dateFilterParams } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
+import { amountValueFormatter } from '../../../../helpers/app';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -29,6 +30,31 @@ const useStyles = makeStyles(() =>
     })
 );
 
+const CustomStatusBar = (props: any) => {
+    const theme = useTheme();
+
+    const sumCommittedAmount = () => {
+        const api = props.api;
+        let sumCommitted = 0;
+        api.forEachNode((node: any) => {
+            if (node.group) {
+                return;
+            }
+            sumCommitted += Number(node.data.committedAmount);
+        });
+        return <div>Committed Amount: <strong>{amountValueFormatter(sumCommitted ?? 0, '')}</strong></div>;
+    };
+
+
+    return (
+        <div className="ag-status-bar" role="status">
+            <div className="ag-status-bar-part ag-status-name-value" style={{ fontFamily: 'Raleway', color: theme.palette.mode==='dark'?'white':'black', lineHeight:1.5, fontWeight:500}}>
+                {sumCommittedAmount()}
+            </div>
+        </div>
+    );
+};
+
 const SingleFundCommitments = () => {
     const classes = useStyles();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
@@ -45,8 +71,18 @@ const SingleFundCommitments = () => {
         pagination: true,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
-        statusBar: DefaultStatusPanelDef,
         sideBar: DefaultSideBarDef,
+        statusBar: {
+            statusPanels: [
+                {
+                    statusPanel: 'agTotalRowCountComponent',
+                    align: 'left',
+                },
+                {
+                    statusPanelFramework: CustomStatusBar,
+                },
+            ],
+        }
     };
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
@@ -99,6 +135,7 @@ const SingleFundCommitments = () => {
                 enableRowGroup: true,
                 type: 'numericColumn',
                 tooltipField: 'committedAmount',
+                enableValue: true,
                 tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },

@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams, IStatusPanelParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import { ColDef, Column } from 'ag-grid-community';
@@ -14,6 +14,7 @@ import { CommitmentBasic } from '../../../../models/lps/lpModels';
 import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, DefaultSideBarDef, filterParams, dateFilterParams } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { fetchCashCalls } from '../../../../redux/thunks/cashCallsThunk';
+import { amountValueFormatter } from '../../../../helpers/app';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -31,6 +32,33 @@ const useStyles = makeStyles(() =>
         }
     })
 );
+
+
+const CustomStatusBar = (props: any) => {
+    const theme = useTheme();
+
+    const sumCommittedAmount = () => {
+        const api = props.api;
+        let sumCommitted = 0;
+        api.forEachNode((node: any) => {
+            if (node.group) {
+                return;
+            }
+            sumCommitted += Number(node.data.committedAmount);
+        });
+        return <div>Committed Amount: <strong>{amountValueFormatter(sumCommitted ?? 0, '')}</strong></div>;
+    };
+
+
+    return (
+        <div className="ag-status-bar" role="status">
+            <div className="ag-status-bar-part ag-status-name-value" style={{ fontFamily: 'Raleway', color: theme.palette.mode==='dark'?'white':'black', lineHeight:1.5, fontWeight:500}}>
+                {sumCommittedAmount()}
+            </div>
+        </div>
+    );
+};
+
 
 const SingleLPCommitments = () => {
     const classes = useStyles();
@@ -58,11 +86,35 @@ const SingleLPCommitments = () => {
         pagination: true,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
-        statusBar: DefaultStatusPanelDef,
+        // statusBar: DefaultStatusPanelDef,
         sideBar: DefaultSideBarDef,
-        groupIncludeFooter: true,
-        groupIncludeTotalFooter: true
+        // enableStatusBar: true,
+        /* groupIncludeFooter: true,
+        groupIncludeTotalFooter: true */
+        statusBar: {
+            statusPanels: [
+                {
+                    statusPanel: 'agTotalRowCountComponent',
+                    align: 'left',
+                },
+                {
+                    statusPanelFramework: CustomStatusBar,
+                },
+            ],
+        }
     };
+
+    const sumAggFunc = useCallback((params: any) => {
+        let sum = 0;
+        if (params.values) {
+            params.values.forEach((value: any) => {
+                if (typeof value === 'number') {
+                    sum += value;
+                }
+            });
+            return sum;
+        }
+    }, []);
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
         return [
@@ -74,7 +126,7 @@ const SingleLPCommitments = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Fund ID',
@@ -83,17 +135,17 @@ const SingleLPCommitments = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Fund Name',
                 field: 'fundName',
                 enableRowGroup: true,
-                tooltipField:'fundName',
+                tooltipField: 'fundName',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Currency',
@@ -106,7 +158,7 @@ const SingleLPCommitments = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Commitment',
@@ -115,13 +167,13 @@ const SingleLPCommitments = () => {
                 tooltipField: 'committedAmount',
                 tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
-                aggFunc: 'sum',
+                //aggFunc: sumAggFunc,
                 enableValue: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Commitment Date',
@@ -139,7 +191,7 @@ const SingleLPCommitments = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Transfer',
@@ -151,7 +203,7 @@ const SingleLPCommitments = () => {
                 },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Tapped Out',
@@ -159,17 +211,16 @@ const SingleLPCommitments = () => {
                 valueGetter: (params: ValueGetterParams) => {
                     return params?.data?.tappedOot ? 'Yes' : 'No'
                 },
-                suppressFiltersToolPanel: true,
                 minWidth: 110,
                 maxWidth: 130,
-                enableRowGroup: true,
-                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
+                enableRowGroup: false,
+                cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
                 } as INumberFilterParams,
             }
         ];
-    }, [theme]);
+    }, [theme, sumAggFunc]);
 
     const onGridReady = (params: GridReadyEvent) => {
         setGridApi(params?.api);
@@ -240,6 +291,18 @@ const SingleLPCommitments = () => {
         },
     };
 
+
+    const statusPanelProps = useMemo(() => {
+        return {
+            statusPanel: {
+                statusPanelRenderer: 'aggregators',
+                statusPanelParams: {
+                    aggFuncs: ['sum'],
+                },
+            },
+        };
+    }, []);
+
     return (
         <div className={clsx(getGridTheme(isDarkTheme), classes.fill)}>
             <AgGridReact gridOptions={gridOptions}
@@ -251,8 +314,10 @@ const SingleLPCommitments = () => {
                 tooltipHideDelay={10000}
                 getRowNodeId={(data) => data.id}
                 onGridReady={onGridReady}
-                frameworkComponents={frameworkComponents}
-                context={{ totals }}
+
+            /*                 frameworkComponents={frameworkComponents}
+                            context={{ totals }} */
+
             /*  onGridReady={(params) => {
                  setGridApi(params.api);
                  if (!gridApiRef.current) {

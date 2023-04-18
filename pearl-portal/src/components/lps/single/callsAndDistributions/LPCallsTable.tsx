@@ -64,7 +64,7 @@ const SingleLPCallsTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, marginLeft: 30 },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Fund ID',
@@ -75,7 +75,7 @@ const SingleLPCallsTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'LP ID',
@@ -85,7 +85,7 @@ const SingleLPCallsTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'LP Type',
@@ -94,12 +94,12 @@ const SingleLPCallsTable = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'PCO Short Name',
                 field: 'pcoShortName',
-                tooltipField:'pcoShortName',
+                tooltipField: 'pcoShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
@@ -107,7 +107,7 @@ const SingleLPCallsTable = () => {
                 },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Call Date',
@@ -135,11 +135,12 @@ const SingleLPCallsTable = () => {
                 tooltipField: 'amount',
                 filter: 'agNumberColumnFilter',
                 tooltipComponentParams: { valueType: 'number' },
+                aggFunc: 'sum',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
         ];
     }, [theme]);
@@ -180,7 +181,9 @@ const SingleLPCallsTable = () => {
                 loadingOverlayComponent={AGGridLoader}
                 tooltipShowDelay={0}
                 tooltipHideDelay={10000}
-                groupDisplayType={'groupRows'}
+                groupDisplayType={'singleColumn'}
+                showOpenedGroup={true}
+                suppressAggFuncInHeader={true}
             />
         </div>
 

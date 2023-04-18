@@ -11,7 +11,7 @@ import { useAppDispatch } from '../../../../redux/store';
 import { RootState } from '../../../../redux/slices/rootSlice';
 import { dateValueFormatter, DefaultSideBarDef, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, dateFilterParams } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
-import { capitalizeLetters } from '../../../../helpers/app';
+import { amountValueFormatter, capitalizeLetters } from '../../../../helpers/app';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { fetchPCOs, fetchPCOsFinantials } from '../../../../redux/thunks/pcoThunk';
 import { setPCOsExtended } from '../../../../redux/slices/lps/lpsSlice';
@@ -41,6 +41,35 @@ const useStyles = makeStyles(() =>
     })
 );
 
+const CustomStatusBar = (props: any) => {
+    const theme = useTheme();
+
+    const sumCommittedAmount = () => {
+        const api = props.api;
+        let sumInvested = 0;
+        let sumNAV = 0;
+        api.forEachNode((node: any) => {
+            if (node.group) {
+                return;
+            }
+            sumInvested += Number(node.data.amountInvested ?? 0);
+            sumNAV += Number(node.data.navEUR ?? 0);
+        });
+        return <div style={{ display: 'flex', justifyContent: 'start', alignItems: 'center', flexDirection: 'row', flex: 1 }}>
+            <span style={{ marginRight: '1em' }}>Invested Amount (EUR): <strong>{amountValueFormatter(sumInvested ?? 0, '')}</strong></span>
+            <span style={{ marginRight: '1em' }}>NAV Amount (EUR): <strong>{amountValueFormatter(sumNAV ?? 0, '')}</strong></span>
+        </div>
+    };
+
+    return (
+        <div className="ag-status-bar" role="status">
+            <div className="ag-status-bar-part ag-status-name-value" style={{ fontFamily: 'Raleway', color: theme.palette.mode === 'dark' ? 'white' : 'black', lineHeight: 1.5, fontWeight: 500 }}>
+                {sumCommittedAmount()}
+            </div>
+        </div>
+    );
+};
+
 const SingleFundPortfolios = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
@@ -64,7 +93,17 @@ const SingleFundPortfolios = () => {
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         sideBar: DefaultSideBarDef,
-        statusBar: DefaultStatusPanelDef,
+        statusBar: {
+            statusPanels: [
+                {
+                    statusPanel: 'agTotalRowCountComponent',
+                    align: 'left',
+                },
+                {
+                    statusPanelFramework: CustomStatusBar,
+                },
+            ],
+        }
     };
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
@@ -109,6 +148,7 @@ const SingleFundPortfolios = () => {
                 field: 'amountInvested',
                 enableRowGroup: true,
                 type: 'numericColumn',
+                enableValue: true,
                 tooltipField: 'amountInvested',
                 tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
@@ -123,6 +163,7 @@ const SingleFundPortfolios = () => {
                 field: 'navEUR',
                 enableRowGroup: true,
                 type: 'numericColumn',
+                enableValue: true,
                 tooltipField: 'navEUR',
                 tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',

@@ -127,6 +127,7 @@ const SinglePCOTransactions = () => {
                 tooltipField: 'amountFundCurrency',
                 tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
+                aggFunc: 'sum',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
@@ -141,6 +142,7 @@ const SinglePCOTransactions = () => {
                 tooltipField: 'amountLocalCurrency',
                 tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
+                aggFunc: 'sum',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
@@ -263,7 +265,9 @@ const SinglePCOTransactions = () => {
                 loadingOverlayComponent={AGGridLoader}
                 tooltipShowDelay={0}
                 tooltipHideDelay={10000}
-                groupDisplayType={'groupRows'}
+                groupDisplayType={'singleColumn'}
+                showOpenedGroup={true}
+                suppressAggFuncInHeader={true}
             />
         </div>
 

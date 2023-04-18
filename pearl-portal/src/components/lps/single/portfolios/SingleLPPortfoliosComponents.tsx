@@ -132,6 +132,7 @@ const SingleLPPortfolios = () => {
                 tooltipField: 'amountInvested',
                 tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
+                aggFunc: 'sum',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
@@ -146,6 +147,7 @@ const SingleLPPortfolios = () => {
                 tooltipField: 'navEUR',
                 tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
+                aggFunc: 'sum',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
@@ -281,6 +283,9 @@ const SingleLPPortfolios = () => {
                         loadingOverlayComponent={AGGridLoader}
                         tooltipShowDelay={0}
                         tooltipHideDelay={10000}
+                        groupDisplayType={'singleColumn'}
+                        showOpenedGroup={true}
+                        suppressAggFuncInHeader={true}
                     />
                 </div>
             </Grid>

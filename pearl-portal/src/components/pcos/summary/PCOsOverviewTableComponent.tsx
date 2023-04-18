@@ -15,7 +15,7 @@ import {
     quantityValueFormatter,
 } from '../../../helpers/agGrid';
 import clsx from 'clsx';
-import { capitalizeLetters } from '../../../helpers/app';
+import { amountValueFormatter, capitalizeLetters } from '../../../helpers/app';
 import { ColDef, ColGroupDef, ValueSetterParams } from 'ag-grid-community/dist/lib/entities/colDef';
 import { useAppDispatch } from '../../../redux/store';
 import { Fund, LP, LPFundsOverview } from '../../../models/lps/lpModels';
@@ -53,6 +53,31 @@ const useStyles = makeStyles(() =>
     })
 );
 
+const CustomStatusBar = (props: any) => {
+    const theme = useTheme();
+
+    const sumInvestedAmount = () => {
+        const api = props.api;
+        let sumInvested = 0;
+        api.forEachNode((node: any) => {
+            if (node.group) {
+                return;
+            }
+            sumInvested += Number(node.data.amountInvestedLocalCcy ?? 0);
+        });
+        return <div>Invested Amount: <strong>{amountValueFormatter(sumInvested ?? 0, '')}</strong></div>;
+    };
+
+
+    return (
+        <div className="ag-status-bar" role="status">
+            <div className="ag-status-bar-part ag-status-name-value" style={{ fontFamily: 'Raleway', color: theme.palette.mode === 'dark' ? 'white' : 'black', lineHeight: 1.5, fontWeight: 500 }}>
+                {sumInvestedAmount()}
+            </div>
+        </div>
+    );
+};
+
 const PCOsOverviewTable = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
@@ -80,7 +105,17 @@ const PCOsOverviewTable = () => {
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         sideBar: DefaultSideBarDef,
-        statusBar: DefaultStatusPanelDef,
+        statusBar: {
+            statusPanels: [
+                {
+                    statusPanel: 'agTotalRowCountComponent',
+                    align: 'left',
+                },
+                {
+                    statusPanelFramework: CustomStatusBar,
+                },
+            ],
+        }
     };
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
@@ -145,6 +180,7 @@ const PCOsOverviewTable = () => {
                 headerName: 'Invested Capital',
                 field: 'amountInvestedLocalCcy',
                 enableRowGroup: true,
+                enableValue: true,
                 minWidth: 220,
                 type: 'numericColumn',
                 filter: 'agNumberColumnFilter',

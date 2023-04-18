@@ -29,6 +29,7 @@ import { fetchPCOs } from '../../../redux/thunks/pcoThunk';
 import FundsToolbar from './FundsToolbar';
 import { useNavigate } from 'react-router-dom';
 import { setSelectedFund } from '../../../redux/slices/funds/fundsSlice';
+import { amountValueFormatter } from '../../../helpers/app';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -53,6 +54,31 @@ const useStyles = makeStyles(() =>
         }
     })
 );
+
+const CustomStatusBar = (props: any) => {
+    const theme = useTheme();
+
+    const sumCommittedAmount = () => {
+        const api = props.api;
+        let sumCommitted = 0;
+        api.forEachNode((node: any) => {
+            if (node.group) {
+                return;
+            }
+            sumCommitted += Number(node.data.totalCommitmentsFundCcy);
+        });
+        return <div>Committed Amount: <strong>{amountValueFormatter(sumCommitted ?? 0, '')}</strong></div>;
+    };
+
+
+    return (
+        <div className="ag-status-bar" role="status">
+            <div className="ag-status-bar-part ag-status-name-value" style={{ fontFamily: 'Raleway', color: theme.palette.mode==='dark'?'white':'black', lineHeight:1.5, fontWeight:500}}>
+                {sumCommittedAmount()}
+            </div>
+        </div>
+    );
+};
 
 const FundsOverviewTable = () => {
     const classes = useStyles();
@@ -81,7 +107,17 @@ const FundsOverviewTable = () => {
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         sideBar: DefaultSideBarDef,
-        statusBar: DefaultStatusPanelDef,
+        statusBar: {
+            statusPanels: [
+                {
+                    statusPanel: 'agTotalRowCountComponent',
+                    align: 'left',
+                },
+                {
+                    statusPanelFramework: CustomStatusBar,
+                },
+            ],
+        }
     };
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
@@ -158,6 +194,7 @@ const FundsOverviewTable = () => {
                 enableRowGroup: true,
                 minWidth: 220,
                 type: 'numericColumn',
+                enableValue: true,
                 filter: 'agNumberColumnFilter',
                 tooltipComponentParams: { valueType: 'number' },
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },

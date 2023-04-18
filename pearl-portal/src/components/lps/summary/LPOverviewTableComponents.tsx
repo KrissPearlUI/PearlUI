@@ -27,6 +27,7 @@ import { fetchFunds } from '../../../redux/thunks/fundThunk';
 import { PCOSummary } from '../../../models/pcos/pcoModels';
 import { fetchPCOs } from '../../../redux/thunks/pcoThunk';
 import { useNavigate } from 'react-router-dom';
+import { amountValueFormatter } from '../../../helpers/app';
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -51,6 +52,39 @@ const useStyles = makeStyles(() =>
         }
     })
 );
+
+const CustomStatusBar = (props: any) => {
+    const theme = useTheme();
+
+    const sumCommittedAmount = () => {
+        const api = props.api;
+        let sumCommitted = 0;
+        let sumInvested = 0;
+        let sumDistributed = 0;
+        api.forEachNode((node: any) => {
+            if (node.group) {
+                return;
+            }
+            sumCommitted += Number(node.data.totalCommitments ?? 0);
+            sumInvested += Number(node.data.totalInvestments ?? 0);
+            sumDistributed += Number(node.data.totalDistributions ?? 0);
+        });
+        return <div style={{ display: 'flex', justifyContent: 'start', alignItems: 'center', flexDirection: 'row', flex: 1 }}>
+            <span style={{ marginRight: '1em' }}>Committed Amount: <strong>{amountValueFormatter(sumCommitted ?? 0, '')}</strong></span>
+            <span style={{ marginRight: '1em' }}>Invested Amount: <strong>{amountValueFormatter(sumInvested ?? 0, '')}</strong></span>
+            <span>Distributed Amount: <strong>{amountValueFormatter(sumDistributed ?? 0, '')}</strong></span>
+        </div>
+    };
+
+    return (
+        <div className="ag-status-bar" role="status">
+            <div className="ag-status-bar-part ag-status-name-value" style={{ fontFamily: 'Raleway', color: theme.palette.mode === 'dark' ? 'white' : 'black', lineHeight: 1.5, fontWeight: 500 }}>
+                {sumCommittedAmount()}
+            </div>
+        </div>
+    );
+};
+
 
 const LPOverviewTable = () => {
     const classes = useStyles();
@@ -79,7 +113,17 @@ const LPOverviewTable = () => {
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
         sideBar: DefaultSideBarDef,
-        statusBar: DefaultStatusPanelDef,
+        statusBar: {
+            statusPanels: [
+                {
+                    statusPanel: 'agTotalRowCountComponent',
+                    align: 'left',
+                },
+                {
+                    statusPanelFramework: CustomStatusBar,
+                },
+            ],
+        }
     };
 
 
@@ -154,6 +198,7 @@ const LPOverviewTable = () => {
                 headerName: 'Commited Capital',
                 field: 'totalCommitments',
                 enableRowGroup: true,
+                enableValue: true,
                 minWidth: 220,
                 filter: 'agNumberColumnFilter',
                 type: 'numericColumn',
@@ -354,6 +399,7 @@ const LPOverviewTable = () => {
                 minWidth: 185,
                 type: 'numericColumn',
                 filter: 'agNumberColumnFilter',
+                enableValue: true,
                 tooltipComponentParams: { valueType: 'number' },
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },
@@ -475,6 +521,7 @@ const LPOverviewTable = () => {
                 headerName: 'Capital Distributed',
                 field: 'totalDistributions',
                 filter: 'agNumberColumnFilter',
+                enableValue: true,
                 tooltipComponentParams: { valueType: 'number' },
                 type: 'numericColumn',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, cursor: 'pointer' },

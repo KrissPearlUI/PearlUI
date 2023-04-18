@@ -13,7 +13,7 @@ import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelD
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { fetchTransactions } from '../../../../redux/thunks/transactionsThunk';
 import { Transaction } from '../../../../models/transactions/transactionsModels';
-import { capitalizeLetters } from '../../../../helpers/app';
+import { amountValueFormatter, capitalizeLetters } from '../../../../helpers/app';
 
 
 const useStyles = makeStyles(() =>
@@ -33,6 +33,35 @@ const useStyles = makeStyles(() =>
 );
 //and (PCO_ID='Actn01' or PCO_ID='Agan01' or PCO_ID='Alph01' or PCO_ID='Elco01' or PCO_ID='Ensp01' or PCO_ID='Fido01' or PCO_ID='Futu01' or PCO_ID='GeoD01' or PCO_ID='Hydr01' or PCO_ID='Imag01' or PCO_ID='Libr01' or PCO_ID='Meea01' or PCO_ID='MetG01' or PCO_ID='Open01' or PCO_ID='Opti01' or PCO_ID='P9701' or PCO_ID='Phas01' or PCO_ID='Powe02' or PCO_ID='Rhom01' or PCO_ID='Secu01' or PCO_ID='Sewe01' or PCO_ID='Skyl01' or PCO_ID='Sofi01' or PCO_ID='Spea01' or PCO_ID='Trop01' or PCO_ID='Urge01' or PCO_ID='Ushr01' or PCO_ID='Vise01' or PCO_ID='Xfar01')
 
+const CustomStatusBar = (props: any) => {
+    const theme = useTheme();
+
+    const sumCommittedAmount = () => {
+        const api = props.api;
+        let sumAmountFundCcy = 0;
+        let sumAmountLocalCcy = 0;
+        api.forEachNode((node: any) => {
+            if (node.group) {
+                return;
+            }
+            sumAmountFundCcy += Number(node.data.amountFundCurrency ?? 0);
+            sumAmountLocalCcy += Number(node.data.amountLocalCurrency ?? 0);
+        });
+        return <div style={{ display: 'flex', justifyContent: 'start', alignItems: 'center', flexDirection: 'row', flex: 1 }}>
+            <span style={{ marginRight: '1em' }}>Total Amount Fund Ccy: <strong>{amountValueFormatter(sumAmountFundCcy ?? 0, '')}</strong></span>
+            <span style={{ marginRight: '1em' }}>Total Amount Local Ccy: <strong>{amountValueFormatter(sumAmountLocalCcy ?? 0, '')}</strong></span>
+        </div>
+    };
+
+    return (
+        <div className="ag-status-bar" role="status">
+            <div className="ag-status-bar-part ag-status-name-value" style={{ fontFamily: 'Raleway', color: theme.palette.mode === 'dark' ? 'white' : 'black', lineHeight: 1.5, fontWeight: 500 }}>
+                {sumCommittedAmount()}
+            </div>
+        </div>
+    );
+};
+
 const SingleFundTransactions = () => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
@@ -51,8 +80,18 @@ const SingleFundTransactions = () => {
         pagination: true,
         enableCellTextSelection: true,
         groupDisplayType: 'multipleColumns',
-        statusBar: DefaultStatusPanelDef,
         sideBar: DefaultSideBarDef,
+        statusBar: {
+            statusPanels: [
+                {
+                    statusPanel: 'agTotalRowCountComponent',
+                    align: 'left',
+                },
+                {
+                    statusPanelFramework: CustomStatusBar,
+                },
+            ],
+        }
     };
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
@@ -126,6 +165,7 @@ const SingleFundTransactions = () => {
                 field: 'amountFundCurrency',
                 enableRowGroup: true,
                 type: 'numericColumn',
+                enableValue: true,
                 tooltipField: 'amountFundCurrency',
                 tooltipComponentParams: { valueType: 'number' },
                 filter: 'agNumberColumnFilter',
@@ -139,6 +179,7 @@ const SingleFundTransactions = () => {
                 headerName: 'Amount Local Currency',
                 field: 'amountLocalCurrency',
                 enableRowGroup: true,
+                enableValue: true,
                 type: 'numericColumn',
                 tooltipField: 'amountLocalCurrency',
                 tooltipComponentParams: { valueType: 'number' },
