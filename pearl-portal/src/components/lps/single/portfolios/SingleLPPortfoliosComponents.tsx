@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Accordion, AccordionDetails, AccordionSummary, Grid, IconButton, Paper, Typography, useTheme } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams, } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, ICellRendererParams, INumberFilterParams, } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
@@ -11,7 +11,7 @@ import { useAppDispatch } from '../../../../redux/store';
 import { RootState } from '../../../../redux/slices/rootSlice';
 import { dateValueFormatter, DefaultSideBarDef, getGridTheme, DefaultColumnDef, DefaultStatusPanelDef, quantityValueFormatter, dateFilterParams } from '../../../../helpers/agGrid';
 import AGGridLoader from '../../../shared/AGGridLoader';
-import { capitalizeLetters } from '../../../../helpers/app';
+import { amountValueFormatter, capitalizeLetters } from '../../../../helpers/app';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { fetchPCOs, fetchPCOsFinantials } from '../../../../redux/thunks/pcoThunk';
 import { setPCOsExtended } from '../../../../redux/slices/lps/lpsSlice';
@@ -134,7 +134,13 @@ const SingleLPPortfolios = () => {
                 filter: 'agNumberColumnFilter',
                 aggFunc: 'sum',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
-                valueFormatter: quantityValueFormatter,
+                cellRenderer: (params: ICellRendererParams) => {
+                    if (params?.node?.group) {
+                        return <span style={{ fontWeight: 600}}>{amountValueFormatter(params.value ?? 0, '')}</span>
+                    } else {
+                        return amountValueFormatter(params.value ?? 0, '');
+                    }
+                },
                 filterParams: {
                     buttons: ['reset'],
                 } as INumberFilterParams,
@@ -149,7 +155,13 @@ const SingleLPPortfolios = () => {
                 filter: 'agNumberColumnFilter',
                 aggFunc: 'sum',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
-                valueFormatter: quantityValueFormatter,
+                cellRenderer: (params: ICellRendererParams) => {
+                    if (params?.node?.group) {
+                        return <span style={{ fontWeight: 600}}>{amountValueFormatter(params.value ?? 0, '')}</span>
+                    } else {
+                        return amountValueFormatter(params.value ?? 0, '');
+                    }
+                },
                 filterParams: {
                     buttons: ['reset'],
                 } as INumberFilterParams,

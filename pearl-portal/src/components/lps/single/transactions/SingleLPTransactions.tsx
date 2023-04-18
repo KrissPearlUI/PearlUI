@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
-import { Column, GridApi, GridOptions, GridReadyEvent, INumberFilterParams } from 'ag-grid-community';
+import { Column, GridApi, GridOptions, GridReadyEvent, ICellRendererParams, INumberFilterParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
@@ -13,7 +13,7 @@ import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelD
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { fetchTransactions } from '../../../../redux/thunks/transactionsThunk';
 import { Transaction } from '../../../../models/transactions/transactionsModels';
-import { capitalizeLetters } from '../../../../helpers/app';
+import { amountValueFormatter, capitalizeLetters } from '../../../../helpers/app';
 
 
 const useStyles = makeStyles(() =>
@@ -140,7 +140,13 @@ const SingleLPTransactions = () => {
                 aggFunc: 'sum',
                 enableValue: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
-                valueFormatter: quantityValueFormatter,
+                cellRenderer: (params: ICellRendererParams) => {
+                    if (params?.node?.group) {
+                        return <span style={{ fontWeight: 600}}>{amountValueFormatter(params.value ?? 0, '')}</span>
+                    } else {
+                        return amountValueFormatter(params.value ?? 0, '');
+                    }
+                },
                 filterParams: {
                     buttons: ['reset'],
                 } as INumberFilterParams,
@@ -157,7 +163,13 @@ const SingleLPTransactions = () => {
                 aggFunc: 'sum',
                 enableValue: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
-                valueFormatter: quantityValueFormatter,
+                cellRenderer: (params: ICellRendererParams) => {
+                    if (params?.node?.group) {
+                        return <span style={{ fontWeight: 600}}>{amountValueFormatter(params.value ?? 0, '')}</span>
+                    } else {
+                        return amountValueFormatter(params.value ?? 0, '');
+                    }
+                },
                 filterParams: {
                     buttons: ['reset'],
                 } as INumberFilterParams,

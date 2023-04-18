@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, ICellRendererParams, INumberFilterParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
@@ -13,7 +13,7 @@ import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelD
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { fetchTransactions } from '../../../../redux/thunks/transactionsThunk';
 import { Transaction } from '../../../../models/transactions/transactionsModels';
-import { capitalizeLetters } from '../../../../helpers/app';
+import { amountValueFormatter, capitalizeLetters } from '../../../../helpers/app';
 
 
 const useStyles = makeStyles(() =>
@@ -65,7 +65,7 @@ const SinglePCOTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary, marginLeft: 30 },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Date',
@@ -85,7 +85,7 @@ const SinglePCOTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Investment Type',
@@ -94,12 +94,12 @@ const SinglePCOTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'LP Short Name',
                 field: 'lpShortName',
-                tooltipField:'lpShortName',
+                tooltipField: 'lpShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
@@ -107,17 +107,17 @@ const SinglePCOTransactions = () => {
                 },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Security Type',
                 field: 'securityType',
-                tooltipField:'securityType',
+                tooltipField: 'securityType',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Amount Fund Currency',
@@ -129,10 +129,16 @@ const SinglePCOTransactions = () => {
                 filter: 'agNumberColumnFilter',
                 aggFunc: 'sum',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
-                valueFormatter: quantityValueFormatter,
+                cellRenderer: (params: ICellRendererParams) => {
+                    if (params?.node?.group) {
+                        return <span style={{ fontWeight: 600}}>{amountValueFormatter(params.value ?? 0, '')}</span>
+                    } else {
+                        return amountValueFormatter(params.value ?? 0, '');
+                    }
+                },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Amount Local Currency',
@@ -144,10 +150,16 @@ const SinglePCOTransactions = () => {
                 filter: 'agNumberColumnFilter',
                 aggFunc: 'sum',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
-                valueFormatter: quantityValueFormatter,
+                cellRenderer: (params: ICellRendererParams) => {
+                    if (params?.node?.group) {
+                        return <span style={{ fontWeight: 600}}>{amountValueFormatter(params.value ?? 0, '')}</span>
+                    } else {
+                        return amountValueFormatter(params.value ?? 0, '');
+                    }
+                },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Forex NT',
@@ -161,7 +173,7 @@ const SinglePCOTransactions = () => {
                 valueFormatter: forexValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Pre Money Valuation',
@@ -175,7 +187,7 @@ const SinglePCOTransactions = () => {
                 valueFormatter: prePostmoneyValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Post Money Valuation',
@@ -189,7 +201,7 @@ const SinglePCOTransactions = () => {
                 valueFormatter: prePostmoneyValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Warrant Security Type',
@@ -199,7 +211,7 @@ const SinglePCOTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Warrant Strike',
@@ -214,7 +226,7 @@ const SinglePCOTransactions = () => {
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Due Date',
@@ -225,7 +237,7 @@ const SinglePCOTransactions = () => {
                 valueFormatter: dateValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
         ];
     }, [theme]);
