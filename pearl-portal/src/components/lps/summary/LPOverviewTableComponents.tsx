@@ -233,7 +233,7 @@ const LPOverviewTable = () => {
                 enableRowGroup: true,
                 tooltipValueGetter: (params: ITooltipParams<any, any>) => {
                     if (params && params.data) {
-                        if (selectedPCOValues && selectedPCOValues.length > 0) {
+                        if (selectedPCOValues && selectedPCOValues.length > 0 && selectedFundValues && selectedFundValues.length <= 0) {
                             const pcosSelected: PCO[] | null = params.data.pcos?.filter((item2: PCO) => selectedPCOValues.some(val => val.id === item2.id));
                             return pcosSelected ?? params.data.pcos
                         } else if (selectedPCOValues && selectedPCOValues.length <= 0 && selectedFundValues && selectedFundValues.length > 0) {
@@ -248,6 +248,30 @@ const LPOverviewTable = () => {
                                 selectedFundValues.map((b) => b.id).includes(company.fundId)
                             );
                             return filteredPortfolioCompaniesA ?? params.data.pcos
+                        }
+                        else if (selectedPCOValues && selectedPCOValues.length > 0 && selectedFundValues && selectedFundValues.length > 0) {
+                            const pcosSelected: PCO[] | null = params.data.pcos?.filter((item2: PCO) => selectedPCOValues.some(val => val.id === item2.id));
+                            const data = pcosSelected?.map((pco: PCO) => ({
+                                ...pco,
+                                fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                            }
+                            ));
+                            const filteredPortfolioCompaniesA = data?.filter((company: any) =>
+                                selectedFundValues.map((b) => b.id).includes(company.fundId));
+
+                            let filteredByFundCompanies: any[] = [];
+                            if (filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length <= 0) {
+                                const dataAll = params.data.pcos?.map((pco: PCO) => ({
+                                    ...pco,
+                                    fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                                }
+                                ));
+                                filteredByFundCompanies = dataAll?.filter((company: any) =>
+                                    selectedFundValues.map((b) => b.id).includes(company.fundId));
+
+                                filteredByFundCompanies = pcosSelected ? [...pcosSelected, ...filteredByFundCompanies] : filteredByFundCompanies;
+                            }
+                            return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA : filteredByFundCompanies && filteredByFundCompanies.length > 0 ? filteredByFundCompanies : params.data.pcos
                         }
                         else {
                             return params.data.pcos
@@ -272,6 +296,29 @@ const LPOverviewTable = () => {
                                 selectedFundValues.map((b) => b.id).includes(company.fundId)
                             );
                             return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.length : params.data.pcos?.length
+                        } else if (selectedPCOValues && selectedPCOValues.length > 0 && selectedFundValues && selectedFundValues.length > 0) {
+                            const pcosSelected: PCO[] | null = params.data.pcos?.filter((item2: PCO) => selectedPCOValues.some(val => val.id === item2.id));
+                            const data = pcosSelected?.map((pco: PCO) => ({
+                                ...pco,
+                                fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                            }
+                            ));
+                            const filteredPortfolioCompaniesA = data?.filter((company: any) =>
+                                selectedFundValues.map((b) => b.id).includes(company.fundId));
+
+                            let filteredByFundCompanies: any[] = [];
+                            if (filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length <= 0) {
+                                const dataAll = params.data.pcos?.map((pco: PCO) => ({
+                                    ...pco,
+                                    fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                                }
+                                ));
+                                filteredByFundCompanies = dataAll?.filter((company: any) =>
+                                    selectedFundValues.map((b) => b.id).includes(company.fundId));
+
+                                filteredByFundCompanies = [pcosSelected, ...filteredByFundCompanies];
+                            }
+                            return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.length : filteredByFundCompanies && filteredByFundCompanies.length > 0 ? filteredByFundCompanies.length : params.data.pcos?.length
                         }
                         else {
                             return params.data.pcos?.length ?? 0
@@ -327,6 +374,29 @@ const LPOverviewTable = () => {
                                 selectedFundValues.map((b) => b.id).includes(company.fundId)
                             );
                             return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.reduce((a: number, v: PCO) => a = a + (v.amountInvested ?? 0), 0) : params.data.totalInvestments
+                        } else if (selectedPCOValues && selectedPCOValues.length > 0 && selectedFundValues && selectedFundValues.length > 0) {
+                            const pcosSelected: PCO[] | null = params.data.pcos?.filter((item2: PCO) => selectedPCOValues.some(val => val.id === item2.id));
+                            const data = pcosSelected?.map((pco: PCO) => ({
+                                ...pco,
+                                fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                            }
+                            ));
+                            const filteredPortfolioCompaniesA = data?.filter((company: any) =>
+                                selectedFundValues.map((b) => b.id).includes(company.fundId));
+
+                            let filteredByFundCompanies: any[] = [];
+                            if (filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length <= 0) {
+                                const dataAll = params.data.pcos?.map((pco: PCO) => ({
+                                    ...pco,
+                                    fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                                }
+                                ));
+                                filteredByFundCompanies = dataAll?.filter((company: any) =>
+                                    selectedFundValues.map((b) => b.id).includes(company.fundId));
+
+                                filteredByFundCompanies = pcosSelected ? [...pcosSelected, ...filteredByFundCompanies] : filteredByFundCompanies;
+                            }
+                            return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.reduce((a: number, v: PCO) => a = a + (v.amountInvested ?? 0), 0) : filteredByFundCompanies && filteredByFundCompanies.length > 0 ? filteredByFundCompanies.reduce((a: number, v: PCO) => a = a + (v.amountInvested ?? 0), 0) : params.data.pcos
                         }
                         else {
                             return params.data.totalInvestments ?? 0
@@ -351,6 +421,29 @@ const LPOverviewTable = () => {
                                 selectedFundValues.map((b) => b.id).includes(company.fundId)
                             );
                             return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.reduce((a: number, v: PCO) => a = a + (v.amountInvested ?? 0), 0) : params.data.totalInvestments
+                        } else if (selectedPCOValues && selectedPCOValues.length > 0 && selectedFundValues && selectedFundValues.length > 0) {
+                            const pcosSelected: PCO[] | null = params.data.pcos?.filter((item2: PCO) => selectedPCOValues.some(val => val.id === item2.id));
+                            const data = pcosSelected?.map((pco: PCO) => ({
+                                ...pco,
+                                fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                            }
+                            ));
+                            const filteredPortfolioCompaniesA = data?.filter((company: any) =>
+                                selectedFundValues.map((b) => b.id).includes(company.fundId));
+
+                            let filteredByFundCompanies: any[] = [];
+                            if (filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length <= 0) {
+                                const dataAll = params.data.pcos?.map((pco: PCO) => ({
+                                    ...pco,
+                                    fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                                }
+                                ));
+                                filteredByFundCompanies = dataAll?.filter((company: any) =>
+                                    selectedFundValues.map((b) => b.id).includes(company.fundId));
+
+                                filteredByFundCompanies = pcosSelected ? [...pcosSelected, ...filteredByFundCompanies] : filteredByFundCompanies;
+                            }
+                            return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.reduce((a: number, v: PCO) => a = a + (v.amountInvested ?? 0), 0) : filteredByFundCompanies && filteredByFundCompanies.length > 0 ? filteredByFundCompanies.reduce((a: number, v: PCO) => a = a + (v.amountInvested ?? 0), 0) : params.data.pcos
                         }
                         else {
                             return params.data.totalInvestments ?? 0
@@ -405,6 +498,30 @@ const LPOverviewTable = () => {
                             );
                             return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.reduce((a: number, v: Exits) => a = a + (v.amountGained ?? 0), 0) : params.data.totalDistributions
                         }
+                        else if (selectedPCOValues && selectedPCOValues.length > 0 && selectedFundValues && selectedFundValues.length > 0) {
+                            const pcosSelected: Exits[] | null = params.data.exits?.filter((item2: Exits) => selectedPCOValues.some(val => val.id === item2.pcoId));
+                            const data = pcosSelected?.map((pco: Exits) => ({
+                                ...pco,
+                                fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.pcoId)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                            }
+                            ));
+                            const filteredPortfolioCompaniesA = data?.filter((company: any) =>
+                                selectedFundValues.map((b) => b.id).includes(company.fundId));
+
+                            let filteredByFundCompanies: any[] = [];
+                            if (filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length <= 0) {
+                                const dataAll = params.data.exits?.map((pco: Exits) => ({
+                                    ...pco,
+                                    fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.pcoId)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                                }
+                                ));
+                                filteredByFundCompanies = dataAll?.filter((company: any) =>
+                                    selectedFundValues.map((b) => b.id).includes(company.fundId));
+
+                                filteredByFundCompanies = pcosSelected ? [...pcosSelected, ...filteredByFundCompanies] : filteredByFundCompanies;
+                            }
+                            return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.reduce((a: number, v: Exits) => a = a + (v.amountGained ?? 0), 0) : filteredByFundCompanies && filteredByFundCompanies.length > 0 ? filteredByFundCompanies.reduce((a: number, v: Exits) => a = a + (v.amountGained ?? 0), 0) : params.data.totalDistributions ?? 0
+                        }
                         else {
                             return params.data.totalDistributions ?? 0
                         }
@@ -428,6 +545,30 @@ const LPOverviewTable = () => {
                                 selectedFundValues.map((b) => b.id).includes(company.fundId)
                             );
                             return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.reduce((a: number, v: Exits) => a = a + (v.amountGained ?? 0), 0) : params.data.totalDistributions
+                        }
+                        else if (selectedPCOValues && selectedPCOValues.length > 0 && selectedFundValues && selectedFundValues.length > 0) {
+                            const pcosSelected: Exits[] | null = params.data.exits?.filter((item2: Exits) => selectedPCOValues.some(val => val.id === item2.pcoId));
+                            const data = pcosSelected?.map((pco: Exits) => ({
+                                ...pco,
+                                fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.pcoId)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                            }
+                            ));
+                            const filteredPortfolioCompaniesA = data?.filter((company: any) =>
+                                selectedFundValues.map((b) => b.id).includes(company.fundId));
+
+                            let filteredByFundCompanies: any[] = [];
+                            if (filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length <= 0) {
+                                const dataAll = params.data.exits?.map((pco: Exits) => ({
+                                    ...pco,
+                                    fundId: params.data?.funds?.filter((item: Fund) => pcos.filter(z => z.id === pco.pcoId)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                                }
+                                ));
+                                filteredByFundCompanies = dataAll?.filter((company: any) =>
+                                    selectedFundValues.map((b) => b.id).includes(company.fundId));
+
+                                filteredByFundCompanies = pcosSelected ? [...pcosSelected, ...filteredByFundCompanies] : filteredByFundCompanies;
+                            }
+                            return filteredPortfolioCompaniesA && filteredPortfolioCompaniesA.length > 0 ? filteredPortfolioCompaniesA.reduce((a: number, v: Exits) => a = a + (v.amountGained ?? 0), 0) : filteredByFundCompanies && filteredByFundCompanies.length > 0 ? filteredByFundCompanies.reduce((a: number, v: Exits) => a = a + (v.amountGained ?? 0), 0) : params.data.totalDistributions ?? 0
                         }
                         else {
                             return params.data.totalDistributions ?? 0
