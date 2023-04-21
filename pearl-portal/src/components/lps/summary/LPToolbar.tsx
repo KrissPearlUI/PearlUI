@@ -132,7 +132,7 @@ const LPToolbar = ({ searchText,
     onFundChange,
     onPCOChange }: LPToolbarProps) => {
     const classes = useStyles();
-    const autocompleteInputClasses = autocompleteInputStyles()
+    const autocompleteInputClasses = autocompleteInputStyles();
 
     return (
         <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', marginBottom: '0.5em', width: '100%', overflow: 'hidden', paddingTop: { xs: '0.5em', md: '0.1em', lg: '0.1em' } }}>

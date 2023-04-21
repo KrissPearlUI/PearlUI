@@ -56,6 +56,10 @@ const PCOChartComponent = () => {
     const options = {
         chart: {
             type: 'bubble',
+            backgroundColor: null,
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
         },
         title: 'none',
         xAxis: {

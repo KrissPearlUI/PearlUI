@@ -52,7 +52,7 @@ const CountryPieChart = ({ chartDataValues }: any) => {
                 showInLegend: true,
             }
         }, */
-        colors: ['#2E41A0', '##779DD6', '#25607E', '#2667FF', '#457FD7', '#62B6CB', '#00B4D8', '#1B4357', '#86C7E3', '#56CFE1', '#64DFDF', '#5E60CE'],
+        colors: ['#2E41A0', '#779DD6', '#25607E', '#2667FF', '#457FD7', '#62B6CB', '#00B4D8', '#1B4357', '#86C7E3', '#56CFE1', '#64DFDF', '#5E60CE'],
         /* legend: {
             enabled: true, // show the legend
             align: 'center',

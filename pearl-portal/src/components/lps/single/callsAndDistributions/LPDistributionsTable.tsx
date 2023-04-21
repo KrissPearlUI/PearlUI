@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams } from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, ICellRendererParams, INumberFilterParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
@@ -13,7 +13,7 @@ import { dateValueFormatter, getGridTheme, DefaultColumnDef, DefaultStatusPanelD
 import AGGridLoader from '../../../shared/AGGridLoader';
 import { DistributionBasic } from '../../../../models/distributions/distributionsModels';
 import { fetchAllDistributions } from '../../../../redux/thunks/distributionsThunk';
-import { capitalizeLetters } from '../../../../helpers/app';
+import { amountValueFormatter, capitalizeLetters } from '../../../../helpers/app';
 
 
 const useStyles = makeStyles(() =>
@@ -137,7 +137,13 @@ const SingleLPDistributionsTable = () => {
                 filter: 'agNumberColumnFilter',
                 aggFunc: 'sum',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
-                valueFormatter: quantityValueFormatter,
+                cellRenderer: (params: ICellRendererParams) => {
+                    if (params?.node?.group) {
+                        return <span style={{ fontWeight: 600}}>{amountValueFormatter(params.value ?? 0, '')}</span>
+                    } else {
+                        return amountValueFormatter(params.value ?? 0, '');
+                    }
+                },
                 filterParams: {
                     buttons: ['reset'],
                 } as INumberFilterParams,

@@ -51,10 +51,8 @@ const LandingrPage = () => {
                 <InfoCardsComponent />
             </Grid>
             <Grid item xs={12} md={12} lg={12} className={classes.summary}>
-                <Paper elevation={3} style={{ marginBottom: '1em' }}>
-                    <Grid item container className={classes.chart}>
-                        <LPChartComponent />
-                    </Grid>
+                <Paper elevation={3} style={{ padding: '0.5em', paddingBottom: 0, height: '530px' }}>
+                    <LPChartComponent />
                 </Paper>
             </Grid>
             <Grid container spacing={2} item xs={12} md={12} lg={12}>

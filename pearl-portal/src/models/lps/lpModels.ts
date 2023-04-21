@@ -30,7 +30,8 @@ export interface LP {
     dateTappedOut?: string,
     kpis?: KPI,
     city?: string,
-    postalCode?: string
+    postalCode?: string,
+    commitmentsOverview: Commitment[]
 }
 
 export interface TerminationFundLP {
@@ -81,10 +82,11 @@ export interface PCOExtended extends PCO {
 }
 
 export interface Commitment {
-    invested: number,
-    reservedForFees: number,
-    followOns: number,
-    unlocated: number,
+    invested?: number,
+    reservedForFees?: number,
+    followOns?: number,
+    unlocated?: number,
+    fundId?: string
 }
 
 export interface Fee {
