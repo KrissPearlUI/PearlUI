@@ -190,17 +190,35 @@ const LPChartComponent = () => {
             pointFormat: "<b>{series.name}: {point.y:,.2f}</b>",
         },
         plotOptions: {
+            series: {
+                states: {
+                    hover: {
+                        brightness: 0.1, // Reduce the brightness of the entire series on hover
+                        enabled: true,
+                        halo: {
+                            size: 0 // Remove the halo around the hovered stack
+                        }
+                    }
+                }
+            },
             column: {
                 stacking: 'normal',
                 dataLabels: {
                     enabled: true,
                     format: '{point.y:,.2f}  %'
                 },
-                stickyTracking: false
+                stickyTracking: false,
+                states: {
+                    hover: {
+                        opacity: 1// Reduce the opacity of other columns on hover
+                    }
+
+                }
             }
         },
         legend: {
-            reversed: true
+            reversed: true,
+            margin: 0
         },
         series: [
             {
@@ -222,7 +240,8 @@ const LPChartComponent = () => {
         ],
         colors: ['#008000', '#80C080', '#FBE498', '#25607E'],
         scrollbar: {
-            enabled: true, // show scrollbar
+            enabled: true,
+            margin: 0,
             liveRedraw: false // increase performance by redrawing scrollbar only when released
         },
     };
