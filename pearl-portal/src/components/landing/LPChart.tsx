@@ -257,19 +257,19 @@ const LPChartComponent = () => {
         },
         series: [
             {
-                name: "Unlocated",
+                name: "Unallocated Reserves (Dry Powder)",
                 data: chartDataValues.filter(x => x.name === 'Unallocated')[0]?.data?.flatMap((x: SeriesSubData) => x.value),
             },
             {
-                name: "Follow Ons",
+                name: "Reserves for follow-on investments",
                 data: chartDataValues.filter(x => x.name === 'Follow Ons')[0]?.data?.flatMap((x: SeriesSubData) => x.value),
             },
             {
-                name: "Reserved Fees",
+                name: "Reserves for Fees (5 Years)",
                 data: chartDataValues.filter(x => x.name === 'Reserved Fees')[0]?.data?.flatMap((x: SeriesSubData) => x.value),
             },
             {
-                name: "Invested",
+                name: "Invested Capital",
                 data: chartDataValues.filter(x => x.name === 'Invested')[0]?.data?.flatMap((x: SeriesSubData) => x.value),
             },
         ],
