@@ -48,7 +48,7 @@ const SinglePCO = () => {
             <Grid item xs={12} md={12} lg={12} sx={{ flex: 1 }}>
                 <Grid container spacing={2} sx={{ display: 'flex', flex: 1, width: '100%', height: '100%', alignItems: 'start' }}>
                     <Grid item xs={12} md={6} lg={6}>
-                        <AutocompletePCOComponent selectedPCO={selectedPCO} />
+                        {selectedPCO && <AutocompletePCOComponent selectedPCO={selectedPCO} />}
                     </Grid>
                     <Grid item xs={12} md={6} lg={6} sx={{ display: 'flex', flex: 1, justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' }, alignSelf: 'flex-end' }}>
                         <DatePickerPCOComponent />

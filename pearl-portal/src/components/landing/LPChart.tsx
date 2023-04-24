@@ -133,7 +133,7 @@ const LPChartComponent = () => {
     const autocompleteInputClasses = autocompleteInputStyles();
     const { funds } = useSelector((state: RootState) => state.funds);
     const { lps } = useSelector((state: RootState) => state.lps);
-    const [selectedFundValue, setSelectedFundValue] = useState<FundSummary | null>(null);
+    const [selectedFundValue, setSelectedFundValue] = useState<FundSummary>(funds[0]);
     const [categories, setCategories] = useState<string[]>([]);
     const [chartDataValues, setChartDataValues] = useState<Array<any>>([]);
     const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
@@ -238,9 +238,9 @@ const LPChartComponent = () => {
                 dataLabels: {
                     enabled: true,
                     format: '{point.y:,.2f}  %',
-                     style: {
+                    style: {
                         fontFamily: "Raleway",
-                    }, 
+                    },
                 },
                 stickyTracking: false,
                 states: {
@@ -386,7 +386,7 @@ const LPChartComponent = () => {
                     sx={{ marginRight: '1em', width: '320px' }}
                     isOptionEqualToValue={(option, value) => option === value}
                     onChange={(e, value: FundSummary) => onFundChange(e, value)}
-                    value={selectedFundValue ?? undefined}
+                    value={selectedFundValue ?? null}
                     options={funds ?? []}
                     getOptionLabel={(option: FundSummary) => option ? option.id : ''}
                     renderInput={(params: AutocompleteRenderInputParams) => {

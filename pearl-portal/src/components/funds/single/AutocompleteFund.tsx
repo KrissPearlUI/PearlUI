@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface AutocompleteFundProps {
-    selectedFund: FundSummary | null,
+    selectedFund: FundSummary,
 }
 
 const AutocompleteFundComponent = ({ selectedFund }: AutocompleteFundProps) => {
@@ -93,7 +93,7 @@ const AutocompleteFundComponent = ({ selectedFund }: AutocompleteFundProps) => {
     const autocompleteInputClasses = autocompleteInputStyles();
     const dispatch = useAppDispatch();
     const { funds } = useSelector((state: RootState) => state.funds);
-    const [selectedFundValue, setSelectedFundValue] = useState<FundSummary | null>(selectedFund);
+    const [selectedFundValue, setSelectedFundValue] = useState<FundSummary>(selectedFund);
 
     const onFundChange = (event: React.SyntheticEvent, value: FundSummary) => {
         event.preventDefault();

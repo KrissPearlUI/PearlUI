@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface AutocompleteLPProps {
-    selectedLP: LP | null,
+    selectedLP: LP,
 }
 
 const AutocompleteLPComponent = ({ selectedLP }: AutocompleteLPProps) => {
@@ -93,7 +93,7 @@ const AutocompleteLPComponent = ({ selectedLP }: AutocompleteLPProps) => {
     const autocompleteInputClasses = autocompleteInputStyles();
     const dispatch = useAppDispatch();
     const { lps } = useSelector((state: RootState) => state.lps);
-    const [selectedLPValue, setSelectedLPValue] = useState<LP | null>(selectedLP);
+    const [selectedLPValue, setSelectedLPValue] = useState<LP>(selectedLP);
 
     const onLPChange = (event: React.SyntheticEvent, value: any) => {
         event.preventDefault();
@@ -119,7 +119,7 @@ const AutocompleteLPComponent = ({ selectedLP }: AutocompleteLPProps) => {
             sx={{ marginRight: '1em', width: '320px' }}
             isOptionEqualToValue={(option, value) => option === value}
             onChange={(e, value: LP | null) => onLPChange(e, value)}
-            value={selectedLPValue ?? undefined}
+            value={selectedLPValue ?? null}
             options={lps ?? []}
             getOptionLabel={(option: LP | null) => option ? option.shortName : ''}
             renderInput={(params: AutocompleteRenderInputParams) => {

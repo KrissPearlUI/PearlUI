@@ -51,7 +51,7 @@ const SingleLP = () => {
             <Grid item xs={12} sm={12} md={12} lg={12} sx={{ flex: 1 }}>
                 <Grid container spacing={2} sx={{ display: 'flex', flex: 1, width: '100%', height: '100%', alignItems: 'start' }}>
                     <Grid item xs={12} md={6} lg={6}>
-                        <AutocompleteLPComponent selectedLP={selectedLP} />
+                        {selectedLP && <AutocompleteLPComponent selectedLP={selectedLP} />}
                     </Grid>
                     <Grid item xs={12} md={6} lg={6} sx={{ display: 'flex', flex: 1, justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' }, alignSelf: 'flex-end' }}>
                         <DatePickerLPComponent />
@@ -100,17 +100,17 @@ const SingleLP = () => {
                             : 'Add New Transaction'} />
 
             <EditDialogComponent pageName={selectedView === 'basic' ? 'lpBasic'
-            :selectedView === 'commitments' ? 'commitments'
-                : selectedView === 'portfolio' ? 'lpPortfolio'
-                    : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'callsComponent'
-                        : 'distributionComponent'
-                        : 'transactions'}
+                : selectedView === 'commitments' ? 'commitments'
+                    : selectedView === 'portfolio' ? 'lpPortfolio'
+                        : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'callsComponent'
+                            : 'distributionComponent'
+                            : 'transactions'}
                 pageTitle={selectedView === 'basic' ? 'Edit Basic Details'
-                    :selectedView === 'commitments' ? 'Edit Commitment'
-                    : selectedView === 'portfolio' ? 'Edit Portfolio'
-                        : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'Edit Call'
-                            : 'Edit Distribution'
-                            : 'Edit Transaction'} />
+                    : selectedView === 'commitments' ? 'Edit Commitment'
+                        : selectedView === 'portfolio' ? 'Edit Portfolio'
+                            : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'Edit Call'
+                                : 'Edit Distribution'
+                                : 'Edit Transaction'} />
         </Grid>
     );
 };

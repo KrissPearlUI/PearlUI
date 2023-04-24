@@ -85,7 +85,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface AutocompletePCOsProps {
-    selectedPCO: PCOSummary | null,
+    selectedPCO: PCOSummary,
 }
 
 const AutocompletePCOComponent = ({ selectedPCO }: AutocompletePCOsProps) => {
@@ -93,7 +93,7 @@ const AutocompletePCOComponent = ({ selectedPCO }: AutocompletePCOsProps) => {
     const autocompleteInputClasses = autocompleteInputStyles();
     const dispatch = useAppDispatch();
     const { pcos } = useSelector((state: RootState) => state.pcos);
-    const [selectedPCOValue, setSelectedPCOValue] = useState<PCOSummary | null>(selectedPCO);
+    const [selectedPCOValue, setSelectedPCOValue] = useState<PCOSummary>(selectedPCO);
 
     const onPCOChange = (event: React.SyntheticEvent, value: any) => {
         event.preventDefault();
@@ -118,7 +118,7 @@ const AutocompletePCOComponent = ({ selectedPCO }: AutocompletePCOsProps) => {
             sx={{ marginRight: '1em', width: '320px' }}
             isOptionEqualToValue={(option, value) => option === value}
             onChange={(e, value: PCOSummary | null) => onPCOChange(e, value)}
-            value={selectedPCOValue ?? undefined}
+            value={selectedPCOValue ?? null}
             options={pcos ?? []}
             getOptionLabel={(option: PCOSummary | null) => option ? option.shortName : ''}
             renderInput={(params: AutocompleteRenderInputParams) => {
