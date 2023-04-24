@@ -13,6 +13,22 @@
 		"reservesFees": 700000,
 		"totalDistributions": 5715050.425820799,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFIII",
+				"invested": 4283132.88,
+				"reservedForFees": 350000,
+				"followOns": 266867.12,
+				"unlocated": 100000
+			},
+			{
+				"fundId": "EIIF",
+				"invested": 1723268.296,
+				"reservedForFees": 350000,
+				"followOns": 1500000,
+				"unlocated": 1426731.704
+			}
+		],
 		"kpis": {
 			"netIRR": 0.336452067
 		},
@@ -598,6 +614,15 @@
 		"reservesFees": 700000,
 		"totalDistributions": 1169477.8200001,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 4017432.287,
+				"reservedForFees": 700000,
+				"followOns": 200000,
+				"unlocated": 82567.713
+			}
+		],
 		"kpis": {
 			"netIRR": 0.245512015
 		},
@@ -875,10 +900,19 @@
 		"type": "Corporate",
 		"firstInvestment": "2016-09-14",
 		"totalCommitments": 5000000,
-		"totalInvestments": 5730290.176,
+		"totalInvestments": 2588585.694,
 		"reservesFees": 700000,
 		"totalDistributions": 2409341.425057001,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 2588585.694,
+				"reservedForFees": 700000,
+				"followOns": 1000000,
+				"unlocated": 711414.306
+			}
+		],
 		"kpis": {
 			"netIRR": 0.292342263
 		},
@@ -1288,10 +1322,28 @@
 		"type": "Corporate",
 		"firstInvestment": "2019-12-20",
 		"totalCommitments": 10000000,
-		"totalInvestments": 1492696.517,
+		"totalInvestments": 1044690.016,
 		"reservesFees": 700000,
 		"totalDistributions": 649251.83,
+		"reservedFollowOns": 2000000,
+		"unallocatedAmount": 6255309.984,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 1044690.016,
+				"reservedForFees": 350000,
+				"followOns": 2000000,
+				"unlocated": 1605309.984
+			},
+			{
+				"fundId": "ESPIF",
+				"invested": 0,
+				"reservedForFees": 350000,
+				"followOns": 2000000,
+				"unlocated": 2650000
+			}
+		],
 		"kpis": {
 			"netIRR": -0.529830547
 		},
@@ -1484,10 +1536,19 @@
 		"type": "Corporate",
 		"firstInvestment": "2017-01-06",
 		"totalCommitments": 10000000,
-		"totalInvestments": 8948258.632,
+		"totalInvestments": 4686527.345,
 		"reservesFees": 1400000,
 		"totalDistributions": 2506538.53512,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 4686527.345,
+				"reservedForFees": 1400000,
+				"followOns": 2000000,
+				"unlocated": 1913472.655
+			}
+		],
 		"kpis": {
 			"netIRR": 0.195155686
 		},
@@ -1783,6 +1844,17 @@
 		"reservesFees": 700000,
 		"totalDistributions": 5689906.835659199,
 		"tappedOot": false,
+		"reservedFollowOns": 2000000,
+		"unallocatedAmount": 1329657.112,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 5970342.888,
+				"reservedForFees": 700000,
+				"followOns": 2000000,
+				"unlocated": 1329657.112
+			}
+		],
 		"kpis": {
 			"netIRR": 0.35149289
 		},
@@ -2336,10 +2408,63 @@
 		"type": "General Partner",
 		"firstInvestment": "2005-06-03",
 		"totalCommitments": 5250000,
-		"totalInvestments": 2105578.025,
+		"totalInvestments": 1698639.426053024,
 		"reservesFees": 140000,
 		"totalDistributions": 1396060.80645418,
 		"tappedOot": false,
+		"reservedFollowOns": 2000000,
+		"unallocatedAmount": 1329657.112,
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 592965.9583,
+				"reservedForFees": 20000,
+				"followOns": 100000,
+				"unlocated": 37034.0417
+			},
+			{
+				"fundId": "ECFIII",
+				"invested": 656626.5855,
+				"reservedForFees": 100000,
+				"followOns": 140400,
+				"unlocated": 102973.4145
+			},
+			{
+				"fundId": "EGETF",
+				"invested": 17342.285853024,
+				"reservedForFees": 120000,
+				"followOns": 230880,
+				"unlocated": 131777.714146976
+			},
+			{
+				"fundId": "EGWIF",
+				"invested": 148951.2035,
+				"reservedForFees": 250000,
+				"followOns": 250500,
+				"unlocated": 350548.7965
+			},
+			{
+				"fundId": "EIIF",
+				"invested": 282753.3929,
+				"reservedForFees": 140000,
+				"followOns": 324513,
+				"unlocated": 252733.6071
+			},
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 50000,
+				"followOns": 200000,
+				"unlocated": 250000
+			},
+			{
+				"fundId": "ESPIF",
+				"invested": 0,
+				"reservedForFees": 50000,
+				"followOns": 200000,
+				"unlocated": 250000
+			}
+		],
 		"kpis": {
 			"netIRR": -2.503129384
 		},
@@ -3235,6 +3360,15 @@
 		"reservesFees": 140000,
 		"totalDistributions": 129850.33,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 237641.9007,
+				"reservedForFees": 140000,
+				"followOns": 300000,
+				"unlocated": 322358.0993
+			}
+		],
 		"kpis": {
 			"netIRR": 0.402315992
 		},
@@ -3402,10 +3536,19 @@
 		"type": "Corporate",
 		"firstInvestment": "2013-05-31",
 		"totalCommitments": 5000000,
-		"totalInvestments": 3994743.033,
+		"totalInvestments": 3283132.88,
 		"reservesFees": 700000,
 		"totalDistributions": 2744436.13454,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFIII",
+				"invested": 3283132.88,
+				"reservedForFees": 700000,
+				"followOns": 550000,
+				"unlocated": 466867.12
+			}
+		],
 		"kpis": {
 			"netIRR": 0.169
 		},
@@ -3658,6 +3801,15 @@
 		"reservesFees": 700000,
 		"totalDistributions": 1169477.82,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 1937764.011,
+				"reservedForFees": 700000,
+				"followOns": 1000000,
+				"unlocated": 1362235.989
+			}
+		],
 		"kpis": {
 			"netIRR": 0.331859058
 		},
@@ -3889,6 +4041,22 @@
 		"reservesFees": 700000,
 		"totalDistributions": 2409341.425057001,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 2588369.793,
+				"reservedForFees": 350000,
+				"followOns": 1000000,
+				"unlocated": 1061630.207
+			},
+			{
+				"fundId": "ESPIF",
+				"invested": 0,
+				"reservedForFees": 350000,
+				"followOns": 2000000,
+				"unlocated": 2650000
+			}
+		],
 		"kpis": {
 			"netIRR": -0.379368777
 		},
@@ -4310,10 +4478,19 @@
 		"type": "Corporate",
 		"firstInvestment": "2018-07-05",
 		"totalCommitments": 5000000,
-		"totalInvestments": 11501525.26,
+		"totalInvestments": 1939071.446,
 		"reservesFees": 700000,
 		"totalDistributions": 1169477.82,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 1939071.446,
+				"reservedForFees": 700000,
+				"followOns": 1230400,
+				"unlocated": 1130528.554
+			}
+		],
 		"kpis": {
 			"netIRR": 0.26623531
 		},
@@ -4559,10 +4736,26 @@
 		"type": "Corporate",
 		"firstInvestment": "2013-05-31",
 		"totalCommitments": 10000000,
-		"totalInvestments": 5965422.771,
+		"totalInvestments": 4695351.569,
 		"reservesFees": 700000,
 		"totalDistributions": 6664116.685659698,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFIII",
+				"invested": 3283132.88,
+				"reservedForFees": 350000,
+				"followOns": 562300,
+				"unlocated": 804567.12
+			},
+			{
+				"fundId": "EIIF",
+				"invested": 1412218.689,
+				"reservedForFees": 350000,
+				"followOns": 2000000,
+				"unlocated": 1237781.311
+			}
+		],
 		"kpis": {
 			"netIRR": 0.351996992
 		},
@@ -5133,10 +5326,26 @@
 		"type": "Corporate",
 		"firstInvestment": "2013-05-31",
 		"totalCommitments": 10000000,
-		"totalInvestments": 5969693.55,
+		"totalInvestments": 4698438.726,
 		"reservesFees": 700000,
 		"totalDistributions": 5689768.035659998,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFIII",
+				"invested": 3283132.88,
+				"reservedForFees": 350000,
+				"followOns": 1000000,
+				"unlocated": 366867.12
+			},
+			{
+				"fundId": "EIIF",
+				"invested": 1415305.846,
+				"reservedForFees": 350000,
+				"followOns": 2000000,
+				"unlocated": 1234694.154
+			}
+		],
 		"kpis": {
 			"netIRR": 0.345083927
 		},
@@ -5690,10 +5899,26 @@
 		"type": "Corporate",
 		"firstInvestment": "2013-05-31",
 		"totalCommitments": 10000000,
-		"totalInvestments": 234428071,
+		"totalInvestments": 4698702.686,
 		"reservesFees": 700000,
 		"totalDistributions": 6231054.665659399,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFIII",
+				"invested": 3283132.88,
+				"reservedForFees": 350000,
+				"followOns": 620000,
+				"unlocated": 746867.12
+			},
+			{
+				"fundId": "EIIF",
+				"invested": 1415569.806,
+				"reservedForFees": 350000,
+				"followOns": 2000000,
+				"unlocated": 1234430.194
+			}
+		],
 		"kpis": {
 			"netIRR": 0.352960891
 		},
@@ -6267,10 +6492,19 @@
 		"type": "Corporate",
 		"firstInvestment": "2018-03-08",
 		"totalCommitments": 10000000,
-		"totalInvestments": 145663917.2,
+		"totalInvestments": 3825424.926,
 		"reservesFees": 1400000,
 		"totalDistributions": 1298503.66,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 3825424.926,
+				"reservedForFees": 1400000,
+				"followOns": 2000000,
+				"unlocated": 2774575.074
+			}
+		],
 		"kpis": {
 			"netIRR": 0.246192127
 		},
@@ -6521,10 +6755,26 @@
 		"type": "Corporate",
 		"firstInvestment": "2013-05-31",
 		"totalCommitments": 10000000,
-		"totalInvestments": 61408839.19,
+		"totalInvestments": 4328545.573,
 		"reservesFees": 531750,
 		"totalDistributions": 5689799.055659698,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFIII",
+				"invested": 3283132.88,
+				"reservedForFees": 531750,
+				"followOns": 350000,
+				"unlocated": 835117.12
+			},
+			{
+				"fundId": "EIIF",
+				"invested": 1045412.693,
+				"reservedForFees": 168250,
+				"followOns": 2000000,
+				"unlocated": 1786337.307
+			}
+		],
 		"kpis": {
 			"netIRR": 0.3448486
 		},
@@ -7057,10 +7307,26 @@
 		"type": "Corporate",
 		"firstInvestment": "2013-05-31",
 		"totalCommitments": 10000000,
-		"totalInvestments": 29303543.35,
+		"totalInvestments": 4698711.77,
 		"reservesFees": 700000,
 		"totalDistributions": 5689799.315659499,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFIII",
+				"invested": 3283132.88,
+				"reservedForFees": 531750,
+				"followOns": 350000,
+				"unlocated": 835117.12
+			},
+			{
+				"fundId": "EIIF",
+				"invested": 1415578.89,
+				"reservedForFees": 168250,
+				"followOns": 2000000,
+				"unlocated": 2416171.11
+			}
+		],
 		"kpis": {
 			"netIRR": 0.342580711
 		},
@@ -7624,10 +7890,40 @@
 		"type": "Corporate",
 		"firstInvestment": "2001-02-28",
 		"totalCommitments": 20000000,
-		"totalInvestments": 14741529.54,
+		"totalInvestments": 12262955.308,
 		"reservesFees": 700000,
 		"totalDistributions": 10848095.7733547,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 3912031.046,
+				"reservedForFees": 350000,
+				"followOns": 430000,
+				"unlocated": 307968.954
+			},
+			{
+				"fundId": "ECFIII",
+				"invested": 3283132.88,
+				"reservedForFees": 350000,
+				"followOns": 620000,
+				"unlocated": 746867.12
+			},
+			{
+				"fundId": "EEF",
+				"invested": 3655208.588,
+				"reservedForFees": 300000,
+				"followOns": 400000,
+				"unlocated": 644791.412
+			},
+			{
+				"fundId": "EIIF",
+				"invested": 1412582.794,
+				"reservedForFees": 350000,
+				"followOns": 2000000,
+				"unlocated": 1237417.206
+			}
+		],
 		"kpis": {
 			"netIRR": 0.35457259
 		},
@@ -8336,10 +8632,26 @@
 		"type": "Corporate",
 		"firstInvestment": "2016-09-14",
 		"totalCommitments": 10000000,
-		"totalInvestments": 5731310.229,
+		"totalInvestments": 2589467.757,
 		"reservesFees": 700000,
 		"totalDistributions": 2409341.425057001,
 		"tappedOot": false,
+		"commitmentsOverview": [
+			{
+				"fundId": "ESPIF",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2000000,
+				"unlocated": 2300000
+			},
+			{
+				"fundId": "EIIF",
+				"invested": 2589467.757,
+				"reservedForFees": 700000,
+				"followOns": 1000000,
+				"unlocated": 710532.243
+			}
+		],
 		"kpis": {
 			"netIRR": -0.366067202
 		},
@@ -8765,6 +9077,15 @@
 		"totalCommitments": 5000000,
 		"reservesFees": null,
 		"totalDistributions": null,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -8805,6 +9126,15 @@
 		"totalInvestments": 365917.4033,
 		"reservesFees": 700000,
 		"totalDistributions": null,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [
 			{
 				"feeType": "Management Fee",
@@ -8897,6 +9227,15 @@
 		"reservesFees": null,
 		"totalDistributions": 1646661.67675,
 		"firstInvestment": "2013-05-31",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -9145,6 +9484,15 @@
 		"reservesFees": null,
 		"totalDistributions": 84112.0190909,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -9379,6 +9727,15 @@
 		"reservesFees": null,
 		"totalDistributions": 420560.115455,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -9612,6 +9969,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": null,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -9652,6 +10018,15 @@
 		"reservesFees": null,
 		"totalDistributions": 420560.115455,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -9886,6 +10261,15 @@
 		"reservesFees": null,
 		"totalDistributions": 454476.3540032,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -10221,6 +10605,15 @@
 		"reservesFees": null,
 		"totalDistributions": 451769.1614407,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -10475,6 +10868,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": null,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 6800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -10515,6 +10917,15 @@
 		"reservesFees": null,
 		"totalDistributions": 457452.8305781,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -10679,6 +11090,15 @@
 		"reservesFees": null,
 		"totalDistributions": 1829812.332262,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -10843,6 +11263,15 @@
 		"reservesFees": null,
 		"totalDistributions": 908797.559239,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -11007,6 +11436,15 @@
 		"reservesFees": null,
 		"totalDistributions": 1818293.416272,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -11171,6 +11609,22 @@
 		"reservesFees": null,
 		"totalDistributions": 8367583.695409,
 		"firstInvestment": "2001-02-28",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 7906212.85,
+				"reservedForFees": 700000,
+				"followOns": 1000000,
+				"unlocated": 393787.15
+			},
+			{
+				"fundId": "EEF",
+				"invested": 7310417.212,
+				"reservedForFees": 700000,
+				"followOns": 1000000,
+				"unlocated": 989582.788
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -11420,6 +11874,15 @@
 		"reservesFees": null,
 		"totalDistributions": 84112.0190909,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 824850.7197,
+				"reservedForFees": 70000,
+				"followOns": 85000,
+				"unlocated": 20149.2803
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -11563,6 +12026,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2022-05-31",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 205777.8932,
+				"reservedForFees": 700000,
+				"followOns": 2000000,
+				"unlocated": 2094222.1068
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -11628,12 +12100,21 @@
 		"reservesFees": null,
 		"totalDistributions": 42056.0195455,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 395310.6751,
+				"reservedForFees": 50000,
+				"followOns": 35000,
+				"unlocated": 19689.3249
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
 				"id": "ECFII",
 				"fundName": "Emerald Cleantech Fund II",
-				"committedAmount": 50000,
+				"committedAmount": 500000,
 				"fundCurrency": "EUR"
 			}
 		],
@@ -11771,6 +12252,15 @@
 		"reservesFees": null,
 		"totalDistributions": 2744436.13454,
 		"firstInvestment": "2013-05-31",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFIII",
+				"invested": 3283132.88,
+				"reservedForFees": 700000,
+				"followOns": 850000,
+				"unlocated": 166867.12
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -11908,6 +12398,15 @@
 		"reservesFees": null,
 		"totalDistributions": 376321.423224,
 		"firstInvestment": "2001-02-28",
+		"commitmentsOverview": [
+			{
+				"fundId": "EEF",
+				"invested": 365520.8659,
+				"reservedForFees": 50000,
+				"followOns": 65000,
+				"unlocated": 19479.1341
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -12040,6 +12539,22 @@
 		"reservesFees": 840000,
 		"totalDistributions": 6828352.1428704,
 		"firstInvestment": "2013-05-31",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 1699420.176,
+				"reservedForFees": 700000,
+				"followOns": 2000000,
+				"unlocated": 1600579.824
+			},
+			{
+				"fundId": "ECFIII",
+				"invested": 3939759.466,
+				"reservedForFees": 700000,
+				"followOns": 1000000,
+				"unlocated": 360240.534
+			}
+		],
 		"fees": [
 			{
 				"feeType": "Management Fee",
@@ -12280,6 +12795,15 @@
 		"reservesFees": null,
 		"totalDistributions": 210280.0577273,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 1976553.153,
+				"reservedForFees": 350000,
+				"followOns": 120000,
+				"unlocated": 53446.847
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -12423,6 +12947,15 @@
 		"reservesFees": null,
 		"totalDistributions": 252336.0672827,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 2371863.833,
+				"reservedForFees": 350000,
+				"followOns": 200000,
+				"unlocated": 78136.167
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -12566,6 +13099,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2020-09-19",
+		"commitmentsOverview": [
+			{
+				"fundId": "EGWIF",
+				"invested": 1489512.051,
+				"reservedForFees": 1400000,
+				"followOns": 3000000,
+				"unlocated": 4110487.949
+			}
+		],
 		"fees": [],
 		"funds": [
 			[
@@ -12639,6 +13181,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2021-11-15",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 3409092.4961
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -12716,6 +13267,15 @@
 		"reservesFees": null,
 		"totalDistributions": 3763232.23224,
 		"firstInvestment": "2001-02-28",
+		"commitmentsOverview": [
+			{
+				"fundId": "EEF",
+				"invested": 3655208.588,
+				"reservedForFees": 700000,
+				"followOns": 375000,
+				"unlocated": 269791.412
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -12848,6 +13408,22 @@
 		"reservesFees": null,
 		"totalDistributions": 95154.52539697,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 39531.05864,
+				"reservedForFees": 6000,
+				"followOns": 3000,
+				"unlocated": 1468.94136
+			},
+			{
+				"fundId": "ESF",
+				"invested": 95246.78059,
+				"reservedForFees": 2000,
+				"followOns": 1500,
+				"unlocated": 1253.21941
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -13129,6 +13705,15 @@
 		"reservesFees": null,
 		"totalDistributions": 555139.358023,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 5077759.578,
+				"reservedForFees": 700000,
+				"followOns": 250000,
+				"unlocated": 572240.422
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -13272,6 +13857,15 @@
 		"reservesFees": null,
 		"totalDistributions": 420560.115455,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 3953106.425,
+				"reservedForFees": 700000,
+				"followOns": 200000,
+				"unlocated": 146893.575
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -13415,6 +14009,15 @@
 		"reservesFees": null,
 		"totalDistributions": 252336.0672827,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 2371863.833,
+				"reservedForFees": 350000,
+				"followOns": 200000,
+				"unlocated": 78136.167
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -13558,6 +14161,15 @@
 		"reservesFees": null,
 		"totalDistributions": 584326.64,
 		"firstInvestment": "2019-12-20",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 940221.0122,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 359778.9878
+			}
+		],
 		"fees": [
 			{
 				"feeType": "Management Fee",
@@ -13675,6 +14287,15 @@
 		"reservesFees": null,
 		"totalDistributions": 545235.8565887,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "ESF",
+				"invested": 571480.6116,
+				"reservedForFees": 10000,
+				"followOns": 10000,
+				"unlocated": 8519.3884
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -13839,6 +14460,15 @@
 		"reservesFees": null,
 		"totalDistributions": 1816917.658323,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "ESF",
+				"invested": 1904935.36,
+				"reservedForFees": 50000,
+				"followOns": 25000,
+				"unlocated": 20064.64
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -14003,6 +14633,15 @@
 		"reservesFees": null,
 		"totalDistributions": 1454750.756488,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "ESF",
+				"invested": 1523948.273,
+				"reservedForFees": 50000,
+				"followOns": 25000,
+				"unlocated": 1051.727
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -14167,6 +14806,15 @@
 		"reservesFees": null,
 		"totalDistributions": 420560.115455,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 3953106.425,
+				"reservedForFees": 700000,
+				"followOns": 200000,
+				"unlocated": 146893.575
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -14313,7 +14961,16 @@
 		"funds": [],
 		"commitments": [],
 		"pcos": [],
-		"exits": []
+		"exits": [],
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 0,
+				"followOns": 0,
+				"unlocated": 0
+			}
+		]
 	},
 	{
 		"id": "Hess01",
@@ -14332,6 +14989,15 @@
 		"reservesFees": null,
 		"totalDistributions": 454229.1714407,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "ESF",
+				"invested": 476233.831,
+				"reservedForFees": 10000,
+				"followOns": 10000,
+				"unlocated": 3766.169
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -14496,6 +15162,15 @@
 		"reservesFees": null,
 		"totalDistributions": 210280.0577273,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ESF",
+				"invested": 1976553.153,
+				"reservedForFees": 350000,
+				"followOns": 100000,
+				"unlocated": 73446.847
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -14638,6 +15313,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": null,
+		"commitmentsOverview": [
+			{
+				"fundId": "ESPIF",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 6800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -14678,6 +15362,15 @@
 		"reservesFees": null,
 		"totalDistributions": 11139501.6967,
 		"firstInvestment": "2001-02-28",
+		"commitmentsOverview": [
+			{
+				"fundId": "EEF",
+				"invested": 10965625.8,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 834374.2
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -14809,6 +15502,15 @@
 		"totalInvestments": 365917.4033,
 		"totalDistributions": null,
 		"firstInvestment": "2021-10-04",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 365917.4033,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1434082.5967
+			}
+		],
 		"funds": [
 			{
 				"id": "EIIF",
@@ -14891,6 +15593,15 @@
 		"reservesFees": null,
 		"totalDistributions": 9141416.324302,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "ESF",
+				"invested": 9524676.799,
+				"reservedForFees": 100000,
+				"followOns": 200000,
+				"unlocated": 175323.201
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -15055,6 +15766,22 @@
 		"reservesFees": null,
 		"totalDistributions": 3164996.249995,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFIII",
+				"invested": 3283132.88,
+				"reservedForFees": 700000,
+				"followOns": 1000000,
+				"unlocated": 16867.12
+			},
+			{
+				"fundId": "ECFII",
+				"invested": 3953106.425,
+				"reservedForFees": 700000,
+				"followOns": 200000,
+				"unlocated": 146893.575
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -15309,6 +16036,15 @@
 		"reservesFees": null,
 		"totalDistributions": 365244.245564,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 3025567.26,
+				"reservedForFees": 350000,
+				"followOns": 400000,
+				"unlocated": 224432.74
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -15445,6 +16181,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": null,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2000000,
+				"unlocated": 2300000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -15484,6 +16229,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": null,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -15524,6 +16278,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2022-11-11",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 50085.5534316223,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 6749914.446568378
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -15571,6 +16334,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2020-09-19",
+		"commitmentsOverview": [
+			{
+				"fundId": "EGWIF",
+				"invested": 1489512.051,
+				"reservedForFees": 1400000,
+				"followOns": 2500000,
+				"unlocated": 4610487.949
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -15642,6 +16414,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2022-11-11",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 25042.7767158111,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1774957.223284189
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -15689,6 +16470,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2022-11-11",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 50085.5534316223,
+				"reservedForFees": 1400000,
+				"followOns": 2500000,
+				"unlocated": 6049914.446568378
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -15736,6 +16526,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2022-06-23",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 261237.8565,
+				"reservedForFees": 700000,
+				"followOns": 3000000,
+				"unlocated": 6038762.1435
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -15795,6 +16594,15 @@
 		"reservesFees": null,
 		"totalDistributions": 8442517.11873,
 		"firstInvestment": "2019-09-16",
+		"commitmentsOverview": [
+			{
+				"fundId": "NTV",
+				"invested": 6923394.825,
+				"reservedForFees": 1400000,
+				"followOns": 20000000,
+				"unlocated": 46601605.175
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -15827,7 +16635,7 @@
 				"shortName": "Wheel.me",
 				"participationPercentage": 0.999,
 				"amountInvested": 499500,
-				"localCurrency":"NOK"
+				"localCurrency": "NOK"
 			},
 			{
 				"id": "Rhom01",
@@ -15861,6 +16669,15 @@
 		"reservesFees": null,
 		"totalDistributions": 10984.62102,
 		"firstInvestment": "2019-09-16",
+		"commitmentsOverview": [
+			{
+				"fundId": "NTV",
+				"invested": 6930.32515,
+				"reservedForFees": 20000,
+				"followOns": 40000,
+				"unlocated": 8069.67485
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -15893,7 +16710,7 @@
 				"shortName": "Wheel.me",
 				"participationPercentage": 0.001,
 				"amountInvested": 500,
-				"localCurrency":"NOK"
+				"localCurrency": "NOK"
 			},
 			{
 				"id": "Rhom01",
@@ -15926,6 +16743,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": null,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -15966,6 +16792,15 @@
 		"reservesFees": null,
 		"totalDistributions": 3713303.23224,
 		"firstInvestment": "2001-02-28",
+		"commitmentsOverview": [
+			{
+				"fundId": "EEF",
+				"invested": 3655208.588,
+				"reservedForFees": 700000,
+				"followOns": 350000,
+				"unlocated": 294791.412
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -16098,6 +16933,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2022-03-18",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 466050.3977,
+				"reservedForFees": 1400000,
+				"followOns": 2500000,
+				"unlocated": 5633949.6023
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -16168,6 +17012,22 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": null,
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIFI",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2000000,
+				"unlocated": 2300000
+			},
+			{
+				"fundId": "EGETF",
+				"invested": 0,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1800000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -16223,6 +17083,15 @@
 		"reservesFees": null,
 		"totalDistributions": 2102800.587273,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 19765532.12,
+				"reservedForFees": 1400000,
+				"followOns": 2000000,
+				"unlocated": 1834467.88
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -16366,6 +17235,15 @@
 		"reservesFees": null,
 		"totalDistributions": 2285353.83467,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "ESF",
+				"invested": 2381169.191,
+				"reservedForFees": 50000,
+				"followOns": 55000,
+				"unlocated": 13830.809
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -16530,6 +17408,15 @@
 		"reservesFees": null,
 		"totalDistributions": 3681282.190714,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "ESF",
+				"invested": 3809870.72,
+				"reservedForFees": 70000,
+				"followOns": 100000,
+				"unlocated": 20129.28
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -16694,6 +17581,15 @@
 		"reservesFees": null,
 		"totalDistributions": 210280.0577273,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 2062126.859,
+				"reservedForFees": 150000,
+				"followOns": 200000,
+				"unlocated": 87873.141
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -16837,6 +17733,15 @@
 		"reservesFees": null,
 		"totalDistributions": 210280.0577273,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 1925208.936,
+				"reservedForFees": 150000,
+				"followOns": 320000,
+				"unlocated": 104791.064
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -16980,6 +17885,15 @@
 		"reservesFees": null,
 		"totalDistributions": 65607.3784895,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 616684.5915,
+				"reservedForFees": 50000,
+				"followOns": 100000,
+				"unlocated": 13315.4085
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -17123,6 +18037,15 @@
 		"reservesFees": null,
 		"totalDistributions": 1828907.295057,
 		"firstInvestment": "2016-12-05",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 2479134.056,
+				"reservedForFees": 700000,
+				"followOns": 1000000,
+				"unlocated": 820865.944
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -17291,6 +18214,15 @@
 		"reservesFees": null,
 		"totalDistributions": 210280.0577273,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 1976553.153,
+				"reservedForFees": 150000,
+				"followOns": 230000,
+				"unlocated": 143446.847
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -17434,6 +18366,15 @@
 		"reservesFees": null,
 		"totalDistributions": 1169477.82,
 		"firstInvestment": "2018-07-05",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 1939071.446,
+				"reservedForFees": 700000,
+				"followOns": 1500000,
+				"unlocated": 860928.554
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -17578,6 +18519,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2022-05-31",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 205777.8932,
+				"reservedForFees": 700000,
+				"followOns": 2000000,
+				"unlocated": 2094222.1068
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -17643,6 +18593,22 @@
 		"reservesFees": null,
 		"totalDistributions": 1975296.7065078,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 1683931.037,
+				"reservedForFees": 150000,
+				"followOns": 100000,
+				"unlocated": 66068.963
+			},
+			{
+				"fundId": "ESF",
+				"invested": 1904935.36,
+				"reservedForFees": 50000,
+				"followOns": 40000,
+				"unlocated": 5064.64
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -17924,6 +18890,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2022-11-11",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 25042.7767158111,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1774957.223284189
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -17971,6 +18946,15 @@
 		"reservesFees": null,
 		"totalDistributions": 74290.880645,
 		"firstInvestment": "2001-02-28",
+		"commitmentsOverview": [
+			{
+				"fundId": "EEF",
+				"invested": 73104.16608,
+				"reservedForFees": 10000,
+				"followOns": 10000,
+				"unlocated": 6895.83392
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -18103,6 +19087,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2021-10-04",
+		"commitmentsOverview": [
+			{
+				"fundId": "EGETF",
+				"invested": 346845.714146976,
+				"reservedForFees": 1400000,
+				"followOns": 3500000,
+				"unlocated": 4753154.285853024
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -18150,6 +19143,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2020-09-19",
+		"commitmentsOverview": [
+			{
+				"fundId": "EGWIF",
+				"invested": 1489512.051,
+				"reservedForFees": 1400000,
+				"followOns": 3500000,
+				"unlocated": 3610487.949
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -18221,6 +19223,15 @@
 		"reservesFees": null,
 		"totalDistributions": 3293323.35351,
 		"firstInvestment": "2013-05-31",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFIII",
+				"invested": 3939759.466,
+				"reservedForFees": 700000,
+				"followOns": 1000000,
+				"unlocated": 360240.534
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -18358,6 +19369,15 @@
 		"reservesFees": null,
 		"totalDistributions": 4256421.516942,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "ESF",
+				"invested": 4457548.741,
+				"reservedForFees": 50000,
+				"followOns": 100000,
+				"unlocated": 72451.259
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -18522,6 +19542,15 @@
 		"reservesFees": null,
 		"totalDistributions": 1200529.1514152,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "ESF",
+				"invested": 1257257.338,
+				"reservedForFees": 50000,
+				"followOns": 10000,
+				"unlocated": 2742.662
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -18686,6 +19715,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2021-10-04",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 365917.4033,
+				"reservedForFees": 700000,
+				"followOns": 2500000,
+				"unlocated": 1434082.5967
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -18769,6 +19807,15 @@
 		"reservesFees": null,
 		"totalDistributions": null,
 		"firstInvestment": "2020-09-19",
+		"commitmentsOverview": [
+			{
+				"fundId": "EGWIF",
+				"invested": 10426584.35,
+				"reservedForFees": 1400000,
+				"followOns": 25500000,
+				"unlocated": 32673415.65
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -18840,6 +19887,15 @@
 		"reservesFees": null,
 		"totalDistributions": 649251.83,
 		"firstInvestment": "2020-08-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 740202.9988,
+				"reservedForFees": 700000,
+				"followOns": 1500000,
+				"unlocated": 2059797.0012
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -18942,6 +19998,15 @@
 		"reservesFees": null,
 		"totalDistributions": 319625.688566,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 3100203.394,
+				"reservedForFees": 200000,
+				"followOns": 300000,
+				"unlocated": 199796.606
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -19085,6 +20150,15 @@
 		"reservesFees": null,
 		"totalDistributions": 420560.115455,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 3867532.719,
+				"reservedForFees": 700000,
+				"followOns": 332467.281,
+				"unlocated": 100000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -19228,6 +20302,15 @@
 		"reservesFees": null,
 		"totalDistributions": 1828283.276272,
 		"firstInvestment": "2000-11-24",
+		"commitmentsOverview": [
+			{
+				"fundId": "ESF",
+				"invested": 1904935.36,
+				"reservedForFees": 10000,
+				"followOns": 80000,
+				"unlocated": 5064.64
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -19392,6 +20475,15 @@
 		"reservesFees": null,
 		"totalDistributions": 210280.0577273,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 1976553.153,
+				"reservedForFees": 200000,
+				"followOns": 223446.847,
+				"unlocated": 100000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -19536,6 +20628,15 @@
 		"totalDistributions": 420560.115455,
 		"firstInvestment": "2005-06-03",
 		"fees": [],
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 3953106.425,
+				"reservedForFees": 700000,
+				"followOns": 250000,
+				"unlocated": 96893.575
+			}
+		],
 		"funds": [
 			{
 				"id": "ECFII",
@@ -19678,6 +20779,15 @@
 		"reservesFees": null,
 		"totalDistributions": 3763232.23224,
 		"firstInvestment": "2001-02-28",
+		"commitmentsOverview": [
+			{
+				"fundId": "EEF",
+				"invested": 3655208.588,
+				"reservedForFees": 550000,
+				"followOns": 444791.412,
+				"unlocated": 350000
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -19810,6 +20920,15 @@
 		"reservesFees": null,
 		"totalDistributions": 2523360.645027,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 23718638.43,
+				"reservedForFees": 700000,
+				"followOns": 3000000,
+				"unlocated": 2581361.57
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -19953,6 +21072,15 @@
 		"reservesFees": null,
 		"totalDistributions": 336448.086384,
 		"firstInvestment": "2005-06-03",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFII",
+				"invested": 3162485.184,
+				"reservedForFees": 350000,
+				"followOns": 250000,
+				"unlocated": 237514.816
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -20096,6 +21224,15 @@
 		"reservesFees": null,
 		"totalDistributions": 1169477.82,
 		"firstInvestment": "2019-01-15",
+		"commitmentsOverview": [
+			{
+				"fundId": "EIIF",
+				"invested": 1604587.746,
+				"reservedForFees": 700000,
+				"followOns": 2000000,
+				"unlocated": 695412.254
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -20222,6 +21359,15 @@
 		"reservesFees": null,
 		"totalDistributions": 548887.228918,
 		"firstInvestment": "2013-05-31",
+		"commitmentsOverview": [
+			{
+				"fundId": "ECFIII",
+				"invested": 656626.5855,
+				"reservedForFees": 100000,
+				"followOns": 200000,
+				"unlocated": 43373.4145
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
@@ -20359,6 +21505,15 @@
 		"reservesFees": null,
 		"totalDistributions": 2257939.53935,
 		"firstInvestment": "2001-02-28",
+		"commitmentsOverview": [
+			{
+				"fundId": "EEF",
+				"invested": 2193125.16,
+				"reservedForFees": 80000,
+				"followOns": 500000,
+				"unlocated": 226874.84
+			}
+		],
 		"fees": [],
 		"funds": [
 			{
