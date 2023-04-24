@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/PearlUI/static/css/main.c88da4e3.css",
-    "main.js": "/PearlUI/static/js/main.969f085b.js",
-    "static/js/730.b0b5aa80.chunk.js": "/PearlUI/static/js/730.b0b5aa80.chunk.js",
+    "main.js": "/PearlUI/static/js/main.9225c8eb.js",
+    "static/js/730.5a6254ab.chunk.js": "/PearlUI/static/js/730.5a6254ab.chunk.js",
     "static/js/50.b013adc9.chunk.js": "/PearlUI/static/js/50.b013adc9.chunk.js",
     "static/js/61.714e5b4b.chunk.js": "/PearlUI/static/js/61.714e5b4b.chunk.js",
     "static/js/67.7a9ab312.chunk.js": "/PearlUI/static/js/67.7a9ab312.chunk.js",
@@ -36,8 +36,8 @@
     "index.html": "/PearlUI/index.html",
     "static/media/AppearanceIcon.svg": "/PearlUI/static/media/AppearanceIcon.6aded6e1d59341b505796f9856729587.svg",
     "main.c88da4e3.css.map": "/PearlUI/static/css/main.c88da4e3.css.map",
-    "main.969f085b.js.map": "/PearlUI/static/js/main.969f085b.js.map",
-    "730.b0b5aa80.chunk.js.map": "/PearlUI/static/js/730.b0b5aa80.chunk.js.map",
+    "main.9225c8eb.js.map": "/PearlUI/static/js/main.9225c8eb.js.map",
+    "730.5a6254ab.chunk.js.map": "/PearlUI/static/js/730.5a6254ab.chunk.js.map",
     "50.b013adc9.chunk.js.map": "/PearlUI/static/js/50.b013adc9.chunk.js.map",
     "61.714e5b4b.chunk.js.map": "/PearlUI/static/js/61.714e5b4b.chunk.js.map",
     "67.7a9ab312.chunk.js.map": "/PearlUI/static/js/67.7a9ab312.chunk.js.map",
@@ -60,6 +60,6 @@
   },
   "entrypoints": [
     "static/css/main.c88da4e3.css",
-    "static/js/main.969f085b.js"
+    "static/js/main.9225c8eb.js"
   ]
 }
