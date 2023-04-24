@@ -9489,8 +9489,8 @@
 				"fundId": "ECFII",
 				"invested": 0,
 				"reservedForFees": 700000,
-				"followOns": 2500000,
-				"unlocated": 1800000
+				"followOns": 200000,
+				"unlocated": 100000
 			}
 		],
 		"fees": [],
