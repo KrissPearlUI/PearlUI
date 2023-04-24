@@ -9,6 +9,7 @@ import { setSelectedFund } from '../../redux/slices/funds/fundsSlice';
 import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/slices/rootSlice';
+import { amountValueFormatter } from '../../helpers/app';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -108,15 +109,20 @@ const AutocompletePopper = (props: any) => {
     );
 }
 
+type SeriesSubData = {
+    lpName: string,
+    value: number
+};
+
 type SeriesData = {
-    investedAmount: number[],
-    reservedFeesAmount: number[],
-    followOnsAmount: number[],
-    unallocatedAmount: number[],
-    investedPerc: number[],
-    reservedFeesPerc: number[],
-    folloOnsPerc: number[],
-    unallocatedPerc: number[]
+    investedAmount: SeriesSubData[] | null,
+    reservedFeesAmount: SeriesSubData[] | null,
+    followOnsAmount: SeriesSubData[] | null,
+    unallocatedAmount: SeriesSubData[] | null,
+    investedPerc: SeriesSubData[] | null,
+    reservedFeesPerc: SeriesSubData[] | null,
+    folloOnsPerc: SeriesSubData[] | null,
+    unallocatedPerc: SeriesSubData[] | null
 }
 
 /* interface MyChart extends Highcharts.ChartObject { }
@@ -187,7 +193,33 @@ const LPChartComponent = () => {
             },
         },
         tooltip: {
-            pointFormat: "<b>{series.name}: {point.y:,.2f}</b>",
+            useHTML: true,
+            zIndex: 999,
+            formatter: function (this: any) {
+                const data: any = this.point;
+                const title: any = `<div style="font-weight: bold; margin-bottom: 5px; color:#1B4357; font-size:14px; font-family:Raleway;">${data.category}</div>`;
+                const table = `
+                <table style="width: 100%;">
+                  <tr>
+                    <td style="text-align: left; padding-right: 10px; color:#1B4357; font-size:12px; font-weight: bold; font-family:Raleway;">Invested Capital:</td>
+                    <td style="text-align: right; color:#1B4357; font-size:12px; font-weight: bold; font-family:Raleway;">Reserves for Fees:</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left; padding-right: 10px; color:rgba(0, 128, 0, 1); font-size:12px; font-family:Raleway;">${amountValueFormatter(chartDataValues.filter(x => x.name === 'Invested')[0]?.dataAmount?.filter((y: SeriesSubData) => y.lpName === data.category)[0]?.value, '')} EUR</td>
+                    <td style="text-align: right; color:rgba(0, 128, 0, 1); font-size:12px; font-family:Raleway;">${amountValueFormatter(chartDataValues.filter(x => x.name === 'Reserved Fees')[0]?.dataAmount?.filter((y: SeriesSubData) => y.lpName === data.category)[0]?.value, '')} EUR</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left; padding-right: 10px; color:#1B4357; font-size:12px; font-weight: bold; font-family:Raleway;">Reserves for Follow-on:</td>
+                    <td style="text-align: right; color:#1B4357; font-size:12px; font-weight: bold; font-family:Raleway;">Unallocated Reserves:</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left; padding-right: 10px; color:rgba(0, 128, 0, 1); font-size:12px; font-family:Raleway;">${amountValueFormatter(chartDataValues.filter(x => x.name === 'Follow Ons')[0]?.dataAmount?.filter((y: SeriesSubData) => y.lpName === data.category)[0]?.value, '')} EUR</td>
+                    <td style="text-align: right; color:rgba(0, 128, 0, 1); font-size:12px; font-family:Raleway;">${amountValueFormatter(chartDataValues.filter(x => x.name === 'Unallocated')[0]?.dataAmount?.filter((y: SeriesSubData) => y.lpName === data.category)[0]?.value, '')} EUR</td>
+                  </tr>
+                </table>
+              `;
+                return title + table;
+            }
         },
         plotOptions: {
             series: {
@@ -205,7 +237,10 @@ const LPChartComponent = () => {
                 stacking: 'normal',
                 dataLabels: {
                     enabled: true,
-                    format: '{point.y:,.2f}  %'
+                    format: '{point.y:,.2f}  %',
+                     style: {
+                        fontFamily: "Raleway",
+                    }, 
                 },
                 stickyTracking: false,
                 states: {
@@ -223,19 +258,19 @@ const LPChartComponent = () => {
         series: [
             {
                 name: "Unlocated",
-                data: chartDataValues.filter(x => x.name === 'Unallocated')[0]?.data,
+                data: chartDataValues.filter(x => x.name === 'Unallocated')[0]?.data?.flatMap((x: SeriesSubData) => x.value),
             },
             {
                 name: "Follow Ons",
-                data: chartDataValues.filter(x => x.name === 'Follow Ons')[0]?.data,
+                data: chartDataValues.filter(x => x.name === 'Follow Ons')[0]?.data?.flatMap((x: SeriesSubData) => x.value),
             },
             {
                 name: "Reserved Fees",
-                data: chartDataValues.filter(x => x.name === 'Reserved Fees')[0]?.data,
+                data: chartDataValues.filter(x => x.name === 'Reserved Fees')[0]?.data?.flatMap((x: SeriesSubData) => x.value),
             },
             {
                 name: "Invested",
-                data: chartDataValues.filter(x => x.name === 'Invested')[0]?.data,
+                data: chartDataValues.filter(x => x.name === 'Invested')[0]?.data?.flatMap((x: SeriesSubData) => x.value),
             },
         ],
         colors: ['#008000', '#80C080', '#FBE498', '#25607E'],
@@ -281,14 +316,38 @@ const LPChartComponent = () => {
 
                 if (commitment) {
                     const totalComitments = lp.funds?.filter(y => y.id === selectedFundValue.id)[0]?.committedAmount ?? 0;
-                    seriesData.investedAmount.push(commitment?.invested ? commitment.invested : 0);
-                    seriesData.reservedFeesAmount.push(commitment?.reservedForFees ? commitment.reservedForFees : 0);
-                    seriesData.followOnsAmount.push(commitment?.followOns ? commitment.followOns : 0);
-                    seriesData.unallocatedAmount.push(commitment?.unlocated ? commitment.unlocated : 0);
-                    seriesData.investedPerc.push(commitment?.invested && totalComitments > 0 ? (commitment.invested / totalComitments) * 100 : 0);
-                    seriesData.reservedFeesPerc.push(commitment?.reservedForFees && totalComitments > 0 ? (commitment.reservedForFees / totalComitments) * 100 : 0);
-                    seriesData.folloOnsPerc.push(commitment?.followOns && totalComitments > 0 ? (commitment.followOns / totalComitments) * 100 : 0);
-                    seriesData.unallocatedPerc.push(commitment?.unlocated && totalComitments > 0 ? (commitment.unlocated / totalComitments) * 100 : 0);
+                    /* if (commitment.invested && commitment.invested >= 0) {
+                        seriesData.investedAmount?.push(commitment?.invested ?{ lpName: lp.shortName, value: commitment.invested }:{});
+                        if (totalComitments > 0) {
+                            seriesData.investedPerc?.push({ lpName: lp.shortName, value: (commitment.invested / totalComitments) * 100 });
+                        }
+                    } */
+                    /*       if (commitment.reservedForFees) {
+                              seriesData.reservedFeesAmount?.push({ lpName: lp.shortName, value: commitment.reservedForFees });
+                              if (totalComitments > 0) {
+                                  seriesData.reservedFeesPerc?.push({ lpName: lp.shortName, value: (commitment.reservedForFees / totalComitments) * 100 });
+                              }
+                          }
+                          if (commitment.followOns) {
+                              seriesData.followOnsAmount?.push({ lpName: lp.shortName, value: commitment.followOns });
+                              if (totalComitments > 0) {
+                                  seriesData.folloOnsPerc?.push({ lpName: lp.shortName, value: (commitment.followOns / totalComitments) * 100 });
+                              }
+                          }
+                          if (commitment.unlocated) {
+                              seriesData.unallocatedAmount?.push({ lpName: lp.shortName, value: commitment.unlocated });
+                              if (totalComitments > 0) {
+                                  seriesData.unallocatedPerc?.push({ lpName: lp.shortName, value: (commitment.unlocated / totalComitments) * 100 });
+                              }
+                          } */
+                    seriesData.investedAmount?.push(commitment?.invested ? { lpName: lp.shortName, value: commitment.invested } : { lpName: lp.shortName, value: 0 });
+                    seriesData.reservedFeesAmount?.push(commitment?.reservedForFees ? { lpName: lp.shortName, value: commitment.reservedForFees } : { lpName: lp.shortName, value: 0 });
+                    seriesData.followOnsAmount?.push(commitment?.followOns ? { lpName: lp.shortName, value: commitment.followOns } : { lpName: lp.shortName, value: 0 });
+                    seriesData.unallocatedAmount?.push(commitment?.unlocated ? { lpName: lp.shortName, value: commitment.unlocated } : { lpName: lp.shortName, value: 0 });
+                    seriesData.investedPerc?.push(commitment?.invested && totalComitments > 0 ? { lpName: lp.shortName, value: (commitment.invested / totalComitments) * 100 } : { lpName: lp.shortName, value: 0 });
+                    seriesData.reservedFeesPerc?.push(commitment?.reservedForFees && totalComitments > 0 ? { lpName: lp.shortName, value: (commitment.reservedForFees / totalComitments) * 100 } : { lpName: lp.shortName, value: 0 });
+                    seriesData.folloOnsPerc?.push(commitment?.followOns && totalComitments > 0 ? { lpName: lp.shortName, value: (commitment.followOns / totalComitments) * 100 } : { lpName: lp.shortName, value: 0 });
+                    seriesData.unallocatedPerc?.push(commitment?.unlocated && totalComitments > 0 ? { lpName: lp.shortName, value: (commitment.unlocated / totalComitments) * 100 } : { lpName: lp.shortName, value: 0 });
                 } else {
                     return;
                 }
@@ -301,6 +360,7 @@ const LPChartComponent = () => {
                 { name: 'Invested', data: seriesData.investedPerc, dataAmount: seriesData.investedAmount }
             ];
 
+            const test = series.filter(x => x.name === 'Unallocated')[0]?.data?.flatMap((x: SeriesSubData) => x.value);
             setChartDataValues(series);
 
         }

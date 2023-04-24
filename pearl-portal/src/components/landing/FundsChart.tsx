@@ -62,12 +62,12 @@ const FundsChartComponent = () => {
                 dataLabels: {
                     enabled: true,
                     format: '<b>{point.name}</b> <br> {point.percentage:.1f} %',
-                    distance: -30,
+                    distance: -35,
                     style: {
                         fontWeight: "bold",
                         fontSize: "11px",
-                        color: "white",
                         textOutline: "none",
+                        fontFamily: "Raleway",
                     },
                 },
             }
