@@ -252,6 +252,8 @@ const LPChartComponent = () => {
                 },
             },
             column: {
+                allowPointSelect: true,
+                cursor:'pointer',
                 stacking: 'normal',
                 dataLabels: {
                     enabled: true,
@@ -264,9 +266,14 @@ const LPChartComponent = () => {
                 stickyTracking: false,
                 states: {
                     hover: {
-                        opacity: 1,
-                        cursor: 'pointer'// Reduce the opacity of other columns on hover
-                    }
+                        opacity: 1, // Set the opacity of the hovered column to 1 (full opacity)
+                        brightness: 0.2, // Reduce the brightness of the other columns on hover
+                        enabled: true,
+                        cursor: 'pointer',
+                        halo: {
+                          size: 0 // Remove the halo around the hovered stack
+                        }
+                      }
 
                 }
             }

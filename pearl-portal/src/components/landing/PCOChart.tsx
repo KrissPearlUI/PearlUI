@@ -92,6 +92,8 @@ const PCOChartComponent = () => {
         },
         plotOptions: {
             series: {
+                allowPointSelect: true,
+                cursor:'pointer',
                 dataLabels: {
                     enabled: true,
                     format: '{point.name}'
