@@ -473,17 +473,14 @@ const FundsOverviewTable = () => {
     }, [dispatch])
 
     useEffect(() => {
-        console.log(funds);
         setRowData(funds);
     }, [funds])
 
     useEffect(() => {
-        console.log(lps);
         setAllLPs(lps);
     }, [lps])
 
     useEffect(() => {
-        console.log(pcos);
         setAllPCOs(pcos);
     }, [pcos])
 

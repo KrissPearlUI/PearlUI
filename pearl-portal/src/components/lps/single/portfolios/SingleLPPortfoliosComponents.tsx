@@ -315,7 +315,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
                 </div>
             </Grid>
             <Grid item xs={12} md={12} lg={4} sx={{ height: '100%', overflow: 'auto', display: 'flex', flexDirection: 'column', flex: 1, paddingRight: '0.7em' }}>
-                <Paper elevation={3} key={`card`} style={{ marginBottom: '1em' }}>
+                <Paper elevation={3} key={`card-stage`} style={{ marginBottom: '1em' }}>
                     <Accordion key={`card-stage`}
                         expanded={isPortfolioByStageExpand}
                         onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-stage')}
@@ -343,7 +343,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
                         </AccordionDetails>
                     </Accordion>
                 </Paper>
-                <Paper elevation={3} key={`card`} style={{ marginBottom: '1em' }}>
+                <Paper elevation={3} key={`card-countries`} style={{ marginBottom: '1em' }}>
                     <Accordion key={`card-countries`}
                         expanded={isPortfolioByCountryExpand}
                         onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-countries')}
@@ -371,7 +371,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
                         </AccordionDetails>
                     </Accordion>
                 </Paper>
-                <Paper elevation={3} key={`card`} style={{ marginBottom: '1em' }}>
+                <Paper elevation={3} key={`card-industry`} style={{ marginBottom: '1em' }}>
                     <Accordion key={`card-industry`}
                         expanded={isPortfolioByIndustryExpand}
                         onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-industry')}
@@ -399,7 +399,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
                         </AccordionDetails>
                     </Accordion>
                 </Paper>
-                <Paper elevation={3} key={`card`} style={{ marginBottom: '1em' }}>
+                <Paper elevation={3} key={`card-investments`} style={{ marginBottom: '1em' }}>
                     <Accordion key={`card-investments`}
                         expanded={isPortfolioByInvestmentsExpand}
                         onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-investments')}

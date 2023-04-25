@@ -68,7 +68,6 @@ export const AddChildDialogComponent = ({ open, pageName, pageTitle, setDialogOp
         } else if (pageName === 'transactions') {
             valid = newTransaction !== null && newTransaction.pcoId !== '' && newTransaction.fundId !== '' && newTransaction.transType !== '' && newTransaction.securityType !== '' && newTransaction.amountFundCurrency !== 0 && (newTransaction.transType === 'Investment' && newTransaction.investmentType !== '')
         }
-        console.log(valid);
     }
 
     return (

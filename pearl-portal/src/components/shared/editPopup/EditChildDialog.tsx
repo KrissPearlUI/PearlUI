@@ -161,7 +161,6 @@ export const EditChildDialogComponent = ({ open, pageName, pageTitle }: EditChil
         } else if (pageName === 'transactions') {
             valid = newTransaction !== null && newTransaction.pcoId !== '' && newTransaction.fundId !== '' && newTransaction.transType !== '' && newTransaction.securityType !== '' && newTransaction.amountFundCurrency !== 0 && (newTransaction.transType === 'Investment' && newTransaction.investmentType !== '')
         }
-        console.log(valid);
     }
 
     /**

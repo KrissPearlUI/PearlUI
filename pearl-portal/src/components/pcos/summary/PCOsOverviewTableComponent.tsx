@@ -453,17 +453,14 @@ const PCOsOverviewTable = () => {
     }, [dispatch])
 
     useEffect(() => {
-        console.log(pcos);
         setRowData(pcos);
     }, [pcos])
 
     useEffect(() => {
-        console.log(funds);
         setAllFunds(funds);
     }, [funds])
 
     useEffect(() => {
-        console.log(lps);
         setAllLPs(lps);
     }, [lps])
 

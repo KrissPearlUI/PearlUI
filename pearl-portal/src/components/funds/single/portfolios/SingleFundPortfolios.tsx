@@ -113,7 +113,7 @@ const SingleFundPortfolios = ({ setGridApi }: SingleFundPortfoliosProps) => {
         return [
             {
                 headerName: 'Short Name',
-                headerTooltip:'Portfolio Company Short Name',
+                headerTooltip: 'Portfolio Company Short Name',
                 field: 'shortName',
                 tooltipField: 'shortName',
                 suppressFiltersToolPanel: true,
@@ -123,13 +123,13 @@ const SingleFundPortfolios = ({ setGridApi }: SingleFundPortfoliosProps) => {
                 },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'PCO Name',
-                headerTooltip:'Portfolio Company Name',
+                headerTooltip: 'Portfolio Company Name',
                 field: 'pcoName',
-                tooltipField:'pcoName',
+                tooltipField: 'pcoName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueGetter: (params) => {
@@ -137,11 +137,11 @@ const SingleFundPortfolios = ({ setGridApi }: SingleFundPortfoliosProps) => {
                 },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: '1st Investment',
-                headerTooltip:'Date of 1st Investment',
+                headerTooltip: 'Date of 1st Investment',
                 field: 'dateFirstInvestment',
                 enableRowGroup: true,
                 filter: 'agDateColumnFilter',
@@ -151,7 +151,7 @@ const SingleFundPortfolios = ({ setGridApi }: SingleFundPortfoliosProps) => {
             },
             {
                 headerName: 'Investment EUR',
-                headerTooltip:'Amount Invested in EUR',
+                headerTooltip: 'Amount Invested in EUR',
                 field: 'amountInvested',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -163,11 +163,11 @@ const SingleFundPortfolios = ({ setGridApi }: SingleFundPortfoliosProps) => {
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'NAV EUR',
-                headerTooltip:'Net Asset Value of Fund in EUR',
+                headerTooltip: 'Net Asset Value of Fund in EUR',
                 field: 'navEUR',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -179,75 +179,75 @@ const SingleFundPortfolios = ({ setGridApi }: SingleFundPortfoliosProps) => {
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Country',
-                headerTooltip:'Portfolio Company Country',
+                headerTooltip: 'Portfolio Company Country',
                 field: 'country',
                 enableRowGroup: true,
-                tooltipField:'country',
+                tooltipField: 'country',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Industry 1',
-                headerTooltip:'Portfolio Company Industry 1',
+                headerTooltip: 'Portfolio Company Industry 1',
                 field: 'emeraldIndustry1',
                 enableRowGroup: true,
-                tooltipField:'emeraldIndustry1',
+                tooltipField: 'emeraldIndustry1',
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Industry 2',
-                headerTooltip:'Portfolio Company Industry 2',
+                headerTooltip: 'Portfolio Company Industry 2',
                 field: 'emeraldIndustry2',
-                tooltipField:'emeraldIndustry2',
+                tooltipField: 'emeraldIndustry2',
                 hide: true,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Current Stage',
-                headerTooltip:'Current Satge',
+                headerTooltip: 'Current Satge',
                 field: 'currentStage',
-                tooltipField:'currentStage',
+                tooltipField: 'currentStage',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Initial Stage',
-                headerTooltip:'Initial Stage',
+                headerTooltip: 'Initial Stage',
                 field: 'initialtStage',
-                tooltipField:'initialtStage',
+                tooltipField: 'initialtStage',
                 hide: true,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Date Exit',
-                headerTooltip:'Date of Exit',
+                headerTooltip: 'Date of Exit',
                 field: 'dateExit',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 valueFormatter: dateValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
         ];
     }, [theme]);
@@ -316,7 +316,7 @@ const SingleFundPortfolios = ({ setGridApi }: SingleFundPortfoliosProps) => {
                 </div>
             </Grid>
             <Grid item xs={12} md={12} lg={4} sx={{ height: '100%', overflow: 'auto', display: 'flex', flexDirection: 'column', flex: 1, paddingRight: '0.7em' }}>
-                <Paper elevation={3} key={`card`} style={{ marginBottom: '1em' }}>
+                <Paper elevation={3} key={`card-stage`} style={{ marginBottom: '1em' }}>
                     <Accordion key={`card-stage`}
                         expanded={isPortfolioByStageExpand}
                         onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-stage')}
@@ -344,7 +344,7 @@ const SingleFundPortfolios = ({ setGridApi }: SingleFundPortfoliosProps) => {
                         </AccordionDetails>
                     </Accordion>
                 </Paper>
-                <Paper elevation={3} key={`card`} style={{ marginBottom: '1em' }}>
+                <Paper elevation={3} key={`card-countries`} style={{ marginBottom: '1em' }}>
                     <Accordion key={`card-countries`}
                         expanded={isPortfolioByCountryExpand}
                         onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-countries')}
@@ -372,7 +372,7 @@ const SingleFundPortfolios = ({ setGridApi }: SingleFundPortfoliosProps) => {
                         </AccordionDetails>
                     </Accordion>
                 </Paper>
-                <Paper elevation={3} key={`card`} style={{ marginBottom: '1em' }}>
+                <Paper elevation={3} key={`card-industry`} style={{ marginBottom: '1em' }}>
                     <Accordion key={`card-industry`}
                         expanded={isPortfolioByIndustryExpand}
                         onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-industry')}
@@ -400,7 +400,7 @@ const SingleFundPortfolios = ({ setGridApi }: SingleFundPortfoliosProps) => {
                         </AccordionDetails>
                     </Accordion>
                 </Paper>
-                <Paper elevation={3} key={`card`} style={{ marginBottom: '1em' }}>
+                <Paper elevation={3} key={`card-investments`} style={{ marginBottom: '1em' }}>
                     <Accordion key={`card-investments`}
                         expanded={isPortfolioByInvestmentsExpand}
                         onChange={(event, expanded: boolean) => handleAccordionExp(expanded, 'card-investments')}
