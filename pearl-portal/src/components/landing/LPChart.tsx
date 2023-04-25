@@ -10,6 +10,9 @@ import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/slices/rootSlice';
 import { amountValueFormatter } from '../../helpers/app';
+import { setSelectedLP } from '../../redux/slices/lps/lpsSlice';
+import { useAppDispatch } from '../../redux/store';
+import { useNavigate } from 'react-router-dom';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -110,6 +113,7 @@ const AutocompletePopper = (props: any) => {
 }
 
 type SeriesSubData = {
+    lpId: string
     lpName: string,
     value: number
 };
@@ -130,6 +134,8 @@ type SeriesData = {
 const LPChartComponent = () => {
     const theme = useTheme();
     const classes = useStyles();
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const autocompleteInputClasses = autocompleteInputStyles();
     const { funds } = useSelector((state: RootState) => state.funds);
     const { lps } = useSelector((state: RootState) => state.lps);
@@ -145,6 +151,18 @@ const LPChartComponent = () => {
         setSelectedFundValue(value);
     }
 
+    const handleSelectLP = (event: any) => {
+        if (event && event.point?.category) {
+            const lpId = chartDataValues?.filter(x => x.name === 'Invested')[0]?.dataAmount?.filter((y: SeriesSubData) => y.lpName === event.point?.category)[0]?.lpId ?? '';
+            const LPSelected = lps?.filter(x => x.id === lpId)[0];
+            if (LPSelected) {
+                dispatch(setSelectedLP(LPSelected));
+                const otherPageUrl = `/lpsOverview/singleLP`;
+                navigate(otherPageUrl);
+            }
+        }
+    }
+
     // function to generate the chart options
     const options = {
         chart: {
@@ -157,16 +175,7 @@ const LPChartComponent = () => {
             zoomType: 'xy',
             zoomButton: true,
             panning: true,
-            panKey: 'ctrl', // pan using the ctrl key
-            /*  events: {
-                 afterSetExtremes(this: MyChart, e: Highcharts.AxisSetExtremesEventObject) {
-                     if (e.min === this.xAxis[0].dataMin && e.max === this.xAxis[0].dataMax) {
-                         this.options.chart.zoomType = "";
-                     } else {
-                         this.options.chart.zoomType = "xy";
-                     }
-                 },
-             }, */
+            panKey: 'ctrl',
         },
         title: 'none',
         xAxis: {
@@ -227,11 +236,20 @@ const LPChartComponent = () => {
                     hover: {
                         brightness: 0.1, // Reduce the brightness of the entire series on hover
                         enabled: true,
+                        cursor: 'pointer',
                         halo: {
                             size: 0 // Remove the halo around the hovered stack
                         }
                     }
-                }
+                },
+                point: {
+                    cursor: 'pointer',
+                    events: {
+                        click: function (event: any) {
+                            handleSelectLP(event);
+                        },
+                    },
+                },
             },
             column: {
                 stacking: 'normal',
@@ -240,12 +258,14 @@ const LPChartComponent = () => {
                     format: '{point.y:,.2f}  %',
                     style: {
                         fontFamily: "Raleway",
+                        cursor: 'pointer'
                     },
                 },
                 stickyTracking: false,
                 states: {
                     hover: {
-                        opacity: 1// Reduce the opacity of other columns on hover
+                        opacity: 1,
+                        cursor: 'pointer'// Reduce the opacity of other columns on hover
                     }
 
                 }
@@ -316,38 +336,14 @@ const LPChartComponent = () => {
 
                 if (commitment) {
                     const totalComitments = lp.funds?.filter(y => y.id === selectedFundValue.id)[0]?.committedAmount ?? 0;
-                    /* if (commitment.invested && commitment.invested >= 0) {
-                        seriesData.investedAmount?.push(commitment?.invested ?{ lpName: lp.shortName, value: commitment.invested }:{});
-                        if (totalComitments > 0) {
-                            seriesData.investedPerc?.push({ lpName: lp.shortName, value: (commitment.invested / totalComitments) * 100 });
-                        }
-                    } */
-                    /*       if (commitment.reservedForFees) {
-                              seriesData.reservedFeesAmount?.push({ lpName: lp.shortName, value: commitment.reservedForFees });
-                              if (totalComitments > 0) {
-                                  seriesData.reservedFeesPerc?.push({ lpName: lp.shortName, value: (commitment.reservedForFees / totalComitments) * 100 });
-                              }
-                          }
-                          if (commitment.followOns) {
-                              seriesData.followOnsAmount?.push({ lpName: lp.shortName, value: commitment.followOns });
-                              if (totalComitments > 0) {
-                                  seriesData.folloOnsPerc?.push({ lpName: lp.shortName, value: (commitment.followOns / totalComitments) * 100 });
-                              }
-                          }
-                          if (commitment.unlocated) {
-                              seriesData.unallocatedAmount?.push({ lpName: lp.shortName, value: commitment.unlocated });
-                              if (totalComitments > 0) {
-                                  seriesData.unallocatedPerc?.push({ lpName: lp.shortName, value: (commitment.unlocated / totalComitments) * 100 });
-                              }
-                          } */
-                    seriesData.investedAmount?.push(commitment?.invested ? { lpName: lp.shortName, value: commitment.invested } : { lpName: lp.shortName, value: 0 });
-                    seriesData.reservedFeesAmount?.push(commitment?.reservedForFees ? { lpName: lp.shortName, value: commitment.reservedForFees } : { lpName: lp.shortName, value: 0 });
-                    seriesData.followOnsAmount?.push(commitment?.followOns ? { lpName: lp.shortName, value: commitment.followOns } : { lpName: lp.shortName, value: 0 });
-                    seriesData.unallocatedAmount?.push(commitment?.unlocated ? { lpName: lp.shortName, value: commitment.unlocated } : { lpName: lp.shortName, value: 0 });
-                    seriesData.investedPerc?.push(commitment?.invested && totalComitments > 0 ? { lpName: lp.shortName, value: (commitment.invested / totalComitments) * 100 } : { lpName: lp.shortName, value: 0 });
-                    seriesData.reservedFeesPerc?.push(commitment?.reservedForFees && totalComitments > 0 ? { lpName: lp.shortName, value: (commitment.reservedForFees / totalComitments) * 100 } : { lpName: lp.shortName, value: 0 });
-                    seriesData.folloOnsPerc?.push(commitment?.followOns && totalComitments > 0 ? { lpName: lp.shortName, value: (commitment.followOns / totalComitments) * 100 } : { lpName: lp.shortName, value: 0 });
-                    seriesData.unallocatedPerc?.push(commitment?.unlocated && totalComitments > 0 ? { lpName: lp.shortName, value: (commitment.unlocated / totalComitments) * 100 } : { lpName: lp.shortName, value: 0 });
+                    seriesData.investedAmount?.push(commitment?.invested ? { lpId: lp.id, lpName: lp.shortName, value: commitment.invested } : { lpId: lp.id, lpName: lp.shortName, value: 0 });
+                    seriesData.reservedFeesAmount?.push(commitment?.reservedForFees ? { lpId: lp.id, lpName: lp.shortName, value: commitment.reservedForFees } : { lpId: lp.id, lpName: lp.shortName, value: 0 });
+                    seriesData.followOnsAmount?.push(commitment?.followOns ? { lpId: lp.id, lpName: lp.shortName, value: commitment.followOns } : { lpId: lp.id, lpName: lp.shortName, value: 0 });
+                    seriesData.unallocatedAmount?.push(commitment?.unlocated ? { lpId: lp.id, lpName: lp.shortName, value: commitment.unlocated } : { lpId: lp.id, lpName: lp.shortName, value: 0 });
+                    seriesData.investedPerc?.push(commitment?.invested && totalComitments > 0 ? { lpId: lp.id, lpName: lp.shortName, value: (commitment.invested / totalComitments) * 100 } : { lpId: lp.id, lpName: lp.shortName, value: 0 });
+                    seriesData.reservedFeesPerc?.push(commitment?.reservedForFees && totalComitments > 0 ? { lpId: lp.id, lpName: lp.shortName, value: (commitment.reservedForFees / totalComitments) * 100 } : { lpId: lp.id, lpName: lp.shortName, value: 0 });
+                    seriesData.folloOnsPerc?.push(commitment?.followOns && totalComitments > 0 ? { lpId: lp.id, lpName: lp.shortName, value: (commitment.followOns / totalComitments) * 100 } : { lpId: lp.id, lpName: lp.shortName, value: 0 });
+                    seriesData.unallocatedPerc?.push(commitment?.unlocated && totalComitments > 0 ? { lpId: lp.id, lpName: lp.shortName, value: (commitment.unlocated / totalComitments) * 100 } : { lpId: lp.id, lpName: lp.shortName, value: 0 });
                 } else {
                     return;
                 }
@@ -360,7 +356,6 @@ const LPChartComponent = () => {
                 { name: 'Invested', data: seriesData.investedPerc, dataAmount: seriesData.investedAmount }
             ];
 
-            const test = series.filter(x => x.name === 'Unallocated')[0]?.data?.flatMap((x: SeriesSubData) => x.value);
             setChartDataValues(series);
 
         }

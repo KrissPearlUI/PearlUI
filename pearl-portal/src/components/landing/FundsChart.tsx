@@ -8,6 +8,8 @@ import { RootState } from '../../redux/slices/rootSlice';
 import { useAppDispatch } from '../../redux/store';
 import { fetchFunds } from '../../redux/thunks/fundThunk';
 import { amountValueFormatter } from '../../helpers/app';
+import { setSelectedFund } from '../../redux/slices/funds/fundsSlice';
+import { useNavigate } from 'react-router-dom';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('highcharts/modules/exporting')(Highcharts);
@@ -19,6 +21,7 @@ const FundsChartComponent = () => {
     const { funds } = useSelector((state: RootState) => state.funds);
     const [totalValue, setTotalValuee] = useState<number>(0);
     const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
+    const navigate = useNavigate();
 
     interface DataPoint {
         name: string;
@@ -38,6 +41,17 @@ const FundsChartComponent = () => {
         customText: Highcharts.SVGElement;
     }
 
+    const handleSelectFund = (event: any) => {
+        if (event && event.point?.name) {
+            const fundSelected = funds?.filter(x => x.id === event.point.name)[0];
+            if (fundSelected) {
+                dispatch(setSelectedFund(fundSelected));
+                const otherPageUrl = `/fundsOverview/singleFund`;
+                navigate(otherPageUrl);
+            }
+        }
+    }
+
     const options = {
         chart: {
             backgroundColor: null,
@@ -49,7 +63,7 @@ const FundsChartComponent = () => {
             events: {
                 redraw: function () {
                     drawMarketValueText();
-                }
+                },
             }
         },
         title: 'none',
@@ -68,6 +82,7 @@ const FundsChartComponent = () => {
                         fontSize: "11px",
                         textOutline: "none",
                         fontFamily: "Raleway",
+                        cursor:'pointer'
                     },
                 },
             }
@@ -101,15 +116,22 @@ const FundsChartComponent = () => {
                 return title + table;
             }
         },
-        /* tooltip: {
-            pointFormat: '<br> Committed Capital: {point.totalCommitments} EUR <br> Invested Capital: {point.totalInvestment} EUR <br> Number of LPs: {point.numberOfLPS} <br> Number of PCOs: {point.numberOfPCOs}'
-        }, */
         plotOptions: {
             pie: {
+                allowPointSelect: true,
+                cursor:'pointer',
                 showInLegend: false,
                 innerSize: '60%',
-                depth: 45
-            }
+                depth: 45,
+                point: {
+                    cursor:'pointer',
+                    events: {
+                        click: function (event: any) {
+                            handleSelectFund(event);
+                        },
+                    },
+                },
+            },
         },
         colors: ['#2E41A0', '#779DD6', '#25607E', '#2667FF', '#457FD7', '#62B6CB', '#00B4D8', '#1B4357', '#86C7E3', '#56CFE1', '#64DFDF', '#5E60CE'],
     };

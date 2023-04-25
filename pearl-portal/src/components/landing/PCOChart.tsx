@@ -6,8 +6,10 @@ import HC_more from "highcharts/highcharts-more"; //module
 import { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { PCOSummary } from '../../models/pcos/pcoModels';
+import { setSelectedPCO } from '../../redux/slices/pcos/pcosSlice';
 import { RootState } from '../../redux/slices/rootSlice';
 import { useAppDispatch } from '../../redux/store';
+import { useNavigate } from 'react-router-dom';
 import { fetchPCOs } from '../../redux/thunks/pcoThunk';
 HC_more(Highcharts);
 
@@ -16,6 +18,7 @@ const PCOChartComponent = () => {
     const dispatch = useAppDispatch();
     const [chartDataValues, setChartDataValues] = useState<Array<any>>([]);
     const { pcos } = useSelector((state: RootState) => state.pcos);
+    const navigate = useNavigate();
 
     const transformDataToBubbleChartFormat = useCallback((pcos: PCOSummary[]) => {
         const transformedData = pcos?.map((item) => {
@@ -37,7 +40,8 @@ const PCOChartComponent = () => {
                     x: ebitda.ebitda,
                     y: revenue.revenue,
                     z: item.amountInvestedLocalCcy || 0,
-                    name: item.shortName
+                    name: item.shortName,
+                    pcoId: item.id
                 });
             }
             return {
@@ -51,6 +55,17 @@ const PCOChartComponent = () => {
         return transformedData;
     }, [pcos]);
 
+
+    const handleSelectPCO = (event: any) => {
+        if (event && event.point?.name) {
+            const PCOSelected = pcos?.filter(x => x.id === event.point.pcoId)[0];
+            if (PCOSelected) {
+                dispatch(setSelectedPCO(PCOSelected));
+                const otherPageUrl = `/pcosOverview/singlePCO`;
+                navigate(otherPageUrl);
+            }
+        }
+    }
 
 
     const options = {
@@ -81,11 +96,19 @@ const PCOChartComponent = () => {
                     enabled: true,
                     format: '{point.name}'
                 },
+                point: {
+                    cursor: 'pointer',
+                    events: {
+                        click: function (event: any) {
+                            handleSelectPCO(event);
+                        },
+                    },
+                },
                 marker: {
                     symbol: 'circle',
                     states: {
                         hover: {
-                            enabled: false
+                            enabled: false,
                         }
                     }
                 }
