@@ -93,6 +93,7 @@ const SingleFundDistributionsTable = () => {
         return [
             {
                 headerName: 'Distribution ID',
+                headerTooltip:'Distribution ID',
                 field: 'id',
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
@@ -103,6 +104,7 @@ const SingleFundDistributionsTable = () => {
             },
             {
                 headerName: 'LP Short Name',
+                headerTooltip:'Limited Partner Short Name',
                 field: 'lpShortName',
                 enableRowGroup: true,
                 tooltipField:'lpShortName',
@@ -116,6 +118,7 @@ const SingleFundDistributionsTable = () => {
             },
             {
                 headerName: 'LP ID',
+                headerTooltip:'Limited Partner ID',
                 field: 'lpId',
                 enableRowGroup: true,
                 hide: true,
@@ -125,7 +128,8 @@ const SingleFundDistributionsTable = () => {
                   } as INumberFilterParams,
             },
             {
-                headerName: 'LP Type',
+                headerName: 'Transaction Type',
+                headerTooltip:'Transaction Type',
                 field: 'lpType',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -135,6 +139,7 @@ const SingleFundDistributionsTable = () => {
             },
             {
                 headerName: 'PCO Short Name',
+                headerTooltip:'Portfolio Company Short Name',
                 field: 'pcoShortName',
                 enableRowGroup: true,
                 tooltipField:'pcoShortName',
@@ -145,6 +150,7 @@ const SingleFundDistributionsTable = () => {
             },
             {
                 headerName: 'Notice Date',
+                headerTooltip:'Notice Date',
                 field: 'noticeDate',
                 enableRowGroup: true,
                 filter: 'agDateColumnFilter',
@@ -154,6 +160,7 @@ const SingleFundDistributionsTable = () => {
             },
             {
                 headerName: 'Distribution Date',
+                headerTooltip:'Distribution Date',
                 field: 'distDate',
                 filter: 'agDateColumnFilter',
                 filterParams: dateFilterParams,
@@ -163,6 +170,7 @@ const SingleFundDistributionsTable = () => {
             },
             {
                 headerName: 'Amount',
+                headerTooltip:'Amount',
                 field: 'amount',
                 enableRowGroup: true,
                 enableValue: true,

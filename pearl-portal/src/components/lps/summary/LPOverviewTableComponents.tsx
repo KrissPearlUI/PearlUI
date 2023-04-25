@@ -144,6 +144,7 @@ const LPOverviewTable = () => {
         return [
             {
                 headerName: 'ID',
+                headerTooltip:'Limited Partner ID',
                 field: 'id',
                 suppressFiltersToolPanel: true,
                 minWidth: 120,
@@ -154,7 +155,8 @@ const LPOverviewTable = () => {
                 } as INumberFilterParams,
             },
             {
-                headerName: 'Short',
+                headerName: 'Short Name',
+                headerTooltip:'Limited Partner Short Name',
                 field: 'shortName',
                 minWidth: 115,
                 tooltipField: 'shortName',
@@ -170,6 +172,7 @@ const LPOverviewTable = () => {
             },
             {
                 headerName: 'Name',
+                headerTooltip:'Limited Partner Name',
                 field: 'name',
                 suppressFiltersToolPanel: true,
                 minWidth: 120,
@@ -181,6 +184,7 @@ const LPOverviewTable = () => {
             },
             {
                 headerName: 'Headquarters',
+                headerTooltip:'Limited Partner Headquarters',
                 field: 'country',
                 enableRowGroup: true,
                 minWidth: 110,
@@ -195,7 +199,8 @@ const LPOverviewTable = () => {
                 } as INumberFilterParams,
             },
             {
-                headerName: 'Commited Capital',
+                headerName: 'Committed Capital',
+                headerTooltip:'Limited Partner Committed Capital',
                 field: 'totalCommitments',
                 enableRowGroup: true,
                 enableValue: true,
@@ -235,6 +240,7 @@ const LPOverviewTable = () => {
             },
             {
                 headerName: 'Funds',
+                headerTooltip:'Number of funds LP committed to',
                 field: 'funds',
                 minWidth: 90,
                 maxWidth: 100,
@@ -271,6 +277,7 @@ const LPOverviewTable = () => {
             },
             {
                 headerName: 'Active PCOs',
+                headerTooltip:'Number of PCOs LP invested in',
                 field: 'pcos',
                 minWidth: 100,
                 maxWidth: 140,
@@ -377,6 +384,7 @@ const LPOverviewTable = () => {
             },
             {
                 headerName: 'Type',
+                headerTooltip:'Limited Partner Type',
                 field: 'type',
                 minWidth: 100,
                 maxWidth: 150,
@@ -395,6 +403,7 @@ const LPOverviewTable = () => {
             },
             {
                 headerName: 'Capital Invested',
+                headerTooltip:'Limited Partner Capital Invested',
                 field: 'totalInvestments',
                 minWidth: 185,
                 type: 'numericColumn',
@@ -504,6 +513,7 @@ const LPOverviewTable = () => {
             },
             {
                 headerName: 'Reserved',
+                headerTooltip:'Limited Partner Reserves for Fees',
                 field: 'reservesFees',
                 enableRowGroup: true,
                 minWidth: 100,
@@ -519,6 +529,7 @@ const LPOverviewTable = () => {
             },
             {
                 headerName: 'Capital Distributed',
+                headerTooltip:'Limited Partner Capital Distributed',
                 field: 'totalDistributions',
                 filter: 'agNumberColumnFilter',
                 enableValue: true,

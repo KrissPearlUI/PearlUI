@@ -68,6 +68,7 @@ const SingleLPTransactions = () => {
         return [
             {
                 headerName: 'Transaction ID',
+                headerTooltip: 'Transaction ID',
                 field: 'id',
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
@@ -78,6 +79,7 @@ const SingleLPTransactions = () => {
             },
             {
                 headerName: 'Date',
+                headerTooltip: 'Date of Transaction',
                 field: 'date',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -87,6 +89,7 @@ const SingleLPTransactions = () => {
             },
             {
                 headerName: 'Fund ID',
+                headerTooltip: 'Fund ID',
                 field: 'fundId',
                 rowGroup: true,
                 hide: true,
@@ -98,6 +101,7 @@ const SingleLPTransactions = () => {
             },
             {
                 headerName: 'Investment Type',
+                headerTooltip: 'Invetsment Type',
                 field: 'investmentType',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -107,6 +111,7 @@ const SingleLPTransactions = () => {
             },
             {
                 headerName: 'PCO Short Name',
+                headerTooltip: 'Portfolio Company Short Name',
                 field: 'pcoShortName',
                 enableRowGroup: true,
                 tooltipField: 'pcoShortName',
@@ -120,6 +125,7 @@ const SingleLPTransactions = () => {
             },
             {
                 headerName: 'Security Type',
+                headerTooltip: 'Security Type',
                 field: 'securityType',
                 tooltipField: 'securityType',
                 enableRowGroup: true,
@@ -130,7 +136,8 @@ const SingleLPTransactions = () => {
             },
             {
                 headerName: 'Amount Fund Currency',
-                headerValueGetter: (params) => {return params.colDef.headerName},
+                headerTooltip: 'Amount in Fund Currency',
+                headerValueGetter: (params) => { return params.colDef.headerName },
                 field: 'amountFundCurrency',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -142,7 +149,7 @@ const SingleLPTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 cellRenderer: (params: ICellRendererParams) => {
                     if (params?.node?.group) {
-                        return <span style={{ fontWeight: 600}}>{amountValueFormatter(params.value ?? 0, '')}</span>
+                        return <span style={{ fontWeight: 600 }}>{amountValueFormatter(params.value ?? 0, '')}</span>
                     } else {
                         return amountValueFormatter(params.value ?? 0, '');
                     }
@@ -153,7 +160,8 @@ const SingleLPTransactions = () => {
             },
             {
                 headerName: 'Amount Local Currency',
-                headerValueGetter: () => {return 'Amount Local Currency'},
+                headerTooltip: 'Amount in PCO Currency',
+                headerValueGetter: () => { return 'Amount Local Currency' },
                 field: 'amountLocalCurrency',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -165,7 +173,7 @@ const SingleLPTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 cellRenderer: (params: ICellRendererParams) => {
                     if (params?.node?.group) {
-                        return <span style={{ fontWeight: 600}}>{amountValueFormatter(params.value ?? 0, '')}</span>
+                        return <span style={{ fontWeight: 600 }}>{amountValueFormatter(params.value ?? 0, '')}</span>
                     } else {
                         return amountValueFormatter(params.value ?? 0, '');
                     }
@@ -176,6 +184,7 @@ const SingleLPTransactions = () => {
             },
             {
                 headerName: 'Forex NT',
+                headerTooltip: 'Forex NT',
                 field: 'forexNT',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -190,6 +199,7 @@ const SingleLPTransactions = () => {
             },
             {
                 headerName: 'Pre Money Valuation',
+                headerTooltip: 'Pre Money Valuation',
                 field: 'preMoneyValuation',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -204,6 +214,7 @@ const SingleLPTransactions = () => {
             },
             {
                 headerName: 'Post Money Valuation',
+                headerTooltip: 'Post Money Valuation',
                 field: 'postMoneyValuation',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -218,6 +229,7 @@ const SingleLPTransactions = () => {
             },
             {
                 headerName: 'Warrant Security Type',
+                headerTooltip: 'Warrant Security Type',
                 field: 'warrantSecurityType',
                 enableRowGroup: true,
                 hide: true,
@@ -228,6 +240,7 @@ const SingleLPTransactions = () => {
             },
             {
                 headerName: 'Warrant Strike',
+                headerTooltip: 'Warrant Strike',
                 field: 'warrantStrike',
                 enableRowGroup: true,
                 hide: true,
@@ -243,6 +256,7 @@ const SingleLPTransactions = () => {
             },
             {
                 headerName: 'Due Date',
+                headerTooltip: 'Due Date',
                 field: 'dueDate',
                 hide: true,
                 enableRowGroup: true,

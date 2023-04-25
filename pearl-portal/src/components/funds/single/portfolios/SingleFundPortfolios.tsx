@@ -109,7 +109,8 @@ const SingleFundPortfolios = () => {
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
         return [
             {
-                headerName: 'Short',
+                headerName: 'Short Name',
+                headerTooltip:'Portfolio Company Short Name',
                 field: 'shortName',
                 tooltipField: 'shortName',
                 suppressFiltersToolPanel: true,
@@ -123,6 +124,7 @@ const SingleFundPortfolios = () => {
             },
             {
                 headerName: 'PCO Name',
+                headerTooltip:'Portfolio Company Name',
                 field: 'pcoName',
                 tooltipField:'pcoName',
                 enableRowGroup: true,
@@ -136,6 +138,7 @@ const SingleFundPortfolios = () => {
             },
             {
                 headerName: '1st Investment',
+                headerTooltip:'Date of 1st Investment',
                 field: 'dateFirstInvestment',
                 enableRowGroup: true,
                 filter: 'agDateColumnFilter',
@@ -145,6 +148,7 @@ const SingleFundPortfolios = () => {
             },
             {
                 headerName: 'Investment EUR',
+                headerTooltip:'Amount Invested in EUR',
                 field: 'amountInvested',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -160,6 +164,7 @@ const SingleFundPortfolios = () => {
             },
             {
                 headerName: 'NAV EUR',
+                headerTooltip:'Net Asset Value of Fund in EUR',
                 field: 'navEUR',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -175,6 +180,7 @@ const SingleFundPortfolios = () => {
             },
             {
                 headerName: 'Country',
+                headerTooltip:'Portfolio Company Country',
                 field: 'country',
                 enableRowGroup: true,
                 tooltipField:'country',
@@ -185,6 +191,7 @@ const SingleFundPortfolios = () => {
             },
             {
                 headerName: 'Industry 1',
+                headerTooltip:'Portfolio Company Industry 1',
                 field: 'emeraldIndustry1',
                 enableRowGroup: true,
                 tooltipField:'emeraldIndustry1',
@@ -195,6 +202,7 @@ const SingleFundPortfolios = () => {
             },
             {
                 headerName: 'Industry 2',
+                headerTooltip:'Portfolio Company Industry 2',
                 field: 'emeraldIndustry2',
                 tooltipField:'emeraldIndustry2',
                 hide: true,
@@ -206,6 +214,7 @@ const SingleFundPortfolios = () => {
             },
             {
                 headerName: 'Current Stage',
+                headerTooltip:'Current Satge',
                 field: 'currentStage',
                 tooltipField:'currentStage',
                 enableRowGroup: true,
@@ -216,6 +225,7 @@ const SingleFundPortfolios = () => {
             },
             {
                 headerName: 'Initial Stage',
+                headerTooltip:'Initial Stage',
                 field: 'initialtStage',
                 tooltipField:'initialtStage',
                 hide: true,
@@ -227,6 +237,7 @@ const SingleFundPortfolios = () => {
             },
             {
                 headerName: 'Date Exit',
+                headerTooltip:'Date of Exit',
                 field: 'dateExit',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },

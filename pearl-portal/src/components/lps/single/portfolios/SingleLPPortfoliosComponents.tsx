@@ -79,6 +79,7 @@ const SingleLPPortfolios = () => {
         return [
             {
                 headerName: 'Short',
+                headerTooltip:'Portfolio Company Short Name',
                 field: 'shortName',
                 tooltipField: 'shortName',
                 suppressFiltersToolPanel: true,
@@ -92,6 +93,7 @@ const SingleLPPortfolios = () => {
             },
             {
                 headerName: 'Fund ID',
+                headerTooltip:'Fund ID',
                 field: 'fundId',
                 rowGroup: true,
                 minWidth:250,
@@ -104,6 +106,7 @@ const SingleLPPortfolios = () => {
             },
             {
                 headerName: 'PCO Name',
+                headerTooltip:'Portfolio Company Name',
                 field: 'pcoName',
                 tooltipField: 'pcoName',
                 enableRowGroup: true,
@@ -117,6 +120,7 @@ const SingleLPPortfolios = () => {
             },
             {
                 headerName: '1st Investment',
+                headerTooltip:'Date of 1st Invetsment',
                 field: 'dateFirstInvestment',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -126,6 +130,7 @@ const SingleLPPortfolios = () => {
             },
             {
                 headerName: 'Investment EUR',
+                headerTooltip:'Invested Amount in EUR',
                 field: 'amountInvested',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -147,6 +152,7 @@ const SingleLPPortfolios = () => {
             },
             {
                 headerName: 'NAV EUR',
+                headerTooltip:'Net Asset Value of Fund in EUR',
                 field: 'navEUR',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -168,6 +174,7 @@ const SingleLPPortfolios = () => {
             },
             {
                 headerName: 'Country',
+                headerTooltip:'Portfolio Company Country',
                 field: 'country',
                 enableRowGroup: true,
                 tooltipField: 'country',
@@ -178,6 +185,7 @@ const SingleLPPortfolios = () => {
             },
             {
                 headerName: 'Industry 1',
+                headerTooltip:'Portfolio Company Industry 1',
                 field: 'emeraldIndustry1',
                 enableRowGroup: true,
                 tooltipField: 'emeraldIndustry1',
@@ -188,6 +196,7 @@ const SingleLPPortfolios = () => {
             },
             {
                 headerName: 'Industry 2',
+                headerTooltip:'Portfolio Company Industry 2',
                 field: 'emeraldIndustry2',
                 hide: true,
                 enableRowGroup: true,
@@ -199,6 +208,7 @@ const SingleLPPortfolios = () => {
             },
             {
                 headerName: 'Current Stage',
+                headerTooltip:'Current Stage',
                 field: 'currentStage',
                 enableRowGroup: true,
                 tooltipField: 'currentStage',
@@ -209,6 +219,7 @@ const SingleLPPortfolios = () => {
             },
             {
                 headerName: 'Initial Stage',
+                headerTooltip:'Initial Stage',
                 field: 'initialtStage',
                 tooltipField: 'initialtStage',
                 hide: true,
@@ -220,6 +231,7 @@ const SingleLPPortfolios = () => {
             },
             {
                 headerName: 'Date Exit',
+                headerTooltip:'Date of Exit',
                 field: 'dateExit',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },

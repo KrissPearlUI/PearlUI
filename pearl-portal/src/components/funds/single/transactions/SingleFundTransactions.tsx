@@ -98,6 +98,7 @@ const SingleFundTransactions = () => {
         return [
             {
                 headerName: 'Transaction ID',
+                headerTooltip:'Transaction ID',
                 field: 'id',
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
@@ -108,6 +109,7 @@ const SingleFundTransactions = () => {
             },
             {
                 headerName: 'Date',
+                headerTooltip:'Date of Transaction',
                 field: 'date',
                 enableRowGroup: true,
                 filter: 'agDateColumnFilter',
@@ -117,6 +119,7 @@ const SingleFundTransactions = () => {
             },
             {
                 headerName: 'LP Short Name',
+                headerTooltip:'Limited Partner Short Name',
                 field: 'lpShortName',
                 tooltipField:'lpShortName',
                 enableRowGroup: true,
@@ -130,6 +133,7 @@ const SingleFundTransactions = () => {
             },
             {
                 headerName: 'Investment Type',
+                headerTooltip:'Investment type',
                 field: 'investmentType',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -139,6 +143,7 @@ const SingleFundTransactions = () => {
             },
             {
                 headerName: 'PCO Short Name',
+                headerTooltip:'Portfolio Company Short Name',
                 field: 'pcoShortName',
                 tooltipField:'pcoShortName',
                 enableRowGroup: true,
@@ -152,6 +157,7 @@ const SingleFundTransactions = () => {
             },
             {
                 headerName: 'Security Type',
+                headerTooltip:'Security Type',
                 field: 'securityType',
                 tooltipField:'securityType',
                 enableRowGroup: true,
@@ -162,6 +168,7 @@ const SingleFundTransactions = () => {
             },
             {
                 headerName: 'Amount Fund Currency',
+                headerTooltip:'Amount in Fund Currency',
                 field: 'amountFundCurrency',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -177,6 +184,7 @@ const SingleFundTransactions = () => {
             },
             {
                 headerName: 'Amount Local Currency',
+                headerTooltip:'Amount in PCO Currency',
                 field: 'amountLocalCurrency',
                 enableRowGroup: true,
                 enableValue: true,
@@ -192,6 +200,7 @@ const SingleFundTransactions = () => {
             },
             {
                 headerName: 'Forex NT',
+                headerTooltip:'Forex NT',
                 field: 'forexNT',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -206,6 +215,7 @@ const SingleFundTransactions = () => {
             },
             {
                 headerName: 'Pre Money Valuation',
+                headerTooltip:'Pre Money Valuation',
                 field: 'preMoneyValuation',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -220,6 +230,7 @@ const SingleFundTransactions = () => {
             },
             {
                 headerName: 'Post Money Valuation',
+                headerTooltip:'Post Money Valuation',
                 field: 'postMoneyValuation',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -234,6 +245,7 @@ const SingleFundTransactions = () => {
             },
             {
                 headerName: 'Warrant Security Type',
+                headerTooltip:'Warrant Security Type',
                 field: 'warrantSecurityType',
                 enableRowGroup: true,
                 hide: true,
@@ -244,6 +256,7 @@ const SingleFundTransactions = () => {
             },
             {
                 headerName: 'Warrant Strike',
+                headerTooltip:'Warrant Strike',
                 field: 'warrantStrike',
                 enableRowGroup: true,
                 hide: true,
@@ -259,6 +272,7 @@ const SingleFundTransactions = () => {
             },
             {
                 headerName: 'Due Date',
+                headerTooltip:'Due Date',
                 field: 'dueDate',
                 hide: true,
                 enableRowGroup: true,

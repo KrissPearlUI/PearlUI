@@ -124,6 +124,7 @@ const FundsOverviewTable = () => {
         return [
             {
                 headerName: 'Id',
+                headerTooltip:'Fund ID',
                 field: 'id',
                 minWidth: 90,
                 maxWidth: 100,
@@ -138,7 +139,8 @@ const FundsOverviewTable = () => {
                 } as INumberFilterParams,
             },
             {
-                headerName: 'Short',
+                headerName: 'Short Name',
+                headerTooltip:'Fund Short Name',
                 field: 'shortName',
                 minWidth: 100,
                 maxWidth: 150,
@@ -154,6 +156,7 @@ const FundsOverviewTable = () => {
             },
             {
                 headerName: 'Name',
+                headerTooltip:'Fund Name',
                 field: 'fundName',
                 suppressFiltersToolPanel: true,
                 minWidth: 200,
@@ -165,6 +168,7 @@ const FundsOverviewTable = () => {
             },
             {
                 headerName: 'Currency',
+                headerTooltip:'Fund Currency',
                 field: 'currency',
                 enableRowGroup: true,
                 minWidth: 80,
@@ -179,6 +183,7 @@ const FundsOverviewTable = () => {
             },
             {
                 headerName: 'Vintage',
+                headerTooltip:'Fund Vintage',
                 field: 'vintage',
                 minWidth: 100,
                 maxWidth: 150,
@@ -189,7 +194,8 @@ const FundsOverviewTable = () => {
                 filterParams: dateFilterParams,
             },
             {
-                headerName: 'Commited Capital',
+                headerName: 'Committed Capital',
+                headerTooltip:'Fund Committed Capital',
                 field: 'totalCommitmentsFundCcy',
                 enableRowGroup: true,
                 minWidth: 220,
@@ -229,6 +235,7 @@ const FundsOverviewTable = () => {
             },
             {
                 headerName: 'LPs',
+                headerTooltip:'Number of LPs that committed to the Fund',
                 field: 'numOfLPs',
                 minWidth: 90,
                 maxWidth: 100,
@@ -265,6 +272,7 @@ const FundsOverviewTable = () => {
             },
             {
                 headerName: 'Active PCOs',
+                headerTooltip:'Number of PCOs that the Fund invested in',
                 field: 'numOFPCOs',
                 minWidth: 100,
                 maxWidth: 140,
@@ -301,6 +309,7 @@ const FundsOverviewTable = () => {
             },
             {
                 headerName: 'Domicile',
+                headerTooltip:'Fund Domicile',
                 field: 'domicile',
                 suppressFiltersToolPanel: true,
                 minWidth: 110,

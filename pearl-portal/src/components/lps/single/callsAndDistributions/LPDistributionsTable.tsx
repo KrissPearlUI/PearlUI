@@ -58,6 +58,7 @@ const SingleLPDistributionsTable = () => {
         return [
             {
                 headerName: 'Distribution ID',
+                headerTooltip:'Distribution ID',
                 field: 'id',
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
@@ -68,6 +69,7 @@ const SingleLPDistributionsTable = () => {
             },
             {
                 headerName: 'Fund ID',
+                headerTooltip:'Fund ID',
                 field: 'fundId',
                 enableRowGroup: true,
                 rowGroup: true,
@@ -79,6 +81,7 @@ const SingleLPDistributionsTable = () => {
             },
             {
                 headerName: 'LP ID',
+                headerTooltip:'Limited Partner ID',
                 field: 'lpId',
                 enableRowGroup: true,
                 hide: true,
@@ -88,7 +91,8 @@ const SingleLPDistributionsTable = () => {
                 } as INumberFilterParams,
             },
             {
-                headerName: 'LP Type',
+                headerName: 'Transaction Type',
+                headerTooltip:'Transaction Type',
                 field: 'lpType',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -98,6 +102,7 @@ const SingleLPDistributionsTable = () => {
             },
             {
                 headerName: 'PCO Short Name',
+                headerTooltip:'Portfolio Company Sort Name',
                 field: 'pcoShortName',
                 tooltipField: 'pcoShortName',
                 enableRowGroup: true,
@@ -111,6 +116,7 @@ const SingleLPDistributionsTable = () => {
             },
             {
                 headerName: 'Notice Date',
+                headerTooltip:'Notice Date',
                 field: 'noticeDate',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -120,6 +126,7 @@ const SingleLPDistributionsTable = () => {
             },
             {
                 headerName: 'Distribution Date',
+                headerTooltip:'Distribution Date',
                 field: 'distDate',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -129,6 +136,7 @@ const SingleLPDistributionsTable = () => {
             },
             {
                 headerName: 'Amount',
+                headerTooltip:'Amount',
                 field: 'amount',
                 enableRowGroup: true,
                 type: 'numericColumn',

@@ -92,6 +92,7 @@ const SingleFundCallsTable = () => {
         return [
             {
                 headerName: 'Call ID',
+                headerTooltip:'Call ID',
                 field: 'id',
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
@@ -102,6 +103,7 @@ const SingleFundCallsTable = () => {
             },
             {
                 headerName: 'LP Short Name',
+                headerTooltip:'Limited Partner Short Name',
                 field: 'lpShortName',
                 tooltipField:'lpShortName',
                 enableRowGroup: true,
@@ -115,6 +117,7 @@ const SingleFundCallsTable = () => {
             },
             {
                 headerName: 'LP ID',
+                headerTooltip:'Limited Partner ID',
                 field: 'lpId',
                 hide: true,
                 enableRowGroup: true,
@@ -124,7 +127,8 @@ const SingleFundCallsTable = () => {
                   } as INumberFilterParams,
             },
             {
-                headerName: 'LP Type',
+                headerName: 'Transaction Type',
+                headerTooltip:'Transaction Type',
                 field: 'lpType',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -134,6 +138,7 @@ const SingleFundCallsTable = () => {
             },
             {
                 headerName: 'PCO Short Name',
+                headerTooltip:'Portfolio Company Short Name',
                 field: 'pcoShortName',
                 tooltipField:'pcoShortName',
                 enableRowGroup: true,
@@ -147,6 +152,7 @@ const SingleFundCallsTable = () => {
             },
             {
                 headerName: 'Call Date',
+                headerTooltip:'Call Date',
                 field: 'callDate',
                 enableRowGroup: true,
                 filter: 'agDateColumnFilter',
@@ -156,6 +162,7 @@ const SingleFundCallsTable = () => {
             },
             {
                 headerName: 'Due Date',
+                headerTooltip:'Due Date',
                 field: 'dueDate',
                 enableRowGroup: true,
                 filter: 'agDateColumnFilter',
@@ -165,6 +172,7 @@ const SingleFundCallsTable = () => {
             },
             {
                 headerName: 'Amount',
+                headerTooltip:'Amount',
                 field: 'amount',
                 enableRowGroup: true,
                 enableValue: true,

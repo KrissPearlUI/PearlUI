@@ -59,6 +59,7 @@ const SinglePCOTransactions = () => {
         return [
             {
                 headerName: 'Transaction ID',
+                headerTooltip: 'Transaction ID',
                 field: 'id',
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
@@ -69,6 +70,7 @@ const SinglePCOTransactions = () => {
             },
             {
                 headerName: 'Date',
+                headerTooltip: 'Date of Transaction',
                 field: 'date',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -78,6 +80,7 @@ const SinglePCOTransactions = () => {
             },
             {
                 headerName: 'Fund ID',
+                headerTooltip: 'Fund ID',
                 field: 'fundId',
                 rowGroup: true,
                 hide: true,
@@ -89,6 +92,7 @@ const SinglePCOTransactions = () => {
             },
             {
                 headerName: 'Investment Type',
+                headerTooltip: 'Invetsment Type',
                 field: 'investmentType',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -98,6 +102,7 @@ const SinglePCOTransactions = () => {
             },
             {
                 headerName: 'LP Short Name',
+                headerTooltip: 'Limited Partner Short Name',
                 field: 'lpShortName',
                 tooltipField: 'lpShortName',
                 enableRowGroup: true,
@@ -111,6 +116,7 @@ const SinglePCOTransactions = () => {
             },
             {
                 headerName: 'Security Type',
+                headerTooltip: 'Security Type',
                 field: 'securityType',
                 tooltipField: 'securityType',
                 enableRowGroup: true,
@@ -121,6 +127,7 @@ const SinglePCOTransactions = () => {
             },
             {
                 headerName: 'Amount Fund Currency',
+                headerTooltip: 'Amount in Fund Currency',
                 field: 'amountFundCurrency',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -131,7 +138,7 @@ const SinglePCOTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 cellRenderer: (params: ICellRendererParams) => {
                     if (params?.node?.group) {
-                        return <span style={{ fontWeight: 600}}>{amountValueFormatter(params.value ?? 0, '')}</span>
+                        return <span style={{ fontWeight: 600 }}>{amountValueFormatter(params.value ?? 0, '')}</span>
                     } else {
                         return amountValueFormatter(params.value ?? 0, '');
                     }
@@ -142,6 +149,7 @@ const SinglePCOTransactions = () => {
             },
             {
                 headerName: 'Amount Local Currency',
+                headerTooltip: 'Amount in PCO Currency',
                 field: 'amountLocalCurrency',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -152,7 +160,7 @@ const SinglePCOTransactions = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 cellRenderer: (params: ICellRendererParams) => {
                     if (params?.node?.group) {
-                        return <span style={{ fontWeight: 600}}>{amountValueFormatter(params.value ?? 0, '')}</span>
+                        return <span style={{ fontWeight: 600 }}>{amountValueFormatter(params.value ?? 0, '')}</span>
                     } else {
                         return amountValueFormatter(params.value ?? 0, '');
                     }
@@ -163,6 +171,7 @@ const SinglePCOTransactions = () => {
             },
             {
                 headerName: 'Forex NT',
+                headerTooltip: 'Forex NT',
                 field: 'forexNT',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -177,6 +186,7 @@ const SinglePCOTransactions = () => {
             },
             {
                 headerName: 'Pre Money Valuation',
+                headerTooltip: 'Pre Money Valuation',
                 field: 'preMoneyValuation',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -191,6 +201,7 @@ const SinglePCOTransactions = () => {
             },
             {
                 headerName: 'Post Money Valuation',
+                headerTooltip: 'Post Money Valuation',
                 field: 'postMoneyValuation',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -205,6 +216,7 @@ const SinglePCOTransactions = () => {
             },
             {
                 headerName: 'Warrant Security Type',
+                headerTooltip: 'Warrant Security Type',
                 field: 'warrantSecurityType',
                 enableRowGroup: true,
                 hide: true,
@@ -215,6 +227,7 @@ const SinglePCOTransactions = () => {
             },
             {
                 headerName: 'Warrant Strike',
+                headerTooltip: 'Warrant Strike',
                 field: 'warrantStrike',
                 enableRowGroup: true,
                 hide: true,
@@ -230,6 +243,7 @@ const SinglePCOTransactions = () => {
             },
             {
                 headerName: 'Due Date',
+                headerTooltip: 'Due Date',
                 field: 'dueDate',
                 hide: true,
                 enableRowGroup: true,

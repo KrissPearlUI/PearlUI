@@ -121,7 +121,8 @@ const PCOsOverviewTable = () => {
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
         return [
             {
-                headerName: 'Short',
+                headerName: 'Short Name',
+                headerTooltip:'Portfolio Company Short Name',
                 field: 'shortName',
                 minWidth: 115,
                 enableRowGroup: true,
@@ -137,6 +138,7 @@ const PCOsOverviewTable = () => {
             },
             {
                 headerName: 'Name',
+                headerTooltip:'Portfolio Company Name',
                 field: 'pcoName',
                 suppressFiltersToolPanel: true,
                 minWidth: 160,
@@ -148,6 +150,7 @@ const PCOsOverviewTable = () => {
             },
             {
                 headerName: 'Headquarters',
+                headerTooltip:'Portfolio Company Headquarters',
                 field: 'country',
                 enableRowGroup: true,
                 minWidth: 110,
@@ -163,6 +166,7 @@ const PCOsOverviewTable = () => {
             },
             {
                 headerName: 'Local Currency',
+                headerTooltip:'Portfolio Company Currency',
                 field: 'localCurrency',
                 enableRowGroup: true,
                 minWidth: 110,
@@ -178,6 +182,7 @@ const PCOsOverviewTable = () => {
             },
             {
                 headerName: 'Invested Capital',
+                headerTooltip:'Portfolio Company Invested Capital',
                 field: 'amountInvestedLocalCcy',
                 enableRowGroup: true,
                 enableValue: true,
@@ -206,6 +211,7 @@ const PCOsOverviewTable = () => {
             },
             {
                 headerName: 'Funds',
+                headerTooltip:'Number of Funds that invested in PCO',
                 field: 'numOfFunds',
                 minWidth: 90,
                 maxWidth: 100,
@@ -242,6 +248,7 @@ const PCOsOverviewTable = () => {
             },
             {
                 headerName: 'LPs',
+                headerTooltip:'Number of LPs that invested in PCO',
                 field: 'numOfLPS',
                 minWidth: 100,
                 maxWidth: 140,
@@ -278,6 +285,7 @@ const PCOsOverviewTable = () => {
             },
             {
                 headerName: 'Status',
+                headerTooltip:'Portfolio Company Status',
                 field: 'status',
                 valueGetter: (params: ValueGetterParams) => {
                     return params?.data?.status ? capitalizeLetters(params.data.status) : '';

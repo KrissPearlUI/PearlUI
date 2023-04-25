@@ -120,6 +120,7 @@ const SingleLPCommitments = () => {
         return [
             {
                 headerName: 'CRM ID',
+                headerTooltip:'CRM ID',
                 field: 'id',
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
@@ -130,6 +131,7 @@ const SingleLPCommitments = () => {
             },
             {
                 headerName: 'Fund ID',
+                headerTooltip:'Fund ID',
                 field: 'fundId',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -139,6 +141,7 @@ const SingleLPCommitments = () => {
             },
             {
                 headerName: 'Fund Name',
+                headerTooltip:'Fund Name',
                 field: 'fundName',
                 enableRowGroup: true,
                 tooltipField: 'fundName',
@@ -149,6 +152,7 @@ const SingleLPCommitments = () => {
             },
             {
                 headerName: 'Currency',
+                headerTooltip:'Fund Currency',
                 field: 'fundCurrency',
                 enableRowGroup: true,
                 valueGetter: (params) => {
@@ -161,7 +165,8 @@ const SingleLPCommitments = () => {
                 } as INumberFilterParams,
             },
             {
-                headerName: 'Commitment',
+                headerName: 'Committed Amount',
+                headerTooltip:'Committed Amount',
                 field: 'committedAmount',
                 type: 'numericColumn',
                 tooltipField: 'committedAmount',
@@ -177,6 +182,7 @@ const SingleLPCommitments = () => {
             },
             {
                 headerName: 'Commitment Date',
+                headerTooltip:'Commitment Date',
                 field: 'date',
                 filter: 'agDateColumnFilter',
                 filterParams: dateFilterParams,
@@ -186,6 +192,7 @@ const SingleLPCommitments = () => {
             },
             {
                 headerName: 'End of IP Date',
+                headerTooltip:'End of IP Date',
                 field: 'ipDate',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -195,6 +202,7 @@ const SingleLPCommitments = () => {
             },
             {
                 headerName: 'Transfer',
+                headerTooltip:'Transfer',
                 field: 'transfer',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -207,6 +215,7 @@ const SingleLPCommitments = () => {
             },
             {
                 headerName: 'Tapped Out',
+                headerTooltip:'Tapped Out',
                 field: 'tappedOot',
                 valueGetter: (params: ValueGetterParams) => {
                     return params?.data?.tappedOot ? 'Yes' : 'No'

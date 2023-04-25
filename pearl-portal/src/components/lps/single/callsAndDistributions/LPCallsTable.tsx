@@ -58,6 +58,7 @@ const SingleLPCallsTable = () => {
         return [
             {
                 headerName: 'Call ID',
+                headerTooltip:'Call ID',
                 field: 'id',
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
@@ -68,6 +69,7 @@ const SingleLPCallsTable = () => {
             },
             {
                 headerName: 'Fund ID',
+                headerTooltip:'Fund ID',
                 field: 'fundId',
                 rowGroup: true,
                 hide: true,
@@ -79,6 +81,7 @@ const SingleLPCallsTable = () => {
             },
             {
                 headerName: 'LP ID',
+                headerTooltip:'Limited Partner ID',
                 field: 'lpId',
                 hide: true,
                 enableRowGroup: true,
@@ -88,7 +91,8 @@ const SingleLPCallsTable = () => {
                 } as INumberFilterParams,
             },
             {
-                headerName: 'LP Type',
+                headerName: 'Transaction Type',
+                headerTooltip:'Transaction Type',
                 field: 'lpType',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -98,6 +102,7 @@ const SingleLPCallsTable = () => {
             },
             {
                 headerName: 'PCO Short Name',
+                headerTooltip:'Portfolio Company Short Name',
                 field: 'pcoShortName',
                 tooltipField: 'pcoShortName',
                 enableRowGroup: true,
@@ -111,6 +116,7 @@ const SingleLPCallsTable = () => {
             },
             {
                 headerName: 'Call Date',
+                headerTooltip:'Call Date',
                 field: 'callDate',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -120,6 +126,7 @@ const SingleLPCallsTable = () => {
             },
             {
                 headerName: 'Due Date',
+                headerTooltip:'Due Date',
                 field: 'dueDate',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -129,6 +136,7 @@ const SingleLPCallsTable = () => {
             },
             {
                 headerName: 'Amount',
+                headerTooltip:'Amount',
                 field: 'amount',
                 enableRowGroup: true,
                 type: 'numericColumn',
