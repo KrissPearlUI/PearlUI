@@ -32,13 +32,16 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const SingleLPDistributionsTable = () => {
+interface SingleLPDistributionsTableProps {
+    setGridApi: any
+}
+
+const SingleLPDistributionsTable = ({ setGridApi }: SingleLPDistributionsTableProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedLP } = useSelector((state: RootState) => state.lps);
     const { distributions } = useSelector((state: RootState) => state.distributions);
-    const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<DistributionBasic[]>([]);
 
@@ -49,7 +52,6 @@ const SingleLPDistributionsTable = () => {
         animateRows: true,
         pagination: true,
         enableCellTextSelection: true,
-        groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
         sideBar: DefaultSideBarDef,
     };
@@ -196,7 +198,6 @@ const SingleLPDistributionsTable = () => {
                 tooltipShowDelay={0}
                 tooltipHideDelay={10000}
                 groupDisplayType={'singleColumn'}
-                showOpenedGroup={true}
                 suppressAggFuncInHeader={true}
             />
         </div>

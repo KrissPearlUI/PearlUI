@@ -37,27 +37,20 @@ const useStyles = makeStyles((theme: Theme) =>
 interface SingleSelectionProps {
     selectedItem: string
     handleButtonClick: any,
-    addEditTooltip: string
+    addEditTooltip: string,
+    searchTextValue: string | null,
+    onValueChange: (v: any) => void,
+    onCancelClick: (v: any) => void,
 }
 
-const FiltersAndActionsPCOComponent = ({ selectedItem, handleButtonClick, addEditTooltip }: SingleSelectionProps) => {
+const FiltersAndActionsPCOComponent = ({
+    selectedItem,
+    handleButtonClick,
+    addEditTooltip,
+    searchTextValue,
+    onValueChange,
+    onCancelClick }: SingleSelectionProps) => {
     const classes = useStyles();
-    const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
-    const [gridApi,] = useState<GridApi>();
-
-    const onValueChange = useCallback((event: any) => {
-        setSearchTextValue(event.target.value)
-        if (gridApi) {
-            gridApi.setQuickFilter(event.target.value);
-        }
-    }, [gridApi]);
-
-    const onCancelClick = useCallback(() => {
-        setSearchTextValue('');
-        if (gridApi) {
-            gridApi.setQuickFilter('');
-        }
-    }, [gridApi]);
 
     return (
         <>

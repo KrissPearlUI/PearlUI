@@ -30,11 +30,14 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const SingleLPCoinvestments = () => {
+interface SingleLPCoinvestmentsProps {
+    setGridApi: any
+}
+
+const SingleLPCoinvestments = ({ setGridApi }: SingleLPCoinvestmentsProps) => {
     const classes = useStyles();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedLP } = useSelector((state: RootState) => state.lps);
-    const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<Fund[]>([]);
 

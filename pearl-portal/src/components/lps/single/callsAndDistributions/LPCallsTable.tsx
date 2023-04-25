@@ -32,13 +32,16 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const SingleLPCallsTable = () => {
+interface SingleLPCallsTableProps {
+    setGridApi: any
+}
+
+const SingleLPCallsTable = ({ setGridApi }: SingleLPCallsTableProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedLP } = useSelector((state: RootState) => state.lps);
     const { cashCalls } = useSelector((state: RootState) => state.cashCalls);
-    const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<CashCall[]>([]);
 
@@ -49,7 +52,6 @@ const SingleLPCallsTable = () => {
         animateRows: true,
         pagination: true,
         enableCellTextSelection: true,
-        groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
         sideBar: DefaultSideBarDef,
     };
@@ -196,7 +198,6 @@ const SingleLPCallsTable = () => {
                 tooltipShowDelay={0}
                 tooltipHideDelay={10000}
                 groupDisplayType={'singleColumn'}
-                showOpenedGroup={true}
                 suppressAggFuncInHeader={true}
             />
         </div>

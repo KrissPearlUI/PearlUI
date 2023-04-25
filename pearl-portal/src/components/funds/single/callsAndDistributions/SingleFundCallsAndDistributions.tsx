@@ -32,12 +32,13 @@ const useStyles = makeStyles(() =>
 );
 
 interface SingleFundCallsAndDistributionsProps {
-    selectedCallDistView:string,
-    setSelecteCalDistdView:(value:string)=>void
+    selectedCallDistView: string,
+    setSelecteCalDistdView: (value: string) => void,
+    setGridApi: any
 }
 
 
-const SingleFundCallsAndDistributions = ({selectedCallDistView,setSelecteCalDistdView}:SingleFundCallsAndDistributionsProps) => {
+const SingleFundCallsAndDistributions = ({ selectedCallDistView, setSelecteCalDistdView, setGridApi }: SingleFundCallsAndDistributionsProps) => {
     const classes = useStyles();
     const { selectedLP } = useSelector((state: RootState) => state.lps);
     const theme = useTheme();
@@ -115,7 +116,7 @@ const SingleFundCallsAndDistributions = ({selectedCallDistView,setSelecteCalDist
                         </Grid>
                     </Grid>
                 </Toolbar>
-                {selectedCallDistView === 'Calls' ? <SingleFundCallsTable /> : <SingleFundDistributionsTable />}
+                {selectedCallDistView === 'Calls' ? <SingleFundCallsTable setGridApi={setGridApi} /> : <SingleFundDistributionsTable setGridApi={setGridApi} />}
                 {/*  <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{flex:1}}>
                     <AgGridReact gridOptions={gridOptions}
                                 columnDefs={getColumnDefs}

@@ -57,13 +57,16 @@ const CustomStatusBar = (props: any) => {
     );
 };
 
-const SingleFundDistributionsTable = () => {
+interface SingleFundDistributionsTableProps {
+    setGridApi: any
+}
+
+const SingleFundDistributionsTable = ({ setGridApi }: SingleFundDistributionsTableProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedFund } = useSelector((state: RootState) => state.funds);
     const { distributions } = useSelector((state: RootState) => state.distributions);
-    const [gridApi, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<DistributionBasic[]>([]);
 

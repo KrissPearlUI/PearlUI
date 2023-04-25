@@ -32,13 +32,16 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const SingleLPTransactions = () => {
+interface SingleLPTransactionsProps {
+    setGridApi: any
+}
+
+const SingleLPTransactions = ({ setGridApi }: SingleLPTransactionsProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedLP } = useSelector((state: RootState) => state.lps);
     const { transactions } = useSelector((state: RootState) => state.transactions);
-    const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<Transaction[]>([]);
     const [totals, setTotals] = useState<Record<string, number>>({});
@@ -57,10 +60,7 @@ const SingleLPTransactions = () => {
         animateRows: true,
         pagination: true,
         enableCellTextSelection: true,
-        /* groupDisplayType: 'multipleColumns', */
         statusBar: DefaultStatusPanelDef,
-        /*  groupIncludeFooter: true,
-         groupIncludeTotalFooter: true, */
         sideBar: DefaultSideBarDef,
     };
 
@@ -359,10 +359,7 @@ const SingleLPTransactions = () => {
                 loadingOverlayComponent={AGGridLoader}
                 tooltipShowDelay={0}
                 tooltipHideDelay={10000}
-                /*  frameworkComponents={frameworkComponents}
-                 context={{ totals }} */
                 groupDisplayType={'singleColumn'}
-                showOpenedGroup={true}
                 autoGroupColumnDef={autoGroupColumnDef}
                 suppressAggFuncInHeader={true}
             />

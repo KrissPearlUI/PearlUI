@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
 import SingleLPBasic from '../../../components/lps/single/basic/SingleLPBasicComponent';
@@ -21,16 +21,34 @@ import { AddDialogComponent } from '../../../components/shared/addPopup/AddPopup
 import { setSelectedFund } from '../../../redux/slices/funds/fundsSlice';
 import { setSelectedPCO } from '../../../redux/slices/pcos/pcosSlice';
 import { EditDialogComponent } from '../../../components/shared/editPopup/EditPopupDialog';
+import { GridApi } from 'ag-grid-community';
 
 const SingleLP = () => {
     const dispatch = useAppDispatch();
     const { lps, selectedLP } = useSelector((state: RootState) => state.lps);
     const [selectedView, setSelectedView] = useState<string>('basic');
     const [selectedCallDistView, setSelecteCalDistdView] = useState<string>('Calls');
+    const [gridApi, setGridApi] = useState<GridApi | null>(null);
+    const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
 
     const handleButtonClick = (buttonId: string) => {
+        onCancelClick();
         setSelectedView(buttonId);
     };
+
+    const onValueChange = useCallback((event: any) => {
+        setSearchTextValue(event.target.value)
+        if (gridApi) {
+            gridApi.setQuickFilter(event.target.value);
+        }
+    }, [gridApi]);
+
+    const onCancelClick = useCallback(() => {
+        setSearchTextValue('');
+        if (gridApi) {
+            gridApi.setQuickFilter('');
+        }
+    }, [gridApi]);
 
     useEffect(() => {
         dispatch(fetchLPs());
@@ -70,22 +88,25 @@ const SingleLP = () => {
                                 : selectedView === 'portfolio' ? 'lpPortfolio'
                                     : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'callsComponent'
                                         : 'distributionComponent'
-                                        : 'transactions'} />
+                                        : 'transactions'}
+                            searchTextValue={searchTextValue}
+                            onValueChange={onValueChange}
+                            onCancelClick={onCancelClick} />
                     </Grid>
                 </Grid>
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} sx={{ flex: 1, height: '82%' }}>
                 {selectedView === 'basic' ? <SingleLPBasic />
                     : selectedView === 'commitments'
-                        ? <SingleLPCommitments />
+                        ? <SingleLPCommitments setGridApi={setGridApi} />
                         : selectedView === 'coinvestments'
-                            ? <SingleLPCoinvestments />
+                            ? <SingleLPCoinvestments setGridApi={setGridApi} />
                             : selectedView === 'portfolio'
-                                ? <SingleLPPortfolios />
+                                ? <SingleLPPortfolios setGridApi={setGridApi} />
                                 : selectedView === 'callsDist'
-                                    ? <SingleLPCallsAndDistributions selectedCallDistView={selectedCallDistView} setSelecteCalDistdView={setSelecteCalDistdView} />
+                                    ? <SingleLPCallsAndDistributions selectedCallDistView={selectedCallDistView} setSelecteCalDistdView={setSelecteCalDistdView} setGridApi={setGridApi} />
                                     : selectedView === 'transactions'
-                                        ? <SingleLPTransactions />
+                                        ? <SingleLPTransactions setGridApi={setGridApi} />
                                         : <SingleLPDocuments />}
             </Grid>
             <AddDialogComponent pageName={selectedView === 'commitments' ? 'commitments'

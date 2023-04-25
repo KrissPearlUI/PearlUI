@@ -70,13 +70,16 @@ const CustomStatusBar = (props: any) => {
     );
 };
 
-const SingleFundPortfolios = () => {
+interface SingleFundPortfoliosProps {
+    setGridApi: any
+}
+
+const SingleFundPortfolios = ({ setGridApi }: SingleFundPortfoliosProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedFund } = useSelector((state: RootState) => state.funds);
     const { pcos, pcosFinancials } = useSelector((state: RootState) => state.pcos);
-    const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<any[]>([]);
     const [isPortfolioByCountryExpand, setIsPortfolioByCountryExpand] = useState<boolean>(false);

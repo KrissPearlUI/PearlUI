@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
 import { useSelector } from 'react-redux';
@@ -20,15 +20,33 @@ import { setSelectedPCO } from '../../../redux/slices/pcos/pcosSlice';
 import { AddDialogComponent } from '../../../components/shared/addPopup/AddPopupDialog';
 import { setSelectedFund } from '../../../redux/slices/funds/fundsSlice';
 import { EditDialogComponent } from '../../../components/shared/editPopup/EditPopupDialog';
+import { GridApi } from 'ag-grid-community';
 
 const SinglePCO = () => {
     const dispatch = useAppDispatch();
     const { pcos, selectedPCO } = useSelector((state: RootState) => state.pcos);
     const [selectedView, setSelectedView] = useState<string>('basic');
+    const [gridApi, setGridApi] = useState<GridApi | null>(null);
+    const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
 
     const handleButtonClick = (buttonId: string) => {
+        onCancelClick();
         setSelectedView(buttonId);
     };
+
+    const onValueChange = useCallback((event: any) => {
+        setSearchTextValue(event.target.value)
+        if (gridApi) {
+            gridApi.setQuickFilter(event.target.value);
+        }
+    }, [gridApi]);
+
+    const onCancelClick = useCallback(() => {
+        setSearchTextValue('');
+        if (gridApi) {
+            gridApi.setQuickFilter('');
+        }
+    }, [gridApi]);
 
     useEffect(() => {
         dispatch(fetchPCOs());
@@ -63,7 +81,10 @@ const SinglePCO = () => {
                     <Grid item xs={12} md={4} lg={4} sx={{ display: 'flex', flex: 1, justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' }, alignSelf: 'flex-end' }}>
                         <FiltersAndActionsPCOComponent selectedItem={selectedView} handleButtonClick={handleButtonClick} addEditTooltip={selectedView === 'basic'
                             ? 'pcoBasic'
-                            : 'transactions'} />
+                            : 'transactions'} 
+                            searchTextValue={searchTextValue}
+                            onValueChange={onValueChange}
+                            onCancelClick={onCancelClick}/>
                     </Grid>
                 </Grid>
             </Grid>
@@ -72,7 +93,7 @@ const SinglePCO = () => {
                     : selectedView === 'contacts'
                         ? <SinglePCOContactsComponent />
                         : selectedView === 'transactions'
-                            ? <SinglePCOTransactions />
+                            ? <SinglePCOTransactions setGridApi={setGridApi}/>
                             : selectedView === 'valuations'
                                 ? <SinglePCOValuationsComponent />
                                 : selectedView === 'exitsReserves'

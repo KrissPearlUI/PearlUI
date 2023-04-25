@@ -59,13 +59,15 @@ const CustomStatusBar = (props: any) => {
     );
 };
 
+interface SingleLPCommitmentsProps {
+    setGridApi: any
+}
 
-const SingleLPCommitments = () => {
+const SingleLPCommitments = ({ setGridApi }: SingleLPCommitmentsProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedLP } = useSelector((state: RootState) => state.lps);
-    const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<any[]>([]);
     const gridApiRef = useRef<GridApi>();

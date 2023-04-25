@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
 import { useSelector } from 'react-redux';
@@ -20,16 +20,34 @@ import { AddDialogComponent } from '../../../components/shared/addPopup/AddPopup
 import { setSelectedLP } from '../../../redux/slices/lps/lpsSlice';
 import { setSelectedPCO } from '../../../redux/slices/pcos/pcosSlice';
 import { EditDialogComponent } from '../../../components/shared/editPopup/EditPopupDialog';
+import { GridApi } from 'ag-grid-community';
 
 const SingleFund = () => {
     const dispatch = useAppDispatch();
     const { funds, selectedFund } = useSelector((state: RootState) => state.funds);
     const [selectedView, setSelectedView] = useState<string>('basic');
     const [selectedCallDistView, setSelecteCalDistdView] = useState<string>('Calls');
+    const [gridApi, setGridApi] = useState<GridApi | null>(null);
+    const [searchTextValue, setSearchTextValue] = useState<string | null>(null);
 
     const handleButtonClick = (buttonId: string) => {
+        onCancelClick();
         setSelectedView(buttonId);
     };
+
+    const onValueChange = useCallback((event: any) => {
+        setSearchTextValue(event.target.value)
+        if (gridApi) {
+            gridApi.setQuickFilter(event.target.value);
+        }
+    }, [gridApi]);
+
+    const onCancelClick = useCallback(() => {
+        setSearchTextValue('');
+        if (gridApi) {
+            gridApi.setQuickFilter('');
+        }
+    }, [gridApi]);
 
     useEffect(() => {
         dispatch(fetchFunds());
@@ -50,7 +68,7 @@ const SingleFund = () => {
             <Grid item xs={12} md={12} lg={12} sx={{ flex: 1 }}>
                 <Grid container spacing={2} sx={{ display: 'flex', flex: 1, width: '100%', height: '100%', alignItems: 'start' }}>
                     <Grid item xs={12} md={6} lg={6}>
-                        {selectedFund &&<AutocompleteFundComponent selectedFund={selectedFund} />}
+                        {selectedFund && <AutocompleteFundComponent selectedFund={selectedFund} />}
                     </Grid>
                     <Grid item xs={12} md={6} lg={6} sx={{ display: 'flex', flex: 1, justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' }, alignSelf: 'flex-end' }}>
                         <DatePickerFundComponent />
@@ -69,20 +87,23 @@ const SingleFund = () => {
                                 : selectedView === 'portfolio' ? 'fundPortfolio'
                                     : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'callsComponent'
                                         : 'distributionComponent'
-                                        : 'transactions'} />
+                                        : 'transactions'}
+                            searchTextValue={searchTextValue}
+                            onValueChange={onValueChange}
+                            onCancelClick={onCancelClick} />
                     </Grid>
                 </Grid>
             </Grid>
             <Grid item xs={12} md={12} lg={12} sx={{ flex: 1, height: '82%' }}>
                 {selectedView === 'basic' ? <SingleFundBasic />
                     : selectedView === 'commitments'
-                        ? <SingleFundCommitments />
+                        ? <SingleFundCommitments setGridApi={setGridApi} />
                         : selectedView === 'portfolio'
-                            ? <SingleFundPortfolios />
+                            ? <SingleFundPortfolios setGridApi={setGridApi} />
                             : selectedView === 'callsDist'
-                                ? <SingleFundCallsAndDistributions selectedCallDistView={selectedCallDistView} setSelecteCalDistdView={setSelecteCalDistdView} />
+                                ? <SingleFundCallsAndDistributions selectedCallDistView={selectedCallDistView} setSelecteCalDistdView={setSelecteCalDistdView} setGridApi={setGridApi} />
                                 : selectedView === 'transactions'
-                                    ? <SingleFundTransactions />
+                                    ? <SingleFundTransactions setGridApi={setGridApi} />
                                     : <SingleFundDocuments />}
             </Grid>
             <AddDialogComponent pageName={selectedView === 'commitments' ? 'commitments'

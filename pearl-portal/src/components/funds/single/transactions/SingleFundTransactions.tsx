@@ -62,13 +62,16 @@ const CustomStatusBar = (props: any) => {
     );
 };
 
-const SingleFundTransactions = () => {
+interface SingleFundTransactionsProps {
+    setGridApi: any
+}
+
+const SingleFundTransactions = ({ setGridApi }: SingleFundTransactionsProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedFund } = useSelector((state: RootState) => state.funds);
     const { transactions } = useSelector((state: RootState) => state.transactions);
-    const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<Transaction[]>([]);
 

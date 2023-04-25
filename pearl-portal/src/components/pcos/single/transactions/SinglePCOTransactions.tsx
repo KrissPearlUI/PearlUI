@@ -33,13 +33,16 @@ const useStyles = makeStyles(() =>
 );
 //and (PCO_ID='Actn01' or PCO_ID='Agan01' or PCO_ID='Alph01' or PCO_ID='Elco01' or PCO_ID='Ensp01' or PCO_ID='Fido01' or PCO_ID='Futu01' or PCO_ID='GeoD01' or PCO_ID='Hydr01' or PCO_ID='Imag01' or PCO_ID='Libr01' or PCO_ID='Meea01' or PCO_ID='MetG01' or PCO_ID='Open01' or PCO_ID='Opti01' or PCO_ID='P9701' or PCO_ID='Phas01' or PCO_ID='Powe02' or PCO_ID='Rhom01' or PCO_ID='Secu01' or PCO_ID='Sewe01' or PCO_ID='Skyl01' or PCO_ID='Sofi01' or PCO_ID='Spea01' or PCO_ID='Trop01' or PCO_ID='Urge01' or PCO_ID='Ushr01' or PCO_ID='Vise01' or PCO_ID='Xfar01')
 
-const SinglePCOTransactions = () => {
+interface SinglePCOTransactionsProps {
+    setGridApi: any
+}
+
+const SinglePCOTransactions = ({ setGridApi }: SinglePCOTransactionsProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedPCO } = useSelector((state: RootState) => state.pcos);
     const { transactions } = useSelector((state: RootState) => state.transactions);
-    const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<Transaction[]>([]);
 
@@ -50,7 +53,6 @@ const SinglePCOTransactions = () => {
         animateRows: true,
         pagination: true,
         enableCellTextSelection: true,
-        groupDisplayType: 'multipleColumns',
         statusBar: DefaultStatusPanelDef,
         sideBar: DefaultSideBarDef,
     };
@@ -292,7 +294,6 @@ const SinglePCOTransactions = () => {
                 tooltipShowDelay={0}
                 tooltipHideDelay={10000}
                 groupDisplayType={'singleColumn'}
-                showOpenedGroup={true}
                 suppressAggFuncInHeader={true}
             />
         </div>

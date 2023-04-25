@@ -42,14 +42,17 @@ const useStyles = makeStyles(() =>
     })
 );
 
-const SingleLPPortfolios = () => {
+interface SingleLPPortfoliosProps {
+    setGridApi: any
+}
+
+const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedLP } = useSelector((state: RootState) => state.lps);
     const { funds } = useSelector((state: RootState) => state.funds);
     const { pcos, pcosFinancials } = useSelector((state: RootState) => state.pcos);
-    const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<any[]>([]);
     const [isPortfolioByCountryExpand, setIsPortfolioByCountryExpand] = useState<boolean>(false);
@@ -64,7 +67,6 @@ const SingleLPPortfolios = () => {
         animateRows: true,
         pagination: true,
         enableCellTextSelection: true,
-        groupDisplayType: 'multipleColumns',
         sideBar: DefaultSideBarDef,
         statusBar: DefaultStatusPanelDef,
         autoGroupColumnDef: {
@@ -308,7 +310,6 @@ const SingleLPPortfolios = () => {
                         tooltipShowDelay={0}
                         tooltipHideDelay={10000}
                         groupDisplayType={'singleColumn'}
-                        showOpenedGroup={true}
                         suppressAggFuncInHeader={true}
                     />
                 </div>

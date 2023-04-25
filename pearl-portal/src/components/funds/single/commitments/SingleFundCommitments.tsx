@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTheme } from '@mui/material';
 import { AgGridReact } from 'ag-grid-react';
-import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams} from 'ag-grid-community';
+import { GridApi, GridOptions, GridReadyEvent, INumberFilterParams } from 'ag-grid-community';
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
 import clsx from 'clsx';
@@ -48,18 +48,21 @@ const CustomStatusBar = (props: any) => {
 
     return (
         <div className="ag-status-bar" role="status">
-            <div className="ag-status-bar-part ag-status-name-value" style={{ fontFamily: 'Raleway', color: theme.palette.mode==='dark'?'white':'black', lineHeight:1.5, fontWeight:500}}>
+            <div className="ag-status-bar-part ag-status-name-value" style={{ fontFamily: 'Raleway', color: theme.palette.mode === 'dark' ? 'white' : 'black', lineHeight: 1.5, fontWeight: 500 }}>
                 {sumCommittedAmount()}
             </div>
         </div>
     );
 };
 
-const SingleFundCommitments = () => {
+interface SingleFundCommitmentsProps {
+    setGridApi: any
+}
+
+const SingleFundCommitments = ({ setGridApi }: SingleFundCommitmentsProps) => {
     const classes = useStyles();
     const isDarkTheme = useSelector((state: RootState) => state.app.isDarkTheme);
     const { selectedFund } = useSelector((state: RootState) => state.funds);
-    const [, setGridApi] = useState<GridApi>();
     const theme = useTheme();
     const [rowData, setRowData] = useState<CommitmentBasic[]>([]);
 
@@ -89,39 +92,39 @@ const SingleFundCommitments = () => {
         return [
             {
                 headerName: 'CRM ID',
-                headerTooltip:'CRM ID',
+                headerTooltip: 'CRM ID',
                 field: 'id',
                 tooltipField: 'id',
                 suppressFiltersToolPanel: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'LP ID',
-                headerTooltip:'Limited Partner ID',
+                headerTooltip: 'Limited Partner ID',
                 field: 'lpId',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Short Name',
-                headerTooltip:'Limited Partner Short Name',
+                headerTooltip: 'Limited Partner Short Name',
                 field: 'lpShortName',
-                tooltipField:'lpShortName',
+                tooltipField: 'lpShortName',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Currency',
-                headerTooltip:'Fund Currency',
+                headerTooltip: 'Fund Currency',
                 field: 'fundCurrency',
                 enableRowGroup: true,
                 valueGetter: (params) => {
@@ -131,11 +134,11 @@ const SingleFundCommitments = () => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Committed Amount',
-                headerTooltip:'Committed Amount',
+                headerTooltip: 'Committed Amount',
                 field: 'committedAmount',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -147,11 +150,11 @@ const SingleFundCommitments = () => {
                 valueFormatter: quantityValueFormatter,
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Commitment Date',
-                headerTooltip:'Commitment Date',
+                headerTooltip: 'Commitment Date',
                 field: 'date',
                 filter: 'agDateColumnFilter',
                 filterParams: dateFilterParams,
@@ -161,17 +164,17 @@ const SingleFundCommitments = () => {
             },
             {
                 headerName: 'End of IP Date',
-                headerTooltip:'End of IP Date',
+                headerTooltip: 'End of IP Date',
                 field: 'ipDate',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
             {
                 headerName: 'Transfer',
-                headerTooltip:'Transfered',
+                headerTooltip: 'Transfered',
                 field: 'transfer',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -180,7 +183,7 @@ const SingleFundCommitments = () => {
                 },
                 filterParams: {
                     buttons: ['reset'],
-                  } as INumberFilterParams,
+                } as INumberFilterParams,
             },
         ];
     }, [theme]);

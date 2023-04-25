@@ -5,7 +5,7 @@ import { RootState } from '../../../redux/slices/rootSlice';
 
 interface SingleSelectionProps {
     selectedItem: string
-    handleButtonClick: any
+    handleButtonClick: any,
 }
 
 const SelectionFundComponent = ({ selectedItem, handleButtonClick }: SingleSelectionProps) => {
