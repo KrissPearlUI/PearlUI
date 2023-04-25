@@ -196,19 +196,23 @@ const NavLinkSection = (): JSX.Element => {
                 return (
                     <List key={`${index}-${route.path}`} component="div" >
                         <NavLink to={route.path} className={clsx(classes.drawerLink)}>
-                            <ListItem
-                                button
-                                onClick={() => { handleClick(route.path) }}
-                                className={clsx(pathName
-                                    ? classes.drawerButton : '', isSubLink ? classes.drawerSubLink : '')}
+                            <Tooltip title={route.path === '/' ? 'Dashboard' : route.path === '/settings' ? 'Settings' : ''}>
+                                <ListItem
+                                    button
+                                    onClick={() => { handleClick(route.path) }}
+                                    className={clsx(pathName
+                                        ? classes.drawerButton : '', isSubLink ? classes.drawerSubLink : '')}
 
-                                sx={{ backgroundColor: activePath === route.path ? 'rgba(255, 255, 255, 0.6)' : 'transparent' }}
-                            >
-                                <ListItemIcon>
-                                    <route.icon />
-                                </ListItemIcon>
-                                <ListItemText primary={route?.name} sx={{ color: '#F3F3F3' }} />
-                            </ListItem>
+                                    sx={{ backgroundColor: activePath === route.path ? 'rgba(255, 255, 255, 0.6)' : 'transparent' }}
+                                >
+
+                                    <ListItemIcon>
+                                        <route.icon />
+                                    </ListItemIcon>
+
+                                    <ListItemText primary={route?.name} sx={{ color: '#F3F3F3' }} />
+                                </ListItem>
+                            </Tooltip>
                         </NavLink>
                     </List>
                 );
@@ -220,20 +224,23 @@ const NavLinkSection = (): JSX.Element => {
                     <List key={`${index}-${route.path}`} disablePadding sx={{ marginBottom: '0.5em' }} onMouseEnter={() => setIsMenuHovered(true)}>
                         {
                             <NavLink to={route.path} className={clsx(classes.drawerLink)}>
-                                <ListItem
-                                    className={clsx(pathName
-                                        ? classes.drawerButton : '', isSubLink ? classes.drawerSubLink : '')}
-                                    button
-                                    onClick={() => handleNavLinkExpand(route.path)}
-                                    sx={{ backgroundColor: activePath === route.path ? 'rgba(255, 255, 255, 0.6)' : 'transparent' }}>
-                                    <ListItemIcon>
-                                        <route.icon />
-                                    </ListItemIcon>
-                                    <ListItemText primary={route?.name} sx={{ color: '#F3F3F3' }} />
-                                    {
-                                        isOpen ? <ExpandLessIcon sx={{ color: '#F3F3F3' }} /> : <ExpandMoreIcon sx={{ color: '#F3F3F3' }} />
-                                    }
-                                </ListItem>
+                                <Tooltip title={route.path === '/lpsOverview' ? 'Limited Partners Overview' : route.path === '/fundsOverview' ? 'Funds Overview' : route.path === '/pcosOverview' ? 'Portfolio Companies Overview' : ''}>
+                                    <ListItem
+                                        className={clsx(pathName
+                                            ? classes.drawerButton : '', isSubLink ? classes.drawerSubLink : '')}
+                                        button
+                                        onClick={() => handleNavLinkExpand(route.path)}
+                                        sx={{ backgroundColor: activePath === route.path ? 'rgba(255, 255, 255, 0.6)' : 'transparent' }}>
+
+                                        <ListItemIcon>
+                                            <route.icon />
+                                        </ListItemIcon>
+                                        <ListItemText primary={route?.name} sx={{ color: '#F3F3F3' }} />
+                                        {
+                                            isOpen ? <ExpandLessIcon sx={{ color: '#F3F3F3' }} /> : <ExpandMoreIcon sx={{ color: '#F3F3F3' }} />
+                                        }
+                                    </ListItem>
+                                </Tooltip>
                             </NavLink>
                         }
                         {hasChildren &&
@@ -247,19 +254,21 @@ const NavLinkSection = (): JSX.Element => {
                                             {drawerOpen ?
                                                 <List key={`${index}-${route.path}`} component="div" disablePadding>
                                                     <NavLink to={route.path} className={clsx(classes.drawerLink)}>
-                                                        <ListItem
-                                                            button
-                                                            onClick={() => { handleClick(route.path) }}
-                                                            className={clsx(pathName
-                                                                ? classes.drawerButton : '', isSubLink ? classes.drawerSubLink : '')}
-                                                            sx={{
-                                                                backgroundColor: activePath === route.path ? 'rgba(255, 255, 255, 0.6)' : 'transparent',
-                                                            }}>
-                                                            <ListItemIcon sx={{ marginLeft: '0.8em' }}>
-                                                                <route.icon />
-                                                            </ListItemIcon>
-                                                            <ListItemText primary={route?.name} sx={{ color: '#F3F3F3', marginLeft: '-1em' }} />
-                                                        </ListItem>
+                                                        <Tooltip title={route.path === '/lpsOverview/singleLP' ? 'Single Limited Partner' : route.path === '/fundsOverview/singleFund' ? 'Single Fund' : route.path === '/pcosOverview/singlePCO' ? 'Single Portfolio Companie' : ''}>
+                                                            <ListItem
+                                                                button
+                                                                onClick={() => { handleClick(route.path) }}
+                                                                className={clsx(pathName
+                                                                    ? classes.drawerButton : '', isSubLink ? classes.drawerSubLink : '')}
+                                                                sx={{
+                                                                    backgroundColor: activePath === route.path ? 'rgba(255, 255, 255, 0.6)' : 'transparent',
+                                                                }}>
+                                                                <ListItemIcon sx={{ marginLeft: '0.8em' }}>
+                                                                    <route.icon />
+                                                                </ListItemIcon>
+                                                                <ListItemText primary={route?.name} sx={{ color: '#F3F3F3', marginLeft: '-1em' }} />
+                                                            </ListItem>
+                                                        </Tooltip>
                                                     </NavLink>
                                                 </List> : null}
                                         </>
@@ -308,7 +317,9 @@ const SideBar = () => {
             {drawerOpen ?
                 <ChevronLeftIcon style={{ color: '#F3F3F3', cursor: 'pointer' }} onClick={() => dispatch(setIsDrawerOpen(false))} />
                 : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}>
-                    <MenuIcon style={{ color: '#F3F3F3', marginRight: '0.3em' }} onClick={() => dispatch(setIsDrawerOpen(true))} />
+                    <Tooltip title={'Menu'}>
+                        <MenuIcon style={{ color: '#F3F3F3', marginRight: '0.3em' }} onClick={() => dispatch(setIsDrawerOpen(true))} />
+                    </Tooltip>
                 </div>}
         </DrawerHeader>
         <NavLinkSection />
