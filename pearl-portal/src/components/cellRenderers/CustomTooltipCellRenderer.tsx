@@ -41,7 +41,7 @@ const CustomTooltip = (props: ITooltipParams & { type: string, valueType: string
                     flexDirection: 'column',
                     backgroundColor: theme.palette.background.default,
                 }}>
-                    {props.value.map((item: Fund) =>
+                    {props.value?.map((item: Fund) =>
                         <Grid container item style={{
                             display: 'flex',
                             justifyContent: 'start',
@@ -77,7 +77,7 @@ const CustomTooltip = (props: ITooltipParams & { type: string, valueType: string
                 }}
                     onMouseEnter={handleTooltipMouseEnter}
                     onMouseLeave={handleTooltipMouseLeave}>
-                    {props.value.map((item: PCO) =>
+                    {props.value?.map((item: PCO) =>
                         <Grid container item style={{
                             display: 'flex',
                             justifyContent: 'start',
@@ -113,7 +113,7 @@ const CustomTooltip = (props: ITooltipParams & { type: string, valueType: string
                     flexDirection: 'column',
                     backgroundColor: theme.palette.background.default,
                 }}>
-                    {props.value.map((item: LPFundsOverview) =>
+                    {props.value?.map((item: LPFundsOverview) =>
                         <Grid container item style={{
                             display: 'flex',
                             justifyContent: 'start',
