@@ -52,6 +52,7 @@ const FundPCOsTable = () => {
         return [
             {
                 headerName: 'Short Name',
+                headerTooltip:'Portfolio Company Short Name',
                 field: 'shortName',
                 tooltipField: 'fundName',
                 suppressFiltersToolPanel: true,
@@ -59,6 +60,7 @@ const FundPCOsTable = () => {
             },
             {
                 headerName: 'Amount Invested',
+                headerTooltip:'Amount Invested',
                 field: 'amountInvested',
                 enableRowGroup: true,
                 type: 'numericColumn',

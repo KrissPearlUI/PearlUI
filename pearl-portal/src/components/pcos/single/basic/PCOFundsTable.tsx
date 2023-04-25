@@ -52,6 +52,7 @@ const PCOFundsTable = () => {
         return [
             {
                 headerName: 'Id',
+                headerTooltip:'Fund ID',
                 field: 'id',
                 minWidth:90,
                 maxWidth:100,
@@ -65,6 +66,7 @@ const PCOFundsTable = () => {
             },
             {
                 headerName: 'Name',
+                headerTooltip:'Fund Name',
                 field: 'fundName',
                 tooltipField: 'fundName',
                 suppressFiltersToolPanel: true,
@@ -72,6 +74,7 @@ const PCOFundsTable = () => {
             },
             {
                 headerName: 'Committed Amount',
+                headerTooltip:'Committed Amount',
                 field: 'amountInvested',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -81,6 +84,7 @@ const PCOFundsTable = () => {
             },
             {
                 headerName: 'Currency',
+                headerTooltip:'Fund Currency',
                 field: 'fundCurrency',
                 minWidth:90,
                 maxWidth:120,

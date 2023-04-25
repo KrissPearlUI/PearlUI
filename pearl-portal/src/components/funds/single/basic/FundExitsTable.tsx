@@ -59,6 +59,7 @@ const FundExitsTable = () => {
         return [
             {
                 headerName: 'Date',
+                headerTooltip:'Commitment Date',
                 field: 'distDate',
                 minWidth: 100,
                 maxWidth: 140,
@@ -68,6 +69,7 @@ const FundExitsTable = () => {
             },
             {
                 headerName: 'Short Name',
+                headerTooltip:'Portfolio Company Short Name',
                 field: 'pcoShortName',
                 tooltipField: 'pcoShortName',
                 suppressFiltersToolPanel: true,
@@ -75,6 +77,7 @@ const FundExitsTable = () => {
             },
             {
                 headerName: 'Amount Returned',
+                headerTooltip:'Amount Returned',
                 field: 'amount',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -84,6 +87,7 @@ const FundExitsTable = () => {
             },
             {
                 headerName: 'Currency',
+                headerTooltip:'Fund Currency',
                 field: 'fundCurrency',
                 minWidth: 90,
                 maxWidth: 120,

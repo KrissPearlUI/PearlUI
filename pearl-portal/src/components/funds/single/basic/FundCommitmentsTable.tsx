@@ -53,6 +53,7 @@ const FundCommitmentsTable = () => {
         return [
             {
                 headerName: 'Date',
+                headerTooltip:'Commitment Date',
                 field: 'date',
                 minWidth: 100,
                 maxWidth: 140,
@@ -62,6 +63,7 @@ const FundCommitmentsTable = () => {
             },
             {
                 headerName: 'Short Name',
+                headerTooltip:'Limited Partner Short Name',
                 field: 'lpShortName',
                 tooltipField: 'lpShortName',
                 suppressFiltersToolPanel: true,
@@ -69,6 +71,7 @@ const FundCommitmentsTable = () => {
             },
             {
                 headerName: 'Committed Amount',
+                headerTooltip:'Committed Amount',
                 field: 'committedAmount',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -78,6 +81,7 @@ const FundCommitmentsTable = () => {
             },
             {
                 headerName: 'Currency',
+                headerTooltip:'Fund Currency',
                 field: 'fundCurrency',
                 minWidth:90,
                 maxWidth:120,

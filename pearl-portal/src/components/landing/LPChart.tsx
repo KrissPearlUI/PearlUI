@@ -266,12 +266,12 @@ const LPChartComponent = () => {
                 stickyTracking: false,
                 states: {
                     hover: {
-                        opacity: 1, // Set the opacity of the hovered column to 1 (full opacity)
-                        brightness: 0.2, // Reduce the brightness of the other columns on hover
+                        opacity: 1, 
+                        brightness: 0.2, 
                         enabled: true,
                         cursor: 'pointer',
                         halo: {
-                          size: 0 // Remove the halo around the hovered stack
+                          size: 0 
                         }
                       }
 

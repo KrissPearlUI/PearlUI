@@ -53,6 +53,7 @@ const PCOLPsTable = () => {
             {
                 headerName: 'Id',
                 field: 'id',
+                headerTooltip:'Limited Partner ID',
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.id;
@@ -65,6 +66,7 @@ const PCOLPsTable = () => {
             },
             {
                 headerName: 'Short Name',
+                headerTooltip:'Limited Partner Short Name',
                 field: 'shortName',
                 tooltipField: 'shortName',
                 suppressFiltersToolPanel: true,
@@ -72,6 +74,7 @@ const PCOLPsTable = () => {
             },
             {
                 headerName: 'Participation Percentage',
+                headerTooltip:'Participation in Percentage',
                 field: 'participationPercentage',
                 enableRowGroup: true,
                 type: 'numericColumn',

@@ -54,6 +54,7 @@ const PCOInvestmentsTableComponent = () => {
         return [
             {
                 headerName: 'Date',
+                headerTooltip:'Date Investment',
                 field: 'date',
                 minWidth: 100,
                 maxWidth: 140,
@@ -63,6 +64,7 @@ const PCOInvestmentsTableComponent = () => {
             },
             {
                 headerName: 'Short Name',
+                headerTooltip:'Fund Short Name',
                 field: 'shortName',
                 tooltipField: 'shortName',
                 suppressFiltersToolPanel: true,
@@ -70,6 +72,7 @@ const PCOInvestmentsTableComponent = () => {
             },
             {
                 headerName: 'Amount Invested',
+                headerTooltip:'Amount Invetsed',
                 field: 'amountLocalCurrency',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -79,6 +82,7 @@ const PCOInvestmentsTableComponent = () => {
             },
             {
                 headerName: 'Local Currency',
+                headerTooltip:'Portfolio Company Currency',
                 field: 'localCcy',
                 minWidth:90,
                 maxWidth:120,

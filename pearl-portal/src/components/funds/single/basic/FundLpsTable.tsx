@@ -52,6 +52,7 @@ const FundLPsTable = () => {
         return [
             {
                 headerName: 'Id',
+                headerTooltip:'Limited Partner ID',
                 field: 'id',
                 enableRowGroup: true,
                 valueGetter: (params) => {
@@ -63,6 +64,7 @@ const FundLPsTable = () => {
             },
             {
                 headerName: 'Short Name',
+                headerTooltip:'Limited Partner Short Name',
                 field: 'shortName',
                 tooltipField: 'shortName',
                 suppressFiltersToolPanel: true,
@@ -70,6 +72,7 @@ const FundLPsTable = () => {
             },
             {
                 headerName: 'Committed Amount',
+                headerTooltip:'Committed Amount',
                 field: 'committedAmount',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -79,6 +82,7 @@ const FundLPsTable = () => {
             },
             {
                 headerName: 'Currency',
+                headerTooltip:'Fund Currency',
                 field: 'fundCurrency',
                 minWidth: 90,
                 maxWidth: 120,

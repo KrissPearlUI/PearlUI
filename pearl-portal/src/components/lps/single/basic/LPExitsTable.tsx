@@ -51,6 +51,7 @@ const LPExitsTable = () => {
         return [
             {
                 headerName: 'Date',
+                headerTooltip: 'Exit Date',
                 field: 'date',
                 minWidth: 100,
                 maxWidth: 140,
@@ -60,6 +61,7 @@ const LPExitsTable = () => {
             },
             {
                 headerName: 'Short Name',
+                headerTooltip: 'Portfolio Company Short Name',
                 field: 'shortName',
                 tooltipField: 'shortName',
                 suppressFiltersToolPanel: true,
@@ -67,6 +69,7 @@ const LPExitsTable = () => {
             },
             {
                 headerName: 'Amount Returned',
+                headerTooltip: 'Amount returned',
                 field: 'amountGained',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -76,6 +79,7 @@ const LPExitsTable = () => {
             },
             {
                 headerName: 'Currency',
+                headerTooltip: 'Fund Currency',
                 field: 'fundCurrency',
                 enableRowGroup: true,
                 minWidth:90,

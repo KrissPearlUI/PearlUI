@@ -51,6 +51,7 @@ const LPPCOsTable = () => {
         return [
             {
                 headerName: 'Short Name',
+                headerTooltip: 'Portfolio Company Short Name',
                 field: 'shortName',
                 tooltipField: 'fundName',
                 suppressFiltersToolPanel: true,
@@ -58,6 +59,7 @@ const LPPCOsTable = () => {
             },
             {
                 headerName: 'Participation Percentage',
+                headerTooltip: 'Participation in Percentage',
                 field: 'participationPercentage',
                 enableRowGroup: true,
                 type: 'numericColumn',

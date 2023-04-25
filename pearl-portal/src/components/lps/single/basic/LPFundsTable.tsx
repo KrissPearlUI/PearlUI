@@ -51,6 +51,7 @@ const LPFundsTable = () => {
             {
                 headerName: 'Id',
                 field: 'id',
+                headerTooltip: 'Fund ID',
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.id;
@@ -63,6 +64,7 @@ const LPFundsTable = () => {
             },
             {
                 headerName: 'Name',
+                headerTooltip: 'Fund Name',
                 field: 'fundName',
                 tooltipField: 'fundName',
                 suppressFiltersToolPanel: true,
@@ -70,6 +72,7 @@ const LPFundsTable = () => {
             },
             {
                 headerName: 'Committed Amount',
+                headerTooltip: 'Committed Amount',
                 field: 'committedAmount',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -79,6 +82,7 @@ const LPFundsTable = () => {
             },
             {
                 headerName: 'Currency',
+                headerTooltip: 'Fund Currency',
                 field: 'fundCurrency',
                 enableRowGroup: true,
                 minWidth:90,

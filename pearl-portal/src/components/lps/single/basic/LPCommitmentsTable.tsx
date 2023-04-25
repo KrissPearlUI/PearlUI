@@ -50,6 +50,7 @@ const LPCommitmentsTable = () => {
         return [
             {
                 headerName: 'Date',
+                headerTooltip: 'Commitment Date',
                 field: 'date',
                 minWidth: 100,
                 maxWidth: 140,
@@ -59,6 +60,7 @@ const LPCommitmentsTable = () => {
             },
             {
                 headerName: 'Short Name',
+                headerTooltip: 'Fund Short Name',
                 field: 'shortName',
                 tooltipField: 'shortName',
                 suppressFiltersToolPanel: true,
@@ -66,6 +68,7 @@ const LPCommitmentsTable = () => {
             },
             {
                 headerName: 'Committed Amount',
+                headerTooltip: 'Committed Amount',
                 field: 'committedAmount',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -75,9 +78,10 @@ const LPCommitmentsTable = () => {
             },
             {
                 headerName: 'Currency',
+                headerTooltip: 'Fund Currency',
                 field: 'fundCurrency',
-                minWidth:90,
-                maxWidth:120,
+                minWidth: 90,
+                maxWidth: 120,
                 enableRowGroup: true,
                 valueGetter: (params) => {
                     return params.data?.fundCurrency ? params.data?.fundCurrency.toUpperCase() : '';
@@ -114,7 +118,7 @@ const LPCommitmentsTable = () => {
     }, [selectedLP])
 
     return (
-        <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1, overflowX:'auto' }}>
+        <div className={clsx(getGridTheme(isDarkTheme), classes.fill)} style={{ flex: 1, overflowX: 'auto' }}>
             <AgGridReact gridOptions={gridOptions}
                 columnDefs={getColumnDefs}
                 rowData={rowData}
