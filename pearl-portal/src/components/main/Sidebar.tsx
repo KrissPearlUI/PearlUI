@@ -192,11 +192,11 @@ const NavLinkSection = (): JSX.Element => {
 
     const renderNavLinks = (routes: RouteDefinition[], isSubLink: boolean) => {
         return routes.map((route, index) => {
-            if (!route.children) {
+            if (!route.children && route.showInMenu) {
                 return (
                     <List key={`${index}-${route.path}`} component="div" >
                         <NavLink to={route.path} className={clsx(classes.drawerLink)}>
-                            <Tooltip title={route.path === '/' ? 'Dashboard' : route.path === '/settings' ? 'Settings' : ''}>
+                            <Tooltip title={route.path === '/' ? 'Dashboard' : route.path === '/settings' ? 'Settings' : route.path === '/lpsOverview' ? 'Limited Partners Overview' : route.path === '/fundsOverview' ? 'Funds Overview' : route.path === '/pcosOverview' ? 'Portfolio Companies Overview' : ''}>
                                 <ListItem
                                     button
                                     onClick={() => { handleClick(route.path) }}
@@ -216,7 +216,7 @@ const NavLinkSection = (): JSX.Element => {
                         </NavLink>
                     </List>
                 );
-            } else {
+            } else if (route.showInMenu) {
                 const isOpen = openRoutes.includes(route.path);
                 const hasChildren = Boolean(route.children && route.children.length > 0);
                 const isExpanded = navLinkState[route.path];

@@ -7,5 +7,6 @@ export interface RouteDefinition {
     roles?: string[];
     children?: RouteDefinition[];
     accounts?: string[];
-    isChildren?: boolean
+    isChildren?: boolean,
+    showInMenu?: boolean
 }
