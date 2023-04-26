@@ -138,6 +138,8 @@ interface ExpandedPagesProps {
     [key: string]: boolean;
 }
 
+//Keep code for children pages, but ad dlater when decided what do we show there
+
 const NavLinkSection = (): JSX.Element => {
     const classes = useStyles();
     const dispatch = useAppDispatch();
@@ -196,7 +198,7 @@ const NavLinkSection = (): JSX.Element => {
                 return (
                     <List key={`${index}-${route.path}`} component="div" >
                         <NavLink to={route.path} className={clsx(classes.drawerLink)}>
-                            <Tooltip title={route.path === '/' ? 'Dashboard' : route.path === '/settings' ? 'Settings' : ''}>
+                            <Tooltip title={route.path === '/' ? 'Dashboard' : route.path === '/settings' ? 'Settings' : route.path === '/lpsOverview' ? 'Limited Partners Overview' : route.path === '/fundsOverview' ? 'Funds Overview' : route.path === '/pcosOverview' ? 'Portfolio Companies Overview' : ''}>
                                 <ListItem
                                     button
                                     onClick={() => { handleClick(route.path) }}
