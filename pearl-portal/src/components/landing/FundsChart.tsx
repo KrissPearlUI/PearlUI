@@ -1,6 +1,6 @@
 import { Grid, Typography } from '@mui/material';
 import { useTheme } from "@mui/material/styles";
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Highcharts, { Chart } from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { useSelector } from 'react-redux';
@@ -168,6 +168,8 @@ const FundsChartComponent = () => {
         }
     };
 
+    const memoDefaultOptions = useMemo(() => options, [options]);
+
     /**
    * Handle resize
    */
@@ -229,7 +231,7 @@ const FundsChartComponent = () => {
             <Typography variant="h6" gutterBottom sx={{ color: theme.palette.text.primary }}>
                 Commitments per Fund
             </Typography>
-            <HighchartsReact ref={chartComponentRef} highcharts={Highcharts} options={options} containerProps={{ style: { width: '100%' } }} />
+            <HighchartsReact ref={chartComponentRef} highcharts={Highcharts} options={memoDefaultOptions} containerProps={{ style: { width: '100%' } }} />
         </Grid>
     );
 };

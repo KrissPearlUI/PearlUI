@@ -6,7 +6,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { FundSummary } from '../../models/funds/fundModels';
 import makeStyles from '@mui/styles/makeStyles';
 import { setSelectedFund } from '../../redux/slices/funds/fundsSlice';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/slices/rootSlice';
 import { amountValueFormatter } from '../../helpers/app';
@@ -309,6 +309,8 @@ const LPChartComponent = () => {
         },
     };
 
+    const memoDefaultOptions = useMemo(() => options, [options]);
+
     useEffect(() => {
         if (funds && funds.length > 0 && !selectedFund) {
             dispatch(setSelectedFund(funds[0]))
@@ -435,7 +437,7 @@ const LPChartComponent = () => {
                 />
             </Grid>
             <Grid item xs={12} sx={{ height: { xs: '420px', md: '100%', lg: '100%' }, overflowX: 'auto', width: { xs: '200px', md: '800px', lg: '800px' } }}>
-                <HighchartsReact ref={chartComponentRef} highcharts={Highcharts} options={options} containerProps={{ style: { width: '100%', height: '460px' } }} />
+                <HighchartsReact ref={chartComponentRef} highcharts={Highcharts} options={memoDefaultOptions} containerProps={{ style: { width: '100%', height: '460px' } }} />
             </Grid>
         </Grid>
     );
