@@ -437,6 +437,7 @@ const FundsOverviewTable = () => {
 
     const onGridReady = (params: GridReadyEvent) => {
         setGridApi(params?.api);
+        params?.api?.sizeColumnsToFit();
     };
 
     const valueSetter = (params: ValueSetterParams, field: string) => {
