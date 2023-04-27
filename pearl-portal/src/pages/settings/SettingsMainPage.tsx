@@ -68,7 +68,7 @@ const Settings = () => {
                                                     : <UsersIcon fill={theme.palette.text.primary} />
                                         }
                                     </ListItemIcon>
-                                    <ListItemText primary={tab.url} />
+                                    <ListItemText primary={tab.url}/>
 
                                 </ListItemButton>
                             </ListItem>

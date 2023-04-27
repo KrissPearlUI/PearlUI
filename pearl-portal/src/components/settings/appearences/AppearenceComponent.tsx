@@ -100,7 +100,7 @@ const Appearence = () => {
 
     return (
         <Grid container direction="column" alignItems="flex-start" justifyContent="flex-start" spacing={1} sx={{ marginRight: '1em' }}>
-            <Grid item sx={{ marginLeft: '1em' }}>
+            <Grid item xs={12} sx={{ marginLeft: '1em' }}>
                 <Grid container>
                     <Typography variant='body1' sx={{ color: theme.palette.text.primary, fontWeight: 600 }}>Change Theme</Typography>
                 </Grid>
@@ -108,10 +108,10 @@ const Appearence = () => {
                     <Typography variant='body2' sx={{ color: theme.palette.mode === 'light' ? 'rgba(69, 69, 69, 0.7)' : darken(theme.palette.text.primary, 0.4), fontWeight: 400, fontSize: '14px' }}>Select your interface theme</Typography>
                 </Grid>
             </Grid>
-            <Grid item sx={{ width: '100%' }}>
+            <Grid item xs={12} sx={{ width: '100%' }}>
                 <Divider sx={{ marginTop: '1em', width: '100%' }} />
             </Grid>
-            <Grid item sx={{ marginLeft: '1em', marginTop: '1em', width: '97.5%' }}>
+            <Grid item xs={12} sx={{ marginLeft:  { xs: '0.2em', md: '1em', lg: '1em' }, marginTop: '1em', width: '97.5%', marginRight: { xs: '0.5em', md: 0, lg: 0 } }}>
                 {routes && routes.map((page) =>
                     <>
                         <Accordion
