@@ -82,7 +82,7 @@ const FundsChartComponent = () => {
                         fontSize: "11px",
                         textOutline: "none",
                         fontFamily: "Raleway",
-                        cursor:'pointer'
+                        cursor: 'pointer'
                     },
                 },
             }
@@ -119,12 +119,12 @@ const FundsChartComponent = () => {
         plotOptions: {
             pie: {
                 allowPointSelect: true,
-                cursor:'pointer',
+                cursor: 'pointer',
                 showInLegend: false,
                 innerSize: '60%',
                 depth: 45,
                 point: {
-                    cursor:'pointer',
+                    cursor: 'pointer',
                     events: {
                         click: function (event: any) {
                             handleSelectFund(event);
@@ -195,7 +195,7 @@ const FundsChartComponent = () => {
     }, [dispatch])
 
     useEffect(() => {
-        if (funds && funds.length > 0) {
+        if (funds && funds.length > 0 && chartDataValues.length <= 0) {
             let total: number = 0;
             let chartData: any[] = [];
             const groupedByFund: { [key: string]: number } = funds.reduce(

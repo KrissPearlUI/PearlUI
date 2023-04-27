@@ -137,7 +137,7 @@ const LPChartComponent = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const autocompleteInputClasses = autocompleteInputStyles();
-    const { funds } = useSelector((state: RootState) => state.funds);
+    const { funds, selectedFund } = useSelector((state: RootState) => state.funds);
     const { lps } = useSelector((state: RootState) => state.lps);
     const [selectedFundValue, setSelectedFundValue] = useState<FundSummary>(funds[0]);
     const [categories, setCategories] = useState<string[]>([]);
@@ -149,6 +149,7 @@ const LPChartComponent = () => {
         event.stopPropagation();
         if (event.nativeEvent.type === 'focusout') return;
         setSelectedFundValue(value);
+        dispatch(setSelectedFund(value));
     }
 
     const handleSelectLP = (event: any) => {
@@ -253,7 +254,7 @@ const LPChartComponent = () => {
             },
             column: {
                 allowPointSelect: true,
-                cursor:'pointer',
+                cursor: 'pointer',
                 stacking: 'normal',
                 dataLabels: {
                     enabled: true,
@@ -266,14 +267,14 @@ const LPChartComponent = () => {
                 stickyTracking: false,
                 states: {
                     hover: {
-                        opacity: 1, 
-                        brightness: 0.2, 
+                        opacity: 1,
+                        brightness: 0.2,
                         enabled: true,
                         cursor: 'pointer',
                         halo: {
-                          size: 0 
+                            size: 0
                         }
-                      }
+                    }
 
                 }
             }
@@ -309,13 +310,21 @@ const LPChartComponent = () => {
     };
 
     useEffect(() => {
-        if (funds && funds.length > 0 && !selectedFundValue) {
-            setSelectedFundValue(funds[0]);
+        if (funds && funds.length > 0 && !selectedFund) {
+            dispatch(setSelectedFund(funds[0]))
         }
-    }, [funds]);
+    }, [funds, selectedFund]);
 
     useEffect(() => {
-        if (lps && lps.length > 0 && selectedFundValue) {
+        if (selectedFund && (!selectedFundValue || (selectedFundValue && selectedFundValue.id !== selectedFund.id))) {
+            setSelectedFundValue(selectedFund);
+        }
+    }, [selectedFund]);
+
+    useEffect(() => {
+        let active = true;
+        if (!lps || !selectedFundValue) return;
+        if (lps && lps.length > 0 && selectedFundValue && active && chartDataValues.length <= 0) {
 
             let seriesData: SeriesData = {
                 investedAmount: [],
@@ -366,7 +375,28 @@ const LPChartComponent = () => {
             setChartDataValues(series);
 
         }
+        return () => {
+            active = false;
+        };
     }, [lps, selectedFundValue])
+
+    useEffect(() => {
+        let active = true;
+
+        function handleResize() {
+            Highcharts.charts.forEach(function (chart) {
+                chart?.reflow();
+            });
+        }
+
+        if (active) {
+            window.addEventListener('resize', handleResize);
+        }
+
+        return () => {
+            active = false;
+        };
+    }, [chartComponentRef]);
 
     return (
         <Grid container spacing={1} sx={{ display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: '0.3em', width: { xs: '450px', md: '100%', lg: '100%' } }}>

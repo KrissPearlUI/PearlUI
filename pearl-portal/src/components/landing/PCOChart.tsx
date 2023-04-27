@@ -3,7 +3,7 @@ import { useTheme } from "@mui/material/styles";
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import HC_more from "highcharts/highcharts-more"; //module
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { PCOSummary } from '../../models/pcos/pcoModels';
 import { setSelectedPCO } from '../../redux/slices/pcos/pcosSlice';
@@ -19,6 +19,7 @@ const PCOChartComponent = () => {
     const [chartDataValues, setChartDataValues] = useState<Array<any>>([]);
     const { pcos } = useSelector((state: RootState) => state.pcos);
     const navigate = useNavigate();
+    const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
 
     const transformDataToBubbleChartFormat = useCallback((pcos: PCOSummary[]) => {
         const transformedData = pcos?.map((item) => {
@@ -93,7 +94,7 @@ const PCOChartComponent = () => {
         plotOptions: {
             series: {
                 allowPointSelect: true,
-                cursor:'pointer',
+                cursor: 'pointer',
                 dataLabels: {
                     enabled: true,
                     format: '{point.name}'
@@ -127,7 +128,23 @@ const PCOChartComponent = () => {
         dispatch(fetchPCOs());
     }, [dispatch])
 
+    useEffect(() => {
+        let active = true;
 
+        function handleResize() {
+            Highcharts.charts.forEach(function (chart) {
+                chart?.reflow();
+            });
+        }
+
+        if (active) {
+            window.addEventListener('resize', handleResize);
+        }
+
+        return () => {
+            active = false;
+        };
+    }, [chartComponentRef]);
 
     return (
         <Grid container spacing={2} sx={{ display: 'flex', flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: '0.5em' }}>
@@ -135,6 +152,7 @@ const PCOChartComponent = () => {
                 Forecast Revenue & EBITDA Growth
             </Typography>
             <HighchartsReact
+                ref={chartComponentRef}
                 highcharts={Highcharts}
                 options={options}
             />
