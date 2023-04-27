@@ -74,14 +74,14 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
             headerName: 'Fund ID',
             minWidth: 130,
             hide: true, // set the hide property to true to hide the column
-          },
+        },
     };
 
     const getColumnDefs = useMemo((): (ColDef | ColGroupDef)[] => {
         return [
             {
                 headerName: 'Short',
-                headerTooltip:'Portfolio Company Short Name',
+                headerTooltip: 'Portfolio Company Short Name',
                 field: 'shortName',
                 tooltipField: 'shortName',
                 suppressFiltersToolPanel: true,
@@ -95,11 +95,11 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
             },
             {
                 headerName: 'Fund ID',
-                headerTooltip:'Fund ID',
+                headerTooltip: 'Fund ID',
                 field: 'fundId',
                 rowGroup: true,
-                minWidth:250,
-                hide:true,
+                minWidth: 250,
+                hide: true,
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 filterParams: {
@@ -108,7 +108,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
             },
             {
                 headerName: 'PCO Name',
-                headerTooltip:'Portfolio Company Name',
+                headerTooltip: 'Portfolio Company Name',
                 field: 'pcoName',
                 tooltipField: 'pcoName',
                 enableRowGroup: true,
@@ -122,7 +122,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
             },
             {
                 headerName: '1st Investment',
-                headerTooltip:'Date of 1st Invetsment',
+                headerTooltip: 'Date of 1st Invetsment',
                 field: 'dateFirstInvestment',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -132,7 +132,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
             },
             {
                 headerName: 'Investment EUR',
-                headerTooltip:'Invested Amount in EUR',
+                headerTooltip: 'Invested Amount in EUR',
                 field: 'amountInvested',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -143,7 +143,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 cellRenderer: (params: ICellRendererParams) => {
                     if (params?.node?.group) {
-                        return <span style={{ fontWeight: 600}}>{amountValueFormatter(params.value ?? 0, '')}</span>
+                        return <span style={{ fontWeight: 600 }}>{amountValueFormatter(params.value ?? 0, '')}</span>
                     } else {
                         return amountValueFormatter(params.value ?? 0, '');
                     }
@@ -154,7 +154,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
             },
             {
                 headerName: 'NAV EUR',
-                headerTooltip:'Net Asset Value of Fund in EUR',
+                headerTooltip: 'Net Asset Value of Fund in EUR',
                 field: 'navEUR',
                 enableRowGroup: true,
                 type: 'numericColumn',
@@ -165,7 +165,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
                 cellRenderer: (params: ICellRendererParams) => {
                     if (params?.node?.group) {
-                        return <span style={{ fontWeight: 600}}>{amountValueFormatter(params.value ?? 0, '')}</span>
+                        return <span style={{ fontWeight: 600 }}>{amountValueFormatter(params.value ?? 0, '')}</span>
                     } else {
                         return amountValueFormatter(params.value ?? 0, '');
                     }
@@ -176,7 +176,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
             },
             {
                 headerName: 'Country',
-                headerTooltip:'Portfolio Company Country',
+                headerTooltip: 'Portfolio Company Country',
                 field: 'country',
                 enableRowGroup: true,
                 tooltipField: 'country',
@@ -187,7 +187,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
             },
             {
                 headerName: 'Industry 1',
-                headerTooltip:'Portfolio Company Industry 1',
+                headerTooltip: 'Portfolio Company Industry 1',
                 field: 'emeraldIndustry1',
                 enableRowGroup: true,
                 tooltipField: 'emeraldIndustry1',
@@ -198,7 +198,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
             },
             {
                 headerName: 'Industry 2',
-                headerTooltip:'Portfolio Company Industry 2',
+                headerTooltip: 'Portfolio Company Industry 2',
                 field: 'emeraldIndustry2',
                 hide: true,
                 enableRowGroup: true,
@@ -210,7 +210,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
             },
             {
                 headerName: 'Current Stage',
-                headerTooltip:'Current Stage',
+                headerTooltip: 'Current Stage',
                 field: 'currentStage',
                 enableRowGroup: true,
                 tooltipField: 'currentStage',
@@ -221,7 +221,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
             },
             {
                 headerName: 'Initial Stage',
-                headerTooltip:'Initial Stage',
+                headerTooltip: 'Initial Stage',
                 field: 'initialtStage',
                 tooltipField: 'initialtStage',
                 hide: true,
@@ -233,7 +233,7 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
             },
             {
                 headerName: 'Date Exit',
-                headerTooltip:'Date of Exit',
+                headerTooltip: 'Date of Exit',
                 field: 'dateExit',
                 enableRowGroup: true,
                 cellStyle: { fontFamily: 'Raleway', color: theme.palette.text.primary },
@@ -288,8 +288,8 @@ const SingleLPPortfolios = ({ setGridApi }: SingleLPPortfoliosProps) => {
                 emeraldIndustry1: pcos.filter(x => x.id === pco.id)[0]?.emeraldIndustry1,
                 emeraldIndustry2: pcos.filter(x => x.id === pco.id)[0]?.emeraldIndustry2,
                 navEUR: pcosFinancials.filter(x => x.pcoId === pco.id)[0]?.sumNavFundCcy ?? 0,
-                fundId: selectedLP?.funds?.filter((item) => pcos.filter(z=>z.id===pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
-                fundName: selectedLP?.funds?.filter((item) => pcos.filter(z=>z.id===pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.fundName ?? '',
+                fundId: selectedLP?.funds?.filter((item) => pcos.filter(z => z.id === pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.id ?? '',
+                fundName: selectedLP?.funds?.filter((item) => pcos.filter(z => z.id === pco.id)[0]?.funds?.slice().some((subItem) => subItem?.id === item.id))[0]?.fundName ?? '',
             }
             ));
             setRowData(data ?? []);
