@@ -68,8 +68,7 @@ const Settings = () => {
                                                     : <UsersIcon fill={theme.palette.text.primary} />
                                         }
                                     </ListItemIcon>
-                                    <ListItemText primary={tab.url}/>
-
+                                    <ListItemText primary={tab.url} sx={{ fontSize: {xs:'14px', md:'16px'} }} disableTypography/>
                                 </ListItemButton>
                             </ListItem>
                         ))}
