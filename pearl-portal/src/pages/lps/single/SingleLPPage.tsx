@@ -22,6 +22,7 @@ import { setSelectedFund } from '../../../redux/slices/funds/fundsSlice';
 import { setSelectedPCO } from '../../../redux/slices/pcos/pcosSlice';
 import { EditDialogComponent } from '../../../components/shared/editPopup/EditPopupDialog';
 import { GridApi } from 'ag-grid-community';
+import { DownloadDialogComponent } from '../../../components/shared/downloadPopUp/DownloadPopupDialog';
 
 const SingleLP = () => {
     const dispatch = useAppDispatch();
@@ -132,6 +133,17 @@ const SingleLP = () => {
                             : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'Edit Call'
                                 : 'Edit Distribution'
                                 : 'Edit Transaction'} />
+            <DownloadDialogComponent pageName={selectedView === 'commitments' ? 'commitments'
+                    : selectedView === 'portfolio' ? 'lpPortfolio'
+                        : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'callsComponent'
+                            : 'distributionComponent'
+                            : 'transactions'}
+                pageTitle={selectedView === 'commitments' ? 'Download LP Commitments'
+                        : selectedView === 'portfolio' ? 'Download LP Portfolio'
+                            : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'Download LP Calls'
+                                : 'Download LP Distributions'
+                                : 'Download LP Transactions'}  />
+
         </Grid>
     );
 };

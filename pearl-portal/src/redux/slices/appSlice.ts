@@ -8,9 +8,10 @@ export interface MainState {
     activePath: string;
     errorMessage?: string;
     navLinkStatePaths: any;
-    addDialogOpen:boolean;
-    editDialogOpen:boolean;
-    editChildDialogOpen:boolean
+    addDialogOpen: boolean;
+    editDialogOpen: boolean;
+    editChildDialogOpen: boolean,
+    downloadDialogOpen: boolean
 }
 
 const initialState: MainState = {
@@ -20,9 +21,10 @@ const initialState: MainState = {
     userName: 'Jane Doe',
     activePath: '',
     navLinkStatePaths: {},
-    addDialogOpen:false,
-    editDialogOpen:false,
-    editChildDialogOpen:false
+    addDialogOpen: false,
+    editDialogOpen: false,
+    editChildDialogOpen: false,
+    downloadDialogOpen:false
 };
 
 const appSlice = createSlice({
@@ -80,7 +82,7 @@ const appSlice = createSlice({
         setNavLinkStatePaths(state, action: PayloadAction<string>) {
             const prevState = state.navLinkStatePaths;
             const item = action.payload;
-            state.navLinkStatePaths = {...prevState, [item]: !prevState[item]};
+            state.navLinkStatePaths = { ...prevState, [item]: !prevState[item] };
         },
         /**
          * Set's if the add dialog is open
@@ -101,6 +103,9 @@ const appSlice = createSlice({
         setEditChildDiaogOpen(state, action: PayloadAction<boolean>) {
             state.editChildDialogOpen = action.payload;
         },
+        setDownloadDiaogOpen(state, action: PayloadAction<boolean>) {
+            state.downloadDialogOpen = action.payload;
+        },
     }
 });
 
@@ -114,7 +119,8 @@ export const {
     setNavLinkStatePaths,
     setAddDiaogOpen,
     setEditDiaogOpen,
-    setEditChildDiaogOpen
+    setEditChildDiaogOpen,
+    setDownloadDiaogOpen
 } = appSlice.actions;
 
 export default appSlice.reducer;

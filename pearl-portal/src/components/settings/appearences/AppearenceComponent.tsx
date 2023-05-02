@@ -6,6 +6,7 @@ import DashboardDetailsCustomization from './DashboardDetailsCustomization';
 import LPsOverviewDetailsCustomization from './LPsOverviewDetailsCustomization';
 import FundsOverviewDetailsCustomization from './FundsOverviewDetailsCustomization';
 import PCOsOverviewDetailsCustomization from './PCOsOverviewDetailsCustomization';
+import DashboardLightMode from '../../../assets/icons/DashboardLightMode.svg';
 
 interface ExpandedPagesProps {
     [key: string]: boolean;

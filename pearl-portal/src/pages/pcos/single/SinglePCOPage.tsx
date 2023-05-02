@@ -21,6 +21,7 @@ import { AddDialogComponent } from '../../../components/shared/addPopup/AddPopup
 import { setSelectedFund } from '../../../redux/slices/funds/fundsSlice';
 import { EditDialogComponent } from '../../../components/shared/editPopup/EditPopupDialog';
 import { GridApi } from 'ag-grid-community';
+import { DownloadDialogComponent } from '../../../components/shared/downloadPopUp/DownloadPopupDialog';
 
 const SinglePCO = () => {
     const dispatch = useAppDispatch();
@@ -81,10 +82,10 @@ const SinglePCO = () => {
                     <Grid item xs={12} md={4} lg={4} sx={{ display: 'flex', flex: 1, justifyContent: { xs: 'flex-start', md: 'flex-end', lg: 'flex-end' }, alignSelf: 'flex-end' }}>
                         <FiltersAndActionsPCOComponent selectedItem={selectedView} handleButtonClick={handleButtonClick} addEditTooltip={selectedView === 'basic'
                             ? 'pcoBasic'
-                            : 'transactions'} 
+                            : 'transactions'}
                             searchTextValue={searchTextValue}
                             onValueChange={onValueChange}
-                            onCancelClick={onCancelClick}/>
+                            onCancelClick={onCancelClick} />
                     </Grid>
                 </Grid>
             </Grid>
@@ -93,7 +94,7 @@ const SinglePCO = () => {
                     : selectedView === 'contacts'
                         ? <SinglePCOContactsComponent />
                         : selectedView === 'transactions'
-                            ? <SinglePCOTransactions setGridApi={setGridApi}/>
+                            ? <SinglePCOTransactions setGridApi={setGridApi} />
                             : selectedView === 'valuations'
                                 ? <SinglePCOValuationsComponent />
                                 : selectedView === 'exitsReserves'
@@ -106,6 +107,8 @@ const SinglePCO = () => {
                 pageTitle={selectedView === 'transactions' ? 'Add New Transaction' : ''} />
             <EditDialogComponent pageName={selectedView === 'basic' ? 'pcoBasic' : 'transactions'}
                 pageTitle={selectedView === 'basic' ? 'Edit Basic Details' : 'Edit Transaction'} />
+            <DownloadDialogComponent pageName={'transactions'}
+                pageTitle={'Download PCO Transactions'} />
         </Grid>
     );
 };

@@ -3,6 +3,8 @@ import { Fab, Tooltip } from '@mui/material';
 import { Theme } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
 import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
+import { useAppDispatch } from '../../redux/store';
+import { setDownloadDiaogOpen } from '../../redux/slices/appSlice';
 
 const useStyles = makeStyles((theme: Theme) =>
 ({
@@ -19,12 +21,13 @@ interface ExportButtonProps {
 
 const ExportButton = ({ pageName }: ExportButtonProps) => {
     const classes = useStyles();
+    const dispatch = useAppDispatch();
 
     /**
      * Sets export window to true in order to create the window
      */
     const openDownloadDialog = async () => {
-        console.log('open download');
+        dispatch(setDownloadDiaogOpen(true));
     };
 
     return <Tooltip title="Download Report">

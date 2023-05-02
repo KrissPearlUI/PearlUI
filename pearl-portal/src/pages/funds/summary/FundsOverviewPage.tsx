@@ -5,6 +5,7 @@ import { setActivePath, setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
 import FundsOverviewTable from '../../../components/funds/summary/FundsOverviewTableComponent';
 import { AddDialogComponent } from "../../../components/shared/addPopup/AddPopupDialog";
+import { DownloadDialogComponent } from "../../../components/shared/downloadPopUp/DownloadPopupDialog";
 
 const useStyles = makeStyles((theme: Theme) =>
 ({
@@ -33,7 +34,8 @@ const FundsOverview = () => {
     return (
         <div className={classes.root}>
             <FundsOverviewTable />
-            <AddDialogComponent pageName="fundsOverview" pageTitle="Add New Fund"/>
+            <AddDialogComponent pageName="fundsOverview" pageTitle="Add New Fund" />
+            <DownloadDialogComponent pageName="fundsOverview" pageTitle="Download Funds Overview" />
             {/* <AddDialog pageName={'LPs'}/>
             <ExportDialog pageName={'LPs'}/> */}
         </div>

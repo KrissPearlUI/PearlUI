@@ -5,6 +5,7 @@ import { setActivePath, setTopBarTitle } from '../../../redux/slices/appSlice';
 import { useAppDispatch } from '../../../redux/store';
 import LPOverviewTable from '../../../components/lps/summary/LPOverviewTableComponents';
 import { AddDialogComponent } from "../../../components/shared/addPopup/AddPopupDialog";
+import { DownloadDialogComponent } from "../../../components/shared/downloadPopUp/DownloadPopupDialog";
 
 const useStyles = makeStyles((theme: Theme) =>
 ({
@@ -34,6 +35,7 @@ const LPsOverview = () => {
         <div className={classes.root}>
             <LPOverviewTable />
             <AddDialogComponent pageName="lpsOverview" pageTitle="Add New Limited Partner"/>
+            <DownloadDialogComponent pageName="lpsOverview" pageTitle="Download LPs Overview"/>
             {/* <AddDialog pageName={'LPs'}/>
             <ExportDialog pageName={'LPs'}/> */}
         </div>

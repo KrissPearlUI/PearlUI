@@ -21,6 +21,7 @@ import { setSelectedLP } from '../../../redux/slices/lps/lpsSlice';
 import { setSelectedPCO } from '../../../redux/slices/pcos/pcosSlice';
 import { EditDialogComponent } from '../../../components/shared/editPopup/EditPopupDialog';
 import { GridApi } from 'ag-grid-community';
+import { DownloadDialogComponent } from '../../../components/shared/downloadPopUp/DownloadPopupDialog';
 
 const SingleFund = () => {
     const dispatch = useAppDispatch();
@@ -128,6 +129,16 @@ const SingleFund = () => {
                             : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'Edit Call'
                                 : 'Edit Distribution'
                                 : 'Edit Transaction'} />
+            <DownloadDialogComponent pageName={selectedView === 'commitments' ? 'commitments'
+                    : selectedView === 'portfolio' ? 'fundPortfolio'
+                        : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'callsComponent'
+                            : 'distributionComponent'
+                            : 'transactions'}
+                pageTitle={selectedView === 'commitments' ? 'Download Fund Commitments'
+                    : selectedView === 'portfolio' ? 'Download Fund Portfolio'
+                        : selectedView === 'callsDist' ? selectedCallDistView === 'Calls' ? 'Download Fund Calls'
+                            : 'Download Fund Distributions'
+                            : 'Download Fund Transactions'} />
         </Grid>
         /*  <Grid spacing={1} container sx={{display:'flex',flex:1, height:'100%', width:'100%', paddingLeft:'0.5em', flexDirection:'row', justifyContent:'flex-start', alignItems:'flex-start', overflow:'auto' }}>
              <Grid item sx={{display:'flex', justifyContent:'start', alignItems:'start', width:'100%', height:'8vh'}}>
