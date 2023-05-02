@@ -161,7 +161,7 @@ interface DownloadDialogComponentProps {
     pageName: string,
     pageTitle: string
 }
-
+//Add later column select
 export const DownloadDialogComponent = ({ pageName, pageTitle }: DownloadDialogComponentProps) => {
     const dispatch = useAppDispatch();
     const classes = useStyles();
