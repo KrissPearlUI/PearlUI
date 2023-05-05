@@ -1,4 +1,4 @@
-import { Accordion, AccordionDetails, AccordionSummary, Divider, Grid, IconButton, Typography } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Divider, Grid, IconButton, Tooltip, Typography } from '@mui/material';
 import { darken, useTheme } from "@mui/material/styles";
 import { useEffect, useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -7,6 +7,12 @@ import LPsOverviewDetailsCustomization from './LPsOverviewDetailsCustomization';
 import FundsOverviewDetailsCustomization from './FundsOverviewDetailsCustomization';
 import PCOsOverviewDetailsCustomization from './PCOsOverviewDetailsCustomization';
 import DashboardLightMode from '../../../assets/icons/DashboardLightMode.svg';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../redux/slices/rootSlice';
+import { setIsDarkTheme } from '../../../redux/slices/appSlice';
+import { useAppDispatch } from '../../../redux/store';
+import BrightnessHighIcon from '@mui/icons-material/BrightnessHigh';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
 
 interface ExpandedPagesProps {
     [key: string]: boolean;
@@ -78,12 +84,23 @@ const Appearence = () => {
     const theme = useTheme();
     const [pageExpandedState, setPageExpandedState] = useState<ExpandedPagesProps>({});
     const [, setRoutesExpanded] = useState<any>();
+    const {
+        isDarkTheme,
+    } = useSelector((state: RootState) => state.app);
+    const dispatch = useAppDispatch();
 
     const handleAccordionExpandedChange = (expanded: boolean, accountId: string) => {
         const currentAccountsExpandedState = { ...pageExpandedState };
         currentAccountsExpandedState[`${accountId}`] = expanded;
         setPageExpandedState(currentAccountsExpandedState);
     };
+
+    /**
+ * Changes the theme of the app
+ */
+    const handleThemeChange = () => {
+        dispatch(setIsDarkTheme(!isDarkTheme));
+    }
 
     useEffect(() => {
         if (routes) {
@@ -101,18 +118,27 @@ const Appearence = () => {
 
     return (
         <Grid container direction="column" alignItems="flex-start" justifyContent="flex-start" spacing={1} sx={{ marginRight: '1em' }}>
-            <Grid item xs={12} sx={{ marginLeft: '1em' }}>
-                <Grid container>
-                    <Typography variant='body1' sx={{ color: theme.palette.text.primary, fontWeight: 600 }}>Change Theme</Typography>
+            <Grid container item xs={12} sx={{ marginLeft: '1em' }}>
+                <Grid item xs={10}>
+                    <Grid container>
+                        <Typography variant='body1' sx={{ color: theme.palette.text.primary, fontWeight: 600 }}>Change Theme</Typography>
+                    </Grid>
+                    <Grid container>
+                        <Typography variant='body2' sx={{ color: theme.palette.mode === 'light' ? 'rgba(69, 69, 69, 0.7)' : darken(theme.palette.text.primary, 0.4), fontWeight: 400, fontSize: '14px' }}>Select your interface theme</Typography>
+                    </Grid>
                 </Grid>
-                <Grid container>
-                    <Typography variant='body2' sx={{ color: theme.palette.mode === 'light' ? 'rgba(69, 69, 69, 0.7)' : darken(theme.palette.text.primary, 0.4), fontWeight: 400, fontSize: '14px' }}>Select your interface theme</Typography>
+                <Grid item xs={2} sx={{display:'flex', justifyContent:'flex-end', paddingRight:'2em'}}>
+                    <IconButton color="inherit" onClick={handleThemeChange} aria-label="Light/Dark">
+                        <Tooltip title="Toggle light/dark theme">
+                            {isDarkTheme ? <BrightnessHighIcon /> : <Brightness4Icon />}
+                        </Tooltip>
+                    </IconButton>
                 </Grid>
             </Grid>
             <Grid item xs={12} sx={{ width: '100%' }}>
                 <Divider sx={{ marginTop: '1em', width: '100%' }} />
             </Grid>
-            <Grid item xs={12} sx={{ marginLeft:  { xs: '0.2em', md: '1em', lg: '1em' }, marginTop: '1em', width: '97.5%', marginRight: { xs: '0.5em', md: 0, lg: 0 } }}>
+            <Grid item xs={12} sx={{ marginLeft: { xs: '0.2em', md: '1em', lg: '1em' }, marginTop: '1em', width: '97.5%', marginRight: { xs: '0.5em', md: 0, lg: 0 } }}>
                 {routes && routes.map((page) =>
                     <>
                         <Accordion

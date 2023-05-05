@@ -1,28 +1,25 @@
-import React, { ReactElement, Ref, useState } from 'react';
+import React, { ReactElement, Ref, useEffect, useState } from 'react';
 import { TransitionProps } from "@mui/material/transitions";
-import { Autocomplete, AutocompleteRenderInputParams, Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Grid, IconButton, Slide, TextField, Typography, useTheme } from "@mui/material";
+import { Autocomplete, AutocompleteRenderInputParams, Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Divider, Grid, IconButton, Slide, TextField, Typography, useTheme } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import { useSelector } from "react-redux";
-import { useAppDispatch } from '../../../redux/store';
-import { RootState } from '../../../redux/slices/rootSlice';
-import { setAddDiaogOpen, setDownloadDiaogOpen } from '../../../redux/slices/appSlice';
+import { useAppDispatch } from '../../../../redux/store';
+import { RootState } from '../../../../redux/slices/rootSlice';
 import AddIcon from '@mui/icons-material/Add';
-import { FundSummary, NewFund } from '../../../models/funds/fundModels';
-import { NewPCO, PCOSummary } from '../../../models/pcos/pcoModels';
-import { LP, NewLP } from '../../../models/lps/lpModels';
-import { NewCommitment } from '../../../models/shared/sharedModels';
-import { NewTransaction } from '../../../models/transactions/transactionsModels';
-import { NewCashCall } from '../../../models/cashCalls/cashCallsModels';
-import { NewDistribution } from '../../../models/distributions/distributionsModels';
+import { FundSummary, NewFund } from '../../../../models/funds/fundModels';
+import { NewPCO, PCOSummary } from '../../../../models/pcos/pcoModels';
+import { LP, NewLP } from '../../../../models/lps/lpModels';
+import { NewCommitment } from '../../../../models/shared/sharedModels';
+import { NewTransaction } from '../../../../models/transactions/transactionsModels';
+import { NewCashCall } from '../../../../models/cashCalls/cashCallsModels';
+import { NewDistribution } from '../../../../models/distributions/distributionsModels';
 import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Theme } from "@mui/material";
 import { createStyles, makeStyles } from '@mui/styles';
 import { DatePicker } from '@mui/x-date-pickers';
 import moment from 'moment';
-import LPDownloadDialogContentComponent from './lpsDownloadDialogContent/LPDownloadDialogContent';
-import FundsDownloadDialogContentComponent from './fundsDownloadDialogContent/FundsDownloadDialogContent';
-import PCOsDownloadDialogContentComponent from './pcosDownloadDialogContent/PCOsDownloadDialogContent';
+import { setEditAddInternalUserDialogOpen } from '../../../../redux/slices/settings/settingsSlice';
 
 const autocompleteInputStyles = makeStyles((theme: Theme) => ({
     autocomplete: {
@@ -154,60 +151,54 @@ const transitionMethod = (props: TransitionProps & { children: ReactElement<any,
 
 const Transition = React.forwardRef(transitionMethod);
 
-
-const TypeOfFiles = [
-    "Excel",
-    "PDF",
+const Roles = [
+    "Admin",
+    "Viewer",
 ];
 
-interface DownloadDialogComponentProps {
-    pageName: string,
-    pageTitle: string
+interface ChangeInviteUserDialogComponentProps {
+    type: string,
 }
-//Add later column select
-export const DownloadDialogComponent = ({ pageName, pageTitle }: DownloadDialogComponentProps) => {
+
+export const ChangeInviteUserDialogComponent = ({ type }: ChangeInviteUserDialogComponentProps) => {
     const dispatch = useAppDispatch();
     const classes = useStyles();
     const theme = useTheme();
     const autocompleteInputClasses = autocompleteInputStyles();
-    const { downloadDialogOpen } = useSelector((state: RootState) => state.app);
-    const [disabled, setDisabled] = useState<boolean>(true);
-    const [type, setType] = useState<string | null>('');
-    const [startDate, setStartDate] = useState<string | null>('');
-    const [endDate, setEndDate] = useState<string | null>('');
+    const { editAddInternalUserDialogOpen } = useSelector((state: RootState) => state.settings);
+    const { selectedUser } = useSelector((state: RootState) => state.settings);
+    const [selectedRole, setSelectedRole] = useState<string | null>(null);
 
     /**
      * Handles the closing of the dialog
      */
     const handleClose = () => {
-        dispatch(setDownloadDiaogOpen(false));
+        dispatch(setEditAddInternalUserDialogOpen(false));
     };
 
-    const onValueChange = (value: string, field: string) => {
-        switch (field) {
-            case 'type':
-                setType(value);
-                setDisabled(value === '');
-                break;
-            default:
-                break;
+    const handleAddSaveChanges = () => {
+        if (type === 'Change') {
+            return;
+        } else {
+            return;
         }
     };
 
-    const onDateChange = (value: any, field: string) => {
-        if (field === 'startDate') {
-            setStartDate(value);
-        } else if (field === 'endDate') {
-            setEndDate(value);
-        }
-    }
+    const onRoleChange = (event: React.SyntheticEvent, value: string) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.nativeEvent.type === 'focusout') return;
+        setSelectedRole(value);
+    };
 
-    const handleDownloadBtnClick = () => {
-        return;
-    }
+    useEffect(() => {
+        if (selectedUser) {
+            setSelectedRole(selectedUser.role);
+        }
+    }, [selectedUser]);
 
     return (
-        <Dialog open={downloadDialogOpen} TransitionComponent={Transition}
+        <Dialog open={editAddInternalUserDialogOpen} TransitionComponent={Transition}
             maxWidth={'xs'}
             fullWidth
             aria-label={'dialog extra data client'}>
@@ -227,7 +218,7 @@ export const DownloadDialogComponent = ({ pageName, pageTitle }: DownloadDialogC
                         <Typography style={{
                             fontSize: 18,
                             fontWeight: 600
-                        }}>{pageTitle}</Typography>
+                        }}>{type === 'Change' ? 'Edit User' : 'Invite User'}</Typography>
                         <IconButton onClick={handleClose}>
                             <CloseIcon />
                         </IconButton>
@@ -240,9 +231,20 @@ export const DownloadDialogComponent = ({ pageName, pageTitle }: DownloadDialogC
             </DialogTitle>
             <DialogContent sx={{ display: 'flex', flex: 1, justifyContent: 'flex-start', height: '100%', backgroundColor: theme.palette.mode === 'light' ? '#F5F5F5' : '#06050A' }}>
                 <Grid container spacing={2}>
-                    <Grid item>
-                        <Typography variant='body2'>Type of file*</Typography>
-                        <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
+                    <Grid item xs={12} md={2}>
+                        <Avatar alt='selected user' src={`${process.env.PUBLIC_URL}/${selectedUser ? selectedUser.picURL : ''}`} style={{ height: '60px', width: '60px' }} />
+                    </Grid>
+                    <Grid container item xs={12} md={10} sx={{ marginTop: '0.5em' }}>
+                        <Grid item xs={12}>
+                            <span style={{ color: theme.palette.text.primary, fontSize: 14, fontFamily: 'Raleway' }}>{selectedUser?.name}</span>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <span style={{ color: 'rgba(69, 69, 69, 0.7)', fontSize: 14, fontFamily: 'Raleway' }}>{selectedUser?.email}</span>
+                        </Grid>
+                        <Grid item xs={12} sx={{ marginTop: '1em' }}>
+                            <Typography variant='body2'>Role</Typography>
+                        </Grid>
+                        <Grid item xs={12}>
                             <Autocomplete
                                 id={'fundsAutocomplete'}
                                 popupIcon={<ExpandMoreIcon />}
@@ -251,89 +253,34 @@ export const DownloadDialogComponent = ({ pageName, pageTitle }: DownloadDialogC
                                 autoSelect={true}
                                 autoComplete={false}
                                 classes={classes}
-                                sx={{ marginRight: '1em', width: '400px' }}
+                                disableClearable
+                                sx={{ marginRight: '1em' }}
                                 isOptionEqualToValue={(option, value) => option === value}
-                                onChange={(e, value: any) => onValueChange(value, 'type')}
-                                value={type ?? ''}
-                                options={TypeOfFiles.slice()}
+                                onChange={(e, value: any) => onRoleChange(e, value)}
+                                value={selectedRole ?? ''}
+                                options={Roles.slice()}
                                 renderInput={(params: AutocompleteRenderInputParams) => {
                                     params.InputProps.className = autocompleteInputClasses.textInput;
                                     return <TextField {...params}
                                         className={autocompleteInputClasses.autocomplete}
                                         variant="outlined"
                                         autoComplete="off"
-                                        helperText={!disabled && type === '' ? 'Required' : ''}
                                         type={'text'}
                                     />;
                                 }}
                             />
-                        </Box>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant='body2'>Start date</Typography>
-                        <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                            <DatePicker
-                                className={classes.datePickers}
-                                inputFormat={'dd/MM/yyyy'}
-                                disableFuture
-                                value={startDate ? moment(new Date(startDate)).format('DD MMM YYYY') : null}
-                                disableHighlightToday
-                                onChange={(e) => onDateChange(e ?? '', 'firstInvestment')}
-                                renderInput={(props: any) =>
-                                    <TextField {...props}
-                                        variant={'outlined'}
-                                        size={'small'}
-                                        className={classes.textField}
-                                        InputLabelProps={{
-                                            sx: {
-                                                fontSize: 'small',
-                                            }
-                                        }}
-                                    />}
-                            />
-                        </Box>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant='body2'>End date</Typography>
-                        <Box sx={{ boxShadow: `0px 4px 4px ${theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.25)'}`, width: '400px', borderTopLeftRadius: 5, borderTopRightRadius: 5, borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }}>
-                            <DatePicker
-                                className={classes.datePickers}
-                                inputFormat={'dd/MM/yyyy'}
-                                disableFuture
-                                value={endDate ? moment(new Date(endDate)).format('DD MMM YYYY') : null}
-                                disableHighlightToday
-                                onChange={(e) => onDateChange(e ?? '', 'firstInvestment')}
-                                renderInput={(props: any) =>
-                                    <TextField {...props}
-                                        variant={'outlined'}
-                                        size={'small'}
-                                        className={classes.textField}
-                                        InputLabelProps={{
-                                            sx: {
-                                                fontSize: 'small'
-                                            }
-                                        }}
-                                    />}
-                            />
-                        </Box>
-                    </Grid>
-                    <Grid item>
-                        {pageName === 'lpsOverview' ? <LPDownloadDialogContentComponent />
-                            : pageName === 'fundsOverview' ? <FundsDownloadDialogContentComponent />
-                                : pageName === 'pcosOverview' && <PCOsDownloadDialogContentComponent />}
+                        </Grid>
                     </Grid>
                 </Grid>
             </DialogContent>
-            <DialogActions sx={{ backgroundColor: theme.palette.mode === 'light' ? '#F5F5F5' : '#06050A' }}>
+            <DialogActions sx={{ backgroundColor: theme.palette.mode === 'light' ? '#F5F5F5' : '#06050A', display: 'flex', justifyContent: 'center' }}>
                 <Button
                     variant="contained"
-                    color="primary"
+                    color="secondary"
                     sx={{ textTransform: 'none' }}
-                    startIcon={<DownloadRoundedIcon />}
-                    disabled={disabled}
-                    onClick={handleDownloadBtnClick}
+                    onClick={handleAddSaveChanges}
                 >
-                    Download
+                    {type === 'Change' ? 'Save changes' : 'Invite user'}
                 </Button>
             </DialogActions>
         </Dialog>

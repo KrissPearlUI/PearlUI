@@ -14,6 +14,14 @@ import TableRow from '@mui/material/TableRow';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+import { useAppDispatch } from '../../../redux/store';
+import { setDeleteConfirmDialogOpen, setEditAddInternalUserDialogOpen, setinviteExternalDialogOpen } from '../../../redux/slices/settings/settingsSlice';
+import { ChangeInviteUserDialogComponent } from './dialogs/ChangeInviteInternalUsre';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../redux/slices/rootSlice';
+import { setSelectedUser } from '../../../redux/slices/settings/settingsSlice';
+import { ConfirmDeleteUserDialogComponent } from './dialogs/ConfirmDeleteUserDialog';
+import { InviteExternalUserDialogComponent } from './dialogs/InviteExternalUser';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -374,7 +382,10 @@ const accountRows = [
 const Users = () => {
     const classes = useStyles();
     const theme = useTheme();
+    const dispatch = useAppDispatch();
     const [selected, setSelected] = useState<readonly string[]>([]);
+    const [selectedType, setSelectedType] = useState<string>('');
+    const { selectedUser } = useSelector((state: RootState) => state.settings);
 
     const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.checked) {
@@ -409,6 +420,26 @@ const Users = () => {
         setSelected(newSelected);
     };
 
+    const handleEditClicked = (type: string, userid: string, typeOfUsers: string) => {
+        setSelectedType(type);
+        let user = null;
+        if (typeOfUsers === 'admin') {
+            user = adminRows.filter(x => x.id === userid)[0];
+        } else {
+            user = accountRows.filter(x => x.id === userid)[0];
+        }
+        dispatch(setSelectedUser(user));
+        dispatch(setEditAddInternalUserDialogOpen(true));
+    };
+
+    const handleDeleteClick = () => {
+        dispatch(setDeleteConfirmDialogOpen(true));
+    };
+
+    const handleInviteExternal = () => {
+        dispatch(setinviteExternalDialogOpen(true));
+    }
+
     return (
         <Grid container sx={{ display: 'flex', flex: 1, justifyContent: 'space-betweeen', alignItems: 'flex-start', flexDirection: 'row', marginLeft: '1em', overflow: 'hidden' }}>
             <Grid container sx={{ display: 'flex', flex: 1, justifyContent: 'space-betweeen', alignItems: 'center', flexDirection: 'row', }}>
@@ -422,6 +453,7 @@ const Users = () => {
                 </Grid>
                 <Grid item xs={6} md={6} lg={6} sx={{ display: 'flex', justifyContent: 'end', alignItems: 'center', paddingRight: '2em' }}>
                     <Button variant='outlined'
+                        onClick={handleInviteExternal}
                         sx={{
                             fontFamily: 'Raleway',
                             height: '36px',
@@ -485,12 +517,12 @@ const Users = () => {
                                         <StyledTableCell align="right">
                                             <Grid container sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                                                 <Grid item>
-                                                    <IconButton >
+                                                    <IconButton onClick={() => handleDeleteClick()}>
                                                         <DeleteIcon sx={{ color: theme.palette.secondary.main }} />
                                                     </IconButton>
                                                 </Grid>
                                                 <Grid item sx={{ marginLeft: '1em' }}>
-                                                    <IconButton >
+                                                    <IconButton onClick={() => handleEditClicked('Change', row.id, 'admin')}>
                                                         <EditIcon sx={{ color: theme.palette.secondary.main }} />
                                                     </IconButton>
                                                 </Grid>
@@ -524,7 +556,7 @@ const Users = () => {
                             <TableHead>
                                 <TableRow>
                                     <StyledTableCell padding="checkbox">
-                                        <Checkbox
+{/*                                         <Checkbox
                                             color="secondary"
                                             indeterminate={selected.length > 0 && selected.length < accountRows.length}
                                             checked={accountRows.length > 0 && selected.length === accountRows.length}
@@ -532,7 +564,7 @@ const Users = () => {
                                             inputProps={{
                                                 'aria-label': 'select all employees',
                                             }}
-                                        />
+                                        /> */}
                                     </StyledTableCell>
                                     <StyledTableCell align="left">Name</StyledTableCell>
                                     <StyledTableCell align="left">Role</StyledTableCell>
@@ -575,13 +607,13 @@ const Users = () => {
                                         <StyledTableCell align="left">{row.role}</StyledTableCell>
                                         <StyledTableCell align="right">
                                             <Button variant='contained'
+                                                onClick={() => handleEditClicked('Add', row.id, 'account')}
                                                 sx={{
                                                     fontFamily: 'Raleway',
                                                     height: '36px',
                                                     textTransform: 'none',
                                                     backgroundColor: theme.palette.secondary.main,
-                                                    //border:`1px solid ${theme.palette.primary.main}`,
-                                                    color: 'white'
+                                                    color: theme.palette.mode === 'dark' ? 'black' : 'white'
                                                 }}
                                                 startIcon={<PersonAddAlt1Icon />}>
                                                 Invite
@@ -593,6 +625,9 @@ const Users = () => {
                         </Table>
                     </TableContainer>
                 </Grid>
+                <ChangeInviteUserDialogComponent type={selectedType} />
+                <ConfirmDeleteUserDialogComponent />
+                <InviteExternalUserDialogComponent />
             </Grid>
         </Grid>
     );

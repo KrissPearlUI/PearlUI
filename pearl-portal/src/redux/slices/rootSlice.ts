@@ -5,6 +5,7 @@ import pcosReducer from './pcos/pcosSlice';
 import cashCallsReducer from './cashCalls/cashCallsSlice';
 import distributionsReducer from './distributions/distributionsSlice';
 import transactionsReducer from './transactions/transactionsSlice';
+import settingsReducer from './settings/settingsSlice';
 import { combineReducers } from '@reduxjs/toolkit';
 
 const rootSlice = combineReducers({
@@ -14,7 +15,8 @@ const rootSlice = combineReducers({
     pcos: pcosReducer,
     cashCalls: cashCallsReducer,
     distributions: distributionsReducer,
-    transactions: transactionsReducer
+    transactions: transactionsReducer,
+    settings: settingsReducer
 });
 
 export type RootState = ReturnType<typeof rootSlice>;
