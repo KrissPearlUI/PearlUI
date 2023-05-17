@@ -326,7 +326,7 @@ const LPChartComponent = () => {
     useEffect(() => {
         let active = true;
         if (!lps || !selectedFundValue) return;
-        if (lps && lps.length > 0 && selectedFundValue && active && chartDataValues.length <= 0) {
+        if (lps && lps.length > 0 && selectedFundValue && active) {
 
             let seriesData: SeriesData = {
                 investedAmount: [],

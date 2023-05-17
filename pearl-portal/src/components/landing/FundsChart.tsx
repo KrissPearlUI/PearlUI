@@ -197,7 +197,7 @@ const FundsChartComponent = () => {
     }, [dispatch])
 
     useEffect(() => {
-        if (funds && funds.length > 0 && chartDataValues.length <= 0) {
+        if (funds && funds.length > 0) {
             let total: number = 0;
             let chartData: any[] = [];
             const groupedByFund: { [key: string]: number } = funds.reduce(
